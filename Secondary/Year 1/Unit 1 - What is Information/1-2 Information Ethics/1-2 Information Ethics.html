@@ -1,0 +1,797 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدرس 1-2: الأخلاقيات المعلوماتية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#193cff;--accent:#00d4aa;--bg:#0a0e27;--card:#111827;--card-hover:#1a2050;--text:#fff;--dim:#8892b0;--success:#00ff88;--danger:#ff4757;--warn:#ffd700;--s1:#06B6D4;--s2:#F59E0B;--s3:#8B5CF6;--s4:#10B981;--s5:#EC4899;--s6:#EF4444}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;position:relative}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 30% 50%,rgba(25,60,255,.15),transparent 50%),radial-gradient(circle at 70% 80%,rgba(0,212,170,.1),transparent 50%);animation:bgDrift 18s ease-in-out infinite alternate;pointer-events:none;z-index:0}
+@keyframes bgDrift{0%{background-position:0% 0%,100% 100%}100%{background-position:100% 100%,0% 0%}}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;width:4px;height:4px;background:var(--primary);border-radius:50%;opacity:.4;animation:floatUp 14s linear infinite}
+@keyframes floatUp{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.4}90%{opacity:.4}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,14,39,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05);transform:translateY(-100%);transition:transform .4s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;padding:0 20px;height:64px}
+nav.visible{transform:translateY(0)}
+.nav-logo{width:36px;height:36px;border-radius:10px;object-fit:contain;flex-shrink:0}
+.nav-links{display:flex;gap:8px;overflow-x:auto;flex-shrink:0;scrollbar-width:none;padding:0 12px}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-pill{padding:6px 16px;border-radius:99px;font-size:13px;font-weight:600;color:var(--dim);text-decoration:none;white-space:nowrap;border:1px solid rgba(255,255,255,.08);transition:all .3s}
+.nav-pill:hover,.nav-pill.active{color:var(--text);background:var(--primary);border-color:var(--primary)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 20px 60px;position:relative;z-index:1}
+.hero-badge{display:inline-block;padding:8px 24px;border-radius:99px;font-size:14px;font-weight:700;color:var(--accent);border:1px solid rgba(0,212,170,.3);background:rgba(0,212,170,.08);margin-bottom:24px;animation:fadeUp .8s ease both}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.3;margin-bottom:16px;animation:fadeUp .8s ease .1s both}
+.hero h1 span{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--dim);max-width:600px;margin-bottom:40px;animation:fadeUp .8s ease .2s both}
+.hero .scroll-cta{animation:fadeUp .8s ease .3s both,bounce 2s ease-in-out infinite}
+.scroll-cta svg{width:32px;height:32px;stroke:var(--accent);stroke-width:2;fill:none}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-circle{position:absolute;border-radius:50%;filter:blur(80px);opacity:.2;pointer-events:none}
+.hero-circle.c1{width:400px;height:400px;background:var(--primary);top:20%;left:10%;animation:floatC 12s ease-in-out infinite alternate}
+.hero-circle.c2{width:300px;height:300px;background:var(--accent);bottom:20%;right:10%;animation:floatC 15s ease-in-out infinite alternate-reverse}
+@keyframes floatC{0%{transform:translate(0,0)}100%{transform:translate(40px,-40px)}}
+.container{max-width:900px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+section{padding:80px 0}
+.content-block{opacity:0;transform:translateY(30px);transition:all .6s cubic-bezier(.4,0,.2,1)}
+.content-block.visible{opacity:1;transform:translateY(0)}
+.section-header{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+.section-badge{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;flex-shrink:0;color:#fff}
+.section-header h2{font-size:1.8rem;font-weight:900}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:24px;padding:28px;margin-bottom:20px;transition:all .3s}
+.card:hover{background:var(--card-hover);transform:translateY(-5px)}
+.card h3{font-size:1.2rem;font-weight:700;margin-bottom:12px}
+.card p,.card li{color:var(--dim);line-height:1.8}
+.card ul{list-style:none;padding:0}
+.card li{padding:6px 0;position:relative;padding-right:20px}
+.card li::before{content:'';position:absolute;right:0;top:14px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.tag{display:inline-block;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;margin:4px}
+.tag-d{background:rgba(6,182,212,.15);color:var(--s1)}
+.tag-i{background:rgba(245,158,11,.15);color:var(--s2)}
+.tag-k{background:rgba(139,92,246,.15);color:var(--s3)}
+.tag-m{background:rgba(16,185,129,.15);color:var(--s4)}
+.tag-p{background:rgba(236,72,153,.15);color:var(--s5)}
+.tag-r{background:rgba(239,68,68,.15);color:var(--s6)}
+.outcome-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:24px 0}
+.outcome-card{text-align:center;padding:24px 16px}
+.outcome-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px}
+.svg-container{background:rgba(0,0,0,.3);border-radius:16px;padding:20px;margin:20px 0;overflow-x:auto}
+.svg-container svg{width:100%;max-width:700px;display:block;margin:0 auto}
+.step-reveal{display:flex;flex-direction:column;gap:12px}
+.step-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);opacity:0;transform:translateX(20px);transition:all .5s ease}
+.step-item.show{opacity:1;transform:translateX(0)}
+.step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;flex-shrink:0;color:#fff}
+.replay-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:99px;font-size:13px;font-weight:600;color:var(--accent);background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.2);cursor:pointer;font-family:inherit;margin-top:12px;transition:all .3s}
+.replay-btn:hover{background:rgba(0,212,170,.15)}
+.error-box{background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.2);border-radius:16px;padding:20px;margin-top:24px}
+.error-box h4{color:var(--danger);font-size:1rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.error-box li{color:var(--dim);padding:4px 0;font-size:.95rem}
+.quiz-area{margin-top:24px}
+.quiz-trigger{padding:10px 20px;border-radius:12px;font-size:14px;font-weight:700;color:var(--warn);background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.2);cursor:pointer;font-family:inherit;transition:all .3s}
+.quiz-trigger:hover{background:rgba(255,215,0,.15)}
+.quiz-content{display:none;margin-top:16px}
+.quiz-content.open{display:block}
+.quiz-option{display:block;width:100%;text-align:right;padding:12px 16px;border-radius:12px;font-size:14px;font-weight:600;color:var(--text);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);cursor:pointer;font-family:inherit;margin-bottom:8px;transition:all .3s}
+.quiz-option:hover{background:rgba(255,255,255,.06)}
+.quiz-option.correct{background:rgba(0,255,136,.1);border-color:var(--success);color:var(--success)}
+.quiz-option.wrong{background:rgba(255,71,87,.1);border-color:var(--danger);color:var(--danger)}
+.quiz-option.disabled{pointer-events:none;opacity:.6}
+.quiz-explain{margin-top:12px;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,.03);color:var(--dim);font-size:13px;display:none}
+.quiz-explain.show{display:block}
+.quiz-skip{margin-top:8px;padding:6px 16px;border-radius:99px;font-size:12px;font-weight:600;color:var(--dim);background:transparent;border:1px solid rgba(255,255,255,.1);cursor:pointer;font-family:inherit;transition:all .3s}
+.quiz-skip:hover{background:rgba(255,255,255,.05)}
+.drill-block{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:20px;margin:16px 0}
+.drill-block h4{font-size:1rem;font-weight:700;margin-bottom:12px;color:var(--accent)}
+.drill-q{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.drill-q:last-child{border-bottom:none}
+.drill-q p{margin-bottom:8px;color:var(--dim)}
+.drill-answer{display:none;margin-top:8px;padding:12px;border-radius:12px;background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.15);color:var(--accent);font-weight:600;font-size:14px}
+.drill-answer.show{display:block}
+.show-all-btn{display:block;width:100%;padding:14px;border-radius:12px;font-size:15px;font-weight:700;color:var(--bg);background:linear-gradient(135deg,var(--primary),var(--accent));border:none;cursor:pointer;font-family:inherit;margin-top:16px;transition:all .3s}
+.show-all-btn:hover{opacity:.9;transform:scale(1.01)}
+.recap-journey{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:24px 0}
+.recap-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#fff;flex-shrink:0;cursor:default}
+.recap-line{width:20px;height:2px;background:rgba(255,255,255,.1);flex-shrink:0}
+.recap-labels{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.recap-label{padding:6px 12px;border-radius:99px;font-size:12px;font-weight:700;color:var(--dim);border:1px solid rgba(255,255,255,.08)}
+footer{text-align:center;padding:60px 20px;border-top:1px solid rgba(255,255,255,.05);position:relative;z-index:1}
+.footer-logo{height:40px;border-radius:8px;margin-bottom:16px}
+footer p{color:var(--dim);font-size:14px}
+@media(max-width:600px){.outcome-grid{grid-template-columns:1fr 1fr}.section-header h2{font-size:1.4rem}.card{padding:20px}}
+</style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+
+<nav id="mainNav">
+<img class="nav-logo" src="data:image/webp;base64,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" alt="Bilal">
+<div class="nav-links">
+<a class="nav-pill active" href="#s1">المقدمة</a>
+<a class="nav-pill" href="#s2">الأخلاقيات المعلوماتية</a>
+<a class="nav-pill" href="#s3">وسائل التواصل</a>
+<a class="nav-pill" href="#s4">الوسم الجغرافي</a>
+<a class="nav-pill" href="#s5">الأخبار الكاذبة</a>
+<a class="nav-pill" href="#s6">إدمان الإنترنت</a>
+<a class="nav-pill" href="#s7">التدريبات</a>
+<a class="nav-pill" href="#s8">الخلاص</a>
+</div>
+</nav>
+<header class="hero">
+<div class="hero-circle c1"></div>
+<div class="hero-circle c2"></div>
+<div class="hero-badge">الوحدة الأولى — مقدمة</div>
+<h1>الدرس <span>1-2</span><br>الأخلاقيات المعلوماتية</h1>
+<p class="subtitle">هنتعلم إيه النهارده؟ هنفهم مفهوم الأخلاقيات المعلوماتية، ونتعرف على المشاكل اللي ممكن تقابلنا مع وسائل التواصل الاجتماعي والإنترنت.</p>
+<a href="#s1" class="scroll-cta">
+<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+</a>
+</header>
+
+<div class="container">
+
+<section id="s1">
+<div class="content-block">
+<div class="section-header">
+<div class="section-badge" style="background:linear-gradient(135deg,var(--s1),var(--s2))">1</div>
+<h2>هنتعلم إيه النهارده؟</h2>
+</div>
+<div class="card">
+<p>أهلاً بيكم في الدرس التاني من الوحدة الأولى! النهارده هنتعلم على حاجة مهمة جداً في حياتنا على الإنترنت — وهي مفهوم <strong>الأخلاقيات المعلوماتية</strong> وازاي نتعامل مع المعلومات والإنترنت بشكل صحيح ومسؤول.</p>
+</div>
+<div class="outcome-grid">
+<div class="card outcome-card">
+<div class="outcome-icon" style="background:rgba(6,182,212,.15)"><span class="tag tag-d" style="font-size:20px;border:none;background:none;padding:0">IE</span></div>
+<h3>الأخلاقيات المعلوماتية</h3>
+<p style="font-size:13px">المفاهيم الأساسية للتعامل الصحيح</p>
+</div>
+<div class="card outcome-card">
+<div class="outcome-icon" style="background:rgba(245,158,11,.15)"><span class="tag tag-i" style="font-size:20px;border:none;background:none;padding:0">SM</span></div>
+<h3>وسائل التواصل الاجتماعي</h3>
+<p style="font-size:13px">المشاكل والمخاطر المحيطة بنا</p>
+</div>
+<div class="card outcome-card">
+<div class="outcome-icon" style="background:rgba(139,92,246,.15)"><span class="tag tag-k" style="font-size:20px;border:none;background:none;padding:0">GT</span></div>
+<h3>الوسم الجغرافي</h3>
+<p style="font-size:13px">مخاطر تحديد الموقع من الصور</p>
+</div>
+<div class="card outcome-card">
+<div class="outcome-icon" style="background:rgba(239,68,68,.15)"><span class="tag tag-r" style="font-size:20px;border:none;background:none;padding:0">FA</span></div>
+<h3>الأخبار الكاذبة</h3>
+<p style="font-size:13px">الإشاعات والمعلومات المضللة</p>
+</div>
+</div>
+<div class="error-box">
+<h4>&#9888;&#65039; أخطاء شائعة</h4>
+<ul>
+<li>الناس بتessim إن الأخلاقيات المعلوماتية هي نفس القوانين — بس هي مفاهيم واتجاهات أساسية مش شروط قانونية.</li>
+<li>بعض الطلاب فاكر إن اللي ممنوعش قانونياً مسموح بيه — بس الأخلاقيات بتنصحك تجنب السلوك السيئ حتى لو مش ممنوع.</li>
+<li>التواصل الاجتماعي مش بس حاجة وحشة — بس لازم نعرف نستخدمه صح.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="s2">
+<div class="content-block">
+<div class="section-header">
+<div class="section-badge" style="background:linear-gradient(135deg,var(--s2),var(--s3))">2</div>
+<h2>الأخلاقيات المعلوماتية</h2>
+</div>
+<div class="card">
+<h3>إيه هي الأخلاقيات المعلوماتية؟</h3>
+<p>الأخلاقيات المعلوماتية هي المبادئ والاتجاهات الأساسية اللي بتوجه سلوكنا khi بنستخدم المعلومات والتقنية. مش قوانين قانونية — بس هي قيم وNorms بتقولنا إيه الصح وإيه الغلط في التعامل مع المعلومات.</p>
+</div>
+<div class="card">
+<h3>ليه الأخلاقيات المعلوماتية مهمة؟</h3>
+<ul>
+<li>بتحمي الخصوصية الشخصية وخصوصية الآخرين</li>
+<li>بتوفر بيئة آمنة للجميع على الإنترنت</li>
+<li>بتساعد في بناء ثقة بين المستخدمين</li>
+<li>بمنع سوء استخدام المعلومات والتقنية</li>
+</ul>
+</div>
+<div class="svg-container" id="svgEthics">
+<svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="gEth" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#193cff"/>
+<stop offset="100%" style="stop-color:#00d4aa"/>
+</linearGradient>
+</defs>
+<rect x="250" y="20" width="200" height="60" rx="16" fill="url(#gEth)"/>
+<foreignObject x="260" y="30" width="180" height="40">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:#fff;font-weight:900;font-size:15px;text-align:center;font-family:Cairo,sans-serif">الأخلاقيات المعلوماتية</div>
+</foreignObject>
+<line x1="350" y1="80" x2="350" y2="120" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+<rect x="50" y="120" width="150" height="50" rx="12" fill="rgba(6,182,212,.15)" stroke="var(--s1)" stroke-width="1.5"/>
+<foreignObject x="60" y="130" width="130" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s1);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">الخصوصية</div>
+</foreignObject>
+<rect x="225" y="120" width="150" height="50" rx="12" fill="rgba(245,158,11,.15)" stroke="var(--s2)" stroke-width="1.5"/>
+<foreignObject x="235" y="130" width="130" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s2);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">الأمان</div>
+</foreignObject>
+<rect x="400" y="120" width="150" height="50" rx="12" fill="rgba(139,92,246,.15)" stroke="var(--s3)" stroke-width="1.5"/>
+<foreignObject x="410" y="130" width="130" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s3);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">المسؤولية</div>
+</foreignObject>
+<rect x="560" y="120" width="120" height="50" rx="12" fill="rgba(16,185,129,.15)" stroke="var(--s4)" stroke-width="1.5"/>
+<foreignObject x="570" y="130" width="100" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s4);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">الاحترام</div>
+</foreignObject>
+<line x1="125" y1="170" x2="125" y2="200" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<line x1="300" y1="170" x2="300" y2="200" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<line x1="475" y1="170" x2="475" y2="200" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<line x1="620" y1="170" x2="620" y2="200" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<rect x="50" y="200" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="60" y="208" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">حماية البيانات الشخصية</div>
+</foreignObject>
+<rect x="225" y="200" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="235" y="208" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">منع الاختراق والاحتيال</div>
+</foreignObject>
+<rect x="400" y="200" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="410" y="208" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">الaccountability على الأفعال</div>
+</foreignObject>
+<rect x="560" y="200" width="120" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="570" y="208" width="100" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">احترام الآخرين</div>
+</foreignObject>
+</svg>
+</div>
+<div class="step-reveal" id="stepEthics">
+<div class="step-item"><div class="step-num" style="background:var(--s1)">1</div><span>اتعرف على مفهوم الخصوصية وprotected data</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s2)">2</div><span>افهم ليه الأمان مهم في استخدام الإنترنت</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s3)">3</div><span>تبنى مبادئ المسؤولية الشخصية على الشبكات</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s4)">4</div><span>طبق الاحترام في التعامل مع الآخرين أونلاين</span></div>
+</div>
+<button class="replay-btn" onclick="replaySteps('stepEthics')">&#9654; إعادة العرض</button>
+<div class="error-box">
+<h4>&#9888;&#65039; أخطاء شائعة</h4>
+<ul>
+<li>بعض الناس بتقول "مفيش حد بيراقب عليا" — بس المعلومات اللي بتنشرها ممكن تفضل موجودة للأبد.</li>
+<li>"مش هنفع أغير حاجة" — غلط! أي معلومة تنشرها ممكن تأثر عليك وعلى غيرك.</li>
+<li>"الإنترنت مكان عام فمفيش خصوصية" — غلط! لازم تحمي بياناتك الشخصية في كل مكان.</li>
+</ul>
+</div>
+<div class="quiz-area">
+<button class="quiz-trigger" onclick="toggleQuiz(this)">اسأل نفسك</button>
+<div class="quiz-content">
+<p style="color:var(--dim);margin-bottom:12px">ليه الأخلاقيات المعلوماتية مهمة؟</p>
+<button class="quiz-option" onclick="checkAnswer(this,true)">لأنها بتحمي الخصوصية وبتوفر بيئة آمنة</button>
+<button class="quiz-option" onclick="checkAnswer(this,false)">لأنها قوانين قانونية صارمة</button>
+<button class="quiz-option" onclick="checkAnswer(this,false)">لأنها اختيارية ومش ضرورية</button>
+<button class="quiz-skip" onclick="skipQuiz(this)">تخطي</button>
+<div class="quiz-explain">الأخلاقيات المعلوماتية مش قوانين قانونية — بس هي مبادئ بتوجيه سلوكنا وتحمي الخصوصية وتوفر بيئة آمنة للجميع.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="s3">
+<div class="content-block">
+<div class="section-header">
+<div class="section-badge" style="background:linear-gradient(135deg,var(--s3),var(--s5))">3</div>
+<h2>الأخلاقيات المعلوماتية والشبكات الاجتماعية</h2>
+</div>
+<div class="card">
+<h3>إيه هي مشاكل التواصل الاجتماعي؟</h3>
+<p>وسائل التواصل الاجتماعي زي Facebook وTwitter وInstagram بقت جزء أساسي من حياتنا، بس مع التوسع دي بقت فيه مشاكل كتير لازم ننتبه ليها.</p>
+</div>
+<div class="card">
+<h3>المشاكل الشائعة</h3>
+<ul>
+<li><strong>التنمر الإلكتروني (Cyberbullying):</strong> استخدام الشبكات الاجتماعية للإيذاء أو التخويف أو التهديد.</li>
+<li><strong>انتهاك الخصوصية:</strong> مشاركة معلومات شخصية بدون إذن أو مشاركة صور الآخرين.</li>
+<li><strong>الإدمان:</strong> قضاء وقت مفرط على الشبكات الاجتماعية وتأثيره على الحياة اليومية.</li>
+<li><strong>التشهير وال名誉:</strong> نشر إشاعات أو معلومات كاذبة عن الآخرين.</li>
+</ul>
+</div>
+<div class="svg-container" id="svgSocial">
+<svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="gSoc" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#8B5CF6"/>
+<stop offset="100%" style="stop-color:#EC4899"/>
+</linearGradient>
+</defs>
+<rect x="250" y="20" width="200" height="60" rx="16" fill="url(#gSoc)"/>
+<foreignObject x="260" y="30" width="180" height="40">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:#fff;font-weight:900;font-size:15px;text-align:center;font-family:Cairo,sans-serif">وسائل التواصل الاجتماعي</div>
+</foreignObject>
+<g id="socialLines">
+<line x1="350" y1="80" x2="150" y2="140" stroke="rgba(255,255,255,.15)" stroke-width="2"/>
+<line x1="350" y1="80" x2="350" y2="140" stroke="rgba(255,255,255,.15)" stroke-width="2"/>
+<line x1="350" y1="80" x2="550" y2="140" stroke="rgba(255,255,255,.15)" stroke-width="2"/>
+</g>
+<rect x="75" y="140" width="150" height="55" rx="12" fill="rgba(239,68,68,.15)" stroke="var(--s6)" stroke-width="1.5"/>
+<foreignObject x="85" y="150" width="130" height="35">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s6);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">التنمر الإلكتروني</div>
+</foreignObject>
+<rect x="275" y="140" width="150" height="55" rx="12" fill="rgba(245,158,11,.15)" stroke="var(--s2)" stroke-width="1.5"/>
+<foreignObject x="285" y="150" width="130" height="35">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s2);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">انتهاك الخصوصية</div>
+</foreignObject>
+<rect x="475" y="140" width="150" height="55" rx="12" fill="rgba(139,92,246,.15)" stroke="var(--s3)" stroke-width="1.5"/>
+<foreignObject x="485" y="150" width="130" height="35">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s3);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">الإدمان</div>
+</foreignObject>
+<line x1="150" y1="195" x2="150" y2="225" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<line x1="350" y1="195" x2="350" y2="225" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<line x1="550" y1="195" x2="550" y2="225" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<rect x="75" y="225" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="85" y="233" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">خوف وإيذاء نفسي</div>
+</foreignObject>
+<rect x="275" y="225" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="285" y="233" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">مشاركة بدون إذن</div>
+</foreignObject>
+<rect x="475" y="225" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="485" y="233" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">تأثير على الحياة اليومية</div>
+</foreignObject>
+<rect x="200" y="290" width="300" height="40" rx="8" fill="rgba(16,185,129,.1)" stroke="var(--s4)" stroke-width="1"/>
+<foreignObject x="210" y="298" width="280" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s4);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">الحل: استخدام مسؤول ومحترم</div>
+</foreignObject>
+</svg>
+</div>
+<div class="step-reveal" id="stepSocial">
+<div class="step-item"><div class="step-num" style="background:var(--s6)">1</div><span>اتعرف على أنواع التنمر الإلكتروني وتأثيره</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s2)">2</div><span>افهم أهمية حماية الخصوصية على الشبكات</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s3)">3</div><span>تعلم إزاي تتحكم في وقت استخدامك للإنترنت</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s4)">4</div><span>استخدم الشبكات الاجتماعية بمسؤولية واحترام</span></div>
+</div>
+<button class="replay-btn" onclick="replaySteps('stepSocial')">&#9654; إعادة العرض</button>
+<div class="error-box">
+<h4>&#9888;&#65039; أخطاء شائعة</h4>
+<ul>
+<li>"محدش هيشوف اللي كتبته" — غلط! أي حاجة بتنشرها على الإنترنت ممكن تنتشر بسرعة.</li>
+<li>"أنا مش بتاع تنمر" — بس مشاركة صور حد بدون إذن أو كتابة تعليقات مسيئة تنمر.</li>
+<li>"الإنترنت مش واقع" — بس التأثير النفسي حقيقي وخطير.</li>
+</ul>
+</div>
+<div class="quiz-area">
+<button class="quiz-trigger" onclick="toggleQuiz(this)">اسأل نفسك</button>
+<div class="quiz-content">
+<p style="color:var(--dim);margin-bottom:12px">إيه من دول مش مشكلة من مشاكل التواصل الاجتماعي؟</p>
+<button class="quiz-option" onclick="checkAnswer(this,false)">التنمر الإلكتروني</button>
+<button class="quiz-option" onclick="checkAnswer(this,true)">مشاركة المعرفة والمعلومات المفيدة</button>
+<button class="quiz-option" onclick="checkAnswer(this,false)">انتهاك الخصوصية</button>
+<button class="quiz-skip" onclick="skipQuiz(this)">تخطي</button>
+<div class="quiz-explain">مشاركة المعرفة والمعلومات المفيدة هي من فوائد التواصل الاجتماعي — مش مشكلة. المشاكل هي التنمر وانتهاك الخصوصية والإدمان.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="s4">
+<div class="content-block">
+<div class="section-header">
+<div class="section-badge" style="background:linear-gradient(135deg,var(--s4),var(--s1))">4</div>
+<h2>الوسم الجغرافي</h2>
+</div>
+<div class="card">
+<h3>إيه هو الوسم الجغرافي (Geotagging)؟</h3>
+<p>الوسم الجغرافي هو تقنية بتضيف معلومات الموقع الجغرافي (خط الطول وخط العرض) للصور والمنشورات. يعني لما تاخد صورة بالموبايل، الجهاز ممكن يحفظ إحداثيات المكان بالظبط.</p>
+</div>
+<div class="card">
+<h3>ليه الوسم الجغرافي خطر؟</h3>
+<ul>
+<li><strong>تحديد موقعك بالظبط:</strong> أي حد يشوف الصورة يعرف إنت فين بالظبط.</li>
+<li><strong>المطاردة والتخويف:</strong> ممكن حد يستخدم المعلومات دي يتبعك.</li>
+<li><strong>سرقة المنازل:</strong> لو نشرت صور من بيتك، اللصوص يعرفوا مكان بيتك.</li>
+<li><strong>المخاطر على الأطفال:</strong> الأطفال ممكن ينشروا صور تكشف أماكنهم.</li>
+</ul>
+</div>
+<div class="svg-container" id="svgGeo">
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="gGeo" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#10B981"/>
+<stop offset="100%" style="stop-color:#06B6D4"/>
+</linearGradient>
+</defs>
+<rect x="250" y="20" width="200" height="60" rx="16" fill="url(#gGeo)"/>
+<foreignObject x="260" y="30" width="180" height="40">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:#fff;font-weight:900;font-size:15px;text-align:center;font-family:Cairo,sans-serif">الوسم الجغرافي</div>
+</foreignObject>
+<line x1="350" y1="80" x2="350" y2="110" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+<rect x="200" y="110" width="140" height="50" rx="12" fill="rgba(6,182,212,.15)" stroke="var(--s1)" stroke-width="1.5"/>
+<foreignObject x="210" y="120" width="120" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s1);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">الكاميرا</div>
+</foreignObject>
+<rect x="370" y="110" width="140" height="50" rx="12" fill="rgba(245,158,11,.15)" stroke="var(--s2)" stroke-width="1.5"/>
+<foreignObject x="380" y="120" width="120" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s2);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">البيانات</div>
+</foreignObject>
+<line x1="340" y1="135" x2="370" y2="135" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+<line x1="350" y1="160" x2="350" y2="190" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+<rect x="200" y="190" width="300" height="50" rx="12" fill="rgba(239,68,68,.1)" stroke="var(--s6)" stroke-width="1.5"/>
+<foreignObject x="210" y="198" width="280" height="34">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s6);font-weight:700;font-size:13px;text-align:center;font-family:Cairo,sans-serif">الموقع الجغرافي الدقيق (خط الطول والعرض)</div>
+</foreignObject>
+<line x1="350" y1="240" x2="350" y2="260" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+<rect x="200" y="260" width="130" height="35" rx="8" fill="rgba(239,68,68,.15)"/>
+<foreignObject x="210" y="266" width="110" height="22">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s6);font-size:11px;text-align:center;font-family:Cairo,sans-serif">خطر المطاردة</div>
+</foreignObject>
+<rect x="370" y="260" width="130" height="35" rx="8" fill="rgba(255,215,0,.15)"/>
+<foreignObject x="380" y="266" width="110" height="22">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--warn);font-size:11px;text-align:center;font-family:Cairo,sans-serif">خطر السرقة</div>
+</foreignObject>
+</svg>
+</div>
+<div class="step-reveal" id="stepGeo">
+<div class="step-item"><div class="step-num" style="background:var(--s1)">1</div><span>افهم إيه هو الوسم الجغرافي وازاي بيشتغل</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s2)">2</div><span>اتعرف على المخاطر الأمنية المحتملة</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s6)">3</div><span>تعلم إزاي توقف خاصية تحديد الموقع في الكاميرا</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s4)">4</div><span>احذف بيانات الموقع من الصور قبل النشر</span></div>
+</div>
+<button class="replay-btn" onclick="replaySteps('stepGeo')">&#9654; إعادة العرض</button>
+<div class="error-box">
+<h4>&#9888;&#65039; أخطاء شائعة</h4>
+<ul>
+<li>"محدش يعرف من الصورة فين" — غلط! الصور ممكن تحتوي على بيانات الموقع بالظبط.</li>
+<li>"الموقع مش دقيق" — بس كافي يدلك على المنطقة أو المبنى.</li>
+<li>"أنا مش مشهور فمش هتأثر" — حتى المشاهير والمشاعر معرضين للمخاطر.</li>
+</ul>
+</div>
+<div class="quiz-area">
+<button class="quiz-trigger" onclick="toggleQuiz(this)">اسأل نفسك</button>
+<div class="quiz-content">
+<p style="color:var(--dim);margin-bottom:12px">إيه هو الوسم الجغرافي؟</p>
+<button class="quiz-option" onclick="checkAnswer(this,false)">نوع من أنواع التنمر الإلكتروني</button>
+<button class="quiz-option" onclick="checkAnswer(this,true)">تقنية بتحدد الموقع الجغرافي للصور والمنشورات</button>
+<button class="quiz-option" onclick="checkAnswer(this,false)">تطبيق لتتبع الأصدقاء</button>
+<button class="quiz-skip" onclick="skipQuiz(this)">تخطي</button>
+<div class="quiz-explain">الوسم الجغرافي هو تقنية بتضيف معلومات الموقع (خط الطول وخط العرض) للصور والمنشورات، مما يكشف مكانك بالظبط.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="s5">
+<div class="content-block">
+<div class="section-header">
+<div class="section-badge" style="background:linear-gradient(135deg,var(--s6),var(--s2))">5</div>
+<h2>الأخبار الكاذبة والبرامج الخبيثة</h2>
+</div>
+<div class="card">
+<h3>إيه هي الأخبار الكاذبة (Fake News)؟</h3>
+<p>الأخبار الكاذبة هي معلومات كاذبة أو مضللة بتنتشر بشكل كبير على الإنترنت والشبكات الاجتماعية. ممكن تتكتب عمدًا لتضليل الناس أو تحقيق أهداف سياسية أو اقتصادية.</p>
+</div>
+<div class="card">
+<h3>أنواع الأخبار الكاذبة</h3>
+<ul>
+<li><strong>مقالات كاذبة:</strong> أخبار منمقة تبدو حقيقية بس معلوماتها غير صحيحة.</li>
+<li><strong>صور مفبركة:</strong> صور معدلة أو منسقة بشكل ي误导.</li>
+<li><strong>إشاعات:</strong> معلومات غلط بتنشر بسرعة كبيرة.</li>
+<li><strong>حسابات وهمية:</strong> حسابات مزيفة بتنشر محتوى مضلل.</li>
+</ul>
+</div>
+<div class="card">
+<h3>البرامج الخبيثة (Malware)</h3>
+<p>البرامج الخبيثة هي برامج مصممة لإلحاق الضرر بالأجهزة أو سرقة البيانات. ممكن تنتشر عن طريق روابط مصابة أو ملفات مشبوهة.</p>
+<ul>
+<li><strong>الفيروسات:</strong> برامج بتتنسخ وبتتلف الملفات.</li>
+<li><strong>ال programa spyware:</strong> بتراقب نشاطك وتسرق بياناتك.</li>
+<li><strong>البرنامج الضار (Ransomware):</strong> بيشفّر ملفاتك وبيطلب فدية.</li>
+</ul>
+</div>
+<div class="svg-container" id="svgFake">
+<svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="gFake" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#EF4444"/>
+<stop offset="100%" style="stop-color:#F59E0B"/>
+</linearGradient>
+</defs>
+<rect x="250" y="20" width="200" height="60" rx="16" fill="url(#gFake)"/>
+<foreignObject x="260" y="30" width="180" height="40">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:#fff;font-weight:900;font-size:15px;text-align:center;font-family:Cairo,sans-serif">الأخبار الكاذبة</div>
+</foreignObject>
+<g id="fakeLines">
+<line x1="350" y1="80" x2="150" y2="130" stroke="rgba(255,255,255,.15)" stroke-width="2"/>
+<line x1="350" y1="80" x2="350" y2="130" stroke="rgba(255,255,255,.15)" stroke-width="2"/>
+<line x1="350" y1="80" x2="550" y2="130" stroke="rgba(255,255,255,.15)" stroke-width="2"/>
+</g>
+<rect x="75" y="130" width="150" height="50" rx="12" fill="rgba(239,68,68,.15)" stroke="var(--s6)" stroke-width="1.5"/>
+<foreignObject x="85" y="140" width="130" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s6);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">مقالات كاذبة</div>
+</foreignObject>
+<rect x="275" y="130" width="150" height="50" rx="12" fill="rgba(245,158,11,.15)" stroke="var(--s2)" stroke-width="1.5"/>
+<foreignObject x="285" y="140" width="130" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s2);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">صور مفبركة</div>
+</foreignObject>
+<rect x="475" y="130" width="150" height="50" rx="12" fill="rgba(139,92,246,.15)" stroke="var(--s3)" stroke-width="1.5"/>
+<foreignObject x="485" y="140" width="130" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s3);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">حسابات وهمية</div>
+</foreignObject>
+<line x1="150" y1="180" x2="150" y2="210" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<line x1="350" y1="180" x2="350" y2="210" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<line x1="550" y1="180" x2="550" y2="210" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<rect x="75" y="210" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="85" y="218" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">تضليل وخداع</div>
+</foreignObject>
+<rect x="275" y="210" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="285" y="218" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">تعديل مضلل</div>
+</foreignObject>
+<rect x="475" y="210" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="485" y="218" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">تواصل مضلل</div>
+</foreignObject>
+<rect x="150" y="270" width="400" height="40" rx="8" fill="rgba(16,185,129,.1)" stroke="var(--s4)" stroke-width="1"/>
+<foreignObject x="160" y="278" width="380" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s4);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">التحقق من المصادر = الحماية من التضليل</div>
+</foreignObject>
+</svg>
+</div>
+<div class="step-reveal" id="stepFake">
+<div class="step-item"><div class="step-num" style="background:var(--s6)">1</div><span>اتعرف على أنواع الأخبار الكاذبة وطرق انتشارها</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s2)">2</div><span>تعلم إزاي تتحقق من مصداقية المعلومات</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s3)">3</div><span>افهم كيف تنتشر البرامج الخبيثة والمخاطر المحتملة</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s4)">4</div><span>احمِ جهازك بتحديثات الأمان وبرامج الحماية</span></div>
+</div>
+<button class="replay-btn" onclick="replaySteps('stepFake')">&#9654; إعادة العرض</button>
+<div class="error-box">
+<h4>&#9888;&#65039; أخطاء شائعة</h4>
+<ul>
+<li>"الخبر ده حقيقي لأن الناس كتيرة بتشيره" — عدد المشاركات مش دليل على الصدق!</li>
+<li>"الصورة واضحة فده حقيقي" — الصور ممكن تتعدل بسهولة ببرامج تعديل الصور.</li>
+<li>"مفيش حد هيشتري عليا فيروس" — البرامج الخبيثة ممكن تنتشر من روابط تبدو عادية.</li>
+</ul>
+</div>
+<div class="quiz-area">
+<button class="quiz-trigger" onclick="toggleQuiz(this)">اسأل نفسك</button>
+<div class="quiz-content">
+<p style="color:var(--dim);margin-bottom:12px">إزاي تعرف لو خبر كاذب؟</p>
+<button class="quiz-option" onclick="checkAnswer(this,true)">تحقق من المصادر وقارن بين المعلومات</button>
+<button class="quiz-option" onclick="checkAnswer(this,false)">لو كتير بيشيره يبقى حقيقي</button>
+<button class="quiz-option" onclick="checkAnswer(this,false)">الصورة معروضة يبقى مفيش شك</button>
+<button class="quiz-skip" onclick="skipQuiz(this)">تخطي</button>
+<div class="quiz-explain">التحقق من المصادر هو الطريقة الوحيدة لتأكد من صحة المعلومات. عدد المشاركات والصور المعدلة مش دليل كافي.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="s6">
+<div class="content-block">
+<div class="section-header">
+<div class="section-badge" style="background:linear-gradient(135deg,var(--s5),var(--s6))">6</div>
+<h2>إدمان الإنترنت</h2>
+</div>
+<div class="card">
+<h3>إيه هو إدمان الإنترنت؟</h3>
+<p>إدمان الإنترنت هو الحالة اللي بيكون فيها الشخص غير قادر على التوقف عن استخدام الإنترنت، حتى لو ده بيأثر سلباً على حياته اليومية وعلاقته بالآخرين.</p>
+</div>
+<div class="card">
+<h3>علامات إدمان الإنترنت</h3>
+<ul>
+<li><strong>قضاء وقت مفرط:</strong> قضاء ساعات طويلة على الإنترنت بدون سبب.</li>
+<li><strong>إهمال المسؤوليات:</strong> إهمال الدراسة أو الشغل أو العلاقات.</li>
+<li><strong>الشعور بالقلق:</strong> الشعور بالقلق أو الاكتئاب لما بتكون مش على الإنترنت.</li>
+<li><strong>فقدان السيطرة:</strong> محاولة التوقف بس فشل.</li>
+<li><strong>الكذب:</strong> الكذب على الآخرين عن وقت استخدام الإنترنت.</li>
+</ul>
+</div>
+<div class="card">
+<h3>تأثيرات إدمان İnternet</h3>
+<ul>
+<li>مشاكل صحية: إجهاد العيون، صداع، اضطرابات النوم.</li>
+<li>مشاكل اجتماعية: انزواع، فقدان الأصدقاء، مشاكل عائلية.</li>
+<li>مشاكل دراسية أو مهنية: تراجع الأداء والتركيز.</li>
+<li>مشاكل نفسية: قلق، اكتئاب، انخفاض الثقة بالنفس.</li>
+</ul>
+</div>
+<div class="svg-container" id="svgAddiction">
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="gAdd" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#EC4899"/>
+<stop offset="100%" style="stop-color:#EF4444"/>
+</linearGradient>
+</defs>
+<rect x="250" y="20" width="200" height="60" rx="16" fill="url(#gAdd)"/>
+<foreignObject x="260" y="30" width="180" height="40">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:#fff;font-weight:900;font-size:15px;text-align:center;font-family:Cairo,sans-serif">إدمان الإنترنت</div>
+</foreignObject>
+<line x1="350" y1="80" x2="350" y2="110" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+<rect x="125" y="110" width="150" height="50" rx="12" fill="rgba(236,72,153,.15)" stroke="var(--s5)" stroke-width="1.5"/>
+<foreignObject x="135" y="120" width="130" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s5);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">العلامات</div>
+</foreignObject>
+<rect x="275" y="110" width="150" height="50" rx="12" fill="rgba(245,158,11,.15)" stroke="var(--s2)" stroke-width="1.5"/>
+<foreignObject x="285" y="120" width="130" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s2);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">التأثيرات</div>
+</foreignObject>
+<rect x="425" y="110" width="150" height="50" rx="12" fill="rgba(6,182,212,.15)" stroke="var(--s1)" stroke-width="1.5"/>
+<foreignObject x="435" y="120" width="130" height="30">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s1);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">الحلول</div>
+</foreignObject>
+<line x1="200" y1="160" x2="200" y2="190" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<line x1="350" y1="160" x2="350" y2="190" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<line x1="500" y1="160" x2="500" y2="190" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+<rect x="125" y="190" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="135" y="198" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">وقت مفرط + إهمال</div>
+</foreignObject>
+<rect x="275" y="190" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="285" y="198" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">صحة + علاقات</div>
+</foreignObject>
+<rect x="425" y="190" width="150" height="40" rx="8" fill="rgba(255,255,255,.05)"/>
+<foreignObject x="435" y="198" width="130" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--dim);font-size:11px;text-align:center;font-family:Cairo,sans-serif">تنظيم الوقت</div>
+</foreignObject>
+<rect x="200" y="250" width="300" height="40" rx="8" fill="rgba(16,185,129,.1)" stroke="var(--s4)" stroke-width="1"/>
+<foreignObject x="210" y="258" width="280" height="24">
+<div xmlns="http://www.w3.org/1999/xhtml" style="color:var(--s4);font-weight:700;font-size:12px;text-align:center;font-family:Cairo,sans-serif">الحل: توازن واستخدام مسؤول</div>
+</foreignObject>
+</svg>
+</div>
+<div class="step-reveal" id="stepAddiction">
+<div class="step-item"><div class="step-num" style="background:var(--s5)">1</div><span>اتعرف على علامات إدمان الإنترنت</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s2)">2</div><span>افهم التأثيرات السلبية على الصحة والعلاقات</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s1)">3</div><span>تعلم طرق تنظيم وقت استخدام الإنترنت</span></div>
+<div class="step-item"><div class="step-num" style="background:var(--s4)">4</div><span>ابدأ بتطبيق عادات استخدام صحية</span></div>
+</div>
+<button class="replay-btn" onclick="replaySteps('stepAddiction')">&#9654; إعادة العرض</button>
+<div class="error-box">
+<h4>&#9888;&#65039; أخطاء شائعة</h4>
+<ul>
+<li>"أنا مش مدمن بس بحب أستخدم الإنترنت" — لو بتاخد أكتر من وقتك ولما بتوقف بتحس بالقلق، ممكن يكون فيه مشكلة.</li>
+<li>"الإنترنت ضروري للدراسة" — صح، بس استهلاك غير مcontrolled ممكن يأثر سلباً.</li>
+<li>"مفيش مشكلة في تقضي وقت طويل" — لازم توازن بين الإنترنت والحياة الحقيقية.</li>
+</ul>
+</div>
+<div class="quiz-area">
+<button class="quiz-trigger" onclick="toggleQuiz(this)">اسأل نفسك</button>
+<div class="quiz-content">
+<p style="color:var(--dim);margin-bottom:12px">إيه من دول مش علامة من علامات إدمان الإنترنت؟</p>
+<button class="quiz-option" onclick="checkAnswer(this,false)">قضاء وقت مفرط على الإنترنت</button>
+<button class="quiz-option" onclick="checkAnswer(this,true)">استخدام الإنترنت للدراسة والبحث</button>
+<button class="quiz-option" onclick="checkAnswer(this,false)">إهمال المسؤوليات بسبب الإنترنت</button>
+<button class="quiz-skip" onclick="skipQuiz(this)">تخطي</button>
+<div class="quiz-explain">استخدام الإنترنت للدراسة والبحث هو استخدام إيجابي ومسؤول — مش علامة إدمان. الإدمان هو الاستهلاك المفرط والإهمال.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="s7">
+<div class="content-block">
+<div class="section-header">
+<div class="section-badge" style="background:linear-gradient(135deg,var(--s1),var(--s4))">7</div>
+<h2>تدريبات الوحدة</h2>
+</div>
+<div class="card">
+<h3>Warm Up - تدريبات البداية</h3>
+<div class="drill-block">
+<h4>اسأل نفسك</h4>
+<div class="drill-q">
+<p>1. ليه الأخلاقيات المعلوماتية مهمة في حياتنا على الإنترنت؟</p>
+<div class="drill-answer">الأخلاقيات المعلوماتية مهمة لأنها بتحمي الخصوصية الشخصية وتوفر بيئة آمنة للجميع على الإنترنت وتساعد في بناء ثقة بين المستخدمين ومنع سوء استخدام المعلومات والتقنية.</div>
+</div>
+<div class="drill-q">
+<p>2. إزاي تحمي نفسك من الأخبار الكاذبة على وسائل التواصل الاجتماعي؟</p>
+<div class="drill-answer">تحمي نفسك بالتحقق من مصادر المعلومات قبل مشاركتها، ومقارنة المعلومات مع مصادر موثوقة تانية، وعدم تصديق أي خبر بدون تأكد، وتعلم التمييز بين المصادر الموثوقة وغير الموثوقة.</div>
+</div>
+<button class="show-all-btn" onclick="showAllAnswers(this)">&#128161; إظهار كل الإجابات</button>
+</div>
+</div>
+<div class="card">
+<h3> Activities - أنشطة تفاعلية</h3>
+<div class="drill-block">
+<h4>تمرين 1: حدد المخاطر</h4>
+<div class="drill-q">
+<p>1. نشرت صورة من بيتك على Instagram. إيه المخاطر المحتملة؟</p>
+<div class="drill-answer">المخاطر المحتملة: 1) تحديد موقعك بالظبط (الوسم الجغرافي)، 2) معرفة تصميم بيتك ومكانه، 3) خطر السرقة لو اللصوص شافوا الصور، 4) مخاطر المطاردة لو حد م interested فيك.</div>
+</div>
+<div class="drill-q">
+<p>2. شفت خبر على Facebook بيقول إن فيه عرض مجاني. إيه اللي المفروض تعمله؟</p>
+<div class="drill-answer">1) تحقق من مصدر الخبر وتأكد إنه رسمي، 2) ابحث عن الخبر على مواقع ثانية، 3) لا تضغط على أي روابط مشبوهة، 4) شاور على الخبر للإبلاغ عنه لو لقيته كاذب، 5) لا تشاركه مع غيرك قبل التأكد.</div>
+</div>
+<button class="show-all-btn" onclick="showAllAnswers(this)">&#128161; إظهار كل الإجابات</button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="s8">
+<div class="content-block">
+<div class="section-header">
+<div class="section-badge" style="background:linear-gradient(135deg,var(--accent),var(--primary))">8</div>
+<h2>الخلاص</h2>
+</div>
+<div class="card">
+<p>مليح! وصلنا لنهاية الدرس. خلينا نعمل مراجعة سريعة لكل اللي اتعلمناه النهارده.</p>
+</div>
+<div class="recap-journey">
+<div class="recap-dot" style="background:var(--s1)">1</div>
+<div class="recap-line"></div>
+<div class="recap-dot" style="background:var(--s2)">2</div>
+<div class="recap-line"></div>
+<div class="recap-dot" style="background:var(--s3)">3</div>
+<div class="recap-line"></div>
+<div class="recap-dot" style="background:var(--s4)">4</div>
+<div class="recap-line"></div>
+<div class="recap-dot" style="background:var(--s5)">5</div>
+<div class="recap-line"></div>
+<div class="recap-dot" style="background:var(--s6)">6</div>
+</div>
+<div class="recap-labels">
+<span class="recap-label" style="border-color:var(--s1);color:var(--s1)">الأخلاقيات المعلوماتية</span>
+<span class="recap-label" style="border-color:var(--s2);color:var(--s2)">وسائل التواصل</span>
+<span class="recap-label" style="border-color:var(--s3);color:var(--s3)">الوسم الجغرافي</span>
+<span class="recap-label" style="border-color:var(--s4);color:var(--s4)">الأخبار الكاذبة</span>
+<span class="recap-label" style="border-color:var(--s5);color:var(--s5)">البرامج الخبيثة</span>
+<span class="recap-label" style="border-color:var(--s6);color:var(--s6)">إدمان الإنترنت</span>
+</div>
+<div class="quiz-area" style="margin-top:32px">
+<h3 style="margin-bottom:16px">اختبر فهمك</h3>
+<div class="drill-block">
+<div class="drill-q">
+<p>1. إيه هو مفهوم الأخلاقيات المعلوماتية؟</p>
+<button class="quiz-trigger" onclick="toggleQuiz(this)">عرض الإجابة</button>
+<div class="quiz-content">
+<div class="quiz-explain show">الأخلاقيات المعلوماتية هي المبادئ والاتجاهات الأساسية اللي بتوجه سلوكنا khi بنستخدم المعلومات والتقنية. مش قوانين قانونية — بس هي قيم وNorms بتقولنا إيه الصح وإيه الغلط.</div>
+</div>
+</div>
+<div class="drill-q">
+<p>2. ليه الوسم الجغرافي ممكن يكون خطر؟</p>
+<button class="quiz-trigger" onclick="toggleQuiz(this)">عرض الإجابة</button>
+<div class="quiz-content">
+<div class="quiz-explain show">الوسم الجغرافي ممكن يكون خطر لأنه بيحدد موقعك بالظبط، مما يعرّضك لمخاطر المطاردة وسرقة المنازل، وللأطفال ممكن يكشف أماكنهم.</div>
+</div>
+</div>
+<div class="drill-q">
+<p>3. إزاي تحمي نفسك من البرامج الخبيثة؟</p>
+<button class="quiz-trigger" onclick="toggleQuiz(this)">عرض الإجابة</button>
+<div class="quiz-content">
+<div class="quiz-explain show">تحمي نفسك بتحديث جهازك باستمرار، واستخدام برامج مكافحة الفيروسات، وعدم فتح روابط مشبوهة أو ملفات من مصادر غير موثوقة.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</div>
+
+<footer>
+<img class="footer-logo" src="data:image/webp;base64,UklGRsAcAABXRUJQVlA4ILQcAAAQsACdASpYAlUCPlEok0ajoqGhItWIMHAKCWdu/Eb3rSGO7W24Kxp8t/z35QbaL2P8mvy09B3LHy/76/vP/lMzu8T/Ov9N/jP3B/vn/////3R/1/qP/Uf6m/AB/Df4//kP7/+3f9m/////+rT1F/uJ6gP6r/d/+d/hf3/+a7/Jepz/JeoF/Vv7/1iHoCfsB6Yn/r/2Hwe/tJ/5v9F+//0Lfzz+7/9r8//kA9ADqx+wP9p7Rf7Z/XvPvq8+1nMHiU/Fftn+o/uftp7JfkXqBfiX8x/xP5Z8JQAD6t/6b+4+upM+yAOC8oAfpr1aP6T/6f5Pz7/of+X/ab4Dv57/aP+12E/2y///u7/uQEd8QtYY3sgthnhSjzlxsHsUNtqxsYPmY/tAnTWk3eRvx96FjeyHJvbr2WcMflxsHxsHxwNwpR5y43vhzrGX1TpNJmXt4xgkLqDmwfG99YZRGMFcyZ4Uo85gZwBbN+NllprGxSRxW1rTyCRoZg+h0Lk9hyLKBQ73OHulwtb0r7Yt5PSoBq70s+RV+vmqzZCqvAjDoiSnBwHM9u3kIwbzlxsBQO5nrVFmIT0cN4xUVTTop/in5EP7B8VPficNp4Uo9CYJ2MbGe2QcycuNhDjHYMc1hRlU7TBo7ET+m0ecuLWrsysVbJwwyW7Gwci7/f4b7eY3spo8hACO9F7eM0cndhYzBzYPjYPi2s3lloqwH/ypFHIWDg3LWx724JkPCjzlxsIARP9cmu7/ZownOm6SXZWcSrN1ionLjYPjYPdF1f9yA04STy2woP8q2ZDab97eMV4Uo8j+rxDgQtFzXmj0BexP/th4o9HZap/AcfrB8bB8bByt9LZK1LVnj6oAWMnX6h5/qUKSpGE52zPJmXt4xXhLKBMjlKRRBOFPTCBFLs0PlKB6EBul4xXhSgtMgQT6oNB3AFnhzPt44fdrVBd0wgBYJ5nkzL28YroE3NmKKreywfJTq9znjhtX1aq8EtMLlxsHuu2EKfH9FOy4j31Ko0UwYo70PeKl4jJoqMhKYlb5YktMajaS5Wc3/adyZdDaAfhhDWpYWGcPKvDaRep78mGQHCd7//L5zA9p7+w4sz5T9KoniwkKqUrmI71fQgTVtI0XVrqq7V+mYy9wK3ffqz/+Or3peC0mkpVYx955ZowcBHo6v9i29B5LQfA6DqaLpoV7SiHFmRAm0UldUDcX/ouciJah9bJ0zGUds8ApyspaVFT0aFb610bmwG8MKUciDdQbUxIc3kQgFF0BQ2+3/1twur1bsbB8bAIuNI7ctdbxiyyP8bBzhMbmYIM4b8pn03S9501OtiXK9jYPjYPjYBU0J1td0x2zWnRSj2ENErPauhSJbsbB8bB8WzQmMIoN6mSeoaPbS7xhqgz7Rm90udSbfM+/M+/M+2q5zkHwgOmW7IxrgGfnantR5bmZ/GwfGwfGwCfuyIPBLrvY17b1479hUwupcbB8bB8bAQAQPxFm5wHM/DGX2dGUTnPSSORRmBAFKPOXGwfGqnUawYBmUlb7o2gq3xIt+5qaTHReecuNg+Ng5S5VEPIKn7R5y5KdgNEP/CctFGRfdcbB8bB8bAG2kbnnjfj5oluv/gRhkt633Yzw7bkmwo85cbByF8VOjWFDUjwLg+AhHWghGXOkAj3IYK3YrIOKIEsJ2Lx5D63xJhyMnSjFi2aaOqZHGOU83UPjf+fNGyE+Z/GxpEB8bD1WDQ6zDahWy4eI+Q2GD/8t2/te3jGOtkUmvH29gn/+TICZmhiQUW7GwfLPCtqooUgpRoHcGtw3szflXEGGS3Y2D5Kdg+OQE+JVtRv+yklVIuo8dXQx116rM3el4dZCC3JvTG+pMds+GvBFYveHV3km1Cry4VeO7G9/euRjXSwAAP77d89+nafhMf4TD6F7w6ETqw/BiNp9R3' />
+<p>EGYPT ICT HUB &copy; 2025 — جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+const particles=document.getElementById('particles');
+for(let i=0;i<60;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDelay=Math.random()*14+'s';p.style.animationDuration=(10+Math.random()*10)+'s';particles.appendChild(p)}
+const nav=document.getElementById('mainNav');
+let lastScroll=0;
+window.addEventListener('scroll',()=>{const y=window.scrollY;if(y>200){nav.classList.add('visible')}else{nav.classList.remove('visible')}lastScroll=y});
+document.querySelectorAll('.nav-pill').forEach(p=>{p.addEventListener('click',()=>{document.querySelectorAll('.nav-pill').forEach(x=>x.classList.remove('active'));p.classList.add('active')})});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');if(e.target.id){document.querySelectorAll('.nav-pill').forEach(p=>{p.classList.toggle('active',p.getAttribute('href')==='#'+e.target.id)})}})},{threshold:.15});
+document.querySelectorAll('.content-block').forEach(b=>obs.observe(b));
+const stepObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const items=e.target.querySelectorAll('.step-item');items.forEach((it,i)=>{setTimeout(()=>it.classList.add('show'),i*200)})}})},{threshold:.3});
+document.querySelectorAll('.step-reveal').forEach(s=>stepObs.observe(s));
+function replaySteps(id){const el=document.getElementById(id);el.querySelectorAll('.step-item').forEach(i=>i.classList.remove('show'));setTimeout(()=>{el.querySelectorAll('.step-item').forEach((it,i)=>{setTimeout(()=>it.classList.add('show'),i*200)})},100)}
+function toggleQuiz(btn){const c=btn.nextElementSibling||btn.parentElement.querySelector('.quiz-content');c.classList.toggle('open');btn.textContent=c.classList.contains('open')?'إخفاء':'اسأل نفسك'}
+function checkAnswer(btn,correct){const parent=btn.parentElement;parent.querySelectorAll('.quiz-option').forEach(o=>{o.classList.add('disabled')});btn.classList.add(correct?'correct':'wrong');if(!correct){parent.querySelector('.quiz-option[onclick*="true"]')?.classList.add('correct')}parent.querySelector('.quiz-explain')?.classList.add('show')}
+function skipQuiz(btn){const parent=btn.parentElement;btn.textContent='تم التخطي';btn.style.opacity='.5';btn.style.pointerEvents='none'}
+function showAllAnswers(btn){const block=btn.closest('.drill-block');block.querySelectorAll('.drill-answer').forEach(a=>a.classList.add('show'));btn.textContent='تم الإظهار';btn.style.opacity='.5';btn.style.pointerEvents='none'}
+</script>
+</body>
+</html>
