@@ -1,0 +1,381 @@
+# 4-1 Practical Application of Data Analysis using Excel File
+
+Source: ICT_EN_2prep_T2.pdf, pages 46-51 (book numbering)
+
+
+=== PAGE 46 ===
+
+Computer and Information Technology  - Preparatory Two
+46
+Lesson
+Lesson one
+one
+Practical Application of Data Analysis Using Excel 
+Engage
+Engage:
+What is Excel? What 
+is the idea behind 
+representing data 
+using Excel? Explain.
+Objectives:
+Objectives:
+By the end of this lesson, the student will be able to:
+• Learn how to import an Excel file that contains students’ 
+grades and display the basic data.
+• Perform basic calculations (calculating averages, finding the 
+highest and lowest grades in each subject, and determining 
+the number of successful students).
+• Analyze the relationships between different subject grades 
+using results and charts.
+
+=== PAGE 47 ===
+
+47
+Unit 4
+Unit 4
+ Lesson
+Lesson
+Second Term
+Dear student ... there are several requirements that must be available 	
+	
+	
+	
+in the working environment:
+import pandas as pd
+df = pd.read_excel('grades.xlsx')  #Load the Excel file
+print(df.head())  # Display the first 5 rows
+pip install matplotlib
+pip install pandas
+Required Libraries 
+(Python Packages)
+Used for data analysis and for reading 
+Excel files. pandas
+pandas
+Function of Each Library
+Used to create charts and graphs
+matplotlib
+An Excel file named grades.xlsx must be available in the same folder as the program.
+Loading and Displaying Data Using the Following Code:
+Loading and Displaying Data Using the Following Code:
+File contents
+File contents
+Learn:
+Learn:
+English
+English
+Science
+Science
+Math
+Math
+Name
+Name
+15
+11
+12
+Ali
+12
+14
+14
+Khaled
+13
+15
+13
+Mohammed
+14
+12
+11
+Sabah
+15
+13
+10
+Mustafa
+12
+13
+15
+Yousef
+import pandas as pd
+Here, we import the pandas library, which helps us work with data and tables.
+Dear student ... here is a simple explanation of the code:
+1: Practical Application of Data Analysis Using Excel 
+Importing the library:
+Importing the library:
+df = pd.read_excel(‹grades.xlsx›)
+This line reads the data from a file called grades.xlsx and stores it in a variable named df.
+Reading the Excel file:
+Reading the Excel file:
+
+=== PAGE 48 ===
+
+الدرس
+الدرس
+ Computer and Information Technology - Preparatory Two
+ Lesson
+Lesson
+48
+print (df.head)
+Here, the first five rows of the file are printed so you can see what the data looks like at 	
+	
+the beginning.
+In this way, you can understand how to read data from an Excel file and display some 	
+	
+basic information about it.
+grades = df[[‹Math›, ‹Science›, ‹English›]]
+• Selects the columns Math, Science, and English from the data and stores them in grades.
+print(«Average»)
+print(grades.mean().to_dict())  # Average grade for each subject
+• Calculates and displays the average grade for each subject.
+print(«Maximum value»)
+print(grades.max().to_dict())  # Highest grade in each subject
+• Finds and displays the highest grade in each subject.
+print(«Number of successful students»)
+print((grades > 13).sum().to_dict())  # Number of students who passed in each subject
+• Counts how many students scored above 13 in each subject and displays the result.
+معناه معناه
+Selects the columns Math, Science, and English 
+from the data and stores them in grades.
+grades = df[[‘Math’, ‘Science’, ‘English’]]
+Calculates and displays the average grade for 
+each subject..
+print (“Average”)
+print(grades.mean().to_dict())
+Finds and displays the highest grade in each 
+subject.
+print (“Maximum value”)
+print(grades.max().to_dict())
+Counts how many students scored above 13 in 
+each subject and displays the result.
+print (“Number of successful students”)
+print((grades > 13).sum().to_dict())
+Explanation:
+We print “Number of successful students”, then calculate how many students scored more 
+than 13 in each subject (that is, who passed), and display the count.
+In other words:
+This code performs a basic statistical analysis of the data in the table and shows:
+	
+The average grade for each subject.
+	
+The highest grade in each subject.
+	
+How many students passed in each subject.
+Explanation
+Code
+1: Practical Application of Data Analysis Using Excel 
+Displaying the first 
+Displaying the first 5 rows:
+ rows:
+Basic Data Analysis:
+Basic Data Analysis:
+
+=== PAGE 49 ===
+
+49
+Unit 4
+Unit 4
+ Lesson
+Lesson
+Second Term
+معناه معناه
+ Dear students, the code in front of you
+ draws a bar chart for the average grades
+of the subjects
+import matplotlib.pyplot as plt
+df.mean().plot(kind=’bar’)  
+# Plot the average of subjects
+plt.show()  # Display the chart
+This line means we are using a library 
+called matplotlib, which helps us create 
+charts and graphs.
+import matplotlib.pyplot as plt
+means we use the short name plt instead 
+of the full library name, which makes 
+writing easier and faster.
+"as plt"
+Here we tell the program to:
+Calculate the average grade for each sub-
+ject using grades.mean().
+Draw the results as a pie chart using 
+plot(kind=’pie’).
+plt.show()
+grades.mean().plot(kind=’pie’) 
+Finally: We ask the program to display the chart.
+Result: A chart appears showing the average grades of the subjects. Each bar (or 
+slice, in the pie chart) represents the average grade of a subject.
+This makes it easy to compare grades quickly and in a clear, visual way.
+الكود
+الكودExplanation
+Code
+Data Representation
+Data Representation
+    print(df.corr()# Calculate the correlation between subjects
+It calculates the relationship between the subjects in the data table.
+What does this mean?
+It means checking whether one subject affects another. For example, if a student is good 
+at Math, are they usually good at Science?
+What is the result of the code?
+It shows numbers between -1 and 1:
+• Close to 1 
+Strong positive relationship (both subjects increase together).
+• Close to 0 
+No clear relationship.
+• Close to -1 
+Negative relationship (when one increases, the other decreases).
+Explanation:
+Explanation:
+1: Practical Application of Data Analysis Using Excel
+
+=== PAGE 50 ===
+
+الدرس
+الدرس
+ Computer and Information Technology - Preparatory Two
+ Lesson
+Lesson
+50
+1.What is the main function of the pandas library?
+1.What is the main function of the pandas library?
+a. Drawing charts	 	 	
+	
+	
+b. Playing audio files
+c. Data analysis and reading Excel files		
+d. Creating websites
+2.Which library is responsible for creating charts in Python?
+a. numpy	
+	
+	 b. pandas	
+	
+c. tkinter	
+	
+d. matplotlib
+3.Which command is used to load an Excel file?
+a. pd.load_file()	
+	 b. pd.read_excel()	
+c. pd.open()	
+	
+d. df.read()
+4.What does the command df.head() do?
+a. Deletes the first 5 rows	
+	
+	
+b. Displays the first 5 rows
+c. Displays the last 5 rows	
+	
+	
+d. Displays the number of columns
+5.What type of chart is produced by:  grades.mean().plot(kind=›bar›)
+a. Pie chart	 	
+	 b. Scatter plot	
+	
+c. Line chart	
+	
+d. Bar chart
+6.What does the code grades.mean() do?
+a. Calculates the highest grade	 	
+b. Calculates the lowest grade
+c. Calculates the average grade for each subject	
+D. Deletes columns
+7.What is the function of the following code: grades.max()?
+a. Finds the lowest grade	
+	
+	
+b. Finds the highest grade
+c. Calculates the total grades	 	
+	
+d. Counts the number of students	
+Example
+Example:
+If the correlation between Math and Science is 0.9, this means students who are good at 		
+Math are usually also good at Science.
+This helps us understand how subjects affect each other.
+Learn By Doing
+Learn By Doing
+1: Learn By Doing 
+First: Choose the correct answer from the following options:
+
+=== PAGE 51 ===
+
+51
+Unit 4
+Unit 4
+ Lesson
+Lesson
+Second Term
+8.What does the code (grades > 13).sum() do?
+a. Calculates students’ grades
+b. Counts the number of students who scored above 13
+c. Compares students with each other
+d. Reorders the grades
+9.What does df.corr() mean?
+a. Shows the number of rows	 	
+b. Calculates the correlation between subjects
+c. Removes data	
+	 	
+	
+d. Calculates the average
+10.Which of the following is used to display the chart?
+a. plt.show()	 	
+	 b. plt.start()	
+	
+c. plt.run()	
+	
+d. plt.open()
+ 
+1. The pandas library is used to read Excel files and analyze data.	
+(	 )
+1. The pandas library is used to read Excel files and analyze data.	
+(	 )
+2. The head() function displays all the data in the table.	 	
+(	 )
+2. The head() function displays all the data in the table.	 	
+(	 )
+3. The matplotlib library can create bar, pie, and line charts.	
+(	 )
+3. The matplotlib library can create bar, pie, and line charts.	
+(	 )
+4. The command grades.max() calculates the average grades of students.	
+(	 )
+4. The command grades.max() calculates the average grades of students.	
+(	 )
+5. df.corr() helps identify the relationship between different subjects.	
+(	 )
+5. df.corr() helps identify the relationship between different subjects.	
+(	 )
+6. plt.show() does not display the chart.	
+	
+(	 )
+6. plt.show() does not display the chart.	
+	
+(	 )
+7. Using (grades > 13) gives true or false results for each student.	
+(	 )
+7. Using (grades > 13) gives true or false results for each student.	
+(	 )
+8. The code grades.mean() returns the highest grade, not the average.	
+(	 )
+8. The code grades.mean() returns the highest grade, not the average.	
+(	 )
+9. The file grades.xlsx must be in the same folder as the Python program for  
+9. The file grades.xlsx must be in the same folder as the Python program for  
+    the code to work correctly.	
+	
+	
+(	 )
+    the code to work correctly.	
+	
+	
+(	 )
+10. Pandas can be used to create charts without the need for the matplotlib       
+10. Pandas can be used to create charts without the need for the matplotlib       
+     library.	
+	
+	
+(	 )
+     library.	
+	
+	
+(	 )
+	
+1: Learn By Doing 
+Second: Put a check mark () in front of the correct sentence 	 	
+   and a check mark () in front of the incorrect sentence.
+

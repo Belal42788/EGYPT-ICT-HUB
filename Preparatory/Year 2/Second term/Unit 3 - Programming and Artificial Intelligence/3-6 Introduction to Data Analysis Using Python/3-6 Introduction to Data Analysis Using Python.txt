@@ -1,0 +1,366 @@
+# 3-6 Introduction to Data Analysis Using Python
+
+Source: ICT_EN_2prep_T2.pdf, pages 38-45 (book numbering)
+
+
+=== PAGE 38 ===
+
+38
+ Computer and Information Technology  - Preparatory Two
+Lesson six
+Lesson six
+Introduction to Data Analysis Using Python
+Introduction to Data Analysis Using Python
+ Objectives:
+ Objectives:
+By the end of this lesson, the student will be able to:
+•	Understand why Python is a suitable language for 	  	
+ data analysis.
+•	Identify basic data analysis concepts (arithmetic 	 	
+ mean, and extrema).
+•	Recognize different types of data that can be analyzed 
+(numbers, text, dates).
+Engage
+Engage
+How can data be 
+analyzed using 
+Python?
+
+=== PAGE 39 ===
+
+39
+ Lesson
+Lesson
+Unit 3
+Unit 3
+Second Term
+Dear student... in the first preparatory grade we studied the concept 
+of big data and some examples of data analysis, and we also learned the Python pro-
+gramming language. In this lesson, we will learn how to analyze data using Python.
+Learn
+Learn
+Concept of Data Analysis and Its Importance 
+Data analysis is the process of examining, cleaning, and transforming data in order to 
+extract useful information and make fact-based decisions.
+Why do we use Python for data analysis?
+Why do we use Python for data analysis?
+Python is one of the best programming languages for data analysis 
+because it offers:
+•	 Ease of learning and use   : Its simple syntax makes it suitable for 
+beginners.
+•	 Powerful libraries, such as:
+•	 Pandas for data processing and manipulation.
+•	 NumPy for numerical and scientific calculations.
+•	 Matplotlib and Seaborn for data visualization.
+•	 A large support community with many educational resources.
+•	 Compatibility with artificial intelligence and machine learning.
+Basic Concepts in Data Analysis
+A.  Mean (Average)
+The mean is the sum of values divided by their count..	
+	
+Example in Python:
+python
+import numpy as np  
+data = [10, 20, 30, 40, 50]  
+mean = np.mean(data)  
+print(“Mean:”, mean)  # Output: 30.0
+6: Introduction to Data Analysis Using Python
+1-1-
+
+=== PAGE 40 ===
+
+Lesson
+Lesson
+40
+ Computer and Information Technology  - Preparatory Two
+	
+Dear student, here is a simple explanation of the code:
+import numpy as np
+• Function: Calling the NumPy library which is used for scientific calculations in Python.
+• `as np`   : An abbreviation for the library name so we can use `np` instead of writing `numpy` 
+in full.
+	
+  Example without the abbreviation:
+import numpy
+mean = numpy.mean(data)  #Longer to write
+data = [10, 20, 30, 40, 50]
+Function: Creating a list containing the numbers for which we want to calculate the mean.
+Note      : The list can contain any numbers (doesn’t need to be sorted).
+	
+Another example:
+python
+data   = [5, 15, 25, 35, 45]  
+mean = np.mean(data)
+`np.mean()`: A built-in function in NumPy to calculate the mean.
+	
+	
+How does the mean work?
+•	
+Mean = (Sum of numbers) ÷ (Count of numbers)
+•	
+Here: (10 + 20 + 30 + 40 + 50) / 5 = 150 / 5 = 30.0
+•	 Manual example without NumPy:
+python
+sum_data = sum(data)  # 150  
+count = len(data)     # 5  
+mean = sum_data / count  # 30.0  
+print(“Mean:”, mean)
+Function: Displaying the result on the screen.
+Output   :
+Mean      : 30.0
+Note: The result is of type `float` (decimal) even if it is a whole number.
+B. Maximum & Minimum Values (Max & Min(
+	
+. Maximum value (Max): The largest value in a data set.
+. Minimum value (Min): The smallest value in a data set.
+6: Introduction to Data Analysis Using Python
+
+=== PAGE 41 ===
+
+41
+ Lesson
+Lesson
+Unit 3
+Unit 3
+Second Term
+.
+	
+Example:
+maximum = np.max(data)
+minimum = np.min(data)
+print(«Maximum value:», maximum)  # 50  
+print(«Minimum value:», minimum)  # 10
+A.	 Numerical Data
+•	 Integer numbers like: ages, number of products
+•	 Decimal numbers like: weights, prices
+B.	 Text Data
+•	 Text like: customer reviews, articles
+•	 Can be analyzed using Natural Language Processing (NLP)
+C.	 DateTime Data
+•	 Dates like: purchase date, event dates
+•	 Can be analyzed using `pandas.to_datetime()`
+	
+	
+Example:
+python
+import pandas as pd  
+dates = [“2023-01-01”, “2023-01-02”, “2023-01-03”]  
+date_series = pd.to_datetime(dates)  
+print(date_series)
+	
+Explanation of the Code
+ Importing the Pandas library:
+import pandas as pd
+python
+import pandas as pd
+We use `import pandas as pd` to call the library and give it the abbreviation `pd` for convenience
+Creating a list containing dates as strings
+python
+dates = [“2023-01-01”, “2023-01-02”, “2023-01-03”]
+Types of Data that Can Be Analyzed
+Types of Data that Can Be Analyzed
+2-2-
+6: Introduction to Data Analysis Using Python
+
+=== PAGE 42 ===
+
+Lesson
+Lesson
+42
+ Computer and Information Technology  - Preparatory Two
+Here, we define the variable `dates`, which contains 3 dates in the format “YYYY-MM-DD” 
+(Year-Month-Day)
+Converting the dates to DateTime objects:
+python
+date_series = pd.to_datetime(dates)
+We use the `pd.to_datetime()` function to convert the list `dates` into a DateTime Series
+•	 The result will be a `DatetimeIndex` object on which you can perform time operations 
+such as:
+•	 Extracting the day, month, or year.
+•	 Calculating time differences.
+•	 Filtering 
+•	 Printing the result:
+python
+print(date_series)
+	
+The output will be:
+DatetimeIndex([‘2023-01-01’, ‘2023-01-02’, ‘2023-01-03’], dtype=’datetime64[ns]’, freq=None)
+This means that the data is now ready to be treated as dates rather than strings.
+Why Use `pd.to_datetime()`
+Why Use `pd.to_datetime()`
+Enables time-based operations like:
+Enables time-based operations like:
+•	 Calculating the period between two dates.
+•	 Extracting parts of the date (day, month, year).
+•	 Grouping by date, such as summing sales monthly.
+•	 Validating dates (e.g., rejecting invalid dates like“2023-01-03”).
+	
+Dear student... remember that:   
+•	 Data analysis is crucial for extracting insights and making better decisions.
+•	 Python is an ideal language due to its simplicity and specialized libraries.
+6: Introduction to Data Analysis Using Python
+
+=== PAGE 43 ===
+
+43
+ Lesson
+Lesson
+Unit 3
+Unit 3
+Second Term
+Learn By Doing
+Learn By Doing
+6: Learn By Doing
+First: Choose the correct answer from the following options:
+1.	What is the definition of data analysis?
+a. The process of deleting data only
+b. The process of storing data in files
+c. The process of examining, cleaning, and transforming data to extract useful information
+d. Converting data into images
+2.	Why is Python considered suitable for data analysis?
+a. Because it is difficult to learn
+b. Because it has no libraries
+c. Because it has powerful libraries such as Pandas and NumPy
+d. Because it works only on mobile phones
+3.	What is the function of the NumPy library?
+a. Drawing charts	 	 	
+	
+	
+b. Handling text.
+c. Scientific calculations	
+	
+	
+d. Image analysis
+4.	The function np.mean() is used to calculate:
+a. The largest number		
+	
+	
+b. The smallest number
+c. The arithmetic mean	
+	
+	
+d. Adding two lists
+5.	In the code import numpy as np, what does as np mean?
+a. Deleting the library
+b. Changing the Python language
+c. An abbreviation of the library name to make it easier to use
+d. Running the library automatically
+6.	The maximum value is:
+a. The smallest value in the data	
+	
+b. The largest value in the data
+c. The average of the values	
+	
+	
+d. The result of multiplying the values
+7.	Which type of data can be analyzed using NLP?
+a. Numerical data	 	 	
+	
+	
+b. Images
+c. Text	
+	
+	 	
+	
+	
+d. Dates only
+
+=== PAGE 44 ===
+
+Lesson
+Lesson
+44
+ Computer and Information Technology  - Preparatory Two
+8.	What is the benefit of pd.to_datetime()?
+a. Converting text to numbers
+b. Converting text-based dates into a date-time format
+c. Deleting dates
+d. Sorting data automatically
+9.	What type of data is in the list:
+    data = [10, 20, 30, 40, 50]
+a. Text data	 	
+	 	
+	
+	
+b. Date data
+c. Numerical data	 	 	
+	
+	
+d. Audio data
+10.	If the neural cell is analyzing an image (for example, a cat), what is the
+     input that enters the cell?
+a. Pandas	
+	
+	 	
+	
+	
+b. NumPy
+c. Matplotlib		
+	 	
+	
+	
+d. datetime
+Second: Put a check mark () in front of the correct sentence  and a 
+check mark () in front of the incorrect sentence.
+1.	1.	Data analysis helps in making fact-based decisions.	
+	
+(	 )
+Data analysis helps in making fact-based decisions.	
+	
+(	 )
+2.	2.	Python does not contain libraries that support data analysis.	
+(	 )
+Python does not contain libraries that support data analysis.	
+(	 )
+3.	3.	The Pandas library is used for cleaning and processing data.	
+(	 )
+The Pandas library is used for cleaning and processing data.	
+(	 )
+4.	4.	The function np.mean() is used to find the smallest value in a list.	
+(	 )
+The function np.mean() is used to find the smallest value in a list.	
+(	 )
+5.	5.	The arithmetic mean can be calculated manually without NumPy.	
+(	 )
+The arithmetic mean can be calculated manually without NumPy.	
+(	 )
+6.	6.	Text data can never be analyzed.	
+	
+(	 )
+Text data can never be analyzed.	
+	
+(	 )
+7.	7.	pd.to_datetime () can reject invalid dates such as “2023-13-01”.	
+(	 )
+pd.to_datetime () can reject invalid dates such as “2023-13-01”.	
+(	 )
+8.	8.	The maximum value (Max) is the smallest value in the data.	
+(	 )
+The maximum value (Max) is the smallest value in the data.	
+(	 )
+9.	9.	The arithmetic mean results in a decimal number even if the values are whol
+The arithmetic mean results in a decimal number even if the values are whol
+          numbers.	
+	
+	
+(	 )
+          numbers.	
+	
+	
+(	 )
+10.	
+10.	Python can be used to analyze date and time data.	
+	
+(	 )
+Python can be used to analyze date and time data.	
+	
+(	 )
+6: Learn By Doing
+
+=== PAGE 45 ===
+
+Unit Four
+nit Four
+Python
+Python
+
