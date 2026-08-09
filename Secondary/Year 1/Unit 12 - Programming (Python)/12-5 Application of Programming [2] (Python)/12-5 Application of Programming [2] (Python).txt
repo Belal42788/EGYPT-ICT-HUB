@@ -1,0 +1,205 @@
+# 12-5 Application of Programming [2] (Python)
+
+Source: ICT_En_Sec1_T1.pdf, pages 172-175 (book numbering)
+
+
+=== PAGE 172 ===
+
+172
+Information Study
+Point!
+12-5
+Application of Programming [2] (Python)
+Functions
+(1) (1Function) : A set of operations performed by a computer described as a cohesive unit. A variable
+specified to receive a value within a function is referred to as an (2argument). Using
+(3return) makes it possible to pass the value resulting from the process within the function
+to the caller as a (4return value). In addition, when a function is used, it is necessary to
+perform the process of (5calling) the function.
+<Example> Example of a function with one argument: A program to find the function y = 2x
+01
+def function(x):
+Defines a function called (6function).
+02
+y = 2 * x
+Assigns the value from 2*x to variable “y”.
+03
+return y
+Returns “y” as (7return value).
+04
+print(function(5))
+Passes “x” as 5 to the function.
+<Example> Example of a function with two arguments: A program to find the area of a triangle
+01
+def area(base, height):
+Defines a function called “area”.
+02
+S= base*height/2
+Assigns the value from
+“base*height/2” to variable “S”.
+03
+return S
+Returns “S” as the return value.
+04
+print(area(10, 5))
+Passes “base” as (810) and “height”
+as (95) to the function “area”.
+(2) Functions include (10built-in functions) such as “print()” that can be used without definition, and
+(11user-defined functions) that you can define.
+def [function name](Argument 1, Argument 2, …):
+[Process]
+return [return value]
+Argument
+Function name (Argument 1, Argument 2, …)
+Function Call
+Return value
+Definition of a
+Function
+   10
+Execution result
+   25
+Execution result
+
+
+=== PAGE 173 ===
+
+173
+Warm Up
+Answer the following questions.
+(1) In the following program, the function “circle” is used to calculate the area of a circle. Give the
+program that fits in blanks A and B. Also, give the value displayed when row [1] is executed.
+A
+ circle(r):
+S = r * r * 3.14
+B
+ S
+a = circle(5)
+print(a)      # [1]
+(2) In the following program, the function “judge” takes the test score as an argument and displays “Pass”
+if the score is 80 or above, and “Fail” if it is below 80. Give the program that fits in blanks A and B.
+def judge(score):
+if score
+A
+ 80:
+print(‘Pass’)
+B
+:
+print(‘Fail’)
+judge(40)
+Explanation
+(1) In programming, the function is defined as shown below.
+def function name(argument):
+[Process]
+return [return value]
+Therefore, the programs that fit in blanks A and B are as follows.
+A: def,   B: return
+In addition, when the function “circle” is called in [1], 5 is passed as argument “r” in the function
+“circle”.
+Therefore, when row [1] is executed, it is 5 × 5 × 3.14 = 78.5, so 78.5 is displayed.
+(2) In the programming, a conditional branch was defined as shown below.
+if conditional expression:
+[Process when a condition is true]
+else:
+[Process when a condition is false]
+Therefore, the programs that fit in blanks A and B are as follows.
+A: >=,   B: else
+
+
+=== PAGE 174 ===
+
+174
+Answer the following questions.
+(1) Choose the term that best fits into the blanks [1] and [2] from the options A to D below, and answer using the
+letters.
+def function name ( [1]
+):
+[Process]
+return [2]
+A Argument
+B Return value
+C Complement
+D Random number
+(2) In the following program, the function “area” is used to calculate the area of a triangle. Give the program that
+fits in blanks A and B. Also, give the values displayed when rows [1] and [2] are executed.
+def area(base, height):
+S =
+A
+B
+ S
+a = area(10, 5)
+b = area(6, 7)
+print(a)      # [1]
+print(b)      # [2]
+(3) In the following program, the function “celsius_to_fahrenheit” converts temperatures from Celsius to
+Fahrenheit. Give the program that fits in blanks A and B.
+def celsius_to_fahrenheit(celsius):
+fahrenheit = (celsius * 9/5) + 32
+return
+A
+temp_celsius = 25
+result = celsius_to_fahrenheit(
+B
+)
+print(result)
+(4) In the following program, test scores are given as arguments to the
+function “evaluate”. In addition, the relationship between scores
+and grades is according to the table on the right. Give the program
+that fits in the blanks A to C.
+def evaluate(score):
+if score
+A
+ 80:
+print(‘A’)
+B
+ score
+C
+ 50:
+print(‘B’)
+else:
+print(‘C’)
+evaluate(40)
+Try
+Score
+Grade
+80 or higher
+A
+50 or higher but less than 80
+B
+Less than 50
+C
+
+
+=== PAGE 175 ===
+
+176
+Information Study
+Point!
+About Generative AI
+13-1
+Generative AI performs intellectual tasks on behalf of humans, so using it effectively can streamline your
+workflow.
+In the real world, Generative AI is used in various situations, such as generating new ideas, summarizing texts,
+supporting studies, and programming.
+Generative AI has learned from vast amounts of information worldwide. It generates natural text by selecting
+“the word most likely to come next” in response to a user’s “Prompt” (instruction).
+For example, if you provide the prompt “What is the capital of Egypt?”: The AI selects “Cairo” as the word
+most likely to follow “The capital of Egypt is,” and generates the sentence “The capital of Egypt is Cairo.”
+The key point is that the Generative AI does not “know” as a fact that the capital of Egypt is Cairo; it is merely
+selecting the word with the highest probability of following the phrase “The capital of Egypt is.”
+Therefore, Generative AI does not always provide the correct answer. Due to its mechanism, it is “certain to
+say incorrect things with some probability.” This is called “Hallucination.”
+When using Generative AI, please understand this characteristic and do not trust what the AI says 100%.
+Warm Up
+There are various Generative AIs in the world, such as ChatGPT, Google Gemini, and Microsoft Copilot. In
+this lesson, we will use Copilot.
+First, let’s create a text. Try giving Copilot the following prompt:
+“Write a story about a cat wizard going on an adventure.”
+Next, try giving the following prompt:
+“Rewrite it to include a dog companion.”
+In this way, simply by speaking to Generative AI in everyday language, you can create and modify text.
+Next, try giving the following prompt:
+“Give me a quiz about Egypt. Wait until I answer.”
+Generative AI can also generate questions using learned information. You can freely change the format of the
+questions, such as instructing it to wait for the user’s answer, or changing from multiple-choice to open-ended
+questions.
+By giving appropriate prompts to Generative AI, you can make use of it for learning.
