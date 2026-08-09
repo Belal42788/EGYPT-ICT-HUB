@@ -1,0 +1,461 @@
+# 9-2 Database [2]
+
+Source: ICT_En_Sec1_T1.pdf, pages 115-118 (book numbering)
+
+
+=== PAGE 115 ===
+
+115
+Information Study
+Point!
+9-2
+Database [2]
+Relational Database
+(1) (1Relational database (RDB)) : Database where collected data is organized and managed across
+multiple tables.
+• A spreadsheet (2table) consists of (3rows (records)) and (4columns (fields)).
+• Establishing (5relationships) between multiple tables makes it possible to eliminate duplicate data,
+which allows data to be handled with integrity.
+(2) (6SQL) : A language used in relational databases to manipulate data.
+Performs data registration, insertion, retrieval, and deletion.
+(3) Relational Database Operations (Relational Algebra Operations)
+[1]
+(7Selection) : Only rows that meet given conditions are extracted and displayed.
+[2]
+(8Projection) : Displaying only certain columns from a table.
+[3]
+(9Join) : Linking data from multiple tables according to specific conditions and displaying it as a
+single table.
+Badminton club
+Soccer club
+Dance club
+Club activity
+Ito ○○
+Ishida ○○
+Ando ○○
+Student name
+S2023010103
+S2023010102
+S2023010101
+Student code
+Table
+Column (field)
+Row (record)
+Student code
+Student name
+Club code
+S2023010101
+Ando ○○
+C1
+S2023010102
+Ishida ○○
+C2
+S2023010103
+Ito ○○
+C1
+S2023010104
+Udagawa ○○
+C1
+S2023010105
+Ezawa ○○
+C2
+Student code
+Student name
+Club code
+S2023010102
+Ishida ○○
+C2
+S2023010105
+Ezawa ○○
+C2
+Record for club
+code C2
+Selection
+Student code
+Student name
+Club code
+S2023010101
+Ando ○○
+C1
+S2023010102
+Ishida ○○
+C2
+S2023010103
+Ito ○○
+C1
+S2023010104
+Udagawa ○○
+C1
+S2023010105
+Ezawa ○○
+C2
+Student name
+Ando ○○
+Ishida ○○
+Ito ○○
+Udagawa ○○
+Ezawa ○○
+Student name
+Projection
+Student code
+Student name
+Club code
+S2023010101
+Ando ○○
+C1
+S2023010102
+Ishida ○○
+C2
+S2023010103
+Ito ○○
+C1
+S2023010104
+Udagawa ○○
+C1
+S2023010105
+Ezawa ○○
+C2
+Student code
+Student name
+Club code
+Club activity
+S2023010101
+Ando ○○
+C1
+Dance club
+S2023010102
+Ishida ○○
+C2
+Tennis club
+S2023010103
+Ito ○○
+C1
+Dance club
+S2023010104
+Udagawa ○○
+C1
+Dance club
+S2023010105
+Ezawa ○○
+C2
+Tennis club
+Club code
+Club activity
+C1
+Dance club
+C2
+Tennis club
+Student table
+Club table
+Join
+
+
+=== PAGE 116 ===
+
+116
+Warm Up
+Answer the following questions.
+(1) Complete the following sentences by filling in the blanks [1] to [4] with the appropriate terms.
+  Summarizing data into a table often makes it easier to understand. A database where data is managed
+in a table is referred to as a (  [1]  ). In a ([1]), rows are referred to as (  [2]  ), and columns are
+referred to as (  [3]  ). Also, establishing (  [4]  ) between multiple tables makes it possible to
+eliminate duplicate data, which allows data to be handled with integrity.
+(2) Consider the operations of relational databases. Table 3 below was created by performing certain
+operations with Table 1 and Table 2. List all the operations performed among selection, projection, and
+join.
+Explanation
+(1) [1] Relational database (RDB)      [2] Record      [3] Field      [4] Relationships
+(2) Table 3 combines “Student code” and “Student name” from Table 1, and “Club activity” from Table 2,
+indicating that a join operation has been performed. Also, since the “Club code” in Table 1 is not
+included in Table 3, it can be concluded that it also involves a projection.
+Therefore, join and projection
+Student code
+Student name
+Club code
+S2023010101
+Ando ○○
+C1
+S2023010102
+Ishida ○○
+C2
+S2023010103
+Ito ○○
+C1
+S2023010104
+Udagawa ○○
+C1
+S2023010105
+Ezawa ○○
+C2
+Table 1
+Student code
+Student name
+Club activity
+S2023010101
+Ando ○○
+Dance club
+S2023010102
+Ishida ○○
+Tennis club
+S2023010103
+Ito ○○
+Dance club
+S2023010104
+Udagawa ○○
+Dance club
+S2023010105
+Ezawa ○○
+Tennis club
+Table 3
+Club code
+Club activity
+C1
+Dance club
+C2
+Tennis club
+Table 2
+
+
+=== PAGE 117 ===
+
+117
+Answer the following questions.
+(1) Choose the appropriate name of the database where data is managed as a table from the options A to C below,
+and answer using the letter.
+A Hierarchical database
+B Network database
+C Relational database
+(2) Choose two appropriate names for each of the sections
+[1] to [3] in the table on the right from the options A to
+F below, and answer using the letters.
+A  Spreadsheet
+B  Row
+C  Column
+D  Field
+E  Table
+F  Record
+(3) Choose the term that best fits into the blanks [1] to [3] in the following sentences from the options A to D
+below, and answer using the letters.
+Searches in a relational database are conducted using relational algebra operations.
+・The process of extracting multiple columns from a table to create a new table is referred to as (  [1]  ).
+・The process of extracting only the rows that meet given conditions to create a new table is referred to as
+(  [2]  ).
+・The process of linking multiple tables based on the relationship between certain items to create a new table
+is referred to as (  [3]  ).
+A  Projection        B  Join        C  Selection        D  Normalization
+(4) For tables [1] to [3] which were created using the following two tables (Student table and Club table), choose
+the name of the operation that was performed from the options A to D below, and answer using the letters.
+A  Projection        B  Join        C  Selection        D  Normalization
+Try
+Badminton club
+Soccer club
+Dance club
+Club activity
+Ito ○○
+Ishida ○○
+Ando ○○
+Student name
+S2023010103
+S2023010102
+S2023010101
+Student code
+[1]
+[2]
+[3]
+Student code
+Student name
+Club code
+S2023010101
+Ando ○○
+C1
+S2023010102
+Ishida ○○
+C2
+S2023010103
+Ito ○○
+C1
+S2023010104
+Udagawa ○○
+C1
+S2023010105
+Ezawa ○○
+C2
+Student table
+Student code
+Student name
+Club code
+S2023010102
+Ishida ○○
+C2
+S2023010105
+Ezawa ○○
+C2
+[2]
+Student name
+Ando ○○
+Ishida ○○
+Ito ○○
+Udagawa ○○
+Ezawa ○○
+[1]
+Club code
+Club activity
+C1
+Dance club
+C2
+Tennis club
+Club table
+Student code
+Student name
+Club code
+Club activity
+S2023010101
+Ando ○○
+C1
+Dance club
+S2023010102
+Ishida ○○
+C2
+Tennis club
+S2023010103
+Ito ○○
+C1
+Dance club
+S2023010104
+Udagawa ○○
+C1
+Dance club
+S2023010105
+Ezawa ○○
+C2
+Tennis club
+[3]
+
+
+=== PAGE 118 ===
+
+118
+Answer the following questions.
+(1) Choose one correct statement regarding relational databases from the options A to D below, and answer
+using the letter.
+A
+The operation of searching for and extracting records that meet specific conditions from a table is
+called “projection.”
+B
+A table consists of records and fields, and allows data to be managed in a table format.
+C To maintain data integrity, it is not possible to link data from multiple tables.
+D By displaying only specific columns from a table, it is possible to eliminate data redundancy.
+(2) Choose one correct statement regarding SQL from the options A to D below, and answer using the letter.
+A
+Mechanism that ensures the integrity of data stored in a relational database.
+B
+Eliminating duplicate data from a relational database.
+C Programming language for manipulating relational databases.
+D Operations performed on a relational database such as selection, projection, and join.
+(3) Choose one correct statement regarding the “join” operation of a relational database from the options A to
+D below, and answer using the letter.
+A
+Creating a new table by linking information from multiple tables based on certain conditions.
+B
+Using a language called SQL to register or delete data in a table.
+C Extracting only the records from a table that meet specific conditions.
+D Extracting only the fields from information contained in a table that meet specific conditions.
+(4) For tables [1] to [3] which were created using the following two tables (Employee table and Branch table),
+choose the name of the operation that was performed from the options A to D below, and answer using the
+letters.
+A  Projection        B  Join        C  Selection        D  Normalization
+Exercise
+1
+Employee number
+Name
+Department
+Branch number
+10001
+Sato ○○
+Sales department
+101
+10002
+Suzuki ○○
+General affairs department
+101
+10003
+Sakai ○○
+Accounting department
+102
+10004
+Kato ○○
+Human resources department
+102
+Employee table
+Employee
+number
+Name
+Department
+Branch
+number
+Branch
+name
+10001
+Sato ○○
+Sales department
+101
+Tokyo
+10002
+Suzuki ○○
+General affairs
+department
+101
+Tokyo
+10003
+Sakai ○○
+Accounting
+department
+102
+Osaka
+10004
+Kato ○○
+Human
+resources
+department
+102
+Osaka
+[1]
+Employee
+number
+Name
+Department
+Branch
+number
+10003
+Sakai ○○
+Accounting
+department
+102
+10004
+Kato ○○
+Human resources
+department
+102
+[2]
+Name
+Department
+Sato ○○
+Sales department
+Suzuki ○○
+General affairs department
+Sakai ○○
+Accounting department
+Kato ○○
+Human resources department
+[3]
+Branch number
+Branch name
+101
+Tokyo
+102
+Osaka
+103
+Kyoto
+104
+Sapporo
+Branch table

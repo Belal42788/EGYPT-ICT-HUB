@@ -1,0 +1,396 @@
+# 11-3 Simulations [2]
+
+Source: ICT_En_Sec1_T1.pdf, pages 149-152 (book numbering)
+
+
+=== PAGE 149 ===
+
+149
+Information Study
+Point!
+11-3
+Simulations [2]
+Using Functions in Spreadsheet Software
+(1)
+(1Random number) : A number that can appear with equal probability within a certain range.
+(2)
+Functions of Spreadsheet Software
+[1]
+(2SUM (range1:range2)) : Calculates the sum for cell range1 to range2.
+[2]  (3IF (logical_expression, value_if_true, value_if_false)) : When the logical expression is
+true, the value for “value_if_true” is displayed. When it is not true, the value for
+“value_if_false” is displayed.
+<Example> Display “Pass” if the score is 70 or above, otherwise display “Fail”
+A
+B
+1
+Score
+Pass/Fail judgement
+2
+80
+Pass
+3
+[3]
+(4=RAND()) : Generates a random number between 0 and 1.
+Simulation of Probabilistic Models
+(1)  (5Monte Carlo method) : A method for solving problems by using
+random numbers in probabilistic models.
+(2)  Simulation of the Approximate Value of Pi (π)
+[1]  Use the RAND function to randomly generate 100 points (= N)
+where both the X and Y coordinates are between 0 and 1.
+[2]  Count the number (= n) of (6points that lie within a quadrant).
+[3]  N: n ≈ 1: π
+4 　Therefore, π ≈ 4n
+N .
+A
+B
+C
+D
+E
+F
+G
+H
+1
+Simulation of approximate calculation of pi
+2
+Number of
+times
+X-coordinate Y-coordinate
+The value of
+X^2+Y^2
+Inside-outside
+determination
+Probability of being inside
+a circle
+Pi
+3
+1
+0.9066
+0.9304
+1.6876
+0
+0.800
+3.200
+4
+2
+0.2029
+0.2804
+0.3461
+1
+5
+3
+0.2695
+0.3481
+0.4402
+1
+6
+4
+0.7563
+0.9880
+1.2443
+0
+7
+5
+0.5256
+0.3030
+0.6067
+1
+8
+6
+0.1675
+0.9127
+0.9279
+1
+9
+7
+0.4017
+0.9968
+1.0758
+0
+*The accuracy of the approximation of the value of pi (7increases) as the number of points placed
+within the square increases.
+(3)  The Objective of the simulation:
+[1]  Simulate approximating π using random numbers, without measuring the circle's circumference
+and diameter.
+[2]  Draw random points inside a square, calculate the ratio of points inside a quarter circle
+1
+Pass/Fail judgment
+[Cell B2] =If (A2>=70, “Pass”, “Fail”)
+2
+y
+1
+Y
+O
+X
+P
+1
+x
+√X 2 + Y 2
+Points generated randomly using random numbers
+[Cell D3] =B3^2+C3^2
+Approximate value of pi
+[Cell G3] =G3*4
+Probability of a point being inside a circle
+[Cell G3] =SUM(E3:E102)/100
+Points generated randomly using random numbers
+[Cell B3] =RAND()
+Determines if a point is inside or outside a circle
+[Cell E3] =IF(D3<=1,1,0)
+
+
+=== PAGE 150 ===
+
+150
+Warm Up
+Using spreadsheet software, as shown in the diagram below, 100 points were plotted using random numbers
+between 0 and 1 for the X and Y coordinates. The number of points that fall within the area of a quadrant of a
+circle with a radius of 1 was examined, and from this, an approximate value of pi was calculated. Answer the
+following questions.
+A
+B
+C
+D
+E
+F
+G
+H
+1
+Simulation of approximate calculation of pi
+2
+Number of
+times
+X-coordinate
+Y-coordinate
+Distance from the
+origin
+Inside-outside
+determination
+Probability of being inside
+a circle
+Pi
+3
+1
+0.9090
+0.8882
+1.6152
+0
+0.800
+3.200
+4
+2
+0.6769
+0.1794
+0.7003
+1
+5
+3
+0.3127
+0.9045
+0.9570
+1
+6
+4
+0.4324
+0.0900
+0.4417
+1
+7
+5
+0.3476
+0.8694
+0.9363
+1
+8
+6
+0.7042
+0.9714
+1.1998
+0
+9
+7
+0.1034
+0.0875
+0.1354
+1
+(1) Can this model be represented as a deterministic model or a probabilistic model?
+(2) What is the term for the method that solves problems using random numbers in this way?
+(3) The following formulas are entered in cells B3, E3, G3, and H3 in the diagram. Complete the following
+formulas by filling in the blanks A to D with the appropriate answers.
+[Cell B3]
+=
+A
+()
+[Cell E3]
+=
+B
+(D3<=1, 1, 0)
+[Cell G3]
+= SUM(E3:E102)/
+C
+[Cell H3]
+=
+D
+*4
+(4) When 1,000 points were randomly plotted within a square, 750 of them fell inside a quadrant. Calculate
+the approximate value of pi in this situation.
+Explanation
+(1) Probabilistic model
+(2) Monte Carlo method
+(3) A: RAND B: IF C: 100 D: G3
+(4) Since there are 1,000 points in the entire square and 750 of them are inside the quadrant, 750
+1,000 × 4 = 3
+Therefore, the value of pi is 3
+
+
+=== PAGE 151 ===
+
+151
+A circle with a radius of 1 is drawn within a square with a side length of 2, with the circle centered at the origin.
+Random points were plotted within this square, and the number of points that fell inside the circle was counted.
+From this, the value of pi (π) was estimated. Answer the following questions.
+(1) What is the term for the method that solves problems using random numbers?
+(2) The procedure for calculating pi (π) based on (1) is as follows. Complete the following sentences by filling
+in the blanks A and B with the appropriate terms.
+[1] Place points randomly within a square.
+[2] Determine whether those points are (A) the circle.
+[3] Determine the (B) of the area of the circle to the area of the square using the number of points
+inside the circle and the total number of points within the square.
+[4] Use this (B) to calculate the value of pi (π).
+(3) How does the accuracy of the estimated value of pi change as the number of points plotted within the
+square increases?
+(4) When 10,000 points were randomly plotted inside a square, 8,000 of them were found to be inside a
+quadrant. Calculate the approximate value of pi in this situation.
+Using spreadsheet software, as shown in the diagram below, 1,000 points were plotted using random numbers
+between 0 and 1 for the X and Y coordinates. The number of points that fall within the area of a quadrant of a
+circle with a radius of 1 was examined, and from this, an approximate value of pi was calculated. Answer the
+following questions.
+A
+B
+C
+D
+E
+F
+G
+H
+1
+Simulation of approximate calculation of pi
+2
+Number of
+times
+X-coordinate
+Y-coordinate
+Distance from the
+origin
+Inside-outside
+determination
+Probability of being inside
+a circle
+Pi
+3
+1
+0.9090
+0.8882
+1.6152
+0
+0.800
+3.200
+4
+2
+0.6769
+0.1794
+0.7003
+1
+5
+3
+0.3127
+0.9045
+0.9570
+1
+6
+4
+0.4324
+0.0900
+0.4417
+1
+7
+5
+0.3476
+0.8694
+0.9363
+1
+8
+6
+0.7042
+0.9714
+1.1998
+0
+9
+7
+0.1034
+0.0875
+0.1354
+1
+(1) What is the term for the method that solves problems using random numbers in this way?
+(2) The following formulas are entered in cells B3, E3, G3, and H3 in the diagram. Choose the formula that
+best fits into the blanks [1] to [4] from the options A to D below, and answer using the letters.
+[Cell B3]
+=
+[1]
+[Cell E3]
+=
+[2]
+[Cell G3]
+=
+[3]
+[Cell H3]
+=
+[4]
+A G3*4
+B IF(D3<=1, 1, 0)
+C SUM(E3:E10002)/1000
+D RAND()
+Try
+1
+2
+
+
+=== PAGE 152 ===
+
+152
+Answer the following questions.
+(1) Regarding the IF function of spreadsheet software, choose the appropriate combination of terms to fill in
+blanks [1] to [3] from the options A to D below, and answer using the letter.
+IF( (  [1]  ), (  [2]  ), (  [3]  ) )
+A [1] logical_expression
+[2] value_if_true
+[3] value_if_false
+B [1] logical_expression
+[2] value_if_false
+[3] value_if_true
+C [1] value_if_true
+[2] value_if_false
+[3] logical_expression
+D [1] value_if_false
+[2] value_if_true
+[3] logical_expression
+(2) Using spreadsheet software as shown in the figure on the
+right, you want to display a 1 in cell B3 if the score in cell
+A3 is 60 or above, and a 0 if it is not. Choose which
+function should be entered in cell B3 from the options A
+to D below, and answer using the letter.
+A [Cell B3] =IF(A3<=60, 1, 0)
+B [Cell B3] =IF(A3<=60, 0, 1)
+C [Cell B3] =IF(A3>=60, 1, 0)
+D [Cell B3] =IF(A3>=60, 0, 1)
+Exercise
+1
+A
+B
+1
+Pass/Fail judgment
+2
+Score
+Pass/Fail judgement
+3
+80
+1
