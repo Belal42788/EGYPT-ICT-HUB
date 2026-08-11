@@ -142,7 +142,8 @@
       overflow-x: auto;
       flex-wrap: nowrap;
       scrollbar-width: none;
-      padding-bottom: 2px
+      padding-bottom: 2px;
+      flex: 1;
     }
 
     .nav-links::-webkit-scrollbar {
@@ -861,6 +862,8 @@
       window.currentLang = lang;
       var isArabic = lang === 'ar';
       langBtn.setAttribute('aria-label', isArabic ? 'Switch to English' : 'Switch to العربية');
+  var langIcon = document.getElementById('langIcon');
+  if (langIcon) langIcon.textContent = isArabic ? 'EN' : 'AR';
       document.documentElement.lang = lang;
       document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
       document.querySelectorAll('[data-ar], [data-en]').forEach(function (el) {
