@@ -1,0 +1,1484 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intellectual Property Rights | حقوق الملكية الفكرية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #193cff;
+      --accent: #00d4aa;
+      --bg: #0a0e27;
+      --card: #111638;
+      --card-hover: #1a2050;
+      --text: #fff;
+      --dim: #8892b0;
+      --success: #00ff88;
+      --danger: #ff4757;
+      --warn: #ffd700;
+      --s1: #06B6D4;
+      --s2: #F59E0B;
+      --s3: #8B5CF6;
+      --s4: #10B981;
+      --s5: #EC4899;
+      --s6: #EF4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--dim);
+      line-height: 1.9;
+      overflow-x: hidden
+    }
+
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+        radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
+      animation: bgDrift 20s ease-in-out infinite;
+    }
+
+    @keyframes bgDrift {
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+      50% {
+        transform: translate(-30px, 20px) scale(1.08)
+      }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none
+    }
+
+    .particles i {
+      position: absolute;
+      bottom: -10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: .3;
+      animation: floatUp 15s linear infinite
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0
+      }
+      10% {
+        opacity: .3
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0
+      }
+    }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 39, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(25, 60, 255, .3);
+      transform: translateY(-100%);
+      transition: transform .35s ease
+    }
+
+    nav.show {
+      transform: translateY(0)
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 24px
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: var(--primary)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      padding: 4px 2px;
+      flex: 1
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none
+    }
+
+    .nav-links a {
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid transparent;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(25, 60, 255, .2);
+      border-color: var(--primary)
+    }
+
+    .lang-toggle {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all .3s ease
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 60px 24px
+    }
+
+    .hero-circles span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: .16;
+      z-index: 0;
+      animation: heroFloat 6s ease-in-out infinite
+    }
+
+    .hero-circles span:nth-child(1) {
+      width: 280px;
+      height: 280px;
+      background: var(--primary);
+      top: 12%;
+      left: 10%;
+      animation-delay: 0s
+    }
+
+    .hero-circles span:nth-child(2) {
+      width: 220px;
+      height: 220px;
+      background: var(--accent);
+      bottom: 15%;
+      right: 12%;
+      animation-delay: 2s
+    }
+
+    .hero-circles span:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      background: #8B5CF6;
+      top: 55%;
+      left: 22%;
+      animation-delay: 4s
+    }
+
+    @keyframes heroFloat {
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+      50% {
+        transform: translateY(-26px)
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: .85rem;
+      font-weight: 700;
+      background: rgba(25, 60, 255, .15);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--accent);
+      margin-bottom: 26px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .2s forwards
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 18px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .4s forwards
+    }
+
+    .hero-title .grad {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--dim);
+      max-width: 640px;
+      margin: 0 auto 36px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .6s forwards
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 50px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all .3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .8s forwards
+    }
+
+    .hero-btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px)
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ---------- main ---------- */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 80px
+    }
+
+    .section-inner {
+      margin-top: 48px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .6s cubic-bezier(0.4, 0, 0.2, 1)
+    }
+
+    .section-inner.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .section-inner.card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 28px 32px
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px
+    }
+
+    .section-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--bg);
+      flex-shrink: 0;
+      animation: glow 3s infinite
+    }
+
+    @keyframes glow {
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(25, 60, 255, .3)
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(25, 60, 255, .6)
+      }
+    }
+
+    h2 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 900;
+      color: var(--text)
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 700;
+      margin-top: 8px
+    }
+
+    .demo-label {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px
+    }
+
+    .note {
+      background: rgba(255, 215, 0, .06);
+      border: 1px solid rgba(255, 215, 0, .2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-top: 14px
+    }
+
+    .error-box {
+      background: rgba(255, 71, 87, .05);
+      border: 1px solid rgba(255, 71, 87, .2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-top: 32px
+    }
+
+    .error-box h4 {
+      color: var(--danger);
+      margin-bottom: 12px;
+      font-size: 1.1rem
+    }
+
+    .error-box ul {
+      padding-right: 20px
+    }
+
+    .error-box li {
+      margin-bottom: 8px
+    }
+
+    /* ---------- exercises ---------- */
+    .ex-item {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .ex-item .q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px
+    }
+
+    .q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, .15);
+      border: 1px solid rgba(245, 158, 11, .5);
+      color: var(--warn);
+      font-weight: 900;
+      font-size: .8rem;
+      flex-shrink: 0
+    }
+
+    .ex-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .ex-opt {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all .2s;
+      font-size: .92rem;
+      white-space: pre-line
+    }
+
+    .ex-opt:hover {
+      background: var(--card-hover);
+      border-color: rgba(25, 60, 255, .3)
+    }
+
+    .ex-opt.picked {
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .1)
+    }
+
+    .ex-opt.correct {
+      border-color: var(--success) !important;
+      background: rgba(0, 255, 136, .08) !important
+    }
+
+    .ex-opt.wrong {
+      border-color: var(--danger) !important;
+      background: rgba(255, 71, 87, .08) !important
+    }
+
+    .ex-answer {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: .92rem
+    }
+
+    .ex-answer.show {
+      display: block;
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: rgba(0, 255, 136, .07);
+      color: var(--success)
+    }
+
+    .ex-answer.show b {
+      color: var(--success);
+      margin: 0 6px
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .btn:hover {
+      background: var(--accent)
+    }
+
+    .mini-btn {
+      padding: 10px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .mini-btn:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    .ex-score {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(0, 255, 136, .06);
+      border: 1px solid rgba(0, 255, 136, .25);
+      color: var(--success);
+      font-weight: 700
+    }
+
+    .hint-line {
+      font-size: .92rem;
+      color: var(--dim)
+    }
+
+    /* ---------- interactive cards ---------- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px
+    }
+
+    .card-item {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 16px;
+      padding: 18px;
+      cursor: pointer;
+      transition: all .25s
+    }
+
+    .card-item:hover {
+      background: var(--card-hover);
+      transform: translateY(-3px)
+    }
+
+    .card-item.ok {
+      border-color: rgba(0, 255, 136, .4);
+      background: rgba(0, 255, 136, .05)
+    }
+
+    .card-item.bad {
+      border-color: rgba(255, 71, 87, .4);
+      background: rgba(255, 71, 87, .05)
+    }
+
+    .card-item .card-icon {
+      font-size: 2rem;
+      margin-bottom: 8px
+    }
+
+    .card-item .card-title {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px
+    }
+
+    .card-item .card-body {
+      font-size: .88rem;
+      color: var(--dim)
+    }
+
+    .card-item .card-feedback {
+      margin-top: 10px;
+      font-weight: 700;
+      font-size: .88rem;
+      display: none
+    }
+
+    .card-item.ok .card-feedback,
+    .card-item.bad .card-feedback {
+      display: block
+    }
+
+    .card-item.ok .card-feedback {
+      color: var(--success)
+    }
+
+    .card-item.bad .card-feedback {
+      color: var(--danger)
+    }
+
+    /* ---------- journey ---------- */
+    .journey {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-right: 26px
+    }
+
+    .journey::before {
+      content: "";
+      position: absolute;
+      right: 11px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius: 2px
+    }
+
+    .journey-item {
+      position: relative;
+      margin-bottom: 22px;
+      padding-right: 20px
+    }
+
+    .journey-item::before {
+      content: "";
+      position: absolute;
+      right: 3px;
+      top: 6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--primary)
+    }
+
+    .journey-item h4 {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 4px
+    }
+
+    .journey-item p {
+      font-size: .9rem
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid rgba(255, 255, 255, .05);
+      margin-top: 60px
+    }
+
+    .footer-logo {
+      height: 40px;
+      border-radius: 8px;
+      margin-bottom: 12px
+    }
+
+    footer p {
+      color: var(--dim);
+      font-size: .9rem
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 860px) {
+      .ex-options {
+        grid-template-columns: 1fr
+      }
+      .nav-inner {
+        padding: 10px 16px
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0s !important;
+        transition-duration: 0s !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-gradient"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- ============ NAV ============ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="../../../../index.html" aria-label="الرئيسية">
+        <img class="nav-logo" src="data:image/webp;base64,UklGRsAcAABXRUJQVlA4ILQcAAAQsACdASpYAlUCPlEok0ajoqGhItWIMHAKCWdu/Eb3rSGO7W24Kxp8t/z35QbaL2P8mvy09B3LHy/76/vP/lMzu8T/Ov9N/jP3B/vn/////3R/1/qP/Uf6m/AB/Df4//kP7/+3f9m/////+rT1F/uJ6gP6r/d/+d/hf3/+a7/Jepz/JeoF/Vv7/1iHoCfsB6Yn/r/2Hwe/tJ/5v9F+//0Lfzz+7/9r8//kA9ADqx+wP9p7Rf7Z/XvPvq8+1nMHiU/Fftn+o/uftp7JfkXqBfiX8x/xP5Z8JQAD6t/6b+4+upM+yAOC8oAfpr1aP6T/6f5Pz7/of+X/ab4Dv57/aP+12E/2y///u7/uQEd8QtYY3sgthnhSjzlxsHsUNtqxsYPmY/tAnTWk3eRvx96FjeyHJvbr2WcMflxsHxsHxwNwpR5y43vhzrGX1TpNJmXt4xgkLqDmwfG99YZRGMFcyZ4Uo85gZwBbN+NllprGxSRxW1rTyCRoZg+h0Lk9hyLKBQ73OHulwtb0r7Yt5PSoBq70s+RV+vmqzZCqvAjDoiSnBwHM9u3kIwbzlxsBQO5nrVFmIT0cN4xUVTTop/in5EP7B8VPficNp4Uo9CYJ2MbGe2QcycuNhDjHYMc1hRlU7TBo7ET+m0ecuLWrsysVbJwwyW7Gwci7/f4b7eY3spo8hACO9F7eM0cndhYzBzYPjYPi2s3lloqwH/ypFHIWDg3LWx724JkPCjzlxsIARP9cmu7/ZownOm6SXZWcSrN1ionLjYPjYPdF1f9yA04STy2woP8q2ZDab97eMV4Uo8j+rxDgQtFzXmj0BexP/th4o9HZap/AcfrB8bB8bByt9LZK1LVnj6oAWMnX6h5/qUKSpGE52zPJmXt4xXhLKBMjlKRRBOFPTCBFLs0PlKB6EBul4xXhSgtMgQT6oNB3AFnhzPt44fdrVBd0wgBYJ5nkzL28YroE3NmKKreywfJTq9znjhtX1aq8EtMLlxsHuu2EKfH9FOy4j31Ko0UwYo70PeKl4jJoqMhKYlb5YktMajaS5Wc3/adyZdDaAfhhDWpYWGcPKvDaRep78mGQHCd7//L5zA9p7+w4sz5T9KoniwkKqUrmI71fQgTVtI0XVrqq7V+mYy9wK3ffqz/+Or3peC0mkpVYx955ZowcBHo6v9i29B5LQfA6DqaLpoV7SiHFmRAm0UldUDcX/ouciJah9bJ0zGUds8ApyspaVFT0aFb610bmwG8MKUciDdQbUxIc3kQgFF0BQ2+3/1twur1bsbB8bAIuNI7ctdbxiyyP8bBzhMbmYIM4b8pn03S9501OtiXK9jYPjYPjYBU0J1td0x2zWnRSj2ENErPauhSJbsbB8bB8WzQmMIoN6mSeoaPbS7xhqgz7Rm90udSbfM+/M+/M+2q5zkHwgOmW7IxrgGfnantR5bmZ/GwfGwfGwCfuyIPBLrvY17b1479hUwupcbB8bB8bAQAQPxFm5wHM/DGX2dGUTnPSSORRmBAFKPOXGwfGqnUawYBmUlb7o2gq3xIt+5qaTHReecuNg+Ng5S5VEPIKn7R5y5KdgNEP/CctFGRfdcbB8bB8bAG2kbnnjfj5oluv/gRhkt633Yzw7bkmwo85cbByF8VOjWFDUjwLg+AhHWghGXOkAj3IYK3YrIOKIEsJ2Lx5D63xJhyMnSjFi2aaOqZHGOU83UPjf+fNGyE+Z/GxpEB8bD1WDQ6zDahWy4eI+Q2GD/8t2/te3jGOtkUmvH29gn/+TICZmhiQUW7GwfLPCtqooUgpRoHcGtw3szflXEGGS3Y2D5Kdg+OQE+JVtRv+yklVIuo8dXQx116rM3el4dZCC3JvTG+pMds+GvBFYveHV3km1Cry4VeO7G9/euRjXSwAAP77d89+nafhMf4TD6F7w6ETqw/BiNp9R3MH+fjgGRkNcGuDzzJDh5wD5niJcxxptKbzbw2ZkkcLHYPDYtAgeyGavwCzeP1Hv+Jx2rSaoRfE+1+cYFN6+O2ZqnVjPDdbvv2KdVrlK5PMUvmhCbwAFqQybdpqs3k8yQvZtDTr3o6w4WQHXQz0sykl3GEA/CFxJfMOTkJ1y3/nSlwC+0naIxAJyDvxU6hMY1Kijbe/v3PVRvALgd+p4nomE6P93IUmkld97JR/G3ZE1/J8NqOg4AvmO7nptwCH3HSUoM6p/CRSrejS0vyLndCB//fmeUVLGONqwvyYyljGfrFourMOaQMXBCFRLQAyveZAUJ9JywJ+AVVD+sJNUA6GatZh4AdTxKA2dHNSOckmJRAt/7BHRHNkGj1FU7gHWJmbORZicUCUV2HnTtoWdwwJCBXehscM5VNujpC8Utn5blnaBm35pWeDb7CEt5w+HOnoOBgUZ8lMaeLgCEXlrUJpflBtRgV+gsy7lfDzZuTdBBC9bJ+WjVDLsilgNPYb2Bn4qLf9JCQJz93pPj6pXSeypSJqPO7tDcStOt7hJXjTIABlTAkEZ0ClV1T+Fk/GhKoe7jYAlVZe+AAPqHSZ/5HXWidWApbQ2UMwqybyTQme22FkskGS7op7bwWUmZEuNM5EptmdgYL/bSWxv5zSRLRzZtI7+AuJyPGu5bP91AAy63dbb2jeXmrncak0ayciOLtOOpK2k5sDSiibrh+Muv5FYYShZ3hrKRzQ8UBQ/gfQenCcUNsLynSscgfO50r8yMK9cDuaBxrBESuwTIv/Ba0OrhKBFGKoBl3qVLroHVXijv7TQvCDUoiNj6QzckInt4JNrVD40IKDUFeE+h6CHHeehl/ZG0Ad7sJ7kLTjyLucB/zjIcOzHcQucWaiZ51eTy08zaI7BEoOdEFW2o1U6cCEDY9tvkxj/0aGCk54aEKD6zCqjgQPFPLcXLVZZzkvGIJeZaXqa2WRZ/IIry/rCxb9h1PLcmZ8Wt1zX2zR9vZWfwAAJ9htLnPiA63VF7+H83NoFmLGnFiBJFoDISdaPlPU4X4+EhN0jDFe0wixZBfRJAZbnB3JEh2pivFjU96ax8UCq4Z0zsQib2CXlOVlDdgJeEzH+B4YnFVq8JzwVVUzHrUniFQI/sRaQriG+J2qKN9zH2+ilo3hKJkFjqFWNcKFPqxqK/gHQOYNWlcC3C/aIKttRqpz77PtqzMDT1f1F7c0dKBhiY3IYvx2O42at13k1Yhxf8TJeQJui1Kpa8fhmVemU1QNyk1TIm/1bghfQIAFYQF70bIV7Bpm55kEih6BcY9Uq3UjKZq1tlL5AUmpzCCXKf0Tmdp3LB48OISsYb/SME9HekTO91T31fF7Taf3f1MmICO+AWoIrVmAQmaX6h4PpP9j4/EkKrOyfSQnzitH19H/4c1yr9d0dHU3qN46Amo6Xf5Xd0Gc1FoPixuLj30doDHLcNjQkOekKELEf12Dcy+XllpnDZtzYdVQ7pYMpZ3UDCaGnKVvpzZM/NcwAAK+rG8FhSEcsLamGjV3RMDAHc/cLkPrHqti5utRJ//yFREt5ISjCeQFVrQSb90qDCwphOkX7tJk8STj9IRMoYKJStCMW0Wo0q+LTH+maNPCFUlkVFd8yT0MXTaTE1T1IYN5ZgnsayrqF0w612PjhakbgqBvk9WdsHHkfH5RlihZR+MfTG3a0eiYzaUv8ubMKwAAIqZJl705RYs2D/BSe2+dFn/APWfeDcHQm7effuGf6lb46uKXiOGwU00wIYC0biN/AsWpUy0rhg0gj85my03P7bTDm0u7TNGNcejLO85d50usVZUC/jagNbQDNiRKybMkWpqYAgWb3V99t1UzIaTDi9mhMhpda6hr6N/Zb9Drvr4p7mQ7q7VBZFypv+Mv+73DxLhb/VQAAeH0jvC/DkpFUdv9v43SCuH72zsCKB7f6um2hr77ez5P2RqJ6tv6p4hN5i3/FsTZv9bN+Nl4fv9KKUaDXnMXi7N7f/bZq4DwTNxpUnyiYDd2GQb1nCVo6Gjtzdn+HEbwtYeKBC8j1X1C4qCG30E7tvqEtjkrmhQ4PcACopAAASgT/5kXtSKi9J6EcBv8hPNt1uPaXHQeNjO2lQzqWPIZJUKdg/tFh1DmcnqHGGPFYSTQbfPsjERRa3WkpEh0Dy8sY/Yg0nhlsH0+GWPdBRPzFkd4zvkyT20zqeHtZ7JROwNGlAAvcQIlFJ9nvCvRNK38jR0rFWzvqPk6QViXkBLumJqMKlw2uOiEC9wER6v0Hflp3QYDQ25dkn/cFJ7Y5pS2kdTrLaFp0IRlr4ki2/IgDH5wxgaaybYh81w8Qt9zfoXR3UJhkhQIKIA7WAACd2f2peO5lvJ9lS7TMkCcwOMJh8v03NI4b6DBPlsKtsll+DYtgNcoarMQvauSVcU6okOjbu+Psle925mPQhZ+kV7uGVbW0Bi0jxV51h40/R5iFzu+OrHRhrCV1jBuR4GjHmrVllfL1HHLAQ+AAG2I0xcQol1N6Fk2XFP0e5tO4Y6flC0y01riBHNMDd2mT/VFHEoPb9OJoh+DNIjRmgjzjjxOrvtxOobdx8u7oAiSTWAeORxqDGj4hG5i5mAChl3tAGqbnpCu3ub5cOb+ZaSx61KYf6JuW/CdvA8o68PFWhpzD344h6IUB+RINaQBoB5kXjvYppl6LnvKobIqSlpQaNFFNdOqqRO3NdSdyp1fQiHBHfh13aAPQIr5Q0Ze+hCqrO/mkBLzeVhLmkAAVR+5qO45NgzGlNzWA98NI4zs/xTNG2ERCyHfF3xLhKeIdp97BhBIJceiMGYayZjcXNbw1msYweDmGYCT7SGL1CEPR/SqiOldqpxqfdnSA3Z5qiSmZJ4sOAlcPZvz6A28xZVTiZnZvccPSvpG7Lo3My862Kbx6Xh9nLNNxQJcFRHgZDm+cARCB7LCugHy7kbepoicKQ7UpVLr3o+YbbnvOR7BmMmIn5N3JkqnHF2Ej1bC2wMImRFvhcjsYFH3kL+zpp21DboPHPxU7uRVQM+QhrG5z5uVJ+swmIgwMT+SkqBlUuc1Flu4Uc6G2IjfoTd8N1xuw0bZVHlh8cDcK3oPJ7OxittMYz1zH8d0vZYkquEYU+i375WeraEDESfDjCgNVOE7cEnaouSNx4mciGplmk2ODV8uclKFuTRKTDs32n8XD8y7enPfBGPfMm79dvTU+yYRkTa1j5EuSBIxy2zrFLF0hD/ECUFIk5SHe2gQpcEbBX8yhF6IBZrMtEM12W8LD1Nlbr5/xY3ACw8q5OGgOFXLuYQQnlD+Uxa5ok0BLKGRWfc9wjUz4u8xGIZAhTlrq/qfnMZ2x49l9aUgULleRNw3aODmvc+6cth+WwJ5tuof2QffV5fkGtyBPKEIWD4TBHY9vaTfBAp4vzHSumXeoaM9lw+IvPtQlZr0aU1p25/az85EXf7wyzyHt0OcmzzMMiALkvXPsQAZWQ8nL+zMLA5zR96TKV9+jsoXW03yg1FbEV5URaTTKrdshYI8OUeYjZBrHIWyzETRdiEpp19H3TvGtQS/jDBHH7vf7UPvWwLXnErSl/F52L504J/TwiPNCEexYsHnIPeSn7uCfe8DQriX9WOR7wdSBBXgUZP5zmDHgIR5WC/1uecNdddnM3HbRrPs2lHbLbBAjcDNU8REL46FebHryj9KjLGsaxmS//66+KJu7Qg8e9yo34xjkn1bQYAXz7tN0O63IezR+DUQlCNWkiuuoQDLlJD8wW0bOEJihhKSJw00InMY0pxSUr5Byqxw8ou2Wbhzz4MFEjhF3eSUYnS192yMGP9pA0itiQwKOHBi7PJMk3MmA9zma7mtFiu33G4Pi5ikOyf3gxN2CMyuAyv+l8caLB8Qt/fRpbVHvVuOPXnGat3n3K+Oszq8z/bNWRqeUlgDAz/B8PtyDPZC92jHEAc+ioeNadDdUBCFplppPEhydgEgRc2KgzRwTDYg9Hx+dTopc9aXkhMM1KPddqGrHkpQP/ggLw+HGGIhPnjsksUd3QkgfVdUg8JeP8aGteK/umY6rXA+6QSvWGP7f/HJh/xDzHBfU2l90KF/aV5mp3bGD0Ms7qpju5ofDBfdIPH8bNu8rqy62u5KlnetQaULHdW7F+/zeJ5wlr9H8pls6DGH+irJngNGS82OSScvjRpENTt9XPHrlI+UN/duVQ3KnRTgEOg6GSt1ImqfBwa1Y06Oe+9YthZ4mEuY/itUjcW4Jggs+44stpmPoBHnGSOO7Lz2SCHX9FXfVPrT+QzXwveMMNhvyNwl4jpoBTsONU77voNQrD/zcveT7ckBcdT0gf1RMVqZ3GvM1mcCHgbuLT5xcAG3ZVLvKLrwiZWpDzjkOmg+/TCYuaX/PmRs2QaildfviW/Hevmw9fcUXrTPqGSG1H0GqrjyoxA23V8Bv1vcoq5T+skp8dIbcJSQWuOiEdN/9r6Wwt+ce/Owj5RMyX8svgiDy7Xia6lFiVez5+mc6+MH18/KBmUi0rBT5bMEzDB02KxSzK3qMi/OAOQbYPYfNIl59lkdsAQipp0fl0TyGTMHZ6ntmqj2l5zkJHU7TG1zdi/FIUctcz1DIEPg+NlhS9FbjN2wp3mA4pVD5nTNRsfJ8aoZDP/THBSRncKJ1B32ZKWVISad+YBO2I7HsSylu/2JAid4ONBCK+SXX0Ii5QJpT2K3qJoU5O0AEeUSCFgMH6Y0slKRny0AgFmKdd3IbCl0FGoDRgky6Kpl5nReBFLOxJS3raORhaVQNPjf6oF+EHRybCVLEr2dX0tp6of1g4ChOehyVdIHiy4yc+gbVR3W/VSagggPu3cNPok6jhStOwANbe5q7sXPijAPFAv6IzRTeO+embmWD/0qG5c0hamY1SJx7TGITr8KHQlNMLOnLk6d6hKiUFY33FuDSrU4FOK/DlA77NZOQ2DoItuiRVHrv93c3Ynvsatdiv8ltHKtG/HPn2xQ5i/+KmnggfDXrNjTme/buvA7XBzP+X4knz+wOMF/GahG7NjGP4B3LS0isYWNJlgzkv5ZfAqZmMgiDL4Uw4froX5zPClgLcuZvrSJ3LpZ0hehlg3LRhV48WBz4HdDyylIkXHc+1n8we2Bk9pRa002V390oHwHjfeG+UQzp8xz1K8/Cfw6bCvjE4aKrMJSUJ4q7/F7nFLMCzzZyEr44/A6jwLMnJ3s7RyEHPjMyGRN94cyyYkwoKb46jjdNwFExp+uDx84AAAAroJ0dGaMpTEuuEdi2qExu11QiBqZ/k52IRMSeBomwPLBUoCC8wSTtiP9HRqh7gJus94cKYgES9OiJll+Cd3eIwOD6JCQCieA/wbdylWAGytAp3nxurx9pmMhUhGTeB+MkM5BsZMrDn/2sMJOKRjjNt2g0gMbKKE6b5+Zj7Cnd+it9FsOUbY4dzXBasH8mOWkUdOI8rZbbZ5Ll0X32qlwrfJQrNejOjC88t/wEkQn0aj+6BXoSXhIqy/Og0akMBNMzvrKK+YGjEnqMgfR8Vpj0ee5n2jjWzUqk4KeO/ye62D30AACl1qF9rD6SKSdlx/s5cA4IilVP+dWfn0F78WBdIwyb//SQkDGmtdbenSegElOP6PacZhBb+i/K8WWTu9VXV3yrgDCPhPh6e1HISsrz0WbU+T58ifQfGwICXCSYKy3/m/Q75i2vmdDwxPgO8ZKBu9IGoODXA6ISUVPugBOst1nXbOPsFGCKUxkCIpAtzR0oGWylfhafGgcXX2YVelEAAGZgDheCp4xVtvY6XlUgAdaEsyBTVzlwPi/1zEK15FcNTBocGc2mwzP940f/Ashv782L8JhH49Yr5i19NOyEFc+9yVMP/6v+VKsyT4GdSWcrI4IuBItt9W0eC9/olYFePtXmHUf4orvWMA4Ok/W/DPiAUumcO3Z0vqCIn8iI0XTxO2/zE+EDIAAFuz8FhwjaiUQbn36vQuiVliQzezMSYEHFqL+njMKYWo93d8PUR898ko0xT6vUj+34B+74g4wqOCXw+Cpi7xYYwWrwcwF0nshveDXg8u+B6hLwmZwwxBeoOUIUGwH0wyzflw/31HIVK6kC5oZxg0wgAA82cHeRYUKwMf/ySi9883rB2PBjX8qg2kjev0DgFfZ1IKg9U4aUh8UT1bDFwl3sBQXGuyjBeDP8jqk45LpO+aPbW06uXAoE8nL95AopOsshrUb8sP84XohoiO/5/d08Xryx9hxWI4rLaIBcfmEfVc1NiDjAtOHWezpQb0QAACc5+bXJ/5c8ma7r1QlsmaQAHx0BfVeFYcWPOwD8qxBR4lUSO/nw6bIb6g7TWDahUxcJwuRqbh8PYZ/UtLQFpj8nXxP4U0xeR7RGm3rNZp7dgAYVm91AgbmXK2KNYeYYboTOI6Lh3nCBvAgjPDwP3JK8acBLD88RcNiUjnnXtI/wb+3ss4QXRBsBT6yAAAKLsVYaJb9tG38fU+Dy3kcwCp4xK+BxgigXzeGOjVZ1Zthw0Uot+zDRyv6/H3nGPexdydUWakaeWAvpJAFIx8fT5aJcWISdjzNts2ZCBu9xVyDQejhGxOb1sDHhs4Qk/7zoOavD7DRNkCZqWhPBXpgAAovbf2BaKv5fsKRRZIQGT5BaFjTtxayO1Vd6REt5oNcLWWuV6YaVjmIvvWr82rRWLLttX4fGSUxuQotS3+Y16SrHdinQSlfuhfvL+/uyeTARUxTmsR/AAL1vjINJMdmifKg0gVzJGIu1Z/Dkf5Y/hUzlqBcJb2osBeaSI4M4rnr8RVamVM8Z8AAGxpyQlWyeg+U2Tq5mgyuILgDWO+v8/0RzncBLV3LwOhX/Irt8x3SBRMSdvLIUn3icw4KNUhuDN5Lt+CSvxkqBG19L//adaEnZctqMCo9DEmXJl87OL/CIt6Blqbs3QvZXA9XV9ZAAA85GVkZ+1e47Id5Iy0J0PvVwLkzR2CU4xMBjk5msHJel6C8R0ziTx4LLVIaXvtaUTDd/G79Y0xDsLb6rqCzF28SD/EBTY7FtSFjUvEHAAGBNVeJtO0mdTot44rDszK8dYovrtO4nM7hzp90q6LKQol6jSi2aCdBg1acKvD1Aqv8HTsw66VaIOGvpPUYjPJxleE9cxsPm6UsFjd1dep90xrnSXr38Zz2i0Cs8PfS7DV0V/elsE4FXVUHZ8t7HYJNzeibY84HWUhoCiuWL1RVR8/DkCoD51uyMtlWbJPs/5BI+S8wTiPaQgME2YRkzJezhlvcu0BaaXWlRjPe04fYmbaCaZO4qaBheEE0tWchTr75PJV3HzhDTOdaSszkS/idII8KajAQ/lE1ia6RA3G2JaP8KQPy7Ug32nKmv29lkFjPRdgWsxgiETxNaGHPyAD5AgCXRhQFiSBDDTnAfDFmYIpfMFbI9vO2VWgP/DXKciVSHgZFCvOTrBQPSk5fktQlWoDVJLm318cOxMWCHhT4GfUZsqcA7UoBeHwIxyRbJ25xoP2E8Cyp4UIFXdIa6B5Go+OroDuZkXuw09nlRjdV4RPHCe+xM/Uw1OPHeHNhQ3Qxncojf6ikNcXmVFEqRW71oNAl6NBT7hVd+8Pjdv05Ijez2Y4Z9W2Qu0FlKO7aURS80VVzsFkSpPE2XMX69PwgCxIocOy/ulP4+hklymXG/633l6cdZBe0Or+Qm4vzJMvIFgaOslYHUvpQi1vQfq6j8SL9CNMlzK5AMhNxOYAABYD5T55OaqRumUpYFO85YMYSSAALKHSqDsuryuUgnYT+Bap4FwOS4o51LWFhi/ek4+Ah1dwLscK/+OnBM8TZ5dxmGxO0I1Ppo7wcdEXAKdaiHXyAq03+wgJDKzMcTxJ9T/QADJmGKIdThjZOeWspnLMJHUutYYH+vDPzW/BOQdz+QyyLg8AA" alt="logo">
+      </a>
+<div class="nav-links">
+        <a href="#intro" data-ar="البداية" data-en="Start">البداية</a>
+        <a href="#industrial" data-ar="الحقوق الصناعية" data-en="Industrial Rights">الحقوق الصناعية</a>
+        <a href="#copyright" data-ar="حقوق النشر" data-en="Copyrights">حقوق النشر</a>
+        <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
+        <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
+      </div>
+      <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="home">
+    <div class="hero-circles"><span></span><span></span><span></span></div>
+    <div class="hero-content">
+<div class="hero-badge" data-ar="درس 2-2 — Intellectual Property Rights" data-en="Lesson 2-2 — Intellectual Property Rights">درس 2-2 — Intellectual Property Rights</div>
+      <h1 class="hero-title" data-ar="حقوق الملكية <span class='grad'>الفكرية</span>" data-en="Intellectual Property <span class='grad'>Rights</span>">حقوق الملكية <span class="grad">الفكرية</span></h1>
+      <p class="hero-sub" data-ar="كل إبداع ليه صاحبه — تعلم إزاي تحمي حقوق المبدعين وتحترم أعمال غيرك" data-en="Every creation has an owner — learn how to protect creators' rights and respect others' work">كل إبداع ليه صاحبه — تعلم إزاي تحمي حقوق المبدعين وتحترم أعمال غيرك</p>
+      <a href="#intro" class="hero-btn" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 01 INTRO ============ -->
+    <section id="intro">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#0e7490)">01</div>
+          <div>
+            <h2 data-ar="إيه هي حقوق الملكية الفكرية؟" data-en="What are Intellectual Property Rights?">إيه هي حقوق الملكية الفكرية؟</h2>
+            <div class="tag" style="color:var(--s1)" data-ar="التعريف الأساسي" data-en="Core Definition">التعريف الأساسي</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="حقوق الملكية الفكرية (<span dir="ltr">Intellectual Property Rights</span>) هي الحقوق اللي بتحمي الإبداعات والأفكار اللي بيتولدها النشاط الفكري البشري. الحقوق دي بتتقسم بشكل رئيسي إلى حقوق الملكية الصناعية وحقوق النشر." data-en="Intellectual Property Rights are rights that protect creations and ideas generated by human intellectual activities. These rights are mainly divided into Industrial Property Rights and Copyrights.">حقوق الملكية الفكرية (<span dir="ltr">Intellectual Property Rights</span>) هي الحقوق اللي بتحمي الإبداعات والأفكار اللي بيتولدها النشاط الفكري البشري. الحقوق دي بتتقسم بشكل رئيسي إلى حقوق الملكية الصناعية وحقوق النشر.</p>
+
+        <div class="demo-label" style="margin-top:16px" data-ar="اختبر فهمك: إيه بيبقى من حقوق الملكية الفكرية؟" data-en="Test yourself: which is part of Intellectual Property Rights?">اختبر فهمك: إيه بيبقى من حقوق الملكية الفكرية؟</div>
+        <div class="cards-grid" id="ipCards">
+          <div class="card-item" data-correct="1">
+            <div class="card-icon">🏭</div>
+            <div class="card-title" data-ar="حقوق الملكية الصناعية" data-en="Industrial Property Rights">حقوق الملكية الصناعية</div>
+            <div class="card-body" data-ar="بتخص تصنيع المنتجات الصناعية والتجارية — جزء من الملكية الفكرية" data-en="Concerns manufacturing of industrial and commercial products — part of Intellectual Property">بتخص تصنيع المنتجات الصناعية والتجارية — جزء من الملكية الفكرية</div>
+            <div class="card-feedback" data-ar="✅ صح — جزء من حقوق الملكية الفكرية" data-en="✅ Correct — part of Intellectual Property Rights">✅ صح — جزء من حقوق الملكية الفكرية</div>
+          </div>
+          <div class="card-item" data-correct="1">
+            <div class="card-icon">🎬</div>
+            <div class="card-title" data-ar="حقوق النشر" data-en="Copyrights">حقوق النشر</div>
+            <div class="card-body" data-ar="بتخص الأنشطة الإبداعية الفنية — زي الروايات والأفلام والموسيقى" data-en="Concerns creative activities in the arts — novels, movies, music, etc.">بتخص الأنشطة الإبداعية الفنية — زي الروايات والأفلام والموسيقى</div>
+            <div class="card-feedback" data-ar="✅ صح — جزء من حقوق الملكية الفكرية" data-en="✅ Correct — part of Intellectual Property Rights">✅ صح — جزء من حقوق الملكية الفكرية</div>
+          </div>
+          <div class="card-item" data-correct="0">
+            <div class="card-icon">🌡️</div>
+            <div class="card-title" data-ar="قياس درجة حرارة الطقس" data-en="Measuring weather temperature">قياس درجة حرارة الطقس</div>
+            <div class="card-body" data-ar="ده مش إبداع فكري محمي بحقوق الملكية الفكرية" data-en="Not a protected intellectual creation">ده مش إبداع فكري محمي بحقوق الملكية الفكرية</div>
+            <div class="card-feedback" data-ar="❌ غلط — دي مش من حقوق الملكية الفكرية" data-en="❌ Wrong — that's not Intellectual Property">❌ غلط — دي مش من حقوق الملكية الفكرية</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تعتقد إن حقوق الملكية الفكرية بتحمي الأفكار بس زي ما هي — لأ، بتحمي التعبير عن الأفكار في شكل إبداعات ملموسة." data-en="Thinking IP rights protect ideas themselves — no, they protect the expression of ideas in tangible creations.">تعتقد إن حقوق الملكية الفكرية بتحمي الأفكار بس زي ما هي — لأ، بتحمي التعبير عن الأفكار في شكل إبداعات ملموسة.</li>
+          <li data-ar="تظن إن الحقوق دي حاجة واحدة — لأ، بتتقسم لفرعين رئيسيين: صناعية وحقوق نشر." data-en="Thinking these rights are one thing — no, they divide into two main branches: industrial and copyrights.">تظن إن الحقوق دي حاجة واحدة — لأ، بتتقسم لفرعين رئيسيين: صناعية وحقوق نشر.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 02 INDUSTRIAL ============ -->
+    <section id="industrial">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#d97706)">02</div>
+          <div>
+            <h2 data-ar="حقوق الملكية الصناعية" data-en="Industrial Property Rights">حقوق الملكية الصناعية</h2>
+            <div class="tag" style="color:var(--s2)" data-ar="مبدأ التسجيل الرسمي" data-en="The Formality Principle">مبدأ التسجيل الرسمي</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="إيه هي حقوق الملكية الصناعية؟" data-en="What are Industrial Property Rights?" style="color:var(--s2)">إيه هي حقوق الملكية الصناعية؟</h3>
+        <p data-ar="حقوق الملكية الصناعية (<span dir="ltr">Industrial Property Rights</span>) هي حقوق متعلقة بشكل أساسي بتصنيع المنتجات الصناعية أو التجارية. الحقوق دي بتتحصل من خلال مبدأ الشكلانية (<span dir="ltr">Formality</span>)، اللي فيه الحقوق بتفيد من لحظة تقديم الطلب وتسجيله في مكتب براءات الاختراع المصري (<span dir="ltr">Egypt Patent Office</span>)." data-en="Industrial Property Rights are rights primarily related to the manufacturing of industrial or commercial products. This follows the principle in which rights come into effect once an application is filed with and registered by the Egypt Patent Office. This is known as the Formality Principle.">حقوق الملكية الصناعية (<span dir="ltr">Industrial Property Rights</span>) هي حقوق متعلقة بشكل أساسي بتصنيع المنتجات الصناعية أو التجارية. الحقوق دي بتتحصل من خلال مبدأ الشكلانية (<span dir="ltr">Formality</span>)، اللي فيه الحقوق بتفيد من لحظة تقديم الطلب وتسجيله في مكتب براءات الاختراع المصري (<span dir="ltr">Egypt Patent Office</span>).</p>
+        <div class="demo-label" style="margin-top:14px" data-ar="أنواع حقوق الملكية الصناعية — اضغط على كل نوع تتعرف عليه:" data-en="Types of Industrial Property Rights — click each type:">أنواع حقوق الملكية الصناعية — اضغط على كل نوع تتعرف عليه:</div>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="industrial">
+            <div class="card-icon">💡</div>
+            <div class="card-title" data-ar="حقوق براءة الاختراع" data-en="Patent Rights">حقوق براءة الاختراع (<span dir="ltr">Patent Rights</span>)</div>
+            <div class="card-body" data-ar="حقوق للأفكار والاختراعات التكنولوجية المتقدمة." data-en="Rights to advanced technological ideas and inventions.">حقوق للأفكار والاختراعات التكنولوجية المتقدمة.</div>
+            <div class="card-feedback" data-ar="📅 فترة الحماية: 20 سنة من تاريخ التقديم" data-en="📅 Protection period: 20 years from the application">📅 فترة الحماية: 20 سنة من تاريخ التقديم</div>
+          </div>
+          <div class="card-item" data-reveal="industrial">
+            <div class="card-icon">🔧</div>
+            <div class="card-title" data-ar="حقوق نموذج المنفعة" data-en="Utility Model Rights">حقوق نموذج المنفعة (<span dir="ltr">Utility Model Rights</span>)</div>
+            <div class="card-body" data-ar="حقوق لشكل أو هيكل المنتج." data-en="Rights to the shape or structure of a product.">حقوق لشكل أو هيكل المنتج.</div>
+            <div class="card-feedback" data-ar="📅 فترة الحماية: 7 سنوات من تاريخ التقديم" data-en="📅 Protection period: 7 years from the application">📅 فترة الحماية: 7 سنوات من تاريخ التقديم</div>
+          </div>
+          <div class="card-item" data-reveal="industrial">
+            <div class="card-icon">🎨</div>
+            <div class="card-title" data-ar="حقوق التصميم" data-en="Design Rights">حقوق التصميم (<span dir="ltr">Design Rights</span>)</div>
+            <div class="card-body" data-ar="حقوق للتصميم زي شكل ونقوش المنتج." data-en="Rights to a design, such as the shape and patterns of a product.">حقوق للتصميم زي شكل ونقوش المنتج.</div>
+            <div class="card-feedback" data-ar="📅 فترة الحماية: 10 سنوات من التقديم (تُجدد كل 5 سنوات)" data-en="📅 Protection period: 10 years from the application (renewed once every 5 years)">📅 فترة الحماية: 10 سنوات من التقديم (تُجدد كل 5 سنوات)</div>
+          </div>
+          <div class="card-item" data-reveal="industrial">
+            <div class="card-icon">🏷️</div>
+            <div class="card-title" data-ar="حقوق العلامة التجارية" data-en="Trademark Rights">حقوق العلامة التجارية (<span dir="ltr">Trademark Rights</span>)</div>
+            <div class="card-body" data-ar="حقوق لأشياء زي أسماء المنتجات والشعارات والنصوص والصوت." data-en="Rights related to items such as product names, logos, text, and sound.">حقوق لأشياء زي أسماء المنتجات والشعارات والنصوص والصوت.</div>
+            <div class="card-feedback" data-ar="📅 فترة الحماية: 10 سنوات من تاريخ التسجيل (قابلة للتجديد)" data-en="📅 Protection period: 10 years from the registration (renewable)">📅 فترة الحماية: 10 سنوات من تاريخ التسجيل (قابلة للتجديد)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تخلط بين مدد الحماية — براءة الاختراع 20 سنة، نموذج المنفعة 7، التصميم 10، والعلامة التجارية 10 من التسجيل." data-en="Mixing up protection periods — patent 20 years, utility model 7, design 10, trademark 10 from registration.">تخلط بين مدد الحماية — براءة الاختراع 20 سنة، نموذج المنفعة 7، التصميم 10، والعلامة التجارية 10 من التسجيل.</li>
+          <li data-ar="تعتقد إن الحقوق الصناعية بتتحصل تلقائياً بدون تسجيل — لأ، بتعتمد على مبدأ الشكلانية وتسجيل الطلب في مكتب براءات الاختراع." data-en="Thinking industrial rights are automatic without registration — no, they follow the Formality Principle and registration.">تعتقد إن الحقوق الصناعية بتتحصل تلقائياً بدون تسجيل — لأ، بتعتمد على مبدأ الشكلانية وتسجيل الطلب في مكتب براءات الاختراع.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 03 COPYRIGHT ============ -->
+    <section id="copyright">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#7c3aed)">03</div>
+          <div>
+            <h2 data-ar="حقوق النشر" data-en="Copyrights">حقوق النشر</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مبدأ عدم الشكلانية" data-en="The Non-Formality Principle">مبدأ عدم الشكلانية</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="إيه هي حقوق النشر؟" data-en="What are Copyrights?" style="color:var(--s3)">إيه هي حقوق النشر؟</h3>
+        <p data-ar="حقوق النشر (<span dir="ltr">Copyrights</span>) هي حقوق متعلقة بالأنشطة الإبداعية في الفنون، وبتغطي أعمال زي الروايات والأفلام واللوحات والصور الفوتوغرافية والموسيقى وبرامج الكمبيوتر. بتتبع مبدأ عدم الشكلانية (<span dir="ltr">Non-Formality</span>)، اللي فيه الحقوق بتتأسس من لحظة إنشاء العمل المحمي، سواء كان المبدع هاوٍ أو قاصر." data-en="Copyrights are rights related to creative activities in the arts, covering works such as novels, movies, paintings, photographs, music, and computer programs. It follows the Non-Formality Principle, under which rights are established the moment a copyrighted work is created, regardless of whether the creator is an amateur or a minor.">حقوق النشر (<span dir="ltr">Copyrights</span>) هي حقوق متعلقة بالأنشطة الإبداعية في الفنون، وبتغطي أعمال زي الروايات والأفلام واللوحات والصور الفوتوغرافية والموسيقى وبرامج الكمبيوتر. بتتبع مبدأ عدم الشكلانية (<span dir="ltr">Non-Formality</span>)، اللي فيه الحقوق بتتأسس من لحظة إنشاء العمل المحمي، سواء كان المبدع هاوٍ أو قاصر.</p>
+        <p style="margin-top:12px" data-ar="قانون حقوق النشر (<span dir="ltr">Copyright Act</span>) هو القانون اللي بيحمي حقوق المبدعين." data-en="The Copyright Act is a law that protects the rights of creators.">قانون حقوق النشر (<span dir="ltr">Copyright Act</span>) هو القانون اللي بيحمي حقوق المبدعين.</p>
+
+        <div class="demo-label" style="margin-top:14px" data-ar="حقوق المبدع — اضغط على كل حق:" data-en="Rights of the creator — click each right:">حقوق المبدع — اضغط على كل حق:</div>
+        <div class="journey">
+          <div class="journey-item">
+            <h4 data-ar="1. الحقوق الأدبية للمبدع" data-en="1. Moral rights of creator">1. الحقوق الأدبية للمبدع</h4>
+            <p data-ar="حقوق بتحمي المصالح الشخصية للمبدع." data-en="Rights that protect the personal interests of the creator.">حقوق بتحمي المصالح الشخصية للمبدع.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="2. حقوق النشر (الحقوق المالية)" data-en="2. Copyrights (property rights)">2. حقوق النشر (الحقوق المالية)</h4>
+            <p data-ar="حقوق بتحمي المصالح الاقتصادية للمبدع." data-en="Rights that protect the economic interests of the creator.">حقوق بتحمي المصالح الاقتصادية للمبدع.</p>
+          </div>
+        </div>
+
+        <div class="demo-label" style="margin-top:14px" data-ar="مفاهيم مهمة تانية — اضغط على كل مفهوم:" data-en="Other important concepts — click each one:">مفاهيم مهمة تانية — اضغط على كل مفهوم:</div>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="copyright">
+            <div class="card-icon">🎤</div>
+            <div class="card-title" data-ar="الحقوق المجاورة" data-en="Neighboring Rights">الحقوق المجاورة (<span dir="ltr">Neighboring Rights</span>)</div>
+            <div class="card-body" data-ar="حقوق بتظهر للأفراد أو الكيانات اللي بينقلوا أو بيبثوا الأعمال المحمية بحقوق النشر." data-en="Rights that arise for individuals or entities who communicate or transmit copyrighted works.">حقوق بتظهر للأفراد أو الكيانات اللي بينقلوا أو بيبثوا الأعمال المحمية بحقوق النشر.</div>
+            <div class="card-feedback" data-ar="💡 بتيجي للمطربين والمخرجين والممثلين وشركات التسجيل ومؤسسات البث." data-en="💡 Granted to performers such as singers, directors, and actors, as well as record companies and broadcasting organizations.">💡 بتيجي للمطربين والمخرجين والممثلين وشركات التسجيل ومؤسسات البث.</div>
+          </div>
+          <div class="card-item" data-reveal="copyright">
+            <div class="card-icon">⏳</div>
+            <div class="card-title" data-ar="فترة حماية حقوق النشر" data-en="Copyright protection period">فترة حماية حقوق النشر</div>
+            <div class="card-body" data-ar="طول حياة المبدع + 50 سنة بعد وفاته." data-en="The lifetime of the creator plus 50 years after their death.">طول حياة المبدع + 50 سنة بعد وفاته.</div>
+            <div class="card-feedback" data-ar="💡 يعني أعمال مبدعين ماتوا من أكثر من 50 سنة بقت في المجال العام." data-en="💡 Works of creators dead for over 50 years fall into the public domain.">💡 يعني أعمال مبدعين ماتوا من أكثر من 50 سنة بقت في المجال العام.</div>
+          </div>
+          <div class="card-item" data-reveal="copyright">
+            <div class="card-icon">🚫</div>
+            <div class="card-title" data-ar="انتهاك حقوق النشر" data-en="Copyright infringement">انتهاك حقوق النشر (<span dir="ltr">Copyright infringement</span>)</div>
+            <div class="card-body" data-ar="استخدام عمل حد بدون إذنه بيعتبر انتهاك لحقوق النشر." data-en="Using a work without permission constitutes copyright infringement.">استخدام عمل حد بدون إذنه بيعتبر انتهاك لحقوق النشر.</div>
+            <div class="card-feedback" data-ar="💡 لازم تحصل على إذن (<span dir="ltr">permission</span>) من المبدع قبل ما تعيد إنتاج عمله أو تنشره على موقع." data-en="💡 You must obtain permission from the creator before reproducing their work or publishing it on a website.">💡 لازم تحصل على إذن (<span dir="ltr">permission</span>) من المبدع قبل ما تعيد إنتاج عمله أو تنشره على موقع.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 data-ar="اختبر نفسك: فين حقوق النشر بتبدأ؟" data-en="Test yourself: when do copyrights begin?" style="color:var(--s3)">اختبر نفسك: فين حقوق النشر بتبدأ؟</h3>
+        <div class="cards-grid" id="copyCards">
+          <div class="card-item" data-correct="1">
+            <div class="card-icon">✨</div>
+            <div class="card-title" data-ar="مجرد ما تخلق العمل" data-en="The moment you create the work">مجرد ما تخلق العمل</div>
+            <div class="card-body" data-ar="مبدأ عدم الشكلانية — الحقوق بتتأسس وقت الإنشاء حتى لو هاوٍ أو قاصر" data-en="Non-Formality Principle — rights arise at creation even for amateurs or minors">مبدأ عدم الشكلانية — الحقوق بتتأسس وقت الإنشاء حتى لو هاوٍ أو قاصر</div>
+            <div class="card-feedback" data-ar="✅ صح — الحقوق بتتأسس وقت الإنشاء" data-en="✅ Correct — rights arise at the moment of creation">✅ صح — الحقوق بتتأسس وقت الإنشاء</div>
+          </div>
+          <div class="card-item" data-correct="0">
+            <div class="card-icon">📝</div>
+            <div class="card-title" data-ar="بعد التسجيل في مكتب براءات الاختراع" data-en="After registering with the Patent Office">بعد التسجيل في مكتب براءات الاختراع</div>
+            <div class="card-body" data-ar="ده بيعمل مع الحقوق الصناعية مش حقوق النشر" data-en="That applies to industrial rights, not copyrights">ده بيعمل مع الحقوق الصناعية مش حقوق النشر</div>
+            <div class="card-feedback" data-ar="❌ غلط — حقوق النشر مش محتاجة تسجيل" data-en="❌ Wrong — copyrights don't require registration">❌ غلط — حقوق النشر مش محتاجة تسجيل</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تعتقد إن حقوق النشر بتحمي جودة العمل — لأ، الحقوق بتتحصل على العمل نفسه مش على جودته." data-en="Thinking copyrights protect the quality of a work — no, rights apply to the work itself, not its quality.">تعتقد إن حقوق النشر بتحمي جودة العمل — لأ، الحقوق بتتحصل على العمل نفسه مش على جودته.</li>
+          <li data-ar="تظن إن أعمال مبدعين زي طه حسين أو بيتهوفن ممنوعة للأبد — لأ، بعد 50 سنة من الوفاة بتبقى في المجال العام، لكن الحقوق المجاورة للمؤدين وشركات التسجيل لسه موجودة." data-en="Thinking works by creators like Taha Hussein or Beethoven are protected forever — no, after 50 years from death they enter the public domain, but performers' and record companies' neighboring rights remain.">تظن إن أعمال مبدعين زي طه حسين أو بيتهوفن ممنوعة للأبد — لأ، بعد 50 سنة من الوفاة بتبقى في المجال العام، لكن الحقوق المجاورة للمؤدين وشركات التسجيل لسه موجودة.</li>
+          <li data-ar="تحمّل موسيقى أو أفلام معروضة للبيع وأنت عارف إنها مرفوعة بشكل غير قانوني — ده انتهاك لحقوق النشر حتى للاستخدام الشخصي." data-en="Downloading music or movies for sale while knowing they were illegally uploaded — that's copyright infringement even for personal use.">تحمّل موسيقى أو أفلام معروضة للبيع وأنت عارف إنها مرفوعة بشكل غير قانوني — ده انتهاك لحقوق النشر حتى للاستخدام الشخصي.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 04 EXERCISES ============ -->
+    <section id="exercises">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#059669)">04</div>
+          <div>
+            <h2 data-ar="التدريبات والاختبارات" data-en="Exercises & Quizzes">التدريبات والاختبارات</h2>
+            <div class="tag" style="color:var(--s4)" data-ar="تحدي ختامي" data-en="Final Challenge">تحدي ختامي</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warm Up -->
+      <div class="section-inner card">
+        <h3 style="color:var(--s1)" data-ar="🔥 Warm Up — صفحة 17" data-en="🔥 Warm Up — Page 17">🔥 Warm Up — صفحة 17</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="حط حلك بنفسك الأول، وبعدين افتح الحل." data-en="Try by yourself first, then open the solution.">حط حلك بنفسك الأول، وبعدين افتح الحل.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="الحقوق اللي بتتحصل عليها لما تنتج حاجة عن طريق نشاط فكري اسمها إيه؟" data-en="What are the rights granted to a creator when they produce something through intellectual activity called?">الحقوق اللي بتتحصل عليها لما تنتج حاجة عن طريق نشاط فكري اسمها إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Patent Rights" data-en="A&nbsp;&nbsp;Patent Rights">A&nbsp;&nbsp;Patent Rights</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Intellectual Property Rights" data-en="B&nbsp;&nbsp;Intellectual Property Rights">B&nbsp;&nbsp;Intellectual Property Rights</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Design Rights" data-en="C&nbsp;&nbsp;Design Rights">C&nbsp;&nbsp;Design Rights</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Neighboring Rights" data-en="D&nbsp;&nbsp;Neighboring Rights">D&nbsp;&nbsp;Neighboring Rights</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — Intellectual Property Rights هي الحقوق اللي بتحمي إبداعات النشاط الفكري." data-en="✅ Answer: B — Intellectual Property Rights protect creations of intellectual activity.">✅ الإجابة: <b>B</b> — <span dir="ltr">Intellectual Property Rights</span> هي الحقوق اللي بتحمي إبداعات النشاط الفكري.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="حقوق الملكية الصناعية بتتأسس تحت أي مبدأ؟" data-en="Under which principle are Industrial Property Rights established?">حقوق الملكية الصناعية بتتأسس تحت أي مبدأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Formality Principle" data-en="A&nbsp;&nbsp;Formality Principle">A&nbsp;&nbsp;Formality Principle</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Non-Formality Principle" data-en="B&nbsp;&nbsp;Non-Formality Principle">B&nbsp;&nbsp;Non-Formality Principle</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Fair Use Principle" data-en="C&nbsp;&nbsp;Fair Use Principle">C&nbsp;&nbsp;Fair Use Principle</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Public Domain Principle" data-en="D&nbsp;&nbsp;Public Domain Principle">D&nbsp;&nbsp;Public Domain Principle</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — الحقوق بتفيد من لحظة تقديم الطلب وتسجيله في مكتب براءات الاختراع المصري." data-en="✅ Answer: A — rights come into effect once an application is filed with and registered by the Egypt Patent Office.">✅ الإجابة: <b>A</b> — <span dir="ltr">Formality Principle</span> هو المبدأ اللي فيه الحقوق بتفيد من لحظة تقديم الطلب وتسجيله في مكتب براءات الاختراع المصري.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="فترة حماية حقوق النشر هي إيه؟" data-en="What is the copyright protection period?">فترة حماية حقوق النشر هي إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;20 سنة من تاريخ التقديم" data-en="A&nbsp;&nbsp;20 years from the application">A&nbsp;&nbsp;20 سنة من تاريخ التقديم</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;طول حياة المبدع + 50 سنة بعد وفاته" data-en="B&nbsp;&nbsp;The creator's lifetime plus 50 years after their death">B&nbsp;&nbsp;طول حياة المبدع + 50 سنة بعد وفاته</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;7 سنوات من تاريخ التقديم" data-en="C&nbsp;&nbsp;7 years from the application">C&nbsp;&nbsp;7 سنوات من تاريخ التقديم</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;10 سنوات من التسجيل" data-en="D&nbsp;&nbsp;10 years from registration">D&nbsp;&nbsp;10 سنوات من التسجيل</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — حماية حقوق النشر = حياة المبدع + 50 سنة بعد وفاته." data-en="✅ Answer: B — copyright protection = the creator's lifetime plus 50 years after death.">✅ الإجابة: <b>B</b> — حماية حقوق النشر = حياة المبدع + 50 سنة بعد وفاته.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="نشر رواية «الأيام» لطه حسين على موقعك بدون إذن مش بيعتبر انتهاك لحقوق النشر — هل هذه الجملة صحيحة أم خطأ؟" data-en="Posting Taha Hussein's novel 'The Days' on your website without permission does not constitute copyright infringement — is this statement correct or incorrect?">نشر رواية «الأيام» لطه حسين على موقعك بدون إذن مش بيعتبر انتهاك لحقوق النشر — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — روايات زي طه حسين ممكن تتستخدم بدون حقوق نشر لأن مرت أكثر من 50 سنة على وفاته." data-en="✅ Answer: ○ — novels like Taha Hussein's can be used copyright-free as over 50 years have passed since his death.">✅ الإجابة: <b>○</b> — روايات زي طه حسين ممكن تتستخدم بدون حقوق نشر لأن مرت أكثر من 50 سنة على وفاته.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="تحميل موسيقى أو أفلام معروضة للبيع وأنت عارف إنها مرفوعة بشكل غير قانوني بيعتبر انتهاك لحقوق النشر — هل هذه الجملة صحيحة أم خطأ؟" data-en="Downloading music or videos that are for sale while knowing they have been illegally uploaded constitutes copyright infringement — is this statement correct or incorrect?">تحميل موسيقى أو أفلام معروضة للبيع وأنت عارف إنها مرفوعة بشكل غير قانوني بيعتبر انتهاك لحقوق النشر — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — تحميل الأعمال اللي أنت عارف إنها مرفوعة بشكل غير قانوني بيعتبر انتهاك لحقوق النشر." data-en="✅ Answer: ○ — downloading works you know were illegally uploaded is copyright infringement.">✅ الإجابة: <b>○</b> — تحميل الأعمال اللي أنت عارف إنها مرفوعة بشكل غير قانوني بيعتبر انتهاك لحقوق النشر.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="نشر البيانات الصوتية لسمفونية بيتهوفن الخامسة «القدر» اللي أدّاها شخص تاني بشكل ممتاز على السوشيال ميديا مش بيعتبر انتهاك لحقوق النشر — هل هذه الجملة صحيحة أم خطأ؟" data-en="Posting the audio of Beethoven's Symphony No. 5 'Fate' played exceptionally well by someone else on social media does not constitute copyright infringement — is this statement correct or incorrect?">نشر البيانات الصوتية لسمفونية بيتهوفن الخامسة «القدر» اللي أدّاها شخص تاني بشكل ممتاز على السوشيال ميديا مش بيعتبر انتهاك لحقوق النشر — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — برغم إن ألحان بيتهوفن بقت خارج الحماية، المؤدين وشركات التسجيل عندهم حقوق مجاورة ويلزم التحقق من أذونات الاستخدام." data-en="✅ Answer: × — although Beethoven's compositions are out of copyright, performers and record companies have neighboring rights, so usage permissions must be verified.">✅ الإجابة: <b>×</b> — برغم إن ألحان بيتهوفن بقت خارج الحماية، المؤدين وشركات التسجيل عندهم حقوق مجاورة ويلزم التحقق من أذونات الاستخدام.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="حقوق العلامة التجارية بتتني 10 سنين بعد التسجيل مع مكتب براءات الاختراع، لكن ممكن تتجدد — هل هذه الجملة صحيحة أم خطأ؟" data-en="Trademark rights conclude 10 years after registration with the Patent Office, but can be maintained through renewal — is this statement correct or incorrect?">حقوق العلامة التجارية بتتني 10 سنين بعد التسجيل مع مكتب براءات الاختراع، لكن ممكن تتجدد — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — حقوق العلامة التجارية ممكن تستمر من خلال إجراءات التجديد." data-en="✅ Answer: ○ — trademark rights can be maintained through renewal procedures.">✅ الإجابة: <b>○</b> — حقوق العلامة التجارية ممكن تستمر من خلال إجراءات التجديد.</div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="warm" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-hide="warm" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
+        </div>
+      </div>
+
+      <!-- Try -->
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 style="color:var(--s2)" data-ar="🎯 Try — صفحة 18" data-en="🎯 Try — Page 18">🎯 Try — صفحة 18</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="حط حلك بنفسك الأول، وبعدين افتح الحل." data-en="Put your solution by yourself first, then open the solution.">حط حلك بنفسك الأول، وبعدين افتح الحل.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="الحقوق المتعلقة بالإبداعات الناتجة عن النشاط الفكري البشري بتتجمع كلها تحت أي اسم؟" data-en="What is the collective term for rights related to creations resulting from human intellectual activity?">الحقوق المتعلقة بالإبداعات الناتجة عن النشاط الفكري البشري بتتجمع كلها تحت أي اسم؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Intellectual Property Rights" data-en="A&nbsp;&nbsp;Intellectual Property Rights">A&nbsp;&nbsp;Intellectual Property Rights</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Patent Rights" data-en="B&nbsp;&nbsp;Patent Rights">B&nbsp;&nbsp;Patent Rights</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Copyrights" data-en="C&nbsp;&nbsp;Copyrights">C&nbsp;&nbsp;Copyrights</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Utility Model Rights" data-en="D&nbsp;&nbsp;Utility Model Rights">D&nbsp;&nbsp;Utility Model Rights</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Intellectual Property Rights هي الاسم الجماعي للحقوق دي." data-en="✅ Answer: A — Intellectual Property Rights is the collective term.">✅ الإجابة: <b>A</b> — <span dir="ltr">Intellectual Property Rights</span> هي الاسم الجماعي للحقوق دي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="الأعمال المحمية بحقوق النشر بتشمل روايات وسيناريوهات وإيه كمان؟" data-en="Copyrighted works include novels, scripts, and what else?">الأعمال المحمية بحقوق النشر بتشمل روايات وسيناريوهات وإيه كمان؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;أفكار مجردة" data-en="A&nbsp;&nbsp;Abstract ideas">A&nbsp;&nbsp;أفكار مجردة</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;أفلام" data-en="B&nbsp;&nbsp;Movies">B&nbsp;&nbsp;أفلام</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;تراخيص فقط" data-en="C&nbsp;&nbsp;Licenses only">C&nbsp;&nbsp;تراخيص فقط</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;أسماء منتجات" data-en="D&nbsp;&nbsp;Product names">D&nbsp;&nbsp;أسماء منتجات</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — الأعمال المحمية تشمل الأفلام والمؤلفات الموسيقية والأعمال الفنية والمباني والصور الفوتوغرافية وبرامج الكمبيوتر." data-en="✅ Answer: B — protected works include movies, musical compositions, works of art, buildings, photographs, and computer programs.">✅ الإجابة: <b>B</b> — الأعمال المحمية تشمل الأفلام والمؤلفات الموسيقية والأعمال الفنية والمباني والصور الفوتوغرافية وبرامج الكمبيوتر.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="استخدام عمل حد بدون إذن بيعتبر إيه؟" data-en="Using a work without permission is considered what?">استخدام عمل حد بدون إذن بيعتبر إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Patent Infringement" data-en="A&nbsp;&nbsp;Patent Infringement">A&nbsp;&nbsp;Patent Infringement</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Copyright Infringement" data-en="B&nbsp;&nbsp;Copyright Infringement">B&nbsp;&nbsp;Copyright Infringement</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Formality" data-en="C&nbsp;&nbsp;Formality">C&nbsp;&nbsp;Formality</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Neighboring Rights" data-en="D&nbsp;&nbsp;Neighboring Rights">D&nbsp;&nbsp;Neighboring Rights</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — استخدام عمل بدون إذن بيعتبر Copyright Infringement وقد يتعرض لعقوبات." data-en="✅ Answer: B — using a work without permission is Copyright Infringement and may be subject to penalties.">✅ الإجابة: <b>B</b> — استخدام عمل بدون إذن بيعتبر <span dir="ltr">Copyright Infringement</span> وقد يتعرض لعقوبات.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="الحقوق الصناعية بتشمل حقوق زي حقوق إيه اللي بتحمي تصاميم زي تصاميم العربيات؟" data-en="Industrial property rights include which rights that protect designs like those of automobiles?">الحقوق الصناعية بتشمل حقوق زي حقوق إيه اللي بتحمي تصاميم زي تصاميم العربيات؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Utility model" data-en="A&nbsp;&nbsp;Utility model">A&nbsp;&nbsp;Utility model</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Design" data-en="B&nbsp;&nbsp;Design">B&nbsp;&nbsp;Design</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Trademark" data-en="C&nbsp;&nbsp;Trademark">C&nbsp;&nbsp;Trademark</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Patent" data-en="D&nbsp;&nbsp;Patent">D&nbsp;&nbsp;Patent</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — Design Rights بتحمي التصاميم زي شكل ونقوش المنتج." data-en="✅ Answer: B — Design Rights protect designs like the shape and patterns of products.">✅ الإجابة: <b>B</b> — <span dir="ltr">Design Rights</span> بتحمي التصاميم زي شكل ونقوش المنتج.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="عشان تاخد حماية كحق ملكية صناعية، لازم تعمل إيه؟" data-en="To receive protection as an industrial property right, what is required?">عشان تاخد حماية كحق ملكية صناعية، لازم تعمل إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;تقدم طلباً" data-en="A&nbsp;&nbsp;File an application">A&nbsp;&nbsp;تقدم طلباً</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;مفيش حاجة مطلوبة" data-en="B&nbsp;&nbsp;Nothing is required">B&nbsp;&nbsp;مفيش حاجة مطلوبة</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;تنشر العمل أولاً" data-en="C&nbsp;&nbsp;Publish the work first">C&nbsp;&nbsp;تنشر العمل أولاً</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;تاخد رأي أصدقائك" data-en="D&nbsp;&nbsp;Ask your friends' opinion">D&nbsp;&nbsp;تاخد رأي أصدقائك</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — لازم تقدم طلباً للتسجيل تحت مبدأ الشكلانية." data-en="✅ Answer: A — you must file an application under the Formality Principle.">✅ الإجابة: <b>A</b> — لازم تقدم طلباً للتسجيل تحت مبدأ الشكلانية.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="سجلت فيلم معروض على التلفزيون ووزعته — هل ده بيعتبر انتهاك لحقوق النشر؟" data-en="I recorded a movie broadcast on television and distributed it — is this copyright infringement?">سجلت فيلم معروض على التلفزيون ووزعته — هل ده بيعتبر انتهاك لحقوق النشر؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;نعم — انتهاك" data-en="A&nbsp;&nbsp;Yes — infringement">A&nbsp;&nbsp;نعم — انتهاك</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;لا — عادي" data-en="B&nbsp;&nbsp;No — fine">B&nbsp;&nbsp;لا — عادي</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — تسجيل فيلم وتوزيعه بيعتبر انتهاك لحقوق النشر." data-en="✅ Answer: A — recording and distributing a movie is copyright infringement.">✅ الإجابة: <b>A</b> — تسجيل فيلم وتوزيعه بيعتبر انتهاك لحقوق النشر.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="نسخت رسمة موزعة مجاناً وبعتها بثمن منخفض — هل ده بيعتبر انتهاك لحقوق النشر؟" data-en="I copied an illustration distributed for free and sold the copies at a low price — is this copyright infringement?">نسخت رسمة موزعة مجاناً وبعتها بثمن منخفض — هل ده بيعتبر انتهاك لحقوق النشر؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;نعم — انتهاك" data-en="A&nbsp;&nbsp;Yes — infringement">A&nbsp;&nbsp;نعم — انتهاك</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;لا — عادي" data-en="B&nbsp;&nbsp;No — fine">B&nbsp;&nbsp;لا — عادي</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — نسخ عمل وبعده بيعتبر انتهاك لحقوق النشر حتى لو كان موزعاً مجاناً." data-en="✅ Answer: A — copying and selling a work is infringement even if it was distributed for free.">✅ الإجابة: <b>A</b> — نسخ عمل وبعده بيعتبر انتهاك لحقوق النشر حتى لو كان موزعاً مجاناً.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">8</span> <span data-ar="برغم إني عارف إن الفيديو مرفوع بشكل غير قانوني، نزلته للاستخدام الشخصي فقط — هل ده بيعتبر انتهاك لحقوق النشر؟" data-en="Even though I knew a video was illegally uploaded, I downloaded it solely for personal use — is this copyright infringement?">برغم إني عارف إن الفيديو مرفوع بشكل غير قانوني، نزلته للاستخدام الشخصي فقط — هل ده بيعتبر انتهاك لحقوق النشر؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;نعم — انتهاك" data-en="A&nbsp;&nbsp;Yes — infringement">A&nbsp;&nbsp;نعم — انتهاك</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;لا — عادي" data-en="B&nbsp;&nbsp;No — fine">B&nbsp;&nbsp;لا — عادي</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — حتى لو للاستخدام الشخصي، تحميل فيديو عارف إنه مرفوع بشكل غير قانوني بيعتبر انتهاك." data-en="✅ Answer: A — even for personal use, downloading a video you know was illegally uploaded is infringement.">✅ الإجابة: <b>A</b> — حتى لو للاستخدام الشخصي، تحميل فيديو عارف إنه مرفوع بشكل غير قانوني بيعتبر انتهاك.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">9</span> <span data-ar="الأعمال اللي مرت أكثر من كام سنة بعد وفاة المبدع ممكن تتستخدم بحرية؟" data-en="Works that have passed more than how many years after the creator's death can be used freely?">الأعمال اللي مرت أكثر من كام سنة بعد وفاة المبدع ممكن تتستخدم بحرية؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;20 سنة" data-en="A&nbsp;&nbsp;20 years">A&nbsp;&nbsp;20 سنة</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;50 سنة" data-en="B&nbsp;&nbsp;50 years">B&nbsp;&nbsp;50 سنة</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;7 سنوات" data-en="C&nbsp;&nbsp;7 years">C&nbsp;&nbsp;7 سنوات</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;10 سنوات" data-en="D&nbsp;&nbsp;10 years">D&nbsp;&nbsp;10 سنوات</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — الأعمال اللي مرت أكثر من 50 سنة على وفاة المبدع بقت في المجال العام." data-en="✅ Answer: B — works more than 50 years after the creator's death fall into the public domain.">✅ الإجابة: <b>B</b> — الأعمال اللي مرت أكثر من 50 سنة على وفاة المبدع بقت في المجال العام.</div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="try" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-hide="try" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
+        </div>
+      </div>
+
+      <!-- Exercise -->
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 style="color:var(--s3)" data-ar="💪 Exercise — صفحة 19" data-en="💪 Exercise — Page 19">💪 Exercise — صفحة 19</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="تحدي ختامي — كوّن الإجابة بنفسك وبعدين تحقق." data-en="Final challenge — build the answer by yourself then check.">تحدي ختامي — كوّن الإجابة بنفسك وبعدين تحقق.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="من حقوق الملكية الفكرية، إيه مصطلح الحقوق اللي بتتعلق بتصنيع المنتجات الصناعية والمصنعة؟" data-en="Among intellectual property rights, what is the term for rights pertaining to the manufacturing of industrial and manufactured products?">من حقوق الملكية الفكرية، إيه مصطلح الحقوق اللي بتتعلق بتصنيع المنتجات الصناعية والمصنعة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Industrial Property Rights" data-en="A&nbsp;&nbsp;Industrial Property Rights">A&nbsp;&nbsp;Industrial Property Rights</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Copyrights" data-en="B&nbsp;&nbsp;Copyrights">B&nbsp;&nbsp;Copyrights</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Neighboring Rights" data-en="C&nbsp;&nbsp;Neighboring Rights">C&nbsp;&nbsp;Neighboring Rights</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Moral Rights" data-en="D&nbsp;&nbsp;Moral Rights">D&nbsp;&nbsp;Moral Rights</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Industrial Property Rights هي الحقوق المتعلقة بتصنيع المنتجات الصناعية والمصنعة." data-en="✅ Answer: A — Industrial Property Rights pertain to the manufacturing of industrial and manufactured products.">✅ الإجابة: <b>A</b> — <span dir="ltr">Industrial Property Rights</span> هي الحقوق المتعلقة بتصنيع المنتجات الصناعية والمصنعة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="إيه العبارة الغلط بخصوص حقوق النشر من A لـ D؟" data-en="Which statement is incorrect in relation to copyrights from A to D?">إيه العبارة الغلط بخصوص حقوق النشر من A لـ D؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;حقوق النشر بتتحصل بالاعتراف عند التقديم لمكتب براءات الاختراع" data-en="A&nbsp;&nbsp;Copyrights are granted through recognition upon application to the Patent Office">A&nbsp;&nbsp;حقوق النشر بتتحصل بالاعتراف عند التقديم لمكتب براءات الاختراع</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;حقوق النشر بتستمر 50 سنة بعد وفاة المبدع" data-en="B&nbsp;&nbsp;Copyrights are maintained for 50 years after the death of the creator">B&nbsp;&nbsp;حقوق النشر بتستمر 50 سنة بعد وفاة المبدع</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;حقوق النشر بتظهر حتى لو المبدع قاصر" data-en="C&nbsp;&nbsp;Copyrights arise even if the creator is a minor">C&nbsp;&nbsp;حقوق النشر بتظهر حتى لو المبدع قاصر</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;حقوق النشر بتحمي الأعمال الأدبية والفنية" data-en="D&nbsp;&nbsp;Copyrights protect literary and artistic works">D&nbsp;&nbsp;حقوق النشر بتحمي الأعمال الأدبية والفنية</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — حقوق النشر مش محتاجة تسجيل في مكتب براءات الاختراع، ببتأسس وقت الإنشاء." data-en="✅ Answer: A — copyrights don't require Patent Office registration; they arise at creation.">✅ الإجابة: <b>A</b> — حقوق النشر مش محتاجة تسجيل في مكتب براءات الاختراع، ببتأسس وقت الإنشاء.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="إيه مصطلح الحقوق اللي بتحمي العلامات المستخدمة لتمييز السلع والخدمات؟" data-en="What is the term for rights protecting the marks used to distinguish goods and services?">إيه مصطلح الحقوق اللي بتحمي العلامات المستخدمة لتمييز السلع والخدمات؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Trademark Rights" data-en="A&nbsp;&nbsp;Trademark Rights">A&nbsp;&nbsp;Trademark Rights</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Patent Rights" data-en="B&nbsp;&nbsp;Patent Rights">B&nbsp;&nbsp;Patent Rights</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Design Rights" data-en="C&nbsp;&nbsp;Design Rights">C&nbsp;&nbsp;Design Rights</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Utility Model Rights" data-en="D&nbsp;&nbsp;Utility Model Rights">D&nbsp;&nbsp;Utility Model Rights</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Trademark Rights بتحمي العلامات المستخدمة لتمييز السلع والخدمات." data-en="✅ Answer: A — Trademark Rights protect the marks used to distinguish goods and services.">✅ الإجابة: <b>A</b> — <span dir="ltr">Trademark Rights</span> بتحمي العلامات المستخدمة لتمييز السلع والخدمات.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="إيه مصطلح الحقوق اللي بتحمي اختراعات الأشياء أو الطرق؟" data-en="What is the term for rights that protect inventions of things or methods?">إيه مصطلح الحقوق اللي بتحمي اختراعات الأشياء أو الطرق؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Design Rights" data-en="A&nbsp;&nbsp;Design Rights">A&nbsp;&nbsp;Design Rights</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Patent Rights" data-en="B&nbsp;&nbsp;Patent Rights">B&nbsp;&nbsp;Patent Rights</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Trademark Rights" data-en="C&nbsp;&nbsp;Trademark Rights">C&nbsp;&nbsp;Trademark Rights</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Neighboring Rights" data-en="D&nbsp;&nbsp;Neighboring Rights">D&nbsp;&nbsp;Neighboring Rights</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — Patent Rights بتحمي اختراعات الأشياء أو الطرق." data-en="✅ Answer: B — Patent Rights protect inventions of things or methods.">✅ الإجابة: <b>B</b> — <span dir="ltr">Patent Rights</span> بتحمي اختراعات الأشياء أو الطرق.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="حقوق التصميم معترف بيها للأفكار المتعلقة بالجوانب التقنية لشكل المنتج أو هيكله اللي ممكن تنفذ فوراً — هل هذه الجملة صحيحة أم خطأ؟" data-en="A design right is recognized for ideas related to the technical aspects of a product's shape or structure that can be immediately implemented — is this statement correct or incorrect?">حقوق التصميم معترف بيها للأفكار المتعلقة بالجوانب التقنية لشكل المنتج أو هيكله اللي ممكن تنفذ فوراً — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — حقوق التصميم بتتعلق بشكل ونقوش المنتج، مش الجوانب التقنية؛ الجوانب التقنية دي من براءات الاختراع ونماذج المنفعة." data-en="✅ Answer: × — design rights concern the shape and patterns, not technical aspects; those belong to patents and utility models.">✅ الإجابة: <b>×</b> — حقوق التصميم بتتعلق بشكل ونقوش المنتج، مش الجوانب التقنية؛ الجوانب التقنية دي من براءات الاختراع ونماذج المنفعة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="حقوق النشر بتقل للهواة والأطفال لأن الحقوق بتتعلق بجودة العمل — هل هذه الجملة صحيحة أم خطأ؟" data-en="Copyrights tend to be recognized less for creations by amateurs or children, as copyrights are often related to the quality of the work — is this statement correct or incorrect?">حقوق النشر بتقل للهواة والأطفال لأن الحقوق بتتعلق بجودة العمل — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — الحقوق مش بتتعلق بجودة العمل، وبتظهر حتى لو المبدع هاوٍ أو قاصر." data-en="✅ Answer: × — rights are not related to quality and arise even for amateurs or minors.">✅ الإجابة: <b>×</b> — الحقوق مش بتتعلق بجودة العمل، وبتظهر حتى لو المبدع هاوٍ أو قاصر.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="تسجيل فيلم معروض على التلفزيون ثم توزيعه بيعتبر انتهاك لحقوق النشر — هل هذه الجملة صحيحة أم خطأ؟" data-en="Recording a movie broadcast on television and distributing it constitutes copyright infringement — is this statement correct or incorrect?">تسجيل فيلم معروض على التلفزيون ثم توزيعه بيعتبر انتهاك لحقوق النشر — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — تسجيل وتوزيع فيلم بيعتبر انتهاك لحقوق النشر." data-en="✅ Answer: ○ — recording and distributing a movie is copyright infringement.">✅ الإجابة: <b>○</b> — تسجيل وتوزيع فيلم بيعتبر انتهاك لحقوق النشر.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">8</span> <span data-ar="فترة حماية براءة الاختراع 20 سنة من تاريخ التقديم — هل هذه الجملة صحيحة أم خطأ؟" data-en="The protection period for a patent right is 20 years from the date of application — is this statement correct or incorrect?">فترة حماية براءة الاختراع 20 سنة من تاريخ التقديم — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — فترة حماية براءة الاختراع 20 سنة من تاريخ التقديم." data-en="✅ Answer: ○ — the patent protection period is 20 years from the application date.">✅ الإجابة: <b>○</b> — فترة حماية براءة الاختراع 20 سنة من تاريخ التقديم.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">9</span> <span data-ar="مفيش مشكلة في نشر النص الكامل لكتاب «وحي القلم» لصادق الرافعي على مدونتك بدون إذن لو كنت معجب بنثره — هل هذه الجملة صحيحة أم خطأ؟" data-en="There is no problem with posting the full text of Sadeq Elrafaey's 'The Pen Inspiration' on your blog without permission if you are very fond of its prose — is this statement correct or incorrect?">مفيش مشكلة في نشر النص الكامل لكتاب «وحي القلم» لصادق الرافعي على مدونتك بدون إذن لو كنت معجب بنثره — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — الإعجاب بالنثر مش إذن؛ نشر العمل بدون إذن المبدع بيعتبر انتهاك لحقوق النشر." data-en="✅ Answer: × — liking the prose is not permission; publishing without the creator's permission is copyright infringement.">✅ الإجابة: <b>×</b> — الإعجاب بالنثر مش إذن؛ نشر العمل بدون إذن المبدع بيعتبر انتهاك لحقوق النشر.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">10</span> <span data-ar="في الأنواع الأربعة لحقوق الملكية الصناعية، الحقوق اللي بتخص أسماء المنتجات أو الشعارات هي حقوق إيه؟" data-en="Among the four types of Industrial Property Rights, which rights concern product names or logos?">في الأنواع الأربعة لحقوق الملكية الصناعية، الحقوق اللي بتخص أسماء المنتجات أو الشعارات هي حقوق إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Trademark Rights" data-en="A&nbsp;&nbsp;Trademark Rights">A&nbsp;&nbsp;Trademark Rights</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Patent Rights" data-en="B&nbsp;&nbsp;Patent Rights">B&nbsp;&nbsp;Patent Rights</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Utility Model Rights" data-en="C&nbsp;&nbsp;Utility Model Rights">C&nbsp;&nbsp;Utility Model Rights</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Design Rights" data-en="D&nbsp;&nbsp;Design Rights">D&nbsp;&nbsp;Design Rights</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Trademark Rights هي الحقوق المتعلقة بأسماء المنتجات والشعارات، بفترة حماية 10 سنين من التسجيل." data-en="✅ Answer: A — Trademark Rights concern product names and logos, with a protection period of 10 years from registration.">✅ الإجابة: <b>A</b> — <span dir="ltr">Trademark Rights</span> هي الحقوق المتعلقة بأسماء المنتجات والشعارات، بفترة حماية 10 سنين من التسجيل.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">11</span> <span data-ar="حقوق نموذج المنفعة بتخص إيه؟" data-en="Utility Model Rights pertain to what?">حقوق نموذج المنفعة بتخص إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;إعادة إنتاج أو بيع المنتجات" data-en="A&nbsp;&nbsp;Reproduction or sale of products">A&nbsp;&nbsp;إعادة إنتاج أو بيع المنتجات</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;نواقل المنتجات" data-en="B&nbsp;&nbsp;Conveyors of products">B&nbsp;&nbsp;نواقل المنتجات</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;تصميم المنتج" data-en="C&nbsp;&nbsp;Product design">C&nbsp;&nbsp;تصميم المنتج</div>
+              <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;أفكار لهيكل وشكل المنتج" data-en="D&nbsp;&nbsp;Ideas for the structure and shape of a product">D&nbsp;&nbsp;أفكار لهيكل وشكل المنتج</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: D — Utility Model Rights بتخص أفكار لهيكل وشكل المنتج، بفترة حماية 7 سنين." data-en="✅ Answer: D — Utility Model Rights pertain to ideas for the structure and shape of a product, protected for 7 years.">✅ الإجابة: <b>D</b> — <span dir="ltr">Utility Model Rights</span> بتخص أفكار لهيكل وشكل المنتج، بفترة حماية 7 سنين.</div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="exercise" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-hide="exercise" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 SUMMARY ============ -->
+    <section id="summary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#d97706)">05</div>
+          <div>
+            <h2 data-ar="الخلاصة" data-en="Summary">الخلاصة</h2>
+            <div class="tag" style="color:var(--s2)" data-ar="رحلة الليوم" data-en="Today's Journey">رحلة الليوم</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="إيه اللي اتعلمناه النهاردة؟" data-en="What did we learn today?" style="color:var(--s2)">إيه اللي اتعلمناه النهاردة؟</h3>
+        <div class="journey">
+          <div class="journey-item">
+            <h4 data-ar="1. حقوق الملكية الفكرية" data-en="1. Intellectual Property Rights">1. حقوق الملكية الفكرية</h4>
+            <p data-ar="الحقوق اللي بتحمي إبداعات النشاط الفكري البشري — وبتتقسم لصناعية وحقوق نشر." data-en="Rights protecting creations of human intellectual activity — divided into industrial and copyrights.">الحقوق اللي بتحمي إبداعات النشاط الفكري البشري — وبتتقسم لصناعية وحقوق نشر.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="2. الحقوق الصناعية = تسجيل" data-en="2. Industrial rights = registration">2. الحقوق الصناعية = تسجيل</h4>
+            <p data-ar="بتتبع مبدأ الشكلانية — الحقوق بتبدأ بعد تقديم الطلب وتسجيله في مكتب براءات الاختراع المصري." data-en="They follow the Formality Principle — rights begin after filing and registration with the Egypt Patent Office.">بتتبع مبدأ الشكلانية — الحقوق بتبدأ بعد تقديم الطلب وتسجيله في مكتب براءات الاختراع المصري.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="3. حقوق النشر = تلقائية" data-en="3. Copyrights = automatic">3. حقوق النشر = تلقائية</h4>
+            <p data-ar="بتتبع مبدأ عدم الشكلانية — الحقوق بتتأسس من لحظة الإنشاء، والـ 4 أنواع الصناعية ليهم مدد حماية مختلفة." data-en="They follow the Non-Formality Principle — rights arise at creation; the 4 industrial types have different protection periods.">بتتبع مبدأ عدم الشكلانية — الحقوق بتتأسس من لحظة الإنشاء، والـ 4 أنواع الصناعية ليهم مدد حماية مختلفة.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="4. الحماية والمدة" data-en="4. Protection and duration">4. الحماية والمدة</h4>
+            <p data-ar="حقوق النشر محمية طول حياة المبدع + 50 سنة. براءة الاختراع 20 سنة، نموذج المنفعة 7، التصميم 10، العلامة 10 من التسجيل." data-en="Copyrights are protected for the creator's life plus 50 years. Patent 20, utility model 7, design 10, trademark 10 from registration.">حقوق النشر محمية طول حياة المبدع + 50 سنة. براءة الاختراع 20 سنة، نموذج المنفعة 7، التصميم 10، العلامة 10 من التسجيل.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="5. الانتهاك" data-en="5. Infringement">5. الانتهاك</h4>
+            <p data-ar="استخدام عمل حد بدون إذنه بيعتبر انتهاك — لازم تحترم أعمال غيرك وتاخد إذنهم." data-en="Using a work without permission is infringement — respect others' work and get their permission.">استخدام عمل حد بدون إذنه بيعتبر انتهاك — لازم تحترم أعمال غيرك وتاخد إذنهم.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 data-ar="مصطلحات المفتاح" data-en="Key Terms" style="color:var(--s2)">مصطلحات المفتاح</h3>
+        <div class="cards-grid">
+          <div class="card-item">
+            <div class="card-icon">🧠</div>
+            <div class="card-title">Intellectual Property Rights</div>
+            <div class="card-body" data-ar="حقوق الملكية الفكرية — تحمي إبداعات النشاط الفكري" data-en="Protect creations of intellectual activity">حقوق الملكية الفكرية — تحمي إبداعات النشاط الفكري</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🏭</div>
+            <div class="card-title">Industrial Property Rights</div>
+            <div class="card-body" data-ar="حقوق الملكية الصناعية — بتعتمد على التسجيل" data-en="Depend on registration (Formality)">حقوق الملكية الصناعية — بتعتمد على التسجيل</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">©️</div>
+            <div class="card-title">Copyrights</div>
+            <div class="card-body" data-ar="حقوق النشر — بتتأسس من لحظة الإنشاء" data-en="Arise at the moment of creation (Non-Formality)">حقوق النشر — بتتأسس من لحظة الإنشاء</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🎤</div>
+            <div class="card-title">Neighboring Rights</div>
+            <div class="card-body" data-ar="الحقوق المجاورة — للمؤدين وشركات التسجيل" data-en="For performers and record companies">الحقوق المجاورة — للمؤدين وشركات التسجيل</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🚫</div>
+            <div class="card-title">Copyright Infringement</div>
+            <div class="card-body" data-ar="انتهاك حقوق النشر — استخدام عمل بدون إذن" data-en="Using a work without permission">انتهاك حقوق النشر — استخدام عمل بدون إذن</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">⏳</div>
+            <div class="card-title">Public Domain</div>
+            <div class="card-body" data-ar="المجال العام — أعمال بعد 50 سنة من وفاة المبدع" data-en="Works 50+ years after the creator's death">المجال العام — أعمال بعد 50 سنة من وفاة المبدع</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px; text-align:center">
+        <h3 data-ar="🎉 أحسنت! كمّلت درس حقوق الملكية الفكرية" data-en="🎉 Well done! You completed the Intellectual Property Rights lesson" style="color:var(--success)">🎉 أحسنت! كمّلت درس حقوق الملكية الفكرية</h3>
+        <p data-ar="افتكر دايمًا: كل إبداع ليه صاحبه اللي ليه حق فيه. احترم أعمال غيرك واخد إذنهم قبل ما تستخدم أي حاجة!" data-en="Always remember: every creation has an owner with rights over it. Respect others' work and get their permission before using anything!">افتكر دايمًا: كل إبداع ليه صاحبه اللي ليه حق فيه. احترم أعمال غيرك واخد إذنهم قبل ما تستخدم أي حاجة!</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <img class="footer-logo" src="data:image/webp;base64,UklGRmIZAABXRUJQVlA4IFYZAADQsQCdASpYAlgCPlEokkajoqGhIxN4IHAKCWdu4WG+iOAIi7fWjpTT92/Jvb9ev/3D9gfyn6yndHvn/S/+z/lfweYI/Hf0H/Qf2T9o/8Z/////94/9L6lf0B/wfcA/Sf/Ff3L/B/7f+zf////+CHzAf1P+wf8X/Ge8H/jv1i9yP+m/zP+g9wD+uf3nrOPQH/ln+K9MT/x/6P4Uf2r/9H+T+Bj+Z/3X/y+wB6AHVz9jP6x20/3Dlr1DL459mP1v914weAF+Q/yr/A/mP/TeNnAB+c/1X/jf2bkL8QDg2KAn8y/tXn1/TvoP+lP/Z/k/gP/mn9s/7P967TP7UezH+4ARCn4aFsm7ycsw0OkCh6OnWO0ljeyC2TD2RjPBOFKahbxjyFPy442HDGnTDsMPOXMh0M29I77peMnqebB2b3wdmwf+xRhjc59+gwZLd2UI5n3/MClHnLy43twkehcbB4f0F/3WhvQ8bm7k5buAHA5Gq8y2wghxveuj+f1bnjDip0UDyNR4t4lRmSZGcmUKk2aI0WjDgxJyydBsVLr1M+tx7CxVPAQww8LvYIKXCNT2i0FTZOBxxsd4CiUo88B2Jm1cL7uYrlwwTMHDhspjK8fqfZq88JijzlA76su0n2b21KnTEgfs2Ds2JBNno4/PpN7LMnva6ABT+GolKPJx3Ws24Hk1DUGOLsLJL2hUNGYWckFKPJg3Qid8fEWShnRLbjOsN9uyISEppPypDq52GMALFRHim+kOMN4iQLVo6XLPqwEeXI/3zWsQ3iKsi9uViB6dJ0m7fWKNygiVQNujzwekXieGpj9xqveyjky431h2ZxfMm/7PwoBkebcE+3JuThG3dRTg5PRCzFrMjflZCLh0I5hcavfDZk+ML3BK5boN61ooOYu6xPA5BeH5pTneTvKp9QZEvRMYRHIDokEy28OXsADX+v/akeGeoC6xUjFoK+ahL29ZIErONImMq55LegYbmnlPYA0WFMEFEfPSiA3Ddje2pU/9kTJtpyRs9uI6xTcKRbaIT2yNObt7u0WuTlAEtHMHvFdLimoxF8quagfy6J+3aGNMBr8WCzmhw6ohUf7VUgF3i99GHJaukSOCti0YKLPJNEvc7qUzpBAnVGL2zVnCEQXpTK0kuRgZZiQ+ybSH2pm2K5ZzUlvzH4zvQihoI3HjM5JC8QeG0h0SCaYvziC5aQCKSaFN2XlcreJu+KT13i1AC9+OYT3PY4Utun//MNqTOElrnsxZnHlZzX270w1DPwccXESbDl+xXgHHYMuv4qojN3i0dIRdFgsolwFJ4H/3UaG9SNUaP0OxrjSBZD3ZdIkKMOZz+ykYqJV1lCkIBAkSMPdo1+hwmspD9vFd/6FQVM7xpj7ge36FYuUzDegB2jvGl1015W0uNLGHKTtWPBRgCZdyTc1/9tEAcEjuOXFnHZuFTsqk45MX3/c+89FIAy3B/KFKCDQK7R3IbIRRRS/P3mRZfMTTgqwKwIp8TmmMOFQJ8LS7IweAm+ZYMdduv8l6DY27VDcvb3teJ4mj+aMkxLhK+z5IyD24ThSjzlmP7QNZoKfYPTiggfDNPvzPvpwluxsJY60hs9DdSI0lhQU1lz/Shxy702xc07T/I0dZc/0qjyVF2occuyDI846xhuwq77VWmHrae7mOtfWwuYPQ45d6jtV82Nkn3sfKRp5lt9uG9U4MIw5EKDT7+rCHxM+ooGFXaZu4XvIM/pRGXt77edMKTMlW+5OwSt2+q8/0oqu3Y1cNtS24oD5LdduiXA+3YQN454rUOPgUtzHRQaoffmffme0HoccygG5EGqv0+ahUSeW9TbvzPvzPuA0jhRGXtrnmitqTKLF9neFKEXYmOLsKHN13WWrUAKxMxLLC9RIcEsbzwjVjeyC04hGrG6AMQgAA/voZ/j8v4wX+MFNS+7HLHGPSs3Z7T3eqUnLLze598IhYMMKtW1fNcadelMTeuDuTfl+qARJyC5yOkZfo5ISHwlQgMzw98WrB1S2t+0dPCKmeq22aBAmsi3E9pi3vl+XOAtSvFLWLMQdz6QdFQkYCarsnCYfVLDE0qEQ89GIg0UoaBE1lgFVdW+UxxQfVqlRQmvfaF2kRdzjTI0WxIlAx+v6Ojrg06aJPvqUFC1T5Qx8fqzfgHkAowR6XVhKcQxgAUaFlfSYsP5PcO+i68RJxI02oZ08XbzcmBaveiHzpEI5XMmFtHQWB0zjFR4OY+NEKv9DpKwGb50qtEkOypgfWFLUWle+GSaH0QwElHVDIZVTXQiQsH8JQ4Ivh3WQNAl0HbQVnv06MRLOigfOX8GUwcYKfr3wyFmQ0xp5Bgs6M/gOPzsoIF/0Z9I8Sk4kxxqdaaZxXrnbJ+8XTRddN5iPiZ/aSZGjf1FZ8XVGJ4n76e0zFvSVtGdxNVn3IHd1BX+FYuKCoK2eXrRXSkXxkWZDnLVw7oP7OoZ+UBPfC+J2THnX8dZIQOIVzMJy8OWgBSaeK9NGoW/HtLCr/Pwy/M7r7VC+i1qKk3l4TpbAEePb7Bj44tV8W99z7NBmwIoo0eer/L39qXm/FDFv/QmqH2W7QzvL036x/xd5OSds8MQ8qjXN59ySxkXhdM3Wx230Ds/EQO2W17uwCEb0MqCPjYR+uNkVA/MiiDLqIH+dAjBTTzvcKQN+esFX20xfZUFpF4cuRICL7oSbujD9BF8ggXmaJ3irDvJiZOoXvIplnVmifFqHLhEaRII/n2YQzSjOF0zauy4pu+u8bunw0oxiIxEkAkwPJ5ZM0NuWHcxxaKEpQheQL/3vurOlJXaSBPxsf5X45ZNs30eMVr/VZcM56YPAANHDs+SGIFJyXnMeHbOnVluq+uubfP55gLxb4TWfpt7UDMBK4Yzj+BYPyhSEQpOAg951JvxTqPM9aqtWLVItVE5LfjRTqrEzb4zYUnZ4UD94m1StwtdkzbuN/cuaJtPlz1fADAKehlEogVgFqE4KxihmDpkxFajuVPeOyEOEGKVfifLfgHUHste35RgI1tQaArgS/aW3BUbkaGUNMooOMzFYVR2LJHCY7+UCwY07DRDAU9ootMYrktYB7QyYwCfUnaY3y+vCXnqoBzSbcWcesme1AOlkLKY/Z6xMa9y540nyLrSI5URUnzXLb7ZFR6JDaMnETocV+I5HqSEhj0dKID37uuLt7af3T8lBMHhciwKL0+FXhJxK1n98HbflZse8bCdMl2O1uQHgXnkDsrzhX6JuUrFBoQlta/BtiS8PyevD9P6EHvND1rYc8pRg2/QSjN7ag5AQjsj07FKSPNnQGIL8SfRNtayPEmA+ISBahOZDzpM1qXiTr1XzhsAmUjZbewIpY9xZ7f31Zrv5oIbs0Wer3SSErDG/dBa+T7IczuhiXn67/By96aa+eSItdpx9iTdJ3gBDd2wolwYbrXyOZH+dbPWvEmZ4ArZWmZDJW1m17RtPA2XT2ahMIbC0aK/ATJKd8sGEFUOsX8zbzcO5AN9tWeZrp8v1iLM/b2X25c5IdeJ73282T0K/Zvff695hbt46z61Ujtp8A7k0p2HmS7quRgR6lZFsl6VYp4+Wk9B+tJroTDQQZo0GzgAw/om72foy8s238RmWOCUlQhLthmvXpyO/BEgbHBmxCwRq7dgMwq3LzOsSQIAaZLNJum1/Kt2/b8zabfkisX+GIPo4V6pqhXkRcbcqO8s4a5Cv0TNltiywGTQwnRVC2RVJ/6JUX9lDsUs5aHdy7/gXWS44r/R15Y7FezlSKJY6hnt1Y3J+OqN4kC8Kg7wL+S3pw28tfZDKvBd8KZW+ywg4yA6/wt/kYhqOz0zcF+j3SjZdLe8vGzwOYyqHy17dyi8nctvXzj8eQuvwOSCpUx6iP8rIX/Dd93K1bfhFMKfP5NkCHzQYAMn0+nn8aDoykQ+crOygBOOcAhpMQrO9IRDHgVmFdZwiLBo6CRZbq/q1O3+z11ju0Vfc4ia3XqxqxJAXX4yKd1w8RJVkxBxmUY92XlbnYPl0NTfCHEpZftgVtuNMWX8NojFHBqCS1BzCP/X1unyad3mTsFehZgYy1jm9VM4JI8iwqkzmTP2WEZzPpBkR4/Fn52yKJORuL+iQzc8bG+Sx5tX2n5PLR+YEQ2+x8jlW+5PwVspia0GpfrU0muooL8Mgip1yM7juTuKLU6PCmzoUXCr14W5zbLL1fPHLGLvYvYCoQ6VCHGUeZPJ/ITYUWy8XyxRp6JWgbNrplsd39+hVu+3jcgD4VsixzPme5V1SNqDBWwTs2thujnzT9vf8oWGaIkW+iubEoeDBa9PcWhNXc3aoK2tTs3xKIhbFHhDt357VjH8MGslaG6padtTAguzvVdWPhT0jw+VEB8sK0uu0H7E+H/WiV0ucTRPfdobvuEZJJurmAoE6eX3gZ6awwRT8eNAOvp//1t4s7oO2sl9wJyOtMhSIFGSNj1CY6QDXcm845HM5DPHtibZnSIm0zKp1TViv8U79qBeCOWk265QZiURcIBBWQdxLDziOM5hKus1FhaA1lExKrWyUvhNw7WjVG9lgZW05iHTnRAwy78Ly6OlTGfMPP55yVStJusajThvw/RClnt5EUnSq/Ac4Fmik3lYwKXq+v48oTFZGKDELOtoDGzrcgE3fpEu4Ev51UM9BwbJMe06hdqjyMI8nrvemd6NV4zsA2VXCRSFvDxBLA7CtoczsyOafMpmi+QJ3xxFz1Pk07KzBGLjib73e1AYp3FObudtp5T4pFax8TT8JhfWVwqiFBlX0LHhiirh/vgLPUBfG9tuUV4u6QgLlRy28/NY3wZMTcYRpmWVhNN1rKn/BZMPbhFWLhGE75mNkisSAyuPxjHGYt6Rp29kZmNw+V4zmdPzHlhnuFFq18syOtscFJTpu5ARbBafxwgOYDi0Y98ducJVkFVG10FeEtmuHF4y/tUbJ9gFkph7UFoacsQ5XyuRuTshtmSuo/fnvlSVGrRMLpV+LDU09cnc8aRKT/XDc7QvP4TbQIiaITxBGEoJeSCgRfrliHIfLz9WFCyo6uTHyn9uAfA1LZO/2XnZ4iAzo5mUq6ydmVZASGlkkt6CJaWqaYcLnBMxUydqhMKd+d4/OIYUeCllCWvE0Ms3WB7MNU+ocMiIdQs75LgY119+rFER0z6hRoWqkwXLF1ES5HfQ3w4/xy7tccQkn+hgxqGwfaAnae7kfkCu2Xuymw39kQhoudxpw7EmWvpOYGNlffxvwaNonjKz1Sy7j+QZYRDz5NOLzY4mQBEfQSzoUt7Sc2DU6BWV+WtBd9VLHu1f8qu/A5GKFhrbwfFuVn/YxxlFyC+Efs0TGLhXJB0Jl/T9EG/B4cbOfXhv164jES0oXDgIR1s2XWF5twexX+BCAKF837BJHDjw44BkyRUhIoblVMMQU3/qbeqh0rfNlDVxJH9qNJxgNUWuLETS2aJGDMt95igx3DeD+Xe6FWDLtFB5ZArnTfRxOvCBciDz7dNJq3QpG/8ii6GypVL1hxgVlyeNNXnGD5flqcFszNZqGQ1OFMbKQ6DKePGVOwukVPmAsbSaWBkk35Dv/JNzP0cqx0O99tNZ4LwJROqj5FYgbZKRkCF1zGBlxja8/1ryG+3h8YJFcE+zay6jTPPC5Kapalrypidnm5GAsAxGF0gc7nirBUwGkO3t3pENrYhWkMdNJ+gOUCQ/2iD2fs2ueBxoJFQYKjundr5OfY4too01e6QrNNMJz+7ZEkFZSNjzzQH6qCFGgun6yMW7rOhSSs+rkr3cqO6p/4mQZBrv728EOCdO2JftNPt3h4+oTfdKCjStstHfPPCeXLhIHuOq6ljMyeaxD4Wb3dNC4BMhX5MRKRoM16AdbmE8VDHQ5p1zIJOZTnE478NCWszKklX56i5jSSTDjPqqiYq8ru134Xe8HTGc0G1oR7wgabgP3gNzj5yHrRhWrSBv0+VRs0FPEtLKLYaKqwUpXpu4lLTDeJAZhd101/t4m7t9rHRtLnU2P2N9j6M+2vr7qbSHhImsGLhaSB9ITOCVc99HtOBzp8w/0iVvoiNdYsJqmtg/0G9LhK1COO/+dN/J+f45biTdFpFN1HAFWG2FPI4x09ICMBvWPHMs3lVF1nBh9o4RokJxx1IXNCMc88SvISZq+xS4Wo/teEpC5flHzpPI8OHD4igf9Fvr0QDEpsfwGN8KejwjKHQvK6dT8wCkTt0Q6qHxOUL3DoOQQd02v8SPRBn9yJodSNZamTBvDzffhOOk93xIX6vICD1XpTAADjTxkkHYQ/fH8cvT9Y92G3BVgBdNXX+xLXjv9UZbYsyK3b7BSME6rvEuIwppVx9qTtz4UInSKB14Wv3BqLLjrLVptc8MvjQydetXYvEBC+GxIexY91WGExCBDjBwpHOgM9owIA7ywEp4g6aV15yFBjUO5muGgrK95W1+SZU4gHpKo5kCUCTHAo162fHJ2+XIk2Tr8pqWOWzcRQdaP4AzlFKXToC+sRDWUCoMFtabYepmNU8vAjbyyX2fYIFb5jul9PO9oNJQTxVZpHsKNgW/6T7uVUkaLABx5/3IWuD3RNTnje8vpP1+wJ1OkSvtncq2a09emGx4cEkzfyuiEZ9B9xgyeAYlGS+5Eg6lIsAzDPjnDWB7wINumDq6Te9FvOnV8ZvQBTbH482zKnQbaQAFnccXE82l3sBEjhvt5H9xwifxQkawTAY/wHdAerTOhS/h7JrYTGtOuunAE+TQzdHvB6RlouXngoj76g3PguFzEtJ2Un6N9vUkTJru7SEdBKii28MH4cvOLBZ7sNvj+0ehYi6L0VGhG5pDavKCtbr2DgGzvtam2szTVkKkuy+kTaztA4sUvcEDI/B3ZYnr3/iBwJBey8HVXvwqULpAn3MgZds4FLbZ5Gd2n6Bty8SwEFjf4KuTb19FhPVnrp5+ON2fgdb378jSOoYhrJAFR9YizFhVi8XvCboQUHQVDbyOQqwVQ6P9YeoKMWc4LFaSKKFzH5umxbL7zMOBUMkE7FJTe3fQBSx30zFM98XDXVBDoRyKgYQC8IojCmMV7oaWikBpmkf7LED1xwh5gtyYSFAHPa1PzEvaHEfM1caeXpqmBotBDoxDY1up34naqeD1J9BGGfcqhijuUgx2wLVL/1e9v2yGsrRDknRlJcHmXVYVtD0aMFFMuFZViuWwXAI/7xHmREKJQ+TaoC6tzwJZFokqQLOSSHo32G0ItXPi6DBlvaFCCQXQJqlsgCPIcIsuMGHo0RNE6zr05+AC3DstsmJRHoXLYOSIxaJ/thfAnaihIJ/syG9OPNWT6x+dlDP0s6YZ5JPrX3KCGVXrW21TGqHfNeYV+prkJovBakMwEh38NsZgJmSBn7xINRoOidA0gUGAO3uY+vcYTnzXWnoLs5FRzwH/n+ClcwTji4ClzMFjS++HMvyO+OnZCMb0X6TJ98Q9nvlN57uxkEVKXWuXbX3xOZJKpyZtl2W8aexSqKKrdii5eG7vfsYDZjDFdighBl0OCtAHKgOfvaHGWT4RBtMLOJlt1rBDUv/rmEKCSV7EQwYPGduq3UXBhqa74Ld86z5rETXfXug0yhIPxUwSdeswBUMSuj3Jrj7VPD+C+PJL1dctJpm7vivk7t6uo9TYWEaaMUdkWvijHtBF4yeq+XLVzOrHS+6yIsal1ZVLajObRBiWwUz2oOV/hROJIRXHAOaExRGk9IIjQmr62jcH/AulZk/+jezdBvqIwo0tyfeX/qmt9J6vDKOJRwEO8AAktEd6j0Q6HC+S4KN5n5r7z/ieA5V1KWO4CCMvInJYM+sbO7BhTBdPZiAsAKIoTwAsub9RfDjMA/1QqujhWqpSMF0gFjhV+3NczqMR81o4mQaQrcHrijNDYEAb7lq+2MwW4I2tFtSWZAudgihwv0XCv5PzD/67BI8DG3OdF9nZ2mOczKmzaDJa+9WYdPr1uAy8GI4yfFzCim5Zd8UAUocTOa/BsmCV3ko4Hr1xRaBRtd2y7OYyPjXomJOXUUTt1+dImLZiBqlhDVdVN/+RLrw+HdLh8O1TvdvVqVjx1w/h/cKH3EU1SgC7oxrv84XcMCtMyihKFIyFRSxxikkRoU74YO00AB8fyTDD8mtrGHdPW+p7xZmd0HvG4rR990lp9VOLuFM8JouMnen5fx5mBni6kvoayLaR3POfnMBfLLNhq/BiWOnt0POR96gZ95aezM56mL/MYCtY6MYE+qDgJAowUP1ijyrGRnTL9v65hypSy+zkkxeEGNQxSKGL6xNo4xYNawQ5mqkSLpStOlE/7qperpvG3jmPi4NNsFapAIGkKX2az3K6tNWCxRG72l5YggGLrThYg1coAEUhy5ADjFtBvHYoADvgGnpKYAbRPbYAAAmyyqf9JkAxIAKpPdQfJOVDw1SWgK7d3+prHP3sOX8CrR44xikagYJQhVx9Q2u9b3h7YSv8Mz1fdpUuVLY2+FH8Je/gyjF3J5DE3lkhBpzcB3niIOIE03UvUt1n0/kAKvcs3Po4cMuQYSxi1heNQYBrBPN+ATixBNR+93No7cAAJEZD8VdueSNMkZ+pXADcADTrFREKL/wv9hfrDfOAQUz22EUoMgWuk6PhBrmCIARyP07xcYuZQixQ/b2TkjQ4XbTjuP9SR19+Opi6sJGaN7xGPSmvmBUa0mowT0IAA=" alt="logo">
+    <p data-ar="تعلم إزاي تحمي حقوق الملكية الفكرية وتحترم إبداعات الآخرين — مستقبلك الرقمي بين إيديك! 💙" data-en="Learn how to protect intellectual property rights and respect others' creations — your digital future is in your hands!">تعلم إزاي تحمي حقوق الملكية الفكرية وتحترم إبداعات الآخرين — مستقبلك الرقمي بين إيديك! 💙</p>
+  </footer>
+
+  <script>
+    /* ---------- particles ---------- */
+    (function () {
+      var box = document.getElementById('particles');
+      for (var i = 0; i < 30; i++) {
+        var dot = document.createElement('i');
+        dot.style.left = Math.random() * 100 + '%';
+        dot.style.animationDelay = Math.random() * 15 + 's';
+        dot.style.animationDuration = (12 + Math.random() * 8) + 's';
+        box.appendChild(dot);
+      }
+    })();
+
+    /* ---------- nav scroll ---------- */
+    function wireNav() {
+      var nav = document.getElementById('navbar');
+      var links = document.querySelectorAll('.nav-links a');
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('show', window.scrollY > 100);
+        var id = location.hash || '#intro';
+        links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === id); });
+      });
+    }
+
+    /* ---------- reveal on scroll ---------- */
+    function wireReveal() {
+      var items = document.querySelectorAll('.section-inner');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.05 });
+      items.forEach(function (el) { obs.observe(el); });
+      window.addEventListener('scroll', function () {
+        items.forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('visible');
+        });
+      });
+    }
+
+/* ---------- interactive cards ---------- */
+    function wireCards() {
+      document.querySelectorAll('.card-item[data-correct]').forEach(function (c) {
+        c.addEventListener('click', function () {
+          var ok = c.getAttribute('data-correct') === '1';
+          c.classList.add(ok ? 'ok' : 'bad');
+          c.querySelectorAll('.card-item').forEach(function (s) { if (s !== c) s.style.pointerEvents = 'none'; });
+        });
+      });
+
+      document.querySelectorAll('.card-item[data-reveal]').forEach(function (c) {
+        c.addEventListener('click', function () {
+          var fb = c.querySelector('.card-feedback');
+          if (fb) fb.style.display = fb.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+    }
+
+    /* ---------- exercise reveal ---------- */
+    function wireRevealBtns() {
+      document.querySelectorAll('button[data-reveal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card'); if (!card) return;
+card.querySelectorAll('.ex-opt').forEach(function (o) {
+            o.classList.remove('correct', 'wrong');
+            if (o.getAttribute('data-ok') === '1') {
+              o.classList.add('correct');
+            } else if (o.classList.contains('picked')) {
+              o.classList.add('wrong');
+            }
+          });
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.add('show'); });
+          var scored = 0, right = 0, noAns = 0;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            if (!item.querySelector('.ex-opt[data-ok="1"]')) return;
+            scored++;
+            var picked = item.querySelector('.ex-opt.picked');
+            if (!picked) { noAns++; return; }
+            if (picked.getAttribute('data-ok') === '1') right++;
+          });
+          var s = card.querySelector('.ex-score');
+          if (!s) { s = document.createElement('div'); s.className = 'ex-score'; card.appendChild(s); }
+          s.innerHTML = (window.currentLang === 'en')
+            ? '✅ Your correct answers: <b>' + right + '</b> out of ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">with ' + noAns + ' question(s) you still haven\'t answered</span>' : '')
+            : '✅ إجاباتك الصحيحة: <b>' + right + '</b> من ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">مع ' + noAns + ' سؤال لسه مجاوبتش</span>' : '');
+        });
+      });
+      document.querySelectorAll('.ex-opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          var item = opt.closest('.ex-item'); if (!item) return;
+          item.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked'); });
+          opt.classList.add('picked');
+        });
+      });
+      document.querySelectorAll('[data-hide]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card'); if (!card) return;
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.remove('show'); });
+          card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked', 'correct', 'wrong'); });
+          var s = card.querySelector('.ex-score'); if (s) s.remove();
+        });
+      });
+    }
+
+    /* ---------- AR/EN toggle ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      var langBtn = document.getElementById('langToggle');
+      if (!langBtn) return;
+      function setLang(lang) {
+        window.currentLang = lang;
+        langBtn.setAttribute('data-current', lang);
+        langBtn.textContent = (lang === 'ar') ? 'EN' : 'AR';
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+        document.querySelectorAll('[data-ar][data-en]').forEach(function (el) {
+          var val = (lang === 'ar') ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+          if (val !== null) { el.innerHTML = val; el.setAttribute('data-lang', lang); }
+        });
+        document.dispatchEvent(new CustomEvent('langChange', { detail: { lang: lang } }));
+        localStorage.setItem('langPreference', lang);
+      }
+      var storedLang = localStorage.getItem('langPreference');
+      if (!storedLang) storedLang = 'ar';
+      setLang(storedLang);
+      langBtn.addEventListener('click', function () {
+        setLang(window.currentLang === 'ar' ? 'en' : 'ar');
+      });
+    });
+
+    /* ---------- boot ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      wireNav();
+      wireReveal();
+      wireCards();
+      wireRevealBtns();
+    });
+  </script>
+</body>
+
+</html>

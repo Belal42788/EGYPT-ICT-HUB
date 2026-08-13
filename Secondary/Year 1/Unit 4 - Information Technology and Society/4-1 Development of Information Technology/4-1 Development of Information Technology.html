@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Development of Information Technology | تطور تكنولوجيا المعلومات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #193cff;
+      --accent: #00d4aa;
+      --bg: #0a0e27;
+      --card: #111638;
+      --card-hover: #1a2050;
+      --text: #fff;
+      --dim: #8892b0;
+      --success: #00ff88;
+      --danger: #ff4757;
+      --warn: #ffd700;
+      --s1: #06B6D4;
+      --s2: #F59E0B;
+      --s3: #8B5CF6;
+      --s4: #10B981;
+      --s5: #EC4899;
+      --s6: #EF4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--dim);
+      line-height: 1.9;
+      overflow-x: hidden
+    }
+
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+        radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
+      animation: bgDrift 20s ease-in-out infinite;
+    }
+
+    @keyframes bgDrift {
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+      50% {
+        transform: translate(-30px, 20px) scale(1.08)
+      }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none
+    }
+
+    .particles i {
+      position: absolute;
+      bottom: -10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: .3;
+      animation: floatUp 15s linear infinite
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0
+      }
+      10% {
+        opacity: .3
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0
+      }
+    }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 39, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(25, 60, 255, .3);
+      transform: translateY(-100%);
+      transition: transform .35s ease
+    }
+
+    nav.show {
+      transform: translateY(0)
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 24px
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: var(--primary)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      padding: 4px 2px;
+      flex: 1
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none
+    }
+
+    .nav-links a {
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid transparent;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(25, 60, 255, .2);
+      border-color: var(--primary)
+    }
+
+    .lang-toggle {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all .3s ease
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 60px 24px
+    }
+
+    .hero-circles span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: .16;
+      z-index: 0;
+      animation: heroFloat 6s ease-in-out infinite
+    }
+
+    .hero-circles span:nth-child(1) {
+      width: 280px;
+      height: 280px;
+      background: var(--primary);
+      top: 12%;
+      left: 10%;
+      animation-delay: 0s
+    }
+
+    .hero-circles span:nth-child(2) {
+      width: 220px;
+      height: 220px;
+      background: var(--accent);
+      bottom: 15%;
+      right: 12%;
+      animation-delay: 2s
+    }
+
+    .hero-circles span:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      background: #8B5CF6;
+      top: 55%;
+      left: 22%;
+      animation-delay: 4s
+    }
+
+    @keyframes heroFloat {
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+      50% {
+        transform: translateY(-26px)
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: .85rem;
+      font-weight: 700;
+      background: rgba(25, 60, 255, .15);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--accent);
+      margin-bottom: 26px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .2s forwards
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 18px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .4s forwards
+    }
+
+    .hero-title .grad {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--dim);
+      max-width: 640px;
+      margin: 0 auto 36px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .6s forwards
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 50px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all .3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .8s forwards
+    }
+
+    .hero-btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px)
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ---------- main ---------- */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 80px
+    }
+
+    .section-inner {
+      margin-top: 48px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .6s cubic-bezier(0.4, 0, 0.2, 1)
+    }
+
+    .section-inner.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .section-inner.card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 28px 32px
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px
+    }
+
+    .section-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--bg);
+      flex-shrink: 0;
+      animation: glow 3s infinite
+    }
+
+    @keyframes glow {
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(25, 60, 255, .3)
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(25, 60, 255, .6)
+      }
+    }
+
+    h2 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 900;
+      color: var(--text)
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 700;
+      margin-top: 8px
+    }
+
+    .demo-label {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px
+    }
+
+    .note {
+      background: rgba(255, 215, 0, .06);
+      border: 1px solid rgba(255, 215, 0, .2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-top: 14px
+    }
+
+    .error-box {
+      background: rgba(255, 71, 87, .05);
+      border: 1px solid rgba(255, 71, 87, .2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-top: 32px
+    }
+
+    .error-box h4 {
+      color: var(--danger);
+      margin-bottom: 12px;
+      font-size: 1.1rem
+    }
+
+    .error-box ul {
+      padding-right: 20px
+    }
+
+    .error-box li {
+      margin-bottom: 8px
+    }
+
+    /* ---------- exercises ---------- */
+    .ex-item {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .ex-item .q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px
+    }
+
+    .q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, .15);
+      border: 1px solid rgba(245, 158, 11, .5);
+      color: var(--warn);
+      font-weight: 900;
+      font-size: .8rem;
+      flex-shrink: 0
+    }
+
+    .ex-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .ex-opt {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all .2s;
+      font-size: .92rem;
+      white-space: pre-line
+    }
+
+    .ex-opt:hover {
+      background: var(--card-hover);
+      border-color: rgba(25, 60, 255, .3)
+    }
+
+    .ex-opt.picked {
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .1)
+    }
+
+    .ex-opt.correct {
+      border-color: var(--success) !important;
+      background: rgba(0, 255, 136, .08) !important
+    }
+
+    .ex-opt.wrong {
+      border-color: var(--danger) !important;
+      background: rgba(255, 71, 87, .08) !important
+    }
+
+    .ex-answer {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: .92rem
+    }
+
+    .ex-answer.show {
+      display: block;
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: rgba(0, 255, 136, .07);
+      color: var(--success)
+    }
+
+    .ex-answer.show b {
+      color: var(--success);
+      margin: 0 6px
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .btn:hover {
+      background: var(--accent)
+    }
+
+    .mini-btn {
+      padding: 10px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .mini-btn:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    .ex-score {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(0, 255, 136, .06);
+      border: 1px solid rgba(0, 255, 136, .25);
+      color: var(--success);
+      font-weight: 700
+    }
+
+    .hint-line {
+      font-size: .92rem;
+      color: var(--dim)
+    }
+
+    /* ---------- interactive cards ---------- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px
+    }
+
+    .card-item {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 16px;
+      padding: 18px;
+      cursor: pointer;
+      transition: all .25s
+    }
+
+    .card-item:hover {
+      background: var(--card-hover);
+      transform: translateY(-3px)
+    }
+
+    .card-item.ok {
+      border-color: rgba(0, 255, 136, .4);
+      background: rgba(0, 255, 136, .05)
+    }
+
+    .card-item.bad {
+      border-color: rgba(255, 71, 87, .4);
+      background: rgba(255, 71, 87, .05)
+    }
+
+    .card-item .card-icon {
+      font-size: 2rem;
+      margin-bottom: 8px
+    }
+
+    .card-item .card-title {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px
+    }
+
+    .card-item .card-body {
+      font-size: .88rem;
+      color: var(--dim)
+    }
+
+    .card-item .card-feedback {
+      margin-top: 10px;
+      font-weight: 700;
+      font-size: .88rem;
+      display: none
+    }
+
+    .card-item.ok .card-feedback,
+    .card-item.bad .card-feedback {
+      display: block
+    }
+
+    .card-item.ok .card-feedback {
+      color: var(--success)
+    }
+
+    .card-item.bad .card-feedback {
+      color: var(--danger)
+    }
+
+    /* ---------- journey ---------- */
+    .journey {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-right: 26px
+    }
+
+    .journey::before {
+      content: "";
+      position: absolute;
+      right: 11px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius: 2px
+    }
+
+    .journey-item {
+      position: relative;
+      margin-bottom: 22px;
+      padding-right: 20px
+    }
+
+    .journey-item::before {
+      content: "";
+      position: absolute;
+      right: 3px;
+      top: 6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--primary)
+    }
+
+    .journey-item h4 {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 4px
+    }
+
+    .journey-item p {
+      font-size: .9rem
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid rgba(255, 255, 255, .05);
+      margin-top: 60px
+    }
+
+    .footer-logo {
+      height: 40px;
+      border-radius: 8px;
+      margin-bottom: 12px
+    }
+
+    footer p {
+      color: var(--dim);
+      font-size: .9rem
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 860px) {
+      .ex-options {
+        grid-template-columns: 1fr
+      }
+      .nav-inner {
+        padding: 10px 16px
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0s !important;
+        transition-duration: 0s !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-gradient"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- ============ NAV ============ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="../../../../index.html" aria-label="الرئيسية">
+        <img class="nav-logo" src="data:image/webp;base64,UklGRsAcAABXRUJQVlA4ILQcAAAQsACdASpYAlUCPlEok0ajoqGhItWIMHAKCWdu/Eb3rSGO7W24Kxp8t/z35QbaL2P8mvy09B3LHy/76/vP/lMzu8T/Ov9N/jP3B/vn/////3R/1/qP/Uf6m/AB/Df4//kP7/+3f9m/////+rT1F/uJ6gP6r/d/+d/hf3/+a7/Jepz/JeoF/Vv7/1iHoCfsB6Yn/r/2Hwe/tJ/5v9F+//0Lfzz+7/9r8//kA9ADqx+wP9p7Rf7Z/XvPvq8+1nMHiU/Fftn+o/uftp7JfkXqBfiX8x/xP5Z8JQAD6t/6b+4+upM+yAOC8oAfpr1aP6T/6f5Pz7/of+X/ab4Dv57/aP+12E/2y///u7/uQEd8QtYY3sgthnhSjzlxsHsUNtqxsYPmY/tAnTWk3eRvx96FjeyHJvbr2WcMflxsHxsHxwNwpR5y43vhzrGX1TpNJmXt4xgkLqDmwfG99YZRGMFcyZ4Uo85gZwBbN+NllprGxSRxW1rTyCRoZg+h0Lk9hyLKBQ73OHulwtb0r7Yt5PSoBq70s+RV+vmqzZCqvAjDoiSnBwHM9u3kIwbzlxsBQO5nrVFmIT0cN4xUVTTop/in5EP7B8VPficNp4Uo9CYJ2MbGe2QcycuNhDjHYMc1hRlU7TBo7ET+m0ecuLWrsysVbJwwyW7Gwci7/f4b7eY3spo8hACO9F7eM0cndhYzBzYPjYPi2s3lloqwH/ypFHIWDg3LWx724JkPCjzlxsIARP9cmu7/ZownOm6SXZWcSrN1ionLjYPjYPdF1f9yA04STy2woP8q2ZDab97eMV4Uo8j+rxDgQtFzXmj0BexP/th4o9HZap/AcfrB8bB8bByt9LZK1LVnj6oAWMnX6h5/qUKSpGE52zPJmXt4xXhLKBMjlKRRBOFPTCBFLs0PlKB6EBul4xXhSgtMgQT6oNB3AFnhzPt44fdrVBd0wgBYJ5nkzL28YroE3NmKKreywfJTq9znjhtX1aq8EtMLlxsHuu2EKfH9FOy4j31Ko0UwYo70PeKl4jJoqMhKYlb5YktMajaS5Wc3/adyZdDaAfhhDWpYWGcPKvDaRep78mGQHCd7//L5zA9p7+w4sz5T9KoniwkKqUrmI71fQgTVtI0XVrqq7V+mYy9wK3ffqz/+Or3peC0mkpVYx955ZowcBHo6v9i29B5LQfA6DqaLpoV7SiHFmRAm0UldUDcX/ouciJah9bJ0zGUds8ApyspaVFT0aFb610bmwG8MKUciDdQbUxIc3kQgFF0BQ2+3/1twur1bsbB8bAIuNI7ctdbxiyyP8bBzhMbmYIM4b8pn03S9501OtiXK9jYPjYPjYBU0J1td0x2zWnRSj2ENErPauhSJbsbB8bB8WzQmMIoN6mSeoaPbS7xhqgz7Rm90udSbfM+/M+/M+2q5zkHwgOmW7IxrgGfnantR5bmZ/GwfGwfGwCfuyIPBLrvY17b1479hUwupcbB8bB8bAQAQPxFm5wHM/DGX2dGUTnPSSORRmBAFKPOXGwfGqnUawYBmUlb7o2gq3xIt+5qaTHReecuNg+Ng5S5VEPIKn7R5y5KdgNEP/CctFGRfdcbB8bB8bAG2kbnnjfj5oluv/gRhkt633Yzw7bkmwo85cbByF8VOjWFDUjwLg+AhHWghGXOkAj3IYK3YrIOKIEsJ2Lx5D63xJhyMnSjFi2aaOqZHGOU83UPjf+fNGyE+Z/GxpEB8bD1WDQ6zDahWy4eI+Q2GD/8t2/te3jGOtkUmvH29gn/+TICZmhiQUW7GwfLPCtqooUgpRoHcGtw3szflXEGGS3Y2D5Kdg+OQE+JVtRv+yklVIuo8dXQx116rM3el4dZCC3JvTG+pMds+GvBFYveHV3km1Cry4VeO7G9/euRjXSwAAP77d89+nafhMf4TD6F7w6ETqw/BiNp9R3MH+fjgGRkNcGuDzzJDh5wD5niJcxxptKbzbw2ZkkcLHYPDYtAgeyGavwCzeP1Hv+Jx2rSaoRfE+1+cYFN6+O2ZqnVjPDdbvv2KdVrlK5PMUvmhCbwAFqQybdpqs3k8yQvZtDTr3o6w4WQHXQz0sykl3GEA/CFxJfMOTkJ1y3/nSlwC+0naIxAJyDvxU6hMY1Kijbe/v3PVRvALgd+p4nomE6P93IUmkld97JR/G3ZE1/J8NqOg4AvmO7nptwCH3HSUoM6p/CRSrejS0vyLndCB//fmeUVLGONqwvyYyljGfrFourMOaQMXBCFRLQAyveZAUJ9JywJ+AVVD+sJNUA6GatZh4AdTxKA2dHNSOckmJRAt/7BHRHNkGj1FU7gHWJmbORZicUCUV2HnTtoWdwwJCBXehscM5VNujpC8Utn5blnaBm35pWeDb7CEt5w+HOnoOBgUZ8lMaeLgCEXlrUJpflBtRgV+gsy7lfDzZuTdBBC9bJ+WjVDLsilgNPYb2Bn4qLf9JCQJz93pPj6pXSeypSJqPO7tDcStOt7hJXjTIABlTAkEZ0ClV1T+Fk/GhKoe7jYAlVZe+AAPqHSZ/5HXWidWApbQ2UMwqybyTQme22FkskGS7op7bwWUmZEuNM5EptmdgYL/bSWxv5zSRLRzZtI7+AuJyPGu5bP91AAy63dbb2jeXmrncak0ayciOLtOOpK2k5sDSiibrh+Muv5FYYShZ3hrKRzQ8UBQ/gfQenCcUNsLynSscgfO50r8yMK9cDuaBxrBESuwTIv/Ba0OrhKBFGKoBl3qVLroHVXijv7TQvCDUoiNj6QzckInt4JNrVD40IKDUFeE+h6CHHeehl/ZG0Ad7sJ7kLTjyLucB/zjIcOzHcQucWaiZ51eTy08zaI7BEoOdEFW2o1U6cCEDY9tvkxj/0aGCk54aEKD6zCqjgQPFPLcXLVZZzkvGIJeZaXqa2WRZ/IIry/rCxb9h1PLcmZ8Wt1zX2zR9vZWfwAAJ9htLnPiA63VF7+H83NoFmLGnFiBJFoDISdaPlPU4X4+EhN0jDFe0wixZBfRJAZbnB3JEh2pivFjU96ax8UCq4Z0zsQib2CXlOVlDdgJeEzH+B4YnFVq8JzwVVUzHrUniFQI/sRaQriG+J2qKN9zH2+ilo3hKJkFjqFWNcKFPqxqK/gHQOYNWlcC3C/aIKttRqpz77PtqzMDT1f1F7c0dKBhiY3IYvx2O42at13k1Yhxf8TJeQJui1Kpa8fhmVemU1QNyk1TIm/1bghfQIAFYQF70bIV7Bpm55kEih6BcY9Uq3UjKZq1tlL5AUmpzCCXKf0Tmdp3LB48OISsYb/SME9HekTO91T31fF7Taf3f1MmICO+AWoIrVmAQmaX6h4PpP9j4/EkKrOyfSQnzitH19H/4c1yr9d0dHU3qN46Amo6Xf5Xd0Gc1FoPixuLj30doDHLcNjQkOekKELEf12Dcy+XllpnDZtzYdVQ7pYMpZ3UDCaGnKVvpzZM/NcwAAK+rG8FhSEcsLamGjV3RMDAHc/cLkPrHqti5utRJ//yFREt5ISjCeQFVrQSb90qDCwphOkX7tJk8STj9IRMoYKJStCMW0Wo0q+LTH+maNPCFUlkVFd8yT0MXTaTE1T1IYN5ZgnsayrqF0w612PjhakbgqBvk9WdsHHkfH5RlihZR+MfTG3a0eiYzaUv8ubMKwAAIqZJl705RYs2D/BSe2+dFn/APWfeDcHQm7effuGf6lb46uKXiOGwU00wIYC0biN/AsWpUy0rhg0gj85my03P7bTDm0u7TNGNcejLO85d50usVZUC/jagNbQDNiRKybMkWpqYAgWb3V99t1UzIaTDi9mhMhpda6hr6N/Zb9Drvr4p7mQ7q7VBZFypv+Mv+73DxLhb/VQAAeH0jvC/DkpFUdv9v43SCuH72zsCKB7f6um2hr77ez5P2RqJ6tv6p4hN5i3/FsTZv9bN+Nl4fv9KKUaDXnMXi7N7f/bZq4DwTNxpUnyiYDd2GQb1nCVo6Gjtzdn+HEbwtYeKBC8j1X1C4qCG30E7tvqEtjkrmhQ4PcACopAAASgT/5kXtSKi9J6EcBv8hPNt1uPaXHQeNjO2lQzqWPIZJUKdg/tFh1DmcnqHGGPFYSTQbfPsjERRa3WkpEh0Dy8sY/Yg0nhlsH0+GWPdBRPzFkd4zvkyT20zqeHtZ7JROwNGlAAvcQIlFJ9nvCvRNK38jR0rFWzvqPk6QViXkBLumJqMKlw2uOiEC9wER6v0Hflp3QYDQ25dkn/cFJ7Y5pS2kdTrLaFp0IRlr4ki2/IgDH5wxgaaybYh81w8Qt9zfoXR3UJhkhQIKIA7WAACd2f2peO5lvJ9lS7TMkCcwOMJh8v03NI4b6DBPlsKtsll+DYtgNcoarMQvauSVcU6okOjbu+Psle925mPQhZ+kV7uGVbW0Bi0jxV51h40/R5iFzu+OrHRhrCV1jBuR4GjHmrVllfL1HHLAQ+AAG2I0xcQol1N6Fk2XFP0e5tO4Y6flC0y01riBHNMDd2mT/VFHEoPb9OJoh+DNIjRmgjzjjxOrvtxOobdx8u7oAiSTWAeORxqDGj4hG5i5mAChl3tAGqbnpCu3ub5cOb+ZaSx61KYf6JuW/CdvA8o68PFWhpzD344h6IUB+RINaQBoB5kXjvYppl6LnvKobIqSlpQaNFFNdOqqRO3NdSdyp1fQiHBHfh13aAPQIr5Q0Ze+hCqrO/mkBLzeVhLmkAAVR+5qO45NgzGlNzWA98NI4zs/xTNG2ERCyHfF3xLhKeIdp97BhBIJceiMGYayZjcXNbw1msYweDmGYCT7SGL1CEPR/SqiOldqpxqfdnSA3Z5qiSmZJ4sOAlcPZvz6A28xZVTiZnZvccPSvpG7Lo3My862Kbx6Xh9nLNNxQJcFRHgZDm+cARCB7LCugHy7kbepoicKQ7UpVLr3o+YbbnvOR7BmMmIn5N3JkqnHF2Ej1bC2wMImRFvhcjsYFH3kL+zpp21DboPHPxU7uRVQM+QhrG5z5uVJ+swmIgwMT+SkqBlUuc1Flu4Uc6G2IjfoTd8N1xuw0bZVHlh8cDcK3oPJ7OxittMYz1zH8d0vZYkquEYU+i375WeraEDESfDjCgNVOE7cEnaouSNx4mciGplmk2ODV8uclKFuTRKTDs32n8XD8y7enPfBGPfMm79dvTU+yYRkTa1j5EuSBIxy2zrFLF0hD/ECUFIk5SHe2gQpcEbBX8yhF6IBZrMtEM12W8LD1Nlbr5/xY3ACw8q5OGgOFXLuYQQnlD+Uxa5ok0BLKGRWfc9wjUz4u8xGIZAhTlrq/qfnMZ2x49l9aUgULleRNw3aODmvc+6cth+WwJ5tuof2QffV5fkGtyBPKEIWD4TBHY9vaTfBAp4vzHSumXeoaM9lw+IvPtQlZr0aU1p25/az85EXf7wyzyHt0OcmzzMMiALkvXPsQAZWQ8nL+zMLA5zR96TKV9+jsoXW03yg1FbEV5URaTTKrdshYI8OUeYjZBrHIWyzETRdiEpp19H3TvGtQS/jDBHH7vf7UPvWwLXnErSl/F52L504J/TwiPNCEexYsHnIPeSn7uCfe8DQriX9WOR7wdSBBXgUZP5zmDHgIR5WC/1uecNdddnM3HbRrPs2lHbLbBAjcDNU8REL46FebHryj9KjLGsaxmS//66+KJu7Qg8e9yo34xjkn1bQYAXz7tN0O63IezR+DUQlCNWkiuuoQDLlJD8wW0bOEJihhKSJw00InMY0pxSUr5Byqxw8ou2Wbhzz4MFEjhF3eSUYnS192yMGP9pA0itiQwKOHBi7PJMk3MmA9zma7mtFiu33G4Pi5ikOyf3gxN2CMyuAyv+l8caLB8Qt/fRpbVHvVuOPXnGat3n3K+Oszq8z/bNWRqeUlgDAz/B8PtyDPZC92jHEAc+ioeNadDdUBCFplppPEhydgEgRc2KgzRwTDYg9Hx+dTopc9aXkhMM1KPddqGrHkpQP/ggLw+HGGIhPnjsksUd3QkgfVdUg8JeP8aGteK/umY6rXA+6QSvWGP7f/HJh/xDzHBfU2l90KF/aV5mp3bGD0Ms7qpju5ofDBfdIPH8bNu8rqy62u5KlnetQaULHdW7F+/zeJ5wlr9H8pls6DGH+irJngNGS82OSScvjRpENTt9XPHrlI+UN/duVQ3KnRTgEOg6GSt1ImqfBwa1Y06Oe+9YthZ4mEuY/itUjcW4Jggs+44stpmPoBHnGSOO7Lz2SCHX9FXfVPrT+QzXwveMMNhvyNwl4jpoBTsONU77voNQrD/zcveT7ckBcdT0gf1RMVqZ3GvM1mcCHgbuLT5xcAG3ZVLvKLrwiZWpDzjkOmg+/TCYuaX/PmRs2QaildfviW/Hevmw9fcUXrTPqGSG1H0GqrjyoxA23V8Bv1vcoq5T+skp8dIbcJSQWuOiEdN/9r6Wwt+ce/Owj5RMyX8svgiDy7Xia6lFiVez5+mc6+MH18/KBmUi0rBT5bMEzDB02KxSzK3qMi/OAOQbYPYfNIl59lkdsAQipp0fl0TyGTMHZ6ntmqj2l5zkJHU7TG1zdi/FIUctcz1DIEPg+NlhS9FbjN2wp3mA4pVD5nTNRsfJ8aoZDP/THBSRncKJ1B32ZKWVISad+YBO2I7HsSylu/2JAid4ONBCK+SXX0Ii5QJpT2K3qJoU5O0AEeUSCFgMH6Y0slKRny0AgFmKdd3IbCl0FGoDRgky6Kpl5nReBFLOxJS3raORhaVQNPjf6oF+EHRybCVLEr2dX0tp6of1g4ChOehyVdIHiy4yc+gbVR3W/VSagggPu3cNPok6jhStOwANbe5q7sXPijAPFAv6IzRTeO+embmWD/0qG5c0hamY1SJx7TGITr8KHQlNMLOnLk6d6hKiUFY33FuDSrU4FOK/DlA77NZOQ2DoItuiRVHrv93c3Ynvsatdiv8ltHKtG/HPn2xQ5i/+KmnggfDXrNjTme/buvA7XBzP+X4knz+wOMF/GahG7NjGP4B3LS0isYWNJlgzkv5ZfAqZmMgiDL4Uw4froX5zPClgLcuZvrSJ3LpZ0hehlg3LRhV48WBz4HdDyylIkXHc+1n8we2Bk9pRa002V390oHwHjfeG+UQzp8xz1K8/Cfw6bCvjE4aKrMJSUJ4q7/F7nFLMCzzZyEr44/A6jwLMnJ3s7RyEHPjMyGRN94cyyYkwoKb46jjdNwFExp+uDx84AAAAroJ0dGaMpTEuuEdi2qExu11QiBqZ/k52IRMSeBomwPLBUoCC8wSTtiP9HRqh7gJus94cKYgES9OiJll+Cd3eIwOD6JCQCieA/wbdylWAGytAp3nxurx9pmMhUhGTeB+MkM5BsZMrDn/2sMJOKRjjNt2g0gMbKKE6b5+Zj7Cnd+it9FsOUbY4dzXBasH8mOWkUdOI8rZbbZ5Ll0X32qlwrfJQrNejOjC88t/wEkQn0aj+6BXoSXhIqy/Og0akMBNMzvrKK+YGjEnqMgfR8Vpj0ee5n2jjWzUqk4KeO/ye62D30AACl1qF9rD6SKSdlx/s5cA4IilVP+dWfn0F78WBdIwyb//SQkDGmtdbenSegElOP6PacZhBb+i/K8WWTu9VXV3yrgDCPhPh6e1HISsrz0WbU+T58ifQfGwICXCSYKy3/m/Q75i2vmdDwxPgO8ZKBu9IGoODXA6ISUVPugBOst1nXbOPsFGCKUxkCIpAtzR0oGWylfhafGgcXX2YVelEAAGZgDheCp4xVtvY6XlUgAdaEsyBTVzlwPi/1zEK15FcNTBocGc2mwzP940f/Ashv782L8JhH49Yr5i19NOyEFc+9yVMP/6v+VKsyT4GdSWcrI4IuBItt9W0eC9/olYFePtXmHUf4orvWMA4Ok/W/DPiAUumcO3Z0vqCIn8iI0XTxO2/zE+EDIAAFuz8FhwjaiUQbn36vQuiVliQzezMSYEHFqL+njMKYWo93d8PUR898ko0xT6vUj+34B+74g4wqOCXw+Cpi7xYYwWrwcwF0nshveDXg8u+B6hLwmZwwxBeoOUIUGwH0wyzflw/31HIVK6kC5oZxg0wgAA82cHeRYUKwMf/ySi9883rB2PBjX8qg2kjev0DgFfZ1IKg9U4aUh8UT1bDFwl3sBQXGuyjBeDP8jqk45LpO+aPbW06uXAoE8nL95AopOsshrUb8sP84XohoiO/5/d08Xryx9hxWI4rLaIBcfmEfVc1NiDjAtOHWezpQb0QAACc5+bXJ/5c8ma7r1QlsmaQAHx0BfVeFYcWPOwD8qxBR4lUSO/nw6bIb6g7TWDahUxcJwuRqbh8PYZ/UtLQFpj8nXxP4U0xeR7RGm3rNZp7dgAYVm91AgbmXK2KNYeYYboTOI6Lh3nCBvAgjPDwP3JK8acBLD88RcNiUjnnXtI/wb+3ss4QXRBsBT6yAAAKLsVYaJb9tG38fU+Dy3kcwCp4xK+BxgigXzeGOjVZ1Zthw0Uot+zDRyv6/H3nGPexdydUWakaeWAvpJAFIx8fT5aJcWISdjzNts2ZCBu9xVyDQejhGxOb1sDHhs4Qk/7zoOavD7DRNkCZqWhPBXpgAAovbf2BaKv5fsKRRZIQGT5BaFjTtxayO1Vd6REt5oNcLWWuV6YaVjmIvvWr82rRWLLttX4fGSUxuQotS3+Y16SrHdinQSlfuhfvL+/uyeTARUxTmsR/AAL1vjINJMdmifKg0gVzJGIu1Z/Dkf5Y/hUzlqBcJb2osBeaSI4M4rnr8RVamVM8Z8AAGxpyQlWyeg+U2Tq5mgyuILgDWO+v8/0RzncBLV3LwOhX/Irt8x3SBRMSdvLIUn3icw4KNUhuDN5Lt+CSvxkqBG19L//adaEnZctqMCo9DEmXJl87OL/CIt6Blqbs3QvZXA9XV9ZAAA85GVkZ+1e47Id5Iy0J0PvVwLkzR2CU4xMBjk5msHJel6C8R0ziTx4LLVIaXvtaUTDd/G79Y0xDsLb6rqCzF28SD/EBTY7FtSFjUvEHAAGBNVeJtO0mdTot44rDszK8dYovrtO4nM7hzp90q6LKQol6jSi2aCdBg1acKvD1Aqv8HTsw66VaIOGvpPUYjPJxleE9cxsPm6UsFjd1dep90xrnSXr38Zz2i0Cs8PfS7DV0V/elsE4FXVUHZ8t7HYJNzeibY84HWUhoCiuWL1RVR8/DkCoD51uyMtlWbJPs/5BI+S8wTiPaQgME2YRkzJezhlvcu0BaaXWlRjPe04fYmbaCaZO4qaBheEE0tWchTr75PJV3HzhDTOdaSszkS/idII8KajAQ/lE1ia6RA3G2JaP8KQPy7Ug32nKmv29lkFjPRdgWsxgiETxNaGHPyAD5AgCXRhQFiSBDDTnAfDFmYIpfMFbI9vO2VWgP/DXKciVSHgZFCvOTrBQPSk5fktQlWoDVJLm318cOxMWCHhT4GfUZsqcA7UoBeHwIxyRbJ25xoP2E8Cyp4UIFXdIa6B5Go+OroDuZkXuw09nlRjdV4RPHCe+xM/Uw1OPHeHNhQ3Qxncojf6ikNcXmVFEqRW71oNAl6NBT7hVd+8Pjdv05Ijez2Y4Z9W2Qu0FlKO7aURS80VVzsFkSpPE2XMX69PwgCxIocOy/ulP4+hklymXG/633l6cdZBe0Or+Qm4vzJMvIFgaOslYHUvpQi1vQfq6j8SL9CNMlzK5AMhNxOYAABYD5T55OaqRumUpYFO85YMYSSAALKHSqDsuryuUgnYT+Bap4FwOS4o51LWFhi/ek4+Ah1dwLscK/+OnBM8TZ5dxmGxO0I1Ppo7wcdEXAKdaiHXyAq03+wgJDKzMcTxJ9T/QADJmGKIdThjZOeWspnLMJHUutYYH+vDPzW/BOQdz+QyyLg8AA" alt="logo">
+      </a>
+<div class="nav-links">
+        <a href="#intro" data-ar="البداية" data-en="Start">البداية</a>
+        <a href="#societies" data-ar="تطور المجتمع" data-en="Societies">تطور المجتمع</a>
+        <a href="#tech" data-ar="التقنيات الجديدة" data-en="Technologies">التقنيات الجديدة</a>
+        <a href="#changes" data-ar="أثر التكنولوجيا" data-en="Life Changes">أثر التكنولوجيا</a>
+        <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
+        <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
+      </div>
+      <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="home">
+    <div class="hero-circles"><span></span><span></span><span></span></div>
+    <div class="hero-content">
+<div class="hero-badge" data-ar="درس 4-1 — تطور تكنولوجيا المعلومات" data-en="Lesson 4-1 — Development of Information Technology">درس 4-1 — تطور تكنولوجيا المعلومات</div>
+      <h1 class="hero-title" data-ar="تطور <span class='grad'>تكنولوجيا المعلومات</span>" data-en="Development of <span class='grad'>Information Technology</span>">تطور <span class="grad">تكنولوجيا المعلومات</span></h1>
+      <p class="hero-sub" data-ar="من مجتمع الصيد والجمع لحد المجتمع 5.0 — رحلة البشرية مع التكنولوجيا والبيانات الضخمة والذكاء الاصطناعي" data-en="From the hunter-gatherer society to Society 5.0 — humanity's journey with technology, Big Data, and AI">من مجتمع الصيد والجمع لحد المجتمع 5.0 — رحلة البشرية مع التكنولوجيا والبيانات الضخمة والذكاء الاصطناعي</p>
+      <a href="#intro" class="hero-btn" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+    </div>
+  </header>
+
+  <main><!-- ============ 01 INTRO ============ -->
+    <section id="intro">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#0e7490)">01</div>
+          <div>
+            <h2 data-ar="إزاي المجتمع بيتطور مع التكنولوجيا؟" data-en="How Does Society Develop with Technology?">إزاي المجتمع بيتطور مع التكنولوجيا؟</h2>
+            <div class="tag" style="color:var(--s1)" data-ar="من الصيد للذكاء الاصطناعي" data-en="From Hunting to AI">من الصيد للذكاء الاصطناعي</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="الدرس ده هيتعلم فيه إيه؟" data-en="What will you learn in this lesson?" style="color:var(--s1)">الدرس ده هيتعلم فيه إيه؟</h3>
+        <p data-ar="هنتعرف النهارده على إزاي المجتمع البشري اتطور على مر العصور — من مجتمع الصيد لحد المجتمع المعلوماتي، وبعدين نكتشف أحدث التقنيات زي الذكاء الاصطناعي وإنترنت الأشياء، وإزاي التكنولوجيا غيّرت حياتنا وخلقت مفاهيم جديدة زي الإجهاد التقني والفجوة الرقمية." data-en="Today we will learn how human society developed through the ages — from the hunter-gatherer society to the information society — then discover the latest technologies like AI and the Internet of Things, and how technology changed our lives and created new concepts like technostress and the digital divide.">هنتعرف النهارده على إزاي المجتمع البشري اتطور على مر العصور — من مجتمع الصيد لحد المجتمع المعلوماتي، وبعدين نكتشف أحدث التقنيات زي الذكاء الاصطناعي وإنترنت الأشياء، وإزاي التكنولوجيا غيّرت حياتنا وخلقت مفاهيم جديدة زي الإجهاد التقني والفجوة الرقمية.</p>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="intro">
+            <div class="card-icon">🕰️</div>
+            <div class="card-title" data-ar="مراحل تطور المجتمع" data-en="Stages of Societal Development">مراحل تطور المجتمع</div>
+            <div class="card-body" data-ar="4 مراحل رئيسية: الصيد → الزراعة → الصناعة → المعلومات." data-en="4 main stages: hunting → agriculture → industry → information.">4 مراحل رئيسية: الصيد → الزراعة → الصناعة → المعلومات.</div>
+          </div>
+          <div class="card-item" data-reveal="intro">
+            <div class="card-icon">🤖</div>
+            <div class="card-title" data-ar="التقنيات الحديثة" data-en="Modern Technologies">التقنيات الحديثة</div>
+            <div class="card-body" data-ar="بيانات ضخمة، ذكاء اصطناعي، تعلم آلي، وإنترنت الأشياء." data-en="Big Data, AI, Machine Learning, and IoT.">بيانات ضخمة، ذكاء اصطناعي، تعلم آلي، وإنترنت الأشياء.</div>
+          </div>
+          <div class="card-item" data-reveal="intro">
+            <div class="card-icon">⚖️</div>
+            <div class="card-title" data-ar="أثرها على حياتنا" data-en="Its Impact on Our Lives">أثرها على حياتنا</div>
+            <div class="card-body" data-ar="مفاهيم جديدة: الإجهاد التقني، الخوف التقني، والفجوة الرقمية." data-en="New concepts: technostress, technophobia, and the digital divide.">مفاهيم جديدة: الإجهاد التقني، الخوف التقني، والفجوة الرقمية.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تخلط بين المجتمع الزراعي والمجتمع الصناعي — الأول بيعتمد على الزراعة والحصاد، والتاني على الآلات والإنتاج الضخم." data-en="Confusing the agrarian and industrialized societies — the first depends on farming and harvesting, the second on machines and mass production.">تخلط بين المجتمع الزراعي والمجتمع الصناعي — الأول بيعتمد على الزراعة والحصاد، والتاني على الآلات والإنتاج الضخم.</li>
+          <li data-ar="تظن إن التكنولوجيا بدأت مع الكمبيوتر — لأ، التكنولوجيا موجودة من بداية البشرية، بس شكلها اتغير عبر العصور." data-en="Thinking technology started with computers — no, technology has existed since the beginning of humanity, but its form changed across the ages.">تظن إن التكنولوجيا بدأت مع الكمبيوتر — لأ، التكنولوجيا موجودة من بداية البشرية، بس شكلها اتغير عبر العصور.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 02 SOCIETIES ============ -->
+    <section id="societies">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#b45309)">02</div>
+          <div>
+            <h2 data-ar="مراحل تطور المجتمع" data-en="Flow of Societal Development">مراحل تطور المجتمع</h2>
+            <div class="tag" style="color:var(--s2)" data-ar="من الصيد للمعلومات" data-en="From Hunting to Information">من الصيد للمعلومات</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اضغط على كل مرحلة عشان تعرف تفاصيلها:" data-en="Click each stage to learn its details:" style="color:var(--s2)">اضغط على كل مرحلة عشان تعرف تفاصيلها:</h3>
+        <div class="journey">
+          <div class="journey-item">
+            <h4 data-ar="المرحلة 1 — مجتمع الصيد والجمع" data-en="Stage 1 — Hunter-gatherer society">المرحلة 1 — مجتمع الصيد والجمع</h4>
+            <p data-ar="من بداية ظهور البشرية، والناس بيعيشوا بالصيد. التقنيات كانت: الفؤوس الحجرية، الأقواس والسهام، وإشعال النار، واللغة." data-en="From the birth of humanity, people lived through hunting. The technologies were: stone axes, bows and arrows, fire-starting techniques, and language.">من بداية ظهور البشرية، والناس بيعيشوا بالصيد. التقنيات كانت: الفؤوس الحجرية (<span dir='ltr'>Stone axes</span>)، الأقواس والسهام، وإشعال النار، واللغة.</div>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="المرحلة 2 — المجتمع الزراعي" data-en="Stage 2 — Agrarian society">المرحلة 2 — المجتمع الزراعي</h4>
+            <p data-ar="من حوالي 13,000 قبل الميلاد، الناس عاشوا حياة مستقرة بزراعة وحصاد الطعام. التقنيات: الأدوات الزراعية والري." data-en="From around 13,000 BCE, people lived a stable life by growing and harvesting food. The technologies: agricultural tools and irrigation.">من حوالي 13,000 قبل الميلاد، الناس عاشوا حياة مستقرة بزراعة وحصاد الطعام. التقنيات: الأدوات الزراعية والري.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="المرحلة 3 — المجتمع الصناعي" data-en="Stage 3 — Industrialized society">المرحلة 3 — المجتمع الصناعي</h4>
+            <p data-ar="من منتصف القرن الـ18 (بعد الثورة الصناعية)، التصنيع تقدم بالإنتاج الضخم بالآلات. التقنيات: المحركات البخارية، الآلات الصناعية، والطباعة." data-en="From the mid-18th century (post-industrial revolution), industrialization advanced through mass production using machinery. The technologies: steam engines, industrial machinery, and printing.">من منتصف القرن الـ18 (بعد الثورة الصناعية)، التصنيع تقدم بالإنتاج الضخم بالآلات. التقنيات: المحركات البخارية، الآلات الصناعية، والطباعة.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="المرحلة 4 — المجتمع المعلوماتي" data-en="Stage 4 — Information society">المرحلة 4 — المجتمع المعلوماتي</h4>
+            <p data-ar="من النصف التاني من القرن العشرين، الأتمتة اتشجعت بتقدم الكمبيوترات. التقنيات: الكمبيوترات والإنترنت." data-en="From the latter half of the 20th century, automation was promoted by the advancement of computers. The technologies: computers and the internet.">من النصف التاني من القرن العشرين، الأتمتة اتشجعت بتقدم الكمبيوترات. التقنيات: الكمبيوترات والإنترنت.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="Society 5.0" data-en="Society 5.0" style="color:var(--s2)">المجتمع 5.0 (<span dir='ltr'>Society 5.0</span>)</h3>
+        <p data-ar="مجتمع جديد بيدمج الفضاء الافتراضي (الفضاء الإلكتروني) والفضاء الحقيقي (الفضاء الفيزيائي) عشان يحل مشاكل اجتماعية متنوعة ويحقق تنمية اقتصادية." data-en="A new society where virtual space (cyberspace) and real space (physical space) are integrated to solve various social issues and achieve economic development.">مجتمع جديد بيدمج الفضاء الافتراضي (الفضاء الإلكتروني) والفضاء الحقيقي (الفضاء الفيزيائي) عشان يحل مشاكل اجتماعية متنوعة ويحقق تنمية اقتصادية.</p>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تخلط ترتيب المراحل — الترتيب الصح: الصيد والجمع ← الزراعي ← الصناعي ← المعلوماتي." data-en="Mixing up the order of the stages — the correct order is: hunter-gatherer ← agrarian ← industrialized ← information.">تخلط ترتيب المراحل — الترتيب الصح: الصيد والجمع ← الزراعي ← الصناعي ← المعلوماتي.</li>
+          <li data-ar="تظن إن المجتمع المعلوماتي بيبدأ مع الإنترنت — لأ، بيبدأ من النصف التاني من القرن العشرين مع تقدم الكمبيوترات." data-en="Thinking the information society started with the internet — no, it started in the latter half of the 20th century with the advancement of computers.">تظن إن المجتمع المعلوماتي بيبدأ مع الإنترنت — لأ، بيبدأ من النصف التاني من القرن العشرين مع تقدم الكمبيوترات.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 03 TECH ============ -->
+    <section id="tech">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#7c3aed)">03</div>
+          <div>
+            <h2 data-ar="تقنيات المعلومات الجديدة" data-en="New Information Technologies">تقنيات المعلومات الجديدة</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="التقنيات اللي بتشد الانتباه" data-en="Technologies Attracting Attention">التقنيات اللي بتشد الانتباه</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اضغط على كل تقنية عشان تفهمها:" data-en="Click each technology to understand it:" style="color:var(--s3)">اضغط على كل تقنية عشان تفهمها:</h3>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="tech">
+            <div class="card-icon">📊</div>
+            <div class="card-title" data-ar="البيانات الضخمة" data-en="Big Data">البيانات الضخمة (<span dir='ltr'>Big Data</span>)</div>
+            <div class="card-body" data-ar="مجموعات ضخمة من البيانات في أشكال متنوعة وخصائص مختلفة وأنواع متعددة. بتتكون من 3 عناصر: الحجم، والتنوع، وتردد التوليد/التحديث." data-en="Vast collections of data in various forms, with different characteristics and of various types. Data consists of three elements: volume, variety, and generation/update frequency.">مجموعات ضخمة من البيانات في أشكال متنوعة وخصائص مختلفة وأنواع متعددة. بتتكون من 3 عناصر: الحجم (<span dir='ltr'>volume</span>)، والتنوع (<span dir='ltr'>variety</span>)، وتردد التوليد/التحديث.</div>
+            <div class="card-feedback" data-ar="💡 الحجم + التنوع + التحديث المستمر = الخصائص الأساسية للبيانات الضخمة." data-en="💡 Volume + variety + constant updates = the essential characteristics of Big Data.">💡 الحجم + التنوع + التحديث المستمر = الخصائص الأساسية للبيانات الضخمة.</div>
+          </div>
+          <div class="card-item" data-reveal="tech">
+            <div class="card-icon">🧠</div>
+            <div class="card-title" data-ar="الذكاء الاصطناعي" data-en="AI (Artificial Intelligence)">الذكاء الاصطناعي (<span dir='ltr'>AI</span>)</div>
+            <div class="card-body" data-ar="تقنية بتستخدم الكمبيوترات عشان تحاكي بشكل مصطنع السلوك الفكري للبشر." data-en="A technology that uses computers to artificially mimic human intellectual behavior.">تقنية بتستخدم الكمبيوترات عشان تحاكي بشكل مصطنع السلوك الفكري للبشر.</div>
+            <div class="card-feedback" data-ar="💡 أمثلة: القيادة الذاتية، الطب عن بُعد، الزراعة الذكية، والبيوت الذكية." data-en="💡 Examples: autonomous driving, telemedicine, smart agriculture, and smart homes.">💡 أمثلة: القيادة الذاتية، الطب عن بُعد، الزراعة الذكية، والبيوت الذكية.</div>
+          </div>
+          <div class="card-item" data-reveal="tech">
+            <div class="card-icon">📈</div>
+            <div class="card-title" data-ar="التعلم الآلي" data-en="Machine Learning">التعلم الآلي (<span dir='ltr'>Machine Learning</span>)</div>
+            <div class="card-body" data-ar="تقنية بتتعلم فيها الكمبيوترات من كميات ضخمة من البيانات عشان تستخرج قواعد وأنماط منها." data-en="A technology where computers learn from large amounts of data to extract rules and patterns from the data.">تقنية بتتعلم فيها الكمبيوترات من كميات ضخمة من البيانات عشان تستخرج قواعد وأنماط منها.</div>
+          </div>
+          <div class="card-item" data-reveal="tech">
+            <div class="card-icon">🔗</div>
+            <div class="card-title" data-ar="إنترنت الأشياء" data-en="IoT (Internet of Things)">إنترنت الأشياء (<span dir='ltr'>IoT</span>)</div>
+            <div class="card-body" data-ar="تقنية بتدعم الحياة اليومية بربط الأجهزة المنزلية وحاجات تانية بالإنترنت، وبالتالي تسمح للأجهزة تتواصل مع بعضها." data-en="Technology that supports daily life by connecting household appliances and other items to the internet, thereby allowing the appliances to communicate with each other.">تقنية بتدعم الحياة اليومية بربط الأجهزة المنزلية وحاجات تانية بالإنترنت، وبالتالي تسمح للأجهزة تتواصل مع بعضها.</div>
+          </div>
+          <div class="card-item" data-reveal="tech">
+            <div class="card-icon">🏠</div>
+            <div class="card-title" data-ar="البيت الذكي" data-en="Smart Home">البيت الذكي (<span dir='ltr'>Smart Home</span>)</div>
+            <div class="card-body" data-ar="مسكن بيستخدم تقنيات الـIoT والذكاء الاصطناعي عشان يوفر بيئة معيشة أكتر راحة." data-en="A residence that utilizes IoT and AI technologies to provide a more comfortable living environment.">مسكن بيستخدم تقنيات الـ<span dir='ltr'>IoT</span> والذكاء الاصطناعي عشان يوفر بيئة معيشة أكتر راحة.</div>
+          </div>
+          <div class="card-item" data-reveal="tech">
+            <div class="card-icon">🥽</div>
+            <div class="card-title" data-ar="الواقع الافتراضي" data-en="VR (Virtual Reality)">الواقع الافتراضي (<span dir='ltr'>VR</span>)</div>
+            <div class="card-body" data-ar="تقنية بتسمح للمستخدمين بتجربة وهم واقع في بيئة محاكاة." data-en="A technology that allows users to experience an illusion of reality in a simulated environment.">تقنية بتسمح للمستخدمين بتجربة وهم واقع في بيئة محاكاة.</div>
+          </div>
+          <div class="card-item" data-reveal="tech">
+            <div class="card-icon">👓</div>
+            <div class="card-title" data-ar="الواقع المعزز" data-en="AR (Augmented Reality)">الواقع المعزز (<span dir='ltr'>AR</span>)</div>
+            <div class="card-body" data-ar="تقنية بتستخدم معالجة الكمبيوتر عشان تعزز البيئة الواقعية اللي بيدركها الإحساس البشري (البصر، وغيره)." data-en="A technology that uses computer processing to enhance the real-world environment perceived by human senses (vision, etc.).">تقنية بتستخدم معالجة الكمبيوتر عشان تعزز البيئة الواقعية اللي بيدركها الإحساس البشري (البصر، وغيره).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تخلط بين الـVR والـAR — الـVR بياخدك لبيئة محاكاة كاملة، والـAR بيضيف معلومات للبيئة الواقعية الحقيقية." data-en="Confusing VR and AR — VR takes you into a fully simulated environment, while AR adds information to the real environment.">تخلط بين الـ<span dir='ltr'>VR</span> والـ<span dir='ltr'>AR</span> — الـ<span dir='ltr'>VR</span> بياخدك لبيئة محاكاة كاملة، والـ<span dir='ltr'>AR</span> بيضيف معلومات للبيئة الواقعية الحقيقية.</li>
+          <li data-ar="تخلط بين الذكاء الاصطناعي والتعلم الآلي — الذكاء الاصطناعي هو المحاكاة الكاملة للسلوك البشري، والتعلم الآلي هو طريقة محددة فيه بتتعلم فيها الآلة من البيانات." data-en="Confusing AI and Machine Learning — AI is the overall mimicking of human behavior, while Machine Learning is a specific method where machines learn from data.">تخلط بين الذكاء الاصطناعي والتعلم الآلي — الذكاء الاصطناعي هو المحاكاة الكاملة للسلوك البشري، والتعلم الآلي هو طريقة محددة فيه بتتعلم فيها الآلة من البيانات.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 04 CHANGES ============ -->
+    <section id="changes">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#059669)">04</div>
+          <div>
+            <h2 data-ar="التغيرات اللي التكنولوجيا عملتها في حياتنا" data-en="Changes in Life Caused by IT">التغيرات اللي التكنولوجيا عملتها في حياتنا</h2>
+            <div class="tag" style="color:var(--s4)" data-ar="الوجه التاني للتكنولوجيا" data-en="The Other Side of Technology">الوجه التاني للتكنولوجيا</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اضغط على كل مفهوم عشان تفهمه:" data-en="Click each concept to understand it:" style="color:var(--s4)">اضغط على كل مفهوم عشان تفهمه:</h3>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="changes">
+            <div class="card-icon">😰</div>
+            <div class="card-title" data-ar="الإجهاد التقني" data-en="Technostress">الإجهاد التقني (<span dir='ltr'>Technostress</span>)</div>
+            <div class="card-body" data-ar="المصطلح الشامل للمشاكل النفسية والجسدية اللي بتظهر من استخدام الكمبيوترات." data-en="The overall term for mental and physical problems that arise from using computers.">المصطلح الشامل للمشاكل النفسية والجسدية اللي بتظهر من استخدام الكمبيوترات.</div>
+          </div>
+          <div class="card-item" data-reveal="changes">
+            <div class="card-icon">😨</div>
+            <div class="card-title" data-ar="الخوف التقني" data-en="Technophobia">الخوف التقني (<span dir='ltr'>Technophobia</span>)</div>
+            <div class="card-body" data-ar="حالة من القلق أو الخوف من استخدام الكمبيوترات بسبب إحساس بعدم الراحة أو نقص الثقة في التعامل معاها." data-en="A state of anxiety or fear towards using computers due to a sense of discomfort or lack of confidence in handling them.">حالة من القلق أو الخوف من استخدام الكمبيوترات بسبب إحساس بعدم الراحة أو نقص الثقة في التعامل معاها.</div>
+          </div>
+          <div class="card-item" data-reveal="changes">
+            <div class="card-icon">📱</div>
+            <div class="card-title" data-ar="الإدمان التقني" data-en="Techno-Addiction">الإدمان التقني (<span dir='ltr'>Techno-Addiction</span>)</div>
+            <div class="card-body" data-ar="الاعتماد المفرط على الكمبيوترات." data-en="Excessive dependency on computers.">الاعتماد المفرط على الكمبيوترات.</div>
+          </div>
+          <div class="card-item" data-reveal="changes">
+            <div class="card-icon">🧑‍⚕️</div>
+            <div class="card-title" data-ar="اضطراب شاشة العرض" data-en="VDT Disorder">اضطراب شاشة العرض (<span dir='ltr'>VDT Disorder</span>)</div>
+            <div class="card-body" data-ar="تيبس في الكتف وإجهاد في العين بسبب الاستخدام الطويل للكمبيوتر." data-en="Shoulder stiffness and eye strain caused by prolonged computer use.">تيبس في الكتف وإجهاد في العين بسبب الاستخدام الطويل للكمبيوتر.</div>
+          </div>
+          <div class="card-item" data-reveal="changes">
+            <div class="card-icon">🌐</div>
+            <div class="card-title" data-ar="الفجوة الرقمية" data-en="Digital Divide">الفجوة الرقمية (<span dir='ltr'>Digital Divide</span>)</div>
+            <div class="card-body" data-ar="الفجوة بين اللي بيقدروا يستخدموا تكنولوجيا المعلومات واللي مش قادرين." data-en="The gap between those who can utilize information technology and those who cannot.">الفجوة بين اللي بيقدروا يستخدموا تكنولوجيا المعلومات واللي مش قادرين.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تخلط بين الإجهاد التقني والخوف التقني — الإجهاد مشاكل نفسية وجسدية، والخوف حالة قلق من استخدام الكمبيوتر نفسه." data-en="Confusing technostress and technophobia — technostress is mental and physical problems, while technophobia is a state of anxiety about using computers.">تخلط بين الإجهاد التقني والخوف التقني — الإجهاد مشاكل نفسية وجسدية، والخوف حالة قلق من استخدام الكمبيوتر نفسه.</li>
+          <li data-ar="تخلط بين الفجوة الرقمية والإدمان التقني — الفجوة هي عدم القدرة على استخدام التكنولوجيا، والإدمان هو الاعتماد المفرط عليها." data-en="Confusing the digital divide and techno-addiction — the divide is the inability to use technology, while addiction is excessive dependency on it.">تخلط بين الفجوة الرقمية والإدمان التقني — الفجوة هي عدم القدرة على استخدام التكنولوجيا، والإدمان هو الاعتماد المفرط عليها.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 05 EXERCISES ============ -->
+    <section id="exercises">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
+          <div>
+            <h2 data-ar="التدريبات والاختبارات" data-en="Exercises & Quizzes">التدريبات والاختبارات</h2>
+            <div class="tag" style="color:var(--s5)" data-ar="تحدي ختامي" data-en="Final Challenge">تحدي ختامي</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warm Up: Page 43 -->
+      <div class="section-inner card">
+        <h3 style="color:var(--s1)" data-ar="🔥 Warm Up — صفحة 43" data-en="🔥 Warm Up — Page 43">🔥 Warm Up — صفحة 43</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="حط حلك بنفسك الأول، وبعدين افتح الحل." data-en="Try by yourself first, then open the solution.">حط حلك بنفسك الأول، وبعدين افتح الحل.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="اختار الترتيب الأصح من الخيارات اللي تحت لمراحل تطور المجتمع:" data-en="Choose the most appropriate sequence of societal development from the options A to D below, and answer using the letter:">اختار الترتيب الأصح من الخيارات اللي تحت لمراحل تطور المجتمع:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;مجتمع الصيد ← الزراعي ← الصناعي ← المعلوماتي" data-en="A&nbsp;&nbsp;Hunter-gatherer society → Agrarian society → Industrialized society → Information society">A&nbsp;&nbsp;مجتمع الصيد ← الزراعي ← الصناعي ← المعلوماتي</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;الزراعي ← الصيد ← المعلوماتي ← الصناعي" data-en="B&nbsp;&nbsp;Agrarian society → Hunter-gatherer society → Information society → Industrialized society">B&nbsp;&nbsp;الزراعي ← الصيد ← المعلوماتي ← الصناعي</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;الزراعي ← الصيد ← الصناعي ← المعلوماتي" data-en="C&nbsp;&nbsp;Agrarian society → Hunter-gatherer society → Industrialized society → Information society">C&nbsp;&nbsp;الزراعي ← الصيد ← الصناعي ← المعلوماتي</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;الصيد ← الزراعي ← المعلوماتي ← الصناعي" data-en="D&nbsp;&nbsp;Hunter-gatherer society → Agrarian society → Information society → Industrialized society">D&nbsp;&nbsp;الصيد ← الزراعي ← المعلوماتي ← الصناعي</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — الترتيب الصح: الصيد والجمع ← الزراعي ← الصناعي ← المعلوماتي." data-en="✅ Answer: A — the correct order is hunter-gatherer, agrarian, industrialized, then information society.">✅ الإجابة: <b>A</b> — الترتيب الصح: الصيد والجمع ← الزراعي ← الصناعي ← المعلوماتي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="[1] التقنية اللي بتوصل كل الحاجات (الأشياء) بالإنترنت — اختر الحرف الصح:" data-en="[1] Technology that connects all things (objects) to the internet — choose the correct letter:">[1] التقنية اللي بتوصل كل الحاجات (الأشياء) بالإنترنت — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Machine Learning" data-en="A&nbsp;&nbsp;Machine Learning">A&nbsp;&nbsp;Machine Learning</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Big data" data-en="B&nbsp;&nbsp;Big data">B&nbsp;&nbsp;Big data</div>
+              <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;IoT (إنترنت الأشياء)" data-en="C&nbsp;&nbsp;IoT (Internet of Things)">C&nbsp;&nbsp;IoT (إنترنت الأشياء)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Virtual Reality" data-en="D&nbsp;&nbsp;Virtual Reality">D&nbsp;&nbsp;Virtual Reality</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — الـIoT بيوصل الأشياء بالإنترنت." data-en="✅ Answer: C — IoT connects things to the internet.">✅ الإجابة: <b>C</b> — الـ<span dir='ltr'>IoT</span> بيوصل الأشياء بالإنترنت.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="[2] تقنية بتحلل فيها الآلات البيانات عشان تستخرج قواعد وأنماط منها — اختر الحرف الصح:" data-en="[2] A technology in which machines analyze data to extract rules and patterns from the data — choose the correct letter:">[2] تقنية بتحلل فيها الآلات البيانات عشان تستخرج قواعد وأنماط منها — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Machine Learning" data-en="A&nbsp;&nbsp;Machine Learning">A&nbsp;&nbsp;Machine Learning</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Big data" data-en="B&nbsp;&nbsp;Big data">B&nbsp;&nbsp;Big data</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;IoT (إنترنت الأشياء)" data-en="C&nbsp;&nbsp;IoT (Internet of Things)">C&nbsp;&nbsp;IoT (إنترنت الأشياء)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Virtual Reality" data-en="D&nbsp;&nbsp;Virtual Reality">D&nbsp;&nbsp;Virtual Reality</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — التعلم الآلي بيستخرج القواعد والأنماط من البيانات." data-en="✅ Answer: A — Machine Learning extracts rules and patterns from data.">✅ الإجابة: <b>A</b> — التعلم الآلي بيستخرج القواعد والأنماط من البيانات.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="[3] كمية ضخمة من البيانات صعب على البشر يفهموها تماماً — اختر الحرف الصح:" data-en="[3] A vast amount of data that is difficult for humans to fully comprehend — choose the correct letter:">[3] كمية ضخمة من البيانات صعب على البشر يفهموها تماماً — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Machine Learning" data-en="A&nbsp;&nbsp;Machine Learning">A&nbsp;&nbsp;Machine Learning</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Big data" data-en="B&nbsp;&nbsp;Big data">B&nbsp;&nbsp;Big data</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;IoT (إنترنت الأشياء)" data-en="C&nbsp;&nbsp;IoT (Internet of Things)">C&nbsp;&nbsp;IoT (إنترنت الأشياء)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Virtual Reality" data-en="D&nbsp;&nbsp;Virtual Reality">D&nbsp;&nbsp;Virtual Reality</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — البيانات الضخمة هي الكمية الضخمة اللي صعب فهمها." data-en="✅ Answer: B — Big Data is the vast amount that is hard to comprehend.">✅ الإجابة: <b>B</b> — البيانات الضخمة هي الكمية الضخمة اللي صعب فهمها.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="[4] فضاء افتراضي الكمبيوتر بيصنعه وبيسمح بتجارب بتحس إنها حقيقية — اختر الحرف الصح:" data-en="[4] A virtual space which is created by a computer and allows for experiences that feel like reality — choose the correct letter:">[4] فضاء افتراضي الكمبيوتر بيصنعه وبيسمح بتجارب بتحس إنها حقيقية — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Machine Learning" data-en="A&nbsp;&nbsp;Machine Learning">A&nbsp;&nbsp;Machine Learning</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Big data" data-en="B&nbsp;&nbsp;Big data">B&nbsp;&nbsp;Big data</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;IoT (إنترنت الأشياء)" data-en="C&nbsp;&nbsp;IoT (Internet of Things)">C&nbsp;&nbsp;IoT (إنترنت الأشياء)</div>
+              <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;Virtual Reality" data-en="D&nbsp;&nbsp;Virtual Reality">D&nbsp;&nbsp;Virtual Reality</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: D — الواقع الافتراضي بيوفر تجارب بتحس بالواقع في بيئة محاكاة." data-en="✅ Answer: D — Virtual Reality provides realistic-feeling experiences in a simulated environment.">✅ الإجابة: <b>D</b> — الواقع الافتراضي بيوفر تجارب بتحس بالواقع في بيئة محاكاة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="إيه هو المصطلح اللي بيوصف الفجوة بين اللي بيقدروا يستخدموا تكنولوجيا المعلومات (زي الإنترنت) واللي مش قادرين؟" data-en="What is the term for the gap between those who can utilize information technology, such as the internet, and those who cannot?">إيه هو المصطلح اللي بيوصف الفجوة بين اللي بيقدروا يستخدموا تكنولوجيا المعلومات (زي الإنترنت) واللي مش قادرين؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;الفجوة الرقمية (Digital Divide)" data-en="A&nbsp;&nbsp;Digital Divide">A&nbsp;&nbsp;الفجوة الرقمية (<span dir='ltr'>Digital Divide</span>)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;الإجهاد التقني (Technostress)" data-en="B&nbsp;&nbsp;Technostress">B&nbsp;&nbsp;الإجهاد التقني (<span dir='ltr'>Technostress</span>)</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;الخوف التقني (Technophobia)" data-en="C&nbsp;&nbsp;Technophobia">C&nbsp;&nbsp;الخوف التقني (<span dir='ltr'>Technophobia</span>)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;اضطراب شاشة العرض (VDT Disorder)" data-en="D&nbsp;&nbsp;VDT Disorder">D&nbsp;&nbsp;اضطراب شاشة العرض (<span dir='ltr'>VDT Disorder</span>)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — الفجوة الرقمية هي الفجوة بين اللي بيقدروا يستخدموا التكنولوجيا واللي مش قادرين." data-en="✅ Answer: A — the digital divide is the gap between those who can use technology and those who cannot.">✅ الإجابة: <b>A</b> — الفجوة الرقمية هي الفجوة بين اللي بيقدروا يستخدموا التكنولوجيا واللي مش قادرين.</div>
+          </div>
+          <button class="btn" data-reveal="warm" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+        </div>
+      </div>
+
+      <!-- Try: Page 44 -->
+      <div class="section-inner card">
+        <h3 style="color:var(--s2)" data-ar="🔥 Try — صفحة 44" data-en="🔥 Try — Page 44">🔥 Try — صفحة 44</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="اقرا القطعة بعدين جاوب." data-en="Read the passage, then answer.">اقرا القطعة بعدين جاوب.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="في العصور القديمة، الناس عاشوا بالصيد وجمع النباتات. المجتمع ده اسمه مجتمع (   [1]   ) — اختر الحرف الصح:" data-en="In ancient times, people lived by hunting animals and gathering plants. This kind of (   [1]   ) society — choose the correct letter:">في العصور القديمة، الناس عاشوا بالصيد وجمع النباتات. المجتمع ده اسمه مجتمع (   [1]   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Industrial (صناعي)" data-en="A&nbsp;&nbsp;Industrial">A&nbsp;&nbsp;Industrial</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Hunter-gatherer (صيد وجمع)" data-en="B&nbsp;&nbsp;Hunter-gatherer">B&nbsp;&nbsp;Hunter-gatherer</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Information (معلوماتي)" data-en="C&nbsp;&nbsp;Information">C&nbsp;&nbsp;Information</div>
+              <div class="ex-opt" data-ar="E&nbsp;&nbsp;Agrarian (زراعي)" data-en="E&nbsp;&nbsp;Agrarian">E&nbsp;&nbsp;Agrarian</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [1] = B — المجتمع اللي بيعيش بالصيد والجمع هو مجتمع الصيد والجمع." data-en="✅ Answer: [1] = B — the society living by hunting and gathering is the hunter-gatherer society.">✅ الإجابة: <b>[1] = B</b> — المجتمع اللي بيعيش بالصيد والجمع هو مجتمع الصيد والجمع.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="بعدين البشر استقروا على أرض خصبة وعاشوا حياة زراعة المحاصيل. المجتمع ده اسمه مجتمع (   [2]   ) — اختر الحرف الصح:" data-en="Eventually, humanity settled on fertile land and led a life growing crops. This kind of (   [2]   ) society — choose the correct letter:">بعدين البشر استقروا على أرض خصبة وعاشوا حياة زراعة المحاصيل. المجتمع ده اسمه مجتمع (   [2]   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Information (معلوماتي)" data-en="C&nbsp;&nbsp;Information">C&nbsp;&nbsp;Information</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;The internet" data-en="D&nbsp;&nbsp;The internet">D&nbsp;&nbsp;The internet</div>
+              <div class="ex-opt" data-ok="1" data-ar="E&nbsp;&nbsp;Agrarian (زراعي)" data-en="E&nbsp;&nbsp;Agrarian">E&nbsp;&nbsp;Agrarian</div>
+              <div class="ex-opt" data-ar="F&nbsp;&nbsp;Industrialized (مُصنّع)" data-en="F&nbsp;&nbsp;Industrialized">F&nbsp;&nbsp;Industrialized</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [2] = E — المجتمع اللي بيعتمد على زراعة وحصاد الطعام هو المجتمع الزراعي." data-en="✅ Answer: [2] = E — the society that depends on growing and harvesting food is the agrarian society.">✅ الإجابة: <b>[2] = E</b> — المجتمع اللي بيعتمد على زراعة وحصاد الطعام هو المجتمع الزراعي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="من منتصف القرن الـ18، لما المحرك البخاري اتاخترع في بريطانيا، حصلت الثورة (   [3]   ) — اختر الحرف الصح:" data-en="From the mid-18th century, when the steam engine was invented in Britain, the (   [3]   ) Revolution occurred — choose the correct letter:">من منتصف القرن الـ18، لما المحرك البخاري اتاخترع في بريطانيا، حصلت الثورة (   [3]   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Industrial (الصناعية)" data-en="A&nbsp;&nbsp;Industrial">A&nbsp;&nbsp;Industrial</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Information (المعلوماتية)" data-en="C&nbsp;&nbsp;Information">C&nbsp;&nbsp;Information</div>
+              <div class="ex-opt" data-ar="E&nbsp;&nbsp;Agrarian (الزراعية)" data-en="E&nbsp;&nbsp;Agrarian">E&nbsp;&nbsp;Agrarian</div>
+              <div class="ex-opt" data-ar="F&nbsp;&nbsp;Industrialized (المُصنِّعة)" data-en="F&nbsp;&nbsp;Industrialized">F&nbsp;&nbsp;Industrialized</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [3] = A — المحرك البخاري بدأ الثورة الصناعية." data-en="✅ Answer: [3] = A — the steam engine began the Industrial Revolution.">✅ الإجابة: <b>[3] = A</b> — المحرك البخاري بدأ الثورة الصناعية.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="الثورة دي أدت لتكوين مجتمع (   [4]   ) — اختر الحرف الصح:" data-en="This led to the formation of (   [4]   ) society — choose the correct letter:">الثورة دي أدت لتكوين مجتمع (   [4]   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Information (معلوماتي)" data-en="C&nbsp;&nbsp;Information">C&nbsp;&nbsp;Information</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;The internet" data-en="D&nbsp;&nbsp;The internet">D&nbsp;&nbsp;The internet</div>
+              <div class="ex-opt" data-ar="E&nbsp;&nbsp;Agrarian (زراعي)" data-en="E&nbsp;&nbsp;Agrarian">E&nbsp;&nbsp;Agrarian</div>
+              <div class="ex-opt" data-ok="1" data-ar="F&nbsp;&nbsp;Industrialized (مُصنّع)" data-en="F&nbsp;&nbsp;Industrialized">F&nbsp;&nbsp;Industrialized</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [4] = F — الثورة الصناعية كوّنت المجتمع الصناعي." data-en="✅ Answer: [4] = F — the Industrial Revolution formed the industrialized society.">✅ الإجابة: <b>[4] = F</b> — الثورة الصناعية كوّنت المجتمع الصناعي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="حوالي منتصف القرن العشرين، مع تطور الراديو والتلفزيون واختراع الكمبيوتر، ظهر مجتمع (   [5]   ) — اختر الحرف الصح:" data-en="Around the middle of the 20th century, with the development of radio and television and the invention of the computer, the (   [5]   ) society emerged — choose the correct letter:">حوالي منتصف القرن العشرين، مع تطور الراديو والتلفزيون واختراع الكمبيوتر، ظهر مجتمع (   [5]   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Information (معلوماتي)" data-en="C&nbsp;&nbsp;Information">C&nbsp;&nbsp;Information</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;The internet" data-en="D&nbsp;&nbsp;The internet">D&nbsp;&nbsp;The internet</div>
+              <div class="ex-opt" data-ar="E&nbsp;&nbsp;Agrarian (زراعي)" data-en="E&nbsp;&nbsp;Agrarian">E&nbsp;&nbsp;Agrarian</div>
+              <div class="ex-opt" data-ar="F&nbsp;&nbsp;Industrialized (مُصنّع)" data-en="F&nbsp;&nbsp;Industrialized">F&nbsp;&nbsp;Industrialized</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [5] = C — الكمبيوتر والإعلام أدو لظهور المجتمع المعلوماتي." data-en="✅ Answer: [5] = C — computers and media led to the emergence of the information society.">✅ الإجابة: <b>[5] = C</b> — الكمبيوتر والإعلام أدو لظهور المجتمع المعلوماتي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="الجزء اللي تحته خط A بيشير لمجتمع بيدمج الفضاء الافتراضي والفضاء الحقيقي لحل المشاكل الاجتماعية — إيه اسمه؟" data-en="What is the term for a society like the one referred to by the underlined section A — a society that integrates virtual and real space to solve social issues?">الجزء اللي تحته خط A بيشير لمجتمع بيدمج الفضاء الافتراضي والفضاء الحقيقي لحل المشاكل الاجتماعية — إيه اسمه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Industrialized society" data-en="A&nbsp;&nbsp;Industrialized society">A&nbsp;&nbsp;Industrialized society</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Society 5.0" data-en="B&nbsp;&nbsp;Society 5.0">B&nbsp;&nbsp;Society 5.0</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Agrarian society" data-en="C&nbsp;&nbsp;Agrarian society">C&nbsp;&nbsp;Agrarian society</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Hunter-gatherer society" data-en="D&nbsp;&nbsp;Hunter-gatherer society">D&nbsp;&nbsp;Hunter-gatherer society</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — المجتمع اللي بيدمج الفضاء الافتراضي والحقيقي هو Society 5.0." data-en="✅ Answer: B — the society that integrates virtual and real space is Society 5.0.">✅ الإجابة: <b>B</b> — المجتمع اللي بيدمج الفضاء الافتراضي والحقيقي هو <span dir='ltr'>Society 5.0</span>.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="[1] كميات ضخمة من البيانات بتتجمع وتتتراكم من الناس والأشياء والمجتمع والطبيعة، وبتتحلل وتستخدم لحل المشاكل — اختر الحرف الصح:" data-en="[1] Vast amounts of data collected and accumulated from people, objects, society, and nature, which is then analyzed and utilized for problem-solving — choose the correct letter:">[1] كميات ضخمة من البيانات بتتجمع وتتتراكم من الناس والأشياء والمجتمع والطبيعة، وبتتحلل وتستخدم لحل المشاكل — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;AI" data-en="A&nbsp;&nbsp;AI">A&nbsp;&nbsp;AI</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Augmented Reality" data-en="B&nbsp;&nbsp;Augmented Reality">B&nbsp;&nbsp;Augmented Reality</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;IoT" data-en="D&nbsp;&nbsp;IoT (Internet of Things)">D&nbsp;&nbsp;IoT</div>
+              <div class="ex-opt" data-ok="1" data-ar="F&nbsp;&nbsp;Big Data" data-en="F&nbsp;&nbsp;Big Data">F&nbsp;&nbsp;Big Data</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: F — البيانات الضخمة هي الكميات الضخمة اللي بتتحلل لحل المشاكل." data-en="✅ Answer: F — Big Data is the vast data analyzed to solve problems.">✅ الإجابة: <b>F</b> — البيانات الضخمة هي الكميات الضخمة اللي بتتحلل لحل المشاكل.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">8</span> <span data-ar="[2] بيئة كل الحاجات فيها متوصلة بالإنترنت وبتتواصل مع بعضها — اختر الحرف الصح:" data-en="[2] An environment where all objects are connected to the internet and communicate with each other — choose the correct letter:">[2] بيئة كل الحاجات فيها متوصلة بالإنترنت وبتتواصل مع بعضها — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;IoT" data-en="D&nbsp;&nbsp;IoT (Internet of Things)">D&nbsp;&nbsp;IoT</div>
+              <div class="ex-opt" data-ar="E&nbsp;&nbsp;Smart Home" data-en="E&nbsp;&nbsp;Smart Home">E&nbsp;&nbsp;Smart Home</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Virtual Reality" data-en="C&nbsp;&nbsp;Virtual Reality">C&nbsp;&nbsp;Virtual Reality</div>
+              <div class="ex-opt" data-ar="F&nbsp;&nbsp;Big Data" data-en="F&nbsp;&nbsp;Big Data">F&nbsp;&nbsp;Big Data</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: D — إنترنت الأشياء بيربط كل الأشياء بالإنترنت." data-en="✅ Answer: D — IoT connects all objects to the internet.">✅ الإجابة: <b>D</b> — إنترنت الأشياء بيربط كل الأشياء بالإنترنت.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">9</span> <span data-ar="[3] تقنية بتعزز الواقع باستخدام الكمبيوتر عشان تضيف معلومات للبيئات الواقعية — اختر الحرف الصح:" data-en="[3] Technology that enhances reality by using computers to add information to real-world environments — choose the correct letter:">[3] تقنية بتعزز الواقع باستخدام الكمبيوتر عشان تضيف معلومات للبيئات الواقعية — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;AI" data-en="A&nbsp;&nbsp;AI">A&nbsp;&nbsp;AI</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Augmented Reality" data-en="B&nbsp;&nbsp;Augmented Reality">B&nbsp;&nbsp;Augmented Reality</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Virtual Reality" data-en="C&nbsp;&nbsp;Virtual Reality">C&nbsp;&nbsp;Virtual Reality</div>
+              <div class="ex-opt" data-ar="E&nbsp;&nbsp;Smart Home" data-en="E&nbsp;&nbsp;Smart Home">E&nbsp;&nbsp;Smart Home</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — الواقع المعزز بيضيف معلومات للبيئة الواقعية." data-en="✅ Answer: B — Augmented Reality adds information to the real-world environment.">✅ الإجابة: <b>B</b> — الواقع المعزز بيضيف معلومات للبيئة الواقعية.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">10</span> <span data-ar="[4] مساكن بتستخدم تقنيات الـIoT والذكاء الاصطناعي عشان توفر بيئة معيشة أكتر راحة — اختر الحرف الصح:" data-en="[4] Residences that utilize IoT and AI technologies to achieve a more comfortable living environment — choose the correct letter:">[4] مساكن بتستخدم تقنيات الـIoT والذكاء الاصطناعي عشان توفر بيئة معيشة أكتر راحة — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;AI" data-en="A&nbsp;&nbsp;AI">A&nbsp;&nbsp;AI</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Augmented Reality" data-en="B&nbsp;&nbsp;Augmented Reality">B&nbsp;&nbsp;Augmented Reality</div>
+              <div class="ex-opt" data-ok="1" data-ar="E&nbsp;&nbsp;Smart Home" data-en="E&nbsp;&nbsp;Smart Home">E&nbsp;&nbsp;Smart Home</div>
+              <div class="ex-opt" data-ar="F&nbsp;&nbsp;Big Data" data-en="F&nbsp;&nbsp;Big Data">F&nbsp;&nbsp;Big Data</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: E — البيت الذكي بيستخدم الـIoT والذكاء الاصطناعي للراحة." data-en="✅ Answer: E — the Smart Home uses IoT and AI for comfort.">✅ الإجابة: <b>E</b> — البيت الذكي بيستخدم الـIoT والذكاء الاصطناعي للراحة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">11</span> <span data-ar="اختار اللي مش من خصائص البيانات الضخمة من الخيارات اللي تحت:" data-en="Choose the one that is not a characteristic of Big Data from the options A to D, and answer using the letter:">اختار اللي مش من خصائص البيانات الضخمة من الخيارات اللي تحت:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;البيانات بتتميز بتنوع استخداماتها المنخفض" data-en="A&nbsp;&nbsp;The data has low versatility">A&nbsp;&nbsp;البيانات بتتميز بتنوع استخداماتها المنخفض</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;كمية البيانات ضخمة" data-en="B&nbsp;&nbsp;The amount of data is enormous">B&nbsp;&nbsp;كمية البيانات ضخمة</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;أنواع البيانات متنوعة" data-en="C&nbsp;&nbsp;The types of data are diverse">C&nbsp;&nbsp;أنواع البيانات متنوعة</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;البيانات بتتميز بتردد حدوث مرتفع" data-en="D&nbsp;&nbsp;The data has a high frequency of occurrence">D&nbsp;&nbsp;البيانات بتتميز بتردد حدوث مرتفع</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — البيانات الضخمة بتنوع كبير، مش بتنوع استخدامات منخفض." data-en="✅ Answer: A — Big Data has high versatility, not low versatility.">✅ الإجابة: <b>A</b> — البيانات الضخمة بتنوع كبير، مش بتنوع استخدامات منخفض.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">12</span> <span data-ar="التفاوت اللي بيظهر بين اللي بيقدروا يستخدموا تقنيات المعلومات والاتصالات زي الإنترنت والكمبيوترات واللي مش قادرين، بيتسمى (   ) — اختر الحرف الصح:" data-en="The disparity that arises between those who can use information and communication technologies like the internet and computers and those who cannot is referred to as (   ) — choose the correct letter:">التفاوت اللي بيظهر بين اللي بيقدروا يستخدموا تقنيات المعلومات والاتصالات زي الإنترنت والكمبيوترات واللي مش قادرين، بيتسمى (   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Technostress" data-en="A&nbsp;&nbsp;Technostress">A&nbsp;&nbsp;Technostress</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Digital Divide" data-en="B&nbsp;&nbsp;Digital Divide">B&nbsp;&nbsp;Digital Divide</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;VDT Disorder" data-en="C&nbsp;&nbsp;VDT Disorder">C&nbsp;&nbsp;VDT Disorder</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Techno-Addiction" data-en="D&nbsp;&nbsp;Techno-Addiction">D&nbsp;&nbsp;Techno-Addiction</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — الفجوة الرقمية هي التفاوت في استخدام تقنيات المعلومات." data-en="✅ Answer: B — the digital divide is the disparity in using information technologies.">✅ الإجابة: <b>B</b> — الفجوة الرقمية هي التفاوت في استخدام تقنيات المعلومات.</div>
+          </div>
+          <button class="btn" data-reveal="try" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+        </div>
+      </div>
+
+      <!-- Exercise: Page 45 -->
+      <div class="section-inner card">
+        <h3 style="color:var(--s3)" data-ar="🔥 Exercise — صفحة 45" data-en="🔥 Exercise — Page 45">🔥 Exercise — صفحة 45</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="اكمل الجدول واختار الحروف الصح." data-en="Complete the table and choose the correct letters.">اكمل الجدول واختار الحروف الصح.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="اكمل: من بداية ظهور البشرية، مجتمع بيحيا بالصيد = مجتمع (   [1]   ) — اختر الحرف الصح:" data-en="Complete: from the birth of humanity, a society living through hunting = (   [1]   ) society — choose the correct letter:">اكمل: من بداية ظهور البشرية، مجتمع بيحيا بالصيد = مجتمع (   [1]   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Hunter-gatherer" data-en="A&nbsp;&nbsp;Hunter-gatherer">A&nbsp;&nbsp;Hunter-gatherer</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Agrarian" data-en="B&nbsp;&nbsp;Agrarian">B&nbsp;&nbsp;Agrarian</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Industrialized" data-en="C&nbsp;&nbsp;Industrialized">C&nbsp;&nbsp;Industrialized</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Information" data-en="D&nbsp;&nbsp;Information">D&nbsp;&nbsp;Information</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [1] = A — مجتمع الصيد والجمع." data-en="✅ Answer: [1] = A — the hunter-gatherer society.">✅ الإجابة: <b>[1] = A</b> — مجتمع الصيد والجمع.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="اكمل: من حوالي 13,000 قبل الميلاد، مجتمع بيحيا حياة مستقرة بزراعة وحصاد الطعام = مجتمع (   [2]   ) — اختر الحرف الصح:" data-en="Complete: from around 13,000 BCE, a society living a stable life by growing and harvesting food = (   [2]   ) society — choose the correct letter:">اكمل: من حوالي 13,000 قبل الميلاد، مجتمع بيحيا حياة مستقرة بزراعة وحصاد الطعام = مجتمع (   [2]   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Hunter-gatherer" data-en="A&nbsp;&nbsp;Hunter-gatherer">A&nbsp;&nbsp;Hunter-gatherer</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Agrarian" data-en="B&nbsp;&nbsp;Agrarian">B&nbsp;&nbsp;Agrarian</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Industrialized" data-en="C&nbsp;&nbsp;Industrialized">C&nbsp;&nbsp;Industrialized</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Information" data-en="D&nbsp;&nbsp;Information">D&nbsp;&nbsp;Information</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [2] = B — المجتمع الزراعي." data-en="✅ Answer: [2] = B — the agrarian society.">✅ الإجابة: <b>[2] = B</b> — المجتمع الزراعي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="اكمل: من منتصف القرن الـ18، مجتمع التصنيع تقدم فيه بالإنتاج الضخم بالآلات = مجتمع (   [3]   ) — اختر الحرف الصح:" data-en="Complete: from the mid-18th century, a society where industrialization advanced through mass production using machinery = (   [3]   ) society — choose the correct letter:">اكمل: من منتصف القرن الـ18، مجتمع التصنيع تقدم فيه بالإنتاج الضخم بالآلات = مجتمع (   [3]   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Hunter-gatherer" data-en="A&nbsp;&nbsp;Hunter-gatherer">A&nbsp;&nbsp;Hunter-gatherer</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Agrarian" data-en="B&nbsp;&nbsp;Agrarian">B&nbsp;&nbsp;Agrarian</div>
+              <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Industrialized" data-en="C&nbsp;&nbsp;Industrialized">C&nbsp;&nbsp;Industrialized</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Information" data-en="D&nbsp;&nbsp;Information">D&nbsp;&nbsp;Information</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [3] = C — المجتمع الصناعي." data-en="✅ Answer: [3] = C — the industrialized society.">✅ الإجابة: <b>[3] = C</b> — المجتمع الصناعي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="اكمل: من النصف التاني من القرن العشرين، مجتمع الأتمتة اتشجعت فيه بتقدم الكمبيوترات = مجتمع (   [4]   ) — اختر الحرف الصح:" data-en="Complete: from the latter half of the 20th century, a society where automation was promoted by the advancement of computers = (   [4]   ) society — choose the correct letter:">اكمل: من النصف التاني من القرن العشرين، مجتمع الأتمتة اتشجعت فيه بتقدم الكمبيوترات = مجتمع (   [4]   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Hunter-gatherer" data-en="A&nbsp;&nbsp;Hunter-gatherer">A&nbsp;&nbsp;Hunter-gatherer</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Agrarian" data-en="B&nbsp;&nbsp;Agrarian">B&nbsp;&nbsp;Agrarian</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Industrialized" data-en="C&nbsp;&nbsp;Industrialized">C&nbsp;&nbsp;Industrialized</div>
+              <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;Information" data-en="D&nbsp;&nbsp;Information">D&nbsp;&nbsp;Information</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [4] = D — المجتمع المعلوماتي." data-en="✅ Answer: [4] = D — the information society.">✅ الإجابة: <b>[4] = D</b> — المجتمع المعلوماتي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="[1] بيئة كل الحاجات فيها متوصلة بالإنترنت وبتتواصل مع بعضها — اختر الحرف الصح:" data-en="[1] An environment where all objects are connected to the internet and communicate with each other — choose the correct letter:">[1] بيئة كل الحاجات فيها متوصلة بالإنترنت وبتتواصل مع بعضها — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;IoT" data-en="B&nbsp;&nbsp;IoT (Internet of Things)">B&nbsp;&nbsp;IoT</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Augmented Reality" data-en="C&nbsp;&nbsp;Augmented Reality">C&nbsp;&nbsp;Augmented Reality</div>
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Virtual Reality" data-en="A&nbsp;&nbsp;Virtual Reality">A&nbsp;&nbsp;Virtual Reality</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;AI" data-en="D&nbsp;&nbsp;AI">D&nbsp;&nbsp;AI</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — إنترنت الأشياء بيوصل كل الأشياء بالإنترنت." data-en="✅ Answer: B — IoT connects all objects to the internet.">✅ الإجابة: <b>B</b> — إنترنت الأشياء بيوصل كل الأشياء بالإنترنت.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="[2] تقنية بتستخدم الكمبيوترات عشان تحاكي بشكل مصطنع السلوك الفكري للبشر — اختر الحرف الصح:" data-en="[2] A technology that uses computers to artificially mimic human intellectual behavior — choose the correct letter:">[2] تقنية بتستخدم الكمبيوترات عشان تحاكي بشكل مصطنع السلوك الفكري للبشر — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;AI" data-en="D&nbsp;&nbsp;AI">D&nbsp;&nbsp;AI</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;IoT" data-en="B&nbsp;&nbsp;IoT (Internet of Things)">B&nbsp;&nbsp;IoT</div>
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Virtual Reality" data-en="A&nbsp;&nbsp;Virtual Reality">A&nbsp;&nbsp;Virtual Reality</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Augmented Reality" data-en="C&nbsp;&nbsp;Augmented Reality">C&nbsp;&nbsp;Augmented Reality</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: D — الذكاء الاصطناعي بيحاكي السلوك الفكري للبشر." data-en="✅ Answer: D — AI mimics human intellectual behavior.">✅ الإجابة: <b>D</b> — الذكاء الاصطناعي بيحاكي السلوك الفكري للبشر.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="[3] تقنية لبناء بيئات افتراضية ممكن البشر يدركوها — اختر الحرف الصح:" data-en="[3] Technology for constructing virtual environments that can be perceived by humans — choose the correct letter:">[3] تقنية لبناء بيئات افتراضية ممكن البشر يدركوها — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Virtual Reality" data-en="A&nbsp;&nbsp;Virtual Reality">A&nbsp;&nbsp;Virtual Reality</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;AI" data-en="D&nbsp;&nbsp;AI">D&nbsp;&nbsp;AI</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;IoT" data-en="B&nbsp;&nbsp;IoT (Internet of Things)">B&nbsp;&nbsp;IoT</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Augmented Reality" data-en="C&nbsp;&nbsp;Augmented Reality">C&nbsp;&nbsp;Augmented Reality</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — الواقع الافتراضي بيبني بيئات افتراضية." data-en="✅ Answer: A — Virtual Reality builds virtual environments.">✅ الإجابة: <b>A</b> — الواقع الافتراضي بيبني بيئات افتراضية.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">8</span> <span data-ar="[4] تقنية بتضيف معلومات (صور ثابتة، فيديوهات، إلخ) باستخدام الكمبيوترات للبيئات الواقعية — اختر الحرف الصح:" data-en="[4] A technology that adds information (still images, videos, etc.) by using computers to real-world environments — choose the correct letter:">[4] تقنية بتضيف معلومات (صور ثابتة، فيديوهات، إلخ) باستخدام الكمبيوترات للبيئات الواقعية — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Virtual Reality" data-en="A&nbsp;&nbsp;Virtual Reality">A&nbsp;&nbsp;Virtual Reality</div>
+              <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Augmented Reality" data-en="C&nbsp;&nbsp;Augmented Reality">C&nbsp;&nbsp;Augmented Reality</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;AI" data-en="D&nbsp;&nbsp;AI">D&nbsp;&nbsp;AI</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;IoT" data-en="B&nbsp;&nbsp;IoT (Internet of Things)">B&nbsp;&nbsp;IoT</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — الواقع المعزز بيضيف معلومات للبيئة الواقعية." data-en="✅ Answer: C — Augmented Reality adds information to the real environment.">✅ الإجابة: <b>C</b> — الواقع المعزز بيضيف معلومات للبيئة الواقعية.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">9</span> <span data-ar="اختار العبارة اللي أكتر واحدة مش مناسبة بخصوص تحليل البيانات الضخمة:" data-en="Choose one statement that is most inappropriate in regard to Big Data analysis:">اختار العبارة اللي أكتر واحدة مش مناسبة بخصوص تحليل البيانات الضخمة:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;الدكاترة بيقدروا يعملوا تشخيصات سريعة ودقيقة بتجميع معلومات زي تقدم العلاج ونتائج اختبارات المرضى" data-en="A&nbsp;&nbsp;Doctors are able to make quick and accurate diagnoses by consolidating information such as treatment progress and test results of patients">A&nbsp;&nbsp;الدكاترة بيقدروا يعملوا تشخيصات سريعة ودقيقة بتجميع معلومات زي تقدم العلاج ونتائج اختبارات المرضى</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;مراقبة حالة المرور في الوقت الفعلي، توقع الازدحام، واقتراح أفضل الطرق" data-en="B&nbsp;&nbsp;Monitor real-time traffic conditions, predict traffic congestion, and suggest optimal routes">B&nbsp;&nbsp;مراقبة حالة المرور في الوقت الفعلي، توقع الازدحام، واقتراح أفضل الطرق</div>
+              <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;تحليل سلوكيات المستهلكين بناءً على نتائج المقابلات الجماعية" data-en="C&nbsp;&nbsp;Analyze consumer behavior patterns based on the results of group interviews">C&nbsp;&nbsp;تحليل سلوكيات المستهلكين بناءً على نتائج المقابلات الجماعية</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;تحليل الكميات الضخمة من المنشورات على مواقع التواصل لمعرفة الكلمات الرائجة وفهم الاتجاهات الحالية" data-en="D&nbsp;&nbsp;Analyze the large volume of posts on social media to identify trending keywords and understand current trends">D&nbsp;&nbsp;تحليل الكميات الضخمة من المنشورات على مواقع التواصل لمعرفة الكلمات الرائجة وفهم الاتجاهات الحالية</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — المقابلات الجماعية بتغطي عدد صغير، مش البيانات الضخمة. الباقي أمثلة حقيقية على تحليل البيانات الضخمة." data-en="✅ Answer: C — group interviews cover a small number, not Big Data. The rest are real examples of Big Data analysis.">✅ الإجابة: <b>C</b> — المقابلات الجماعية بتغطي عدد صغير، مش البيانات الضخمة. الباقي أمثلة حقيقية على تحليل البيانات الضخمة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">10</span> <span data-ar="القلق والإحباط من عدم القدرة على التكيف مع تشغيل أجهزة المعلومات زي الكمبيوترات والهواتف الذكية، والاعتماد المفرط على الأجهزة، بيتسموا كلهم (   ) — اختر الحرف الصح:" data-en="Anxiety and frustration from being unable to adapt to the operation of information devices such as computers or smartphones, as well as excessive dependency on the devices, are collectively referred to as (   ) — choose the correct letter:">القلق والإحباط من عدم القدرة على التكيف مع تشغيل أجهزة المعلومات زي الكمبيوترات والهواتف الذكية، والاعتماد المفرط على الأجهزة، بيتسموا كلهم (   ) — اختر الحرف الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Technostress" data-en="A&nbsp;&nbsp;Technostress">A&nbsp;&nbsp;Technostress</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Digital Divide" data-en="B&nbsp;&nbsp;Digital Divide">B&nbsp;&nbsp;Digital Divide</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;VDT Disorder" data-en="C&nbsp;&nbsp;VDT Disorder">C&nbsp;&nbsp;VDT Disorder</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Techno-Addiction" data-en="D&nbsp;&nbsp;Techno-Addiction">D&nbsp;&nbsp;Techno-Addiction</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — القلق والإحباط والاعتماد المفرط كلهم بيجمعهم الإجهاد التقني." data-en="✅ Answer: A — anxiety, frustration, and excessive dependency are all covered by technostress.">✅ الإجابة: <b>A</b> — القلق والإحباط والاعتماد المفرط كلهم بيجمعهم الإجهاد التقني.</div>
+          </div>
+          <button class="btn" data-reveal="exercise" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-hide="exercise" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 SUMMARY ============ -->
+    <section id="summary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#dc2626)">06</div>
+          <div>
+            <h2 data-ar="الخلاصة" data-en="Summary">الخلاصة</h2>
+            <div class="tag" style="color:var(--s6)" data-ar="رحلة سريعة عبر الدرس" data-en="A Quick Journey Through the Lesson">رحلة سريعة عبر الدرس</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <div class="journey">
+          <div class="journey-item">
+            <h4 data-ar="1. تطور المجتمع" data-en="1. Societal Development">1. تطور المجتمع</h4>
+            <p data-ar="المجتمع اتطور عبر 4 مراحل: الصيد والجمع ← الزراعي ← الصناعي ← المعلوماتي، وبعدين المجتمع 5.0 اللي بيدمج الفضاء الافتراضي والحقيقي." data-en="Society developed through 4 stages: hunter-gatherer ← agrarian ← industrialized ← information, then Society 5.0 which integrates virtual and real space.">المجتمع اتطور عبر 4 مراحل: الصيد والجمع ← الزراعي ← الصناعي ← المعلوماتي، وبعدين المجتمع 5.0 اللي بيدمج الفضاء الافتراضي والحقيقي.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="2. التقنيات الحديثة" data-en="2. Modern Technologies">2. التقنيات الحديثة</h4>
+            <p data-ar="البيانات الضخمة، الذكاء الاصطناعي، التعلم الآلي، إنترنت الأشياء، البيت الذكي، الواقع الافتراضي، والواقع المعزز — كل واحدة ليها دور في حياتنا." data-en="Big Data, AI, Machine Learning, IoT, Smart Home, Virtual Reality, and Augmented Reality — each plays a role in our lives.">البيانات الضخمة، الذكاء الاصطناعي، التعلم الآلي، إنترنت الأشياء، البيت الذكي، الواقع الافتراضي، والواقع المعزز — كل واحدة ليها دور في حياتنا.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="3. الوجه التاني" data-en="3. The Other Side">3. الوجه التاني</h4>
+            <p data-ar="التكنولوجيا ليها تأثيرات سلبية: الإجهاد التقني، الخوف التقني، الإدمان التقني، واضطراب شاشة العرض، بالإضافة للفجوة الرقمية." data-en="Technology has negative effects: technostress, technophobia, techno-addiction, VDT disorder, in addition to the digital divide.">التكنولوجيا ليها تأثيرات سلبية: الإجهاد التقني، الخوف التقني، الإدمان التقني، واضطراب شاشة العرض، بالإضافة للفجوة الرقمية.</p>
+          </div>
+        </div>
+      </div>
+    </section></main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <img class="footer-logo" src="data:image/webp;base64,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" alt="logo">
+    <p data-ar="التكنولوجيا مش مجرد أجهزة — هي رحلة طويلة غيّرت شكل المجتمع كله، وإنت جزء منها! 💙" data-en="Technology is not just devices — it is a long journey that changed society entirely, and you are part of it! 💙">التكنولوجيا مش مجرد أجهزة — هي رحلة طويلة غيّرت شكل المجتمع كله، وإنت جزء منها! 💙</p>
+  </footer>
+
+  <script>
+    /* ---------- particles ---------- */
+    (function () {
+      var box = document.getElementById('particles');
+      for (var i = 0; i < 30; i++) {
+        var dot = document.createElement('i');
+        dot.style.left = Math.random() * 100 + '%';
+        dot.style.animationDelay = Math.random() * 15 + 's';
+        dot.style.animationDuration = (12 + Math.random() * 8) + 's';
+        box.appendChild(dot);
+      }
+    })();
+
+    /* ---------- nav scroll ---------- */
+    function wireNav() {
+      var nav = document.getElementById('navbar');
+      var links = document.querySelectorAll('.nav-links a');
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('show', window.scrollY > 100);
+        var id = location.hash || '#intro';
+        links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === id); });
+      });
+    }
+
+    /* ---------- reveal on scroll ---------- */
+    function wireReveal() {
+      var items = document.querySelectorAll('.section-inner');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.05 });
+      items.forEach(function (el) { obs.observe(el); });
+      window.addEventListener('scroll', function () {
+        items.forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('visible');
+        });
+      });
+    }
+
+/* ---------- interactive cards ---------- */
+    function wireCards() {
+      document.querySelectorAll('.card-item[data-correct]').forEach(function (c) {
+        c.addEventListener('click', function () {
+          var ok = c.getAttribute('data-correct') === '1';
+          c.classList.add(ok ? 'ok' : 'bad');
+          c.querySelectorAll('.card-item').forEach(function (s) { if (s !== c) s.style.pointerEvents = 'none'; });
+        });
+      });
+
+      document.querySelectorAll('.card-item[data-reveal]').forEach(function (c) {
+        c.addEventListener('click', function () {
+          var fb = c.querySelector('.card-feedback');
+          if (fb) fb.style.display = fb.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+    }
+
+    /* ---------- exercise reveal ---------- */
+    function wireRevealBtns() {
+      document.querySelectorAll('button[data-reveal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card'); if (!card) return;
+card.querySelectorAll('.ex-opt').forEach(function (o) {
+            o.classList.remove('correct', 'wrong');
+            if (o.getAttribute('data-ok') === '1') {
+              o.classList.add('correct');
+            } else if (o.classList.contains('picked')) {
+              o.classList.add('wrong');
+            }
+          });
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.add('show'); });
+          var scored = 0, right = 0, noAns = 0;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            if (!item.querySelector('.ex-opt[data-ok="1"]')) return;
+            scored++;
+            var picked = item.querySelector('.ex-opt.picked');
+            if (!picked) { noAns++; return; }
+            if (picked.getAttribute('data-ok') === '1') right++;
+          });
+          var s = card.querySelector('.ex-score');
+          if (!s) { s = document.createElement('div'); s.className = 'ex-score'; card.appendChild(s); }
+          s.innerHTML = (window.currentLang === 'en')
+            ? '✅ Your correct answers: <b>' + right + '</b> out of ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">with ' + noAns + ' question(s) you still haven\'t answered</span>' : '')
+            : '✅ إجاباتك الصحيحة: <b>' + right + '</b> من ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">مع ' + noAns + ' سؤال لسه مجاوبتش</span>' : '');
+        });
+      });
+      document.querySelectorAll('.ex-opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          var item = opt.closest('.ex-item'); if (!item) return;
+          item.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked'); });
+          opt.classList.add('picked');
+        });
+      });
+      document.querySelectorAll('[data-hide]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card'); if (!card) return;
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.remove('show'); });
+          card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked', 'correct', 'wrong'); });
+          var s = card.querySelector('.ex-score'); if (s) s.remove();
+        });
+      });
+    }
+
+    /* ---------- AR/EN toggle ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      var langBtn = document.getElementById('langToggle');
+      if (!langBtn) return;
+      function setLang(lang) {
+        window.currentLang = lang;
+        langBtn.setAttribute('data-current', lang);
+        langBtn.textContent = (lang === 'ar') ? 'EN' : 'AR';
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+        document.querySelectorAll('[data-ar][data-en]').forEach(function (el) {
+          var val = (lang === 'ar') ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+          if (val !== null) { el.innerHTML = val; el.setAttribute('data-lang', lang); }
+        });
+        document.dispatchEvent(new CustomEvent('langChange', { detail: { lang: lang } }));
+        localStorage.setItem('langPreference', lang);
+      }
+      var storedLang = localStorage.getItem('langPreference');
+      if (!storedLang) storedLang = 'ar';
+      setLang(storedLang);
+      langBtn.addEventListener('click', function () {
+        setLang(window.currentLang === 'ar' ? 'en' : 'ar');
+      });
+    });
+
+    /* ---------- boot ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      wireNav();
+      wireReveal();
+      wireCards();
+      wireRevealBtns();
+    });
+  </script>
+</body>
+
+</html>

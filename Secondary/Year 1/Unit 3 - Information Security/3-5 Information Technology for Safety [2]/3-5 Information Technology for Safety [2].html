@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information Technology for Safety [2] | تكنولوجيا المعلومات للسلامة ٢</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #193cff;
+      --accent: #00d4aa;
+      --bg: #0a0e27;
+      --card: #111638;
+      --card-hover: #1a2050;
+      --text: #fff;
+      --dim: #8892b0;
+      --success: #00ff88;
+      --danger: #ff4757;
+      --warn: #ffd700;
+      --s1: #06B6D4;
+      --s2: #F59E0B;
+      --s3: #8B5CF6;
+      --s4: #10B981;
+      --s5: #EC4899;
+      --s6: #EF4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--dim);
+      line-height: 1.9;
+      overflow-x: hidden
+    }
+
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+        radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
+      animation: bgDrift 20s ease-in-out infinite;
+    }
+
+    @keyframes bgDrift {
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+      50% {
+        transform: translate(-30px, 20px) scale(1.08)
+      }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none
+    }
+
+    .particles i {
+      position: absolute;
+      bottom: -10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: .3;
+      animation: floatUp 15s linear infinite
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0
+      }
+      10% {
+        opacity: .3
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0
+      }
+    }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 39, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(25, 60, 255, .3);
+      transform: translateY(-100%);
+      transition: transform .35s ease
+    }
+
+    nav.show {
+      transform: translateY(0)
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 24px
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: var(--primary)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      padding: 4px 2px;
+      flex: 1
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none
+    }
+
+    .nav-links a {
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid transparent;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(25, 60, 255, .2);
+      border-color: var(--primary)
+    }
+
+    .lang-toggle {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all .3s ease
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 60px 24px
+    }
+
+    .hero-circles span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: .16;
+      z-index: 0;
+      animation: heroFloat 6s ease-in-out infinite
+    }
+
+    .hero-circles span:nth-child(1) {
+      width: 280px;
+      height: 280px;
+      background: var(--primary);
+      top: 12%;
+      left: 10%;
+      animation-delay: 0s
+    }
+
+    .hero-circles span:nth-child(2) {
+      width: 220px;
+      height: 220px;
+      background: var(--accent);
+      bottom: 15%;
+      right: 12%;
+      animation-delay: 2s
+    }
+
+    .hero-circles span:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      background: #8B5CF6;
+      top: 55%;
+      left: 22%;
+      animation-delay: 4s
+    }
+
+    @keyframes heroFloat {
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+      50% {
+        transform: translateY(-26px)
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: .85rem;
+      font-weight: 700;
+      background: rgba(25, 60, 255, .15);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--accent);
+      margin-bottom: 26px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .2s forwards
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 18px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .4s forwards
+    }
+
+    .hero-title .grad {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--dim);
+      max-width: 640px;
+      margin: 0 auto 36px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .6s forwards
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 50px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all .3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .8s forwards
+    }
+
+    .hero-btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px)
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ---------- main ---------- */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 80px
+    }
+
+    .section-inner {
+      margin-top: 48px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .6s cubic-bezier(0.4, 0, 0.2, 1)
+    }
+
+    .section-inner.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .section-inner.card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 28px 32px
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px
+    }
+
+    .section-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--bg);
+      flex-shrink: 0;
+      animation: glow 3s infinite
+    }
+
+    @keyframes glow {
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(25, 60, 255, .3)
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(25, 60, 255, .6)
+      }
+    }
+
+    h2 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 900;
+      color: var(--text)
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 700;
+      margin-top: 8px
+    }
+
+    .demo-label {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px
+    }
+
+    .note {
+      background: rgba(255, 215, 0, .06);
+      border: 1px solid rgba(255, 215, 0, .2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-top: 14px
+    }
+
+    .error-box {
+      background: rgba(255, 71, 87, .05);
+      border: 1px solid rgba(255, 71, 87, .2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-top: 32px
+    }
+
+    .error-box h4 {
+      color: var(--danger);
+      margin-bottom: 12px;
+      font-size: 1.1rem
+    }
+
+    .error-box ul {
+      padding-right: 20px
+    }
+
+    .error-box li {
+      margin-bottom: 8px
+    }
+
+    /* ---------- exercises ---------- */
+    .ex-item {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .ex-item .q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px
+    }
+
+    .q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, .15);
+      border: 1px solid rgba(245, 158, 11, .5);
+      color: var(--warn);
+      font-weight: 900;
+      font-size: .8rem;
+      flex-shrink: 0
+    }
+
+    .ex-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .ex-opt {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all .2s;
+      font-size: .92rem;
+      white-space: pre-line
+    }
+
+    .ex-opt:hover {
+      background: var(--card-hover);
+      border-color: rgba(25, 60, 255, .3)
+    }
+
+    .ex-opt.picked {
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .1)
+    }
+
+    .ex-opt.correct {
+      border-color: var(--success) !important;
+      background: rgba(0, 255, 136, .08) !important
+    }
+
+    .ex-opt.wrong {
+      border-color: var(--danger) !important;
+      background: rgba(255, 71, 87, .08) !important
+    }
+
+    .ex-answer {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: .92rem
+    }
+
+    .ex-answer.show {
+      display: block;
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: rgba(0, 255, 136, .07);
+      color: var(--success)
+    }
+
+    .ex-answer.show b {
+      color: var(--success);
+      margin: 0 6px
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .btn:hover {
+      background: var(--accent)
+    }
+
+    .mini-btn {
+      padding: 10px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .mini-btn:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    .ex-score {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(0, 255, 136, .06);
+      border: 1px solid rgba(0, 255, 136, .25);
+      color: var(--success);
+      font-weight: 700
+    }
+
+    .hint-line {
+      font-size: .92rem;
+      color: var(--dim)
+    }
+
+    /* ---------- interactive cards ---------- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px
+    }
+
+    .card-item {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 16px;
+      padding: 18px;
+      cursor: pointer;
+      transition: all .25s
+    }
+
+    .card-item:hover {
+      background: var(--card-hover);
+      transform: translateY(-3px)
+    }
+
+    .card-item.ok {
+      border-color: rgba(0, 255, 136, .4);
+      background: rgba(0, 255, 136, .05)
+    }
+
+    .card-item.bad {
+      border-color: rgba(255, 71, 87, .4);
+      background: rgba(255, 71, 87, .05)
+    }
+
+    .card-item .card-icon {
+      font-size: 2rem;
+      margin-bottom: 8px
+    }
+
+    .card-item .card-title {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px
+    }
+
+    .card-item .card-body {
+      font-size: .88rem;
+      color: var(--dim)
+    }
+
+    .card-item .card-feedback {
+      margin-top: 10px;
+      font-weight: 700;
+      font-size: .88rem;
+      display: none
+    }
+
+    .card-item.ok .card-feedback,
+    .card-item.bad .card-feedback {
+      display: block
+    }
+
+    .card-item.ok .card-feedback {
+      color: var(--success)
+    }
+
+    .card-item.bad .card-feedback {
+      color: var(--danger)
+    }
+
+    /* ---------- journey ---------- */
+    .journey {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-right: 26px
+    }
+
+    .journey::before {
+      content: "";
+      position: absolute;
+      right: 11px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius: 2px
+    }
+
+    .journey-item {
+      position: relative;
+      margin-bottom: 22px;
+      padding-right: 20px
+    }
+
+    .journey-item::before {
+      content: "";
+      position: absolute;
+      right: 3px;
+      top: 6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--primary)
+    }
+
+    .journey-item h4 {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 4px
+    }
+
+    .journey-item p {
+      font-size: .9rem
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid rgba(255, 255, 255, .05);
+      margin-top: 60px
+    }
+
+    .footer-logo {
+      height: 40px;
+      border-radius: 8px;
+      margin-bottom: 12px
+    }
+
+    footer p {
+      color: var(--dim);
+      font-size: .9rem
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 860px) {
+      .ex-options {
+        grid-template-columns: 1fr
+      }
+      .nav-inner {
+        padding: 10px 16px
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0s !important;
+        transition-duration: 0s !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-gradient"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- ============ NAV ============ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="../../../../index.html" aria-label="الرئيسية">
+        <img class="nav-logo" src="data:image/webp;base64,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" alt="logo">
+      </a>
+<div class="nav-links">
+        <a href="#intro" data-ar="البداية" data-en="Start">البداية</a>
+        <a href="#procedure" data-ar="خطوات التوقيع" data-en="Procedures">خطوات التوقيع</a>
+        <a href="#ca" data-ar="الجهة المصدقة" data-en="Certification Authority">الجهة المصدقة</a>
+        <a href="#ssl" data-ar="SSL/TLS" data-en="SSL/TLS">SSL/TLS</a>
+        <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
+        <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
+      </div>
+      <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="home">
+    <div class="hero-circles"><span></span><span></span><span></span></div>
+    <div class="hero-content">
+<div class="hero-badge" data-ar="درس 3-5 — تكنولوجيا المعلومات للسلامة ٢" data-en="Lesson 3-5 — Information Technology for Safety 2">درس 3-5 — تكنولوجيا المعلومات للسلامة ٢</div>
+      <h1 class="hero-title" data-ar="تكنولوجيا المعلومات للسلامة <span class='grad'>٢</span>" data-en="Information Technology for Safety <span class='grad'>2</span>">تكنولوجيا المعلومات للسلامة <span class="grad">٢</span></h1>
+      <p class="hero-sub" data-ar="التوقيع الرقمي والجهة المصدقة وSSL — إزاي تكنولوجيا المعلومات بتحافظ على سلامة بياناتك وأمانك" data-en="Digital signatures, certification authorities and SSL — how information technology keeps your data safe and secure">التوقيع الرقمي والجهة المصدقة وSSL — إزاي تكنولوجيا المعلومات بتحافظ على سلامة بياناتك وأمانك</p>
+      <a href="#intro" class="hero-btn" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 01 INTRO ============ -->
+    <section id="intro">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#0e7490)">01</div>
+          <div>
+            <h2 data-ar="إيه هو التوقيع الرقمي؟" data-en="What is a Digital Signature?">إيه هو التوقيع الرقمي؟</h2>
+            <div class="tag" style="color:var(--s1)" data-ar="إثبات مصدر البيانات وسلامتها" data-en="Proving Data Source and Integrity">إثبات مصدر البيانات وسلامتها</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="التوقيع الرقمي ووظيفة الهاش" data-en="Digital Signature and the Hash Function" style="color:var(--s1)">التوقيع الرقمي ووظيفة الهاش</h3>
+        <p data-ar="التوقيع الرقمي (Digital signature) هو تكنولوجيا بتستخدم التشفير بالمفتاح العام وقيم الهاش عشان تثبت إن البيانات المرسلة من المرسل وإنها متغيرتش — اضغط على كل مصطلح:" data-en="A digital signature is a technology that uses public key encryption and hash values to prove that the transmitted data is from the sender and has not been tampered with — click each term:">التوقيع الرقمي (<span dir="ltr">Digital signature</span>) هو تكنولوجيا بتستخدم التشفير بالمفتاح العام وقيم الهاش عشان تثبت إن البيانات المرسلة من المرسل وإنها متغيرتش — اضغط على كل مصطلح:</p>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="ds">
+            <div class="card-icon">🧮</div>
+            <div class="card-title" data-ar="وظيفة الهاش" data-en="Hash function">وظيفة الهاش (<span dir="ltr">Hash function</span>)</div>
+            <div class="card-body" data-ar="دالة بتحسب قيمة فريدة (Hash value) بناءً على البيانات المُدخلة." data-en="A function that calculates a unique value based on the input data.">دالة بتحسب قيمة فريدة (<span dir="ltr">Hash value</span>) بناءً على البيانات المُدخلة.</div>
+            <div class="card-feedback" data-ar="💡 مستحيل نرجع البيانات الأصلية من قيمة الهاش." data-en="💡 It is impossible to restore the original data from the hash value.">💡 مستحيل نرجع البيانات الأصلية من قيمة الهاش.</div>
+          </div>
+          <div class="card-item" data-reveal="ds">
+            <div class="card-icon">🔢</div>
+            <div class="card-title" data-ar="قيمة الهاش" data-en="Hash value">قيمة الهاش (<span dir="ltr">Hash value</span>)</div>
+            <div class="card-body" data-ar="القيمة اللي بتتولد من وظيفة الهاش — بصمة فريدة للبيانات." data-en="The value generated by the hash function — a unique fingerprint of the data.">القيمة اللي بتتولد من وظيفة الهاش — بصمة فريدة للبيانات.</div>
+            <div class="card-feedback" data-ar="💡 لو اتغير حرف واحد في البيانات، قيمة الهاش بتتغير كلها." data-en="💡 If even one character in the data changes, the hash value changes completely.">💡 لو اتغير حرف واحد في البيانات، قيمة الهاش بتتغير كلها.</div>
+          </div>
+          <div class="card-item" data-reveal="ds">
+            <div class="card-icon">✍️</div>
+            <div class="card-title" data-ar="التوقيع الرقمي" data-en="Digital signature">التوقيع الرقمي (<span dir="ltr">Digital signature</span>)</div>
+            <div class="card-body" data-ar="تكنولوجيا بتستخدم التشفير العام وقيم الهاش لإثبات إن البيانات من المرسل ومتغيرتش." data-en="A technology that uses public key encryption and hash values to prove the data is from the sender and unaltered.">تكنولوجيا بتستخدم التشفير العام وقيم الهاش لإثبات إن البيانات من المرسل ومتغيرتش.</div>
+            <div class="card-feedback" data-ar="💡 زي الختم الشخصي الرقمي — بين أثبت إن الرسالة منك وبس." data-en="💡 Like a personal digital seal — proving the message came from you.">💡 زي الختم الشخصي الرقمي — بين أثبت إن الرسالة منك وبس.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 data-ar="اختبر فهمك: خصائص قيمة الهاش" data-en="Test yourself: hash value properties" style="color:var(--s1)">اختبر فهمك: خصائص قيمة الهاش</h3>
+        <p data-ar="اختار العبارة الصحيحة من كل زوج:" data-en="Choose the correct statement from each pair:">اختار العبارة الصحيحة من كل زوج:</p>
+        <div class="cards-grid" id="hashCards">
+          <div class="card-item" data-correct="1">
+            <div class="card-icon">1️⃣</div>
+            <div class="card-title" data-ar="لو اتغير حرف واحد في البيانات، قيمة الهاش بتتغير كلها" data-en="If one character changes, the hash value changes completely">لو اتغير حرف واحد في البيانات، قيمة الهاش بتتغير كلها</div>
+            <div class="card-body" data-ar="صح — أي تغيير بسيط بيعمل قيمة هاش مختلفة تماماً" data-en="Correct — any small change produces a completely different hash value">صح — أي تغيير بسيط بيعمل قيمة هاش مختلفة تماماً</div>
+            <div class="card-feedback" data-ar="✅ صح — كده بنكتشف أي تلاعب في البيانات" data-en="✅ Correct — that's how tampering is detected">✅ صح — كده بنكتشف أي تلاعب في البيانات</div>
+          </div>
+          <div class="card-item" data-correct="0">
+            <div class="card-icon">1️⃣</div>
+            <div class="card-title" data-ar="لو اتغير حرف واحد، حرف واحد بس في الهاش هو اللي بيتغير" data-en="If one character changes, only one character in the hash changes">لو اتغير حرف واحد، حرف واحد بس في الهاش هو اللي بيتغير</div>
+            <div class="card-body" data-ar="غلط — قيمة الهاش بتتغير كلها مش حرف واحد" data-en="Wrong — the whole hash value changes, not one character">غلط — قيمة الهاش بتتغير كلها مش حرف واحد</div>
+            <div class="card-feedback" data-ar="❌ غلط — أي تغيير بيعمل قيمة هاش مختلفة تماماً" data-en="❌ Wrong — any change produces a completely different hash value">❌ غلط — أي تغيير بيعمل قيمة هاش مختلفة تماماً</div>
+          </div>
+          <div class="card-item" data-correct="1">
+            <div class="card-icon">2️⃣</div>
+            <div class="card-title" data-ar="مستحيل نرجع الرسالة الأصلية من قيمة الهاش" data-en="It is difficult to restore the original message from its hash value">مستحيل نرجع الرسالة الأصلية من قيمة الهاش</div>
+            <div class="card-body" data-ar="صح — الهاش عملية باتجاه واحد" data-en="Correct — hashing is a one-way process">صح — الهاش عملية باتجاه واحد</div>
+            <div class="card-feedback" data-ar="✅ صح — من قيمة الهاش مستحيل نرجع البيانات الأصلية" data-en="✅ Correct — original data cannot be restored from the hash value">✅ صح — من قيمة الهاش مستحيل نرجع البيانات الأصلية</div>
+          </div>
+          <div class="card-item" data-correct="0">
+            <div class="card-icon">2️⃣</div>
+            <div class="card-title" data-ar="من قيمة الهاش نقدر نرجع الرسالة الأصلية بسهولة" data-en="We can easily restore the original message from the hash value">من قيمة الهاش نقدر نرجع الرسالة الأصلية بسهولة</div>
+            <div class="card-body" data-ar="غلط — مستحيل الرجوع للبيانات الأصلية من الهاش" data-en="Wrong — it is impossible to restore the original data from the hash">غلط — مستحيل الرجوع للبيانات الأصلية من الهاش</div>
+            <div class="card-feedback" data-ar="❌ غلط — الهاش عملية اتجاه واحد من غير رجوع" data-en="❌ Wrong — hashing is one-way with no return">❌ غلط — الهاش عملية اتجاه واحد من غير رجوع</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 PROCEDURE ============ -->
+    <section id="procedure">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#d97706)">02</div>
+          <div>
+            <h2 data-ar="إزاي بيتعمل التوقيع الرقمي؟" data-en="How Is a Digital Signature Created?">إزاي بيتعمل التوقيع الرقمي؟</h2>
+            <div class="tag" style="color:var(--s2)" data-ar="خطوات المرسل والمستقبل" data-en="Sender and Recipient Procedures">خطوات المرسل والمستقبل</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="خطوات المرسل" data-en="The Sender's Procedure" style="color:var(--s2)">خطوات المرسل (<span dir="ltr">Sender’s Procedure</span>)</h3>
+        <div class="journey">
+          <div class="journey-item">
+            <h4 data-ar="الخطوة 1 — توليد قيمة الهاش" data-en="Step 1 — Generate the hash value">الخطوة 1 — توليد قيمة الهاش</h4>
+            <p data-ar="استخدم وظيفة الهاش عشان تولّد قيمة هاش من النص الأصلي (Plaintext) اللي عايز تبعتوه." data-en="Use a hash function to generate a hash value from the plaintext to be sent.">استخدم وظيفة الهاش عشان تولّد قيمة هاش من النص الأصلي (<span dir="ltr">Plaintext</span>) اللي عايز تبعتوه.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="الخطوة 2 — تشفير قيمة الهاش" data-en="Step 2 — Encrypt the hash value">الخطوة 2 — تشفير قيمة الهاش</h4>
+            <p data-ar="شفر قيمة الهاش باستخدام المفتاح الخاص للمرسل (Sender’s private key) — وده اللي بيتسمى التوقيع الرقمي." data-en="Encrypt the hash value using the sender's private key — this encrypted hash is called the digital signature.">شفر قيمة الهاش باستخدام المفتاح الخاص للمرسل (<span dir="ltr">Sender’s private key</span>) — وده اللي بيتسمى التوقيع الرقمي.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="الخطوة 3 — الإرسال" data-en="Step 3 — Send">الخطوة 3 — الإرسال</h4>
+            <p data-ar="ابعت النص الأصلي والتوقيع الرقمي مع بعض للمستقبل." data-en="Send both the plaintext and the digital signature to the recipient.">ابعت النص الأصلي والتوقيع الرقمي مع بعض للمستقبل.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 data-ar="خطوات المستقبل" data-en="The Recipient's Procedure" style="color:var(--s2)">خطوات المستقبل (<span dir="ltr">Recipient’s Procedure</span>)</h3>
+        <div class="journey">
+          <div class="journey-item">
+            <h4 data-ar="الخطوة 4 — فك التشفير بالمفتاح العام" data-en="Step 4 — Decrypt with the public key">الخطوة 4 — فك التشفير بالمفتاح العام</h4>
+            <p data-ar="استخدم المفتاح العام للمرسل (Sender’s public key) عشان يفك تشفير التوقيع الرقمي ويسترجع قيمة الهاش الأصلية." data-en="Use the sender's public key to decrypt the received digital signature and retrieve the original hash value.">استخدم المفتاح العام للمرسل (<span dir="ltr">Sender’s public key</span>) عشان يفك تشفير التوقيع الرقمي ويسترجع قيمة الهاش الأصلية.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="الخطوة 5 — توليد هاش جديد" data-en="Step 5 — Generate a new hash">الخطوة 5 — توليد هاش جديد</h4>
+            <p data-ar="استخدم نفس وظيفة الهاش اللي اتعملت في الخطوة 1 عشان تولّد قيمة هاش جديدة من النص الأصلي المستقبَل." data-en="Use the same hash function used in step 1 to generate a new hash value from the received plaintext.">استخدم نفس وظيفة الهاش اللي اتعملت في الخطوة 1 عشان تولّد قيمة هاش جديدة من النص الأصلي المستقبَل.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="الخطوة 6 — المقارنة" data-en="Step 6 — Compare">الخطوة 6 — المقارنة</h4>
+            <p data-ar="قارن قيمتي الهاش من الخطوتين 4 و5. لو متطابقتين، ده بيثبت إن الرسالة من المرسل وإنها متغيرتش." data-en="Compare the two hash values from steps 4 and 5. If they match, it proves the message is from the sender and has not been tampered with.">قارن قيمتي الهاش من الخطوتين 4 و5. لو متطابقتين، ده بيثبت إن الرسالة من المرسل وإنها متغيرتش.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تخلط بين مفتاح التوقيع — التشفير بيتم بالمفتاح الخاص للمرسل، وفك التشفير بالمفتاح العام للمرسل (مش المفتاح الخاص بتاعه!)." data-en="Confusing the signature keys — encryption uses the sender's private key, decryption uses the sender's public key (not the private one!).">تخلط بين مفتاح التوقيع — التشفير بيتم بالمفتاح الخاص للمرسل، وفك التشفير بالمفتاح العام للمرسل (مش المفتاح الخاص بتاعه!).</li>
+          <li data-ar="تنسى دور المقارنة — من غير مطابقة قيمتي الهاش، مفيش دليل إن الرسالة مش متلاعب بيها." data-en="Forgetting the comparison step — without matching the two hash values, there is no proof the message was not tampered with.">تنسى دور المقارنة — من غير مطابقة قيمتي الهاش، مفيش دليل إن الرسالة مش متلاعب بيها.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 03 CA ============ -->
+    <section id="ca">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#7c3aed)">03</div>
+          <div>
+            <h2 data-ar="الجهة المصدقة والشهادات الرقمية" data-en="Certification Authority and Digital Certificates">الجهة المصدقة والشهادات الرقمية</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="طرف تالت موثوق" data-en="A Trusted Third Party">طرف تالت موثوق</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="إيه هي الجهة المصدقة (CA)؟" data-en="What is a Certification Authority (CA)?" style="color:var(--s3)">إيه هي الجهة المصدقة؟ (<span dir="ltr">Certification Authority</span>)</h3>
+        <p data-ar="اضغط على البطاقات عشان تفهم دور الجهة المصدقة:" data-en="Click the cards to understand the CA's role:">اضغط على البطاقات عشان تفهم دور الجهة المصدقة:</p>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="ca">
+            <div class="card-icon">🏛️</div>
+            <div class="card-title" data-ar="الجهة المصدقة" data-en="Certification Authority (CA)">الجهة المصدقة (<span dir="ltr">CA</span>)</div>
+            <div class="card-body" data-ar="منظمة طرف تالت موثوقة بتتحقق هل المفتاح العام فعلاً بيملكه صاحبه المزعوم أو لا." data-en="A trusted third-party organization that verifies whether a public key truly belongs to its claimed owner.">منظمة طرف تالت موثوقة بتتحقق هل المفتاح العام فعلاً بيملكه صاحبه المزعوم أو لا.</div>
+            <div class="card-feedback" data-ar="💡 من غيرها، أي حد ممكن يدّعي إن المفتاح العام بتاعه هو بتاعك!" data-en="💡 Without it, anyone could claim your public key is theirs!">💡 من غيرها، أي حد ممكن يدّعي إن المفتاح العام بتاعه هو بتاعك!</div>
+          </div>
+          <div class="card-item" data-reveal="ca">
+            <div class="card-icon">📜</div>
+            <div class="card-title" data-ar="الشهادة الرقمية" data-en="Digital certificate">الشهادة الرقمية (<span dir="ltr">Digital certificate</span>)</div>
+            <div class="card-body" data-ar="بيصدرها الـ CA — بتشمل المفتاح العام ومعلومات تعريف صاحب المفتاح." data-en="Issued by the CA — it includes the public key and identifying information of the key owner.">بيصدرها الـ <span dir="ltr">CA</span> — بتشمل المفتاح العام ومعلومات تعريف صاحب المفتاح.</div>
+            <div class="card-feedback" data-ar="💡 الشهادة بتضمن إن المفتاح العام فعلاً بيملكه الشخص اللي مكتوب اسمه." data-en="💡 The certificate guarantees the public key truly belongs to the named person.">💡 الشهادة بتضمن إن المفتاح العام فعلاً بيملكه الشخص اللي مكتوب اسمه.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تظن إن التوقيع الرقمي كفاية لوحده — لأ، من غير جهة مصدقة (CA) وشهادة رقمية، ممكن حد ينتحل شخصية المرسل." data-en="Thinking a digital signature alone is enough — no, without a CA and digital certificate, someone could impersonate the sender.">تظن إن التوقيع الرقمي كفاية لوحده — لأ، من غير جهة مصدقة (<span dir="ltr">CA</span>) وشهادة رقمية، ممكن حد ينتحل شخصية المرسل.</li>
+          <li data-ar="تخلط بين الشهادة الرقمية والتوقيع الرقمي — الشهادة بتحوي المفتاح العام، والتوقيع بين أثبت إن الرسالة من المرسل ومتغيرتش." data-en="Confusing a digital certificate and a digital signature — the certificate holds the public key, the signature proves the message is from the sender and unaltered.">تخلط بين الشهادة الرقمية والتوقيع الرقمي — الشهادة بتحوي المفتاح العام، والتوقيع بين أثبت إن الرسالة من المرسل ومتغيرتش.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 04 SSL/TLS ============ -->
+    <section id="ssl">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#059669)">04</div>
+          <div>
+            <h2 data-ar="SSL / TLS" data-en="SSL / TLS">SSL / TLS</h2>
+            <div class="tag" style="color:var(--s4)" data-ar="تشفير الاتصال بين المتصفح والسيرفر" data-en="Encrypting Browser–Server Communication">تشفير الاتصال بين المتصفح والسيرفر</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="إيه هو SSL/TLS؟" data-en="What is SSL/TLS?" style="color:var(--s4)">إيه هو <span dir="ltr">SSL/TLS</span>؟</h3>
+        <p data-ar="اضغط على البطاقة عشان تفهم آلية SSL/TLS:" data-en="Click the card to understand how SSL/TLS works:">اضغط على البطاقة عشان تفهم آلية <span dir="ltr">SSL/TLS</span>:</p>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="ssl">
+            <div class="card-icon">🛡️</div>
+            <div class="card-title" data-ar="SSL/TLS" data-en="SSL/TLS">SSL/TLS</div>
+            <div class="card-body" data-ar="تكنولوجيا بتستخدم لتشفير الاتصال بين سيرفر ويب ومتصفح ويب — وبتستخدم طريقة مفتاح الجلسة (Session key method) في التشفير." data-en="A technology used to encrypt communication between a web server and a web browser — it uses the session key method in this encryption.">تكنولوجيا بتستخدم لتشفير الاتصال بين سيرفر ويب ومتصفح ويب — وبتستخدم طريقة مفتاح الجلسة (<span dir="ltr">Session key method</span>) في التشفير.</div>
+            <div class="card-feedback" data-ar="💡 رابط صفحة الويب المشفرة بيبدأ بـ https:// — وSSL أقدم وTLS الإصدار الأأمن اللي اتعرف بيه." data-en="💡 The URL of an encrypted web page begins with https:// — SSL was the original and TLS is the more secure version that took its name.">💡 رابط صفحة الويب المشفرة بيبدأ بـ <span dir="ltr">https://</span> — و<span dir="ltr">SSL</span> أقدم و<span dir="ltr">TLS</span> الإصدار الأأمن اللي اتعرف بيه.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تظن إن http:// يعني تشفير — لأ، التشفير بيظهر في https:// (الـ S بمعنى Secure)." data-en="Thinking http:// means encryption — no, encryption appears in https:// (the S means Secure).">تظن إن <span dir="ltr">http://</span> يعني تشفير — لأ، التشفير بيظهر في <span dir="ltr">https://</span> (الـ <span dir="ltr">S</span> بمعنى <span dir="ltr">Secure</span>).</li>
+          <li data-ar="تخلط بين SSL وTLS — TLS اتعمل كنسخة أكتر أمان من SSL، والمصطلحين بيستخدموا مع بعض باسم SSL/TLS." data-en="Confusing SSL and TLS — TLS was introduced as a more secure version of SSL, and the two terms are used together as SSL/TLS.">تخلط بين <span dir="ltr">SSL</span> و<span dir="ltr">TLS</span> — <span dir="ltr">TLS</span> اتعمل كنسخة أكتر أمان من <span dir="ltr">SSL</span>، والمصطلحين بيستخدموا مع بعض باسم <span dir="ltr">SSL/TLS</span>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 05 EXERCISES ============ -->
+    <section id="exercises">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#059669)">05</div>
+          <div>
+            <h2 data-ar="التدريبات والاختبارات" data-en="Exercises & Quizzes">التدريبات والاختبارات</h2>
+            <div class="tag" style="color:var(--s4)" data-ar="تحدي ختامي" data-en="Final Challenge">تحدي ختامي</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warm Up -->
+      <div class="section-inner card">
+        <h3 style="color:var(--s1)" data-ar="🔥 Warm Up — صفحة 39" data-en="🔥 Warm Up — Page 39">🔥 Warm Up — صفحة 39</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="حط حلك بنفسك الأول، وبعدين افتح الحل." data-en="Try by yourself first, then open the solution.">حط حلك بنفسك الأول، وبعدين افتح الحل.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="العبارة A: لو اتغير حرف واحد في البيانات الأصلية، حرف واحد بس في قيمة الهاش الناتجة هو اللي هيتغير — صحيحة ولا خاطئة؟" data-en="Statement A: if one character in the original data is changed, only one character in the resulting hash value will change — correct or incorrect?">العبارة A: لو اتغير حرف واحد في البيانات الأصلية، حرف واحد بس في قيمة الهاش الناتجة هو اللي هيتغير — صحيحة ولا خاطئة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيحة" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيحة</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خاطئة" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خاطئة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — لو اختلف حرف واحد بس، قيمة الهاش الناتجة بتتغير كلها بشكل مختلف تماماً." data-en="✅ Answer: × — if even a single character differs, the resulting hash value becomes completely different.">✅ الإجابة: <b>×</b> — لو اختلف حرف واحد بس، قيمة الهاش الناتجة بتتغير كلها بشكل مختلف تماماً.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="العبارة B: التوقيع الرقمي بيتعمل بتشفير قيمة الهاش للمستند اللي هيتسلم بمفتاح خاص — صحيحة ولا خاطئة؟" data-en="Statement B: a digital signature is created by encrypting the hash value of the document to be sent with a private key — correct or incorrect?">العبارة B: التوقيع الرقمي بيتعمل بتشفير قيمة الهاش للمستند اللي هيتسلم بمفتاح خاص — صحيحة ولا خاطئة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;صحيحة" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيحة</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;خاطئة" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خاطئة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — التوقيع الرقمي = قيمة الهاش متشفرة بالمفتاح الخاص للمرسل." data-en="✅ Answer: ○ — a digital signature is the hash value encrypted with the sender's private key.">✅ الإجابة: <b>○</b> — التوقيع الرقمي = قيمة الهاش متشفرة بالمفتاح الخاص للمرسل.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="العبارة C: صعب استرجاع الرسالة الأصلية من قيمة الهاش — صحيحة ولا خاطئة؟" data-en="Statement C: it is difficult to restore the original message from its hash value — correct or incorrect?">العبارة C: صعب استرجاع الرسالة الأصلية من قيمة الهاش — صحيحة ولا خاطئة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;صحيحة" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيحة</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;خاطئة" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خاطئة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — مستحيل نرجع البيانات الأصلية من قيمة الهاش." data-en="✅ Answer: ○ — the original data cannot be restored from the hash value.">✅ الإجابة: <b>○</b> — مستحيل نرجع البيانات الأصلية من قيمة الهاش.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="العبارة D: حتى لو المستندات اللي بتتبعت مختلفة، قيم الهاش الناتجة من نفس وظيفة الهاش هتفضل دايماً متطابقة — صحيحة ولا خاطئة؟" data-en="Statement D: even if the documents being sent are different, the hash values obtained from the same hash function will always be the same — correct or incorrect?">العبارة D: حتى لو المستندات اللي بتتبعت مختلفة، قيم الهاش الناتجة من نفس وظيفة الهاش هتفضل دايماً متطابقة — صحيحة ولا خاطئة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيحة" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيحة</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خاطئة" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خاطئة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — لو الرسالة اختلفت، قيمة الهاش الناتجة هتختلف كمان تماماً حتى مع نفس وظيفة الهاش." data-en="✅ Answer: × — if the message differs, the resulting hash value will also be completely different even with the same hash function.">✅ الإجابة: <b>×</b> — لو الرسالة اختلفت، قيمة الهاش الناتجة هتختلف كمان تماماً حتى مع نفس وظيفة الهاش.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="في خطوات إنشاء التوقيع الرقمي: المرسل بيولّد (   [1]   ) بناءً على البيانات اللي عايز يبعتاها — اختار المصطلح الصح:" data-en="In the steps of creating a digital signature: the sender generates a (   [1]   ) based on the data they want to send — choose the right term:">في خطوات إنشاء التوقيع الرقمي: المرسل بيولّد (   [1]   ) بناءً على البيانات اللي عايز يبعتاها — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Hash value (قيمة الهاش)" data-en="A&nbsp;&nbsp;Hash value">A&nbsp;&nbsp;Hash value (قيمة الهاش)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Digital signature" data-en="B&nbsp;&nbsp;Digital signature">B&nbsp;&nbsp;Digital signature</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Public key" data-en="C&nbsp;&nbsp;Public key">C&nbsp;&nbsp;Public key</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Digital certificate" data-en="D&nbsp;&nbsp;Digital certificate">D&nbsp;&nbsp;Digital certificate</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [1] = Hash value — المرسل بيولّد قيمة هاش من البيانات." data-en="✅ Answer: [1] = Hash value — the sender generates a hash value from the data.">✅ الإجابة: <b>[1] = Hash value</b> — المرسل بيولّد قيمة هاش من البيانات.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="المرسل بيشفرها باستخدام (   [2]   ) بتاعه — اختار المصطلح الصح:" data-en="The sender encrypts it using their (   [2]   ) — choose the right term:">المرسل بيشفرها باستخدام (   [2]   ) بتاعه — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Private key (المفتاح الخاص)" data-en="A&nbsp;&nbsp;Private key">A&nbsp;&nbsp;Private key (المفتاح الخاص)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Public key" data-en="B&nbsp;&nbsp;Public key">B&nbsp;&nbsp;Public key</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Shared key" data-en="C&nbsp;&nbsp;Shared key">C&nbsp;&nbsp;Shared key</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Hash value" data-en="D&nbsp;&nbsp;Hash value">D&nbsp;&nbsp;Hash value</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [2] = Private key — التشفير بيتم بالمفتاح الخاص بتاع المرسل." data-en="✅ Answer: [2] = Private key — encryption uses the sender's private key.">✅ الإجابة: <b>[2] = Private key</b> — التشفير بيتم بالمفتاح الخاص بتاع المرسل.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="ده بيتسمى (   [3]   )، والمرسل بيبعت البيانات والتوقيع الرقمي للمستقبل — اختار المصطلح الصح:" data-en="This is called a (   [3]   ), and the sender sends both the data and the digital signature to the recipient — choose the right term:">ده بيتسمى (   [3]   )، والمرسل بيبعت البيانات والتوقيع الرقمي للمستقبل — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Digital signature (التوقيع الرقمي)" data-en="A&nbsp;&nbsp;Digital signature">A&nbsp;&nbsp;Digital signature (التوقيع الرقمي)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Hash value" data-en="B&nbsp;&nbsp;Hash value">B&nbsp;&nbsp;Hash value</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Digital certificate" data-en="C&nbsp;&nbsp;Digital certificate">C&nbsp;&nbsp;Digital certificate</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Private key" data-en="D&nbsp;&nbsp;Private key">D&nbsp;&nbsp;Private key</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [3] = Digital signature — قيمة الهاش المتشفرة هي التوقيع الرقمي." data-en="✅ Answer: [3] = Digital signature — the encrypted hash value is the digital signature.">✅ الإجابة: <b>[3] = Digital signature</b> — قيمة الهاش المتشفرة هي التوقيع الرقمي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">8</span> <span data-ar="المستقبل بيفك تشفير ([3]) باستخدام (   [4]   ) بتاع المرسل — اختار المصطلح الصح:" data-en="The recipient decrypts the received ([3]) using the sender's (   [4]   ) — choose the right term:">المستقبل بيفك تشفير ([3]) باستخدام (   [4]   ) بتاع المرسل — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Private key" data-en="A&nbsp;&nbsp;Private key">A&nbsp;&nbsp;Private key</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Public key (المفتاح العام)" data-en="B&nbsp;&nbsp;Public key">B&nbsp;&nbsp;Public key (المفتاح العام)</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Shared key" data-en="C&nbsp;&nbsp;Shared key">C&nbsp;&nbsp;Shared key</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Hash value" data-en="D&nbsp;&nbsp;Hash value">D&nbsp;&nbsp;Hash value</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [4] = Public key — المستقبل بيفك تشفير التوقيع بالمفتاح العام للمرسل." data-en="✅ Answer: [4] = Public key — the recipient decrypts the signature with the sender's public key.">✅ الإجابة: <b>[4] = Public key</b> — المستقبل بيفك تشفير التوقيع بالمفتاح العام للمرسل.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">9</span> <span data-ar="إيه اسم التكنولوجيا اللي بتستخدم لتشفير الاتصال بين سيرفر ويب ومتصفح ويب؟" data-en="What is the name of the technology used to encrypt communication between a web server and a web browser?">إيه اسم التكنولوجيا اللي بتستخدم لتشفير الاتصال بين سيرفر ويب ومتصفح ويب؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;SSL/TLS" data-en="A&nbsp;&nbsp;SSL/TLS">A&nbsp;&nbsp;SSL/TLS</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Digital signature" data-en="B&nbsp;&nbsp;Digital signature">B&nbsp;&nbsp;Digital signature</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Hash function" data-en="C&nbsp;&nbsp;Hash function">C&nbsp;&nbsp;Hash function</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Access control" data-en="D&nbsp;&nbsp;Access control">D&nbsp;&nbsp;Access control</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — SSL/TLS بتشفير الاتصال بين السيرفر والمتصفح." data-en="✅ Answer: A — SSL/TLS encrypts communication between the server and the browser.">✅ الإجابة: <b>A</b> — <span dir="ltr">SSL/TLS</span> بتشفير الاتصال بين السيرفر والمتصفح.</div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="warm" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-hide="warm" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
+        </div>
+      </div>
+
+      <!-- Try -->
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 style="color:var(--s2)" data-ar="🎯 Try — صفحة 40" data-en="🎯 Try — Page 40">🎯 Try — صفحة 40</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="حط حلك بنفسك الأول، وبعدين افتح الحل." data-en="Put your solution by yourself first, then open the solution.">حط حلك بنفسك الأول، وبعدين افتح الحل.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="التكنولوجيا اللي بتخلي المستقبل يتحقق إن البيانات معمولة من المرسل الفعلي ومتغيرتش أثناء الإرسال اسمها (   [1]   ) — اختار المصطلح الصح:" data-en="The technology that lets the recipient verify the data was created by the actual sender and not tampered with is called (   [1]   ) — choose the right term:">التكنولوجيا اللي بتخلي المستقبل يتحقق إن البيانات معمولة من المرسل الفعلي ومتغيرتش أثناء الإرسال اسمها (   [1]   ) — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Digital signature (التوقيع الرقمي)" data-en="A&nbsp;&nbsp;Digital signature">A&nbsp;&nbsp;Digital signature (التوقيع الرقمي)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Hash value" data-en="B&nbsp;&nbsp;Hash value">B&nbsp;&nbsp;Hash value</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Digital certificate" data-en="C&nbsp;&nbsp;Digital certificate">C&nbsp;&nbsp;Digital certificate</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Certification Authority" data-en="D&nbsp;&nbsp;Certification Authority">D&nbsp;&nbsp;Certification Authority</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [1] = Digital signature — هي اللي بتثبت مصدر البيانات وسلامتها." data-en="✅ Answer: [1] = Digital signature — it proves the data source and integrity.">✅ الإجابة: <b>[1] = Digital signature</b> — هي اللي بتثبت مصدر البيانات وسلامتها.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="التوقيع الرقمي بيتعمل بتوليد (   [2]   ) من النص الأصلي باستخدام برنامج، وبعدين تشفيره — اختار المصطلح الصح:" data-en="A digital signature is created by generating a (   [2]   ) from the plaintext using a program, then encrypting it — choose the right term:">التوقيع الرقمي بيتعمل بتوليد (   [2]   ) من النص الأصلي باستخدام برنامج، وبعدين تشفيره — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Hash value (قيمة الهاش)" data-en="A&nbsp;&nbsp;Hash value">A&nbsp;&nbsp;Hash value (قيمة الهاش)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Public key" data-en="B&nbsp;&nbsp;Public key">B&nbsp;&nbsp;Public key</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Digital certificate" data-en="C&nbsp;&nbsp;Digital certificate">C&nbsp;&nbsp;Digital certificate</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Shared key" data-en="D&nbsp;&nbsp;Shared key">D&nbsp;&nbsp;Shared key</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [2] = Hash value — التوقيع بيتعمل من قيمة الهاش." data-en="✅ Answer: [2] = Hash value — the signature is made from the hash value.">✅ الإجابة: <b>[2] = Hash value</b> — التوقيع بيتعمل من قيمة الهاش.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="قيمة الهاش بتتشفّر باستخدام (   [3]   ) — اختار المصطلح الصح:" data-en="The hash value is encrypted using the (   [3]   ) — choose the right term:">قيمة الهاش بتتشفّر باستخدام (   [3]   ) — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Sender's private key (المفتاح الخاص للمرسل)" data-en="A&nbsp;&nbsp;Sender's private key">A&nbsp;&nbsp;Sender's private key (المفتاح الخاص للمرسل)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Sender's public key" data-en="B&nbsp;&nbsp;Sender's public key">B&nbsp;&nbsp;Sender's public key</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Recipient's private key" data-en="C&nbsp;&nbsp;Recipient's private key">C&nbsp;&nbsp;Recipient's private key</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Recipient's public key" data-en="D&nbsp;&nbsp;Recipient's public key">D&nbsp;&nbsp;Recipient's public key</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [3] = Sender's private key — التوقيع الرقمي بيتشفّر بالمفتاح الخاص للمرسل." data-en="✅ Answer: [3] = Sender's private key — the digital signature is encrypted with the sender's private key.">✅ الإجابة: <b>[3] = Sender's private key</b> — التوقيع الرقمي بيتشفّر بالمفتاح الخاص للمرسل.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="المستقبل بيفك تشفير التوقيع الرقمي باستخدام (   [4]   ) — اختار المصطلح الصح:" data-en="The recipient decrypts the digital signature using the (   [4]   ) — choose the right term:">المستقبل بيفك تشفير التوقيع الرقمي باستخدام (   [4]   ) — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Sender's public key (المفتاح العام للمرسل)" data-en="A&nbsp;&nbsp;Sender's public key">A&nbsp;&nbsp;Sender's public key (المفتاح العام للمرسل)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Sender's private key" data-en="B&nbsp;&nbsp;Sender's private key">B&nbsp;&nbsp;Sender's private key</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Recipient's private key" data-en="C&nbsp;&nbsp;Recipient's private key">C&nbsp;&nbsp;Recipient's private key</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Recipient's public key" data-en="D&nbsp;&nbsp;Recipient's public key">D&nbsp;&nbsp;Recipient's public key</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [4] = Sender's public key — فك تشفير التوقيع بيتم بالمفتاح العام للمرسل." data-en="✅ Answer: [4] = Sender's public key — decryption uses the sender's public key.">✅ الإجابة: <b>[4] = Sender's public key</b> — فك تشفير التوقيع بيتم بالمفتاح العام للمرسل.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="منظمة طرف تالت اسمها (   [5]   ) بتصدر شهادة تضمن إن المفتاح العام فعلاً بيملكه المرسل — اختار المصطلح الصح:" data-en="A third-party organization called a (   [5]   ) issues a certificate guaranteeing the public key truly belongs to the sender — choose the right term:">منظمة طرف تالت اسمها (   [5]   ) بتصدر شهادة تضمن إن المفتاح العام فعلاً بيملكه المرسل — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Certification Authority (CA) (الجهة المصدقة)" data-en="A&nbsp;&nbsp;Certification Authority (CA)">A&nbsp;&nbsp;Certification Authority (CA) (الجهة المصدقة)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Digital certificate" data-en="B&nbsp;&nbsp;Digital certificate">B&nbsp;&nbsp;Digital certificate</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Sender" data-en="C&nbsp;&nbsp;Sender">C&nbsp;&nbsp;Sender</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Recipient" data-en="D&nbsp;&nbsp;Recipient">D&nbsp;&nbsp;Recipient</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [5] = Certification Authority (CA) — منظمة الطرف التالت الموثوقة." data-en="✅ Answer: [5] = Certification Authority (CA) — the trusted third-party organization.">✅ الإجابة: <b>[5] = Certification Authority (CA)</b> — منظمة الطرف التالت الموثوقة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="اللي بتصدره الجهة المصدقة عشان تضمن المفتاح العام اسمه (   [6]   ) — اختار المصطلح الصح:" data-en="What the CA issues to guarantee the public key is called a (   [6]   ) — choose the right term:">اللي بتصدره الجهة المصدقة عشان تضمن المفتاح العام اسمه (   [6]   ) — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Digital certificate (الشهادة الرقمية)" data-en="A&nbsp;&nbsp;Digital certificate">A&nbsp;&nbsp;Digital certificate (الشهادة الرقمية)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Digital signature" data-en="B&nbsp;&nbsp;Digital signature">B&nbsp;&nbsp;Digital signature</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Hash value" data-en="C&nbsp;&nbsp;Hash value">C&nbsp;&nbsp;Hash value</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Shared key" data-en="D&nbsp;&nbsp;Shared key">D&nbsp;&nbsp;Shared key</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [6] = Digital certificate — الشهادة الرقمية بتضمن ملكية المفتاح العام." data-en="✅ Answer: [6] = Digital certificate — the digital certificate guarantees public key ownership.">✅ الإجابة: <b>[6] = Digital certificate</b> — الشهادة الرقمية بتضمن ملكية المفتاح العام.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="بخصوص وظيفة الهاش: نفس البيانات دايماً بتتحول لنفس قيمة (   [1]   ) — اختار المصطلح الصح (Same ولا Different)؟" data-en="Regarding the hash function: the same data is always converted into the same (   [1]   ) hash value — Same or Different?">بخصوص وظيفة الهاش: نفس البيانات دايماً بتتحول لنفس قيمة (   [1]   ) — اختار المصطلح الصح (Same ولا Different)؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Different (مختلفة)" data-en="A&nbsp;&nbsp;Different">A&nbsp;&nbsp;Different (مختلفة)</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Same (نفسها)" data-en="B&nbsp;&nbsp;Same">B&nbsp;&nbsp;Same (نفسها)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [1] = Same — نفس البيانات بتدي نفس قيمة الهاش دايماً." data-en="✅ Answer: [1] = Same — the same data always produces the same hash value.">✅ الإجابة: <b>[1] = Same</b> — نفس البيانات بتدي نفس قيمة الهاش دايماً.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">8</span> <span data-ar="وإنه (   [2]   ) استرجاع البيانات الأصلية من قيمة الهاش المحوّلة — اختار المصطلح الصح (Possible ولا Impossible)؟" data-en="And it is (   [2]   ) to restore the original data from the converted hash value — Possible or Impossible?">وإنه (   [2]   ) استرجاع البيانات الأصلية من قيمة الهاش المحوّلة — اختار المصطلح الصح (Possible ولا Impossible)؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Possible (ممكن)" data-en="A&nbsp;&nbsp;Possible">A&nbsp;&nbsp;Possible (ممكن)</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Impossible (مستحيل)" data-en="B&nbsp;&nbsp;Impossible">B&nbsp;&nbsp;Impossible (مستحيل)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [2] = Impossible — مستحيل استرجاع البيانات الأصلية من قيمة الهاش." data-en="✅ Answer: [2] = Impossible — the original data cannot be restored from the hash value.">✅ الإجابة: <b>[2] = Impossible</b> — مستحيل استرجاع البيانات الأصلية من قيمة الهاش.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">9</span> <span data-ar="لما بداية رابط صفحة الويب تكون “https://”، ده معناه إن التشفير باستخدام (   [1]   ) بيتنفذ — اختار المصطلح الصح:" data-en="When the beginning of a web page URL is "https://", it means that encryption using (   [1]   ) is being performed — choose the right term:">لما بداية رابط صفحة الويب تكون "https://"، ده معناه إن التشفير باستخدام (   [1]   ) بيتنفذ — اختار المصطلح الصح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;SSL/TLS" data-en="A&nbsp;&nbsp;SSL/TLS">A&nbsp;&nbsp;SSL/TLS</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Symmetric key encryption" data-en="B&nbsp;&nbsp;Symmetric key encryption">B&nbsp;&nbsp;Symmetric key encryption</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Public key encryption" data-en="C&nbsp;&nbsp;Public key encryption">C&nbsp;&nbsp;Public key encryption</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Session key method" data-en="D&nbsp;&nbsp;Session key method">D&nbsp;&nbsp;Session key method</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [1] = SSL/TLS — الرابط اللي بيبدأ بـ https:// معناه إن الاتصال مشفر بـ SSL/TLS." data-en="✅ Answer: [1] = SSL/TLS — a URL beginning with https:// means the connection is encrypted with SSL/TLS.">✅ الإجابة: <b>[1] = SSL/TLS</b> — الرابط اللي بيبدأ بـ <span dir="ltr">https://</span> معناه إن الاتصال مشفر بـ <span dir="ltr">SSL/TLS</span>.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">10</span> <span data-ar="في SSL/TLS، التشفير بيتنفذ باستخدام (   [4]   ) اللي بيجمع (   [2]   ) و(   [3]   ) — اختار المصطلح الصح للفراغ [4] (اللي بيجمع الاتنين):" data-en="In SSL/TLS, encryption is carried out using a (   [4]   ) that combines (   [2]   ) and (   [3]   ) — choose the term for blank [4] (the one that combines both):">في SSL/TLS، التشفير بيتنفذ باستخدام (   [4]   ) اللي بيجمع (   [2]   ) و(   [3]   ) — اختار المصطلح الصح للفراغ [4] (اللي بيجمع الاتنين):</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Session key method (طريقة مفتاح الجلسة)" data-en="A&nbsp;&nbsp;Session key method">A&nbsp;&nbsp;Session key method (طريقة مفتاح الجلسة)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Digital certificate" data-en="B&nbsp;&nbsp;Digital certificate">B&nbsp;&nbsp;Digital certificate</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Digital signature" data-en="C&nbsp;&nbsp;Digital signature">C&nbsp;&nbsp;Digital signature</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Certification Authority" data-en="D&nbsp;&nbsp;Certification Authority">D&nbsp;&nbsp;Certification Authority</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [4] = Session key method — طريقة مفتاح الجلسة بتجمع المتناظر والعام في SSL/TLS." data-en="✅ Answer: [4] = Session key method — the session key method combines symmetric and public key in SSL/TLS.">✅ الإجابة: <b>[4] = Session key method</b> — طريقة مفتاح الجلسة بتجمع المتناظر والعام في <span dir="ltr">SSL/TLS</span>.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">11</span> <span data-ar="في SSL/TLS، ([1]) كمان بيساعد في منع التصيد لموقع وهمي عن طريق إرفاق (   [6]   ) الصادرة من (   [5]   ) — اختار المصطلح الصح للفراغ [6]:" data-en="In SSL/TLS, ([1]) also helps prevent phishing towards a fake website by attaching a (   [6]   ) issued by a (   [5]   ) — choose the term for blank [6]:">في <span dir="ltr">SSL/TLS</span>، ([1]) كمان بيساعد في منع التصيد لموقع وهمي عن طريق إرفاق (   [6]   ) الصادرة من (   [5]   ) — اختار المصطلح الصح للفراغ [6]:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Digital certificate (الشهادة الرقمية)" data-en="A&nbsp;&nbsp;Digital certificate">A&nbsp;&nbsp;Digital certificate (الشهادة الرقمية)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Digital signature" data-en="B&nbsp;&nbsp;Digital signature">B&nbsp;&nbsp;Digital signature</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Session key method" data-en="C&nbsp;&nbsp;Session key method">C&nbsp;&nbsp;Session key method</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Public key encryption" data-en="D&nbsp;&nbsp;Public key encryption">D&nbsp;&nbsp;Public key encryption</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [6] = Digital certificate — الشهادة الرقمية الصادرة من الجهة المصدقة بتحمي من التصيد." data-en="✅ Answer: [6] = Digital certificate — a digital certificate issued by the CA helps prevent phishing.">✅ الإجابة: <b>[6] = Digital certificate</b> — الشهادة الرقمية الصادرة من الجهة المصدقة بتحمي من التصيد.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">12</span> <span data-ar="الشهادة الرقمية (   [6]   ) بتتصدر من (   [5]   ) — اختار المصطلح الصح للفراغ [5]:" data-en="The digital certificate (   [6]   ) is issued by a (   [5]   ) — choose the term for blank [5]:">الشهادة الرقمية (   [6]   ) بتتصدر من (   [5]   ) — اختار المصطلح الصح للفراغ [5]:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Certification Authority (CA) (الجهة المصدقة)" data-en="A&nbsp;&nbsp;Certification Authority (CA)">A&nbsp;&nbsp;Certification Authority (CA) (الجهة المصدقة)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Digital signature" data-en="B&nbsp;&nbsp;Digital signature">B&nbsp;&nbsp;Digital signature</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Session key method" data-en="C&nbsp;&nbsp;Session key method">C&nbsp;&nbsp;Session key method</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Public key encryption" data-en="D&nbsp;&nbsp;Public key encryption">D&nbsp;&nbsp;Public key encryption</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [5] = Certification Authority (CA) — الجهة المصدقة هي اللي بتصدر الشهادات الرقمية." data-en="✅ Answer: [5] = Certification Authority (CA) — the CA issues digital certificates.">✅ الإجابة: <b>[5] = Certification Authority (CA)</b> — الجهة المصدقة هي اللي بتصدر الشهادات الرقمية.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">13</span> <span data-ar="من الخيارات A لـ D، اختار اللي بيوصف وظيفة SSL/TLS بشكل صحيح:" data-en="Among options A to D, choose the one that correctly describes a function of SSL/TLS:">من الخيارات A لـ D، اختار اللي بيوصف وظيفة <span dir="ltr">SSL/TLS</span> بشكل صحيح:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;بتولّد باسوردات لمرة واحدة لمصادقة المستخدمين على المواقع" data-en="A&nbsp;&nbsp;Generates one-time passwords for user authentication on websites">A&nbsp;&nbsp;بتولّد باسوردات لمرة واحدة لمصادقة المستخدمين على المواقع</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;بتشفّر الاتصال بين متصفح الويب وسيرفر الويب" data-en="B&nbsp;&nbsp;Encrypts communication between the web browser and the web server">B&nbsp;&nbsp;بتشفّر الاتصال بين متصفح الويب وسيرفر الويب</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;بتفلتر الاتصال بالمواقع غير المصرح بها" data-en="C&nbsp;&nbsp;Filters communication to unauthorized websites">C&nbsp;&nbsp;بتفلتر الاتصال بالمواقع غير المصرح بها</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;بيكتشف الفيروسات اللي بتنتشر عبر الشبكات" data-en="D&nbsp;&nbsp;Detects viruses that spread through networks">D&nbsp;&nbsp;بيكتشف الفيروسات اللي بتنتشر عبر الشبكات</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — SSL/TLS بتشفّر الاتصال بين المتصفح والسيرفر." data-en="✅ Answer: B — SSL/TLS encrypts communication between the browser and the server.">✅ الإجابة: <b>B</b> — <span dir="ltr">SSL/TLS</span> بتشفّر الاتصال بين المتصفح والسيرفر.</div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="try" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-hide="try" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
+        </div>
+      </div>
+
+      <!-- Exercise -->
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 style="color:var(--s3)" data-ar="💪 Exercise — صفحة 41" data-en="💪 Exercise — Page 41">💪 Exercise — صفحة 41</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="شوف مخطط التوقيع الرقمي — تحدي ختامي!" data-en="Look at the digital signature diagram — final challenge!">شوف مخطط التوقيع الرقمي — تحدي ختامي!</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="في مخطط التوقيع الرقمي عند المرسل — القيمة اللي بتتولّد من وظيفة الهاش (الفراغ [1]) اسمها إيه؟" data-en="In the digital signature diagram at the sender — the value generated by the hash function (blank [1]) is called what?">في مخطط التوقيع الرقمي عند المرسل — القيمة اللي بتتولّد من وظيفة الهاش (الفراغ [1]) اسمها إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Hash value (قيمة الهاش)" data-en="A&nbsp;&nbsp;Hash value">A&nbsp;&nbsp;Hash value (قيمة الهاش)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Digital signature" data-en="B&nbsp;&nbsp;Digital signature">B&nbsp;&nbsp;Digital signature</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Private key" data-en="C&nbsp;&nbsp;Private key">C&nbsp;&nbsp;Private key</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Public key" data-en="D&nbsp;&nbsp;Public key">D&nbsp;&nbsp;Public key</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [1] = Hash value — وظيفة الهاش بتولّد قيمة هاش زي "06fe3f3e" من النص الأصلي." data-en="✅ Answer: [1] = Hash value — the hash function generates a hash value like "06fe3f3e" from the plaintext.">✅ الإجابة: <b>[1] = Hash value</b> — وظيفة الهاش بتولّد قيمة هاش زي "06fe3f3e" من النص الأصلي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="التشفير (الفراغ [2]) بيتم بمفتاح (   [2]   ) بتاع (   [3]   ) — اختار المصطلح الصح للفراغ [2]:" data-en="The encryption (blank [2]) is done with the (   [2]   ) key of the (   [3]   ) — choose the term for blank [2]:">التشفير (الفراغ [2]) بيتم بمفتاح (   [2]   ) بتاع (   [3]   ) — اختار المصطلح الصح للفراغ [2]:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Private key (المفتاح الخاص)" data-en="A&nbsp;&nbsp;Private key">A&nbsp;&nbsp;Private key (المفتاح الخاص)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Public key" data-en="B&nbsp;&nbsp;Public key">B&nbsp;&nbsp;Public key</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Shared key" data-en="C&nbsp;&nbsp;Shared key">C&nbsp;&nbsp;Shared key</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Hash value" data-en="D&nbsp;&nbsp;Hash value">D&nbsp;&nbsp;Hash value</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [2] = Private key — التشفير بيتم بالمفتاح الخاص للمرسل." data-en="✅ Answer: [2] = Private key — encryption uses the sender's private key.">✅ الإجابة: <b>[2] = Private key</b> — التشفير بيتم بالمفتاح الخاص للمرسل.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="في المخطط — اللي بيمتلك المفتاح الخاص ده هو (   [3]   ) — اختار المصطلح الصح للفراغ [3]:" data-en="In the diagram — the one who owns this private key is the (   [3]   ) — choose the term for blank [3]:">في المخطط — اللي بيمتلك المفتاح الخاص ده هو (   [3]   ) — اختار المصطلح الصح للفراغ [3]:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Sender (المرسل)" data-en="A&nbsp;&nbsp;Sender">A&nbsp;&nbsp;Sender (المرسل)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Recipient" data-en="B&nbsp;&nbsp;Recipient">B&nbsp;&nbsp;Recipient</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Certification Authority" data-en="C&nbsp;&nbsp;Certification Authority">C&nbsp;&nbsp;Certification Authority</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Receiver" data-en="D&nbsp;&nbsp;Receiver">D&nbsp;&nbsp;Receiver</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [3] = Sender — المفتاح الخاص بيملكه المرسل اللي بيعمل التوقيع." data-en="✅ Answer: [3] = Sender — the private key belongs to the sender who creates the signature.">✅ الإجابة: <b>[3] = Sender</b> — المفتاح الخاص بيملكه المرسل اللي بيعمل التوقيع.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="الناتج من تشفير قيمة الهاش (الفراغ [4]) اسمه إيه؟" data-en="The result of encrypting the hash value (blank [4]) is called what?">الناتج من تشفير قيمة الهاش (الفراغ [4]) اسمه إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Digital signature (التوقيع الرقمي)" data-en="A&nbsp;&nbsp;Digital signature">A&nbsp;&nbsp;Digital signature (التوقيع الرقمي)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Hash value" data-en="B&nbsp;&nbsp;Hash value">B&nbsp;&nbsp;Hash value</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Digital certificate" data-en="C&nbsp;&nbsp;Digital certificate">C&nbsp;&nbsp;Digital certificate</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Plaintext" data-en="D&nbsp;&nbsp;Plaintext">D&nbsp;&nbsp;Plaintext</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [4] = Digital signature — تشفير قيمة الهاش بالمفتاح الخاص بيدي التوقيع الرقمي." data-en="✅ Answer: [4] = Digital signature — encrypting the hash value with the private key produces the digital signature.">✅ الإجابة: <b>[4] = Digital signature</b> — تشفير قيمة الهاش بالمفتاح الخاص بيدي التوقيع الرقمي.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="عند المستقبل، فك تشفير التوقيع (الفراغ [5]) بيتم بمفتاح (   [5]   ) بتاع (   [6]   ) — اختار المصطلح الصح للفراغ [5]:" data-en="At the recipient, decrypting the signature (blank [5]) is done with the (   [5]   ) key of the (   [6]   ) — choose the term for blank [5]:">عند المستقبل، فك تشفير التوقيع (الفراغ [5]) بيتم بمفتاح (   [5]   ) بتاع (   [6]   ) — اختار المصطلح الصح للفراغ [5]:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Private key" data-en="A&nbsp;&nbsp;Private key">A&nbsp;&nbsp;Private key</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Public key (المفتاح العام)" data-en="B&nbsp;&nbsp;Public key">B&nbsp;&nbsp;Public key (المفتاح العام)</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Shared key" data-en="C&nbsp;&nbsp;Shared key">C&nbsp;&nbsp;Shared key</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Hash value" data-en="D&nbsp;&nbsp;Hash value">D&nbsp;&nbsp;Hash value</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [5] = Public key — فك تشفير التوقيع بيتم بالمفتاح العام للمرسل." data-en="✅ Answer: [5] = Public key — decryption uses the sender's public key.">✅ الإجابة: <b>[5] = Public key</b> — فك تشفير التوقيع بيتم بالمفتاح العام للمرسل.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="المفتاح العام ده (الفراغ [6]) بيملكه (   [6]   ) — اختار المصطلح الصح للفراغ [6]:" data-en="This public key (blank [6]) belongs to the (   [6]   ) — choose the term for blank [6]:">المفتاح العام ده (الفراغ [6]) بيملكه (   [6]   ) — اختار المصطلح الصح للفراغ [6]:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Sender (المرسل)" data-en="A&nbsp;&nbsp;Sender">A&nbsp;&nbsp;Sender (المرسل)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Recipient" data-en="B&nbsp;&nbsp;Recipient">B&nbsp;&nbsp;Recipient</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Certification Authority" data-en="C&nbsp;&nbsp;Certification Authority">C&nbsp;&nbsp;Certification Authority</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Receiver" data-en="D&nbsp;&nbsp;Receiver">D&nbsp;&nbsp;Receiver</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [6] = Sender — المفتاح العام للمرسل هو اللي بيستخدم في فك تشفير التوقيع." data-en="✅ Answer: [6] = Sender — the sender's public key is used to decrypt the signature.">✅ الإجابة: <b>[6] = Sender</b> — المفتاح العام للمرسل هو اللي بيستخدم في فك تشفير التوقيع.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="المقارنة النهائية (الفراغ [7]) — قيمتي الهاش لو متطابقتين ده اسمه إيه؟" data-en="The final comparison (blank [7]) — the two hash values matching is called what?">المقارنة النهائية (الفراغ [7]) — قيمتي الهاش لو متطابقتين ده اسمه إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Electronic authentication (المصادقة الإلكترونية)" data-en="A&nbsp;&nbsp;Electronic authentication">A&nbsp;&nbsp;Electronic authentication (المصادقة الإلكترونية)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Digital signature" data-en="B&nbsp;&nbsp;Digital signature">B&nbsp;&nbsp;Digital signature</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Hash value" data-en="C&nbsp;&nbsp;Hash value">C&nbsp;&nbsp;Hash value</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Shared key" data-en="D&nbsp;&nbsp;Shared key">D&nbsp;&nbsp;Shared key</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [7] = Electronic authentication — لما قيمتي الهاش متطابقتين، بنتحقق إلكترونياً من المصدر والسلامة." data-en="✅ Answer: [7] = Electronic authentication — when the two hash values match, the source and integrity are electronically authenticated.">✅ الإجابة: <b>[7] = Electronic authentication</b> — لما قيمتي الهاش متطابقتين، بنتحقق إلكترونياً من المصدر والسلامة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">8</span> <span data-ar="من الخيارات A لـ D، اختار اللي بيوصف إيميل عليه توقيع رقمي بشكل مناسب:" data-en="Among options A to D, choose the one that appropriately describes something related to an email with a digital signature:">من الخيارات A لـ D، اختار اللي بيوصف إيميل عليه توقيع رقمي بشكل مناسب:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;النص المشوه بيحصل أكتر أثناء إرسال الإيميل" data-en="A&nbsp;&nbsp;Garbled text is more likely to occur during transmission of the email">A&nbsp;&nbsp;النص المشوه بيحصل أكتر أثناء إرسال الإيميل</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;بيسمحلك تتأكد إن الإيميل اتبعث من المرسل الصحيح" data-en="B&nbsp;&nbsp;It allows you to confirm whether the email was sent from the correct sender">B&nbsp;&nbsp;بيسمحلك تتأكد إن الإيميل اتبعث من المرسل الصحيح</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;بيمنع محتوى الإيميل من الاعتراض أثناء الإرسال" data-en="C&nbsp;&nbsp;It prevents the contents of the email from being intercepted during transmission">C&nbsp;&nbsp;بيمنع محتوى الإيميل من الاعتراض أثناء الإرسال</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;بيمنع محتوى الإيميل من الضياع" data-en="D&nbsp;&nbsp;It prevents the contents of the email from being lost">D&nbsp;&nbsp;بيمنع محتوى الإيميل من الضياع</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — التوقيع الرقمي بيخليك تتأكد من المرسل الصحيح ومن إن الرسالة متغيرتش." data-en="✅ Answer: B — a digital signature lets you confirm the correct sender and that the message was not tampered with.">✅ الإجابة: <b>B</b> — التوقيع الرقمي بيخليك تتأكد من المرسل الصحيح ومن إن الرسالة متغيرتش.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">9</span> <span data-ar="العبارة A: SSL هي السابقة لـ TLS، وحالياً TLS هو المعيار الرئيسي المستخدم — صحيحة ولا خاطئة؟" data-en="Statement A: SSL is the predecessor of TLS, and currently TLS is the mainstream standard in use — correct or incorrect?">العبارة A: SSL هي السابقة لـ TLS، وحالياً TLS هو المعيار الرئيسي المستخدم — صحيحة ولا خاطئة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;صحيحة" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيحة</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;خاطئة" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خاطئة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — TLS اتعمل كنسخة أكتر أمان من SSL وبيعتبر المعيار الرئيسي حالياً." data-en="✅ Answer: ○ — TLS was introduced as a more secure version of SSL and is now the mainstream standard.">✅ الإجابة: <b>○</b> — <span dir="ltr">TLS</span> اتعمل كنسخة أكتر أمان من <span dir="ltr">SSL</span> وبيعتبر المعيار الرئيسي حالياً.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">10</span> <span data-ar="العبارة B: وظيفة بتقيد الوصول للمواقع الضارة أو غير القانونية حسب شروط معينة — صحيحة ولا خاطئة؟" data-en="Statement B: it is a function that restricts access to harmful or illegal websites based on certain conditions — correct or incorrect?">العبارة B: وظيفة بتقيد الوصول للمواقع الضارة أو غير القانونية حسب شروط معينة — صحيحة ولا خاطئة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيحة" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيحة</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خاطئة" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خاطئة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — دي وظيفة فلترة المحتوى مش وظيفة SSL/TLS." data-en="✅ Answer: × — that's a content-filtering function, not a function of SSL/TLS.">✅ الإجابة: <b>×</b> — دي وظيفة فلترة المحتوى مش وظيفة <span dir="ltr">SSL/TLS</span>.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">11</span> <span data-ar="العبارة C: الروابط اللي بتبدأ بـ “http://...” متشفرة باستخدام SSL/TLS — صحيحة ولا خاطئة؟" data-en="Statement C: URLs that begin with "http://..." are encrypted using SSL/TLS — correct or incorrect?">العبارة C: الروابط اللي بتبدأ بـ "http://..." متشفرة باستخدام SSL/TLS — صحيحة ولا خاطئة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيحة" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيحة</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خاطئة" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خاطئة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — الرابط المشفر بيبدأ بـ https:// مش http://." data-en="✅ Answer: × — encrypted URLs begin with https://, not http://.">✅ الإجابة: <b>×</b> — الرابط المشفر بيبدأ بـ <span dir="ltr">https://</span> مش <span dir="ltr">http://</span>.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">12</span> <span data-ar="العبارة D: SSL/TLS بتشفّر الاتصال باستخدام طريقة مفتاح الجلسة اللي بتجمع التشفير المتناظر والعام — صحيحة ولا خاطئة؟" data-en="Statement D: SSL/TLS encrypts communication using a session key method that combines symmetric and public key encryption methods — correct or incorrect?">العبارة D: SSL/TLS بتشفّر الاتصال باستخدام طريقة مفتاح الجلسة اللي بتجمع التشفير المتناظر والعام — صحيحة ولا خاطئة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;صحيحة" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيحة</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;خاطئة" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خاطئة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — SSL/TLS بتستخدم طريقة مفتاح الجلسة الهجينة." data-en="✅ Answer: ○ — SSL/TLS uses the hybrid session key method.">✅ الإجابة: <b>○</b> — <span dir="ltr">SSL/TLS</span> بتستخدم طريقة مفتاح الجلسة الهجينة.</div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="exercise" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-hide="exercise" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 SUMMARY ============ -->
+    <section id="summary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#d97706)">06</div>
+          <div>
+            <h2 data-ar="الخلاصة" data-en="Summary">الخلاصة</h2>
+            <div class="tag" style="color:var(--s2)" data-ar="رحلة الليوم" data-en="Today's Journey">رحلة الليوم</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="إيه اللي اتعلمناه النهاردة؟" data-en="What did we learn today?" style="color:var(--s2)">إيه اللي اتعلمناه النهاردة؟</h3>
+        <div class="journey">
+          <div class="journey-item">
+            <h4 data-ar="1. التوقيع الرقمي" data-en="1. Digital signature">1. التوقيع الرقمي</h4>
+            <p data-ar="تكنولوجيا بتثبت إن البيانات من المرسل ومتغيرتش — باستخدام التشفير العام وقيم الهاش." data-en="A technology that proves data is from the sender and unaltered — using public key encryption and hash values.">تكنولوجيا بتثبت إن البيانات من المرسل ومتغيرتش — باستخدام التشفير العام وقيم الهاش.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="2. قيمة الهاش" data-en="2. Hash value">2. قيمة الهاش</h4>
+            <p data-ar="بصمة فريدة للبيانات — أي تغيير بسيط بيعمل قيمة مختلفة تماماً، ومستحيل الرجوع للبيانات الأصلية منها." data-en="A unique fingerprint of data — any small change produces a completely different value, and the original data cannot be restored.">بصمة فريدة للبيانات — أي تغيير بسيط بيعمل قيمة مختلفة تماماً، ومستحيل الرجوع للبيانات الأصلية منها.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="3. الجهة المصدقة" data-en="3. Certification authority">3. الجهة المصدقة</h4>
+            <p data-ar="طرف تالت موثوق بيصدر شهادات رقمية بتضمن إن المفتاح العام فعلاً بيملكه صاحبه." data-en="A trusted third party that issues digital certificates guaranteeing a public key truly belongs to its owner.">طرف تالت موثوق بيصدر شهادات رقمية بتضمن إن المفتاح العام فعلاً بيملكه صاحبه.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="4. SSL/TLS" data-en="4. SSL/TLS">4. SSL/TLS</h4>
+            <p data-ar="بتشفّر الاتصال بين السيرفر والمتصفح بطريقة مفتاح الجلسة — والروابط المشفرة بتبدأ بـ https://." data-en="Encrypts server–browser communication with the session key method — encrypted URLs begin with https://.">بتشفّر الاتصال بين السيرفر والمتصفح بطريقة مفتاح الجلسة — والروابط المشفرة بتبدأ بـ <span dir="ltr">https://</span>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 data-ar="مصطلحات المفتاح" data-en="Key Terms" style="color:var(--s2)">مصطلحات المفتاح</h3>
+        <div class="cards-grid">
+          <div class="card-item">
+            <div class="card-icon">🧮</div>
+            <div class="card-title">Hash function</div>
+            <div class="card-body" data-ar="وظيفة بتولّد قيمة فريدة من البيانات" data-en="A function that generates a unique value from data">وظيفة بتولّد قيمة فريدة من البيانات</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🔢</div>
+            <div class="card-title">Hash value</div>
+            <div class="card-body" data-ar="بصمة البيانات — بتتغير كلياً مع أي تغيير" data-en="A data fingerprint — changes completely with any change">بصمة البيانات — بتتغير كلياً مع أي تغيير</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">✍️</div>
+            <div class="card-title">Digital signature</div>
+            <div class="card-body" data-ar="التوقيع الرقمي — بيثبت المصدر والسلامة" data-en="Proves the source and integrity">التوقيع الرقمي — بيثبت المصدر والسلامة</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🏛️</div>
+            <div class="card-title">Certification Authority</div>
+            <div class="card-body" data-ar="الجهة المصدقة — طرف تالت موثوق" data-en="A trusted third-party organization">الجهة المصدقة — طرف تالت موثوق</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">📜</div>
+            <div class="card-title">Digital certificate</div>
+            <div class="card-body" data-ar="الشهادة الرقمية — بتضمن ملكية المفتاح العام" data-en="Guarantees public key ownership">الشهادة الرقمية — بتضمن ملكية المفتاح العام</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🛡️</div>
+            <div class="card-title">SSL/TLS</div>
+            <div class="card-body" data-ar="بتشفّر الاتصال بين المتصفح والسيرفر" data-en="Encrypts browser–server communication">بتشفّر الاتصال بين المتصفح والسيرفر</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px; text-align:center">
+        <h3 data-ar="🎉 أحسنت! كمّلت درس تكنولوجيا المعلومات للسلامة [2]" data-en="🎉 Well done! You completed Information Technology for Safety [2]" style="color:var(--success)">🎉 أحسنت! كمّلت درس تكنولوجيا المعلومات للسلامة [2]</h3>
+        <p data-ar="افتكر دايمًا: التوقيع الرقمي بيثبت إن الرسالة منك، والجهة المصدقة بتأكد إن المفتاح بتاعك — وSSL/TLS بتحميك على الويب!" data-en="Always remember: a digital signature proves the message is from you, the CA confirms your key, and SSL/TLS protects you on the web!">افتكر دايمًا: التوقيع الرقمي بيثبت إن الرسالة منك، والجهة المصدقة بتأكد إن المفتاح بتاعك — و<span dir="ltr">SSL/TLS</span> بتحميك على الويب!</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <img class="footer-logo" src="data:image/webp;base64,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" alt="logo">
+    <p data-ar="سلامة بياناتك وأمانك على الإنترنت مسؤولية تتعلمها صح — حمايتك تبدأ من معرفتك! 💙" data-en="Your data safety and online security is a responsibility you learn right — your protection starts with knowledge! 💙">سلامة بياناتك وأمانك على الإنترنت مسؤولية تتعلمها صح — حمايتك تبدأ من معرفتك! 💙</p>
+  </footer>
+
+  <script>
+    /* ---------- particles ---------- */
+    (function () {
+      var box = document.getElementById('particles');
+      for (var i = 0; i < 30; i++) {
+        var dot = document.createElement('i');
+        dot.style.left = Math.random() * 100 + '%';
+        dot.style.animationDelay = Math.random() * 15 + 's';
+        dot.style.animationDuration = (12 + Math.random() * 8) + 's';
+        box.appendChild(dot);
+      }
+    })();
+
+    /* ---------- nav scroll ---------- */
+    function wireNav() {
+      var nav = document.getElementById('navbar');
+      var links = document.querySelectorAll('.nav-links a');
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('show', window.scrollY > 100);
+        var id = location.hash || '#intro';
+        links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === id); });
+      });
+    }
+
+    /* ---------- reveal on scroll ---------- */
+    function wireReveal() {
+      var items = document.querySelectorAll('.section-inner');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.05 });
+      items.forEach(function (el) { obs.observe(el); });
+      window.addEventListener('scroll', function () {
+        items.forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('visible');
+        });
+      });
+    }
+
+/* ---------- interactive cards ---------- */
+    function wireCards() {
+      document.querySelectorAll('.card-item[data-correct]').forEach(function (c) {
+        c.addEventListener('click', function () {
+          var ok = c.getAttribute('data-correct') === '1';
+          c.classList.add(ok ? 'ok' : 'bad');
+          c.querySelectorAll('.card-item').forEach(function (s) { if (s !== c) s.style.pointerEvents = 'none'; });
+        });
+      });
+
+      document.querySelectorAll('.card-item[data-reveal]').forEach(function (c) {
+        c.addEventListener('click', function () {
+          var fb = c.querySelector('.card-feedback');
+          if (fb) fb.style.display = fb.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+    }
+
+    /* ---------- exercise reveal ---------- */
+    function wireRevealBtns() {
+      document.querySelectorAll('button[data-reveal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card'); if (!card) return;
+card.querySelectorAll('.ex-opt').forEach(function (o) {
+            o.classList.remove('correct', 'wrong');
+            if (o.getAttribute('data-ok') === '1') {
+              o.classList.add('correct');
+            } else if (o.classList.contains('picked')) {
+              o.classList.add('wrong');
+            }
+          });
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.add('show'); });
+          var scored = 0, right = 0, noAns = 0;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            if (!item.querySelector('.ex-opt[data-ok="1"]')) return;
+            scored++;
+            var picked = item.querySelector('.ex-opt.picked');
+            if (!picked) { noAns++; return; }
+            if (picked.getAttribute('data-ok') === '1') right++;
+          });
+          var s = card.querySelector('.ex-score');
+          if (!s) { s = document.createElement('div'); s.className = 'ex-score'; card.appendChild(s); }
+          s.innerHTML = (window.currentLang === 'en')
+            ? '✅ Your correct answers: <b>' + right + '</b> out of ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">with ' + noAns + ' question(s) you still haven\'t answered</span>' : '')
+            : '✅ إجاباتك الصحيحة: <b>' + right + '</b> من ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">مع ' + noAns + ' سؤال لسه مجاوبتش</span>' : '');
+        });
+      });
+      document.querySelectorAll('.ex-opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          var item = opt.closest('.ex-item'); if (!item) return;
+          item.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked'); });
+          opt.classList.add('picked');
+        });
+      });
+      document.querySelectorAll('[data-hide]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card'); if (!card) return;
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.remove('show'); });
+          card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked', 'correct', 'wrong'); });
+          var s = card.querySelector('.ex-score'); if (s) s.remove();
+        });
+      });
+    }
+
+    /* ---------- AR/EN toggle ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      var langBtn = document.getElementById('langToggle');
+      if (!langBtn) return;
+      function setLang(lang) {
+        window.currentLang = lang;
+        langBtn.setAttribute('data-current', lang);
+        langBtn.textContent = (lang === 'ar') ? 'EN' : 'AR';
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+        document.querySelectorAll('[data-ar][data-en]').forEach(function (el) {
+          var val = (lang === 'ar') ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+          if (val !== null) { el.innerHTML = val; el.setAttribute('data-lang', lang); }
+        });
+        document.dispatchEvent(new CustomEvent('langChange', { detail: { lang: lang } }));
+        localStorage.setItem('langPreference', lang);
+      }
+      var storedLang = localStorage.getItem('langPreference');
+      if (!storedLang) storedLang = 'ar';
+      setLang(storedLang);
+      langBtn.addEventListener('click', function () {
+        setLang(window.currentLang === 'ar' ? 'en' : 'ar');
+      });
+    });
+
+    /* ---------- boot ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      wireNav();
+      wireReveal();
+      wireCards();
+      wireRevealBtns();
+    });
+  </script>
+</body>
+
+</html>
