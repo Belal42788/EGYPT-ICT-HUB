@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threats and Countermeasures [1] | التهديدات ومواجهتها ١</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #193cff;
+      --accent: #00d4aa;
+      --bg: #0a0e27;
+      --card: #111638;
+      --card-hover: #1a2050;
+      --text: #fff;
+      --dim: #8892b0;
+      --success: #00ff88;
+      --danger: #ff4757;
+      --warn: #ffd700;
+      --s1: #06B6D4;
+      --s2: #F59E0B;
+      --s3: #8B5CF6;
+      --s4: #10B981;
+      --s5: #EC4899;
+      --s6: #EF4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--dim);
+      line-height: 1.9;
+      overflow-x: hidden
+    }
+
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+        radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
+      animation: bgDrift 20s ease-in-out infinite;
+    }
+
+    @keyframes bgDrift {
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+      50% {
+        transform: translate(-30px, 20px) scale(1.08)
+      }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none
+    }
+
+    .particles i {
+      position: absolute;
+      bottom: -10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: .3;
+      animation: floatUp 15s linear infinite
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0
+      }
+      10% {
+        opacity: .3
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0
+      }
+    }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 39, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(25, 60, 255, .3);
+      transform: translateY(-100%);
+      transition: transform .35s ease
+    }
+
+    nav.show {
+      transform: translateY(0)
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 24px
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: var(--primary)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      padding: 4px 2px;
+      flex: 1
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none
+    }
+
+    .nav-links a {
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid transparent;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(25, 60, 255, .2);
+      border-color: var(--primary)
+    }
+
+    .lang-toggle {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all .3s ease
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 60px 24px
+    }
+
+    .hero-circles span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: .16;
+      z-index: 0;
+      animation: heroFloat 6s ease-in-out infinite
+    }
+
+    .hero-circles span:nth-child(1) {
+      width: 280px;
+      height: 280px;
+      background: var(--primary);
+      top: 12%;
+      left: 10%;
+      animation-delay: 0s
+    }
+
+    .hero-circles span:nth-child(2) {
+      width: 220px;
+      height: 220px;
+      background: var(--accent);
+      bottom: 15%;
+      right: 12%;
+      animation-delay: 2s
+    }
+
+    .hero-circles span:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      background: #8B5CF6;
+      top: 55%;
+      left: 22%;
+      animation-delay: 4s
+    }
+
+    @keyframes heroFloat {
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+      50% {
+        transform: translateY(-26px)
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: .85rem;
+      font-weight: 700;
+      background: rgba(25, 60, 255, .15);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--accent);
+      margin-bottom: 26px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .2s forwards
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 18px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .4s forwards
+    }
+
+    .hero-title .grad {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--dim);
+      max-width: 640px;
+      margin: 0 auto 36px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .6s forwards
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 50px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all .3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp .8s ease-out .8s forwards
+    }
+
+    .hero-btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px)
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ---------- main ---------- */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 80px
+    }
+
+    .section-inner {
+      margin-top: 48px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .6s cubic-bezier(0.4, 0, 0.2, 1)
+    }
+
+    .section-inner.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .section-inner.card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 28px 32px
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px
+    }
+
+    .section-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--bg);
+      flex-shrink: 0;
+      animation: glow 3s infinite
+    }
+
+    @keyframes glow {
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(25, 60, 255, .3)
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(25, 60, 255, .6)
+      }
+    }
+
+    h2 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 900;
+      color: var(--text)
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 700;
+      margin-top: 8px
+    }
+
+    .demo-label {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px
+    }
+
+    .note {
+      background: rgba(255, 215, 0, .06);
+      border: 1px solid rgba(255, 215, 0, .2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-top: 14px
+    }
+
+    .error-box {
+      background: rgba(255, 71, 87, .05);
+      border: 1px solid rgba(255, 71, 87, .2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-top: 32px
+    }
+
+    .error-box h4 {
+      color: var(--danger);
+      margin-bottom: 12px;
+      font-size: 1.1rem
+    }
+
+    .error-box ul {
+      padding-right: 20px
+    }
+
+    .error-box li {
+      margin-bottom: 8px
+    }
+
+    /* ---------- exercises ---------- */
+    .ex-item {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .ex-item .q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px
+    }
+
+    .q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, .15);
+      border: 1px solid rgba(245, 158, 11, .5);
+      color: var(--warn);
+      font-weight: 900;
+      font-size: .8rem;
+      flex-shrink: 0
+    }
+
+    .ex-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .ex-opt {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all .2s;
+      font-size: .92rem;
+      white-space: pre-line
+    }
+
+    .ex-opt:hover {
+      background: var(--card-hover);
+      border-color: rgba(25, 60, 255, .3)
+    }
+
+    .ex-opt.picked {
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .1)
+    }
+
+    .ex-opt.correct {
+      border-color: var(--success) !important;
+      background: rgba(0, 255, 136, .08) !important
+    }
+
+    .ex-opt.wrong {
+      border-color: var(--danger) !important;
+      background: rgba(255, 71, 87, .08) !important
+    }
+
+    .ex-answer {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: .92rem
+    }
+
+    .ex-answer.show {
+      display: block;
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: rgba(0, 255, 136, .07);
+      color: var(--success)
+    }
+
+    .ex-answer.show b {
+      color: var(--success);
+      margin: 0 6px
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .btn:hover {
+      background: var(--accent)
+    }
+
+    .mini-btn {
+      padding: 10px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .mini-btn:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    .ex-score {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(0, 255, 136, .06);
+      border: 1px solid rgba(0, 255, 136, .25);
+      color: var(--success);
+      font-weight: 700
+    }
+
+    .hint-line {
+      font-size: .92rem;
+      color: var(--dim)
+    }
+
+    /* ---------- interactive cards ---------- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px
+    }
+
+    .card-item {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 16px;
+      padding: 18px;
+      cursor: pointer;
+      transition: all .25s
+    }
+
+    .card-item:hover {
+      background: var(--card-hover);
+      transform: translateY(-3px)
+    }
+
+    .card-item.ok {
+      border-color: rgba(0, 255, 136, .4);
+      background: rgba(0, 255, 136, .05)
+    }
+
+    .card-item.bad {
+      border-color: rgba(255, 71, 87, .4);
+      background: rgba(255, 71, 87, .05)
+    }
+
+    .card-item .card-icon {
+      font-size: 2rem;
+      margin-bottom: 8px
+    }
+
+    .card-item .card-title {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px
+    }
+
+    .card-item .card-body {
+      font-size: .88rem;
+      color: var(--dim)
+    }
+
+    .card-item .card-feedback {
+      margin-top: 10px;
+      font-weight: 700;
+      font-size: .88rem;
+      display: none
+    }
+
+    .card-item.ok .card-feedback,
+    .card-item.bad .card-feedback {
+      display: block
+    }
+
+    .card-item.ok .card-feedback {
+      color: var(--success)
+    }
+
+    .card-item.bad .card-feedback {
+      color: var(--danger)
+    }
+
+    /* ---------- journey ---------- */
+    .journey {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-right: 26px
+    }
+
+    .journey::before {
+      content: "";
+      position: absolute;
+      right: 11px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius: 2px
+    }
+
+    .journey-item {
+      position: relative;
+      margin-bottom: 22px;
+      padding-right: 20px
+    }
+
+    .journey-item::before {
+      content: "";
+      position: absolute;
+      right: 3px;
+      top: 6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--primary)
+    }
+
+    .journey-item h4 {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 4px
+    }
+
+    .journey-item p {
+      font-size: .9rem
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid rgba(255, 255, 255, .05);
+      margin-top: 60px
+    }
+
+    .footer-logo {
+      height: 40px;
+      border-radius: 8px;
+      margin-bottom: 12px
+    }
+
+    footer p {
+      color: var(--dim);
+      font-size: .9rem
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 860px) {
+      .ex-options {
+        grid-template-columns: 1fr
+      }
+      .nav-inner {
+        padding: 10px 16px
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0s !important;
+        transition-duration: 0s !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-gradient"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- ============ NAV ============ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="../../../../index.html" aria-label="الرئيسية">
+        <img class="nav-logo" src="data:image/webp;base64,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" alt="logo">
+      </a>
+<div class="nav-links">
+        <a href="#intro" data-ar="البداية" data-en="Start">البداية</a>
+        <a href="#elements" data-ar="عناصر الأمان" data-en="Security Elements">عناصر الأمان</a>
+        <a href="#threats" data-ar="التهديدات" data-en="Threats">التهديدات</a>
+        <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
+        <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
+      </div>
+      <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="home">
+    <div class="hero-circles"><span></span><span></span><span></span></div>
+    <div class="hero-content">
+<div class="hero-badge" data-ar="درس 3-1 — Threats and Countermeasures [1]" data-en="Lesson 3-1 — Threats and Countermeasures [1]">درس 3-1 — Threats and Countermeasures [1]</div>
+      <h1 class="hero-title" data-ar="أمان <span class='grad'>المعلومات</span>" data-en="Information <span class='grad'>Security</span>">أمان <span class="grad">المعلومات</span></h1>
+      <p class="hero-sub" data-ar="من غير الأمان بياناتك معرضة للخطر — اعرف التهديدات اللي بتواجه معلوماتك وازاي تحميها" data-en="Without security your data is at risk — learn the threats facing your information and how to protect it">من غير الأمان بياناتك معرضة للخطر — اعرف التهديدات اللي بتواجه معلوماتك وازاي تحميها</p>
+      <a href="#intro" class="hero-btn" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 01 INTRO ============ -->
+    <section id="intro">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#0e7490)">01</div>
+          <div>
+            <h2 data-ar="إيه هو أمن المعلومات؟" data-en="What is Information Security?">إيه هو أمن المعلومات؟</h2>
+            <div class="tag" style="color:var(--s1)" data-ar="التعريف الأساسي" data-en="Core Definition">التعريف الأساسي</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="أمن المعلومات (<span dir='ltr'>Information security</span>) هو إدارة المعلومات بشكل سليم والحفاظ عليها آمنة. يعني نتأكد إن بياناتنا محمية من أي حد ممكن يوصّلها غلط أو يعدّل فيها." data-en="Information security is the act of properly managing information and keeping it safe.">أمن المعلومات (<span dir='ltr'>Information security</span>) هو إدارة المعلومات بشكل سليم والحفاظ عليها آمنة. يعني نتأكد إن بياناتنا محمية من أي حد ممكن يوصّلها غلط أو يعدّل فيها.</p>
+        <div class="demo-label" style="margin-top:16px" data-ar="اختبر فهمك: إيه بيخص أمن المعلومات؟" data-en="Test yourself: which concerns information security?">اختبر فهمك: إيه بيخص أمن المعلومات؟</div>
+        <div class="cards-grid" id="secCards">
+          <div class="card-item" data-correct="1">
+            <div class="card-icon">🔐</div>
+            <div class="card-title" data-ar="حماية بياناتك من الوصول غير المصرح به" data-en="Protecting your data from unauthorized access">حماية بياناتك من الوصول غير المصرح به</div>
+            <div class="card-body" data-ar="ده جوهر أمن المعلومات — إدارة المعلومات والحفاظ عليها آمنة" data-en="That's the essence of information security — managing and keeping information safe">ده جوهر أمن المعلومات — إدارة المعلومات والحفاظ عليها آمنة</div>
+            <div class="card-feedback" data-ar="✅ صح — ده أمن معلومات" data-en="✅ Correct — that's information security">✅ صح — ده أمن معلومات</div>
+          </div>
+          <div class="card-item" data-correct="0">
+            <div class="card-icon">🌐</div>
+            <div class="card-title" data-ar="نشر كل بياناتك على الإنترنت للعلن" data-en="Publishing all your data publicly online">نشر كل بياناتك على الإنترنت للعلن</div>
+            <div class="card-body" data-ar="ده بيعرض معلوماتك للخطر — عكس أمن المعلومات تماماً" data-en="That exposes your data to risk — the opposite of information security">ده بيعرض معلوماتك للخطر — عكس أمن المعلومات تماماً</div>
+            <div class="card-feedback" data-ar="❌ غلط — ده خطر على معلوماتك" data-en="❌ Wrong — that's a risk to your data">❌ غلط — ده خطر على معلوماتك</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 THREE ELEMENTS ============ -->
+    <section id="elements">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#d97706)">02</div>
+          <div>
+            <h2 data-ar="العناصر الأساسية الثلاثة لأمن المعلومات" data-en="The Three Essential Elements of Information Security">العناصر الأساسية الثلاثة لأمن المعلومات</h2>
+            <div class="tag" style="color:var(--s2)" data-ar="السرية والنزاهة والتوفر" data-en="Confidentiality, Integrity, Availability">السرية والنزاهة والتوفر</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="مثلث أمن المعلومات" data-en="The Information Security Triangle" style="color:var(--s2)">مثلث أمن المعلومات</h3>
+        <p data-ar="أمن المعلومات بيعتمد على 3 عناصر أساسية — اضغط على كل عنصر تتعرف عليه:" data-en="Information security relies on 3 essential elements — click each one:">أمن المعلومات بيعتمد على 3 عناصر أساسية — اضغط على كل عنصر تتعرف عليه:</p>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="element">
+            <div class="card-icon">🤫</div>
+            <div class="card-title" data-ar="السرية" data-en="Confidentiality">السرية (<span dir='ltr'>Confidentiality</span>)</div>
+            <div class="card-body" data-ar="حالة يكون فيها الوصول للمعلومات مسموح بس للأفراد المصرح لهم." data-en="A state in which only authorized individuals can access the information.">حالة يكون فيها الوصول للمعلومات مسموح بس للأفراد المصرح لهم.</div>
+            <div class="card-feedback" data-ar="💡 لو تسربت معلومة لغير المصرح لهم = السرية اتهددت." data-en="💡 If information leaks to unauthorized people = confidentiality is compromised.">💡 لو تسربت معلومة لغير المصرح لهم = السرية اتهددت.</div>
+          </div>
+          <div class="card-item" data-reveal="element">
+            <div class="card-icon">🧊</div>
+            <div class="card-title" data-ar="النزاهة" data-en="Integrity">النزاهة (<span dir='ltr'>Integrity</span>)</div>
+            <div class="card-body" data-ar="حالة تكون فيها المعلومة مش مدمرة ولا معدلة ولا ممحية." data-en="A state in which the information is not destroyed, tampered with, or erased.">حالة تكون فيها المعلومة مش مدمرة ولا معدلة ولا ممحية.</div>
+            <div class="card-feedback" data-ar="💡 لو اتغيرت بيانات بالخطأ = النزاهة اتهددت." data-en="💡 If data is altered by mistake = integrity is compromised.">💡 لو اتغيرت بيانات بالخطأ = النزاهة اتهددت.</div>
+          </div>
+          <div class="card-item" data-reveal="element">
+            <div class="card-icon">🕒</div>
+            <div class="card-title" data-ar="التوفر" data-en="Availability">التوفر (<span dir='ltr'>Availability</span>)</div>
+            <div class="card-body" data-ar="حالة يكون فيها الوصول للمعلومات ممكن في أي وقت عند الحاجة." data-en="A state in which information can be accessed at any time when needed.">حالة يكون فيها الوصول للمعلومات ممكن في أي وقت عند الحاجة.</div>
+            <div class="card-feedback" data-ar="💡 لو الموقع وقع من الهجوم = التوفر اتهدد." data-en="💡 If a website goes down from an attack = availability is compromised.">💡 لو الموقع وقع من الهجوم = التوفر اتهدد.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 data-ar="اختبر نفسك: مين العنصر المتأثر؟" data-en="Test yourself: which element is affected?" style="color:var(--s2)">اختبر نفسك: مين العنصر المتأثر؟</h3>
+        <div class="cards-grid" id="elementCards">
+          <div class="card-item" data-correct="0">
+            <div class="card-icon">💥</div>
+            <div class="card-title" data-ar="هجوم إلكتروني عمل الموقع يقع" data-en="A cyberattack caused a website to go down">هجوم إلكتروني عمل الموقع يقع</div>
+            <div class="card-body" data-ar="المعلومات بقت غير متاحة — العنصر المتأثر هو التوفر" data-en="Information became unavailable — the affected element is Availability">المعلومات بقت غير متاحة — العنصر المتأثر هو التوفر</div>
+            <div class="card-feedback" data-ar="✅ صح — التوفر اتهدد" data-en="✅ Correct — Availability was compromised">✅ صح — التوفر اتهدد</div>
+          </div>
+          <div class="card-item" data-correct="1">
+            <div class="card-icon">⌨️</div>
+            <div class="card-title" data-ar="اتدخلت بيانات غلط بسبب خطأ كتابة" data-en="Incorrect data was entered due to a typing error">اتدخلت بيانات غلط بسبب خطأ كتابة</div>
+            <div class="card-body" data-ar="المعلومة بقت مش دقيقة — العنصر المتأثر هو النزاهة" data-en="Information became inaccurate — the affected element is Integrity">المعلومة بقت مش دقيقة — العنصر المتأثر هو النزاهة</div>
+            <div class="card-feedback" data-ar="✅ صح — النزاهة اتهددت" data-en="✅ Correct — Integrity was compromised">✅ صح — النزاهة اتهددت</div>
+          </div>
+          <div class="card-item" data-correct="0">
+            <div class="card-icon">🦠</div>
+            <div class="card-title" data-ar="تسربت معلومات شخصية بسبب برنامج خبيث" data-en="Personal information leaked due to a malware infection">تسربت معلومات شخصية بسبب برنامج خبيث</div>
+            <div class="card-body" data-ar="ناس غير مصرح لها شافت المعلومة — العنصر المتأثر هو السرية" data-en="Unauthorized people saw the info — the affected element is Confidentiality">ناس غير مصرح لها شافت المعلومة — العنصر المتأثر هو السرية</div>
+            <div class="card-feedback" data-ar="✅ صح — السرية اتهددت" data-en="✅ Correct — Confidentiality was compromised">✅ صح — السرية اتهددت</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تخلط بين السرية والنزاهة — السرية بتمنع الاطلاع غير المصرح، والنزاهة بتمنع التعديل أو التدمير." data-en="Confusing confidentiality and integrity — confidentiality prevents unauthorized viewing, integrity prevents tampering or destruction.">تخلط بين السرية والنزاهة — السرية بتمنع الاطلاع غير المصرح، والنزاهة بتمنع التعديل أو التدمير.</li>
+          <li data-ar="تنسى التوفر — المعلومة اللي مقدرتش توصل ليها في وقت الحاجة = فقدت توفرها حتى لو مفيش تسريب." data-en="Forgetting availability — information you can't access when needed has lost availability even without a leak.">تنسى التوفر — المعلومة اللي مقدرتش توصل ليها في وقت الحاجة = فقدت توفرها حتى لو مفيش تسريب.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 03 THREATS ============ -->
+    <section id="threats">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#7c3aed)">03</div>
+          <div>
+            <h2 data-ar="التهديدات المختلفة لأمن المعلومات" data-en="Various Threats to Information Security">التهديدات المختلفة لأمن المعلومات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="البرمجيات الخبيثة والجرائم" data-en="Malware and Crimes">البرمجيات الخبيثة والجرائم</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="الوصول غير المصرح به والاختراق" data-en="Unauthorized Access and Cracking" style="color:var(--s3)">الوصول غير المصرح به والاختراق</h3>
+        <p data-ar="في تهديدات كتير ممكن تضر أمن المعلومات — اضغط على كل تهديد تتعرف عليه:" data-en="Many threats can harm information security — click each one:">في تهديدات كتير ممكن تضر أمن المعلومات — اضغط على كل تهديد تتعرف عليه:</p>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="threat">
+            <div class="card-icon">🚪</div>
+            <div class="card-title" data-ar="الوصول غير المصرح به" data-en="Unauthorized access">الوصول غير المصرح به (<span dir='ltr'>Unauthorized access</span>)</div>
+            <div class="card-body" data-ar="لما حد من غير إذن يدخل على نظام كمبيوتر." data-en="When someone without permission gains access to a computer system.">لما حد من غير إذن يدخل على نظام كمبيوتر.</div>
+            <div class="card-feedback" data-ar="💡 زي شخص يستخدم يوزر وباسورد حد تاني عشان يدخل النظام." data-en="💡 Like someone using another person's user ID and password to enter a system.">💡 زي شخص يستخدم يوزر وباسورد حد تاني عشان يدخل النظام.</div>
+          </div>
+          <div class="card-item" data-reveal="threat">
+            <div class="card-icon">🔓</div>
+            <div class="card-title" data-ar="الاختراق" data-en="Cracking">الاختراق (<span dir='ltr'>Cracking</span>)</div>
+            <div class="card-body" data-ar="فعل الوصول غير القانوني لنظام عشان تعديل أو مسح أو سرقة بيانات. الشخص اللي بيعمل كده اسمه مخترق (<span dir='ltr'>cracker</span>)." data-en="The act of unlawfully accessing a system to tamper with, erase, or steal data. A person who commits such acts is called a cracker.">فعل الوصول غير القانوني لنظام عشان تعديل أو مسح أو سرقة بيانات. الشخص اللي بيعمل كده اسمه مخترق (<span dir='ltr'>cracker</span>).</div>
+            <div class="card-feedback" data-ar="💡 الفرق عن الوصول غير المصرح: الاختراق غالباً ليه نية سرقة أو تدمير." data-en="💡 Difference from unauthorized access: cracking usually intends to steal or destroy.">💡 الفرق عن الوصول غير المصرح: الاختراق غالباً ليه نية سرقة أو تدمير.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 data-ar="البرمجيات الخبيثة (Malware)" data-en="Malware" style="color:var(--s3)">البرمجيات الخبيثة (<span dir='ltr'>Malware</span>)</h3>
+        <p data-ar="البرمجيات الخبيثة هو مصطلح عام للبرامج الخبيثة المصممة للإضرار بالكمبيوترات. العدوى ممكن تحصل من خلال المواقع أو مرفقات الإيميل أو الفلاشة أو الشبكات — اضغط على كل نوع:" data-en="Malware is a general term for malicious programs designed to harm computers. Infection can occur through websites, email attachments, USB drives, or networks — click each type:">البرمجيات الخبيثة (<span dir='ltr'>Malware</span>) هو مصطلح عام للبرامج الخبيثة المصممة للإضرار بالكمبيوترات. العدوى ممكن تحصل من خلال المواقع أو مرفقات الإيميل أو الفلاشة أو الشبكات — اضغط على كل نوع:</p>
+        <div class="cards-grid">
+          <div class="card-item" data-reveal="malware">
+            <div class="card-icon">🦠</div>
+            <div class="card-title" data-ar="فيروس الكمبيوتر" data-en="Computer virus">فيروس الكمبيوتر (<span dir='ltr'>Computer virus</span>)</div>
+            <div class="card-body" data-ar="برنامج مصمم عمداً للضرر، زي تدمير البيانات أو البرامج." data-en="A program designed to intentionally cause harm, such as destroying data or programs.">برنامج مصمم عمداً للضرر، زي تدمير البيانات أو البرامج.</div>
+            <div class="card-feedback" data-ar="💡 بيحتاج فعل من المستخدم عشان ينتشر (زي فتح مرفق)." data-en="💡 Needs a user action to spread (like opening an attachment).">💡 بيحتاج فعل من المستخدم عشان ينتشر (زي فتح مرفق).</div>
+          </div>
+          <div class="card-item" data-reveal="malware">
+            <div class="card-icon">🐴</div>
+            <div class="card-title" data-ar="حصان طروادة" data-en="Trojan horse">حصان طروادة (<span dir='ltr'>Trojan horse</span>)</div>
+            <div class="card-body" data-ar="برنامج متخفي في شكل برنامج شرعي عشان يدخل النظام ويشن هجمات بهدوء." data-en="A program disguised as a legitimate one that infiltrates a system and quietly initiates attacks.">برنامج متخفي في شكل برنامج شرعي عشان يدخل النظام ويشن هجمات بهدوء.</div>
+            <div class="card-feedback" data-ar="💡 بيخدعك في شكل برنامج مفيد، لكن جواه برنامج خبيث." data-en="💡 Disguises itself as a useful program, but contains malicious code.">💡 بيخدعك في شكل برنامج مفيد، لكن جواه برنامج خبيث.</div>
+          </div>
+          <div class="card-item" data-reveal="malware">
+            <div class="card-icon">🐛</div>
+            <div class="card-title" data-ar="الدودة" data-en="Worm">الدودة (<span dir='ltr'>Worm</span>)</div>
+            <div class="card-body" data-ar="برنامج بيكرر نفسه وينتشر على الإنترنت زي الدودة، وبيوسع العدوى." data-en="A program that replicates itself and spreads across the internet like a worm, expanding the infection.">برنامج بيكرر نفسه وينتشر على الإنترنت زي الدودة، وبيوسع العدوى.</div>
+            <div class="card-feedback" data-ar="💡 بيتحرك لوحده من غير ما يحتاج فعل من المستخدم." data-en="💡 Spreads by itself without needing a user action.">💡 بيتحرك لوحده من غير ما يحتاج فعل من المستخدم.</div>
+          </div>
+          <div class="card-item" data-reveal="malware">
+            <div class="card-icon">🕵️</div>
+            <div class="card-title" data-ar="برنامج التجسس" data-en="Spyware">برنامج التجسس (<span dir='ltr'>Spyware</span>)</div>
+            <div class="card-body" data-ar="برنامج بيجمع معلومات شخصية من غير معرفة المستخدم وبيبعتها لطرف تالت." data-en="A program that collects personal information without the user's knowledge and sends it to third parties.">برنامج بيجمع معلومات شخصية من غير معرفة المستخدم وبيبعتها لطرف تالت.</div>
+            <div class="card-feedback" data-ar="💡 أنواعه: Keylogger (بيراقب ضغطات المفاتيح) و Adware (بيعرض إعلانات مش مرغوبة)." data-en="💡 Types: Keylogger (monitors keystrokes) and Adware (displays unwanted ads).">💡 أنواعه: <span dir='ltr'>Keylogger</span> (بيراقب ضغطات المفاتيح) و <span dir='ltr'>Adware</span> (بيعرض إعلانات مش مرغوبة).</div>
+          </div>
+          <div class="card-item" data-reveal="malware">
+            <div class="card-icon">💣</div>
+            <div class="card-title" data-ar="برنامج الفدية" data-en="Ransomware">برنامج الفدية (<span dir='ltr'>Ransomware</span>)</div>
+            <div class="card-body" data-ar="برنامج بيخلي البيانات مش قابلة للوصول ويطلب فدية عشان يرجع الوصول." data-en="A program that renders data inaccessible and demands a ransom to restore access.">برنامج بيخلي البيانات مش قابلة للوصول ويطلب فدية عشان يرجع الوصول.</div>
+            <div class="card-feedback" data-ar="💡 بيرمّز بياناتك ويقولك ادفع عشان ترجعلك." data-en="💡 Encrypts your data and asks you to pay to get it back.">💡 بيرمّز بياناتك ويقولك ادفع عشان ترجعلك.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 data-ar="الجرائم الإلكترونية" data-en="Cybercrime" style="color:var(--s3)">الجرائم الإلكترونية (<span dir='ltr'>Cybercrime</span>)</h3>
+        <p data-ar="الجرائم الإلكترونية هي أفعال إجرامية بتتحصل عبر شبكات الكمبيوتر — اضغط على كل نوع:" data-en="Cybercrime is criminal acts committed over computer networks — click each type:">الجرائم الإلكترونية هي أفعال إجرامية بتتحصل عبر شبكات الكمبيوتر — اضغط على كل نوع:</p>
+        <div class="journey">
+          <div class="journey-item">
+            <h4 data-ar="1. انتهاك قانون الوصول غير المصرح للكمبيوتر" data-en="1. Violation of the Unauthorized Computer Access Law">1. انتهاك قانون الوصول غير المصرح للكمبيوتر</h4>
+            <p data-ar="الوصول غير القانوني لكمبيوتر باستخدام يوزر وباسورد شخص تاني." data-en="Illegally accessing a computer using someone else's user ID or password.">الوصول غير القانوني لكمبيوتر باستخدام يوزر وباسورد شخص تاني.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="2. جرائم سجلات الكمبيوتر أو الإلكترونية" data-en="2. Crimes involving computer or electronic records">2. جرائم سجلات الكمبيوتر أو الإلكترونية</h4>
+            <p data-ar="جرائم بتتعلق بالتلاعب بالبيانات المخزنة أو التلاعب غير المصرح به بالأجهزة." data-en="Crimes involving tampering with stored data or unauthorized manipulation of devices.">جرائم بتتعلق بالتلاعب بالبيانات المخزنة أو التلاعب غير المصرح به بالأجهزة.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="3. جرائم قائمة على الشبكات" data-en="3. Network-based crimes">3. جرائم قائمة على الشبكات</h4>
+            <p data-ar="جرائم بتتحصل باستخدام الشبكات، زي الاحتيال والتشهير وانتهاك حقوق النشر." data-en="Crimes committed using networks, such as fraud, defamation, or copyright infringement.">جرائم بتتحصل باستخدام الشبكات، زي الاحتيال والتشهير وانتهاك حقوق النشر.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="تخلط بين فيروس الكمبيوتر والدودة — الفيروس بيحتاج فعل من المستخدم، والدودة بتنتشر لوحدها." data-en="Confusing a computer virus and a worm — a virus needs user action, a worm spreads by itself.">تخلط بين فيروس الكمبيوتر والدودة — الفيروس بيحتاج فعل من المستخدم، والدودة بتنتشر لوحدها.</li>
+          <li data-ar="تظن إن ما دام الكمبيوتر مش متصل بالإنترنت فمفيش خطر — لأ، الفلاشة والملفات المنقولة كمان مصادر عدوى." data-en="Thinking if the computer is offline there's no risk — no, USB drives and transferred files are infection sources too.">تظن إن ما دام الكمبيوتر مش متصل بالإنترنت فمفيش خطر — لأ، الفلاشة والملفات المنقولة كمان مصادر عدوى.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 04 EXERCISES ============ -->
+    <section id="exercises">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#059669)">04</div>
+          <div>
+            <h2 data-ar="التدريبات والاختبارات" data-en="Exercises & Quizzes">التدريبات والاختبارات</h2>
+            <div class="tag" style="color:var(--s4)" data-ar="تحدي ختامي" data-en="Final Challenge">تحدي ختامي</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warm Up -->
+      <div class="section-inner card">
+        <h3 style="color:var(--s1)" data-ar="🔥 Warm Up — صفحة 25" data-en="🔥 Warm Up — Page 25">🔥 Warm Up — صفحة 25</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="حط حلك بنفسك الأول، وبعدين افتح الحل." data-en="Try by yourself first, then open the solution.">حط حلك بنفسك الأول، وبعدين افتح الحل.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="اختر الحالة اللي فيها التوفر بيهدد من حيث أمن المعلومات من A لـ C:" data-en="Choose the one in which availability is compromised in terms of information security from A to C:">اختر الحالة اللي فيها التوفر بيهدد من حيث أمن المعلومات من A لـ C:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;هجوم إلكتروني عمل موقع ويب يقع" data-en="A&nbsp;&nbsp;A cyberattack caused a website to go down">A&nbsp;&nbsp;هجوم إلكتروني عمل موقع ويب يقع</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;اتدخلت بيانات غلط بسبب خطأ كتابة على الكيبورد" data-en="B&nbsp;&nbsp;Incorrect data was entered due to a keyboard typing error">B&nbsp;&nbsp;اتدخلت بيانات غلط بسبب خطأ كتابة على الكيبورد</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;تسربت معلومات شخصية بسبب عدوى برنامج خبيث على الكمبيوتر" data-en="C&nbsp;&nbsp;Personal information was leaked due to a malware infection on the computer">C&nbsp;&nbsp;تسربت معلومات شخصية بسبب عدوى برنامج خبيث على الكمبيوتر</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — لما المعلومة تبقى مش متاحة، التوفر بيهدد. B بتهدد النزاهة وC بتهدد السرية." data-en="✅ Answer: A — when information becomes unavailable, availability is compromised. B threatens integrity and C threatens confidentiality.">✅ الإجابة: <b>A</b> — لما المعلومة تبقى مش متاحة، التوفر بيهدد. B بتهدد النزاهة وC بتهدد السرية.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="استخدم يوزر وباسورد شخص تاني بشكل غير قانوني عشان تدخل على كمبيوتر — هل ده بيعتبر انتهاك لقانون الوصول غير المصرح للكمبيوتر؟" data-en="Illegally using another person's user ID and password to access a computer — is this a violation of the Unauthorized Computer Access Law?">استخدم يوزر وباسورد شخص تاني بشكل غير قانوني عشان تدخل على كمبيوتر — هل ده بيعتبر انتهاك لقانون الوصول غير المصرح للكمبيوتر؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;نعم — انتهاك" data-en="○&nbsp;&nbsp;Yes — violation">○&nbsp;&nbsp;نعم — انتهاك</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;لا — عادي" data-en="×&nbsp;&nbsp;No — fine">×&nbsp;&nbsp;لا — عادي</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — استخدام كمبيوتر من غير حقوق الوصول بيعتبر وصول غير مصرح وممنوع قانونياً." data-en="✅ Answer: ○ — using a computer without access rights is unauthorized access, prohibited by law.">✅ الإجابة: <b>○</b> — استخدام كمبيوتر من غير حقوق الوصول بيعتبر وصول غير مصرح وممنوع قانونياً.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="خزنت باسورد اتحصلت عليه بشكل غير قانوني على كمبيوتر — هل ده بيعتبر انتهاك لقانون الوصول غير المصرح؟" data-en="Storing a password obtained illegally on a computer — is this a violation of the Unauthorized Computer Access Law?">خزنت باسورد اتحصلت عليه بشكل غير قانوني على كمبيوتر — هل ده بيعتبر انتهاك لقانون الوصول غير المصرح؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;نعم — انتهاك" data-en="○&nbsp;&nbsp;Yes — violation">○&nbsp;&nbsp;نعم — انتهاك</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;لا — عادي" data-en="×&nbsp;&nbsp;No — fine">×&nbsp;&nbsp;لا — عادي</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — تخزين باسورد تم الحصول عليه بشكل غير قانوني بغرض الوصول غير المصرح ممنوع تحت قانون الوصول غير المصرح." data-en="✅ Answer: ○ — storing a password obtained illegally for unauthorized access is prohibited under the law.">✅ الإجابة: <b>○</b> — تخزين باسورد تم الحصول عليه بشكل غير قانوني بغرض الوصول غير المصرح ممنوع تحت قانون الوصول غير المصرح.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="شاركت يوزر وباسورد صاحبك مع حد تاني من غير إذنه — هل ده بيعتبر انتهاك لقانون الوصول غير المصرح؟" data-en="Sharing a friend's user ID and password with someone else without the friend's permission — is this a violation of the Unauthorized Computer Access Law?">شاركت يوزر وباسورد صاحبك مع حد تاني من غير إذنه — هل ده بيعتبر انتهاك لقانون الوصول غير المصرح؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;نعم — انتهاك" data-en="○&nbsp;&nbsp;Yes — violation">○&nbsp;&nbsp;نعم — انتهاك</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;لا — عادي" data-en="×&nbsp;&nbsp;No — fine">×&nbsp;&nbsp;لا — عادي</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — مشاركة باسورد شخص تاني مع طرف تالت بدون سبب أو إذن بيعزز الوصول غير المصرح وممنوع قانونياً." data-en="✅ Answer: ○ — sharing someone's password with a third party without reason or permission promotes unauthorized access and is prohibited.">✅ الإجابة: <b>○</b> — مشاركة باسورد شخص تاني مع طرف تالت بدون سبب أو إذن بيعزز الوصول غير المصرح وممنوع قانونياً.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="نشر موقع بيبيع أدوية شبه قانونية أو محتوى غير قانوني — هل ده بيعتبر انتهاك لقانون الوصول غير المصرح للكمبيوتر؟" data-en="Publishing a website selling quasi-legal drugs or unlawful content — is this a violation of the Unauthorized Computer Access Law?">نشر موقع بيبيع أدوية شبه قانونية أو محتوى غير قانوني وغير مناسب — هل ده بيعتبر انتهاك لقانون الوصول غير المصرح للكمبيوتر؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;نعم — انتهاك" data-en="○&nbsp;&nbsp;Yes — violation">○&nbsp;&nbsp;نعم — انتهاك</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;لا — مش انتهاك للقانون ده" data-en="×&nbsp;&nbsp;No — not a violation of this law">×&nbsp;&nbsp;لا — مش انتهاك للقانون ده</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — نشر محتوى غير قانوني بيعتبر من جرائم الشبكات، مش من قانون الوصول غير المصرح للكمبيوتر." data-en="✅ Answer: × — publishing illegal content falls under network-based crimes, not the Unauthorized Computer Access Law.">✅ الإجابة: <b>×</b> — نشر محتوى غير قانوني بيعتبر من جرائم الشبكات، مش من قانون الوصول غير المصرح للكمبيوتر.</div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="warm" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-hide="warm" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
+        </div>
+      </div>
+
+      <!-- Try -->
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 style="color:var(--s2)" data-ar="🎯 Try — صفحة 26" data-en="🎯 Try — Page 26">🎯 Try — صفحة 26</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="حط حلك بنفسك الأول، وبعدين افتح الحل." data-en="Put your solution by yourself first, then open the solution.">حط حلك بنفسك الأول، وبعدين افتح الحل.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="النزاهة: اختار الإجراء الأنسب لعنصر النزاهة من A لـ E:" data-en="Integrity: choose the most appropriate measure for the Integrity element from A to E:">النزاهة: اختار الإجراء الأنسب لعنصر النزاهة من A لـ E:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;الاحتفاظ بسجلات الوصول والتعديل على البيانات لتمكين التتبع" data-en="A&nbsp;&nbsp;Keep logs of data access and modifications to enable traceability">A&nbsp;&nbsp;الاحتفاظ بسجلات الوصول والتعديل على البيانات لتمكين التتبع</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;التعامل مع بيانات خاصة في غرفة مسموح بدخول المصرح لهم بس" data-en="B&nbsp;&nbsp;Handle special data in a room only authorized personnel can enter">B&nbsp;&nbsp;التعامل مع بيانات خاصة في غرفة مسموح بدخول المصرح لهم بس</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;تركيب مزودات طاقة احتياطية عشان أوقات انقطاع الكهرباء" data-en="C&nbsp;&nbsp;Install backup power supplies for power outages">C&nbsp;&nbsp;تركيب مزودات طاقة احتياطية عشان أوقات انقطاع الكهرباء</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;تشغيل برامج خبيثة عشان تقدر توصل للمعلومات المهمة" data-en="D&nbsp;&nbsp;Run malware to always access important information">D&nbsp;&nbsp;تشغيل برامج خبيثة عشان تقدر توصل للمعلومات المهمة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — سجلات الوصول والتعديل بتمكّن تتبع أي تغيير على البيانات = حماية النزاهة." data-en="✅ Answer: A — logs of access and modifications enable traceability of changes = protects Integrity.">✅ الإجابة: <b>A</b> — سجلات الوصول والتعديل بتمكّن تتبع أي تغيير على البيانات = حماية النزاهة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="السرية: اختار الإجراء الأنسب لعنصر السرية من A لـ E:" data-en="Confidentiality: choose the most appropriate measure for the Confidentiality element from A to E:">السرية: اختار الإجراء الأنسب لعنصر السرية من A لـ E:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;الاحتفاظ بسجلات الوصول والتعديل لتمكين التتبع" data-en="A&nbsp;&nbsp;Keep logs of data access and modifications for traceability">A&nbsp;&nbsp;الاحتفاظ بسجلات الوصول والتعديل لتمكين التتبع</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;التعامل مع بيانات خاصة زي أرقام الهوية في غرفة مسموح بدخول المصرح لهم بس" data-en="B&nbsp;&nbsp;Handle special data like personal ID numbers in a room only authorized personnel can enter">B&nbsp;&nbsp;التعامل مع بيانات خاصة زي أرقام الهوية في غرفة مسموح بدخول المصرح لهم بس</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;تركيب مزودات طاقة احتياطية عشان أوقات انقطاع الكهرباء" data-en="C&nbsp;&nbsp;Install backup power supplies for power outages">C&nbsp;&nbsp;تركيب مزودات طاقة احتياطية عشان أوقات انقطاع الكهرباء</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;تشغيل برامج خبيثة" data-en="D&nbsp;&nbsp;Run malware">D&nbsp;&nbsp;تشغيل برامج خبيثة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — قصر الوصول للبيانات الخاصة على المصرح لهم بس = حماية السرية." data-en="✅ Answer: B — limiting access to special data to authorized personnel = protects Confidentiality.">✅ الإجابة: <b>B</b> — قصر الوصول للبيانات الخاصة على المصرح لهم بس = حماية السرية.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="التوفر: اختار الإجراء الأنسب لعنصر التوفر من A لـ E:" data-en="Availability: choose the most appropriate measure for the Availability element from A to E:">التوفر: اختار الإجراء الأنسب لعنصر التوفر من A لـ E:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;الاحتفاظ بسجلات الوصول والتعديل" data-en="A&nbsp;&nbsp;Keep logs of data access and modifications">A&nbsp;&nbsp;الاحتفاظ بسجلات الوصول والتعديل</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;التعامل مع بيانات خاصة في غرفة للمصرح لهم" data-en="B&nbsp;&nbsp;Handle special data in an authorized-only room">B&nbsp;&nbsp;التعامل مع بيانات خاصة في غرفة للمصرح لهم</div>
+              <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;تركيب مزودات طاقة احتياطية لكل الأجهزة المرتبطة بأنظمة المعلومات الحرجة" data-en="C&nbsp;&nbsp;Install backup power supplies for all devices related to critical information systems">C&nbsp;&nbsp;تركيب مزودات طاقة احتياطية لكل الأجهزة المرتبطة بأنظمة المعلومات الحرجة</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;تشغيل برامج خبيثة" data-en="D&nbsp;&nbsp;Run malware">D&nbsp;&nbsp;تشغيل برامج خبيثة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — مصدر الطاقة الاحتياطي بيضمن توفر المعلومات حتى وقت انقطاع الكهرباء." data-en="✅ Answer: C — backup power ensures information availability even during power outages.">✅ الإجابة: <b>C</b> — مصدر الطاقة الاحتياطي بيضمن توفر المعلومات حتى وقت انقطاع الكهرباء.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="لما طرف تالت من غير حقوق وصول يستخدم يوزر وباسورد حد تاني عشان يدخل نظام كمبيوتر بشكل غير قانوني، ده اسمه إيه؟" data-en="When a third party without network access rights uses someone else's ID and password to illegally enter a computer system, it is called what?">لما طرف تالت من غير حقوق وصول يستخدم يوزر وباسورد حد تاني عشان يدخل نظام كمبيوتر بشكل غير قانوني، ده اسمه إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Unauthorized access" data-en="A&nbsp;&nbsp;Unauthorized access">A&nbsp;&nbsp;Unauthorized access</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Worm" data-en="B&nbsp;&nbsp;Worm">B&nbsp;&nbsp;Worm</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Adware" data-en="C&nbsp;&nbsp;Adware">C&nbsp;&nbsp;Adware</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Keylogger" data-en="D&nbsp;&nbsp;Keylogger">D&nbsp;&nbsp;Keylogger</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — ده الوصول غير المصرح به (Unauthorized access)." data-en="✅ Answer: A — that's unauthorized access.">✅ الإجابة: <b>A</b> — <span dir='ltr'>Unauthorized access</span> هو استخدام يوزر وباسورد حد تاني للدخول غير القانوني.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="الأشخاص المعروفين باسم هاكرز أو إيه تاني اللي بيسببوا تدمير الأنظمة؟" data-en="Individuals known as hackers or what else destroy systems?">الأشخاص المعروفين باسم هاكرز أو إيه تاني اللي بيسببوا تدمير الأنظمة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Cracker" data-en="A&nbsp;&nbsp;Cracker">A&nbsp;&nbsp;Cracker</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Worm" data-en="B&nbsp;&nbsp;Worm">B&nbsp;&nbsp;Worm</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Trojan horse" data-en="C&nbsp;&nbsp;Trojan horse">C&nbsp;&nbsp;Trojan horse</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Computer virus" data-en="D&nbsp;&nbsp;Computer virus">D&nbsp;&nbsp;Computer virus</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — الأشخاص اللي بيعملوا اختراق لتدمير الأنظمة اسمهم Crackers." data-en="✅ Answer: A — people who crack to destroy systems are called Crackers.">✅ الإجابة: <b>A</b> — الأشخاص اللي بيعملوا اختراق لتدمير الأنظمة اسمهم <span dir='ltr'>Crackers</span>.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="البرامج اللي بتدمر البيانات الداخلية للكمبيوتر أو بتسبب أعطال غير طبيعية اسمها إيه؟" data-en="Programs that destroy internal computer data or cause abnormal operations are called what?">البرامج اللي بتدمر البيانات الداخلية للكمبيوتر أو بتسبب أعطال غير طبيعية اسمها إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Computer virus" data-en="A&nbsp;&nbsp;Computer virus">A&nbsp;&nbsp;Computer virus</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Unauthorized access" data-en="B&nbsp;&nbsp;Unauthorized access">B&nbsp;&nbsp;Unauthorized access</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Adware" data-en="C&nbsp;&nbsp;Adware">C&nbsp;&nbsp;Adware</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Keylogger" data-en="D&nbsp;&nbsp;Keylogger">D&nbsp;&nbsp;Keylogger</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — فيروس الكمبيوتر (Computer virus) هو البرنامج اللي بيدمر البيانات أو بيسبب الأعطال." data-en="✅ Answer: A — a computer virus is a program that destroys data or causes malfunctions.">✅ الإجابة: <b>A</b> — فيروس الكمبيوتر (<span dir='ltr'>Computer virus</span>) هو البرنامج اللي بيدمر البيانات أو بيسبب الأعطال.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="برنامج بيتخفي في شكل برنامج شرعي وبيتسلل للنظام بهدوء عشان يشن هجمات — ده اسمه إيه؟" data-en="A program that disguises itself as legitimate and silently infiltrates systems to carry out attacks — what is it called?">برنامج بيتخفي في شكل برنامج شرعي وبيتسلل للنظام بهدوء عشان يشن هجمات — ده اسمه إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Trojan horse" data-en="A&nbsp;&nbsp;Trojan horse">A&nbsp;&nbsp;Trojan horse</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Computer virus" data-en="B&nbsp;&nbsp;Computer virus">B&nbsp;&nbsp;Computer virus</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Worm" data-en="C&nbsp;&nbsp;Worm">C&nbsp;&nbsp;Worm</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Cracker" data-en="D&nbsp;&nbsp;Cracker">D&nbsp;&nbsp;Cracker</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — حصان طروادة (Trojan horse) بيتخفي في شكل برنامج شرعي وبيشن هجمات بهدوء." data-en="✅ Answer: A — a Trojan horse disguises itself as legitimate and quietly carries out attacks.">✅ الإجابة: <b>A</b> — حصان طروادة (<span dir='ltr'>Trojan horse</span>) بيتخفي في شكل برنامج شرعي وبيشن هجمات بهدوء.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">8</span> <span data-ar="برنامج بيكرر نفسه وينتشر على الإنترنت زي الدودة عشان يوسع العدوى — ده اسمه إيه؟" data-en="A program that replicates itself and spreads across the internet like a worm to expand infection — what is it called?">برنامج بيكرر نفسه وينتشر على الإنترنت زي الدودة عشان يوسع العدوى — ده اسمه إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Worm" data-en="A&nbsp;&nbsp;Worm">A&nbsp;&nbsp;Worm</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Trojan horse" data-en="B&nbsp;&nbsp;Trojan horse">B&nbsp;&nbsp;Trojan horse</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Computer virus" data-en="C&nbsp;&nbsp;Computer virus">C&nbsp;&nbsp;Computer virus</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Adware" data-en="D&nbsp;&nbsp;Adware">D&nbsp;&nbsp;Adware</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — الدودة (Worm) بتكرر نفسها وتنتشر على الإنترنت زي الدودة." data-en="✅ Answer: A — a worm replicates itself and spreads across the internet like a worm.">✅ الإجابة: <b>A</b> — الدودة (<span dir='ltr'>Worm</span>) بتكرر نفسها وتنتشر على الإنترنت زي الدودة.</div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="try" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-hide="try" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
+        </div>
+      </div>
+
+      <!-- Exercise -->
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 style="color:var(--s3)" data-ar="💪 Exercise — صفحة 27" data-en="💪 Exercise — Page 27">💪 Exercise — صفحة 27</h3>
+        <p style="font-size:.92rem" class="hint-line" data-ar="تحدي ختامي — كوّن الإجابة بنفسك وبعدين تحقق." data-en="Final challenge — build the answer by yourself then check.">تحدي ختامي — كوّن الإجابة بنفسك وبعدين تحقق.</p>
+        <div style="margin-top:12px">
+          <div class="ex-item">
+            <div class="q"><span class="q-num">1</span> <span data-ar="السرية: الوصف الأنسب لعنصر السرية من المجموعة A:" data-en="Confidentiality: the most appropriate description from Group A:">السرية: الوصف الأنسب لعنصر السرية من المجموعة A:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;ضمان أن المصرح لهم بس يقدرون يوصولوا للمعلومات" data-en="A&nbsp;&nbsp;Ensuring that only authorized individuals can access the information">A&nbsp;&nbsp;ضمان أن المصرح لهم بس يقدرون يوصولوا للمعلومات</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;ضمان وصول غير منقطع للمعلومات عند الحاجة" data-en="B&nbsp;&nbsp;Ensuring uninterrupted access to information when needed">B&nbsp;&nbsp;ضمان وصول غير منقطع للمعلومات عند الحاجة</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;ضمان إن المعلومة مش مدمرة ولا معدلة ولا ممحية" data-en="C&nbsp;&nbsp;Ensuring information is not destroyed, tampered with, or deleted">C&nbsp;&nbsp;ضمان إن المعلومة مش مدمرة ولا معدلة ولا ممحية</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — السرية = وصول المصرح لهم بس للمعلومات." data-en="✅ Answer: A — Confidentiality = only authorized individuals can access the information.">✅ الإجابة: <b>A</b> — السرية = وصول المصرح لهم بس للمعلومات.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">2</span> <span data-ar="النزاهة: الوصف الأنسب لعنصر النزاهة من المجموعة A:" data-en="Integrity: the most appropriate description from Group A:">النزاهة: الوصف الأنسب لعنصر النزاهة من المجموعة A:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;ضمان أن المصرح لهم بس يقدرون يوصولوا للمعلومات" data-en="A&nbsp;&nbsp;Ensuring only authorized individuals can access the information">A&nbsp;&nbsp;ضمان أن المصرح لهم بس يقدرون يوصولوا للمعلومات</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;ضمان إن المعلومة مش مدمرة ولا معدلة ولا ممحية" data-en="B&nbsp;&nbsp;Ensuring information has not been destroyed, tampered with, or deleted">B&nbsp;&nbsp;ضمان إن المعلومة مش مدمرة ولا معدلة ولا ممحية</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;ضمان وصول غير منقطع للمعلومات عند الحاجة" data-en="C&nbsp;&nbsp;Ensuring uninterrupted access to information when needed">C&nbsp;&nbsp;ضمان وصول غير منقطع للمعلومات عند الحاجة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — النزاهة = المعلومة مش مدمرة ولا معدلة ولا ممحية." data-en="✅ Answer: B — Integrity = information not destroyed, tampered with, or deleted.">✅ الإجابة: <b>B</b> — النزاهة = المعلومة مش مدمرة ولا معدلة ولا ممحية.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">3</span> <span data-ar="التوفر: الوصف الأنسب لعنصر التوفر من المجموعة A:" data-en="Availability: the most appropriate description from Group A:">التوفر: الوصف الأنسب لعنصر التوفر من المجموعة A:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;ضمان أن المصرح لهم بس يقدرون يوصولوا للمعلومات" data-en="A&nbsp;&nbsp;Ensuring only authorized individuals can access the information">A&nbsp;&nbsp;ضمان أن المصرح لهم بس يقدرون يوصولوا للمعلومات</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;ضمان وصول غير منقطع للمعلومات عند الحاجة" data-en="B&nbsp;&nbsp;Ensuring uninterrupted access to information when needed">B&nbsp;&nbsp;ضمان وصول غير منقطع للمعلومات عند الحاجة</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;ضمان إن المعلومة مش معدلة ولا ممحية" data-en="C&nbsp;&nbsp;Ensuring information is not tampered with or deleted">C&nbsp;&nbsp;ضمان إن المعلومة مش معدلة ولا ممحية</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — التوفر = وصول غير منقطع للمعلومات عند الحاجة." data-en="✅ Answer: B — Availability = uninterrupted access to information when needed.">✅ الإجابة: <b>B</b> — التوفر = وصول غير منقطع للمعلومات عند الحاجة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">4</span> <span data-ar="الفيروس اللي بيحصل عليه تهرب البيانات من الكمبيوتر للخارج اسمه إيه؟" data-en="Software that leaks data stored on a computer to the outside is called what?">البرنامج اللي بيحصل عليه تسريب البيانات المخزنة على الكمبيوتر للخارج اسمه إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Spyware" data-en="A&nbsp;&nbsp;Spyware">A&nbsp;&nbsp;Spyware</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Adware" data-en="B&nbsp;&nbsp;Adware">B&nbsp;&nbsp;Adware</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Keylogger" data-en="C&nbsp;&nbsp;Keylogger">C&nbsp;&nbsp;Keylogger</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Cracking" data-en="D&nbsp;&nbsp;Cracking">D&nbsp;&nbsp;Cracking</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Spyware هو البرنامج اللي بيجمع ويسرب البيانات المخزنة للخارج." data-en="✅ Answer: A — Spyware collects and leaks stored data to the outside.">✅ الإجابة: <b>A</b> — <span dir='ltr'>Spyware</span> هو البرنامج اللي بيجمع ويسرب البيانات المخزنة للخارج.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="البرمجيات الخبيثة بما فيها فيروسات الكمبيوتر وحصان طروادة بتتجمع كلها تحت أي اسم؟" data-en="Malicious software including computer viruses and Trojan horses is collectively referred to as what?">البرمجيات الخبيثة بما فيها فيروسات الكمبيوتر وحصان طروادة بتتجمع كلها تحت أي اسم؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Malware" data-en="A&nbsp;&nbsp;Malware">A&nbsp;&nbsp;Malware</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Phishing" data-en="B&nbsp;&nbsp;Phishing">B&nbsp;&nbsp;Phishing</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Hacking" data-en="C&nbsp;&nbsp;Hacking">C&nbsp;&nbsp;Hacking</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Adware" data-en="D&nbsp;&nbsp;Adware">D&nbsp;&nbsp;Adware</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Malware هو المصطلح الجماعي لكل البرمجيات الخبيثة." data-en="✅ Answer: A — Malware is the collective term for all malicious software.">✅ الإجابة: <b>A</b> — <span dir='ltr'>Malware</span> هو المصطلح الجماعي لكل البرمجيات الخبيثة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">6</span> <span data-ar="فيروس بيعرض إعلانات المستخدم مش ناوي يشوفها اسمه إيه؟" data-en="A virus that displays advertisements the user did not intend to see is called what?">فيروس بيعرض إعلانات المستخدم مش ناوي يشوفها اسمه إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;Adware" data-en="A&nbsp;&nbsp;Adware">A&nbsp;&nbsp;Adware</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Spyware" data-en="B&nbsp;&nbsp;Spyware">B&nbsp;&nbsp;Spyware</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;Keylogger" data-en="C&nbsp;&nbsp;Keylogger">C&nbsp;&nbsp;Keylogger</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Phishing" data-en="D&nbsp;&nbsp;Phishing">D&nbsp;&nbsp;Phishing</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Adware بيعرض إعلانات مش مرغوبة من غير موافقة المستخدم." data-en="✅ Answer: A — Adware displays unwanted advertisements without user consent.">✅ الإجابة: <b>A</b> — <span dir='ltr'>Adware</span> بيعرض إعلانات مش مرغوبة من غير موافقة المستخدم.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="ما دام الكمبيوتر متصل بشبكة، في خطر دائم للعدوى بفيروس كمبيوتر — هل هذه الجملة صحيحة أم خطأ؟" data-en="As long as the computer is connected to a network, there is always a risk of computer virus infection — is this statement correct or incorrect?">ما دام الكمبيوتر متصل بشبكة، في خطر دائم للعدوى بفيروس كمبيوتر — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — الاتصال بالشبكة بيخلي في خطر عدوى دائم من الفيروسات." data-en="✅ Answer: ○ — connecting to a network always carries a risk of virus infection.">✅ الإجابة: <b>○</b> — الاتصال بالشبكة بيخلي في خطر عدوى دائم من الفيروسات.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">8</span> <span data-ar="لو مش متصل بكمبيوتر أو شبكة وبتنقل بيانات بالفلاشة بس، العدوى مش هتحصل — هل هذه الجملة صحيحة أم خطأ؟" data-en="If you do not connect to a computer or network and only transfer data using a USB memory stick, infection will not occur — is this statement correct or incorrect?">لو مش متصل بكمبيوتر أو شبكة وبتنقل بيانات بالفلاشة بس، العدوى مش هتحصل — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — الفلاشة اللي اتحركت على كمبيوتر مصاب ممكن تنقل العدوى كمان." data-en="✅ Answer: × — a USB stick used on an infected computer can carry the infection too.">✅ الإجابة: <b>×</b> — الفلاشة اللي اتحركت على كمبيوتر مصاب ممكن تنقل العدوى كمان.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">9</span> <span data-ar="لو بتتجنب المواقع الضارة أو غير القانونية، مش هتحصل عدوى — هل هذه الجملة صحيحة أم خطأ؟" data-en="If you avoid accessing harmful or illegal websites, you will not get infected — is this statement correct or incorrect?">لو بتتجنب المواقع الضارة أو غير القانونية، مش هتحصل عدوى — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — العدوى ممكن تحصل من مصادر تانية زي مرفقات الإيميل والفلاشة، مش بس المواقع الضارة." data-en="✅ Answer: × — infection can come from other sources like email attachments and USB drives, not only harmful websites.">✅ الإجابة: <b>×</b> — العدوى ممكن تحصل من مصادر تانية زي مرفقات الإيميل والفلاشة، مش بس المواقع الضارة.</div>
+          </div>
+
+          <div class="ex-item">
+            <div class="q"><span class="q-num">10</span> <span data-ar="ما دام مش بيفتح إيميلات، هو آمن من العدوى — هل هذه الجملة صحيحة أم خطأ؟" data-en="As long as you do not open emails, you are safe from infection — is this statement correct or incorrect?">ما دام مش بيفتح إيميلات، هو آمن من العدوى — هل هذه الجملة صحيحة أم خطأ؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&nbsp;&nbsp;صحيح" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صحيح</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;خطأ" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;خطأ</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — تجنب الإيميلات وحده مش كفاية، في مصادر تانية للعدوى زي الشبكات والمواقع والفلاشة." data-en="✅ Answer: × — avoiding emails alone isn't enough; other infection sources exist like networks, websites, and USB drives.">✅ الإجابة: <b>×</b> — تجنب الإيميلات وحده مش كفاية، في مصادر تانية للعدوى زي الشبكات والمواقع والفلاشة.</div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="exercise" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-hide="exercise" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 SUMMARY ============ -->
+    <section id="summary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#d97706)">05</div>
+          <div>
+            <h2 data-ar="الخلاصة" data-en="Summary">الخلاصة</h2>
+            <div class="tag" style="color:var(--s2)" data-ar="رحلة الليوم" data-en="Today's Journey">رحلة الليوم</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="إيه اللي اتعلمناه النهاردة؟" data-en="What did we learn today?" style="color:var(--s2)">إيه اللي اتعلمناه النهاردة؟</h3>
+        <div class="journey">
+          <div class="journey-item">
+            <h4 data-ar="1. أمن المعلومات" data-en="1. Information security">1. أمن المعلومات</h4>
+            <p data-ar="إدارة المعلومات بشكل سليم والحفاظ عليها آمنة." data-en="Properly managing information and keeping it safe.">إدارة المعلومات بشكل سليم والحفاظ عليها آمنة.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="2. العناصر الثلاثة" data-en="2. The three elements">2. العناصر الثلاثة</h4>
+            <p data-ar="السرية (وصول المصرح لهم بس)، النزاهة (مش معدلة ولا مدمرة)، والتوفر (متاحة عند الحاجة)." data-en="Confidentiality (authorized access only), Integrity (not tampered or destroyed), Availability (accessible when needed).">السرية (وصول المصرح لهم بس)، النزاهة (مش معدلة ولا مدمرة)، والتوفر (متاحة عند الحاجة).</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="3. التهديدات" data-en="3. The threats">3. التهديدات</h4>
+            <p data-ar="الوصول غير المصرح، الاختراق، البرمجيات الخبيثة (فيروس، طروادة، دودة، تجسس، فدية)، والجرائم الإلكترونية." data-en="Unauthorized access, cracking, malware (virus, Trojan, worm, spyware, ransomware), and cybercrime.">الوصول غير المصرح، الاختراق، البرمجيات الخبيثة (فيروس، طروادة، دودة، تجسس، فدية)، والجرائم الإلكترونية.</p>
+          </div>
+          <div class="journey-item">
+            <h4 data-ar="4. البرمجيات الخبيثة" data-en="4. Malware types">4. البرمجيات الخبيثة</h4>
+            <p data-ar="فيروس بيدمر، طروادة متخفي، دودة بتنتشر لوحدها، Spyware بيجمع بياناتك، وRansomware بيطلب فدية." data-en="A virus destroys, a Trojan hides, a worm spreads alone, spyware collects your data, and ransomware demands ransom.">فيروس بيدمر، طروادة متخفي، دودة بتنتشر لوحدها، Spyware بيجمع بياناتك، وRansomware بيطلب فدية.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px">
+        <h3 data-ar="مصطلحات المفتاح" data-en="Key Terms" style="color:var(--s2)">مصطلحات المفتاح</h3>
+        <div class="cards-grid">
+          <div class="card-item">
+            <div class="card-icon">🤫</div>
+            <div class="card-title">Confidentiality</div>
+            <div class="card-body" data-ar="السرية — وصول المصرح لهم بس" data-en="Only authorized individuals can access">السرية — وصول المصرح لهم بس</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🧊</div>
+            <div class="card-title">Integrity</div>
+            <div class="card-body" data-ar="النزاهة — بيانات مش معدلة ولا مدمرة" data-en="Data not tampered with or destroyed">النزاهة — بيانات مش معدلة ولا مدمرة</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🕒</div>
+            <div class="card-title">Availability</div>
+            <div class="card-body" data-ar="التوفر — معلومات متاحة عند الحاجة" data-en="Information accessible when needed">التوفر — معلومات متاحة عند الحاجة</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🦠</div>
+            <div class="card-title">Malware</div>
+            <div class="card-body" data-ar="البرمجيات الخبيثة — مصطلح عام للبرامج الضارة" data-en="General term for malicious programs">البرمجيات الخبيثة — مصطلح عام للبرامج الضارة</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🐛</div>
+            <div class="card-title">Worm</div>
+            <div class="card-body" data-ar="الدودة — بتنتشر لوحدها عبر الشبكة" data-en="Spreads by itself across the network">الدودة — بتنتشر لوحدها عبر الشبكة</div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">💣</div>
+            <div class="card-title">Ransomware</div>
+            <div class="card-body" data-ar="برنامج الفدية — بيطلب فدية لاستعادة البيانات" data-en="Demands ransom to restore data">برنامج الفدية — بيطلب فدية لاستعادة البيانات</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card" style="margin-top:24px; text-align:center">
+        <h3 data-ar="🎉 أحسنت! كمّلت درس التهديدات والإجراءات لأمن المعلومات [1]" data-en="🎉 Well done! You completed Threats and Countermeasures in Information Security [1]" style="color:var(--success)">🎉 أحسنت! كمّلت درس التهديدات والإجراءات لأمن المعلومات [1]</h3>
+        <p data-ar="افتكر دايمًا: أمن المعلومات مبني على السرية والنزاهة والتوفر — وخد بالك من البرمجيات الخبيثة والجرائم الإلكترونية!" data-en="Always remember: information security is built on confidentiality, integrity, and availability — and watch out for malware and cybercrime!">افتكر دايمًا: أمن المعلومات مبني على السرية والنزاهة والتوفر — وخد بالك من البرمجيات الخبيثة والجرائم الإلكترونية!</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <img class="footer-logo" src="data:image/webp;base64,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" alt="logo">
+    <p data-ar="أمان معلوماتك مسؤوليتك — اعرف التهديدات وتعلم تحمي نفسك في العالم الرقمي 💙" data-en="Your information security is your responsibility — know the threats and learn to protect yourself in the digital world">أمان معلوماتك مسؤوليتك — اعرف التهديدات وتعلم تحمي نفسك في العالم الرقمي 💙</p>
+  </footer>
+
+  <script>
+    /* ---------- particles ---------- */
+    (function () {
+      var box = document.getElementById('particles');
+      for (var i = 0; i < 30; i++) {
+        var dot = document.createElement('i');
+        dot.style.left = Math.random() * 100 + '%';
+        dot.style.animationDelay = Math.random() * 15 + 's';
+        dot.style.animationDuration = (12 + Math.random() * 8) + 's';
+        box.appendChild(dot);
+      }
+    })();
+
+    /* ---------- nav scroll ---------- */
+    function wireNav() {
+      var nav = document.getElementById('navbar');
+      var links = document.querySelectorAll('.nav-links a');
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('show', window.scrollY > 100);
+        var id = location.hash || '#intro';
+        links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === id); });
+      });
+    }
+
+    /* ---------- reveal on scroll ---------- */
+    function wireReveal() {
+      var items = document.querySelectorAll('.section-inner');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.05 });
+      items.forEach(function (el) { obs.observe(el); });
+      window.addEventListener('scroll', function () {
+        items.forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('visible');
+        });
+      });
+    }
+
+/* ---------- interactive cards ---------- */
+    function wireCards() {
+      document.querySelectorAll('.card-item[data-correct]').forEach(function (c) {
+        c.addEventListener('click', function () {
+          var ok = c.getAttribute('data-correct') === '1';
+          c.classList.add(ok ? 'ok' : 'bad');
+          c.querySelectorAll('.card-item').forEach(function (s) { if (s !== c) s.style.pointerEvents = 'none'; });
+        });
+      });
+
+      document.querySelectorAll('.card-item[data-reveal]').forEach(function (c) {
+        c.addEventListener('click', function () {
+          var fb = c.querySelector('.card-feedback');
+          if (fb) fb.style.display = fb.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+    }
+
+    /* ---------- exercise reveal ---------- */
+    function wireRevealBtns() {
+      document.querySelectorAll('button[data-reveal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card'); if (!card) return;
+card.querySelectorAll('.ex-opt').forEach(function (o) {
+            o.classList.remove('correct', 'wrong');
+            if (o.getAttribute('data-ok') === '1') {
+              o.classList.add('correct');
+            } else if (o.classList.contains('picked')) {
+              o.classList.add('wrong');
+            }
+          });
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.add('show'); });
+          var scored = 0, right = 0, noAns = 0;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            if (!item.querySelector('.ex-opt[data-ok="1"]')) return;
+            scored++;
+            var picked = item.querySelector('.ex-opt.picked');
+            if (!picked) { noAns++; return; }
+            if (picked.getAttribute('data-ok') === '1') right++;
+          });
+          var s = card.querySelector('.ex-score');
+          if (!s) { s = document.createElement('div'); s.className = 'ex-score'; card.appendChild(s); }
+          s.innerHTML = (window.currentLang === 'en')
+            ? '✅ Your correct answers: <b>' + right + '</b> out of ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">with ' + noAns + ' question(s) you still haven\'t answered</span>' : '')
+            : '✅ إجاباتك الصحيحة: <b>' + right + '</b> من ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">مع ' + noAns + ' سؤال لسه مجاوبتش</span>' : '');
+        });
+      });
+      document.querySelectorAll('.ex-opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          var item = opt.closest('.ex-item'); if (!item) return;
+          item.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked'); });
+          opt.classList.add('picked');
+        });
+      });
+      document.querySelectorAll('[data-hide]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card'); if (!card) return;
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.remove('show'); });
+          card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked', 'correct', 'wrong'); });
+          var s = card.querySelector('.ex-score'); if (s) s.remove();
+        });
+      });
+    }
+
+    /* ---------- AR/EN toggle ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      var langBtn = document.getElementById('langToggle');
+      if (!langBtn) return;
+      function setLang(lang) {
+        window.currentLang = lang;
+        langBtn.setAttribute('data-current', lang);
+        langBtn.textContent = (lang === 'ar') ? 'EN' : 'AR';
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+        document.querySelectorAll('[data-ar][data-en]').forEach(function (el) {
+          var val = (lang === 'ar') ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+          if (val !== null) { el.innerHTML = val; el.setAttribute('data-lang', lang); }
+        });
+        document.dispatchEvent(new CustomEvent('langChange', { detail: { lang: lang } }));
+        localStorage.setItem('langPreference', lang);
+      }
+      var storedLang = localStorage.getItem('langPreference');
+      if (!storedLang) storedLang = 'ar';
+      setLang(storedLang);
+      langBtn.addEventListener('click', function () {
+        setLang(window.currentLang === 'ar' ? 'en' : 'ar');
+      });
+    });
+
+    /* ---------- boot ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      wireNav();
+      wireReveal();
+      wireCards();
+      wireRevealBtns();
+    });
+  </script>
+</body>
+
+</html>
