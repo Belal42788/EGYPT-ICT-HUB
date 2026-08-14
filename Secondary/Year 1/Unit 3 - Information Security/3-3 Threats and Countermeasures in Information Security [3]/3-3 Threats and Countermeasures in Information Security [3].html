@@ -460,6 +460,23 @@
       flex-shrink: 0
     }
 
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
     .ex-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -708,7 +725,24 @@
 
     /* ---------- responsive ---------- */
     @media (max-width: 860px) {
-      .ex-options {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
         grid-template-columns: 1fr
       }
       .nav-inner {
@@ -721,6 +755,83 @@
         animation-duration: 0s !important;
         transition-duration: 0s !important
       }
+    }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -742,7 +853,8 @@
         <a href="#policy" data-ar="سياسة الأمان" data-en="Security Policy">سياسة الأمان</a>
         <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
-      </div>
+              <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+</div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -1242,6 +1354,85 @@
         <p data-ar="افتكر دايمًا: خد بالك من النصب والتصيد، وخليك واعي لأساليب الهندسة الاجتماعية عشان معلوماتك تفضل آمنة!" data-en="Always remember: watch out for scams and phishing, and stay aware of social engineering tricks to keep your information safe!">افتكر دايمًا: خد بالك من النصب والتصيد، وخليك واعي لأساليب الهندسة الاجتماعية عشان معلوماتك تفضل آمنة!</p>
       </div>
     </section>
+  
+    <!-- ============ GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">07</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="scam" data-ar="نصب" data-en="Scams">نصب</button>
+          <button class="mini-btn gl-filter" data-filter="phish" data-ar="تصيد" data-en="Phishing">تصيد</button>
+          <button class="mini-btn gl-filter" data-filter="social" data-ar="هندسة اجتماعية" data-en="Social Engineering">هندسة اجتماعية</button>
+          <button class="mini-btn gl-filter" data-filter="policy" data-ar="سياسات" data-en="Policies">سياسات</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="scam">
+            <h4 data-ar="Fraudulent Billing — احتيال الفوترة" data-en="Fraudulent Billing">Fraudulent Billing — احتيال الفوترة</h4>
+            <p data-ar="نصب بيوصلك فيه فاتورة على خدمة وهمية إنت عمرك ما استخدمتها، عشان ياخدوا فلوسك." data-en="A scam that bills you for a fake service you never used, just to steal your money.">نصب بيوصلك فيه فاتورة على خدمة وهمية إنت عمرك ما استخدمتها، عشان ياخدوا فلوسك.</p>
+          </div>
+          <div class="gl-term" data-cat="scam">
+            <h4 data-ar="One-click Fraud — احتيال النقرة الواحدة" data-en="One-click Fraud">One-click Fraud — احتيال النقرة الواحدة</h4>
+            <p data-ar="نصب لما تدوس على رابط بيبان إنك دخلت في عقد وبييجي بعدها طلب دفع مبلغ كبير." data-en="A scam where clicking a link makes it look like you agreed to a contract, then you must pay a huge fee.">نصب لما تدوس على رابط بيبان إنك دخلت في عقد وبييجي بعدها طلب دفع مبلغ كبير.</p>
+          </div>
+          <div class="gl-term" data-cat="phish">
+            <h4 data-ar="Phishing — التصيد" data-en="Phishing">Phishing — التصيد</h4>
+            <p data-ar="نصب بيعملك مواقع وهمية متشكلة في شكل بنوك عشان يسرق أرقام PIN أو تفاصيل حسابك." data-en="A scam using fake websites disguised as banks or agencies to steal personal info like PINs and card details.">نصب بيعملك مواقع وهمية متشكلة في شكل بنوك عشان يسرق أرقام PIN أو تفاصيل حسابك.</p>
+          </div>
+          <div class="gl-term" data-cat="phish">
+            <h4 data-ar="Skimming — القرصنة" data-en="Skimming">Skimming — القرصنة</h4>
+            <p data-ar="إنهم يستخرجوا بيانات بطاقتك بشكل غير قانوني ويعملوا بيها بطاقة مزورة، زي جهاز على ماكينة الصراف." data-en="Illegally extracting credit or debit card data to create a counterfeit card, often with a device on an ATM.">إنهم يستخرجوا بيانات بطاقتك بشكل غير قانوني ويعملوا بيها بطاقة مزورة، زي جهاز على ماكينة الصراف.</p>
+          </div>
+          <div class="gl-term" data-cat="social">
+            <h4 data-ar="Social Engineering — الهندسة الاجتماعية" data-en="Social Engineering">Social Engineering — الهندسة الاجتماعية</h4>
+            <p data-ar="طريقة بيستغلوا فيها نفسية الناس أو إهمالهم عشان ياخدوا معلومات منهم من غير تقنية عالية." data-en="A method of tricking people into giving up information by exploiting their psychology, carelessness, or lack of awareness.">طريقة بيستغلوا فيها نفسية الناس أو إهمالهم عشان ياخدوا معلومات منهم من غير تقنية عالية.</p>
+          </div>
+          <div class="gl-term" data-cat="social">
+            <h4 data-ar="Impersonation — الانتحال" data-en="Impersonation">Impersonation — الانتحال</h4>
+            <p data-ar="إنهم يتظاهروا بشخصية حد تاني، زي مكالمة باسم الدعم الفني، عشان ياخدوا بياناتك." data-en="Pretending to be someone else, like calling while claiming to be tech support, to get confidential information.">إنهم يتظاهروا بشخصية حد تاني، زي مكالمة باسم الدعم الفني، عشان ياخدوا بياناتك.</p>
+          </div>
+          <div class="gl-term" data-cat="social">
+            <h4 data-ar="Shoulder Surfing — التلصص على الكتف" data-en="Shoulder Surfing">Shoulder Surfing — التلصص على الكتف</h4>
+            <p data-ar="إنهم يتفرجوا عليك من فوق كتفك وانت بتكتب باسوردك أو رقم PIN عشان يسرقوه." data-en="Secretly watching over someone's shoulder to steal their password or PIN.">إنهم يتفرجوا عليك من فوق كتفك وانت بتكتب باسوردك أو رقم PIN عشان يسرقوه.</p>
+          </div>
+          <div class="gl-term" data-cat="social">
+            <h4 data-ar="Dumpster Diving — الغوص في القمامة" data-en="Dumpster Diving">Dumpster Diving — الغوص في القمامة</h4>
+            <p data-ar="إنهم يدوروا في القمامة على ورق مترمي فيه معلومات سرية." data-en="Digging through trash to find discarded documents that contain confidential information.">إنهم يدوروا في القمامة على ورق مترمي فيه معلومات سرية.</p>
+          </div>
+          <div class="gl-term" data-cat="social">
+            <h4 data-ar="Eavesdropping — التنصت" data-en="Eavesdropping">Eavesdropping — التنصت</h4>
+            <p data-ar="إنهم يسمعوا محادثات الناس من غير ما يعرفوا عشان ياخدوا معلومات منهم." data-en="Secretly listening to people's conversations to pick up useful or private information.">إنهم يسمعوا محادثات الناس من غير ما يعرفوا عشان ياخدوا معلومات منهم.</p>
+          </div>
+          <div class="gl-term" data-cat="policy">
+            <h4 data-ar="Information Security Policy — سياسة أمن المعلومات" data-en="Information Security Policy">Information Security Policy — سياسة أمن المعلومات</h4>
+            <p data-ar="مجموعة قواعد وإرشادات بتعملها الشركة عشان تحافظ على أمان معلوماتها." data-en="A set of rules and guidelines an organization sets to protect its information and keep it secure.">مجموعة قواعد وإرشادات بتعملها الشركة عشان تحافظ على أمان معلوماتها.</p>
+          </div>
+          <div class="gl-term" data-cat="policy">
+            <h4 data-ar="Basic Policy — السياسة الأساسية" data-en="Basic Policy">Basic Policy — السياسة الأساسية</h4>
+            <p data-ar="أول مستوى في السياسة اللي بيوضح المبادئ الأساسية والالتزامات العامة للمؤسسة في الحماية." data-en="The top policy level that states the organization's fundamental principles and commitments to security.">أول مستوى في السياسة اللي بيوضح المبادئ الأساسية والالتزامات العامة للمؤسسة في الحماية.</p>
+          </div>
+          <div class="gl-term" data-cat="policy">
+            <h4 data-ar="Security Standards — معايير الأمان" data-en="Security Standards">Security Standards — معايير الأمان</h4>
+            <p data-ar="القواعد اللي بتترجم السياسة الأساسية لواقع عملي بمعايير تفصيلية محددة." data-en="The rules that put the basic policy into practice with detailed, concrete requirements.">القواعد اللي بتترجم السياسة الأساسية لواقع عملي بمعايير تفصيلية محددة.</p>
+          </div>
+          <div class="gl-term" data-cat="policy">
+            <h4 data-ar="Implementation Procedures — إجراءات التنفيذ والقواعد التشغيلية" data-en="Implementation Procedures">Implementation Procedures — إجراءات التنفيذ والقواعد التشغيلية</h4>
+            <p data-ar="الخطوات العملية اللي بتحدد مين بيعمل إيه وإمتى حسب المستخدم والاستخدام المقصود." data-en="The clear practical steps that say who does what and when, based on the target audience and intended use.">الخطوات العملية اللي بتحدد مين بيعمل إيه وإمتى حسب المستخدم والاستخدام المقصود.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -1384,6 +1575,51 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
       wireCards();
       wireRevealBtns();
     });
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
   </script>
 </body>
 

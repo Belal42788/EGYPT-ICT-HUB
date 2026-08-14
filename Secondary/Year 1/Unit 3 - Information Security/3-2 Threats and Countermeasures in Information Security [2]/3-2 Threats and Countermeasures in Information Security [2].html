@@ -460,6 +460,23 @@
       flex-shrink: 0
     }
 
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
     .ex-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -708,7 +725,24 @@
 
     /* ---------- responsive ---------- */
     @media (max-width: 860px) {
-      .ex-options {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
         grid-template-columns: 1fr
       }
       .nav-inner {
@@ -721,6 +755,83 @@
         animation-duration: 0s !important;
         transition-duration: 0s !important
       }
+    }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -742,7 +853,8 @@
         <a href="#measures" data-ar="إجراءات الأمان" data-en="Security Measures">إجراءات الأمان</a>
         <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
-      </div>
+              <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+</div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -1348,6 +1460,88 @@
         <p data-ar="افتكر دايمًا: اعمل باسورد قوي، خلي المصادقة قوية، وحط جدار ناري بينك وبين المخاطر!" data-en="Always remember: create a strong password, keep authentication strong, and put a firewall between you and the risks!">افتكر دايمًا: اعمل باسورد قوي، خلي المصادقة قوية، وحط جدار ناري بينك وبين المخاطر!</p>
       </div>
     </section>
+  
+    <!-- ============ GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">07</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="pass" data-ar="كلمات المرور" data-en="Passwords">كلمات المرور</button>
+          <button class="mini-btn gl-filter" data-filter="auth" data-ar="مصادقة" data-en="Authentication">مصادقة</button>
+          <button class="mini-btn gl-filter" data-filter="protect" data-ar="حماية" data-en="Protection">حماية</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="pass">
+            <h4 data-ar="Password — الباسورد" data-en="Password">Password — الباسورد</h4>
+            <p data-ar="سلسلة من الحروف والرموز بتتأكد بيها إن إنت فعلاً صاحب الحساب الشرعي لليوزر ده." data-en="A string of characters used to verify that the user of a user ID is the legitimate account holder.">سلسلة من الحروف والرموز بتتأكد بيها إن إنت فعلاً صاحب الحساب الشرعي لليوزر ده.</p>
+          </div>
+          <div class="gl-term" data-cat="pass">
+            <h4 data-ar="One-time Password — الباسورد لمرة واحدة" data-en="One-time Password">One-time Password — الباسورد لمرة واحدة</h4>
+            <p data-ar="باسورد بيتغير على فترات وبيستخدم مرة واحدة بس، فحتى لو اتسرب بيبوظ بسرعة." data-en="A password that changes at regular intervals and can be used only once, so a leaked code becomes useless fast.">باسورد بيتغير على فترات وبيستخدم مرة واحدة بس، فحتى لو اتسرب بيبوظ بسرعة.</p>
+          </div>
+          <div class="gl-term" data-cat="pass">
+            <h4 data-ar="Default Password — الباسورد الافتراضي" data-en="Default Password">Default Password — الباسورد الافتراضي</h4>
+            <p data-ar="الباسورد الأولي اللي بيتحط لما الحساب بيتعمل، ولازم يتغير فوراً عشان ممكن يكون اتسرب." data-en="The initial password given when an account is created, which must be changed immediately because it may have leaked.">الباسورد الأولي اللي بيتحط لما الحساب بيتعمل، ولازم يتغير فوراً عشان ممكن يكون اتسرب.</p>
+          </div>
+          <div class="gl-term" data-cat="auth">
+            <h4 data-ar="Authentication — المصادقة" data-en="Authentication">Authentication — المصادقة</h4>
+            <p data-ar="عملية التحقق من هوية المستخدم على كمبيوتر أو شبكة، عشان نتأكد إنك إنت اللي بتقول عليه." data-en="The process of verifying a user's identity on a computer or network to make sure you are who you say you are.">عملية التحقق من هوية المستخدم على كمبيوتر أو شبكة، عشان نتأكد إنك إنت اللي بتقول عليه.</p>
+          </div>
+          <div class="gl-term" data-cat="auth">
+            <h4 data-ar="Knowledge-based Authentication — المصادقة القائمة على المعرفة" data-en="Knowledge-based Authentication">Knowledge-based Authentication — المصادقة القائمة على المعرفة</h4>
+            <p data-ar="مصادقة باستخدام معلومات إنت بس اللي عارفها، زي الباسورد أو رقم PIN." data-en="Authentication using information only the person knows, like a password, user ID, or PIN.">مصادقة باستخدام معلومات إنت بس اللي عارفها، زي الباسورد أو رقم PIN.</p>
+          </div>
+          <div class="gl-term" data-cat="auth">
+            <h4 data-ar="Biometric Authentication — المصادقة البيومترية" data-en="Biometric Authentication">Biometric Authentication — المصادقة البيومترية</h4>
+            <p data-ar="مصادقة باستخدام خصائص جسدك أو سلوكك، زي بصمة الإصبع أو القزحية أو خط اليد." data-en="Authentication using the person's physical or behavioral traits, like a fingerprint, iris, or handwriting.">مصادقة باستخدام خصائص جسدك أو سلوكك، زي بصمة الإصبع أو القزحية أو خط اليد.</p>
+          </div>
+          <div class="gl-term" data-cat="auth">
+            <h4 data-ar="Possession-based Authentication — المصادقة القائمة على الحيازة" data-en="Possession-based Authentication">Possession-based Authentication — المصادقة القائمة على الحيازة</h4>
+            <p data-ar="مصادقة باستخدام حاجة معاك في إيدك، زي كارت IC أو رسالة SMS أو باسورد لمرة واحدة." data-en="Authentication using something the person physically owns, like an IC card, an SMS, or a one-time password.">مصادقة باستخدام حاجة معاك في إيدك، زي كارت IC أو رسالة SMS أو باسورد لمرة واحدة.</p>
+          </div>
+          <div class="gl-term" data-cat="auth">
+            <h4 data-ar="Two-factor Authentication — المصادقة ثنائية العوامل" data-en="Two-factor Authentication">Two-factor Authentication — المصادقة ثنائية العوامل</h4>
+            <p data-ar="طريقة بندمج فيها نوعين مختلفين من عوامل المصادقة، زي باسورد مع بصمة." data-en="An authentication method that combines two different factor types, like a password plus a fingerprint.">طريقة بندمج فيها نوعين مختلفين من عوامل المصادقة، زي باسورد مع بصمة.</p>
+          </div>
+          <div class="gl-term" data-cat="auth">
+            <h4 data-ar="Two-step Authentication — المصادقة الثنائية الخطوات" data-en="Two-step Authentication">Two-step Authentication — المصادقة الثنائية الخطوات</h4>
+            <p data-ar="طريقة بتعمل المصادقة على خطوتين بنفس نوع العامل، زي باسورد مع PIN." data-en="An authentication method done in two steps using two pieces of information from the same factor type, like a password and a PIN.">طريقة بتعمل المصادقة على خطوتين بنفس نوع العامل، زي باسورد مع PIN.</p>
+          </div>
+          <div class="gl-term" data-cat="protect">
+            <h4 data-ar="Access Control — التحكم في الوصول" data-en="Access Control">Access Control — التحكم في الوصول</h4>
+            <p data-ar="طريقة بتحد من الوصول للنظام أو البيانات بحيث المصرح لهم بس هما اللي يستخدموها." data-en="A method that limits access to computer systems or data to authorized users only after they are verified.">طريقة بتحد من الوصول للنظام أو البيانات بحيث المصرح لهم بس هما اللي يستخدموها.</p>
+          </div>
+          <div class="gl-term" data-cat="protect">
+            <h4 data-ar="Firewall — الجدار الناري" data-en="Firewall">Firewall — الجدار الناري</h4>
+            <p data-ar="نظام بيتحط عند مداخل الشبكة بيمنع الوصول غير المصرح من بره ويوقف تسريب البيانات من جوه." data-en="A system placed at network entry points that blocks unauthorized access from outside and stops data from leaking out.">نظام بيتحط عند مداخل الشبكة بيمنع الوصول غير المصرح من بره ويوقف تسريب البيانات من جوه.</p>
+          </div>
+          <div class="gl-term" data-cat="protect">
+            <h4 data-ar="Antivirus Software — برنامج مكافحة الفيروسات" data-en="Antivirus Software">Antivirus Software — برنامج مكافحة الفيروسات</h4>
+            <p data-ar="برنامج بيرصد الفيروسات وبيشيلها أو بيعزلها، وبيفضل شغال كويس لو تعريفاته متحدثة." data-en="A program that detects, removes, or isolates viruses, and it works best when its virus definitions stay updated.">برنامج بيرصد الفيروسات وبيشيلها أو بيعزلها، وبيفضل شغال كويس لو تعريفاته متحدثة.</p>
+          </div>
+          <div class="gl-term" data-cat="protect">
+            <h4 data-ar="Security Hole — الثغرة الأمنية" data-en="Security Hole">Security Hole — الثغرة الأمنية</h4>
+            <p data-ar="نقطة ضعف في البرامج أو نظام التشغيل ممكن المخترقين يستغلونها، وبيتم سدها بالتحديثات." data-en="A weakness in software or an operating system that attackers can use to break in, which updates fix.">نقطة ضعف في البرامج أو نظام التشغيل ممكن المخترقين يستغلونها، وبيتم سدها بالتحديثات.</p>
+          </div>
+          <div class="gl-term" data-cat="protect">
+            <h4 data-ar="Backup — النسخ الاحتياطي" data-en="Backup">Backup — النسخ الاحتياطي</h4>
+            <p data-ar="إنك تعمل نسخ من بياناتك بشكل منتظم عشان تقدر ترجعها لو ضاعت أو اتمسحت." data-en="Saving copies of your data regularly so you can recover it if it gets lost or erased.">إنك تعمل نسخ من بياناتك بشكل منتظم عشان تقدر ترجعها لو ضاعت أو اتمسحت.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -1490,6 +1684,51 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
       wireCards();
       wireRevealBtns();
     });
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
   </script>
 </body>
 

@@ -1,0 +1,3364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الأنالوج والديجيتال — Analog and Digital | 6-1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #193cff;
+      --accent: #00d4aa;
+      --bg: #0a0e27;
+      --card: #111638;
+      --card-hover: #1a2050;
+      --text: #fff;
+      --dim: #8892b0;
+      --success: #00ff88;
+      --danger: #ff4757;
+      --warn: #ffd700;
+      --s1: #06B6D4;
+      --s2: #F59E0B;
+      --s3: #8B5CF6;
+      --s4: #10B981;
+      --s5: #EC4899;
+      --s6: #EF4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--dim);
+      line-height: 1.9;
+      overflow-x: hidden
+    }
+
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+        radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
+      animation: bgDrift 18s ease-in-out infinite;
+    }
+
+    @keyframes bgDrift {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(-30px, 20px) scale(1.08)
+      }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none
+    }
+
+    .particles i {
+      position: absolute;
+      bottom: -10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: .3;
+      animation: floatUp 14s linear infinite
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0
+      }
+
+      10% {
+        opacity: .3
+      }
+
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0
+      }
+    }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 39, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(25, 60, 255, .3);
+      transform: translateY(-100%);
+      transition: transform .35s ease
+    }
+
+    nav.show {
+      transform: translateY(0)
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 24px
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: var(--primary)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      padding: 4px 2px;
+      flex: 1
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none
+    }
+
+    .nav-links a {
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid transparent;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(25, 60, 255, .2);
+      border-color: var(--primary)
+    }
+
+    .lang-toggle {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all .3s ease
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 60px 24px
+    }
+
+    .hero-circles span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: .16;
+      z-index: 0;
+      animation: heroFloat 6s ease-in-out infinite
+    }
+
+    .hero-circles span:nth-child(1) {
+      width: 280px;
+      height: 280px;
+      background: var(--primary);
+      top: 12%;
+      left: 10%;
+      animation-delay: 0s
+    }
+
+    .hero-circles span:nth-child(2) {
+      width: 220px;
+      height: 220px;
+      background: var(--accent);
+      bottom: 15%;
+      right: 12%;
+      animation-delay: 2s
+    }
+
+    .hero-circles span:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      background: #8B5CF6;
+      top: 55%;
+      left: 22%;
+      animation-delay: 4s
+    }
+
+    @keyframes heroFloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-26px)
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: .85rem;
+      font-weight: 700;
+      background: rgba(25, 60, 255, .15);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--accent);
+      margin-bottom: 26px;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .1s forwards
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.15;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .3s forwards
+    }
+
+    .hero-title .grad {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      max-width: 680px;
+      margin: 18px auto 34px;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .5s forwards
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: #fff;
+      font-weight: 900;
+      padding: 16px 38px;
+      border-radius: 50px;
+      font-size: 1.05rem;
+      box-shadow: 0 10px 40px rgba(25, 60, 255, .4);
+      transition: .25s;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .7s forwards
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 50px rgba(0, 212, 170, .35)
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ---------- layout ---------- */
+    main {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    section {
+      padding: 38px 0
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 16px
+    }
+
+    .section-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--bg);
+      animation: glow 3s ease-in-out infinite
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(25, 60, 255, .25)
+      }
+
+      50% {
+        box-shadow: 0 0 42px rgba(25, 60, 255, .6)
+      }
+    }
+
+    .section-header h2 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.3
+    }
+
+    .section-header .tag {
+      font-size: .9rem
+    }
+
+    .section-inner {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .6s cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .section-inner.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .section-inner+.section-inner {
+      margin-top: 16px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 18px;
+      transition: .3s
+    }
+
+    .card:hover {
+      background: var(--card-hover);
+      transform: translateY(-5px);
+      border-color: rgba(25, 60, 255, .3)
+    }
+
+    .diagram-wrap {
+      position: relative;
+      border-radius: 24px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      overflow: hidden
+    }
+
+    .diagram-wrap .topbar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent))
+    }
+
+    .diagram-wrap .inner {
+      padding: 16px
+    }
+
+    h3 {
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      line-height: 1.4
+    }
+
+    p {
+      margin-bottom: 12px
+    }
+
+    b,
+    strong {
+      color: var(--text)
+    }
+
+    .note {
+      background: rgba(255, 215, 0, .06);
+      border: 1px solid rgba(255, 215, 0, .25);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: .95rem
+    }
+
+    .note b {
+      color: var(--warn)
+    }
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
+    }
+
+    /* ---------- error box ---------- */
+    .error-box {
+      border: 1px solid rgba(255, 71, 87, .2);
+      background: rgba(255, 71, 87, .05);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 6px
+    }
+
+    .error-box h4,
+    .error-box h3 {
+      color: var(--danger);
+      font-weight: 900;
+      margin-bottom: 10px;
+      font-size: 1rem
+    }
+
+    .error-box ul {
+      list-style: none
+    }
+
+    .error-box li {
+      padding: 4px 0;
+      position: relative;
+      padding-right: 26px
+    }
+
+    .error-box li::before {
+      content: "⚠️";
+      position: absolute;
+      right: 0;
+      top: 2px;
+      font-size: .95rem
+    }
+
+    .error-box li b {
+      color: var(--danger)
+    }
+
+    /* ---------- legend ---------- */
+    .legend {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 14px;
+      font-size: .85rem
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .legend i {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      display: inline-block
+    }
+
+    /* ---------- concept blocks ---------- */
+    .concept-block {
+      border-top: 3px solid var(--c);
+      padding-top: 30px;
+      margin-top: 14px
+    }
+
+    .concept-block:first-of-type {
+      margin-top: 0
+    }
+
+    .concept-head {
+      display: flex;
+      align-items: center;
+      gap: 14px
+    }
+
+    .chip-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--bg);
+      flex-shrink: 0
+    }
+
+    .concept-title {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.4
+    }
+
+    .concept-head .tag {
+      font-size: .88rem
+    }
+
+    /* ---------- activity grid ---------- */
+    .activity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px
+    }
+
+    @media(max-width:860px) {
+      .activity-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .activity-grid .demo-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      background: rgba(255, 255, 255, .03);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .demo-label {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--dim);
+      margin-bottom: 6px;
+      display: block
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin-bottom: 10px
+    }
+
+    .todo-item b {
+      color: var(--text)
+    }
+
+    /* ---------- buttons ---------- */
+    .btn {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border: none;
+      color: #fff;
+      font-family: inherit;
+      font-weight: 900;
+      padding: 12px 28px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: .95rem;
+      transition: .2s;
+      box-shadow: 0 6px 24px rgba(25, 60, 255, .3)
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0, 212, 170, .3)
+    }
+
+    .mini-btn {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: .85rem
+    }
+
+    .mini-btn:hover {
+      background: rgba(255, 255, 255, .12)
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .kbd {
+      display: inline-block;
+      background: #1a2050;
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 6px;
+      padding: 2px 10px;
+      font-size: .85rem;
+      color: var(--text);
+      font-family: 'Consolas', monospace
+    }
+
+    .hint-line {
+      font-size: .85rem;
+      color: var(--dim);
+      margin-top: 8px
+    }
+
+    /* ---------- flow cards (step reveal) ---------- */
+    .tl-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 24px
+    }
+
+    .tl-steps {
+      min-height: 120px;
+      display: flex;
+      align-items: center
+    }
+
+    .tl-step {
+      display: none;
+      text-align: center;
+      width: 100%
+    }
+
+    .tl-step.active {
+      display: block;
+      animation: tlIn .4s ease
+    }
+
+    @keyframes tlIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .tl-icon {
+      font-size: 2.1rem;
+      margin-bottom: 6px;
+      display: inline-block
+    }
+
+    .tl-year-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 20px;
+      padding: 3px 16px;
+      font-size: .85rem;
+      color: var(--accent);
+      font-weight: 700
+    }
+
+    .tl-title {
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin: 8px 0 6px
+    }
+
+    .tl-desc {
+      color: var(--dim);
+      font-size: .98rem;
+      max-width: 660px;
+      margin: 0 auto
+    }
+
+    .tl-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px
+    }
+
+    /* ---------- svg stage & labels ---------- */
+    .svg-stage {
+      position: relative;
+      max-width: 760px;
+      margin: 10px auto 0
+    }
+
+    .svg-stage .svg-main {
+      width: 100%;
+      height: auto;
+      display: block
+    }
+
+    .svg-label {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10, 14, 39, .88);
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 12px;
+      padding: 5px 12px;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+      z-index: 3;
+      pointer-events: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .45)
+    }
+
+    .svg-box {
+      fill: url(#bxG);
+      stroke: rgba(255, 255, 255, .14);
+      stroke-width: 2;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
+    }
+
+    .flow-box {
+      fill: url(#bxG);
+      stroke: rgba(255, 255, 255, .14);
+      stroke-width: 2;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
+      transition: stroke .3s, filter .3s
+    }
+
+    .flow-box.on {
+      stroke: var(--accent);
+      filter: drop-shadow(0 0 18px rgba(0, 212, 170, .5))
+    }
+
+    .flow-wire {
+      stroke: #2a3360;
+      stroke-width: 3;
+      fill: none;
+      transition: stroke .3s
+    }
+
+    .flow-wire.on {
+      stroke: var(--accent);
+      stroke-width: 3.5;
+      stroke-dasharray: 6 12;
+      stroke-linecap: round;
+      animation: flow 1.1s linear infinite;
+      filter: drop-shadow(0 0 6px rgba(0, 212, 170, .6))
+    }
+
+    @keyframes flow {
+      to {
+        stroke-dashoffset: -36
+      }
+    }
+
+    .wire-arrow {
+      fill: var(--accent);
+      opacity: 0;
+      transition: opacity .3s;
+      filter: drop-shadow(0 0 4px rgba(0, 212, 170, .6))
+    }
+
+    .wire-arrow.on {
+      opacity: 1
+    }
+
+    .flow-port {
+      fill: #2a3360;
+      stroke: var(--bg);
+      stroke-width: 2;
+      transition: fill .3s
+    }
+
+    .flow-port.on {
+      fill: var(--accent);
+      filter: drop-shadow(0 0 8px rgba(0, 212, 170, .8))
+    }
+
+    .bcast-wave {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 2;
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center
+    }
+
+    .bcast-wave.run {
+      animation: wave 1.8s ease-out infinite
+    }
+
+    .bcast-wave.run:nth-of-type(2) {
+      animation-delay: .5s
+    }
+
+    @keyframes wave {
+      0% {
+        opacity: .8;
+        transform: scale(.4)
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.5)
+      }
+    }
+
+    .flow-arrow {
+      color: var(--accent);
+      overflow: visible
+    }
+
+    .flow-arrow use {
+      transform-box: fill-box;
+      transform-origin: center
+    }
+
+    .flow-arrow use.flip {
+      transform: scaleX(-1)
+    }
+
+    /* ---------- matrix (classify) ---------- */
+    .mx-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px
+    }
+
+    .mx-grid>div {
+      border-radius: 14px;
+      padding: 14px
+    }
+
+    .mx-head {
+      background: rgba(25, 60, 255, .12);
+      border: 1px solid rgba(25, 60, 255, .35);
+      font-weight: 800;
+      color: var(--text);
+      text-align: center
+    }
+
+    .mx-row {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center
+    }
+
+    .mx-cell {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      min-height: 70px
+    }
+
+    .mx-cell b {
+      display: block;
+      color: var(--text);
+      font-size: .9rem;
+      margin-bottom: 4px
+    }
+
+    .mx-chip {
+      display: inline-block;
+      background: rgba(0, 212, 170, .1);
+      border: 1px solid rgba(0, 212, 170, .35);
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: .85rem;
+      margin: 4px
+    }
+
+    .mx-empty {
+      color: var(--dim);
+      font-size: .9rem;
+      text-align: center;
+      padding: 8px
+    }
+
+    @media(max-width:700px) {
+      .mx-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .mx-row {
+        grid-column: span 2
+      }
+    }
+
+    /* ---------- exercises ---------- */
+    .ex-item {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px
+    }
+
+    .ex-item .q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px
+    }
+
+    .ex-item .q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, .15);
+      border: 1px solid rgba(245, 158, 11, .5);
+      color: var(--warn);
+      font-weight: 900;
+      font-size: .8rem;
+      margin-left: 8px;
+      vertical-align: middle
+    }
+
+    .ex-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    @media(max-width:640px) {
+      .ex-options {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .ex-opt {
+      direction: rtl;
+      text-align: right;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .9rem;
+      color: #c7d2fe;
+      white-space: pre-wrap;
+      cursor: pointer;
+      transition: .15s;
+      user-select: none
+    }
+
+    .ex-opt:hover {
+      border-color: rgba(0, 212, 170, .5);
+      background: rgba(0, 212, 170, .08)
+    }
+
+    .ex-opt.picked {
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .22);
+      color: #fff;
+      box-shadow: 0 0 0 1px var(--primary)
+    }
+
+    .ex-opt.correct {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .12);
+      color: var(--success)
+    }
+
+    .ex-opt.wrong {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .12);
+      color: #ffb3bd
+    }
+
+    .ex-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(139, 92, 246, .18);
+      border: 1px solid rgba(139, 92, 246, .55);
+      color: var(--s3);
+      font-weight: 900;
+      font-size: .78rem;
+      margin-right: 10px;
+      vertical-align: middle;
+      flex-shrink: 0
+    }
+
+    .ex-body {
+      vertical-align: middle;
+      display: inline-block;
+      white-space: normal
+    }
+
+    .ex-answer {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: .92rem
+    }
+
+    .ex-answer.show {
+      display: block;
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: rgba(0, 255, 136, .07);
+      color: var(--success)
+    }
+
+    .ex-answer.show b {
+      color: var(--success);
+      margin: 0 6px
+    }
+
+    .ex-score {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(0, 255, 136, .08);
+      border: 1px solid rgba(0, 255, 136, .35);
+      color: var(--success);
+      font-size: .95rem
+    }
+
+    .group-label {
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin: 22px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .group-label::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--s3);
+      flex-shrink: 0
+    }
+
+    /* ---------- recall quiz ---------- */
+    .recall {
+      display: none;
+      margin-top: 16px
+    }
+
+    .recall.show {
+      display: block
+    }
+
+    .rq {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px
+    }
+
+    .rq-q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px
+    }
+
+    .rq-opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    @media(max-width:640px) {
+      .rq-opts {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .rq-opt {
+      direction: rtl;
+      text-align: right;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .9rem;
+      color: #c7d2fe;
+      cursor: pointer;
+      transition: .15s;
+      user-select: none
+    }
+
+    .rq-opt:hover {
+      border-color: rgba(0, 212, 170, .5);
+      background: rgba(0, 212, 170, .08)
+    }
+
+    .rq-opt.disabled {
+      pointer-events: none;
+      opacity: .65
+    }
+
+    .rq-opt.correct {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .12);
+      color: var(--success)
+    }
+
+    .rq-opt.wrong {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .12);
+      color: #ffb3bd
+    }
+
+    .rq-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: #c7d2fe;
+      font-weight: 900;
+      font-size: .82rem;
+      margin-right: 10px;
+      vertical-align: middle;
+      flex-shrink: 0
+    }
+
+    .rq-fb {
+      margin-top: 10px;
+      display: none;
+      font-size: .92rem;
+      padding: 10px 14px;
+      border-radius: 10px
+    }
+
+    .rq-fb.show {
+      display: block
+    }
+
+    .rq-fb.ok {
+      background: rgba(0, 255, 136, .07);
+      border: 1px solid rgba(0, 255, 136, .35);
+      color: var(--success)
+    }
+
+    .rq-fb.no {
+      background: rgba(255, 71, 87, .07);
+      border: 1px solid rgba(255, 71, 87, .35);
+      color: #ffb3bd
+    }
+
+    /* ---------- recap journey ---------- */
+    .journey {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-right: 26px
+    }
+
+    .journey::before {
+      content: "";
+      position: absolute;
+      right: 9px;
+      top: 14px;
+      bottom: 14px;
+      width: 3px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
+    }
+
+    .j-node {
+      position: relative;
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 16px;
+      padding: 14px 0
+    }
+
+    .j-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 3px;
+      z-index: 2
+    }
+
+    .j-body .t {
+      color: var(--text);
+      font-weight: 700
+    }
+
+    .j-body .d {
+      font-size: .93rem
+    }
+
+    .journey-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      padding: 12px 0
+    }
+
+    .jn-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--text);
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+      margin-top: 2px
+    }
+
+    .journey-item h4 {
+      color: var(--text);
+      font-size: 1rem;
+      margin: 0 0 4px
+    }
+
+    .journey-item p {
+      margin: 0;
+      font-size: .92rem
+    }
+
+    /* ---------- pills (classify) ---------- */
+    .pill {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      font-size: .92rem;
+      line-height: 1.7
+    }
+
+    .pill-dot {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 7px
+    }
+
+    .mx-wrap {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      padding: 14px
+    }
+
+    /* ---------- exercise button row ---------- */
+    .ex-btn-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap
+    }
+
+    /* ---------- congrats card ---------- */
+    .congrats {
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
+    }
+
+    /* ---------- scroll top ---------- */
+    #scrollTop {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 60;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 212, 170, .4);
+      background: rgba(10, 14, 39, .9);
+      color: var(--accent);
+      font-size: 1.15rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: .2s;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .35)
+    }
+
+    #scrollTop.show {
+      display: flex
+    }
+
+    #scrollTop:hover {
+      background: rgba(0, 212, 170, .15)
+    }
+
+    /* ---------- emoji props ---------- */
+    .emoji-float {
+      display: inline-block;
+      animation: ef 3s ease-in-out infinite
+    }
+
+    @keyframes ef {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-5px)
+      }
+    }
+
+    .emoji-pulse {
+      display: inline-block;
+      animation: ep 2s ease-in-out infinite
+    }
+
+    @keyframes ep {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.12)
+      }
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      margin-top: 50px;
+      border-top: 1px solid rgba(25, 60, 255, .25);
+      padding: 40px 24px 34px;
+      text-align: center;
+      background: rgba(10, 14, 39, .6)
+    }
+
+    .footer-logo {
+      height: 40px;
+      border-radius: 8px
+    }
+
+    .footer-tag {
+      color: var(--dim);
+      margin-top: 14px;
+      font-size: .95rem
+    }
+
+    .footer-tag b {
+      color: var(--text)
+    }
+  </style>
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <linearGradient id="bxG" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#232a55" />
+        <stop offset="1" stop-color="#131a3f" />
+      </linearGradient>
+      <path id="arr" d="M15 3 L6 10 L15 17" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    </defs>
+  </svg>
+
+  <div class="bg-gradient"></div>
+  <div class="particles" id="particles"></div>
+
+  <nav id="topnav" aria-label="أقسام الدرس">
+    <div class="nav-inner">
+      <a href="../../../../index.html" aria-label="الرئيسية"><img class="nav-logo" src="data:image/webp;base64,UklGRsAcAABXRUJQVlA4ILQcAAAQsACdASpYAlUCPlEok0ajoqGhItWIMHAKCWdu/Eb3rSGO7W24Kxp8t/z35QbaL2P8mvy09B3LHy/76/vP/lMzu8T/Ov9N/jP3B/vn/////3R/1/qP/Uf6m/AB/Df4//kP7/+3f9m/////+rT1F/uJ6gP6r/d/+d/hf3/+a7/Jepz/JeoF/Vv7/1iHoCfsB6Yn/r/2Hwe/tJ/5v9F+//0Lfzz+7/9r8//kA9ADqx+wP9p7Rf7Z/XvPvq8+1nMHiU/Fftn+o/uftp7JfkXqBfiX8x/xP5Z8JQAD6t/6b+4+upM+yAOC8oAfpr1aP6T/6f5Pz7/of+X/ab4Dv57/aP+12E/2y///u7/uQEd8QtYY3sgthnhSjzlxsHsUNtqxsYPmY/tAnTWk3eRvx96FjeyHJvbr2WcMflxsHxsHxwNwpR5y43vhzrGX1TpNJmXt4xgkLqDmwfG99YZRGMFcyZ4Uo85gZwBbN+NllprGxSRxW1rTyCRoZg+h0Lk9hyLKBQ73OHulwtb0r7Yt5PSoBq70s+RV+vmqzZCqvAjDoiSnBwHM9u3kIwbzlxsBQO5nrVFmIT0cN4xUVTTop/in5EP7B8VPficNp4Uo9CYJ2MbGe2QcycuNhDjHYMc1hRlU7TBo7ET+m0ecuLWrsysVbJwwyW7Gwci7/f4b7eY3spo8hACO9F7eM0cndhYzBzYPjYPi2s3lloqwH/ypFHIWDg3LWx724JkPCjzlxsIARP9cmu7/ZownOm6SXZWcSrN1ionLjYPjYPdF1f9yA04STy2woP8q2ZDab97eMV4Uo8j+rxDgQtFzXmj0BexP/th4o9HZap/AcfrB8bB8bByt9LZK1LVnj6oAWMnX6h5/qUKSpGE52zPJmXt4xXhLKBMjlKRRBOFPTCBFLs0PlKB6EBul4xXhSgtMgQT6oNB3AFnhzPt44fdrVBd0wgBYJ5nkzL28YroE3NmKKreywfJTq9znjhtX1aq8EtMLlxsHuu2EKfH9FOy4j31Ko0UwYo70PeKl4jJoqMhKYlb5YktMajaS5Wc3/adyZdDaAfhhDWpYWGcPKvDaRep78mGQHCd7//L5zA9p7+w4sz5T9KoniwkKqUrmI71fQgTVtI0XVrqq7V+mYy9wK3ffqz/+Or3peC0mkpVYx955ZowcBHo6v9i29B5LQfA6DqaLpoV7SiHFmRAm0UldUDcX/ouciJah9bJ0zGUds8ApyspaVFT0aFb610bmwG8MKUciDdQbUxIc3kQgFF0BQ2+3/1twur1bsbB8bAIuNI7ctdbxiyyP8bBzhMbmYIM4b8pn03S9501OtiXK9jYPjYPjYBU0J1td0x2zWnRSj2ENErPauhSJbsbB8bB8WzQmMIoN6mSeoaPbS7xhqgz7Rm90udSbfM+/M+/M+2q5zkHwgOmW7IxrgGfnantR5bmZ/GwfGwfGwCfuyIPBLrvY17b1479hUwupcbB8bB8bAQAQPxFm5wHM/DGX2dGUTnPSSORRmBAFKPOXGwfGqnUawYBmUlb7o2gq3xIt+5qaTHReecuNg+Ng5S5VEPIKn7R5y5KdgNEP/CctFGRfdcbB8bB8bAG2kbnnjfj5oluv/gRhkt633Yzw7bkmwo85cbByF8VOjWFDUjwLg+AhHWghGXOkAj3IYK3YrIOKIEsJ2Lx5D63xJhyMnSjFi2aaOqZHGOU83UPjf+fNGyE+Z/GxpEB8bD1WDQ6zDahWy4eI+Q2GD/8t2/te3jGOtkUmvH29gn/+TICZmhiQUW7GwfLPCtqooUgpRoHcGtw3szflXEGGS3Y2D5Kdg+OQE+JVtRv+yklVIuo8dXQx116rM3el4dZCC3JvTG+pMds+GvBFYveHV3km1Cry4VeO7G9/euRjXSwAAP77d89+nafhMf4TD6F7w6ETqw/BiNp9R3MH+fjgGRkNcGuDzzJDh5wD5niJcxxptKbzbw2ZkkcLHYPDYtAgeyGavwCzeP1Hv+Jx2rSaoRfE+1+cYFN6+O2ZqnVjPDdbvv2KdVrlK5PMUvmhCbwAFqQybdpqs3k8yQvZtDTr3o6w4WQHXQz0sykl3GEA/CFxJfMOTkJ1y3/nSlwC+0naIxAJyDvxU6hMY1Kijbe/v3PVRvALgd+p4nomE6P93IUmkld97JR/G3ZE1/J8NqOg4AvmO7nptwCH3HSUoM6p/CRSrejS0vyLndCB//fmeUVLGONqwvyYyljGfrFourMOaQMXBCFRLQAyveZAUJ9JywJ+AVVD+sJNUA6GatZh4AdTxKA2dHNSOckmJRAt/7BHRHNkGj1FU7gHWJmbORZicUCUV2HnTtoWdwwJCBXehscM5VNujpC8Utn5blnaBm35pWeDb7CEt5w+HOnoOBgUZ8lMaeLgCEXlrUJpflBtRgV+gsy7lfDzZuTdBBC9bJ+WjVDLsilgNPYb2Bn4qLf9JCQJz93pPj6pXSeypSJqPO7tDcStOt7hJXjTIABlTAkEZ0ClV1T+Fk/GhKoe7jYAlVZe+AAPqHSZ/5HXWidWApbQ2UMwqybyTQme22FkskGS7op7bwWUmZEuNM5EptmdgYL/bSWxv5zSRLRzZtI7+AuJyPGu5bP91AAy63dbb2jeXmrncak0ayciOLtOOpK2k5sDSiibrh+Muv5FYYShZ3hrKRzQ8UBQ/gfQenCcUNsLynSscgfO50r8yMK9cDuaBxrBESuwTIv/Ba0OrhKBFGKoBl3qVLroHVXijv7TQvCDUoiNj6QzckInt4JNrVD40IKDUFeE+h6CHHeehl/ZG0Ad7sJ7kLTjyLucB/zjIcOzHcQucWaiZ51eTy08zaI7BEoOdEFW2o1U6cCEDY9tvkxj/0aGCk54aEKD6zCqjgQPFPLcXLVZZzkvGIJeZaXqa2WRZ/IIry/rCxb9h1PLcmZ8Wt1zX2zR9vZWfwAAJ9htLnPiA63VF7+H83NoFmLGnFiBJFoDISdaPlPU4X4+EhN0jDFe0wixZBfRJAZbnB3JEh2pivFjU96ax8UCq4Z0zsQib2CXlOVlDdgJeEzH+B4YnFVq8JzwVVUzHrUniFQI/sRaQriG+J2qKN9zH2+ilo3hKJkFjqFWNcKFPqxqK/gHQOYNWlcC3C/aIKttRqpz77PtqzMDT1f1F7c0dKBhiY3IYvx2O42at13k1Yhxf8TJeQJui1Kpa8fhmVemU1QNyk1TIm/1bghfQIAFYQF70bIV7Bpm55kEih6BcY9Uq3UjKZq1tlL5AUmpzCCXKf0Tmdp3LB48OISsYb/SME9HekTO91T31fF7Taf3f1MmICO+AWoIrVmAQmaX6h4PpP9j4/EkKrOyfSQnzitH19H/4c1yr9d0dHU3qN46Amo6Xf5Xd0Gc1FoPixuLj30doDHLcNjQkOekKELEf12Dcy+XllpnDZtzYdVQ7pYMpZ3UDCaGnKVvpzZM/NcwAAK+rG8FhSEcsLamGjV3RMDAHc/cLkPrHqti5utRJ//yFREt5ISjCeQFVrQSb90qDCwphOkX7tJk8STj9IRMoYKJStCMW0Wo0q+LTH+maNPCFUlkVFd8yT0MXTaTE1T1IYN5ZgnsayrqF0w612PjhakbgqBvk9WdsHHkfH5RlihZR+MfTG3a0eiYzaUv8ubMKwAAIqZJl705RYs2D/BSe2+dFn/APWfeDcHQm7effuGf6lb46uKXiOGwU00wIYC0biN/AsWpUy0rhg0gj85my03P7bTDm0u7TNGNcejLO85d50usVZUC/jagNbQDNiRKybMkWpqYAgWb3V99t1UzIaTDi9mhMhpda6hr6N/Zb9Drvr4p7mQ7q7VBZFypv+Mv+73DxLhb/VQAAeH0jvC/DkpFUdv9v43SCuH72zsCKB7f6um2hr77ez5P2RqJ6tv6p4hN5i3/FsTZv9bN+Nl4fv9KKUaDXnMXi7N7f/bZq4DwTNxpUnyiYDd2GQb1nCVo6Gjtzdn+HEbwtYeKBC8j1X1C4qCG30E7tvqEtjkrmhQ4PcACopAAASgT/5kXtSKi9J6EcBv8hPNt1uPaXHQeNjO2lQzqWPIZJUKdg/tFh1DmcnqHGGPFYSTQbfPsjERRa3WkpEh0Dy8sY/Yg0nhlsH0+GWPdBRPzFkd4zvkyT20zqeHtZ7JROwNGlAAvcQIlFJ9nvCvRNK38jR0rFWzvqPk6QViXkBLumJqMKlw2uOiEC9wER6v0Hflp3QYDQ25dkn/cFJ7Y5pS2kdTrLaFp0IRlr4ki2/IgDH5wxgaaybYh81w8Qt9zfoXR3UJhkhQIKIA7WAACd2f2peO5lvJ9lS7TMkCcwOMJh8v03NI4b6DBPlsKtsll+DYtgNcoarMQvauSVcU6okOjbu+Psle925mPQhZ+kV7uGVbW0Bi0jxV51h40/R5iFzu+OrHRhrCV1jBuR4GjHmrVllfL1HHLAQ+AAG2I0xcQol1N6Fk2XFP0e5tO4Y6flC0y01riBHNMDd2mT/VFHEoPb9OJoh+DNIjRmgjzjjxOrvtxOobdx8u7oAiSTWAeORxqDGj4hG5i5mAChl3tAGqbnpCu3ub5cOb+ZaSx61KYf6JuW/CdvA8o68PFWhpzD344h6IUB+RINaQBoB5kXjvYppl6LnvKobIqSlpQaNFFNdOqqRO3NdSdyp1fQiHBHfh13aAPQIr5Q0Ze+hCqrO/mkBLzeVhLmkAAVR+5qO45NgzGlNzWA98NI4zs/xTNG2ERCyHfF3xLhKeIdp97BhBIJceiMGYayZjcXNbw1msYweDmGYCT7SGL1CEPR/SqiOldqpxqfdnSA3Z5qiSmZJ4sOAlcPZvz6A28xZVTiZnZvccPSvpG7Lo3My862Kbx6Xh9nLNNxQJcFRHgZDm+cARCB7LCugHy7kbepoicKQ7UpVLr3o+YbbnvOR7BmMmIn5N3JkqnHF2Ej1bC2wMImRFvhcjsYFH3kL+zpp21DboPHPxU7uRVQM+QhrG5z5uVJ+swmIgwMT+SkqBlUuc1Flu4Uc6G2IjfoTd8N1xuw0bZVHlh8cDcK3oPJ7OxittMYz1zH8d0vZYkquEYU+i375WeraEDESfDjCgNVOE7cEnaouSNx4mciGplmk2ODV8uclKFuTRKTDs32n8XD8y7enPfBGPfMm79dvTU+yYRkTa1j5EuSBIxy2zrFLF0hD/ECUFIk5SHe2gQpcEbBX8yhF6IBZrMtEM12W8LD1Nlbr5/xY3ACw8q5OGgOFXLuYQQnlD+Uxa5ok0BLKGRWfc9wjUz4u8xGIZAhTlrq/qfnMZ2x49l9aUgULleRNw3aODmvc+6cth+WwJ5tuof2QffV5fkGtyBPKEIWD4TBHY9vaTfBAp4vzHSumXeoaM9lw+IvPtQlZr0aU1p25/az85EXf7wyzyHt0OcmzzMMiALkvXPsQAZWQ8nL+zMLA5zR96TKV9+jsoXW03yg1FbEV5URaTTKrdshYI8OUeYjZBrHIWyzETRdiEpp19H3TvGtQS/jDBHH7vf7UPvWwLXnErSl/F52L504J/TwiPNCEexYsHnIPeSn7uCfe8DQriX9WOR7wdSBBXgUZP5zmDHgIR5WC/1uecNdddnM3HbRrPs2lHbLbBAjcDNU8REL46FebHryj9KjLGsaxmS//66+KJu7Qg8e9yo34xjkn1bQYAXz7tN0O63IezR+DUQlCNWkiuuoQDLlJD8wW0bOEJihhKSJw00InMY0pxSUr5Byqxw8ou2Wbhzz4MFEjhF3eSUYnS192yMGP9pA0itiQwKOHBi7PJMk3MmA9zma7mtFiu33G4Pi5ikOyf3gxN2CMyuAyv+l8caLB8Qt/fRpbVHvVuOPXnGat3n3K+Oszq8z/bNWRqeUlgDAz/B8PtyDPZC92jHEAc+ioeNadDdUBCFplppPEhydgEgRc2KgzRwTDYg9Hx+dTopc9aXkhMM1KPddqGrHkpQP/ggLw+HGGIhPnjsksUd3QkgfVdUg8JeP8aGteK/umY6rXA+6QSvWGP7f/HJh/xDzHBfU2l90KF/aV5mp3bGD0Ms7qpju5ofDBfdIPH8bNu8rqy62u5KlnetQaULHdW7F+/zeJ5wlr9H8pls6DGH+irJngNGS82OSScvjRpENTt9XPHrlI+UN/duVQ3KnRTgEOg6GSt1ImqfBwa1Y06Oe+9YthZ4mEuY/itUjcW4Jggs+44stpmPoBHnGSOO7Lz2SCHX9FXfVPrT+QzXwveMMNhvyNwl4jpoBTsONU77voNQrD/zcveT7ckBcdT0gf1RMVqZ3GvM1mcCHgbuLT5xcAG3ZVLvKLrwiZWpDzjkOmg+/TCYuaX/PmRs2QaildfviW/Hevmw9fcUXrTPqGSG1H0GqrjyoxA23V8Bv1vcoq5T+skp8dIbcJSQWuOiEdN/9r6Wwt+ce/Owj5RMyX8svgiDy7Xia6lFiVez5+mc6+MH18/KBmUi0rBT5bMEzDB02KxSzK3qMi/OAOQbYPYfNIl59lkdsAQipp0fl0TyGTMHZ6ntmqj2l5zkJHU7TG1zdi/FIUctcz1DIEPg+NlhS9FbjN2wp3mA4pVD5nTNRsfJ8aoZDP/THBSRncKJ1B32ZKWVISad+YBO2I7HsSylu/2JAid4ONBCK+SXX0Ii5QJpT2K3qJoU5O0AEeUSCFgMH6Y0slKRny0AgFmKdd3IbCl0FGoDRgky6Kpl5nReBFLOxJS3raORhaVQNPjf6oF+EHRybCVLEr2dX0tp6of1g4ChOehyVdIHiy4yc+gbVR3W/VSagggPu3cNPok6jhStOwANbe5q7sXPijAPFAv6IzRTeO+embmWD/0qG5c0hamY1SJx7TGITr8KHQlNMLOnLk6d6hKiUFY33FuDSrU4FOK/DlA77NZOQ2DoItuiRVHrv93c3Ynvsatdiv8ltHKtG/HPn2xQ5i/+KmnggfDXrNjTme/buvA7XBzP+X4knz+wOMF/GahG7NjGP4B3LS0isYWNJlgzkv5ZfAqZmMgiDL4Uw4froX5zPClgLcuZvrSJ3LpZ0hehlg3LRhV48WBz4HdDyylIkXHc+1n8we2Bk9pRa002V390oHwHjfeG+UQzp8xz1K8/Cfw6bCvjE4aKrMJSUJ4q7/F7nFLMCzzZyEr44/A6jwLMnJ3s7RyEHPjMyGRN94cyyYkwoKb46jjdNwFExp+uDx84AAAAroJ0dGaMpTEuuEdi2qExu11QiBqZ/k52IRMSeBomwPLBUoCC8wSTtiP9HRqh7gJus94cKYgES9OiJll+Cd3eIwOD6JCQCieA/wbdylWAGytAp3nxurx9pmMhUhGTeB+MkM5BsZMrDn/2sMJOKRjjNt2g0gMbKKE6b5+Zj7Cnd+it9FsOUbY4dzXBasH8mOWkUdOI8rZbbZ5Ll0X32qlwrfJQrNejOjC88t/wEkQn0aj+6BXoSXhIqy/Og0akMBNMzvrKK+YGjEnqMgfR8Vpj0ee5n2jjWzUqk4KeO/ye62D30AACl1qF9rD6SKSdlx/s5cA4IilVP+dWfn0F78WBdIwyb//SQkDGmtdbenSegElOP6PacZhBb+i/K8WWTu9VXV3yrgDCPhPh6e1HISsrz0WbU+T58ifQfGwICXCSYKy3/m/Q75i2vmdDwxPgO8ZKBu9IGoODXA6ISUVPugBOst1nXbOPsFGCKUxkCIpAtzR0oGWylfhafGgcXX2YVelEAAGZgDheCp4xVtvY6XlUgAdaEsyBTVzlwPi/1zEK15FcNTBocGc2mwzP940f/Ashv782L8JhH49Yr5i19NOyEFc+9yVMP/6v+VKsyT4GdSWcrI4IuBItt9W0eC9/olYFePtXmHUf4orvWMA4Ok/W/DPiAUumcO3Z0vqCIn8iI0XTxO2/zE+EDIAAFuz8FhwjaiUQbn36vQuiVliQzezMSYEHFqL+njMKYWo93d8PUR898ko0xT6vUj+34B+74g4wqOCXw+Cpi7xYYwWrwcwF0nshveDXg8u+B6hLwmZwwxBeoOUIUGwH0wyzflw/31HIVK6kC5oZxg0wgAA82cHeRYUKwMf/ySi9883rB2PBjX8qg2kjev0DgFfZ1IKg9U4aUh8UT1bDFwl3sBQXGuyjBeDP8jqk45LpO+aPbW06uXAoE8nL95AopOsshrUb8sP84XohoiO/5/d08Xryx9hxWI4rLaIBcfmEfVc1NiDjAtOHWezpQb0QAACc5+bXJ/5c8ma7r1QlsmaQAHx0BfVeFYcWPOwD8qxBR4lUSO/nw6bIb6g7TWDahUxcJwuRqbh8PYZ/UtLQFpj8nXxP4U0xeR7RGm3rNZp7dgAYVm91AgbmXK2KNYeYYboTOI6Lh3nCBvAgjPDwP3JK8acBLD88RcNiUjnnXtI/wb+3ss4QXRBsBT6yAAAKLsVYaJb9tG38fU+Dy3kcwCp4xK+BxgigXzeGOjVZ1Zthw0Uot+zDRyv6/H3nGPexdydUWakaeWAvpJAFIx8fT5aJcWISdjzNts2ZCBu9xVyDQejhGxOb1sDHhs4Qk/7zoOavD7DRNkCZqWhPBXpgAAovbf2BaKv5fsKRRZIQGT5BaFjTtxayO1Vd6REt5oNcLWWuV6YaVjmIvvWr82rRWLLttX4fGSUxuQotS3+Y16SrHdinQSlfuhfvL+/uyeTARUxTmsR/AAL1vjINJMdmifKg0gVzJGIu1Z/Dkf5Y/hUzlqBcJb2osBeaSI4M4rnr8RVamVM8Z8AAGxpyQlWyeg+U2Tq5mgyuILgDWO+v8/0RzncBLV3LwOhX/Irt8x3SBRMSdvLIUn3icw4KNUhuDN5Lt+CSvxkqBG19L//adaEnZctqMCo9DEmXJl87OL/CIt6Blqbs3QvZXA9XV9ZAAA85GVkZ+1e47Id5Iy0J0PvVwLkzR2CU4xMBjk5msHJel6C8R0ziTx4LLVIaXvtaUTDd/G79Y0xDsLb6rqCzF28SD/EBTY7FtSFjUvEHAAGBNVeJtO0mdTot44rDszK8dYovrtO4nM7hzp90q6LKQol6jSi2aCdBg1acKvD1Aqv8HTsw66VaIOGvpPUYjPJxleE9cxsPm6UsFjd1dep90xrnSXr38Zz2i0Cs8PfS7DV0V/elsE4FXVUHZ8t7HYJNzeibY84HWUhoCiuWL1RVR8/DkCoD51uyMtlWbJPs/5BI+S8wTiPaQgME2YRkzJezhlvcu0BaaXWlRjPe04fYmbaCaZO4qaBheEE0tWchTr75PJV3HzhDTOdaSszkS/idII8KajAQ/lE1ia6RA3G2JaP8KQPy7Ug32nKmv29lkFjPRdgWsxgiETxNaGHPyAD5AgCXRhQFiSBDDTnAfDFmYIpfMFbI9vO2VWgP/DXKciVSHgZFCvOTrBQPSk5fktQlWoDVJLm318cOxMWCHhT4GfUZsqcA7UoBeHwIxyRbJ25xoP2E8Cyp4UIFXdIa6B5Go+OroDuZkXuw09nlRjdV4RPHCe+xM/Uw1OPHeHNhQ3Qxncojf6ikNcXmVFEqRW71oNAl6NBT7hVd+8Pjdv05Ijez2Y4Z9W2Qu0FlKO7aURS80VVzsFkSpPE2XMX69PwgCxIocOy/ulP4+hklymXG/633l6cdZBe0Or+Qm4vzJMvIFgaOslYHUvpQi1vQfq6j8SL9CNMlzK5AMhNxOYAABYD5T55OaqRumUpYFO85YMYSSAALKHSqDsuryuUgnYT+Bap4FwOS4o51LWFhi/ek4+Ah1dwLscK/+OnBM8TZ5dxmGxO0I1Ppo7wcdEXAKdaiHXyAq03+wgJDKzMcTxJ9T/QADJmGKIdThjZOeWspnLMJHUutYYH+vDPzW/BOQdz+QyyLg8AA" alt="logo"></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#intro" data-ar="البداية" data-en="Start">البداية</a>
+        <a href="#analog" data-ar="الأنالوج" data-en="Analog">الأنالوج</a>
+        <a href="#digital" data-ar="الديجيتال" data-en="Digital">الديجيتال</a>
+        <a href="#adc" data-ar="A/D" data-en="A/D">A/D</a>
+        <a href="#dac" data-ar="D/A" data-en="D/A">D/A</a>
+        <a href="#binary" data-ar="الثنائي" data-en="Binary">الثنائي</a>
+        <a href="#practice" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
+        <a href="#recap" data-ar="الخلاصة" data-en="Recap">الخلاصة</a>
+        <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+      </div>
+      <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-circles"><span></span><span></span><span></span></div>
+    <div class="hero-content">
+      <div class="hero-badge" data-ar="درس 6-1 — Information Study" data-en="Lesson 6-1 — Information Study">درس 6-1
+        — Information Study</div>
+      <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>الأنالوج</span> والديجيتال" data-en="<span class=&quot;grad&quot;>Analog</span> and Digital">الأنالوج <span class="grad">والديجيتال</span></h1>
+      <p class="hero-sub"
+        data-ar="Analog and Digital — إزاي بنخزّن أي حاجة حوالينا — صوت وصورة وحرارة ووقت — كأرقام يفهمها الكمبيوتر؟ النهارده هنعرف الفرق بين البيانات الأنالوج والديجيتال، والتحويل بينهم، والنظام الثنائي."
+        data-en="Analog and Digital — how do we store anything around us — sound, image, temperature and time — as numbers a computer understands? Today we learn the difference between analog and digital data, converting between them, and the binary system.">
+        <span dir="ltr">Analog and Digital</span> — إزاي بنخزّن أي حاجة حوالينا — صوت وصورة وحرارة ووقت — كأرقام يفهمها
+        الكمبيوتر؟ النهارده هنعرف الفرق بين البيانات الأنالوج والديجيتال، والتحويل بينهم، والنظام الثنائي.</p>
+      <a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ →</a>
+    </div>
+  </header>
+
+  <main>
+<!-- ============ 01 INTRO ============ -->
+    <section id="intro">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#0e7490)">01</div>
+          <div>
+            <h2 data-ar="هنتعلم إيه النهارده؟" data-en="What will we learn today?">هنتعلم إيه النهارده؟</h2>
+            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — الفرق بين الأنالوج والديجيتال والتحويل بينهم"
+              data-en="Lesson introduction — the difference between analog and digital and converting between them">مقدمة الدرس — الفرق بين الأنالوج والديجيتال والتحويل بينهم</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="النهارده هنعرف الفرق بين نوعين أساسيين من البيانات: الأنالوج (Analog) اللي بيتمثل بقيم مستمرة زي الحرارة والوقت، والديجيتال (Digital) اللي بيتمثل بأرقام عن طريق تقسيم القيمة لفترات منتظمة. وبعدين هنشوف إزاي بنحوّل بينهم — A/D وD/A — وفي الآخر هنعرف النظام الثنائي (Binary) اللي الكمبيوتر بيعتمد عليه في تمثيل كل حاجة."
+          data-en="Today we will learn the difference between two basic types of data: Analog, which is represented by continuous values like temperature and time, and Digital, which is represented by numbers by dividing the value into regular intervals. Then we will see how to convert between them — A/D and D/A — and finally we will learn the Binary system that the computer relies on to represent everything.">
+          النهارده هنعرف الفرق بين نوعين أساسيين من البيانات: <b>الأنالوج <span dir="ltr">(Analog)</span></b> اللي بيتمثل
+          بقيم مستمرة زي الحرارة والوقت، و<b>الديجيتال <span dir="ltr">(Digital)</span></b> اللي بيتمثل بأرقام عن طريق
+          تقسيم القيمة لفترات منتظمة. وبعدين هنشوف إزاي بنحوّل بينهم — <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span>
+          — وفي الآخر هنعرف <b>النظام الثنائي <span dir="ltr">(Binary)</span></b> اللي الكمبيوتر بيعتمد عليه في تمثيل كل حاجة.</p>
+        <div class="note"><b data-ar="افهمها كده:" data-en="Think of it this way:">افهمها كده:</b> <span
+            data-ar="الأنالوج زي ساعة بعقارب بتتحرك بشكل مستمر، والديجيتال زي ساعة رقمية بتعرض أرقام قافزة. كل أنواع البيانات اللي حوالينا — صوت وصورة وحرارة — بنحوّلها لديجيتال عشان الكمبيوتر يفهمها."
+            data-en="Analog is like a clock with hands that move continuously, and digital is like a digital clock that shows jumping numbers. All the data around us — sound, image, temperature — we convert it to digital so the computer can understand it.">الأنالوج
+            زي ساعة بعقارب بتتحرك بشكل مستمر، والديجيتال زي ساعة رقمية بتعرض أرقام قافزة. كل أنواع البيانات اللي حوالينا —
+            صوت وصورة وحرارة — بنحوّلها لديجيتال عشان الكمبيوتر يفهمها.</span></div>
+      </div>
+
+      <div class="section-inner">
+        <div class="activity-grid">
+          <div class="demo-panel">
+            <div class="demo-label" data-ar="هنتعلم النهارده 5 حاجات أساسية"
+              data-en="Today we'll learn 5 core things">هنتعلم النهارده 5 حاجات أساسية</div>
+            <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🌊</span><span><b
+                  style="color:var(--s2)">Analog</b> <b data-ar="— الكمية المستمرة" data-en="— the continuous quantity">—
+                  الكمية المستمرة</b></span></div>
+            <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">🔢</span><span><b
+                  style="color:var(--s3)">Digital</b> <b data-ar="— التمثيل الرقمي" data-en="— the numeric representation">—
+                  التمثيل الرقمي</b></span></div>
+            <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🔁</span><span><b
+                  style="color:var(--s4)">A/D conversion</b> <b data-ar="— من أنالوج لديجيتال"
+                  data-en="— from analog to digital">— من أنالوج لديجيتال</b></span></div>
+            <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">🔄</span><span><b
+                  style="color:var(--s5)">D/A conversion</b> <b data-ar="— من ديجيتال لأنالوج"
+                  data-en="— from digital to analog">— من ديجيتال لأنالوج</b></span></div>
+            <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">0️⃣1️⃣</span><span><b
+                  style="color:var(--s6)">Binary</b> <b data-ar="— نظام الرقمين 0 و1" data-en="— the 0 and 1 system">— نظام
+                  الرقمين 0 و1</b></span></div>
+          </div>
+          <div class="demo-panel">
+            <div class="demo-label" data-ar="ليه بنحتاج الدرس ده؟" data-en="Why do we need this lesson?">ليه بنحتاج الدرس
+              ده؟</div>
+            <p style="font-size:.95rem"
+              data-ar="كل جهاز حواليك — موبايل، لابتوب، تلفزيون — بيشتغل على بيانات ديجيتال. ولأن العالم الحقيقي حوالينا أنالوج (حرارة، صوت، صورة)، لازم نفهم إزاي بنحوّل بين العالمين. النهارده هتبدأ رحلتنا في Information Design — التصميم المعلوماتي."
+              data-en="Every device around you — a phone, a laptop, a TV — works on digital data. And because the real world around us is analog (temperature, sound, image), we must understand how to convert between the two worlds. Today we start our journey in Information Design.">كل
+              جهاز حواليك — موبايل، لابتوب، تلفزيون — بيشتغل على بيانات ديجيتال. ولأن العالم الحقيقي حوالينا أنالوج (حرارة،
+              صوت، صورة)، لازم نفهم إزاي بنحوّل بين العالمين.</p>
+            <div class="note" style="margin-top:8px"><b data-ar="والمفروض بعد كده؟"
+                data-en="And what comes next?">والمفروض بعد كده؟</b> <span
+                data-ar="الدرس اللي جاي (6-2) هنتعمق في النظام الثنائي وكمية المعلومات، وهنكمّل بقية أنواع تمثيل البيانات في الوحدة."
+                data-en="in the next lesson (6-2) we will go deeper into the binary system and the amount of information, and we will continue with the rest of data representation types in the unit.">الدرس
+                اللي جاي (6-2) هنتعمق في <span dir="ltr">Binary</span> وكمية المعلومات، وهنكمّل بقية أنواع تمثيل البيانات في
+                الوحدة.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="الخلط بين Analog وDigital — الأول قيم مستمرة من غير تقسيم، والتاني تقسيم لفترات وتمثيل رقمي."
+            data-en="Mixing up Analog and Digital — the first is continuous values without division, the second is dividing into intervals and numeric representation.">
+            الخلط بين <span dir="ltr">Analog</span> و<span dir="ltr">Digital</span> — الأول <b>قيم مستمرة</b> من غير تقسيم،
+            والتاني <b>تقسيم لفترات وتمثيل رقمي</b>.</li>
+          <li data-ar="الخلط بين A/D وD/A — الأول من أنالوج لديجيتال، والتاني العكس."
+            data-en="Mixing up A/D and D/A — the first is from analog to digital, the second is the reverse.">
+            الخلط بين <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span> — الأول <b>من أنالوج لديجيتال</b>، والتاني
+            <b>العكس</b>.</li>
+          <li data-ar="اعتبار إن الديجيتال بيرمز لقيم مستمرة — لأ، الديجيتال بيقسّم القيمة لفترات ويرمز لها رقمياً."
+            data-en="Thinking digital represents continuous values — no, digital divides the value into intervals and represents it numerically.">
+            اعتبار إن الديجيتال بيرمز لقيم مستمرة — لأ، الديجيتال <b>بيقسّم القيمة لفترات</b> ويرمز لها رقمياً.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 02 ANALOG ============ -->
+    <section id="analog">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#b45309)">02</div>
+          <div>
+            <h2 data-ar="الأنالوج <span dir=&quot;ltr&quot;>(Analog)</span>" data-en="Analog"><span
+                dir="ltr">Analog</span></h2>
+            <div class="tag" style="color:var(--s2)" data-ar="الكمية المستمرة — الكتاب صفحة 53"
+              data-en="the continuous quantity — book page 53">الكمية المستمرة — الكتاب صفحة 53</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="الكمية المستمرة: بتتغير من غير ما تنقطع"
+              data-en="The continuous quantity: it changes without stopping">الكمية المستمرة: بتتغير من غير ما تنقطع</div>
+            <div class="flow-card" data-id="analog">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="analog"></svg>
+                <div class="svg-label" data-fbox="therm" data-ar="🌡️ الزئبق" data-en="🌡️ Mercury">🌡️ الزئبق</div>
+                <div class="svg-label" data-fbox="scale" data-ar="📏 التدريج المستمر" data-en="📏 The continuous scale">📏 التدريج المستمر</div>
+                <div class="svg-label" data-fbox="wave" data-ar="🌊 القيمة الأنالوج" data-en="🌊 The analog value">🌊 القيمة الأنالوج</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="analogPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="analogNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="analogCounter">1 / 3</span>
+                <button class="mini-btn" data-id="analogReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="الأنالوج (Analog) هو كمية بتتغير بشكل مستمر وبتتقاس بدقة متناهية، زي الكتلة (Mass) أو الوقت (Time) أو درجة الحرارة (Temperature). البيانات اللي بتتمثل بالشكل الأنالوج بنسميها بيانات أنالوج (Analog data)."
+          data-en="Analog refers to quantities that can be measured continuously and with fine precision, such as mass, time, or temperature. Data represented in analog form is called analog data.">
+          الـ <b>Analog</b> هو كمية بتتغير بشكل <b>مستمر</b> وبتتقاس بدقة متناهية، زي الكتلة <span
+            dir="ltr">(Mass)</span> أو الوقت <span dir="ltr">(Time)</span> أو درجة الحرارة <span
+            dir="ltr">(Temperature)</span>. البيانات اللي بتتمثل بالشكل الأنالوج بنسميها <b>بيانات أنالوج <span
+              dir="ltr">(Analog data)</span></b>.</p>
+        <p data-ar="مثال مهم من الكتاب: ميزان الحرارة بالزئبق — كل ما درجة الحرارة تزيد، عمود الزئبق بيمتد بشكل مستمر على التدريج. القيمة بتاخد أي نقطة على التدريج من غير ما تنقسم لفترات."
+          data-en="An important example from the book: a mercury thermometer — as the temperature rises, the mercury column extends continuously along the scale. The value takes any point on the scale without being divided into intervals.">
+          مثال مهم من الكتاب: <b>ميزان الحرارة بالزئبق</b> — كل ما درجة الحرارة تزيد، عمود الزئبق بيمتد بشكل مستمر على
+          التدريج. القيمة بتاخد أي نقطة على التدريج من غير ما تنقسم لفترات.</p>
+        <div class="note"><b data-ar="تذكّر:" data-en="Remember:">تذكّر:</b> <span
+            data-ar="الأنالوج = مستمر = بياخد أي قيمة في المدى — زي عقرب الساعة اللي بيتحرك على طول."
+            data-en="Analog = continuous = takes any value in the range — like the clock hand that keeps moving.">الأنالوج
+            = <b>مستمر</b> = بياخد أي قيمة في المدى — زي عقرب الساعة اللي بيتحرك على طول.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="analogQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="analogRecall">
+          <div class="rq" data-id="analogRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="الكمية اللي بتتغير بشكل مستمر وبتتقاس بدقة، زي الكتلة أو الوقت، بنسميها إيه؟"
+                data-en="What do we call a quantity that changes continuously and is measured with fine precision, like mass or time?">الكمية اللي بتتغير بشكل مستمر وبتتقاس بدقة، زي الكتلة أو الوقت، بنسميها إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="analogRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! دي الكمية المستمرة (Analog) — زي الكتلة والوقت والحرارة."
+                data-fb-en="Correct! This is the continuous quantity (Analog) — like mass, time, and temperature."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="Analog"
+                  data-en="Analog">Analog</span></div>
+              <div class="rq-opt" data-id="analogRq1o2" data-key="B"
+                data-fb-ar="مش كده — الديجيتال هو التقسيم لفترات وتمثيل رقمي."
+                data-fb-en="Not quite — Digital is dividing into intervals and numeric representation."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="Digital"
+                  data-en="Digital">Digital</span></div>
+              <div class="rq-opt" data-id="analogRq1o3" data-key="C"
+                data-fb-ar="دي عملية تحويل، مش نوع بيانات."
+                data-fb-en="That is a conversion process, not a data type."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="A/D conversion"
+                  data-en="A/D conversion">A/D conversion</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="analogRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="analogRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="عمود الزئبق في ميزان الحرارة مثال على إيه؟"
+                data-en="The mercury column in a thermometer is an example of what?">عمود الزئبق في ميزان الحرارة مثال على
+                إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="analogRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! الزئبق بيمتد بشكل مستمر على التدريج — دي بيانات أنالوج."
+                data-fb-en="Correct! The mercury extends continuously along the scale — this is analog data."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="بيانات أنالوج"
+                  data-en="Analog data">بيانات أنالوج</span></div>
+              <div class="rq-opt" data-id="analogRq2o2" data-key="B"
+                data-fb-ar="الديجيتال بيقسّم القيمة لفترات، والزئبق مستمر."
+                data-fb-en="Digital divides the value into intervals, and the mercury is continuous."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="بيانات ديجيتال"
+                  data-en="Digital data">بيانات ديجيتال</span></div>
+              <div class="rq-opt" data-id="analogRq2o3" data-key="C"
+                data-fb-ar="النظام الثنائي طريقة تمثيل، مش مثال للزئبق."
+                data-fb-en="The binary system is a representation method, not an example of the mercury."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="النظام الثنائي"
+                  data-en="The binary system">النظام الثنائي</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="analogRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="اعتبار إن أي جهاز إلكتروني أنالوج — لأ، الأنالوج عن الكمية المستمرة مش عن الجهاز نفسه."
+            data-en="Thinking any electronic device is analog — no, analog is about the continuous quantity, not the device itself.">
+            اعتبار إن أي جهاز إلكتروني أنالوج — لأ، الأنالوج عن <b>الكمية المستمرة</b> مش عن الجهاز نفسه.</li>
+          <li data-ar="الخلط بين قيمة أنالوج وقيمة ديجيتال — الأنالوج مبيتقسّمش لفترات."
+            data-en="Mixing up an analog value and a digital value — analog is not divided into intervals.">
+            الخلط بين قيمة أنالوج وقيمة ديجيتال — الأنالوج <b>مبيتقسّمش لفترات</b>.</li>
+          <li data-ar="نسيان أمثلة الكتاب — الكتلة والوقت والحرارة كلها كميات أنالوج."
+            data-en="Forgetting the book's examples — mass, time, and temperature are all analog quantities.">
+            نسيان أمثلة الكتاب — الكتلة والوقت والحرارة كلها <b>كميات أنالوج</b>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 03 DIGITAL ============ -->
+    <section id="digital">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">03</div>
+          <div>
+            <h2 data-ar="الديجيتال <span dir=&quot;ltr&quot;>(Digital)</span>" data-en="Digital"><span
+                dir="ltr">Digital</span></h2>
+            <div class="tag" style="color:var(--s3)" data-ar="التقسيم لفترات وتمثيل رقمي — الكتاب صفحة 53"
+              data-en="dividing into intervals and numeric representation — book page 53">التقسيم لفترات وتمثيل رقمي — الكتاب
+              صفحة 53</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="التقسيم لفترات منتظمة وتمثيل رقمي"
+              data-en="Dividing into regular intervals and numeric representation">التقسيم لفترات منتظمة وتمثيل رقمي</div>
+            <div class="flow-card" data-id="digital">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="digital"></svg>
+                <div class="svg-label" data-fbox="cont" data-ar="🌊 القيمة المستمرة" data-en="🌊 The continuous value">🌊 القيمة المستمرة</div>
+                <div class="svg-label" data-fbox="seg" data-ar="✂️ تقسيم لفترات" data-en="✂️ Dividing into intervals">✂️ تقسيم لفترات</div>
+                <div class="svg-label" data-fbox="num" data-ar="🔢 تمثيل رقمي" data-en="🔢 Numeric representation">🔢 تمثيل رقمي</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="digitalPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="digitalNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="digitalCounter">1 / 3</span>
+                <button class="mini-btn" data-id="digitalReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="الديجيتال (Digital) هو كمية بتتغير باستمرار بس بنمثلها رقمياً عن طريق تقسيمها لفترات منتظمة (Regular intervals). البيانات اللي بتتمثل بالشكل الديجيتال بنسميها بيانات ديجيتال (Digital data)."
+          data-en="Digital refers to quantities that continuously change but are represented numerically by segmenting them at regular intervals. Data represented in digital form is called digital data.">
+          الـ <b>Digital</b> هو كمية بتتغير باستمرار بس بنمثلها <b>رقمياً</b> عن طريق تقسيمها لفترات منتظمة <span
+            dir="ltr">(Regular intervals)</span>. البيانات اللي بتتمثل بالشكل الديجيتال بنسميها <b>بيانات ديجيتال <span
+              dir="ltr">(Digital data)</span></b>.</p>
+        <p data-ar="لو رجعنا لميزان الحرارة: الديجيتال هياخد قراءات على فترات منتظمة (مثلاً كل دقيقة رقم)، مش عمود زئبق مستمر. كل فترة بتاخد رقم ثابت — ده الفرق الجوهري عن الأنالوج."
+          data-en="Going back to the thermometer: digital takes readings at regular intervals (for example a number every minute), not a continuous mercury column. Each interval takes a fixed number — this is the essential difference from analog.">
+          لو رجعنا لميزان الحرارة: الديجيتال هياخد قراءات على <b>فترات منتظمة</b> (مثلاً كل دقيقة رقم)، مش عمود زئبق مستمر.
+          كل فترة بتاخد رقم ثابت — ده الفرق الجوهري عن الأنالوج.</p>
+        <div class="note"><b data-ar="تذكّر:" data-en="Remember:">تذكّر:</b> <span
+            data-ar="الديجيتال = تقسيم + أرقام = قفزات ثابتة — زي الساعة الرقمية اللي بتعرض الأرقام."
+            data-en="Digital = division + numbers = fixed jumps — like the digital clock that shows numbers.">الديجيتال =
+            <b>تقسيم + أرقام</b> = قفزات ثابتة — زي الساعة الرقمية اللي بتعرض الأرقام.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="digitalQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="digitalRecall">
+          <div class="rq" data-id="digitalRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="الديجيتال بيمثل القيمة المتغيرة إزاي؟"
+                data-en="How does digital represent the changing value?">الديجيتال بيمثل القيمة المتغيرة إزاي؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="digitalRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! الديجيتال بيقسّم القيمة لفترات منتظمة ويرمز لها رقمياً."
+                data-fb-en="Correct! Digital divides the value into regular intervals and represents it numerically."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="بتقسيمها لفترات منتظمة وتمثيل رقمي"
+                  data-en="By dividing it into regular intervals and numeric representation">بتقسيمها لفترات منتظمة وتمثيل رقمي</span></div>
+              <div class="rq-opt" data-id="digitalRq1o2" data-key="B"
+                data-fb-ar="ده الأنالوج — القيمة المستمرة من غير تقسيم."
+                data-fb-en="That is analog — the continuous value without division."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="بشكل مستمر من غير تقسيم"
+                  data-en="Continuously without division">بشكل مستمر من غير تقسيم</span></div>
+              <div class="rq-opt" data-id="digitalRq1o3" data-key="C"
+                data-fb-ar="النظام الثنائي طريقة تمثيل بالأرقام، مش طريقة تقسيم القيمة."
+                data-fb-en="The binary system is a way of representing with numbers, not a way of dividing the value."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="بالنظام الثنائي فقط"
+                  data-en="Only with the binary system">بالنظام الثنائي فقط</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="digitalRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="digitalRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="من مميزات البيانات الديجيتال؟"
+                data-en="Which is an advantage of digital data?">من مميزات البيانات الديجيتال؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="digitalRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! البيانات الديجيتال ممكن تتجمع وتتنسخ من غير ما تفقد جودتها."
+                data-fb-en="Correct! Digital data can be accumulated and duplicated without losing quality."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="التجميع والنسخ من غير فقدان للجودة"
+                  data-en="Accumulation and duplication without loss of quality">التجميع والنسخ من غير فقدان للجودة</span></div>
+              <div class="rq-opt" data-id="digitalRq2o2" data-key="B"
+                data-fb-ar="العكس — من مميزات الديجيتال إنه بيفقدش جودته مع النسخ."
+                data-fb-en="The opposite — an advantage of digital is that it does not lose quality when copied."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="الجودة بتقل مع كل نسخة"
+                  data-en="Quality decreases with every copy">الجودة بتقل مع كل نسخة</span></div>
+              <div class="rq-opt" data-id="digitalRq2o3" data-key="C"
+                data-fb-ar="لأ، الديجيتال بيسهّل الدمج بين أنواع وسائط مختلفة."
+                data-fb-en="No, digital makes it easy to combine different types of media."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="مش ممكن دمج أنواع وسائط"
+                  data-en="It is not possible to combine media types">مش ممكن دمج أنواع وسائط</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="digitalRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="اعتبار إن الديجيتال هو نفس الأنالوج بمظهر تاني — لأ، في تقسيم لفترات منتظمة."
+            data-en="Thinking digital is just analog in another look — no, there is division into regular intervals.">
+            اعتبار إن الديجيتال هو نفس الأنالوج بمظهر تاني — لأ، في <b>تقسيم لفترات منتظمة</b>.</li>
+          <li data-ar="الخلط بين مميزات البيانات الديجيتال — من أهمها التجميع والنسخ من غير فقدان."
+            data-en="Mixing up the advantages of digital data — one of the most important is accumulation and duplication without loss.">
+            الخلط بين مميزات البيانات الديجيتال — من أهمها <b>التجميع والنسخ من غير فقدان</b>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 04 A/D CONVERSION ============ -->
+    <section id="adc">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
+          <div>
+            <h2 data-ar="تحويل A/D <span dir=&quot;ltr&quot;>(digitization)</span>" data-en="A/D conversion (digitization)"><span
+                dir="ltr">A/D</span> — الترقيم <span dir="ltr">(digitization)</span></h2>
+            <div class="tag" style="color:var(--s4)" data-ar="من أنالوج لديجيتال — الكتاب صفحة 53"
+              data-en="from analog to digital — book page 53">من أنالوج لديجيتال — الكتاب صفحة 53</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="تحويل A/D: من موجة مستمرة لبيانات رقمية"
+              data-en="A/D conversion: from a continuous wave to digital data">تحويل <span dir="ltr">A/D</span>: من موجة
+              مستمرة لبيانات رقمية</div>
+            <div class="flow-card" data-id="adc">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="adc"></svg>
+                <div class="svg-label" data-fbox="ana" data-ar="🌊 بيانات أنالوج" data-en="🌊 Analog data">🌊 بيانات أنالوج</div>
+                <div class="svg-label" data-fbox="conv" data-ar="🔁 محوّل A/D" data-en="🔁 A/D converter">🔁 محوّل <span dir="ltr">A/D</span></div>
+                <div class="svg-label" data-fbox="dig" data-ar="🔢 بيانات ديجيتال" data-en="🔢 Digital data">🔢 بيانات ديجيتال</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="adcPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="adcNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="adcCounter">1 / 3</span>
+                <button class="mini-btn" data-id="adcReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="تحويل A/D (A/D conversion) وبنسميه كمان الترقيم (Digitization) هو عملية تحويل البيانات الأنالوج إلى بيانات ديجيتال. يعني بناخد القيمة المستمرة وبنقسّمها لفترات منتظمة ونحوّلها لأرقام يفهمها الكمبيوتر."
+          data-en="A/D conversion, also called digitization, is the process of converting analog data into digital data. That means we take the continuous value, divide it into regular intervals, and convert it into numbers the computer understands.">
+          تحويل <b><span dir="ltr">A/D</span> <span dir="ltr">(A/D conversion)</span></b> وبنسميه كمان <b>الترقيم <span
+            dir="ltr">(Digitization)</span></b> هو عملية تحويل <b>البيانات الأنالوج إلى بيانات ديجيتال</b>. يعني بناخد
+          القيمة المستمرة وبنقسّمها لفترات منتظمة ونحوّلها لأرقام يفهمها الكمبيوتر.</p>
+        <p data-ar="مثال: لما بتسمع صوت على الكمبيوتر، الموجة الصوتية (أنالوج) بتتقسّم لفترات وكل فترة بتاخد رقم — النتيجة صوت ديجيتال. نفس الفكرة بنطبقها على الصور والحرارة وأي إشارة مستمرة."
+          data-en="Example: when you listen to sound on a computer, the sound wave (analog) is divided into intervals and each interval takes a number — the result is digital sound. We apply the same idea to images, temperature, and any continuous signal.">
+          مثال: لما بتسمع صوت على الكمبيوتر، الموجة الصوتية (أنالوج) بتتقسّم لفترات وكل فترة بتاخد رقم — النتيجة صوت
+          ديجيتال. نفس الفكرة بنطبقها على الصور والحرارة وأي إشارة مستمرة.</p>
+        <div class="note"><b data-ar="تذكّر:" data-en="Remember:">تذكّر:</b> <span
+            data-ar="A/D = Analog to Digital = بنحوّل المستمر لرقمي."
+            data-en="A/D = Analog to Digital = we convert the continuous to numeric."><span
+              dir="ltr">A/D</span> = <span dir="ltr">Analog to Digital</span> = بنحوّل المستمر لرقمي.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="adcQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="adcRecall">
+          <div class="rq" data-id="adcRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="عملية تحويل البيانات الأنالوج لبيانات ديجيتال بنسميها إيه؟"
+                data-en="What do we call the process of converting analog data into digital data?">عملية تحويل البيانات
+                الأنالوج لبيانات ديجيتال بنسميها إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="adcRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! A/D conversion أو digitization — من أنالوج لديجيتال."
+                data-fb-en="Correct! A/D conversion or digitization — from analog to digital."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="A/D conversion"
+                  data-en="A/D conversion">A/D conversion</span></div>
+              <div class="rq-opt" data-id="adcRq1o2" data-key="B"
+                data-fb-ar="D/A هي العكس — من ديجيتال لأنالوج."
+                data-fb-en="D/A is the reverse — from digital to analog."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="D/A conversion"
+                  data-en="D/A conversion">D/A conversion</span></div>
+              <div class="rq-opt" data-id="adcRq1o3" data-key="C"
+                data-fb-ar="النظام الثنائي طريقة تمثيل بالأرقام، مش عملية تحويل."
+                data-fb-en="The binary system is a representation method with numbers, not a conversion process."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="النظام الثنائي"
+                  data-en="The binary system">النظام الثنائي</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="adcRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="الخلط بين A/D وD/A — A/D من أنالوج لديجيتال، D/A العكس."
+            data-en="Mixing up A/D and D/A — A/D is from analog to digital, D/A is the reverse.">
+            الخلط بين <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span> — <span dir="ltr">A/D</span> من أنالوج
+            لديجيتال، <span dir="ltr">D/A</span> العكس.</li>
+          <li data-ar="نسيان إن A/D بنسميه كمان digitization."
+            data-en="Forgetting that A/D is also called digitization.">نسيان إن <span dir="ltr">A/D</span> بنسميه كمان
+            <b>الترقيم <span dir="ltr">(digitization)</span></b>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 05 D/A CONVERSION ============ -->
+    <section id="dac">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
+          <div>
+            <h2 data-ar="تحويل D/A" data-en="D/A conversion"><span dir="ltr">D/A</span> — من ديجيتال لأنالوج</h2>
+            <div class="tag" style="color:var(--s5)" data-ar="من ديجيتال لأنالوج — الكتاب صفحة 53"
+              data-en="from digital to analog — book page 53">من ديجيتال لأنالوج — الكتاب صفحة 53</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="تحويل D/A: من بيانات رقمية لموجة مستمرة"
+              data-en="D/A conversion: from digital data to a continuous wave">تحويل <span dir="ltr">D/A</span>: من بيانات
+              رقمية لموجة مستمرة</div>
+            <div class="flow-card" data-id="dac">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="dac"></svg>
+                <div class="svg-label" data-fbox="dig" data-ar="🔢 بيانات ديجيتال" data-en="🔢 Digital data">🔢 بيانات ديجيتال</div>
+                <div class="svg-label" data-fbox="conv" data-ar="🔁 محوّل D/A" data-en="🔁 D/A converter">🔁 محوّل <span dir="ltr">D/A</span></div>
+                <div class="svg-label" data-fbox="ana" data-ar="🌊 بيانات أنالوج" data-en="🌊 Analog data">🌊 بيانات أنالوج</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="dacPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="dacNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="dacCounter">1 / 3</span>
+                <button class="mini-btn" data-id="dacReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="تحويل D/A (D/A conversion) هو عملية تحويل البيانات الديجيتال إلى بيانات أنالوج — يعني العكس تماماً. بناخد الأرقام ونرجّع القيمة المستمرة (مثل موجات الصوت اللي بتسمعها من سماعات الكمبيوتر)."
+          data-en="D/A conversion is the process of converting digital data into analog data — the exact reverse. We take the numbers and restore the continuous value (like the sound waves you hear from computer speakers).">
+          تحويل <b><span dir="ltr">D/A</span> <span dir="ltr">(D/A conversion)</span></b> هو عملية تحويل
+          <b>البيانات الديجيتال إلى بيانات أنالوج</b> — يعني العكس تماماً. بناخد الأرقام ونرجّع القيمة المستمرة (مثل موجات
+          الصوت اللي بتسمعها من سماعات الكمبيوتر).</p>
+        <div class="note"><b data-ar="تذكّر:" data-en="Remember:">تذكّر:</b> <span
+            data-ar="D/A = Digital to Analog = بنحوّل الأرقام لقيم مستمرة."
+            data-en="D/A = Digital to Analog = we convert numbers into continuous values."><span
+              dir="ltr">D/A</span> = <span dir="ltr">Digital to Analog</span> = بنحوّل الأرقام لقيم مستمرة.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="dacQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="dacRecall">
+          <div class="rq" data-id="dacRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="تحويل البيانات الديجيتال لبيانات أنالوج بنسميها إيه؟"
+                data-en="What do we call converting digital data into analog data?">تحويل البيانات الديجيتال لبيانات أنالوج
+                بنسميها إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="dacRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! D/A conversion — من ديجيتال لأنالوج."
+                data-fb-en="Correct! D/A conversion — from digital to analog."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="D/A conversion"
+                  data-en="D/A conversion">D/A conversion</span></div>
+              <div class="rq-opt" data-id="dacRq1o2" data-key="B"
+                data-fb-ar="A/D هي العكس — من أنالوج لديجيتال."
+                data-fb-en="A/D is the reverse — from analog to digital."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="A/D conversion"
+                  data-en="A/D conversion">A/D conversion</span></div>
+              <div class="rq-opt" data-id="dacRq1o3" data-key="C"
+                data-fb-ar="النظام الثنائي طريقة تمثيل، مش عملية تحويل."
+                data-fb-en="The binary system is a representation method, not a conversion process."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="النظام الثنائي"
+                  data-en="The binary system">النظام الثنائي</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="dacRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="الخلط بين D/A وA/D — D/A من ديجيتال لأنالوج، A/D العكس."
+            data-en="Mixing up D/A and A/D — D/A is from digital to analog, A/D is the reverse.">
+            الخلط بين <span dir="ltr">D/A</span> و<span dir="ltr">A/D</span> — <span dir="ltr">D/A</span> من ديجيتال
+            لأنالوج، <span dir="ltr">A/D</span> العكس.</li>
+          <li data-ar="نسيان إن السماعات بتستخدم D/A عشان ترجّع الصوت من أرقام لموجات مسموعة."
+            data-en="Forgetting that speakers use D/A to turn numbers back into audible waves.">نسيان إن السماعات بتستخدم
+            <span dir="ltr">D/A</span> عشان ترجّع الصوت من أرقام لموجات مسموعة.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 06 BINARY ============ -->
+    <section id="binary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#b91c1c)">06</div>
+          <div>
+            <h2 data-ar="النظام الثنائي <span dir=&quot;ltr&quot;>(Binary)</span>" data-en="Binary"><span
+                dir="ltr">Binary</span></h2>
+            <div class="tag" style="color:var(--s6)" data-ar="تمثيل الأرقام بـ 0 و1 — الكتاب صفحة 53"
+              data-en="representing numbers with 0 and 1 — book page 53">تمثيل الأرقام بـ 0 و1 — الكتاب صفحة 53</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="النظام الثنائي: كل حاجة في الكمبيوتر 0 و1"
+              data-en="The binary system: everything in the computer is 0 and 1">النظام الثنائي: كل حاجة في الكمبيوتر 0 و1</div>
+            <div class="flow-card" data-id="binary">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="binary"></svg>
+                <div class="svg-label" data-fbox="num" data-ar="🔢 الرقم العشري" data-en="🔢 The decimal number">🔢 الرقم العشري</div>
+                <div class="svg-label" data-fbox="bits" data-ar="0️⃣1️⃣ بتات 0 و1" data-en="0️⃣1️⃣ Bits 0 and 1">0️⃣1️⃣ بتات 0 و1</div>
+                <div class="svg-label" data-fbox="data" data-ar="💻 كل أنواع البيانات" data-en="💻 All data types">💻 كل أنواع البيانات</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="binaryPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="binaryNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="binaryCounter">1 / 3</span>
+                <button class="mini-btn" data-id="binaryReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="النظام الثنائي (Binary) هو طريقة تمثيل الأرقام باستخدام نوعين من الأرقام فقط: 0 و1. في الكمبيوتر، كل أنواع المعلومات — أرقام، حروف، صوت، صور — بتتمثل بالنظام الثنائي."
+          data-en="The binary system is a method of representing numbers using only two types of digits: 0 and 1. In computers, all types of information — numbers, characters, audio, images — are represented in binary.">
+          النظام الثنائي <b><span dir="ltr">(Binary)</span></b> هو طريقة تمثيل الأرقام باستخدام <b>نوعين من الأرقام فقط:
+          0 و1</b>. في الكمبيوتر، كل أنواع المعلومات — أرقام، حروف، صوت، صور — بتتمثل بالنظام الثنائي.</p>
+        <p data-ar="أمثلة: الرقم 0 في الثنائي 0، والرقم 1 هو 1، والرقم 2 هو 10، والرقم 3 هو 11، وهكذا. كل خانة بنسميها بت (Bit)، ومجموعة البتات بتكوّن أي قيمة في الكمبيوتر."
+          data-en="Examples: the number 0 in binary is 0, the number 1 is 1, the number 2 is 10, the number 3 is 11, and so on. Each digit is called a bit, and groups of bits form any value in the computer.">
+          أمثلة: الرقم 0 في الثنائي <b>0</b>، والرقم 1 هو <b>1</b>، والرقم 2 هو <b>10</b>، والرقم 3 هو <b>11</b>، وهكذا.
+          كل خانة بنسميها <b>بت <span dir="ltr">(Bit)</span></b>، ومجموعة البتات بتكوّن أي قيمة في الكمبيوتر.</p>
+        <div class="note"><b data-ar="تذكّر:" data-en="Remember:">تذكّر:</b> <span
+            data-ar="في الكمبيوتر كل حاجة — أرقام، حروف، صوت، صور — ممثلة بالنظام الثنائي 0 و1."
+            data-en="In the computer everything — numbers, characters, audio, images — is represented in the binary system 0 and 1.">في
+            الكمبيوتر كل حاجة — أرقام، حروف، صوت، صور — ممثلة <b>بالنظام الثنائي 0 و1</b>.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="binaryQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="binaryRecall">
+          <div class="rq" data-id="binaryRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="النظام الثنائي بيستخدم إيه في تمثيل الأرقام؟"
+                data-en="What does the binary system use to represent numbers?">النظام الثنائي بيستخدم إيه في تمثيل
+                الأرقام؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="binaryRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! نوعين بس من الأرقام: 0 و1."
+                data-fb-en="Correct! Only two types of digits: 0 and 1."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="0 و1 فقط"
+                  data-en="Only 0 and 1">0 و1 فقط</span></div>
+              <div class="rq-opt" data-id="binaryRq1o2" data-key="B"
+                data-fb-ar="دي العشرية (Decimal) — الأرقام من 0 لـ9."
+                data-fb-en="That is decimal — the digits from 0 to 9."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="الأرقام من 0 لـ9"
+                  data-en="The digits from 0 to 9">الأرقام من 0 لـ9</span></div>
+              <div class="rq-opt" data-id="binaryRq1o3" data-key="C"
+                data-fb-ar="لأ، الثنائي بيستخدم رقمين بس مش حروف."
+                data-fb-en="No, binary uses only two digits, not letters."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="الحروف A وB"
+                  data-en="The letters A and B">الحروف A وB</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="binaryRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="binaryRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="الرقم 2 في النظام الثنائي بيتكتب إزاي؟"
+                data-en="How is the number 2 written in the binary system?">الرقم 2 في النظام الثنائي بيتكتب إزاي؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="binaryRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! العدد 2 في الثنائي هو 10."
+                data-fb-en="Correct! The number 2 in binary is 10."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="10"
+                  data-en="10">10</span></div>
+              <div class="rq-opt" data-id="binaryRq2o2" data-key="B"
+                data-fb-ar="العدد 2 العشري، لكن في الثنائي هو 10."
+                data-fb-en="That is the decimal number 2, but in binary it is 10."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="2"
+                  data-en="2">2</span></div>
+              <div class="rq-opt" data-id="binaryRq2o3" data-key="C"
+                data-fb-ar="ده تمثيل العدد 3 في الثنائي."
+                data-fb-en="That is the representation of the number 3 in binary."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="11"
+                  data-en="11">11</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="binaryRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="الخلط بين العشري والثنائي — العشري 0 لـ9، والثنائي 0 و1 بس."
+            data-en="Mixing up decimal and binary — decimal is 0 to 9, binary is only 0 and 1.">
+            الخلط بين العشري والثنائي — العشري <b>0 لـ9</b>، والثنائي <b>0 و1 بس</b>.</li>
+          <li data-ar="نسيان إن كل أنواع البيانات — مش الأرقام بس — بتتمثل ثنائي في الكمبيوتر."
+            data-en="Forgetting that all data types — not just numbers — are represented in binary in the computer.">
+            نسيان إن <b>كل أنواع البيانات</b> — مش الأرقام بس — بتتمثل ثنائي في الكمبيوتر.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 07 PRACTICE ============ -->
+    <section id="practice">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#b45309)">07</div>
+          <div>
+            <h2 data-ar="التدريبات" data-en="Exercises">التدريبات</h2>
+            <div class="tag" style="color:var(--s2)" data-ar="كتابك: صفحة 53 – 54"
+              data-en="Your book: pages 53 – 54">كتابك: صفحة 53 – 54</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="demo-panel">
+          <div class="demo-label" data-ar="🎯 طريقة الحل" data-en="🎯 How to Solve">🎯 طريقة الحل</div>
+          <div class="todo-item"><span class="emoji-pulse">🖱️</span><span><b data-ar="اضغط على إجابتك"
+                data-en="click your answer">اضغط على إجابتك</b> <span data-ar="— الإجابة هتتظلل باللون الأزرق."
+                  data-en="— the answer will be highlighted in blue.">— الإجابة هتتظلل باللون الأزرق.</span></span></div>
+          <div class="todo-item"><span class="emoji-float">✔️</span><span><b data-ar="اضغط «اكشف الإجابات»"
+                data-en="click 'Reveal Answers'">اضغط «اكشف الإجابات»</b> <span
+                data-ar="— الصح هيتظلل بالأخضر والغلط بالأحمر، وهتشوف نتيجتك." data-en="— correct will turn green, wrong red, and you'll see your score.">—
+                الصح هيتظلل بالأخضر والغلط بالأحمر، وهتشوف نتيجتك.</span></span></div>
+          <div class="todo-item"><span class="emoji-pulse">🔄</span><span><b data-ar="اضغط «إعادة الحل»"
+                data-en="click 'Reset'">اضغط «إعادة الحل»</b> <span data-ar="— عشان تمسح كل اختياراتك وتحل من الأول."
+                  data-en="— to clear all your picks and start over.">— عشان تمسح كل اختياراتك وتحل من الأول.</span></span></div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ التمرين الأول: Warm Up — اختر المصطلح المناسب للفراغات [1] إلى [5]"
+          data-en="✍️ Exercise 1: Warm Up — choose the right term for blanks [1] to [5]">✍️ التمرين الأول: <span
+            dir="ltr">Warm Up</span> — اختر المصطلح المناسب للفراغات [1] إلى [5]</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="الفراغ [1] — كمية شائعة في حياتنا اليومية وبتتغير باستمرار، زي الوقت أو درجة الحرارة، بنسميها إيه؟"
+              data-en="Blank [1] — a quantity commonly found in our daily lives that changes continuously, like time or temperature, is called?">الفراغ
+              [1] — كمية شائعة في حياتنا اليومية وبتتغير باستمرار، زي الوقت أو درجة الحرارة، بنسميها إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  Binary" data-en="A  Binary">A  Binary</div>
+            <div class="ex-opt" data-ar="B  Decimal" data-en="B  Decimal">B  Decimal</div>
+            <div class="ex-opt" data-ar="C  Digital" data-en="C  Digital">C  Digital</div>
+            <div class="ex-opt" data-ok="1" data-ar="D  Analog" data-en="D  Analog">D  Analog</div>
+            <div class="ex-opt" data-ar="E  A/D" data-en="E  A/D">E  A/D</div>
+            <div class="ex-opt" data-ar="F  D/A" data-en="F  D/A">F  D/A</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: D — Analog" data-en="✅ Answer: D — Analog">✅ الإجابة: D —
+              Analog</b> <span data-ar="الكمية المستمرة زي الوقت والحرارة هي Analog."
+              data-en="the continuous quantity like time and temperature is Analog.">الكمية المستمرة زي الوقت والحرارة هي
+              <span dir="ltr">Analog</span>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">2</span> <span data-ar="الفراغ [2] — كمية بتمثل القيمة المتغيرة باستمرار عن طريق تقسيمها لفترات منتظمة وتمثيلها رقمياً، بنسميها إيه؟"
+              data-en="Blank [2] — a quantity that represents a continuously changing value by dividing it into regular intervals and expressing it numerically, is called?">الفراغ
+              [2] — كمية بتمثل القيمة المتغيرة باستمرار عن طريق تقسيمها لفترات منتظمة وتمثيلها رقمياً، بنسميها إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  Binary" data-en="A  Binary">A  Binary</div>
+            <div class="ex-opt" data-ar="B  Decimal" data-en="B  Decimal">B  Decimal</div>
+            <div class="ex-opt" data-ok="1" data-ar="C  Digital" data-en="C  Digital">C  Digital</div>
+            <div class="ex-opt" data-ar="D  Analog" data-en="D  Analog">D  Analog</div>
+            <div class="ex-opt" data-ar="E  A/D" data-en="E  A/D">E  A/D</div>
+            <div class="ex-opt" data-ar="F  D/A" data-en="F  D/A">F  D/A</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — Digital" data-en="✅ Answer: C — Digital">✅ الإجابة: C —
+              Digital</b> <span data-ar="التقسيم لفترات والتمثيل الرقمي هو Digital."
+              data-en="dividing into intervals and numeric representation is Digital.">التقسيم لفترات والتمثيل الرقمي هو
+              <span dir="ltr">Digital</span>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">3</span> <span data-ar="الفراغ [3] — تحويل البيانات الأنالوج لبيانات ديجيتال بنسميه إيه؟"
+              data-en="Blank [3] — converting analog data to digital data is called?">الفراغ [3] — تحويل البيانات الأنالوج
+              لبيانات ديجيتال بنسميه إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  Binary" data-en="A  Binary">A  Binary</div>
+            <div class="ex-opt" data-ar="B  Decimal" data-en="B  Decimal">B  Decimal</div>
+            <div class="ex-opt" data-ar="C  Digital" data-en="C  Digital">C  Digital</div>
+            <div class="ex-opt" data-ar="D  Analog" data-en="D  Analog">D  Analog</div>
+            <div class="ex-opt" data-ok="1" data-ar="E  A/D" data-en="E  A/D">E  A/D</div>
+            <div class="ex-opt" data-ar="F  D/A" data-en="F  D/A">F  D/A</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: E — A/D" data-en="✅ Answer: E — A/D">✅ الإجابة: E — A/D</b>
+            <span data-ar="A/D = Analog to Digital."
+              data-en="A/D = Analog to Digital."><span dir="ltr">A/D</span> = <span dir="ltr">Analog to Digital</span>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">4</span> <span data-ar="الفراغ [4] — تحويل البيانات الديجيتال لبيانات أنالوج بنسميه إيه؟"
+              data-en="Blank [4] — converting digital data to analog data is called?">الفراغ [4] — تحويل البيانات الديجيتال
+              لبيانات أنالوج بنسميه إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  Binary" data-en="A  Binary">A  Binary</div>
+            <div class="ex-opt" data-ar="B  Decimal" data-en="B  Decimal">B  Decimal</div>
+            <div class="ex-opt" data-ar="C  Digital" data-en="C  Digital">C  Digital</div>
+            <div class="ex-opt" data-ar="D  Analog" data-en="D  Analog">D  Analog</div>
+            <div class="ex-opt" data-ar="E  A/D" data-en="E  A/D">E  A/D</div>
+            <div class="ex-opt" data-ok="1" data-ar="F  D/A" data-en="F  D/A">F  D/A</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: F — D/A" data-en="✅ Answer: F — D/A">✅ الإجابة: F — D/A</b>
+            <span data-ar="D/A = Digital to Analog."
+              data-en="D/A = Digital to Analog."><span dir="ltr">D/A</span> = <span dir="ltr">Digital to Analog</span>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">5</span> <span data-ar="الفراغ [5] — التمثيل بالرقمين 0 و1 في الكمبيوتر بنسميه إيه؟"
+              data-en="Blank [5] — representing data with the two digits 0 and 1 in the computer is called?">الفراغ [5] —
+              التمثيل بالرقمين 0 و1 في الكمبيوتر بنسميه إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  Binary" data-en="A  Binary">A  Binary</div>
+            <div class="ex-opt" data-ar="B  Decimal" data-en="B  Decimal">B  Decimal</div>
+            <div class="ex-opt" data-ar="C  Digital" data-en="C  Digital">C  Digital</div>
+            <div class="ex-opt" data-ar="D  Analog" data-en="D  Analog">D  Analog</div>
+            <div class="ex-opt" data-ar="E  A/D" data-en="E  A/D">E  A/D</div>
+            <div class="ex-opt" data-ar="F  D/A" data-en="F  D/A">F  D/A</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — Binary" data-en="✅ Answer: A — Binary">✅ الإجابة: A —
+              Binary</b> <span data-ar="تمثيل البيانات بـ 0 و1 هو النظام الثنائي."
+              data-en="representing data with 0 and 1 is the binary system.">تمثيل البيانات بـ 0 و1 هو النظام الثنائي
+              <span dir="ltr">(Binary)</span>.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ التمرين الثاني: Warm Up (2) — حدد أنالوج ولا ديجيتال"
+          data-en="✍️ Exercise 2: Warm Up (2) — decide analog or digital">✍️ التمرين الثاني: <span dir="ltr">Warm Up</span>
+          (2) — حدد أنالوج ولا ديجيتال</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="العبارة A — التجميع والنسخ للمعلومات بيتم بسهولة."
+              data-en="Statement A — Accumulation and duplication of information can be easily achieved.">العبارة A —
+              التجميع والنسخ للمعلومات بيتم بسهولة.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  Digital" data-en="A  Digital">A  Digital</div>
+            <div class="ex-opt" data-ar="B  Analog" data-en="B  Analog">B  Analog</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — Digital" data-en="✅ Answer: A — Digital">✅ الإجابة: A —
+              Digital</b> <span data-ar="من مميزات البيانات الديجيتال سهولة التجميع والنسخ."
+              data-en="an advantage of digital data is the ease of accumulation and duplication.">من مميزات البيانات
+              الديجيتال سهولة التجميع والنسخ.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">2</span> <span data-ar="العبارة B — درجة الحرارة بتتقاس بتقييم ارتفاع عمود الزئبق."
+              data-en="Statement B — Temperature is measured by assessing the height of the mercury column.">العبارة B —
+              درجة الحرارة بتتقاس بتقييم ارتفاع عمود الزئبق.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  Digital" data-en="A  Digital">A  Digital</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  Analog" data-en="B  Analog">B  Analog</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — Analog" data-en="✅ Answer: B — Analog">✅ الإجابة: B —
+              Analog</b> <span data-ar="عمود الزئبق بيمتد بشكل مستمر — دي قياس أنالوج."
+              data-en="the mercury column extends continuously — that is an analog measurement.">عمود الزئبق بيمتد بشكل
+              مستمر — دي قياس أنالوج.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">3</span> <span data-ar="العبارة C — لو حصل تشويه في الإشارة الكهربية بسبب الضوضاء وقت الإرسال، ممكن يصحح بسهولة."
+              data-en="Statement C — Even if some distortion occurs in the electrical signal due to noise during transmission, it can be easily corrected.">العبارة
+              C — لو حصل تشويه في الإشارة الكهربية بسبب الضوضاء وقت الإرسال، ممكن يصحح بسهولة.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  Digital" data-en="A  Digital">A  Digital</div>
+            <div class="ex-opt" data-ar="B  Analog" data-en="B  Analog">B  Analog</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — Digital" data-en="✅ Answer: A — Digital">✅ الإجابة: A —
+              Digital</b> <span data-ar="البيانات الديجيتال بتتصحح بسهولة عند التشويه."
+              data-en="digital data is easily corrected when distorted.">البيانات الديجيتال بتتصحح بسهولة عند التشويه.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">4</span> <span data-ar="العبارة D — كميات بتتغير باستمرار، زي الوقت أو درجة الحرارة."
+              data-en="Statement D — Quantities that change continuously, such as time or temperature.">العبارة D — كميات
+              بتتغير باستمرار، زي الوقت أو درجة الحرارة.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  Digital" data-en="A  Digital">A  Digital</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  Analog" data-en="B  Analog">B  Analog</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — Analog" data-en="✅ Answer: B — Analog">✅ الإجابة: B —
+              Analog</b> <span data-ar="الكمية المستمرة زي الوقت والحرارة هي أنالوج."
+              data-en="a continuous quantity like time and temperature is analog.">الكمية المستمرة زي الوقت والحرارة هي
+              أنالوج.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">5</span> <span data-ar="العبارة E — ممكن التعامل بشكل شامل مع أنواع مختلفة من الوسائط."
+              data-en="Statement E — It is possible to comprehensively handle various forms of media.">العبارة E — ممكن
+              التعامل بشكل شامل مع أنواع مختلفة من الوسائط.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  Digital" data-en="A  Digital">A  Digital</div>
+            <div class="ex-opt" data-ar="B  Analog" data-en="B  Analog">B  Analog</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — Digital" data-en="✅ Answer: A — Digital">✅ الإجابة: A —
+              Digital</b> <span data-ar="من مميزات الديجيتال دمج أنواع وسائط مختلفة."
+              data-en="an advantage of digital is combining different media types.">من مميزات الديجيتال دمج أنواع وسائط
+              مختلفة.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ التمرين الثالث: Exercise (1) — أجب عن الأسئلة التالية"
+          data-en="✍️ Exercise 3: Exercise (1) — answer the following questions">✍️ التمرين الثالث: <span
+            dir="ltr">Exercise</span> (1) — أجب عن الأسئلة التالية</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="إيه المصطلح اللي بيعبّر عن كميات بتتقاس بشكل مستمر وبدقة متناهية، زي الكتلة أو الوقت؟"
+              data-en="What is the term for quantities that can be measured continuously and with fine precision, such as mass or time?">إيه
+              المصطلح اللي بيعبّر عن كميات بتتقاس بشكل مستمر وبدقة متناهية، زي الكتلة أو الوقت؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  Analog" data-en="A  Analog">A  Analog</div>
+            <div class="ex-opt" data-ar="B  Digital" data-en="B  Digital">B  Digital</div>
+            <div class="ex-opt" data-ar="C  Binary" data-en="C  Binary">C  Binary</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — Analog" data-en="✅ Answer: A — Analog">✅ الإجابة: A — Analog</b>
+            <span data-ar="الكمية المستمرة زي الكتلة والوقت هي أنالوج."
+              data-en="the continuous quantity like mass and time is analog.">الكمية المستمرة زي الكتلة والوقت هي
+              أنالوج.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">2</span> <span data-ar="إيه المصطلح اللي بيعبّر عن عملية تحويل البيانات الديجيتال لبيانات أنالوج؟"
+              data-en="What is the term for the process of converting digital data into analog data?">إيه المصطلح اللي
+              بيعبّر عن عملية تحويل البيانات الديجيتال لبيانات أنالوج؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  A/D conversion" data-en="A  A/D conversion">A  A/D conversion</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  D/A conversion" data-en="B  D/A conversion">B  D/A conversion</div>
+            <div class="ex-opt" data-ar="C  Binary system" data-en="C  Binary system">C  Binary system</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — D/A conversion" data-en="✅ Answer: B — D/A conversion">✅ الإجابة:
+              <span dir="ltr">B — D/A conversion</span></b> <span data-ar="D/A = Digital to Analog."
+              data-en="D/A = Digital to Analog."><span dir="ltr">D/A</span> = <span dir="ltr">Digital to Analog</span>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">3</span> <span data-ar="إيه هو تحويل A/D؟ اشرح باستخدام كلمتي digital وanalog."
+              data-en="What is A/D conversion? Explain briefly using the terms digital and analog.">إيه هو تحويل <span
+                dir="ltr">A/D</span>؟ اشرح باستخدام كلمتي <span dir="ltr">digital</span> و<span dir="ltr">analog</span>.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  تحويل البيانات الأنالوج إلى بيانات ديجيتال"
+              data-en="A  converting analog data into digital data">A  تحويل البيانات الأنالوج إلى بيانات ديجيتال</div>
+            <div class="ex-opt" data-ar="B  تحويل البيانات الديجيتال إلى بيانات أنالوج"
+              data-en="B  converting digital data into analog data">B  تحويل البيانات الديجيتال إلى بيانات أنالوج</div>
+            <div class="ex-opt" data-ar="C  تخزين البيانات في النظام الثنائي"
+              data-en="C  storing data in the binary system">C  تخزين البيانات في النظام الثنائي</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — تحويل البيانات الأنالوج إلى بيانات ديجيتال"
+              data-en="✅ Answer: A — converting analog data into digital data">✅ الإجابة: تحويل البيانات الأنالوج إلى بيانات
+              ديجيتال</b> <span data-ar="هو عملية تحويل Analog data إلى Digital data."
+              data-en="it is the process of converting analog data into digital data.">هو عملية تحويل <span
+                dir="ltr">Analog data</span> إلى <span dir="ltr">Digital data</span>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">4</span> <span data-ar="إيه المصطلح اللي بيعبّر عن طريقة تمثيل الأرقام باستخدام نوعين من الأرقام (0 و1)؟"
+              data-en="What is the term for the method of representing numbers using two types of digits (0 and 1)?">إيه
+              المصطلح اللي بيعبّر عن طريقة تمثيل الأرقام باستخدام نوعين من الأرقام (0 و1)؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  Decimal" data-en="A  Decimal">A  Decimal</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  Binary" data-en="B  Binary">B  Binary</div>
+            <div class="ex-opt" data-ar="C  Analog" data-en="C  Analog">C  Analog</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — Binary" data-en="✅ Answer: B — Binary">✅ الإجابة: Binary</b>
+            <span data-ar="النظام الثنائي بيستخدم 0 و1 فقط."
+              data-en="the binary system uses only 0 and 1.">النظام الثنائي بيستخدم 0 و1 فقط.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ التمرين الرابع: Exercise (2) — اختر العبارة الغلط عن البيانات الديجيتال"
+          data-en="✍️ Exercise 4: Exercise (2) — choose the incorrect statement about digital data">✍️ التمرين الرابع:
+          <span dir="ltr">Exercise</span> (2) — اختر العبارة الغلط عن البيانات الديجيتال</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="اختر عبارة واحدة غير صحيحة بخصوص البيانات الديجيتال من الخيارات A إلى D."
+              data-en="Choose one statement that is incorrect in regard to digital data from the options A to D.">اختر
+              عبارة واحدة غير صحيحة بخصوص البيانات الديجيتال من الخيارات A إلى D.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  التجميع والنسخ للمعلومات بيتم بسهولة"
+              data-en="A  Accumulation and duplication of information can be easily achieved">A  التجميع والنسخ للمعلومات
+              بيتم بسهولة</div>
+            <div class="ex-opt" data-ar="B  ممكن إيصال المعلومات بكفاءة"
+              data-en="B  It is possible to efficiently communicate the information">B  ممكن إيصال المعلومات بكفاءة</div>
+            <div class="ex-opt" data-ok="1" data-ar="C  تقدر تعبّر عن كميات بتتغير باستمرار، زي الوقت ودرجة الحرارة"
+              data-en="C  It can express quantities that change continuously, such as time and temperature">C  تقدر تعبّر
+              عن كميات بتتغير باستمرار، زي الوقت ودرجة الحرارة</div>
+            <div class="ex-opt" data-ar="D  ممكن دمج أنواع مختلفة من الوسائط"
+              data-en="D  It is possible to combine various types of media">D  ممكن دمج أنواع مختلفة من الوسائط</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C" data-en="✅ Answer: C">✅ الإجابة: C</b> <span
+              data-ar="الكميات المستمرة زي الوقت والحرارة هي أنالوج — الديجيتال بيقسّم القيمة لفترات."
+              data-en="continuous quantities like time and temperature are analog — digital divides the value into intervals.">الكميات
+              المستمرة زي الوقت والحرارة هي أنالوج — الديجيتال بيقسّم القيمة لفترات.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 08 RECAP ============ -->
+    <section id="recap">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">08</div>
+          <div>
+            <h2 data-ar="الخلاصة" data-en="Recap">الخلاصة</h2>
+            <div class="tag" style="color:var(--s4)" data-ar="رحلة سريعة في كل اللي خدناه النهارده"
+              data-en="a quick journey through everything we learned today">رحلة سريعة في كل اللي خدناه النهارده</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="journey">
+              <div class="journey-item">
+                <span class="jn-num">01</span>
+                <div>
+                  <h4 data-ar="Analog — الكمية المستمرة" data-en="Analog — the continuous quantity">Analog — الكمية
+                    المستمرة</h4>
+                  <p data-ar="كمية بتتغير باستمرار وبتتقاس بدقة، زي الكتلة والوقت والحرارة — زي عمود الزئبق."
+                    data-en="a quantity that changes continuously and is measured with precision, like mass, time, and temperature — like the mercury column.">كمية
+                    بتتغير باستمرار وبتتقاس بدقة، زي الكتلة والوقت والحرارة — زي عمود الزئبق.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">02</span>
+                <div>
+                  <h4 data-ar="Digital — التمثيل الرقمي" data-en="Digital — the numeric representation">Digital — التمثيل
+                    الرقمي</h4>
+                  <p data-ar="تقسيم القيمة لفترات منتظمة وتمثيلها رقمياً — البيانات الديجيتال بتتنسخ من غير فقدان."
+                    data-en="dividing the value into regular intervals and representing it numerically — digital data is copied without loss.">تقسيم
+                    القيمة لفترات منتظمة وتمثيلها رقمياً — البيانات الديجيتال بتتنسخ من غير فقدان.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">03</span>
+                <div>
+                  <h4 data-ar="A/D conversion — الترقيم" data-en="A/D conversion — digitization">A/D conversion — الترقيم</h4>
+                  <p data-ar="تحويل البيانات الأنالوج لبيانات ديجيتال — من موجة مستمرة لأرقام."
+                    data-en="converting analog data into digital data — from a continuous wave to numbers.">تحويل البيانات
+                    الأنالوج لبيانات ديجيتال — من موجة مستمرة لأرقام.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">04</span>
+                <div>
+                  <h4 data-ar="D/A conversion — العكس" data-en="D/A conversion — the reverse">D/A conversion — العكس</h4>
+                  <p data-ar="تحويل البيانات الديجيتال لبيانات أنالوج — من أرقام لقيم مستمرة."
+                    data-en="converting digital data into analog data — from numbers to continuous values.">تحويل البيانات
+                    الديجيتال لبيانات أنالوج — من أرقام لقيم مستمرة.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">05</span>
+                <div>
+                  <h4 data-ar="Binary — النظام الثنائي" data-en="Binary — the binary system">Binary — النظام الثنائي</h4>
+                  <p data-ar="تمثيل كل البيانات في الكمبيوتر باستخدام 0 و1 — أرقام، حروف، صوت، صور."
+                    data-en="representing all data in the computer using 0 and 1 — numbers, characters, audio, images.">تمثيل
+                    كل البيانات في الكمبيوتر باستخدام 0 و1 — أرقام، حروف، صوت، صور.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="🏁 التقييم النهائي — 3 أسئلة" data-en="🏁 Final Quiz — 3 questions">🏁 التقييم النهائي — 3 أسئلة</h3>
+        <p style="font-size:.9rem"
+          data-ar="اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال." data-en="Click your answer to see the result and explanation, or skip the question.">
+          اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="recapQuizStart" data-start data-ar="💡 ابدأ التقييم" data-en="💡 Start the Quiz">💡 ابدأ
+          التقييم</button>
+        <div class="recall" id="recapRecall">
+          <div class="rq" data-id="recapRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="عمود الزئبق في ميزان الحرارة مثال على إيه؟"
+                data-en="Which type does the mercury column in a thermometer represent?">عمود الزئبق في ميزان الحرارة مثال
+                على إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! الزئبق بيمتد بشكل مستمر — بيانات أنالوج."
+                data-fb-en="Correct! The mercury extends continuously — analog data."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="بيانات أنالوج"
+                  data-en="Analog data">بيانات أنالوج</span></div>
+              <div class="rq-opt" data-id="recapRq1o2" data-key="B"
+                data-fb-ar="الديجيتال بيقسّم القيمة لفترات، والزئبق مستمر."
+                data-fb-en="Digital divides the value into intervals, and the mercury is continuous."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="بيانات ديجيتال"
+                  data-en="Digital data">بيانات ديجيتال</span></div>
+              <div class="rq-opt" data-id="recapRq1o3" data-key="C"
+                data-fb-ar="النظام الثنائي طريقة تمثيل، مش مثال للزئبق."
+                data-fb-en="The binary system is a representation method, not an example of the mercury."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="النظام الثنائي"
+                  data-en="The binary system">النظام الثنائي</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="recapRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="تحويل البيانات الديجيتال لبيانات أنالوج بنسميه إيه؟"
+                data-en="What do we call converting digital data into analog data?">تحويل البيانات الديجيتال لبيانات
+                أنالوج بنسميه إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq2o1" data-key="A"
+                data-fb-ar="A/D هي العكس — من أنالوج لديجيتال."
+                data-fb-en="A/D is the reverse — from analog to digital."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="A/D conversion"
+                  data-en="A/D conversion">A/D conversion</span></div>
+              <div class="rq-opt" data-id="recapRq2o2" data-key="B" data-ok="1"
+                data-fb-ar="صحيح! D/A = Digital to Analog."
+                data-fb-en="Correct! D/A = Digital to Analog."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="D/A conversion"
+                  data-en="D/A conversion">D/A conversion</span></div>
+              <div class="rq-opt" data-id="recapRq2o3" data-key="C"
+                data-fb-ar="النظام الثنائي طريقة تمثيل، مش عملية تحويل."
+                data-fb-en="The binary system is a representation method, not a conversion process."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="النظام الثنائي"
+                  data-en="The binary system">النظام الثنائي</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="recapRq3">
+            <div class="rq-q"><span class="q-num">3</span> <span data-ar="الرقم 2 في النظام الثنائي بيتكتب إزاي؟"
+                data-en="How is the number 2 written in the binary system?">الرقم 2 في النظام الثنائي بيتكتب إزاي؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq3o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! العدد 2 في الثنائي هو 10."
+                data-fb-en="Correct! The number 2 in binary is 10."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="10"
+                  data-en="10">10</span></div>
+              <div class="rq-opt" data-id="recapRq3o2" data-key="B"
+                data-fb-ar="ده تمثيل العدد 2 في العشري، لكن في الثنائي هو 10."
+                data-fb-en="That is the decimal number 2, but in binary it is 10."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="2"
+                  data-en="2">2</span></div>
+              <div class="rq-opt" data-id="recapRq3o3" data-key="C"
+                data-fb-ar="ده تمثيل العدد 3 في الثنائي."
+                data-fb-en="That is the representation of the number 3 in binary."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="11"
+                  data-en="11">11</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq3Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card congrats">
+        <h3 data-ar="🎉 أحسنت! أنهيت درس Analog and Digital"
+          data-en="🎉 Well done! You finished the lesson Analog and Digital">🎉 أحسنت! أنهيت درس <span
+            dir="ltr">Analog and Digital</span></h3>
+        <p data-ar="عرفت دلوقتي الفرق بين الأنالوج والديجيتال، والتحويل بينهم (A/D وD/A)، والنظام الثنائي — وأساس تمثيل أي بيانات في الكمبيوتر."
+          data-en="Now you know the difference between analog and digital, converting between them (A/D and D/A), and the binary system — the basis of representing any data in the computer.">
+          عرفت دلوقتي الفرق بين الأنالوج والديجيتال، والتحويل بينهم (<span dir="ltr">A/D</span> و<span dir="ltr">D/A</span>)،
+          والنظام الثنائي — وأساس تمثيل أي بيانات في الكمبيوتر.</p>
+        <div class="note"><b data-ar="لو لسه محتاج تراجع:" data-en="If you still need a review:">لو لسه محتاج
+            تراجع:</b> <span data-ar="ارجع للرسومات التخطيطية في كل قسم وضغط على «التالي ←» خطوة بخطوة."
+              data-en="go back to the diagrams in each section and click 'Next ←' step by step.">ارجع للرسومات
+            التخطيطية في كل قسم وضغط على «التالي ←» خطوة بخطوة.</span></div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="نسيان إن عمود الزئبق مثال أنالوج، والقراءة الرقمية مثال ديجيتال."
+            data-en="Forgetting the mercury column is an analog example, and the digital reading is a digital example.">
+            نسيان إن عمود الزئبق مثال أنالوج، والقراءة الرقمية مثال ديجيتال.</li>
+          <li data-ar="الخلط بين A/D وD/A — A/D من أنالوج لديجيتال، D/A العكس."
+            data-en="Mixing up A/D and D/A — A/D is from analog to digital, D/A is the reverse.">
+            الخلط بين <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span> — <span dir="ltr">A/D</span> من أنالوج
+            لديجيتال، <span dir="ltr">D/A</span> العكس.</li>
+          <li data-ar="نسيان إن كل بيانات الكمبيوتر — مش الأرقام بس — ممثلة بالنظام الثنائي."
+            data-en="Forgetting all computer data — not just numbers — is represented in the binary system.">
+            نسيان إن كل بيانات الكمبيوتر — مش الأرقام بس — ممثلة <b>بالنظام الثنائي</b>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">09</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s5)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="basic" data-ar="أساسيات" data-en="Basics">أساسيات</button>
+          <button class="mini-btn gl-filter" data-filter="conv" data-ar="تحويل" data-en="Conversion">تحويل</button>
+          <button class="mini-btn gl-filter" data-filter="binary" data-ar="ثنائي" data-en="Binary">ثنائي</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="basic">
+            <h4 data-ar="Analog — أنالوج" data-en="Analog">Analog — أنالوج</h4>
+            <p data-ar="كمية بتتغير بشكل مستمر وبتتقاس بدقة متناهية، زي الكتلة والوقت والحرارة." data-en="A quantity that changes continuously and is measured with fine precision, like mass, time, or temperature.">كمية بتتغير بشكل مستمر وبتتقاس بدقة متناهية، زي الكتلة والوقت والحرارة.</p>
+          </div>
+          <div class="gl-term" data-cat="basic">
+            <h4 data-ar="Analog data — بيانات أنالوج" data-en="Analog data">Analog data — بيانات أنالوج</h4>
+            <p data-ar="البيانات اللي بتتمثل بالشكل الأنالوج — قيمة مستمرة من غير تقسيم." data-en="Data represented in analog form — a continuous value without division.">البيانات اللي بتتمثل بالشكل الأنالوج — قيمة مستمرة من غير تقسيم.</p>
+          </div>
+          <div class="gl-term" data-cat="basic">
+            <h4 data-ar="Digital — ديجيتال" data-en="Digital">Digital — ديجيتال</h4>
+            <p data-ar="كمية بتتغير باستمرار بس بنمثلها رقمياً عن طريق تقسيمها لفترات منتظمة." data-en="A quantity that changes continuously but is represented numerically by dividing it into regular intervals.">كمية بتتغير باستمرار بس بنمثلها رقمياً عن طريق تقسيمها لفترات منتظمة.</p>
+          </div>
+          <div class="gl-term" data-cat="basic">
+            <h4 data-ar="Digital data — بيانات ديجيتال" data-en="Digital data">Digital data — بيانات ديجيتال</h4>
+            <p data-ar="البيانات اللي بتتمثل بالشكل الديجيتال — بتتنسخ من غير فقدان للجودة." data-en="Data represented in digital form — it is copied without loss of quality.">البيانات اللي بتتمثل بالشكل الديجيتال — بتتنسخ من غير فقدان للجودة.</p>
+          </div>
+          <div class="gl-term" data-cat="conv">
+            <h4 data-ar="A/D conversion — تحويل A/D" data-en="A/D conversion">A/D conversion — تحويل <span dir="ltr">A/D</span></h4>
+            <p data-ar="عملية تحويل البيانات الأنالوج إلى بيانات ديجيتال — وبنسميها كمان Digitization." data-en="The process of converting analog data into digital data — also called digitization.">عملية تحويل البيانات الأنالوج إلى بيانات ديجيتال — وبنسميها كمان الترقيم <span dir="ltr">(Digitization)</span>.</p>
+          </div>
+          <div class="gl-term" data-cat="conv">
+            <h4 data-ar="D/A conversion — تحويل D/A" data-en="D/A conversion">D/A conversion — تحويل <span dir="ltr">D/A</span></h4>
+            <p data-ar="عملية تحويل البيانات الديجيتال إلى بيانات أنالوج — العكس تماماً." data-en="The process of converting digital data into analog data — the exact reverse.">عملية تحويل البيانات الديجيتال إلى بيانات أنالوج — العكس تماماً.</p>
+          </div>
+          <div class="gl-term" data-cat="conv">
+            <h4 data-ar="Digitization — الترقيم" data-en="Digitization">Digitization — الترقيم</h4>
+            <p data-ar="اسم تاني لتحويل A/D — تحويل البيانات الأنالوج لبيانات ديجيتال." data-en="Another name for A/D conversion — converting analog data into digital data.">اسم تاني لتحويل <span dir="ltr">A/D</span> — تحويل البيانات الأنالوج لبيانات ديجيتال.</p>
+          </div>
+          <div class="gl-term" data-cat="binary">
+            <h4 data-ar="Binary — النظام الثنائي" data-en="Binary">Binary — النظام الثنائي</h4>
+            <p data-ar="طريقة تمثيل الأرقام باستخدام نوعين من الأرقام فقط: 0 و1." data-en="A method of representing numbers using only two types of digits: 0 and 1.">طريقة تمثيل الأرقام باستخدام نوعين من الأرقام فقط: 0 و1.</p>
+          </div>
+          <div class="gl-term" data-cat="binary">
+            <h4 data-ar="Bit — بت" data-en="Bit">Bit — بت</h4>
+            <p data-ar="خانة واحدة في النظام الثنائي — قيمتها إما 0 أو 1." data-en="One digit in the binary system — its value is either 0 or 1.">خانة واحدة في النظام الثنائي — قيمتها إما 0 أو 1.</p>
+          </div>
+          <div class="gl-term" data-cat="basic">
+            <h4 data-ar="Advantages of digital data — مميزات البيانات الديجيتال" data-en="Advantages of digital data">Advantages of digital data — مميزات البيانات الديجيتال</h4>
+            <p data-ar="التجميع والنسخ من غير فقدان، سهولة التعديل، إيصال المعلومات بكفاءة، ودمج أنواع وسائط مختلفة." data-en="Accumulation and duplication without loss, easy editing, efficient communication, and combining various media types.">التجميع والنسخ من غير فقدان، سهولة التعديل، إيصال المعلومات بكفاءة، ودمج أنواع وسائط مختلفة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <button id="scrollTop" data-ar="↑" data-en="↑">↑</button>
+  </main>
+  <footer>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
+      <img class="footer-logo" src="data:image/webp;base64,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" alt="logo">
+      <span style="font-size:1rem;font-weight:800;color:var(--text);line-height:1.4"
+        data-ar="كويس جداً! دلوقتي بقيت تعرف الفرق بين الأنالوج والديجيتال، والتحويل بينهم، والنظام الثنائي 🚀"
+        data-en="Great! Now you know the difference between analog and digital, converting between them, and the binary system 🚀">كويس
+        جداً! دلوقتي بقيت تعرف الفرق بين الأنالوج والديجيتال، والتحويل بينهم، والنظام الثنائي 🚀</span>
+    </div>
+    <div class="footer-tag"
+      data-ar="درس 6-1 — Analog and Digital — صفحة 53–54 · الفرق بين البيانات الأنالوج والديجيتال، التحويل بينهم، والنظام الثنائي"
+      data-en="Lesson 6-1 — Analog and Digital — pages 53–54 · the difference between analog and digital data, converting between them, and the binary system">
+      درس 6-1 — Analog and Digital — صفحة 53–54 · الفرق بين البيانات الأنالوج والديجيتال، التحويل بينهم، والنظام الثنائي</div>
+  </footer>
+  <script>
+    'use strict';
+    var lang = localStorage.getItem('langPreference') || 'ar';
+    var currentLang = lang;
+
+    function L() {
+      return currentLang;
+    }
+
+    function tr(ar, en) {
+      return currentLang === 'en' ? en : ar;
+    }
+
+    function byId(id) {
+      return document.querySelector('[data-id="' + id + '"]') || document.getElementById(id);
+    }
+
+    /* ---------- particles ---------- */
+    (function () {
+      var box = document.getElementById('particles');
+      if (!box) return;
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < 28; i++) {
+        var s = document.createElement('i');
+        s.style.left = (Math.random() * 100) + 'vw';
+        s.style.animationDuration = (14 + Math.random() * 14) + 's';
+        s.style.animationDelay = (Math.random() * 12) + 's';
+        s.style.width = s.style.height = (2 + Math.random() * 4) + 'px';
+        if (Math.random() > .65) s.style.background = 'var(--accent)';
+        frag.appendChild(s);
+      }
+      box.appendChild(frag);
+    })();
+
+    /* ---------- nav ---------- */
+    var nav = document.getElementById('topnav');
+    var scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 60) nav.classList.add('show');
+      else nav.classList.remove('show');
+      if (window.scrollY > 500) scrollBtn.classList.add('show');
+      else scrollBtn.classList.remove('show');
+    }, { passive: true });
+    if (scrollBtn) scrollBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function wireNav() {
+      var links = Array.prototype.slice.call(document.querySelectorAll('#navLinks a'));
+      var secs = ['intro', 'analog', 'digital', 'adc', 'dac', 'binary', 'practice', 'recap', 'glossary'];
+      if (!('IntersectionObserver' in window)) return;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            var id = en.target.id;
+            links.forEach(function (a) {
+              a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      secs.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) io.observe(el);
+      });
+    }
+
+    /* ---------- reveal on scroll ---------- */
+    function wireReveal() {
+      var els = document.querySelectorAll('.section-inner');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('visible'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+        });
+      }, { threshold: .08 });
+      els.forEach(function (e) { io.observe(e); });
+    }
+
+    /* ---------- keyboard navigation ---------- */
+    var SECTIONS = ['intro', 'analog', 'digital', 'adc', 'dac', 'binary', 'practice', 'recap', 'glossary'];
+    window.addEventListener('keydown', function (e) {
+      if (e.target.matches('input,textarea')) return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      var cur = -1;
+      for (var i = 0; i < SECTIONS.length; i++) {
+        var el = document.getElementById(SECTIONS[i]);
+        if (el && el.getBoundingClientRect().top <= window.innerHeight * .5) cur = i;
+      }
+      var n = cur + (e.key === 'ArrowLeft' ? -1 : 1);
+      if (n >= 0 && n < SECTIONS.length) {
+        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    /* ================= FLOW ENGINE (sender→receiver diagrams) ================= */
+var FLOWS = {
+      analog: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'therm', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'scale', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'wave', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { t: { x: 240, y: 200 }, s1: { x: 360, y: 200 }, s2: { x: 540, y: 200 }, w: { x: 660, y: 200 } },
+        wires: [
+          { from: 't', to: 's1', k: 'w1' },
+          { from: 's2', to: 'w', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. ميزان الحرارة (Thermometer)', enT: '1. The Thermometer', arD: 'بيقيس الحرارة بقيمة بتتغير باستمرار — عمود الزئبق بيرتفع أو ينخفض بشكل متواصل مع تغيّر درجة الحرارة.', enD: 'It measures temperature with a value that keeps changing — the mercury column rises or falls continuously as the temperature changes.', icon: '🌡️', boxes: ['therm'], nodes: ['t'], wires: [] },
+          { arT: '2. المقياس المتصل (Continuous scale)', enT: '2. The Continuous Scale', arD: 'القيمة بتتحرك على مقياس متصل من غير قفزات — أي درجة حرارة في المنتصف ممكن تقع بين أي رقمين.', enD: 'The value moves along a continuous scale without jumps — any temperature in between can fall between any two numbers.', icon: '📈', boxes: ['scale'], nodes: ['s1'], wires: ['w1'] },
+          { arT: '3. القيمة الأنالوج (The analog value)', enT: '3. The Analog Value', arD: 'أي نقطة على المقياس ليها قيمة — زى ارتفاع الزئبق، أو موجة صوت مستمرة، أو عقارب ساعة. ده هو البيانات الأنالوج.', enD: 'Every point on the scale has a value — like the mercury level, a continuous sound wave, or a clock\'s hands. That is analog data.', icon: '〰️', boxes: ['wave'], nodes: ['w'], wires: ['w2'] }
+        ]
+      },
+      digital: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'cont', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'seg', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'num', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { c: { x: 240, y: 200 }, s1: { x: 360, y: 200 }, s2: { x: 540, y: 200 }, n: { x: 660, y: 200 } },
+        wires: [
+          { from: 'c', to: 's1', k: 'w1' },
+          { from: 's2', to: 'n', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. القيمة المتصلة (Continuous value)', enT: '1. The Continuous Value', arD: 'نبدأ بقيمة بتتغير باستمرار — زى درجة حرارة أو شدة صوت — عايزين نحوّلها لشكل يقدّر يتخزّن في الكمبيوتر.', enD: 'We start with a value that changes continuously — like a temperature or a sound level — we want to turn it into a form the computer can store.', icon: '〰️', boxes: ['cont'], nodes: ['c'], wires: [] },
+          { arT: '2. التقسيم لفترات (Dividing into intervals)', enT: '2. Dividing Into Intervals', arD: 'بنقسّم المنحنى المتصل لقطع منفصلة — كل قطعة ليها قيمة معينة، والمناطق بين القطع بنهملها.', enD: 'We split the continuous curve into separate pieces — each piece has a definite value, and the areas between the pieces are ignored.', icon: '✂️', boxes: ['seg'], nodes: ['s1'], wires: ['w1'] },
+          { arT: '3. التمثيل الرقمي (Numeric representation)', enT: '3. Numeric Representation', arD: 'كل قطعة بنمثّلها كرقم معيّن — الأرقام بقت أرقام صحيحة منفصلة. ده هو البيانات الديجيتال.', enD: 'Each piece is represented by a certain number — the numbers have become separate whole numbers. That is digital data.', icon: '🔢', boxes: ['num'], nodes: ['n'], wires: ['w2'] }
+        ]
+      },
+      adc: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'ana', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'conv', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'dig', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { a: { x: 240, y: 200 }, c1: { x: 360, y: 200 }, c2: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
+        wires: [
+          { from: 'a', to: 'c1', k: 'w1' },
+          { from: 'c2', to: 'd', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. بيانات أنالوج (Analog data)', enT: '1. Analog Data', arD: 'بنبدأ ببيانات متصلة من العالم الحقيقي — صوت الميكروفون، حرارة الحساس، أو ضوء الكاميرا.', enD: 'We start with continuous data from the real world — microphone sound, sensor heat, or camera light.', icon: '🌊', boxes: ['ana'], nodes: ['a'], wires: [] },
+          { arT: '2. محوّل أنالوج/ديجيتال (A/D converter)', enT: '2. A/D Converter', arD: 'المحوّل Analog to Digital بياخد القيمة المتصلة ويحوّلها لرقم — ده اللي بيحصل في كروت الصوت والكاميرات.', enD: 'The Analog to Digital converter takes the continuous value and turns it into a number — this happens in sound cards and cameras.', icon: '🔄', boxes: ['conv'], nodes: ['c1'], wires: ['w1'] },
+          { arT: '3. بيانات ديجيتال (Digital data)', enT: '3. Digital Data', arD: 'الرقم الناتج بيتخزّن جوه الكمبيوتر كأصفار وواحدات — وده اللي بيسمّي Analog to Digital Conversion.', enD: 'The resulting number is stored inside the computer as zeros and ones — this is called Analog to Digital Conversion.', icon: '💾', boxes: ['dig'], nodes: ['d'], wires: ['w2'] }
+        ]
+      },
+      dac: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'dig', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'conv', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'ana', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { d: { x: 240, y: 200 }, c1: { x: 360, y: 200 }, c2: { x: 540, y: 200 }, a: { x: 660, y: 200 } },
+        wires: [
+          { from: 'd', to: 'c1', k: 'w1' },
+          { from: 'c2', to: 'a', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. بيانات ديجيتال (Digital data)', enT: '1. Digital Data', arD: 'البيانات جوه الكمبيوتر أرقام — صوت رقمي أو صورة رقمي — عايزين نسمّعها أو نشوفها في العالم الحقيقي.', enD: 'The data inside the computer is numbers — digital sound or a digital image — we want to hear or see it in the real world.', icon: '💾', boxes: ['dig'], nodes: ['d'], wires: [] },
+          { arT: '2. محوّل ديجيتال/أنالوج (D/A converter)', enT: '2. D/A Converter', arD: 'المحوّل Digital to Analog بياخد الرقم ويرجّع تاني القيمة المتصلة — زي ما بيعمل كارت الصوت قبل السماعات.', enD: 'The Digital to Analog converter takes the number and brings back the continuous value — like a sound card does before the speakers.', icon: '🔄', boxes: ['conv'], nodes: ['c1'], wires: ['w1'] },
+          { arT: '3. بيانات أنالوج (Analog data)', enT: '3. Analog Data', arD: 'القيمة المتصلة بتخرج للعالم الحقيقي — سماعة بتشغّل موجة صوت، أو شاشة بتعرض صورة متواصلة.', enD: 'The continuous value goes out to the real world — a speaker plays a sound wave, or a screen shows a continuous image.', icon: '🔊', boxes: ['ana'], nodes: ['a'], wires: ['w2'] }
+        ]
+      },
+      binary: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'num', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'bits', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'data', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { n: { x: 240, y: 200 }, b1: { x: 360, y: 200 }, b2: { x: 540, y: 200 }, da: { x: 660, y: 200 } },
+        wires: [
+          { from: 'n', to: 'b1', k: 'w1' },
+          { from: 'b2', to: 'da', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. الرقم العشري (The decimal number)', enT: '1. The Decimal Number', arD: 'إحنا في حياتنا بنستخدم النظام العشري — أرقام من 0 لـ 9. لكن الكمبيوتر ما بيفهمش غير حالة واحدة في الوقت.', enD: 'In our lives we use the decimal system — digits from 0 to 9. But the computer only understands one state at a time.', icon: '🔟', boxes: ['num'], nodes: ['n'], wires: [] },
+          { arT: '2. الخانات الثنائية (Bits 0 and 1)', enT: '2. Bits 0 and 1', arD: 'الكمبيوتر بيستعمل حالتين بس — 0 يعني لا كهرباء، و1 يعني في كهرباء. كل خانة من دول بنسمّيها Bit.', enD: 'The computer uses only two states — 0 means no electricity, and 1 means electricity is on. Each one of these is called a bit.', icon: '🔘', boxes: ['bits'], nodes: ['b1'], wires: ['w1'] },
+          { arT: '3. كل أنواع البيانات (All data types)', enT: '3. All Data Types', arD: 'بمجموعات من البتات بنمثّل أي حاجة — أرقام ونصوص وصور وأصوات — كل حاجة في الكمبيوتر في الآخر أصفار وواحدات.', enD: 'With groups of bits we represent anything — numbers, text, images and sounds — everything in a computer is ultimately zeros and ones.', icon: '🗂️', boxes: ['data'], nodes: ['da'], wires: ['w2'] }
+        ]
+      }
+    };
+
+    var FLOW_STATE = {};
+    document.querySelectorAll('.flow-card').forEach(function () {});
+
+    function boxCenter(cfg, k) {
+      for (var i = 0; i < cfg.boxes.length; i++) {
+        if (cfg.boxes[i].k === k) {
+          var b = cfg.boxes[i];
+          return { x: b.x + b.w / 2, y: b.y + b.h / 2 };
+        }
+      }
+      return { x: 450, y: 200 };
+    }
+
+    function buildFlow(id) {
+      var cfg = FLOWS[id];
+      if (!cfg) return;
+      var card = document.querySelector('.flow-card[data-id="' + id + '"]');
+      if (!card) return;
+      var svg = card.querySelector('.svg-main');
+      var ns = 'http://www.w3.org/2000/svg';
+      function mk(tag, attrs) {
+        var e = document.createElementNS(ns, tag);
+        for (var k in attrs) e.setAttribute(k, attrs[k]);
+        return e;
+      }
+      svg.innerHTML = '';
+      var gWires = mk('g', {}), gArrows = mk('g', {}), gBoxes = mk('g', {}), gPorts = mk('g', {});
+      cfg.wires.forEach(function (w) {
+        var a = cfg.nodes[w.from], b = cfg.nodes[w.to];
+        gWires.appendChild(mk('line', { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
+        var ang = Math.atan2(b.y - a.y, b.x - a.x);
+        function arrow(tip) {
+          var bx = tip.x - 12 * Math.cos(ang), by = tip.y - 12 * Math.sin(ang);
+          return mk('polygon', {
+            points: [tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
+            class: 'wire-arrow', 'data-w': w.k
+          });
+        }
+        gArrows.appendChild(arrow(b));
+        if (w.both) gArrows.appendChild(arrow(a));
+      });
+      cfg.boxes.forEach(function (b) {
+        gBoxes.appendChild(mk('rect', { x: b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
+      });
+      Object.keys(cfg.nodes).forEach(function (k) {
+        gPorts.appendChild(mk('circle', { cx: cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
+      });
+      svg.appendChild(gWires);
+      svg.appendChild(gArrows);
+      svg.appendChild(gBoxes);
+      svg.appendChild(gPorts);
+
+      card.querySelectorAll('.svg-label[data-fbox]').forEach(function (lab) {
+        var k = lab.getAttribute('data-fbox');
+        var c = boxCenter(cfg, k);
+        lab.style.left = (c.x / 900 * 100) + '%';
+        lab.style.top = (c.y / 400 * 100) + '%';
+      });
+
+      var stepsBox = card.querySelector('.flow-steps');
+      stepsBox.innerHTML = '';
+      cfg.steps.forEach(function (st, i) {
+        var s = document.createElement('div');
+        s.className = 'tl-step';
+        s.innerHTML =
+          '<div class="tl-icon emoji-pulse">' + st.icon + '</div>' +
+          '<div class="tl-year-badge">' + (i + 1) + ' / ' + cfg.steps.length + '</div>' +
+          '<div class="tl-title">' + st[L() + 'T'] + '</div>' +
+          '<div class="tl-desc">' + st[L() + 'D'] + '</div>';
+        stepsBox.appendChild(s);
+      });
+      FLOW_STATE[id] = FLOW_STATE[id] || { cur: 0 };
+      showFlowStep(id, FLOW_STATE[id].cur);
+    }
+
+    function showFlowStep(id, idx) {
+      var cfg = FLOWS[id];
+      var card = document.querySelector('.flow-card[data-id="' + id + '"]');
+      if (!cfg || !card) return;
+      var n = cfg.steps.length;
+      if (idx < 0) idx = n - 1;
+      if (idx >= n) idx = 0;
+      FLOW_STATE[id].cur = idx;
+      var st = cfg.steps[idx];
+      card.querySelectorAll('.flow-step-active').forEach(function () { });
+      card.querySelectorAll('.tl-step').forEach(function (s, i) { s.classList.toggle('active', i === idx); });
+      card.querySelectorAll('.flow-box').forEach(function (b) {
+        b.classList.toggle('on', st.boxes.indexOf(b.getAttribute('data-b')) > -1);
+      });
+      card.querySelectorAll('.flow-port').forEach(function (p) {
+        p.classList.toggle('on', st.nodes.indexOf(p.getAttribute('data-p')) > -1);
+      });
+      card.querySelectorAll('.flow-wire').forEach(function (w) {
+        w.classList.toggle('on', st.wires.indexOf(w.getAttribute('data-w')) > -1);
+      });
+      card.querySelectorAll('.wire-arrow').forEach(function (a) {
+        a.classList.toggle('on', st.wires.indexOf(a.getAttribute('data-w')) > -1);
+      });
+      var counter = document.getElementById(id + 'Counter');
+      if (counter) counter.textContent = (idx + 1) + ' / ' + n;
+    }
+
+    function wireFlows() {
+      Object.keys(FLOWS).forEach(function (id) {
+        var prev = byId(id + 'Prev');
+        var next = byId(id + 'Next');
+        var replay = byId(id + 'Replay');
+        if (prev) prev.addEventListener('click', function () { showFlowStep(id, FLOW_STATE[id].cur - 1); });
+        if (next) next.addEventListener('click', function () { showFlowStep(id, FLOW_STATE[id].cur + 1); });
+        if (replay) replay.addEventListener('click', function () { showFlowStep(id, 0); });
+        buildFlow(id);
+      });
+    }
+
+    /* ---------- exercises (self-work then reveal) ---------- */
+    function normalizeExLabels() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.ex-key')) return;
+        var txt = o.textContent.replace(/\u00a0/g, ' ').trim();
+        var m = /^([A-E])\s+([\s\S]*)$/.exec(txt);
+        if (!m) return;
+        o.textContent = '';
+        var k = document.createElement('span');
+        k.className = 'ex-key';
+        k.textContent = m[1];
+        var b = document.createElement('span');
+        b.className = 'ex-body';
+        b.textContent = m[2];
+        o.appendChild(k);
+        o.appendChild(b);
+      });
+    }
+
+    function wireRevealBtns() {
+      normalizeExLabels();
+      document.querySelectorAll('.ex-opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          var item = opt.closest('.ex-item');
+          if (!item) return;
+          if (item.hasAttribute('data-multi')) {
+            opt.classList.toggle('picked');
+            return;
+          }
+          item.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked'); });
+          opt.classList.add('picked');
+        });
+      });
+      document.querySelectorAll('[data-reveal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card');
+          if (!card) return;
+          var scored = 0, right = 0;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            var picks = [];
+            item.querySelectorAll('.ex-opt.picked').forEach(function (p) { picks.push(p); });
+            item.querySelectorAll('.ex-opt').forEach(function (o) {
+              o.classList.remove('correct', 'wrong', 'picked');
+              if (o.getAttribute('data-ok')) o.classList.add('correct');
+              else o.classList.add('wrong');
+            });
+            var okOpts = item.querySelectorAll('.ex-opt[data-ok]');
+            if (!okOpts.length) return;
+            if (item.hasAttribute('data-multi')) {
+              scored += okOpts.length;
+              okOpts.forEach(function (o) {
+                if (picks.indexOf(o) > -1) right++;
+              });
+              return;
+            }
+            scored++;
+            if (picks.length && picks[0] === okOpts[0]) right++;
+          });
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.add('show'); });
+          var s = card.querySelector('.ex-score');
+          if (!s) {
+            s = document.createElement('div');
+            s.className = 'ex-score';
+            card.appendChild(s);
+          }
+          var rawAr = '✅ إجاباتك الصحيحة: ' + right + ' من ' + scored;
+          var rawEn = '✅ Your correct answers: ' + right + ' of ' + scored;
+          s.dataset.rawAr = rawAr;
+          s.dataset.rawEn = rawEn;
+          s.textContent = tr(rawAr, rawEn);
+        });
+      });
+      document.querySelectorAll('[data-hide]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card');
+          if (!card) return;
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.remove('show'); });
+          card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('correct', 'wrong', 'picked'); });
+          var s = card.querySelector('.ex-score');
+          if (s) s.remove();
+        });
+      });
+    }
+
+    /* ---------- recall quiz ---------- */
+    function rqFb(el) {
+      return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
+    }
+
+    function wireRecall() {
+      document.querySelectorAll('.recall').forEach(function (quiz) {
+        var start = quiz.previousElementSibling && quiz.previousElementSibling.hasAttribute('data-start')
+          ? quiz.previousElementSibling
+          : quiz.querySelector('[data-start]');
+        function paintQuizBtn() {
+          if (!start) return;
+          start.textContent = quiz.classList.contains('show')
+            ? tr('إخفاء الاختبار', 'Hide the quiz')
+            : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+        }
+        if (start) start.addEventListener('click', function () {
+          quiz.classList.toggle('show');
+          paintQuizBtn();
+        });
+        quiz.querySelectorAll('.rq').forEach(function (q) {
+          var opts = q.querySelectorAll('.rq-opt');
+          var skip = q.querySelector('.rq-skip');
+          var fb = q.querySelector('.rq-fb');
+          function lock(qq) {
+            qq.classList.add('done');
+            opts.forEach(function (o) { o.classList.add('disabled'); });
+            if (skip) skip.style.display = 'none';
+          }
+          function showFb(ok, text, correctKey) {
+            fb.classList.add('show');
+            fb.classList.toggle('ok', ok);
+            fb.classList.toggle('no', !ok);
+            fb.textContent = (ok ? '✅ ' : '❌ ') +
+              (correctKey ? (L() === 'en' ? 'The correct answer is ' + correctKey + '. ' : 'الإجابة الصحيحة ' + correctKey + '. ') : '') + text;
+          }
+          opts.forEach(function (o) {
+            o.addEventListener('click', function () {
+              if (q.classList.contains('done')) return;
+              var ok = o.getAttribute('data-ok') === '1';
+              opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+              if (ok) o.classList.add('correct');
+              else {
+                o.classList.add('wrong');
+                var co = q.querySelector('.rq-opt[data-ok="1"]');
+                if (co) co.classList.add('correct');
+              }
+              lock(q);
+              showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+            });
+          });
+          if (skip) skip.addEventListener('click', function () {
+            if (q.classList.contains('done')) return;
+            var co = q.querySelector('.rq-opt[data-ok="1"]');
+            opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+            if (co) co.classList.add('correct');
+            lock(q);
+            showFb(true, rqFb(co), co.getAttribute('data-key'));
+          });
+        });
+      });
+    }
+
+    /* ---------- language toggle ---------- */
+    function setLang(l) {
+      currentLang = l;
+      document.documentElement.setAttribute('lang', l);
+      document.documentElement.setAttribute('dir', l === 'en' ? 'ltr' : 'rtl');
+      var btn = document.getElementById('langToggle');
+      if (btn) btn.textContent = l === 'en' ? 'ع' : 'EN';
+      document.querySelectorAll('[data-ar][data-en]').forEach(function (el) {
+        if (el.hasAttribute('data-lang-keep')) return;
+        var val = (l === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-ar');
+        if (val !== null && val !== undefined) {
+          if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) el.setAttribute('placeholder', val);
+          else el.innerHTML = val;
+        }
+      });
+      Object.keys(FLOWS).forEach(function (id) { buildFlow(id); });
+      normalizeExLabels();
+      repaintScores();
+      repaintQuizBtns();
+      localStorage.setItem('langPreference', l);
+    }
+
+    function repaintScores() {
+      document.querySelectorAll('.ex-score').forEach(function (s) {
+        if (s.dataset.raw) s.textContent = tr(s.dataset.rawAr, s.dataset.rawEn);
+      });
+    }
+
+    function repaintQuizBtns() {
+      document.querySelectorAll('.recall').forEach(function (quiz) {
+        var start = quiz.previousElementSibling && quiz.previousElementSibling.hasAttribute('data-start')
+          ? quiz.previousElementSibling
+          : quiz.querySelector('[data-start]');
+        if (!start) return;
+        start.textContent = quiz.classList.contains('show')
+          ? tr('إخفاء الاختبار', 'Hide the quiz')
+          : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+      });
+    }
+
+    /* ---------- boot ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      setLang(currentLang);
+      wireNav();
+      wireReveal();
+      wireFlows();
+      wireRevealBtns();
+      wireRecall();
+      byId('langToggle').addEventListener('click', function () {
+        setLang(currentLang === 'ar' ? 'en' : 'ar');
+      });
+    });
+
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
+  </script>
+</body>
+
+</html>

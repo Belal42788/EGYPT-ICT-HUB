@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -460,6 +460,23 @@
       flex-shrink: 0
     }
 
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
     .ex-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -708,7 +725,24 @@
 
     /* ---------- responsive ---------- */
     @media (max-width: 860px) {
-      .ex-options {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
         grid-template-columns: 1fr
       }
       .nav-inner {
@@ -721,6 +755,83 @@
         animation-duration: 0s !important;
         transition-duration: 0s !important
       }
+    }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -743,7 +854,8 @@
         <a href="#companies" data-ar="الشركات" data-en="Companies">الشركات</a>
         <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
-      </div>
+              <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+</div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -773,7 +885,7 @@
       </div>
 
       <div class="section-inner card">
-        <p data-ar="المعلومات الشخصية (<span dir="ltr">Personal Information</span>) هي أي بيانات أو معلومات متعلقة بشخص طبيعي حي، يقدر يتعرف عليه منها بشكل مباشر أو غير مباشر عن طريق ربطها ببيانات تانية." data-en="Personal information is any data or information related to a natural person who can be identified directly or indirectly by linking it with other data.">المعلومات الشخصية (<span dir="ltr">Personal Information</span>) هي أي بيانات أو معلومات متعلقة بشخص طبيعي حي، يقدر يتعرف عليه منها بشكل مباشر أو غير مباشر عن طريق ربطها ببيانات تانية.</p>
+        <p data-ar="المعلومات الشخصية (<span dir='ltr'>Personal Information</span>) هي أي بيانات أو معلومات متعلقة بشخص طبيعي حي، يقدر يتعرف عليه منها بشكل مباشر أو غير مباشر عن طريق ربطها ببيانات تانية." data-en="Personal information is any data or information related to a natural person who can be identified directly or indirectly by linking it with other data.">المعلومات الشخصية (<span dir='ltr'>Personal Information</span>) هي أي بيانات أو معلومات متعلقة بشخص طبيعي حي، يقدر يتعرف عليه منها بشكل مباشر أو غير مباشر عن طريق ربطها ببيانات تانية.</p>
 
         <p style="margin-top:14px" data-ar="من أمثلة المعلومات الشخصية: الاسم، العنوان، تاريخ الميلاد، النوع، رقم التليفون، الرقم القومي، رقم جواز السفر، رخصة القيادة، أو أي بيانات بتعرف الهوية النفسية أو الصحية أو الاقتصادية." data-en="Examples of personal information: name, address, date of birth, gender, phone number, national ID number, passport number, driving license, or any data that identifies psychological, health, or economic identity.">من أمثلة المعلومات الشخصية: الاسم، العنوان، تاريخ الميلاد، النوع، رقم التليفون، الرقم القومي، رقم جواز السفر، رخصة القيادة، أو أي بيانات بتعرف الهوية النفسية أو الصحية أو الاقتصادية.</p>
 
@@ -827,19 +939,19 @@
         <div class="cards-grid">
           <div class="card-item" data-reveal="pinfo">
             <div class="card-icon">📋</div>
-            <div class="card-title" data-ar="العناصر الأساسية الأربعة" data-en="Four Basic Items">العناصر الأساسية الأربعة (<span dir="ltr">Four Basic Items</span>)</div>
+            <div class="card-title" data-ar="العناصر الأساسية الأربعة" data-en="Four Basic Items">العناصر الأساسية الأربعة (<span dir='ltr'>Four Basic Items</span>)</div>
             <div class="card-body" data-ar="الاسم، العنوان، تاريخ الميلاد، والنوع — دي العناصر الأساسية اللي بتستخدم كمان في التحقق من الهوية." data-en="Name, address, date of birth, and gender — the basic items also used for identity verification.">الاسم، العنوان، تاريخ الميلاد، والنوع — دي العناصر الأساسية اللي بتستخدم كمان في التحقق من الهوية.</div>
             <div class="card-feedback" data-ar="💡 مثال: جواز السفر بيشمل الاسم وتاريخ الميلاد كعناصر أساسية للتحقق من الهوية." data-en="💡 Example: a passport includes name and date of birth as basic items for identity verification.">💡 مثال: جواز السفر بيشمل الاسم وتاريخ الميلاد كعناصر أساسية للتحقق من الهوية.</div>
           </div>
           <div class="card-item" data-reveal="pinfo">
             <div class="card-icon">🔢</div>
-            <div class="card-title" data-ar="رموز التعريف الشخصية" data-en="Personal Identification Codes">رموز التعريف الشخصية (<span dir="ltr">Personal Identification Codes</span>)</div>
+            <div class="card-title" data-ar="رموز التعريف الشخصية" data-en="Personal Identification Codes">رموز التعريف الشخصية (<span dir='ltr'>Personal Identification Codes</span>)</div>
             <div class="card-body" data-ar="الأرقام اللي في جواز السفر، رخصة القيادة، أو الرقم القومي — مجرد تسلسل أرقام بس بيعرف الشخص." data-en="Numbers in passports, driver's licenses, or National IDs — just a sequence of digits that still identifies the person.">الأرقام اللي في جواز السفر، رخصة القيادة، أو الرقم القومي — مجرد تسلسل أرقام بس بيعرف الشخص.</div>
             <div class="card-feedback" data-ar="💡 برغم إنها مجرد أرقام، بتعتبر معلومات شخصية لأنها بتعرف الفرد." data-en="💡 Even though they're just numbers, they're personal information because they identify the individual.">💡 برغم إنها مجرد أرقام، بتعتبر معلومات شخصية لأنها بتعرف الفرد.</div>
           </div>
           <div class="card-item" data-reveal="pinfo">
             <div class="card-icon">💊</div>
-            <div class="card-title" data-ar="معلومات تحتاج عناية خاصة" data-en="Special Care-Required Personal Information">معلومات تحتاج عناية خاصة (<span dir="ltr">Special Care-Required Personal Information</span>)</div>
+            <div class="card-title" data-ar="معلومات تحتاج عناية خاصة" data-en="Special Care-Required Personal Information">معلومات تحتاج عناية خاصة (<span dir='ltr'>Special Care-Required Personal Information</span>)</div>
             <div class="card-body" data-ar="المعلومات اللي محتاجة تعامل حذر لمنع التحيز والضرر — زي العرق، العقيدة، الحالة الاجتماعية، التاريخ الطبي، والسجل الجنائي." data-en="Information that requires careful handling to prevent prejudice and disadvantages — e.g., race, creed, social status, medical history, and criminal record.">المعلومات اللي محتاجة تعامل حذر لمنع التحيز والضرر — زي العرق، العقيدة، الحالة الاجتماعية، التاريخ الطبي، والسجل الجنائي.</div>
             <div class="card-feedback" data-ar="💡 دي أكثر المعلومات حساسية — متتشاركش بدون إذن صاحبها." data-en="💡 This is the most sensitive information — never share without the owner's consent.">💡 دي أكثر المعلومات حساسية — متتشاركش بدون إذن صاحبها.</div>
           </div>
@@ -850,7 +962,7 @@
         <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
         <ul>
           <li data-ar="تعتقد إن رخصة القيادة أو الرقم القومي مجرد أرقام ومش معلومات شخصية — لأ، بتعرف الفرد لما تتجمع مع بيانات تانية." data-en="Thinking a driver's license or National ID is just digits and not personal information — no, it identifies the individual when combined with other data.">تعتقد إن رخصة القيادة أو الرقم القومي مجرد أرقام ومش معلومات شخصية — لأ، بتعرف الفرد لما تتجمع مع بيانات تانية.</li>
-          <li data-ar="تشارك التاريخ الطبي أو السجل الجنائي لأي حد — دي Special Care-Required Personal Information وممنوعة بدون إذن." data-en="Sharing medical history or criminal record with anyone — this is Special Care-Required Personal Information, prohibited without consent.">تشارك التاريخ الطبي أو السجل الجنائي لأي حد — دي <span dir="ltr">Special Care-Required Personal Information</span> وممنوعة بدون إذن.</li>
+          <li data-ar="تشارك التاريخ الطبي أو السجل الجنائي لأي حد — دي Special Care-Required Personal Information وممنوعة بدون إذن." data-en="Sharing medical history or criminal record with anyone — this is Special Care-Required Personal Information, prohibited without consent.">تشارك التاريخ الطبي أو السجل الجنائي لأي حد — دي <span dir='ltr'>Special Care-Required Personal Information</span> وممنوعة بدون إذن.</li>
         </ul>
       </div>
     </section>
@@ -869,7 +981,7 @@
 
       <div class="section-inner card">
         <h3 data-ar="إيه هو القانون؟" data-en="What is the Act?" style="color:var(--s3)">إيه هو القانون؟</h3>
-        <p data-ar="قانون حماية المعلومات الشخصية (<span dir="ltr">Act on the Protection of Personal Information</span>) هو قانون بيحدد التعامل السليم مع المعلومات الشخصية. القانون بيقول إن ممنوع توفير المعلومات الشخصية لأي فرد لطرف تالت بدون موافقته." data-en="The Act on the Protection of Personal Information stipulates the proper handling of personal information. It states that one cannot provide an individual's personal information to a third party without the individual's consent.">قانون حماية المعلومات الشخصية (<span dir="ltr">Act on the Protection of Personal Information</span>) هو قانون بيحدد التعامل السليم مع المعلومات الشخصية. القانون بيقول إن ممنوع توفير المعلومات الشخصية لأي فرد لطرف تالت بدون موافقته.</p>
+        <p data-ar="قانون حماية المعلومات الشخصية (<span dir='ltr'>Act on the Protection of Personal Information</span>) هو قانون بيحدد التعامل السليم مع المعلومات الشخصية. القانون بيقول إن ممنوع توفير المعلومات الشخصية لأي فرد لطرف تالت بدون موافقته." data-en="The Act on the Protection of Personal Information stipulates the proper handling of personal information. It states that one cannot provide an individual's personal information to a third party without the individual's consent.">قانون حماية المعلومات الشخصية (<span dir='ltr'>Act on the Protection of Personal Information</span>) هو قانون بيحدد التعامل السليم مع المعلومات الشخصية. القانون بيقول إن ممنوع توفير المعلومات الشخصية لأي فرد لطرف تالت بدون موافقته.</p>
         <div class="demo-label" style="margin-top:14px" data-ar="لكن في حالات معينة القانون بيسمح بالتوفير بدون موافقة — اضغط على كل حالة:" data-en="But in certain cases the Act permits provision without consent — click each case:">لكن في حالات معينة القانون بيسمح بالتوفير بدون موافقة — اضغط على كل حالة:</div>
         <div class="journey">
           <div class="journey-item">
@@ -922,25 +1034,25 @@
         <div class="cards-grid">
           <div class="card-item" data-reveal="privacy">
             <div class="card-icon">🔒</div>
-            <div class="card-title" data-ar="الحق في الخصوصية" data-en="Right to Privacy">الحق في الخصوصية (<span dir="ltr">Right to Privacy</span>)</div>
+            <div class="card-title" data-ar="الحق في الخصوصية" data-en="Right to Privacy">الحق في الخصوصية (<span dir='ltr'>Right to Privacy</span>)</div>
             <div class="card-body" data-ar="حق الفرد في حماية المعلومات الشخصية اللي مش عايز حد يعرفها." data-en="The right of an individual to protect personal information that the individual does not want others to know.">حق الفرد في حماية المعلومات الشخصية اللي مش عايز حد يعرفها.</div>
             <div class="card-feedback" data-ar="💡 يعني محدش يقدر يجبرك إنك تكشف معلومات خاصة بيك." data-en="💡 No one can force you to reveal your private information.">💡 يعني محدش يقدر يجبرك إنك تكشف معلومات خاصة بيك.</div>
           </div>
           <div class="card-item" data-reveal="privacy">
             <div class="card-icon">📷</div>
-            <div class="card-title" data-ar="حقوق الصورة" data-en="Image Rights">حقوق الصورة (<span dir="ltr">Image Rights</span>)</div>
+            <div class="card-title" data-ar="حقوق الصورة" data-en="Image Rights">حقوق الصورة (<span dir='ltr'>Image Rights</span>)</div>
             <div class="card-body" data-ar="حق الفرد في منع الآخرين من تصويره أو استخدام وجهه أو مظهره بدون إذنه." data-en="The right of an individual to prevent others from photographing or using their face or appearance without permission.">حق الفرد في منع الآخرين من تصويره أو استخدام وجهه أو مظهره بدون إذنه.</div>
             <div class="card-feedback" data-ar="💡 ممنوع تصوّر أو تنشر صورة حد بدون إذنه — حتى لو من أفراد عيلتك." data-en="💡 You must not photograph or post someone's photo without permission — even family members.">💡 ممنوع تصوّر أو تنشر صورة حد بدون إذنه — حتى لو من أفراد عيلتك.</div>
           </div>
           <div class="card-item" data-reveal="privacy">
             <div class="card-icon">💰</div>
-            <div class="card-title" data-ar="حقوق الدعاية" data-en="Publicity Rights">حقوق الدعاية (<span dir="ltr">Publicity Rights</span>)</div>
+            <div class="card-title" data-ar="حقوق الدعاية" data-en="Publicity Rights">حقوق الدعاية (<span dir='ltr'>Publicity Rights</span>)</div>
             <div class="card-body" data-ar="حق بيحمي المصالح الاقتصادية للمشاهير في شكلهم وشبههم وغيرها." data-en="A right that protects the economic interests of celebrities in their likeness, among other things.">حق بيحمي المصالح الاقتصادية للمشاهير في شكلهم وشبههم وغيرها.</div>
             <div class="card-feedback" data-ar="💡 ممنوع تطبع صورة مشهور على تي شيرت وتبيعه عشان تكسب فلوس." data-en="💡 You must not print a celebrity's photo on a T-shirt and sell it for profit.">💡 ممنوع تطبع صورة مشهور على تي شيرت وتبيعه عشان تكسب فلوس.</div>
           </div>
         </div>
         <div class="note">
-          <p data-ar="💡 ملاحظة مهمة: الحقوق دي مش معترف بيها من القانون مباشرة، لكن من خلال السوابق القضائية (<span dir="ltr">precedents</span>) في المحاكم." data-en="💡 Important note: these rights are recognized not by law but through court precedents.">💡 ملاحظة مهمة: الحقوق دي مش معترف بيها من القانون مباشرة، لكن من خلال السوابق القضائية (<span dir="ltr">precedents</span>) في المحاكم.</p>
+          <p data-ar="💡 ملاحظة مهمة: الحقوق دي مش معترف بيها من القانون مباشرة، لكن من خلال السوابق القضائية (<span dir='ltr'>precedents</span>) في المحاكم." data-en="💡 Important note: these rights are recognized not by law but through court precedents.">💡 ملاحظة مهمة: الحقوق دي مش معترف بيها من القانون مباشرة، لكن من خلال السوابق القضائية (<span dir='ltr'>precedents</span>) في المحاكم.</p>
         </div>
       </div>
 
@@ -956,7 +1068,7 @@
           <div class="card-item" data-correct="1">
             <div class="card-icon">🎤</div>
             <div class="card-title" data-ar="نشرت صور سيلفي مع مغني مشهور عشان تكسب متابعين" data-en="You posted selfies with a famous singer to gain followers">نشرت صور سيلفي مع مغني مشهور عشان تكسب متابعين</div>
-            <div class="card-body" data-ar="لو الغرض تجاري بدون إذن — بيخالف Publicity Rights اللي بتحمي مصلحة المشاهير" data-en="If for commercial gain without permission — violates Publicity Rights protecting celebrities' interests">لو الغرض تجاري بدون إذن — بيخالف <span dir="ltr">Publicity Rights</span> اللي بتحمي مصلحة المشاهير</div>
+            <div class="card-body" data-ar="لو الغرض تجاري بدون إذن — بيخالف Publicity Rights اللي بتحمي مصلحة المشاهير" data-en="If for commercial gain without permission — violates Publicity Rights protecting celebrities' interests">لو الغرض تجاري بدون إذن — بيخالف <span dir='ltr'>Publicity Rights</span> اللي بتحمي مصلحة المشاهير</div>
             <div class="card-feedback" data-ar="✅ صح — لو كسبت مادي من صورته من غير إذن، ده انتهاك" data-en="✅ Correct — if you profit from his likeness without permission, it's a violation">✅ صح — لو كسبت مادي من صورته من غير إذن، ده انتهاك</div>
           </div>
           <div class="card-item" data-correct="0">
@@ -987,25 +1099,25 @@
         <div class="cards-grid">
           <div class="card-item" data-reveal="company">
             <div class="card-icon">📄</div>
-            <div class="card-title" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية (<span dir="ltr">Privacy Policy</span>)</div>
+            <div class="card-title" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية (<span dir='ltr'>Privacy Policy</span>)</div>
             <div class="card-body" data-ar="سياسة بتحدد إزاي الشركات والمنظمات بتدير المعلومات الشخصية." data-en="A policy that stipulates how companies and organizations manage personal information.">سياسة بتحدد إزاي الشركات والمنظمات بتدير المعلومات الشخصية.</div>
             <div class="card-feedback" data-ar="💡 قارئها قبل ما تسجل في أي موقع عشان تعرف هيعملوا إيه ببياناتك." data-en="💡 Read it before registering on any site to know what they do with your data.">💡 قارئها قبل ما تسجل في أي موقع عشان تعرف هيعملوا إيه ببياناتك.</div>
           </div>
           <div class="card-item" data-reveal="company">
             <div class="card-icon">🪪</div>
-            <div class="card-title" data-ar="ترخيص مركز حماية البيانات" data-en="Personal Data Protection Center License">ترخيص مركز حماية البيانات الشخصية (<span dir="ltr">Personal Data Protection Center License</span>)</div>
+            <div class="card-title" data-ar="ترخيص مركز حماية البيانات" data-en="Personal Data Protection Center License">ترخيص مركز حماية البيانات الشخصية (<span dir='ltr'>Personal Data Protection Center License</span>)</div>
             <div class="card-body" data-ar="ترخيص بتحصل عليه الشركات من الجهة الرقابية (مركز حماية البيانات الشخصية) لضمان الالتزام بالقانون." data-en="The license obtained by companies from the regulatory authority (Personal Data Protection Center) to ensure compliance with the law.">ترخيص بتحصل عليه الشركات من الجهة الرقابية (مركز حماية البيانات الشخصية) لضمان الالتزام بالقانون.</div>
             <div class="card-feedback" data-ar="💡 الشركة اللي عندها الترخيص ده بتطبق إجراءات حماية حقيقية لبياناتك." data-en="💡 A company holding this license applies real protection measures to your data.">💡 الشركة اللي عندها الترخيص ده بتطبق إجراءات حماية حقيقية لبياناتك.</div>
           </div>
           <div class="card-item" data-reveal="company">
             <div class="card-icon">✅</div>
-            <div class="card-title" data-ar="نظام الموافقة المسبقة" data-en="Prior Approval System">نظام الموافقة المسبقة (<span dir="ltr">Prior Approval System</span>)</div>
+            <div class="card-title" data-ar="نظام الموافقة المسبقة" data-en="Prior Approval System">نظام الموافقة المسبقة (<span dir='ltr'>Prior Approval System</span>)</div>
             <div class="card-body" data-ar="طريقة مقدم الخدمة فيها مش بيجمع بياناتك أو يقدم خدمة ليك غير بعد موافقة مسبقة." data-en="A method in which a provider does not collect user data or offer a service unless prior consent is given.">طريقة مقدم الخدمة فيها مش بيجمع بياناتك أو يقدم خدمة ليك غير بعد موافقة مسبقة.</div>
             <div class="card-feedback" data-ar="💡 يعني «مفيش موافقة = مفيش خدمة» — كل حاجة بتبدأ بموافقتك." data-en="💡 'No consent = no service' — everything starts with your approval.">💡 يعني «مفيش موافقة = مفيش خدمة» — كل حاجة بتبدأ بموافقتك.</div>
           </div>
           <div class="card-item" data-reveal="company">
             <div class="card-icon">⏸️</div>
-            <div class="card-title" data-ar="نظام الاعتراض" data-en="Objection System">نظام الاعتراض (<span dir="ltr">Objection System</span>)</div>
+            <div class="card-title" data-ar="نظام الاعتراض" data-en="Objection System">نظام الاعتراض (<span dir='ltr'>Objection System</span>)</div>
             <div class="card-body" data-ar="طريقة مقدم الخدمة فيها بيستمر في تقديم الخدمة لحد ما المستخدم يطلب إيقافها." data-en="A method in which a service provider continues to offer the service until the user requests it to be discontinued.">طريقة مقدم الخدمة فيها بيستمر في تقديم الخدمة لحد ما المستخدم يطلب إيقافها.</div>
             <div class="card-feedback" data-ar="💡 الفرق: في النظام ده الخدمة بتبدأ تلقائياً وانت اللي تطلب إيقافها." data-en="💡 Difference: here the service starts automatically and you request its discontinuation.">💡 الفرق: في النظام ده الخدمة بتبدأ تلقائياً وانت اللي تطلب إيقافها.</div>
           </div>
@@ -1064,7 +1176,7 @@
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;مناسبة" data-en="○&nbsp;&nbsp;Appropriate">○&nbsp;&nbsp;مناسبة</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;مش مناسبة" data-en="×&nbsp;&nbsp;Inappropriate">×&nbsp;&nbsp;مش مناسبة</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: × — السجلات الجنائية والتاريخ الطبي من Special Care-Required Personal Information وممنوع توفيرها لطرف تالت بدون إذن." data-en="✅ Answer: × — criminal records and medical histories are Special Care-Required Personal Information, not to be provided without consent.">✅ الإجابة: <b>×</b> — السجلات الجنائية والتاريخ الطبي من <span dir="ltr">Special Care-Required Personal Information</span> وممنوع توفيرها لطرف تالت بدون إذن.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — السجلات الجنائية والتاريخ الطبي من Special Care-Required Personal Information وممنوع توفيرها لطرف تالت بدون إذن." data-en="✅ Answer: × — criminal records and medical histories are Special Care-Required Personal Information, not to be provided without consent.">✅ الإجابة: <b>×</b> — السجلات الجنائية والتاريخ الطبي من <span dir='ltr'>Special Care-Required Personal Information</span> وممنوع توفيرها لطرف تالت بدون إذن.</div>
           </div>
 
           <div class="ex-item">
@@ -1104,7 +1216,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Publicity Rights" data-en="C&nbsp;&nbsp;Publicity Rights">C&nbsp;&nbsp;Publicity Rights</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Image Rights" data-en="D&nbsp;&nbsp;Image Rights">D&nbsp;&nbsp;Image Rights</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: A — Personal Information هي المعلومات المتعلقة بالشخص الحي." data-en="✅ Answer: A — Personal Information is information related to living individuals.">✅ الإجابة: <b>A</b> — <span dir="ltr">Personal Information</span> هي المعلومات المتعلقة بالشخص الحي.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Personal Information هي المعلومات المتعلقة بالشخص الحي." data-en="✅ Answer: A — Personal Information is information related to living individuals.">✅ الإجابة: <b>A</b> — <span dir='ltr'>Personal Information</span> هي المعلومات المتعلقة بالشخص الحي.</div>
           </div>
 
           <div class="ex-item">
@@ -1115,7 +1227,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Special Care-Required Personal Information" data-en="C&nbsp;&nbsp;Special Care-Required Personal Information">C&nbsp;&nbsp;Special Care-Required Personal Information</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Right to Privacy" data-en="D&nbsp;&nbsp;Right to Privacy">D&nbsp;&nbsp;Right to Privacy</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: B — Four Basic Items هي الاسم والعنوان وتاريخ الميلاد والنوع." data-en="✅ Answer: B — Four Basic Items are name, address, date of birth, and gender.">✅ الإجابة: <b>B</b> — <span dir="ltr">Four Basic Items</span> هي الاسم والعنوان وتاريخ الميلاد والنوع.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — Four Basic Items هي الاسم والعنوان وتاريخ الميلاد والنوع." data-en="✅ Answer: B — Four Basic Items are name, address, date of birth, and gender.">✅ الإجابة: <b>B</b> — <span dir='ltr'>Four Basic Items</span> هي الاسم والعنوان وتاريخ الميلاد والنوع.</div>
           </div>
 
           <div class="ex-item">
@@ -1126,7 +1238,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Special Care-Required Personal Information" data-en="C&nbsp;&nbsp;Special Care-Required Personal Information">C&nbsp;&nbsp;Special Care-Required Personal Information</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Publicity Rights" data-en="D&nbsp;&nbsp;Publicity Rights">D&nbsp;&nbsp;Publicity Rights</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: A — Personal Identification Codes هي المعلومات الرقمية اللي بتعرف الفرد." data-en="✅ Answer: A — Personal Identification Codes are the numerical information identifying an individual.">✅ الإجابة: <b>A</b> — <span dir="ltr">Personal Identification Codes</span> هي المعلومات الرقمية اللي بتعرف الفرد.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Personal Identification Codes هي المعلومات الرقمية اللي بتعرف الفرد." data-en="✅ Answer: A — Personal Identification Codes are the numerical information identifying an individual.">✅ الإجابة: <b>A</b> — <span dir='ltr'>Personal Identification Codes</span> هي المعلومات الرقمية اللي بتعرف الفرد.</div>
           </div>
 
           <div class="ex-item">
@@ -1137,7 +1249,7 @@
               <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Publicity Rights" data-en="C&nbsp;&nbsp;Publicity Rights">C&nbsp;&nbsp;Publicity Rights</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Copyright" data-en="D&nbsp;&nbsp;Copyright">D&nbsp;&nbsp;Copyright</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: C — Publicity Rights بتحمي المصالح الاقتصادية للمشاهير في شبههم." data-en="✅ Answer: C — Publicity Rights protect celebrities' economic interests in their likeness.">✅ الإجابة: <b>C</b> — <span dir="ltr">Publicity Rights</span> بتحمي المصالح الاقتصادية للمشاهير في شبههم.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — Publicity Rights بتحمي المصالح الاقتصادية للمشاهير في شبههم." data-en="✅ Answer: C — Publicity Rights protect celebrities' economic interests in their likeness.">✅ الإجابة: <b>C</b> — <span dir='ltr'>Publicity Rights</span> بتحمي المصالح الاقتصادية للمشاهير في شبههم.</div>
           </div>
 
           <div class="ex-item">
@@ -1159,7 +1271,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Privacy Policy" data-en="C&nbsp;&nbsp;Privacy Policy">C&nbsp;&nbsp;Privacy Policy</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Image Rights" data-en="D&nbsp;&nbsp;Image Rights">D&nbsp;&nbsp;Image Rights</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: A — Prior Approval System هي الطريقة اللي فيها الخدمة مش بتتبدأ غير بموافقة مسبقة." data-en="✅ Answer: A — Prior Approval System is the method where service does not start without prior consent.">✅ الإجابة: <b>A</b> — <span dir="ltr">Prior Approval System</span> هي الطريقة اللي فيها الخدمة مش بتتبدأ غير بموافقة مسبقة.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Prior Approval System هي الطريقة اللي فيها الخدمة مش بتتبدأ غير بموافقة مسبقة." data-en="✅ Answer: A — Prior Approval System is the method where service does not start without prior consent.">✅ الإجابة: <b>A</b> — <span dir='ltr'>Prior Approval System</span> هي الطريقة اللي فيها الخدمة مش بتتبدأ غير بموافقة مسبقة.</div>
           </div>
 
           <div class="ex-item">
@@ -1170,7 +1282,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Privacy Policy" data-en="C&nbsp;&nbsp;Privacy Policy">C&nbsp;&nbsp;Privacy Policy</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Publicity Rights" data-en="D&nbsp;&nbsp;Publicity Rights">D&nbsp;&nbsp;Publicity Rights</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: B — Objection System هي الطريقة اللي فيها الخدمة بتستمر لحد ما المستخدم يعترض ويطلب إيقافها." data-en="✅ Answer: B — Objection System is the method where service continues until the user objects and requests discontinuation.">✅ الإجابة: <b>B</b> — <span dir="ltr">Objection System</span> هي الطريقة اللي فيها الخدمة بتستمر لحد ما المستخدم يعترض ويطلب إيقافها.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — Objection System هي الطريقة اللي فيها الخدمة بتستمر لحد ما المستخدم يعترض ويطلب إيقافها." data-en="✅ Answer: B — Objection System is the method where service continues until the user objects and requests discontinuation.">✅ الإجابة: <b>B</b> — <span dir='ltr'>Objection System</span> هي الطريقة اللي فيها الخدمة بتستمر لحد ما المستخدم يعترض ويطلب إيقافها.</div>
           </div>
 
           <div class="ex-item">
@@ -1242,7 +1354,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;حق الفرد في منع الآخرين من تصويره أو استخدام وجهه أو مظهره بدون إذن" data-en="C&nbsp;&nbsp;The right of an individual to prevent others from photographing or using their face or appearance without permission">C&nbsp;&nbsp;حق الفرد في منع الآخرين من تصويره أو استخدام وجهه أو مظهره بدون إذن</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;الحق في حماية أفكارك ومشاعرك اللي بتتعبّر عنها في شكل عمل" data-en="D&nbsp;&nbsp;The right to protect one's thoughts and feelings as expressed in the form of a work">D&nbsp;&nbsp;الحق في حماية أفكارك ومشاعرك اللي بتتعبّر عنها في شكل عمل</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: B — Publicity Rights بتحمي المصالح الاقتصادية للمشاهير في شبههم." data-en="✅ Answer: B — Publicity Rights protect the economic interests of celebrities in their likeness.">✅ الإجابة: <b>B</b> — <span dir="ltr">Publicity Rights</span> بتحمي المصالح الاقتصادية للمشاهير في شبههم.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — Publicity Rights بتحمي المصالح الاقتصادية للمشاهير في شبههم." data-en="✅ Answer: B — Publicity Rights protect the economic interests of celebrities in their likeness.">✅ الإجابة: <b>B</b> — <span dir='ltr'>Publicity Rights</span> بتحمي المصالح الاقتصادية للمشاهير في شبههم.</div>
           </div>
 
           <div class="ex-item">
@@ -1289,7 +1401,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Privacy" data-en="C&nbsp;&nbsp;Privacy">C&nbsp;&nbsp;Privacy</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Special Care-Required Personal Information" data-en="D&nbsp;&nbsp;Special Care-Required Personal Information">D&nbsp;&nbsp;Special Care-Required Personal Information</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: A — Personal Information هي المعلومات اللي بتعرف الشخص الحي مباشرة أو بشكل غير مباشر." data-en="✅ Answer: A — Personal Information identifies a living individual directly or indirectly.">✅ الإجابة: <b>A</b> — <span dir="ltr">Personal Information</span> هي المعلومات اللي بتعرف الشخص الحي مباشرة أو بشكل غير مباشر.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — Personal Information هي المعلومات اللي بتعرف الشخص الحي مباشرة أو بشكل غير مباشر." data-en="✅ Answer: A — Personal Information identifies a living individual directly or indirectly.">✅ الإجابة: <b>A</b> — <span dir='ltr'>Personal Information</span> هي المعلومات اللي بتعرف الشخص الحي مباشرة أو بشكل غير مباشر.</div>
           </div>
 
           <div class="ex-item">
@@ -1300,7 +1412,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Anonymized information" data-en="C&nbsp;&nbsp;Anonymized information">C&nbsp;&nbsp;Anonymized information</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Right to Privacy" data-en="D&nbsp;&nbsp;Right to Privacy">D&nbsp;&nbsp;Right to Privacy</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: B — Personal Identification Code هي المعلومات الرقمية زي أرقام رخص القيادة والرقم القومي." data-en="✅ Answer: B — Personal Identification Code is the numerical information like driver's license and National ID numbers.">✅ الإجابة: <b>B</b> — <span dir="ltr">Personal Identification Code</span> هي المعلومات الرقمية زي أرقام رخص القيادة والرقم القومي.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — Personal Identification Code هي المعلومات الرقمية زي أرقام رخص القيادة والرقم القومي." data-en="✅ Answer: B — Personal Identification Code is the numerical information like driver's license and National ID numbers.">✅ الإجابة: <b>B</b> — <span dir='ltr'>Personal Identification Code</span> هي المعلومات الرقمية زي أرقام رخص القيادة والرقم القومي.</div>
           </div>
         </div>
         <div class="btn-row" style="margin-top:16px">
@@ -1389,6 +1501,85 @@
         <p data-ar="افتكر دايمًا: بياناتك الشخصية تخصك إنت بس، ومحدش يقدر ياخدها منك من غير إذنك. حافظ عليها وحافظ على خصوصية غيرك!" data-en="Always remember: your personal data belongs to you alone, and no one can take it without your consent. Protect it and protect others' privacy!">افتكر دايمًا: بياناتك الشخصية تخصك إنت بس، ومحدش يقدر ياخدها منك من غير إذنك. حافظ عليها وحافظ على خصوصية غيرك!</p>
       </div>
     </section>
+  
+    <!-- ============ GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">08</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="info" data-ar="بيانات ومعلومات" data-en="Data & Info">بيانات ومعلومات</button>
+          <button class="mini-btn gl-filter" data-filter="privacy" data-ar="خصوصية" data-en="Privacy">خصوصية</button>
+          <button class="mini-btn gl-filter" data-filter="rights" data-ar="حقوق" data-en="Rights">حقوق</button>
+          <button class="mini-btn gl-filter" data-filter="law" data-ar="قوانين" data-en="Laws">قوانين</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="info">
+            <h4 data-ar="Personal Information — المعلومات الشخصية" data-en="Personal Information">Personal Information — المعلومات الشخصية</h4>
+            <p data-ar="أي بيانات أو معلومات عن شخص حي بتعرفك بيه، إما مباشرة أو لما تتجمع مع بيانات تانية." data-en="Any data or information about a living person that can identify them, directly or by linking it with other data.">أي بيانات أو معلومات عن شخص حي بتعرفك بيه، إما مباشرة أو لما تتجمع مع بيانات تانية.</p>
+          </div>
+          <div class="gl-term" data-cat="info">
+            <h4 data-ar="Four Basic Items — العناصر الأساسية الأربعة" data-en="Four Basic Items">Four Basic Items — العناصر الأساسية الأربعة</h4>
+            <p data-ar="الاسم والعنوان وتاريخ الميلاد والنوع — دي العناصر الأساسية اللي بتستخدم كمان في التحقق من الهوية." data-en="Name, address, date of birth, and gender — the four basic personal items also used to verify identity.">الاسم والعنوان وتاريخ الميلاد والنوع — دي العناصر الأساسية اللي بتستخدم كمان في التحقق من الهوية.</p>
+          </div>
+          <div class="gl-term" data-cat="info">
+            <h4 data-ar="Personal Identification Codes — رموز التعريف الشخصية" data-en="Personal Identification Codes">Personal Identification Codes — رموز التعريف الشخصية</h4>
+            <p data-ar="الأرقام اللي في جواز السفر ورخصة القيادة والرقم القومي — مجرد أرقام بس بتعرف الشخص." data-en="Numbers like passport numbers, driver's license numbers, and National ID numbers that identify a person even though they're just digits.">الأرقام اللي في جواز السفر ورخصة القيادة والرقم القومي — مجرد أرقام بس بتعرف الشخص.</p>
+          </div>
+          <div class="gl-term" data-cat="privacy">
+            <h4 data-ar="Special Care-Required Personal Information — معلومات تحتاج عناية خاصة" data-en="Special Care-Required Personal Information">Special Care-Required Personal Information — معلومات تحتاج عناية خاصة</h4>
+            <p data-ar="أكتر المعلومات حساسية زي العرق والعقيدة والتاريخ الطبي والسجل الجنائي، وبتحتاج معاملة حذرة عشان تمنع الضرر." data-en="Very sensitive information like race, creed, medical history, and criminal records that needs careful handling to prevent harm.">أكتر المعلومات حساسية زي العرق والعقيدة والتاريخ الطبي والسجل الجنائي، وبتحتاج معاملة حذرة عشان تمنع الضرر.</p>
+          </div>
+          <div class="gl-term" data-cat="law">
+            <h4 data-ar="Act on the Protection of Personal Information — قانون حماية المعلومات الشخصية" data-en="Act on the Protection of Personal Information">Act on the Protection of Personal Information — قانون حماية المعلومات الشخصية</h4>
+            <p data-ar="القانون اللي بيحدد التعامل السليم مع المعلومات الشخصية، وبيعمل إن ممنوع يوفر حد بيانات حد تاني لطرف تالت من غير موافقته." data-en="The law that sets the proper way to handle personal information, banning its transfer to a third party without consent.">القانون اللي بيحدد التعامل السليم مع المعلومات الشخصية، وبيعمل إن ممنوع يوفر حد بيانات حد تاني لطرف تالت من غير موافقته.</p>
+          </div>
+          <div class="gl-term" data-cat="privacy">
+            <h4 data-ar="Right to Privacy — الحق في الخصوصية" data-en="Right to Privacy">Right to Privacy — الحق في الخصوصية</h4>
+            <p data-ar="حقك إنك تحمي أي معلومة شخصية مش عايز حد يعرفها، ومحدش يقدر يجبرك تكشفها." data-en="The right of a person to keep personal information they don't want others to know protected.">حقك إنك تحمي أي معلومة شخصية مش عايز حد يعرفها، ومحدش يقدر يجبرك تكشفها.</p>
+          </div>
+          <div class="gl-term" data-cat="rights">
+            <h4 data-ar="Image Rights — حقوق الصورة" data-en="Image Rights">Image Rights — حقوق الصورة</h4>
+            <p data-ar="حقك إنك تمنع حد يصورك أو يستخدم وشك أو مظهرك من غير إذنك — حتى لو من أفراد عيلتك." data-en="The right of a person to stop others from photographing or using their face or appearance without permission.">حقك إنك تمنع حد يصورك أو يستخدم وشك أو مظهرك من غير إذنك — حتى لو من أفراد عيلتك.</p>
+          </div>
+          <div class="gl-term" data-cat="rights">
+            <h4 data-ar="Publicity Rights — حقوق الدعاية" data-en="Publicity Rights">Publicity Rights — حقوق الدعاية</h4>
+            <p data-ar="حق بيحمي الفلوس اللي بتجيلك من شهرتك وشكلك، زي لما يمنع حد يطبع صورة مشهور على تي شيرت ويبيعه." data-en="A right that protects the economic interests of celebrities in their own image and likeness.">حق بيحمي الفلوس اللي بتجيلك من شهرتك وشكلك، زي لما يمنع حد يطبع صورة مشهور على تي شيرت ويبيعه.</p>
+          </div>
+          <div class="gl-term" data-cat="law">
+            <h4 data-ar="Precedents — السوابق القضائية" data-en="Precedents">Precedents — السوابق القضائية</h4>
+            <p data-ar="أحكام قضايا قديمة في المحاكم، ومن خلالها بتتعرف حقوق الخصوصية والصورة مش من القانون مباشرة." data-en="Past court decisions through which these privacy and image rights are recognized, instead of being written directly in a law.">أحكام قضايا قديمة في المحاكم، ومن خلالها بتتعرف حقوق الخصوصية والصورة مش من القانون مباشرة.</p>
+          </div>
+          <div class="gl-term" data-cat="law">
+            <h4 data-ar="Privacy Policy — سياسة الخصوصية" data-en="Privacy Policy">Privacy Policy — سياسة الخصوصية</h4>
+            <p data-ar="سياسة بتوضح للشركات والمنظمات إزاي بتجمع وبتستخدم وتدير معلوماتك الشخصية — قارئها قبل ما تسجل في أي موقع." data-en="A policy that explains how companies and organizations collect, use, and manage your personal information.">سياسة بتوضح للشركات والمنظمات إزاي بتجمع وبتستخدم وتدير معلوماتك الشخصية — قارئها قبل ما تسجل في أي موقع.</p>
+          </div>
+          <div class="gl-term" data-cat="law">
+            <h4 data-ar="Personal Data Protection Center License — ترخيص مركز حماية البيانات الشخصية" data-en="Personal Data Protection Center License">Personal Data Protection Center License — ترخيص مركز حماية البيانات الشخصية</h4>
+            <p data-ar="ترخيص بياخده الشركات من الجهة الرقابية عشان تثبت إنها بتحمي بياناتك الشخصية زي ما القانون بيقول." data-en="A license that companies get from the regulatory authority to prove they protect personal data according to the law.">ترخيص بياخده الشركات من الجهة الرقابية عشان تثبت إنها بتحمي بياناتك الشخصية زي ما القانون بيقول.</p>
+          </div>
+          <div class="gl-term" data-cat="law">
+            <h4 data-ar="Prior Approval System — نظام الموافقة المسبقة" data-en="Prior Approval System">Prior Approval System — نظام الموافقة المسبقة</h4>
+            <p data-ar="نظام مقدم الخدمة فيه مش بيجمع بياناتك ولا بيقدملك خدمة غير لما توافق إنت الأول." data-en="A system where a provider cannot collect your data or give you a service until you agree to it first.">نظام مقدم الخدمة فيه مش بيجمع بياناتك ولا بيقدملك خدمة غير لما توافق إنت الأول.</p>
+          </div>
+          <div class="gl-term" data-cat="law">
+            <h4 data-ar="Objection System — نظام الاعتراض" data-en="Objection System">Objection System — نظام الاعتراض</h4>
+            <p data-ar="نظام الخدمة فيه بتشتغل لوحدها وتفضل مستمرة لحد ما إنت تطلب إيقافها." data-en="A system where the service starts automatically and keeps going until you ask to stop it.">نظام الخدمة فيه بتشتغل لوحدها وتفضل مستمرة لحد ما إنت تطلب إيقافها.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -1531,6 +1722,51 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
       wireCards();
       wireRevealBtns();
     });
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
   </script>
 </body>
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -460,6 +460,23 @@
       flex-shrink: 0
     }
 
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
     .ex-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -708,7 +725,24 @@
 
     /* ---------- responsive ---------- */
     @media (max-width: 860px) {
-      .ex-options {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
         grid-template-columns: 1fr
       }
       .nav-inner {
@@ -721,6 +755,83 @@
         animation-duration: 0s !important;
         transition-duration: 0s !important
       }
+    }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -740,7 +851,8 @@
         <a href="#disseminate" data-ar="نشر المعلومات" data-en="Disseminating Information">نشر المعلومات</a>
         <a href="#smartphone" data-ar="الهواتف والمشاكل" data-en="Smartphone Problems">الهواتف والمشاكل</a>
         <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
-      </div>
+              <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+</div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -770,7 +882,7 @@
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الأخلاقيات المعلوماتية هي المبادئ والقواعد اللي بتضمن إننا نتعامل مع المعلومات والمحتوى الرقمي بالشكل الصح. مش بس لازم نعرف إزاي نستخدم التكنولوجيا، بل لازم نعرف إيه هو الصح والغلط لما بنتعامل مع بيانات، صور، فيديوهات، أو حتى كلام بنكتبه على الإنترنت." data-en="Information ethics is the foundational concepts and attitudes necessary for conducting appropriate activities in the information society. This is regardless of the presence or absence of laws.">الأخلاقيات المعلوماتية (<span dir="ltr">Information Ethics</span>) هي المبادئ والقواعد اللي بتضمن إننا نتعامل مع المعلومات والمحتوى الرقمي بالشكل الصح. مش بس لازم نعرف إزاي نستخدم التكنولوجيا، بل لازم نعرف إيه هو الصح والغلط لما بنتعامل مع بيانات، صور، فيديوهات، أو حتى كلام بنكتبه على الإنترنت.</p>
+        <p data-ar="الأخلاقيات المعلوماتية هي المبادئ والقواعد اللي بتضمن إننا نتعامل مع المعلومات والمحتوى الرقمي بالشكل الصح. مش بس لازم نعرف إزاي نستخدم التكنولوجيا، بل لازم نعرف إيه هو الصح والغلط لما بنتعامل مع بيانات، صور، فيديوهات، أو حتى كلام بنكتبه على الإنترنت." data-en="Information ethics is the foundational concepts and attitudes necessary for conducting appropriate activities in the information society. This is regardless of the presence or absence of laws.">الأخلاقيات المعلوماتية (<span dir='ltr'>Information Ethics</span>) هي المبادئ والقواعد اللي بتضمن إننا نتعامل مع المعلومات والمحتوى الرقمي بالشكل الصح. مش بس لازم نعرف إزاي نستخدم التكنولوجيا، بل لازم نعرف إيه هو الصح والغلط لما بنتعامل مع بيانات، صور، فيديوهات، أو حتى كلام بنكتبه على الإنترنت.</p>
 
         <div class="demo-label" style="margin-top:16px" data-ar="اختبر فهمك: إيه هو التصرف الأخلاقى؟" data-en="Test yourself: which action is ethical?">اختبر فهمك: إيه هو التصرف الأخلاقى؟</div>
         <div class="cards-grid" id="ethicsCards">
@@ -798,9 +910,9 @@
       <div class="section-inner error-box">
         <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
         <ul>
-          <li data-ar="تعتقد إن الأخلاقيات المعلوماتية معناه بس قوانين — لأ، الأخلاقيات هي اللي بتمشي قبل القوانين أحياناً." data-en="Thinking ethics only means laws — no, ethics often comes before laws.">تعتقد إن الأخلاقيات <span dir="ltr">Information Ethics</span> معناه بس قوانين — لأ، الأخلاقيات هي اللي بتمشي قبل القوانين أحياناً.</li>
+          <li data-ar="تعتقد إن الأخلاقيات المعلوماتية معناه بس قوانين — لأ، الأخلاقيات هي اللي بتمشي قبل القوانين أحياناً." data-en="Thinking ethics only means laws — no, ethics often comes before laws.">تعتقد إن الأخلاقيات <span dir='ltr'>Information Ethics</span> معناه بس قوانين — لأ، الأخلاقيات هي اللي بتمشي قبل القوانين أحياناً.</li>
           <li data-ar="تخليك إنه مفيش مشكلة لو غلطت مرة واحدة — حتى الغلطة الصغيرة ممكن تكبر لو تنشرت بسرعة." data-en="Thinking one small mistake is no big deal — even small errors can grow if spread quickly.">تخليك إنه مفيش مشكلة لو غلطت مرة واحدة — حتى الغلطة الصغيرة ممكن تكبر لو تنشرت بسرعة.</li>
-          <li data-ar="تعتقد إن anonymity بيحميك من أي مسؤولية — لأ، حتى لو مش معروف اسمك، كلامك وأفعالك على الإنترنت لها تأثير." data-en="Thinking anonymity protects you from all responsibility — no, even anonymous actions have real impact.">تعتقد إن <span dir="ltr">anonymity</span> بيحميك من أي مسؤولية — لأ، حتى لو مش معروف اسمك، كلامك وأفعالك على الإنترنت لها تأثير.</li>
+          <li data-ar="تعتقد إن anonymity بيحميك من أي مسؤولية — لأ، حتى لو مش معروف اسمك، كلامك وأفعالك على الإنترنت لها تأثير." data-en="Thinking anonymity protects you from all responsibility — no, even anonymous actions have real impact.">تعتقد إن <span dir='ltr'>anonymity</span> بيحميك من أي مسؤولية — لأ، حتى لو مش معروف اسمك، كلامك وأفعالك على الإنترنت لها تأثير.</li>
         </ul>
       </div>
     </section>
@@ -827,7 +939,7 @@
           </div>
           <div class="journey-item">
             <h4 data-ar="2. صعوبة الاختفاء" data-en="2. Hard to disappear">2. صعوبة الاختفاء</h4>
-            <p data-ar="حتى لو مسحت منشور أو صورة، ممكن حد يكون خدها screenshot أو حفظها قبل ما تمسحها. المعلومات مش بتموت بسهولة." data-en="Even if you delete a post or photo, someone may have screenshotted or saved it before you did. Information doesn't die easily.">حتى لو مسحت منشور أو صورة، ممكن حد يكون خدها <span dir="ltr">screenshot</span> أو حفظها قبل ما تمسحها. المعلومات مش بتموت بسهولة.</p>
+            <p data-ar="حتى لو مسحت منشور أو صورة، ممكن حد يكون خدها screenshot أو حفظها قبل ما تمسحها. المعلومات مش بتموت بسهولة." data-en="Even if you delete a post or photo, someone may have screenshotted or saved it before you did. Information doesn't die easily.">حتى لو مسحت منشور أو صورة، ممكن حد يكون خدها <span dir='ltr'>screenshot</span> أو حفظها قبل ما تمسحها. المعلومات مش بتموت بسهولة.</p>
           </div>
         </div>
       </div>
@@ -838,7 +950,7 @@
         <div class="cards-grid">
           <div class="card-item">
             <div class="card-icon">©️</div>
-            <div class="card-title" data-ar="حقوق النشر" data-en="Copyright">حقوق النشر (<span dir="ltr">Copyright</span>)</div>
+            <div class="card-title" data-ar="حقوق النشر" data-en="Copyright">حقوق النشر (<span dir='ltr'>Copyright</span>)</div>
             <div class="card-body" data-ar="ممنوع تنشر صور أو فيديوهات مملوكة لغيرك بدون إذن — حتى لو مأخوذة من موقع عام." data-en="You must not share images or videos owned by others without permission — even if taken from a public site.">ممنوع تنشر صور أو فيديوهات مملوكة لغيرك بدون إذن — حتى لو مأخوذة من موقع عام.</div>
           </div>
           <div class="card-item">
@@ -848,20 +960,20 @@
           </div>
           <div class="card-item">
             <div class="card-icon">🔐</div>
-            <div class="card-title" data-ar="الخصوصية" data-en="Privacy">الخصوصية (<span dir="ltr">Privacy</span>)</div>
+            <div class="card-title" data-ar="الخصوصية" data-en="Privacy">الخصوصية (<span dir='ltr'>Privacy</span>)</div>
             <div class="card-body" data-ar="ممنوع تنتهك خصوصية الناس — حتى لو هما مش عارفين إنك بتعمل كده." data-en="You must not infringe on others' privacy — even if they don't know you're doing it.">ممنوع تنتهك خصوصية الناس — حتى لو هما مش عارفين إنك بتعمل كده.</div>
           </div>
           <div class="card-item">
             <div class="card-icon">😢</div>
-            <div class="card-title" data-ar="التنمر الإلكتروني" data-en="Online Bullying">التنمر الإلكتروني (<span dir="ltr">Online Bullying</span>)</div>
+            <div class="card-title" data-ar="التنمر الإلكتروني" data-en="Online Bullying">التنمر الإلكتروني (<span dir='ltr'>Online Bullying</span>)</div>
             <div class="card-body" data-ar="ممنوع تكتب تعليقات مسيئة أو تشهيرية — الكلام على الإنترنت له تأثير حقيقي." data-en="You must not post comments that slander or defame others or engage in online bullying.">ممنوع تكتب تعليقات مسيئة أو تشهيرية — الكلام على الإنترنت له تأثير حقيقي.</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card" style="margin-top:24px">
-        <h3 data-ar="الجيوتاج — موقعك بينكشف من صورة!" data-en="Geotagging — your location revealed from a photo!" style="color:var(--s3)">الجيوتاج (<span dir="ltr">Geotag</span>) — موقعك بينكشف من صورة!</h3>
-        <p data-ar="الجيوتاج هو معلومات الموقع (خط العرض وخط الطول) اللي بتتسجل تلقائيًا في الصور والفيديوهات اللي بتصورها بالهاتف. يعني لو نشرت صورة على السوشيال ميديا، ممكن حد يعرف من أي مكان صورت الصورة — وحتى يعرف عنوان بيتك!" data-en="Geotagging is location information (latitude and longitude) embedded in photos and videos taken with smartphones. There is a risk of being identified, such as having your home pinpointed based on the location where the photo was taken.">الجيوتاج (<span dir="ltr">Geotagging</span>) هو معلومات الموقع اللي بتتسجل تلقائيًا في الصور والفيديوهات اللي بتصورها بالهاتف. يعني لو نشرت صورة على السوشيال ميديا، ممكن حد يعرف من أي مكان صورت الصورة — وحتى يعرف عنوان بيتك!</p>
+        <h3 data-ar="الجيوتاج — موقعك بينكشف من صورة!" data-en="Geotagging — your location revealed from a photo!" style="color:var(--s3)">الجيوتاج (<span dir='ltr'>Geotag</span>) — موقعك بينكشف من صورة!</h3>
+        <p data-ar="الجيوتاج هو معلومات الموقع (خط العرض وخط الطول) اللي بتتسجل تلقائيًا في الصور والفيديوهات اللي بتصورها بالهاتف. يعني لو نشرت صورة على السوشيال ميديا، ممكن حد يعرف من أي مكان صورت الصورة — وحتى يعرف عنوان بيتك!" data-en="Geotagging is location information (latitude and longitude) embedded in photos and videos taken with smartphones. There is a risk of being identified, such as having your home pinpointed based on the location where the photo was taken.">الجيوتاج (<span dir='ltr'>Geotagging</span>) هو معلومات الموقع اللي بتتسجل تلقائيًا في الصور والفيديوهات اللي بتصورها بالهاتف. يعني لو نشرت صورة على السوشيال ميديا، ممكن حد يعرف من أي مكان صورت الصورة — وحتى يعرف عنوان بيتك!</p>
         <div class="demo-label" style="margin-top:14px" data-ar="تفاعل: اضغط على الصورة وشوف إيه المعلومات اللي ممكن تظهر!" data-en="Interactive: click the photo to see what info might leak!">تفاعل: اضغط على الصورة وشوف إيه المعلومات اللي ممكن تظهر!</div>
         <div class="cards-grid" id="geotagDemo">
           <div class="card-item" data-reveal="geo">
@@ -880,8 +992,8 @@
       </div>
 
       <div class="section-inner card" style="margin-top:24px">
-        <h3 data-ar="المعلومات المضللة والشائعات" data-en="Disinformation and Rumors" style="color:var(--s4)">المعلومات المضللة والشائعات (<span dir="ltr">Disinformation</span>)</h3>
-        <p data-ar="المعلومات المضللة هي معلومات خاطئة متعمدة، والشائعات هي إشاعات مبنية على لا حاجة. كل واحدة فيهم بتضر المجتمع لأنها بتغير الرأي العام بسرعة وبأسلوب خادع." data-en="Disinformation and rumors: false information that is deliberately spread or baseless rumors. Problems that occur with smartphones and social media.">المعلومات المضللة (<span dir="ltr">Disinformation</span>) والشائعات هي معلومات خاطئة متعمدة أو إشاعات مبنية على لا شيء. كل واحدة فيهم بتضر المجتمع لأنها بتغير الرأي العام بسرعة وبأسلوب خادع.</p>
+        <h3 data-ar="المعلومات المضللة والشائعات" data-en="Disinformation and Rumors" style="color:var(--s4)">المعلومات المضللة والشائعات (<span dir='ltr'>Disinformation</span>)</h3>
+        <p data-ar="المعلومات المضللة هي معلومات خاطئة متعمدة، والشائعات هي إشاعات مبنية على لا حاجة. كل واحدة فيهم بتضر المجتمع لأنها بتغير الرأي العام بسرعة وبأسلوب خادع." data-en="Disinformation and rumors: false information that is deliberately spread or baseless rumors. Problems that occur with smartphones and social media.">المعلومات المضللة (<span dir='ltr'>Disinformation</span>) والشائعات هي معلومات خاطئة متعمدة أو إشاعات مبنية على لا شيء. كل واحدة فيهم بتضر المجتمع لأنها بتغير الرأي العام بسرعة وبأسلوب خادع.</p>
         <div class="demo-label" style="margin-top:12px" data-ar="تحدي: فين الفرق بين الخبر الصح والمنشور المضلل؟" data-en="Challenge: what's the difference between real news and disinformation?">تحدي: فين الفرق بين الخبر الصح والمنشور المضلل؟</div>
         <div class="cards-grid" id="disinfoCards">
           <div class="card-item" data-correct="1">
@@ -902,7 +1014,7 @@
       <div class="section-inner error-box">
         <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
         <ul>
-          <li data-ar="تعتقد إن إحذف منشور كفاية عشان مايبقى له أثر — لا، ممكن يكون حد saved أو screenshot منه." data-en="Thinking deleting a post is enough — no, someone may have saved or screenshot it.">تعتقد إن إحذف منشور كفاية عشان مايبقى له أثر — لا، ممكن يكون حد <span dir="ltr">saved</span> أو <span dir="ltr">screenshot</span> منه.</li>
+          <li data-ar="تعتقد إن إحذف منشور كفاية عشان مايبقى له أثر — لا، ممكن يكون حد saved أو screenshot منه." data-en="Thinking deleting a post is enough — no, someone may have saved or screenshot it.">تعتقد إن إحذف منشور كفاية عشان مايبقى له أثر — لا، ممكن يكون حد <span dir='ltr'>saved</span> أو <span dir='ltr'>screenshot</span> منه.</li>
           <li data-ar="تعتقد إن الجيوتاج ميزة كويسة دايماً — لأ، ممكن تكون خطر كبير على أمانك." data-en="Thinking geotagging is always a good feature — no, it can be a major security risk.">تعتقد إن الجيوتاج ميزة كويسة دايماً — لأ، ممكن تكون خطر كبير على أمانك.</li>
           <li data-ar="تشارك أي خبر تراه بدون ما تتحقق — حتى لو كان من صاحب كبير عدد متابعين." data-en="Sharing any news you see without verifying — even if from someone with many followers.">تشارك أي خبر تراه بدون ما تتحقق — حتى لو كان من صاحب كبير عدد متابعين.</li>
         </ul>
@@ -923,7 +1035,7 @@
 
       <div class="section-inner card">
         <h3 data-ar="إيه هي السوشيال ميديا؟" data-en="What is Social Media?" style="color:var(--s3)">إيه هي السوشيال ميديا؟</h3>
-        <p data-ar="السوشيال ميديا هي خدمات بتوفر منصات على الإنترنت الناس يتواصلوا مع بعض. منصات زي فيسبوك، إنستجرام، تيك توك، واتساب — كلها سوشيال ميديا. هي أداة مريحة، لكن لو مش مستخدمة صح، ممكن تصير خطر." data-en="Social media : Services that provide platforms where individuals can connect with each other on the internet.">السوشيال ميديا (<span dir="ltr">Social Media</span>) هي خدمات بتوفر منصات على الإنترنت الناس يتواصلوا مع بعض. منصات زي فيسبوك، إنستجرام، تيك توك، واتساب — كلها سوشيال ميديا. هي أداة مريحة، لكن لو مش مستخدمة صح، ممكن تصير خطر.</p>
+        <p data-ar="السوشيال ميديا هي خدمات بتوفر منصات على الإنترنت الناس يتواصلوا مع بعض. منصات زي فيسبوك، إنستجرام، تيك توك، واتساب — كلها سوشيال ميديا. هي أداة مريحة، لكن لو مش مستخدمة صح، ممكن تصير خطر." data-en="Social media : Services that provide platforms where individuals can connect with each other on the internet.">السوشيال ميديا (<span dir='ltr'>Social Media</span>) هي خدمات بتوفر منصات على الإنترنت الناس يتواصلوا مع بعض. منصات زي فيسبوك، إنستجرام، تيك توك، واتساب — كلها سوشيال ميديا. هي أداة مريحة، لكن لو مش مستخدمة صح، ممكن تصير خطر.</p>
       </div>
 
       <div class="section-inner card" style="margin-top:24px">
@@ -932,9 +1044,9 @@
         <div class="cards-grid" id="problemCards">
           <div class="card-item" data-reveal="problem">
             <div class="card-icon">📱</div>
-            <div class="card-title" data-ar="إدمان الإنترنت" data-en="Internet Addiction">إدمان الإنترنت (<span dir="ltr">Internet Addiction</span>)</div>
+            <div class="card-title" data-ar="إدمان الإنترنت" data-en="Internet Addiction">إدمان الإنترنت (<span dir='ltr'>Internet Addiction</span>)</div>
             <div class="card-body" data-ar="حالة لما الشخص يكون منغمس بشكل مفرط في الإنترنت لدرجة interfere with daily life." data-en="A state where one becomes excessively immersed in the internet to the extent of interfering with daily life.">حالة لما الشخص يكون منغمس بشكل مفرط في الإنترنت لدرجة بتأثر على حياته اليومية.</div>
-            <div class="card-feedback" data-ar="💡 الحل: حدّد وقت استخدام يومي، وقِعد فترات بدون إنترنت، ومارس هوايات بدنية." data-en="💡 Solution: set a daily time limit, take offline breaks, and practice physical hobbies.">💡 الحل: حدّد وقت استخدام يومي، وقِعد فترات <span dir="ltr">offline</span>، ومارس هوايات بدنية.</div>
+            <div class="card-feedback" data-ar="💡 الحل: حدّد وقت استخدام يومي، وقِعد فترات بدون إنترنت، ومارس هوايات بدنية." data-en="💡 Solution: set a daily time limit, take offline breaks, and practice physical hobbies.">💡 الحل: حدّد وقت استخدام يومي، وقِعد فترات <span dir='ltr'>offline</span>، ومارس هوايات بدنية.</div>
           </div>
           <div class="card-item" data-reveal="problem">
             <div class="card-icon">🚶</div>
@@ -944,21 +1056,21 @@
           </div>
           <div class="card-item" data-reveal="problem">
             <div class="card-icon">💻</div>
-            <div class="card-title" data-ar="الجريمة الإلكترونية (Cybercrime)" data-en="Cybercrime">الجريمة الإلكترونية (<span dir="ltr">Cybercrime</span>)</div>
+            <div class="card-title" data-ar="الجريمة الإلكترونية (Cybercrime)" data-en="Cybercrime">الجريمة الإلكترونية (<span dir='ltr'>Cybercrime</span>)</div>
             <div class="card-body" data-ar="سوء استخدام الكمبيوترات والشبكات لأغراض إجرامية." data-en="The misuse of computers and networks for criminal activities.">سوء استخدام الكمبيوترات والشبكات لأغراض إجرامية.</div>
             <div class="card-feedback" data-ar="💡 الحل: ما تفتحش روابط مشبوهة، ما تنزّل ملفات من مصادر مش موثوقة، واجعل كلمة سر قوية." data-en="💡 Solution: don't open suspicious links, don't download files from untrusted sources, and use strong passwords.">💡 الحل: ما تفتحش روابط مشبوهة، ما تنزّل ملفات من مصادر مش موثوقة، واجعل كلمة سر قوية.</div>
           </div>
           <div class="card-item" data-reveal="problem">
             <div class="card-icon">🎭</div>
-            <div class="card-title" data-ar="سرقة الهوية (Identity Theft)" data-en="Identity Theft">سرقة الهوية (<span dir="ltr">Identity Theft</span>)</div>
-            <div class="card-body" data-ar="فعل طرف تالت يتنكر كأنه شخص أو منظمة معينة عشان يسرق IDs أو كلمات سر." data-en="The act of a third party pretending to be a certain individual or organization to steal IDs or passwords.">فعل طرف تالت يتنكر كأنه شخص أو منظمة معينة عشان يسرق <span dir="ltr">IDs</span> أو كلمات سر.</div>
+            <div class="card-title" data-ar="سرقة الهوية (Identity Theft)" data-en="Identity Theft">سرقة الهوية (<span dir='ltr'>Identity Theft</span>)</div>
+            <div class="card-body" data-ar="فعل طرف تالت يتنكر كأنه شخص أو منظمة معينة عشان يسرق IDs أو كلمات سر." data-en="The act of a third party pretending to be a certain individual or organization to steal IDs or passwords.">فعل طرف تالت يتنكر كأنه شخص أو منظمة معينة عشان يسرق <span dir='ltr'>IDs</span> أو كلمات سر.</div>
             <div class="card-feedback" data-ar="💡 الحل: ما تعطش معلوماتك الشخصية لأي حد، وتحقق من هوية اللي بيتكلم معاك." data-en="💡 Solution: never share your personal info with anyone, and verify the identity of who you're talking to.">💡 الحل: ما تعطش معلوماتك الشخصية لأي حد، وتحقق من هوية اللي بيتكلم معاك.</div>
           </div>
           <div class="card-item" data-reveal="problem">
             <div class="card-icon">💧</div>
             <div class="card-title" data-ar="تسريب المعلومات الشخصية" data-en="Leakage of Personal Information">تسريب المعلومات الشخصية</div>
-            <div class="card-body" data-ar="لما معلومات شخصية خاصّة تبقى سرية بتطلع لطرف تالت بدون إذن." data-en="When personal information that should remain confidential is disclosed to a third party.">لما معلومات شخصية supposed تبقى <span dir="ltr">confidential</span> بتطلع لطرف تالث بدون إذن.</div>
-            <div class="card-feedback" data-ar="💡 الحل: شارك معلوماتك بحذر، استخدم إعدادات الخصوصية، وكون aware إيه اللي بتنشره." data-en="💡 Solution: share your info cautiously, use privacy settings, and stay aware of what you post.">💡 الحل: شارك معلوماتك بحذر، استخدم إعدادات الخصوصية، وتبقى <span dir="ltr">aware</span> إيه اللي بتنشره.</div>
+            <div class="card-body" data-ar="لما معلومات شخصية خاصّة تبقى سرية بتطلع لطرف تالت بدون إذن." data-en="When personal information that should remain confidential is disclosed to a third party.">لما معلومات شخصية supposed تبقى <span dir='ltr'>confidential</span> بتطلع لطرف تالث بدون إذن.</div>
+            <div class="card-feedback" data-ar="💡 الحل: شارك معلوماتك بحذر، استخدم إعدادات الخصوصية، وكون aware إيه اللي بتنشره." data-en="💡 Solution: share your info cautiously, use privacy settings, and stay aware of what you post.">💡 الحل: شارك معلوماتك بحذر، استخدم إعدادات الخصوصية، وتبقى <span dir='ltr'>aware</span> إيه اللي بتنشره.</div>
           </div>
         </div>
       </div>
@@ -967,7 +1079,7 @@
         <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
         <ul>
           <li data-ar="تعتقد إن السوشيال ميديا دي خطر دائم — لأ، هي أداة مفيدة لو استخدمتها صح." data-en="Thinking social media is always dangerous — no, it's useful when used properly.">تعتقد إن السوشيال ميديا دي خطر دائم — لأ، هي أداة مفيدة لو استخدمتها صح.</li>
-          <li data-ar="تشارك معلوماتك الشخصية عشان تكسب جوائز أو عروض — دي طرق احتيال شائعة." data-en="Sharing personal info to win prizes or deals — these are common scam methods.">تشارك معلوماتك الشخصية عشان تكسب <span dir="ltr">prizes</span> أو عروض — دي طرق احتيال شائعة.</li>
+          <li data-ar="تشارك معلوماتك الشخصية عشان تكسب جوائز أو عروض — دي طرق احتيال شائعة." data-en="Sharing personal info to win prizes or deals — these are common scam methods.">تشارك معلوماتك الشخصية عشان تكسب <span dir='ltr'>prizes</span> أو عروض — دي طرق احتيال شائعة.</li>
           <li data-ar="تعتقد إنك مش مستهدف لأنك صغير السن — لا، الأطفال والمراهقين من أكثر الفئات استهدافاً." data-en="Thinking you're not targeted because you're young — no, children and teens are among the most targeted groups.">تعتقد إنك مش مستهدف لأنك صغير السن — لا، الأطفال والمراهقين من أكثر الفئات استهدافاً.</li>
         </ul>
       </div>
@@ -998,7 +1110,7 @@
               <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Information Ethics" data-en="C&nbsp;&nbsp;Information Ethics">C&nbsp;&nbsp;Information Ethics</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;الخصوصية (Privacy)" data-en="D&nbsp;&nbsp;Privacy">D&nbsp;&nbsp;الخصوصية (Privacy)</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: C — Information Ethics هو التعريف الرسمي للمبادئ والقواعد الأساسية في المجتمع المعلوماتي." data-en="✅ Answer: C — Information Ethics is the official term for the foundational concepts and attitudes in the information society.">✅ الإجابة: <b>C</b> — <span dir="ltr">Information Ethics</span> هو التعريف الرسمي للمبادئ والقواعد الأساسية في المجتمع المعلوماتي.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — Information Ethics هو التعريف الرسمي للمبادئ والقواعد الأساسية في المجتمع المعلوماتي." data-en="✅ Answer: C — Information Ethics is the official term for the foundational concepts and attitudes in the information society.">✅ الإجابة: <b>C</b> — <span dir='ltr'>Information Ethics</span> هو التعريف الرسمي للمبادئ والقواعد الأساسية في المجتمع المعلوماتي.</div>
           </div>
 
           <div class="ex-item">
@@ -1056,7 +1168,7 @@
               <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Disinformation and rumors" data-en="C&nbsp;&nbsp;Disinformation and rumors">C&nbsp;&nbsp;Disinformation and rumors</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Copyright" data-en="D&nbsp;&nbsp;Copyright">D&nbsp;&nbsp;Copyright</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: C — Disinformation and rumors هي المعلومات الخاطئة المتعمدة أو الشائعات الباطلة." data-en="✅ Answer: C — Disinformation and rumors are false information deliberately spread or baseless rumors.">✅ الإجابة: <b>C</b> — <span dir="ltr">Disinformation and rumors</span> هي المعلومات الخاطئة المتعمدة أو الشائعات الباطلة.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — Disinformation and rumors هي المعلومات الخاطئة المتعمدة أو الشائعات الباطلة." data-en="✅ Answer: C — Disinformation and rumors are false information deliberately spread or baseless rumors.">✅ الإجابة: <b>C</b> — <span dir='ltr'>Disinformation and rumors</span> هي المعلومات الخاطئة المتعمدة أو الشائعات الباطلة.</div>
           </div>
 
           <div class="ex-item">
@@ -1078,7 +1190,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Social marketing" data-en="C&nbsp;&nbsp;Social marketing">C&nbsp;&nbsp;Social marketing</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Social network system" data-en="D&nbsp;&nbsp;Social network system">D&nbsp;&nbsp;Social network system</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: B — Social networking service هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت." data-en="✅ Answer: B — Social networking service is the collective term for these services.">✅ الإجابة: <b>B</b> — <span dir="ltr">Social networking service</span> هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — Social networking service هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت." data-en="✅ Answer: B — Social networking service is the collective term for these services.">✅ الإجابة: <b>B</b> — <span dir='ltr'>Social networking service</span> هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت.</div>
           </div>
 
           <div class="ex-item">
@@ -1147,7 +1259,7 @@
               <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Internet addiction" data-en="C&nbsp;&nbsp;Internet addiction">C&nbsp;&nbsp;Internet addiction</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Cybercrime" data-en="D&nbsp;&nbsp;Cybercrime">D&nbsp;&nbsp;Cybercrime</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: C — Internet addiction هو التعريف الرسمي لهذه الحالة." data-en="✅ Answer: C — Internet addiction is the official definition of this state.">✅ الإجابة: <b>C</b> — <span dir="ltr">Internet addiction</span> هو التعريف الرسمي لهذه الحالة.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — Internet addiction هو التعريف الرسمي لهذه الحالة." data-en="✅ Answer: C — Internet addiction is the official definition of this state.">✅ الإجابة: <b>C</b> — <span dir='ltr'>Internet addiction</span> هو التعريف الرسمي لهذه الحالة.</div>
           </div>
 
           <div class="ex-item">
@@ -1158,7 +1270,7 @@
               <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Social networking service" data-en="C&nbsp;&nbsp;Social networking service">C&nbsp;&nbsp;Social networking service</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Disinformation" data-en="D&nbsp;&nbsp;Disinformation">D&nbsp;&nbsp;Disinformation</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: C — Social networking service هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت." data-en="✅ Answer: C — Social networking service is the collective term for these services.">✅ الإجابة: <b>C</b> — <span dir="ltr">Social networking service</span> هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — Social networking service هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت." data-en="✅ Answer: C — Social networking service is the collective term for these services.">✅ الإجابة: <b>C</b> — <span dir='ltr'>Social networking service</span> هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت.</div>
           </div>
 
           <div class="ex-item">
@@ -1169,7 +1281,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Identity theft" data-en="C&nbsp;&nbsp;Identity theft">C&nbsp;&nbsp;Identity theft</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Leakage of personal information" data-en="D&nbsp;&nbsp;Leakage of personal information">D&nbsp;&nbsp;Leakage of personal information</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: B — Geotag هو مصطلح معلومات الموقع المضمنة في الوسائط." data-en="✅ Answer: B — Geotag (Geotagging) is the term for location information embedded in media.">✅ الإجابة: <b>B</b> — <span dir="ltr">Geotag</span> (<span dir="ltr">Geotagging</span>) هو مصطلح معلومات الموقع المضمنة في الوسائط.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — Geotag هو مصطلح معلومات الموقع المضمنة في الوسائط." data-en="✅ Answer: B — Geotag (Geotagging) is the term for location information embedded in media.">✅ الإجابة: <b>B</b> — <span dir='ltr'>Geotag</span> (<span dir='ltr'>Geotagging</span>) هو مصطلح معلومات الموقع المضمنة في الوسائط.</div>
           </div>
 
           <div class="ex-item">
@@ -1225,6 +1337,90 @@
         </div>
       </div>
     </section>
+  
+    <!-- ============ GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">05</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="ethics" data-ar="أخلاقيات" data-en="Ethics">أخلاقيات</button>
+          <button class="mini-btn gl-filter" data-filter="info" data-ar="بيانات ومعلومات" data-en="Data & Info">بيانات ومعلومات</button>
+          <button class="mini-btn gl-filter" data-filter="rights" data-ar="حقوق" data-en="Rights">حقوق</button>
+          <button class="mini-btn gl-filter" data-filter="privacy" data-ar="خصوصية" data-en="Privacy">خصوصية</button>
+          <button class="mini-btn gl-filter" data-filter="security" data-ar="أمان" data-en="Security">أمان</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="ethics">
+            <h4 data-ar="Information Ethics — الأخلاقيات المعلوماتية" data-en="Information Ethics">Information Ethics — الأخلاقيات المعلوماتية</h4>
+            <p data-ar="دي المبادئ والقواعد اللي بتخليك تتعامل مع المعلومات والمحتوى الرقمي بالشكل الصح والأخلاقي على الإنترنت." data-en="The principles and rules that help you handle information and digital content in the right and ethical way.">دي المبادئ والقواعد اللي بتخليك تتعامل مع المعلومات والمحتوى الرقمي بالشكل الصح والأخلاقي على الإنترنت.</p>
+          </div>
+          <div class="gl-term" data-cat="info">
+            <h4 data-ar="Disseminating Information — نشر المعلومات" data-en="Disseminating Information">Disseminating Information — نشر المعلومات</h4>
+            <p data-ar="نشر المعلومات وبيعتها للناس، وبالذات على الإنترنت، المكان اللي فيها الكلام بيوصل لناس كتير في ثواني." data-en="Sharing or spreading information to other people, often online where it can reach a huge audience very fast.">نشر المعلومات وبيعتها للناس، وبالذات على الإنترنت، المكان اللي فيها الكلام بيوصل لناس كتير في ثواني.</p>
+          </div>
+          <div class="gl-term" data-cat="rights">
+            <h4 data-ar="Copyright — حقوق النشر" data-en="Copyright">Copyright — حقوق النشر</h4>
+            <p data-ar="حق بيقول إنك ممنوع تنشر أو تستخدم صور أو فيديوهات أو أعمال حد تاني من غير إذنه." data-en="A protection saying you must not share or reuse someone else's images, videos, or work without their permission.">حق بيقول إنك ممنوع تنشر أو تستخدم صور أو فيديوهات أو أعمال حد تاني من غير إذنه.</p>
+          </div>
+          <div class="gl-term" data-cat="info">
+            <h4 data-ar="Personal Information — المعلومات الشخصية" data-en="Personal Information">Personal Information — المعلومات الشخصية</h4>
+            <p data-ar="بيانات خاصة بأي حد زي الاسم والعنوان ورقم التليفون، وممنوع تسريبها على الإنترنت." data-en="Private details about a person such as their name, address, or phone number, which must not be leaked online.">بيانات خاصة بأي حد زي الاسم والعنوان ورقم التليفون، وممنوع تسريبها على الإنترنت.</p>
+          </div>
+          <div class="gl-term" data-cat="privacy">
+            <h4 data-ar="Privacy — الخصوصية" data-en="Privacy">Privacy — الخصوصية</h4>
+            <p data-ar="حقك إن معلوماتك وحياتك الخاصة تفضل سر، ومحدش يقدر يعرفها من غير ما تحب." data-en="The right to keep your own information and life private from people you don't want to know about it.">حقك إن معلوماتك وحياتك الخاصة تفضل سر، ومحدش يقدر يعرفها من غير ما تحب.</p>
+          </div>
+          <div class="gl-term" data-cat="ethics">
+            <h4 data-ar="Online Bullying — التنمر الإلكتروني" data-en="Online Bullying">Online Bullying — التنمر الإلكتروني</h4>
+            <p data-ar="إنك تكتب تعليقات مسيئة أو بتشوه سمعة حد على الإنترنت، والكلام ده ليه تأثير حقيقي وبيأذي الناس." data-en="Writing offensive or defamatory comments against others online, which can really hurt people because the internet is forever.">إنك تكتب تعليقات مسيئة أو بتشوه سمعة حد على الإنترنت، والكلام ده ليه تأثير حقيقي وبيأذي الناس.</p>
+          </div>
+          <div class="gl-term" data-cat="privacy">
+            <h4 data-ar="Geotagging — الجيوتاج" data-en="Geotagging">Geotagging — الجيوتاج</h4>
+            <p data-ar="معلومات الموقع اللي بتتسجل لوحدها في الصور اللي بتصورها بالموبايل، وبتقدر تكشف من مكانك وحتى عنوان بيتك." data-en="Location information like latitude and longitude that your phone saves automatically in photos, which can reveal where you live.">معلومات الموقع اللي بتتسجل لوحدها في الصور اللي بتصورها بالموبايل، وبتقدر تكشف من مكانك وحتى عنوان بيتك.</p>
+          </div>
+          <div class="gl-term" data-cat="info">
+            <h4 data-ar="Disinformation — المعلومات المضللة" data-en="Disinformation">Disinformation — المعلومات المضللة</h4>
+            <p data-ar="معلومات غلط بيتنشر عمدًا، أو شائعات من غير أي أساس، وبتلخبط رأي الناس بسرعة وبأسلوب خادع." data-en="False information that is spread on purpose, or rumors with no real basis, that can quickly mislead public opinion.">معلومات غلط بيتنشر عمدًا، أو شائعات من غير أي أساس، وبتلخبط رأي الناس بسرعة وبأسلوب خادع.</p>
+          </div>
+          <div class="gl-term" data-cat="info">
+            <h4 data-ar="Social Media — السوشيال ميديا" data-en="Social Media">Social Media — السوشيال ميديا</h4>
+            <p data-ar="خدمات على الإنترنت زي فيسبوك وإنستجرام وتيك توك وواتساب، الناس بتتواصل مع بعض من خلالها." data-en="Online services and platforms like Facebook, Instagram, TikTok, and WhatsApp that let people connect with each other.">خدمات على الإنترنت زي فيسبوك وإنستجرام وتيك توك وواتساب، الناس بتتواصل مع بعض من خلالها.</p>
+          </div>
+          <div class="gl-term" data-cat="info">
+            <h4 data-ar="Social Networking Service — خدمة شبكة التواصل الاجتماعي" data-en="Social Networking Service">Social Networking Service — خدمة شبكة التواصل الاجتماعي</h4>
+            <p data-ar="المصطلح الجماعي للخدمات اللي بتسهل على الناس يبنيوا علاقات ويتواصلوا مع بعض عبر الإنترنت." data-en="The collective term for online services that help people build relationships and connect over the internet.">المصطلح الجماعي للخدمات اللي بتسهل على الناس يبنيوا علاقات ويتواصلوا مع بعض عبر الإنترنت.</p>
+          </div>
+          <div class="gl-term" data-cat="ethics">
+            <h4 data-ar="Internet Addiction — إدمان الإنترنت" data-en="Internet Addiction">Internet Addiction — إدمان الإنترنت</h4>
+            <p data-ar="حالة لما الشخص يبقى منغمس في الإنترنت لدرجة بتأثر على دراسته وشغله وصحته وحياته اليومية." data-en="A state where a person becomes so obsessed with the internet that it interferes with their daily life and health.">حالة لما الشخص يبقى منغمس في الإنترنت لدرجة بتأثر على دراسته وشغله وصحته وحياته اليومية.</p>
+          </div>
+          <div class="gl-term" data-cat="security">
+            <h4 data-ar="Cybercrime — الجريمة الإلكترونية" data-en="Cybercrime">Cybercrime — الجريمة الإلكترونية</h4>
+            <p data-ar="استخدام الكمبيوترات والشبكات بطريقة وحشة لأغراض إجرامية، زي سرقة البيانات واختراق الحسابات." data-en="The misuse of computers and networks to commit crimes, like stealing data or hacking accounts.">استخدام الكمبيوترات والشبكات بطريقة وحشة لأغراض إجرامية، زي سرقة البيانات واختراق الحسابات.</p>
+          </div>
+          <div class="gl-term" data-cat="security">
+            <h4 data-ar="Identity Theft — سرقة الهوية" data-en="Identity Theft">Identity Theft — سرقة الهوية</h4>
+            <p data-ar="لما حد بيتنكر بهيئة شخص معين عشان يسرق أرقامه أو كلمات السر بتاعته." data-en="When someone pretends to be you or another person in order to steal IDs or passwords.">لما حد بيتنكر بهيئة شخص معين عشان يسرق أرقامه أو كلمات السر بتاعته.</p>
+          </div>
+          <div class="gl-term" data-cat="privacy">
+            <h4 data-ar="Leakage of Personal Information — تسريب المعلومات الشخصية" data-en="Leakage of Personal Information">Leakage of Personal Information — تسريب المعلومات الشخصية</h4>
+            <p data-ar="لما معلومات سرية مفروض تفضل خاصة، بتوصل لطرف تالت من غير إذن صاحبها." data-en="When private information that should stay confidential gets exposed to someone else without permission.">لما معلومات سرية مفروض تفضل خاصة، بتوصل لطرف تالت من غير إذن صاحبها.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -1367,6 +1563,51 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
       wireCards();
       wireRevealBtns();
     });
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
   </script>
 </body>
 

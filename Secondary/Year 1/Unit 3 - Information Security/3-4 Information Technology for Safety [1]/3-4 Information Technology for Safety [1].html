@@ -460,6 +460,23 @@
       flex-shrink: 0
     }
 
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
     .ex-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -708,7 +725,24 @@
 
     /* ---------- responsive ---------- */
     @media (max-width: 860px) {
-      .ex-options {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
         grid-template-columns: 1fr
       }
       .nav-inner {
@@ -721,6 +755,83 @@
         animation-duration: 0s !important;
         transition-duration: 0s !important
       }
+    }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -740,7 +851,8 @@
         <a href="#types" data-ar="أنواع التشفير" data-en="Types of Encryption">أنواع التشفير</a>
         <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
-      </div>
+              <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+</div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -1297,6 +1409,81 @@
         <p data-ar="افتكر دايمًا: شفّر رسائلك عشان تفضل في أمان — والمفتاح الصح بيفتح الباب الصحيح بس!" data-en="Always remember: encrypt your messages to keep them safe — and only the right key opens the right door!">افتكر دايمًا: شفّر رسائلك عشان تفضل في أمان — والمفتاح الصح بيفتح الباب الصحيح بس!</p>
       </div>
     </section>
+  
+    <!-- ============ GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">05</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="crypto" data-ar="تشفير" data-en="Encryption">تشفير</button>
+          <button class="mini-btn gl-filter" data-filter="symmetric" data-ar="مفتاح متناظر" data-en="Symmetric Key">مفتاح متناظر</button>
+          <button class="mini-btn gl-filter" data-filter="public" data-ar="مفتاح عام" data-en="Public Key">مفتاح عام</button>
+          <button class="mini-btn gl-filter" data-filter="session" data-ar="مفتاح جلسة" data-en="Session Key">مفتاح جلسة</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="crypto">
+            <h4 data-ar="Encryption — التشفير" data-en="Encryption">Encryption — التشفير</h4>
+            <p data-ar="طريقة بنخلي بيها الرسالة مش مفهومة لأي حد غير اللي عايزينه هو بس، عشان محدش يعترضها ويقراها." data-en="A method used to scramble a message so that only the intended recipient can read it.">طريقة بنخلي بيها الرسالة مش مفهومة لأي حد غير اللي عايزينه هو بس، عشان محدش يعترضها ويقراها.</p>
+          </div>
+          <div class="gl-term" data-cat="crypto">
+            <h4 data-ar="Decryption — فك التشفير" data-en="Decryption">Decryption — فك التشفير</h4>
+            <p data-ar="بيرجع النص المشفر لشكله الأصلي اللي مفهوم، وبيحصل عند المستقبل باستخدام المفتاح." data-en="Turning encrypted text back into the original readable message using the key.">بيرجع النص المشفر لشكله الأصلي اللي مفهوم، وبيحصل عند المستقبل باستخدام المفتاح.</p>
+          </div>
+          <div class="gl-term" data-cat="crypto">
+            <h4 data-ar="Plaintext — النص الأصلي" data-en="Plaintext">Plaintext — النص الأصلي</h4>
+            <p data-ar="الرسالة الأصلية الحقيقية قبل ما تتشفّر." data-en="The original, unencrypted message before it gets encrypted.">الرسالة الأصلية الحقيقية قبل ما تتشفّر.</p>
+          </div>
+          <div class="gl-term" data-cat="crypto">
+            <h4 data-ar="Ciphertext — النص المشفر" data-en="Ciphertext">Ciphertext — النص المشفر</h4>
+            <p data-ar="النص اللي اتشفر وبقى غير مفهوم، وده اللي بيتنقل على الشبكة." data-en="The scrambled, unreadable text produced after encryption, which travels over the network.">النص اللي اتشفر وبقى غير مفهوم، وده اللي بيتنقل على الشبكة.</p>
+          </div>
+          <div class="gl-term" data-cat="crypto">
+            <h4 data-ar="Key — المفتاح" data-en="Key">Key — المفتاح</h4>
+            <p data-ar="البيانات أو الخطوات اللي بنستخدمها في التشفير وفك التشفير، وبدونها محدش يقدر يفتح الرسالة." data-en="The specific data or procedure used to encrypt and decrypt a message.">البيانات أو الخطوات اللي بنستخدمها في التشفير وفك التشفير، وبدونها محدش يقدر يفتح الرسالة.</p>
+          </div>
+          <div class="gl-term" data-cat="crypto">
+            <h4 data-ar="Interception — الاعتراض" data-en="Interception">Interception — الاعتراض</h4>
+            <p data-ar="لما حد مش مفروض يقرا الرسالة يحاول ياخدها أو يعدل فيها وهي بتتبعت — والتشفير هو اللي بيمنع ده." data-en="When an unauthorized person tries to read or tamper with a message while it is being sent.">لما حد مش مفروض يقرا الرسالة يحاول ياخدها أو يعدل فيها وهي بتتبعت — والتشفير هو اللي بيمنع ده.</p>
+          </div>
+          <div class="gl-term" data-cat="symmetric">
+            <h4 data-ar="Symmetric key encryption — التشفير بالمفتاح المتناظر" data-en="Symmetric key encryption">Symmetric key encryption — التشفير بالمفتاح المتناظر</h4>
+            <p data-ar="نوع تشفير بنستخدم فيه نفس المفتاح المشترك للتشفير وفك التشفير، وبيتميز إنه سريع." data-en="An encryption method that uses the same shared key for both encrypting and decrypting.">نوع تشفير بنستخدم فيه نفس المفتاح المشترك للتشفير وفك التشفير، وبيتميز إنه سريع.</p>
+          </div>
+          <div class="gl-term" data-cat="symmetric">
+            <h4 data-ar="Shared key — المفتاح المشترك" data-en="Shared key">Shared key — المفتاح المشترك</h4>
+            <p data-ar="المفتاح الواحد المشترك اللي بيستخدمه المرسل والمستقبل مع بعض في التشفير المتناظر." data-en="The single key that both the sender and the receiver share in symmetric encryption.">المفتاح الواحد المشترك اللي بيستخدمه المرسل والمستقبل مع بعض في التشفير المتناظر.</p>
+          </div>
+          <div class="gl-term" data-cat="public">
+            <h4 data-ar="Public key encryption — التشفير بالمفتاح العام" data-en="Public key encryption">Public key encryption — التشفير بالمفتاح العام</h4>
+            <p data-ar="نوع تشفير بنشفّر بيه بمفتاح عام للجميع، وفك التشفير بيبقى بمفتاح خاص المستقبل هو بس اللي يملكه." data-en="An encryption method that uses a public key to encrypt and a private key to decrypt.">نوع تشفير بنشفّر بيه بمفتاح عام للجميع، وفك التشفير بيبقى بمفتاح خاص المستقبل هو بس اللي يملكه.</p>
+          </div>
+          <div class="gl-term" data-cat="public">
+            <h4 data-ar="Public key — المفتاح العام" data-en="Public key">Public key — المفتاح العام</h4>
+            <p data-ar="مفتاح بيتشارك بحرية مع أي حد، وبيستخدم في التشفير." data-en="A key that is shared freely with everyone and used to encrypt a message.">مفتاح بيتشارك بحرية مع أي حد، وبيستخدم في التشفير.</p>
+          </div>
+          <div class="gl-term" data-cat="public">
+            <h4 data-ar="Private key — المفتاح الخاص" data-en="Private key">Private key — المفتاح الخاص</h4>
+            <p data-ar="مفتاح سري بيحتفظ بيه صاحبه لوحده، وبيستخدم لفك التشفير." data-en="A secret key that only its owner keeps, used to decrypt messages.">مفتاح سري بيحتفظ بيه صاحبه لوحده، وبيستخدم لفك التشفير.</p>
+          </div>
+          <div class="gl-term" data-cat="session">
+            <h4 data-ar="Session key method — طريقة مفتاح الجلسة" data-en="Session key method">Session key method — طريقة مفتاح الجلسة</h4>
+            <p data-ar="طريقة تشفير هجينة بتمزج سرعة المفتاح المتناظر مع سهولة إدارة المفتاح العام — أفضل ما في الاتنين." data-en="A hybrid encryption method that combines the speed of symmetric keys with the easy management of public keys.">طريقة تشفير هجينة بتمزج سرعة المفتاح المتناظر مع سهولة إدارة المفتاح العام — أفضل ما في الاتنين.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -1439,6 +1626,51 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
       wireCards();
       wireRevealBtns();
     });
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
   </script>
 </body>
 

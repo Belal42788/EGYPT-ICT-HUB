@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -460,6 +460,23 @@
       flex-shrink: 0
     }
 
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
     .ex-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -708,7 +725,24 @@
 
     /* ---------- responsive ---------- */
     @media (max-width: 860px) {
-      .ex-options {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
         grid-template-columns: 1fr
       }
       .nav-inner {
@@ -721,6 +755,83 @@
         animation-duration: 0s !important;
         transition-duration: 0s !important
       }
+    }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -742,7 +853,8 @@
         <a href="#cc" data-ar="المدة والرخص" data-en="Duration & Licenses">المدة والرخص</a>
         <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
-      </div>
+              <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+</div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -772,7 +884,7 @@
       </div>
 
       <div class="section-inner card">
-        <p data-ar="بعد ما عرفنا حقوق النشر في الدرس اللي فات، دلوقتي السؤال الأهم: إزاي نقدر نستخدم أعمال الآخرين بشكل قانوني ومش بيخالف حقوقهم؟ هنا بتدخل مفاهيم زي الاستخدام العادل والاستثناءات وقواعد الاقتباس ورخص Creative Commons (<span dir="ltr">CC License</span>)." data-en="After learning about copyrights in the previous lesson, the important question now is: how can we use others' works legally without violating their rights? Here come concepts like fair use, exceptions, quotation rules, and Creative Commons licenses.">بعد ما عرفنا حقوق النشر في الدرس اللي فات، دلوقتي السؤال الأهم: إزاي نقدر نستخدم أعمال الآخرين بشكل قانوني ومش بيخالف حقوقهم؟ هنا بتدخل مفاهيم زي الاستخدام العادل والاستثناءات وقواعد الاقتباس ورخص <span dir="ltr">Creative Commons</span>.</p>
+        <p data-ar="بعد ما عرفنا حقوق النشر في الدرس اللي فات، دلوقتي السؤال الأهم: إزاي نقدر نستخدم أعمال الآخرين بشكل قانوني ومش بيخالف حقوقهم؟ هنا بتدخل مفاهيم زي الاستخدام العادل والاستثناءات وقواعد الاقتباس ورخص Creative Commons (<span dir='ltr'>CC License</span>)." data-en="After learning about copyrights in the previous lesson, the important question now is: how can we use others' works legally without violating their rights? Here come concepts like fair use, exceptions, quotation rules, and Creative Commons licenses.">بعد ما عرفنا حقوق النشر في الدرس اللي فات، دلوقتي السؤال الأهم: إزاي نقدر نستخدم أعمال الآخرين بشكل قانوني ومش بيخالف حقوقهم؟ هنا بتدخل مفاهيم زي الاستخدام العادل والاستثناءات وقواعد الاقتباس ورخص <span dir='ltr'>Creative Commons</span>.</p>
         <div class="demo-label" style="margin-top:16px" data-ar="اختبر فهمك: إيه التصرف القانوني؟" data-en="Test yourself: which behavior is legal?">اختبر فهمك: إيه التصرف القانوني؟</div>
         <div class="cards-grid" id="useCards">
           <div class="card-item" data-correct="1">
@@ -805,12 +917,12 @@
 
       <div class="section-inner card">
         <h3 data-ar="هدف حقوق النشر" data-en="Purpose of Copyright" style="color:var(--s2)">هدف حقوق النشر</h3>
-        <p data-ar="حقوق النشر هدفها المساهمة في التطور الثقافي عن طريق ضمان الاستخدام العادل (<span dir="ltr">fair use</span>) للأعمال المحمية وحماية الحقوق (<span dir="ltr">protection of rights</span>). يعني التوازن بين إن المبدع يحافظ على حقوقه وإن المجتمع يستفيد من الأعمال." data-en="A copyright aims to contribute to cultural development by ensuring the fair use of copyrighted works and the protection of rights.">حقوق النشر هدفها المساهمة في التطور الثقافي عن طريق ضمان الاستخدام العادل (<span dir="ltr">fair use</span>) للأعمال المحمية وحماية الحقوق (<span dir="ltr">protection of rights</span>). يعني التوازن بين إن المبدع يحافظ على حقوقه وإن المجتمع يستفيد من الأعمال.</p>
+        <p data-ar="حقوق النشر هدفها المساهمة في التطور الثقافي عن طريق ضمان الاستخدام العادل (<span dir='ltr'>fair use</span>) للأعمال المحمية وحماية الحقوق (<span dir='ltr'>protection of rights</span>). يعني التوازن بين إن المبدع يحافظ على حقوقه وإن المجتمع يستفيد من الأعمال." data-en="A copyright aims to contribute to cultural development by ensuring the fair use of copyrighted works and the protection of rights.">حقوق النشر هدفها المساهمة في التطور الثقافي عن طريق ضمان الاستخدام العادل (<span dir='ltr'>fair use</span>) للأعمال المحمية وحماية الحقوق (<span dir='ltr'>protection of rights</span>). يعني التوازن بين إن المبدع يحافظ على حقوقه وإن المجتمع يستفيد من الأعمال.</p>
         <div class="demo-label" style="margin-top:14px" data-ar="استثناءات حقوق النشر — اضغط على كل استثناء:" data-en="Copyright exceptions — click each exception:">استثناءات حقوق النشر — اضغط على كل استثناء:</div>
         <div class="cards-grid">
           <div class="card-item" data-reveal="exception">
             <div class="card-icon">🏠</div>
-            <div class="card-title" data-ar="النسخ للاستخدام الشخصي" data-en="Reproduction for private use">النسخ للاستخدام الشخصي (<span dir="ltr">Reproduction for private use</span>)</div>
+            <div class="card-title" data-ar="النسخ للاستخدام الشخصي" data-en="Reproduction for private use">النسخ للاستخدام الشخصي (<span dir='ltr'>Reproduction for private use</span>)</div>
             <div class="card-body" data-ar="تقدر تسجل محتوى عندك عشان تستخدمه إنت شخصياً." data-en="You may record content for your own personal use.">تقدر تسجل محتوى عندك عشان تستخدمه إنت شخصياً.</div>
             <div class="card-feedback" data-ar="💡 مثال: تسجيل قرص موسيقي اشتريته على هاتفك للاستماع الشخصي — مش انتهاك." data-en="💡 Example: recording a music CD you bought onto your smartphone for personal listening — not infringement.">💡 مثال: تسجيل قرص موسيقي اشتريته على هاتفك للاستماع الشخصي — مش انتهاك.</div>
           </div>
@@ -852,7 +964,7 @@
 
       <div class="section-inner card">
         <h3 data-ar="إيه هو الاقتباس؟" data-en="What is a quotation?" style="color:var(--s3)">إيه هو الاقتباس؟</h3>
-        <p data-ar="الاقتباس (<span dir="ltr">Quotation</span>) هو استخدام جزء من عمل شخص تاني محمي بحقوق النشر جوه عملك إنت المحمي. لو تحققت شروط معينة، تقدر تنقل أجزاء من عمل محمي بدون ما تاخد إذن من المؤلف." data-en="Quotation is the act of using a portion of another person's copyrighted work in your own copyrighted work. If certain requirements are met, portions of a copyrighted work can be quoted without obtaining permission from the author.">الاقتباس (<span dir="ltr">Quotation</span>) هو استخدام جزء من عمل شخص تاني محمي بحقوق النشر جوه عملك إنت المحمي. لو تحققت شروط معينة، تقدر تنقل أجزاء من عمل محمي بدون ما تاخد إذن من المؤلف.</p>
+        <p data-ar="الاقتباس (<span dir='ltr'>Quotation</span>) هو استخدام جزء من عمل شخص تاني محمي بحقوق النشر جوه عملك إنت المحمي. لو تحققت شروط معينة، تقدر تنقل أجزاء من عمل محمي بدون ما تاخد إذن من المؤلف." data-en="Quotation is the act of using a portion of another person's copyrighted work in your own copyrighted work. If certain requirements are met, portions of a copyrighted work can be quoted without obtaining permission from the author.">الاقتباس (<span dir='ltr'>Quotation</span>) هو استخدام جزء من عمل شخص تاني محمي بحقوق النشر جوه عملك إنت المحمي. لو تحققت شروط معينة، تقدر تنقل أجزاء من عمل محمي بدون ما تاخد إذن من المؤلف.</p>
         <div class="demo-label" style="margin-top:14px" data-ar="5 قواعد للاقتباس — اضغط على كل قاعدة:" data-en="5 quotation rules — click each rule:">5 قواعد للاقتباس — اضغط على كل قاعدة:</div>
         <div class="journey">
           <div class="journey-item">
@@ -913,30 +1025,30 @@
         <h3 data-ar="مدة الحماية" data-en="Duration of Protection" style="color:var(--s4)">مدة الحماية</h3>
         <p data-ar="الحقوق الاقتصادية للمؤلف بتتنتهي بعد 50 سنة من وفاة المبدع. بعد كده، العمل بيبقى في المجال العام وممكن استخدامه بحرية." data-en="The economic rights of the author expire 50 years after the death of the creator. After that, the work enters the public domain and can be used freely.">الحقوق الاقتصادية للمؤلف بتتنتهي بعد 50 سنة من وفاة المبدع. بعد كده، العمل بيبقى في المجال العام وممكن استخدامه بحرية.</p>
 
-        <h3 data-ar="رخص Creative Commons" data-en="Creative Commons Licenses" style="color:var(--s4); margin-top:18px">رخص <span dir="ltr">Creative Commons</span></h3>
-        <p data-ar="رخصة Creative Commons (<span dir="ltr">CC License</span>) هي علامة بتوضح شروط استخدام الأعمال المحمية بحقوق النشر. المبدع بيختار الشروط اللي عايزها — اضغط على كل شرط:" data-en="A Creative Commons License (CC License) is a mark indicating the conditions for using copyrighted works. The creator chooses the conditions — click each one:">رخصة <span dir="ltr">Creative Commons</span> (<span dir="ltr">CC License</span>) هي علامة بتوضح شروط استخدام الأعمال المحمية بحقوق النشر. المبدع بيختار الشروط اللي عايزها — اضغط على كل شرط:</p>
+        <h3 data-ar="رخص Creative Commons" data-en="Creative Commons Licenses" style="color:var(--s4); margin-top:18px">رخص <span dir='ltr'>Creative Commons</span></h3>
+        <p data-ar="رخصة Creative Commons (<span dir='ltr'>CC License</span>) هي علامة بتوضح شروط استخدام الأعمال المحمية بحقوق النشر. المبدع بيختار الشروط اللي عايزها — اضغط على كل شرط:" data-en="A Creative Commons License (CC License) is a mark indicating the conditions for using copyrighted works. The creator chooses the conditions — click each one:">رخصة <span dir='ltr'>Creative Commons</span> (<span dir='ltr'>CC License</span>) هي علامة بتوضح شروط استخدام الأعمال المحمية بحقوق النشر. المبدع بيختار الشروط اللي عايزها — اضغط على كل شرط:</p>
         <div class="cards-grid">
           <div class="card-item" data-reveal="cc">
             <div class="card-icon">✍️</div>
-            <div class="card-title" data-ar="نسبة الإبداع (BY)" data-en="Credit to creator (BY)">نسبة الإبداع (<span dir="ltr">BY</span>)</div>
+            <div class="card-title" data-ar="نسبة الإبداع (BY)" data-en="Credit to creator (BY)">نسبة الإبداع (<span dir='ltr'>BY</span>)</div>
             <div class="card-body" data-ar="اعرض عنوان العمل واسم المبدع." data-en="Display the title of the work and name of the creator.">اعرض عنوان العمل واسم المبدع.</div>
             <div class="card-feedback" data-ar="💡 يعني أي استخدام لازم يذكر اسم المبدع." data-en="💡 Any use must credit the creator.">💡 يعني أي استخدام لازم يذكر اسم المبدع.</div>
           </div>
           <div class="card-item" data-reveal="cc">
             <div class="card-icon">🚫💼</div>
-            <div class="card-title" data-ar="غير تجاري (NC)" data-en="Non-commercial (NC)">غير تجاري (<span dir="ltr">NC</span>)</div>
-            <div class="card-body" data-ar="متستخدمش العمل لأغراض تجارية (<span dir="ltr">commercial</span>)." data-en="Do not use for commercial purposes.">متستخدمش العمل لأغراض تجارية (<span dir="ltr">commercial</span>).</div>
+            <div class="card-title" data-ar="غير تجاري (NC)" data-en="Non-commercial (NC)">غير تجاري (<span dir='ltr'>NC</span>)</div>
+            <div class="card-body" data-ar="متستخدمش العمل لأغراض تجارية (<span dir='ltr'>commercial</span>)." data-en="Do not use for commercial purposes.">متستخدمش العمل لأغراض تجارية (<span dir='ltr'>commercial</span>).</div>
             <div class="card-feedback" data-ar="💡 يعني ممنوع تبيع أو تكسب فلوس من استخدام العمل." data-en="💡 You must not sell or profit from using the work.">💡 يعني ممنوع تبيع أو تكسب فلوس من استخدام العمل.</div>
           </div>
           <div class="card-item" data-reveal="cc">
             <div class="card-icon">⛔</div>
-            <div class="card-title" data-ar="بدون اشتقاق (ND)" data-en="No derivatives (ND)">بدون اشتقاق (<span dir="ltr">ND</span>)</div>
+            <div class="card-title" data-ar="بدون اشتقاق (ND)" data-en="No derivatives (ND)">بدون اشتقاق (<span dir='ltr'>ND</span>)</div>
             <div class="card-body" data-ar="متعدلش العمل الأصلي المحمي بحقوق النشر." data-en="Do not alter the original copyrighted work.">متعدلش العمل الأصلي المحمي بحقوق النشر.</div>
             <div class="card-feedback" data-ar="💡 يعني تقدر تستخدمه زي ما هو بس، من غير ما تغير فيه." data-en="💡 Use it as-is only, without changing it.">💡 يعني تقدر تستخدمه زي ما هو بس، من غير ما تغير فيه.</div>
           </div>
           <div class="card-item" data-reveal="cc">
             <div class="card-icon">🔁</div>
-            <div class="card-title" data-ar="نفس شروط الترخيص (SA)" data-en="Same terms for adaptations (SA)">نفس شروط الترخيص (<span dir="ltr">SA</span>)</div>
+            <div class="card-title" data-ar="نفس شروط الترخيص (SA)" data-en="Same terms for adaptations (SA)">نفس شروط الترخيص (<span dir='ltr'>SA</span>)</div>
             <div class="card-body" data-ar="انشر التعديلات تحت نفس مجموعة تراخيص العمل الأصلي." data-en="Publish under the same combination of licenses as the original work.">انشر التعديلات تحت نفس مجموعة تراخيص العمل الأصلي.</div>
             <div class="card-feedback" data-ar="💡 يعني لو عدلت العمل، النسخة المعدلة لازم تتبع نفس الرخصة." data-en="💡 If you adapt the work, the modified version must follow the same license.">💡 يعني لو عدلت العمل، النسخة المعدلة لازم تتبع نفس الرخصة.</div>
           </div>
@@ -949,13 +1061,13 @@
           <div class="card-item" data-correct="1">
             <div class="card-icon">✍️</div>
             <div class="card-title" data-ar="عمل محمي بشرط: اعرض اسم المبدع وعنوان العمل" data-en="A work requiring: display the creator's name and the work's title">عمل محمي بشرط: اعرض اسم المبدع وعنوان العمل</div>
-            <div class="card-body" data-ar="ده شرط BY (Credit to creator)" data-en="That's the BY condition (Credit to creator)">ده شرط <span dir="ltr">BY</span> (<span dir="ltr">Credit to creator</span>)</div>
+            <div class="card-body" data-ar="ده شرط BY (Credit to creator)" data-en="That's the BY condition (Credit to creator)">ده شرط <span dir='ltr'>BY</span> (<span dir='ltr'>Credit to creator</span>)</div>
             <div class="card-feedback" data-ar="✅ صح — ده BY" data-en="✅ Correct — that's BY">✅ صح — ده BY</div>
           </div>
           <div class="card-item" data-correct="0">
             <div class="card-icon">🏷️</div>
             <div class="card-title" data-ar="عمل محمي بشرط: متستخدموش لأغراض تجارية" data-en="A work requiring: don't use it for commercial purposes">عمل محمي بشرط: متستخدموش لأغراض تجارية</div>
-            <div class="card-body" data-ar="ده شرط NC (Non-commercial)" data-en="That's the NC condition (Non-commercial)">ده شرط <span dir="ltr">NC</span> (<span dir="ltr">Non-commercial</span>)</div>
+            <div class="card-body" data-ar="ده شرط NC (Non-commercial)" data-en="That's the NC condition (Non-commercial)">ده شرط <span dir='ltr'>NC</span> (<span dir='ltr'>Non-commercial</span>)</div>
             <div class="card-feedback" data-ar="❌ غلط — ده NC مش BY" data-en="❌ Wrong — that's NC, not BY">❌ غلط — ده NC مش BY</div>
           </div>
         </div>
@@ -1028,7 +1140,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;BY + NC" data-en="C&nbsp;&nbsp;BY + NC">C&nbsp;&nbsp;BY + NC</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;ND + SA" data-en="D&nbsp;&nbsp;ND + SA">D&nbsp;&nbsp;ND + SA</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: A — BY بيمثل العرض (ذكر المصور) وND بيمثل عدم اشتقاق (عدم التعديل)." data-en="✅ Answer: A — BY represents display (credit) and ND represents no derivatives (no alteration).">✅ الإجابة: <b>A</b> — <span dir="ltr">BY</span> بيمثل العرض (ذكر المصور) و<span dir="ltr">ND</span> بيمثل عدم اشتقاق (عدم التعديل).</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — BY بيمثل العرض (ذكر المصور) وND بيمثل عدم اشتقاق (عدم التعديل)." data-en="✅ Answer: A — BY represents display (credit) and ND represents no derivatives (no alteration).">✅ الإجابة: <b>A</b> — <span dir='ltr'>BY</span> بيمثل العرض (ذكر المصور) و<span dir='ltr'>ND</span> بيمثل عدم اشتقاق (عدم التعديل).</div>
           </div>
         </div>
         <div class="btn-row" style="margin-top:16px">
@@ -1097,7 +1209,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;ND" data-en="C&nbsp;&nbsp;ND">C&nbsp;&nbsp;ND</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;SA" data-en="D&nbsp;&nbsp;SA">D&nbsp;&nbsp;SA</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: B — NC = Non-commercial = ممنوع الاستخدام التجاري." data-en="✅ Answer: B — NC = Non-commercial = no commercial use.">✅ الإجابة: <b>B</b> — <span dir="ltr">NC</span> = <span dir="ltr">Non-commercial</span> = ممنوع الاستخدام التجاري.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — NC = Non-commercial = ممنوع الاستخدام التجاري." data-en="✅ Answer: B — NC = Non-commercial = no commercial use.">✅ الإجابة: <b>B</b> — <span dir='ltr'>NC</span> = <span dir='ltr'>Non-commercial</span> = ممنوع الاستخدام التجاري.</div>
           </div>
 
           <div class="ex-item">
@@ -1108,7 +1220,7 @@
               <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;ND" data-en="C&nbsp;&nbsp;ND">C&nbsp;&nbsp;ND</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;SA" data-en="D&nbsp;&nbsp;SA">D&nbsp;&nbsp;SA</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: C — ND = No derivatives = ممنوع تعديل العمل الأصلي." data-en="✅ Answer: C — ND = No derivatives = no altering the original work.">✅ الإجابة: <b>C</b> — <span dir="ltr">ND</span> = <span dir="ltr">No derivatives</span> = ممنوع تعديل العمل الأصلي.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — ND = No derivatives = ممنوع تعديل العمل الأصلي." data-en="✅ Answer: C — ND = No derivatives = no altering the original work.">✅ الإجابة: <b>C</b> — <span dir='ltr'>ND</span> = <span dir='ltr'>No derivatives</span> = ممنوع تعديل العمل الأصلي.</div>
           </div>
 
           <div class="ex-item">
@@ -1119,7 +1231,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;ND" data-en="C&nbsp;&nbsp;ND">C&nbsp;&nbsp;ND</div>
               <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;SA" data-en="D&nbsp;&nbsp;SA">D&nbsp;&nbsp;SA</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: D — SA = Same terms for adaptations = انشر التعديلات بنفس شروط الرخصة الأصلية." data-en="✅ Answer: D — SA = Same terms for adaptations = publish adaptations under the same license.">✅ الإجابة: <b>D</b> — <span dir="ltr">SA</span> = <span dir="ltr">Same terms for adaptations</span> = انشر التعديلات بنفس شروط الرخصة الأصلية.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: D — SA = Same terms for adaptations = انشر التعديلات بنفس شروط الرخصة الأصلية." data-en="✅ Answer: D — SA = Same terms for adaptations = publish adaptations under the same license.">✅ الإجابة: <b>D</b> — <span dir='ltr'>SA</span> = <span dir='ltr'>Same terms for adaptations</span> = انشر التعديلات بنفس شروط الرخصة الأصلية.</div>
           </div>
         </div>
         <div class="btn-row" style="margin-top:16px">
@@ -1174,7 +1286,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;ND" data-en="C&nbsp;&nbsp;ND">C&nbsp;&nbsp;ND</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;SA" data-en="D&nbsp;&nbsp;SA">D&nbsp;&nbsp;SA</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: A — BY = Credit to creator = اعرض اسم المبدع وعنوان العمل." data-en="✅ Answer: A — BY = Credit to creator = display the creator's name and work title.">✅ الإجابة: <b>A</b> — <span dir="ltr">BY</span> = <span dir="ltr">Credit to creator</span> = اعرض اسم المبدع وعنوان العمل.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — BY = Credit to creator = اعرض اسم المبدع وعنوان العمل." data-en="✅ Answer: A — BY = Credit to creator = display the creator's name and work title.">✅ الإجابة: <b>A</b> — <span dir='ltr'>BY</span> = <span dir='ltr'>Credit to creator</span> = اعرض اسم المبدع وعنوان العمل.</div>
           </div>
 
           <div class="ex-item">
@@ -1185,7 +1297,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;BY + SA" data-en="C&nbsp;&nbsp;BY + SA">C&nbsp;&nbsp;BY + SA</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;ND + SA" data-en="D&nbsp;&nbsp;ND + SA">D&nbsp;&nbsp;ND + SA</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: A — BY بيمثل عرض اسم المصور وNC بيمثل عدم الاستخدام التجاري." data-en="✅ Answer: A — BY represents crediting the photographer and NC represents non-commercial use.">✅ الإجابة: <b>A</b> — <span dir="ltr">BY</span> بيمثل عرض اسم المصور و<span dir="ltr">NC</span> بيمثل عدم الاستخدام التجاري.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — BY بيمثل عرض اسم المصور وNC بيمثل عدم الاستخدام التجاري." data-en="✅ Answer: A — BY represents crediting the photographer and NC represents non-commercial use.">✅ الإجابة: <b>A</b> — <span dir='ltr'>BY</span> بيمثل عرض اسم المصور و<span dir='ltr'>NC</span> بيمثل عدم الاستخدام التجاري.</div>
           </div>
         </div>
         <div class="btn-row" style="margin-top:16px">
@@ -1270,6 +1382,88 @@
         <p data-ar="افتكر دايمًا: ممكن تستخدم أعمال غيرك بشكل قانوني، بس دايماً باحترام الحقوق واتباع القواعد — الاستخدام العادل مش عذر للتعدي!" data-en="Always remember: you can use others' works legally, but always with respect for rights and following the rules — fair use is not an excuse to overreach!">افتكر دايمًا: ممكن تستخدم أعمال غيرك بشكل قانوني، بس دايماً باحترام الحقوق واتباع القواعد — الاستخدام العادل مش عذر للتعدي!</p>
       </div>
     </section>
+  
+    <!-- ============ GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">07</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="rights" data-ar="حقوق" data-en="Rights">حقوق</button>
+          <button class="mini-btn gl-filter" data-filter="exception" data-ar="استثناءات" data-en="Exceptions">استثناءات</button>
+          <button class="mini-btn gl-filter" data-filter="license" data-ar="رخص" data-en="Licenses">رخص</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="rights">
+            <h4 data-ar="Copyright — حقوق النشر" data-en="Copyright">Copyright — حقوق النشر</h4>
+            <p data-ar="ده حق قانوني بيحمي شغل المبدع الأصلي وبيديك الحق تتحكم مين يستخدمه وإزاي." data-en="The legal right that protects a creator's original work and controls how other people may use it.">ده حق قانوني بيحمي شغل المبدع الأصلي وبيديك الحق تتحكم مين يستخدمه وإزاي.</p>
+          </div>
+          <div class="gl-term" data-cat="rights">
+            <h4 data-ar="Fair Use — الاستخدام العادل" data-en="Fair Use">Fair Use — الاستخدام العادل</h4>
+            <p data-ar="السماح القانوني اللي بيخليك تستخدم عمل محمي بطرق معقولة ومحدودة من غير إذن، زي للدراسة أو التدريس." data-en="The legal allowance to use a protected work in limited, reasonable ways without permission, such as for teaching or research.">السماح القانوني اللي بيخليك تستخدم عمل محمي بطرق معقولة ومحدودة من غير إذن، زي للدراسة أو التدريس.</p>
+          </div>
+          <div class="gl-term" data-cat="rights">
+            <h4 data-ar="Copyright Infringement — انتهاك حقوق النشر" data-en="Copyright Infringement">Copyright Infringement — انتهاك حقوق النشر</h4>
+            <p data-ar="لما تستخدم أو تنسخ عمل محمي من غير إذن صاحبه، زي ما تنسخ CD وتوزعه على أصحابك." data-en="Using or copying a protected work without permission, like copying a commercial CD and giving it to friends.">لما تستخدم أو تنسخ عمل محمي من غير إذن صاحبه، زي ما تنسخ CD وتوزعه على أصحابك.</p>
+          </div>
+          <div class="gl-term" data-cat="rights">
+            <h4 data-ar="Quotation — الاقتباس" data-en="Quotation">Quotation — الاقتباس</h4>
+            <p data-ar="إنك تنقل جزء صغير من عمل شخص تاني جوه شغلك إنت، بشرط تحترم القواعد زي ذكر المصدر." data-en="Using a small part of someone's copyrighted work inside your own work while following rules like citing the source.">إنك تنقل جزء صغير من عمل شخص تاني جوه شغلك إنت، بشرط تحترم القواعد زي ذكر المصدر.</p>
+          </div>
+          <div class="gl-term" data-cat="exception">
+            <h4 data-ar="Reproduction for Private Use — النسخ للاستخدام الشخصي" data-en="Reproduction for Private Use">Reproduction for Private Use — النسخ للاستخدام الشخصي</h4>
+            <p data-ar="استثناء مسموح بيخليك تنسخ محتوى عشان تستخدمه إنت شخصياً، زي ما تسجل CD اشتريته على موبايلك." data-en="An allowed exception that lets you copy content for your own personal use, like recording a CD you bought onto your phone.">استثناء مسموح بيخليك تنسخ محتوى عشان تستخدمه إنت شخصياً، زي ما تسجل CD اشتريته على موبايلك.</p>
+          </div>
+          <div class="gl-term" data-cat="exception">
+            <h4 data-ar="Educational Use — النسخ داخل المؤسسات التعليمية" data-en="Educational Use">Educational Use — النسخ داخل المؤسسات التعليمية</h4>
+            <p data-ar="استثناء مسموح بيسمح بالنسخ والتوزيع على الطلاب في سياق التدريس جوه المدارس." data-en="An allowed exception that permits copying and distributing materials for teaching inside schools and institutions.">استثناء مسموح بيسمح بالنسخ والتوزيع على الطلاب في سياق التدريس جوه المدارس.</p>
+          </div>
+          <div class="gl-term" data-cat="exception">
+            <h4 data-ar="Non-profit Performance — العروض غير الهادفة للربح" data-en="Non-profit Performance">Non-profit Performance — العروض غير الهادفة للربح</h4>
+            <p data-ar="استثناء مسموح للعروض اللي مش بتحصل رسوم دخول ومش بتهدف للربح." data-en="An allowed exception for performing a work without charging an entrance fee or aiming to make money.">استثناء مسموح للعروض اللي مش بتحصل رسوم دخول ومش بتهدف للربح.</p>
+          </div>
+          <div class="gl-term" data-cat="rights">
+            <h4 data-ar="Public Domain — المجال العام" data-en="Public Domain">Public Domain — المجال العام</h4>
+            <p data-ar="الأعمال اللي حقوقها خلصت (بعد 50 سنة من وفاة المبدع) وبقت متاحة لأي حد يستخدمها بحرية." data-en="Works whose copyright has expired, like 50 years after the creator's death, and can be used freely by anyone.">الأعمال اللي حقوقها خلصت (بعد 50 سنة من وفاة المبدع) وبقت متاحة لأي حد يستخدمها بحرية.</p>
+          </div>
+          <div class="gl-term" data-cat="license">
+            <h4 data-ar="Creative Commons License — رخصة كرييتف كومنز" data-en="Creative Commons License">Creative Commons License — رخصة كرييتف كومنز</h4>
+            <p data-ar="رخصة عامة بتوضح شروط استخدام العمل اللي المبدع اختارها بنفسه — إيه المسموح وإيه لأ." data-en="A public license mark that shows the conditions a creator chose for others to use their work.">رخصة عامة بتوضح شروط استخدام العمل اللي المبدع اختارها بنفسه — إيه المسموح وإيه لأ.</p>
+          </div>
+          <div class="gl-term" data-cat="license">
+            <h4 data-ar="BY (Credit to Creator) — نسبة الإبداع" data-en="BY (Credit to Creator)">BY (Credit to Creator) — نسبة الإبداع</h4>
+            <p data-ar="شرط بيخليك إجبارياً تذكر اسم المبدع وعنوان العمل لما تستخدمه." data-en="A Creative Commons condition that requires anyone using the work to credit the creator and show the title.">شرط بيخليك إجبارياً تذكر اسم المبدع وعنوان العمل لما تستخدمه.</p>
+          </div>
+          <div class="gl-term" data-cat="license">
+            <h4 data-ar="NC (Non-commercial) — غير تجاري" data-en="NC (Non-commercial)">NC (Non-commercial) — غير تجاري</h4>
+            <p data-ar="شرط بيقول ممنوع تستخدم العمل عشان تكسب فلوس أو لأغراض تجارية." data-en="A Creative Commons condition that forbids using the work for commercial purposes or to make money.">شرط بيقول ممنوع تستخدم العمل عشان تكسب فلوس أو لأغراض تجارية.</p>
+          </div>
+          <div class="gl-term" data-cat="license">
+            <h4 data-ar="ND (No Derivatives) — بدون اشتقاق" data-en="ND (No Derivatives)">ND (No Derivatives) — بدون اشتقاق</h4>
+            <p data-ar="شرط بيقول تقدر تستخدم العمل زي ما هو بس، من غير ما تعدل فيه." data-en="A Creative Commons condition that lets you use the work only as it is, without changing or adapting it.">شرط بيقول تقدر تستخدم العمل زي ما هو بس، من غير ما تعدل فيه.</p>
+          </div>
+          <div class="gl-term" data-cat="license">
+            <h4 data-ar="SA (Share-Alike) — نفس شروط الترخيص" data-en="SA (Share-Alike)">SA (Share-Alike) — نفس شروط الترخيص</h4>
+            <p data-ar="شرط بيقول لو عدلت العمل، النسخة اللي بتعملها لازم تتبع نفس الرخصة الأصلية." data-en="A Creative Commons condition that says any modified version you make must be shared under the same license.">شرط بيقول لو عدلت العمل، النسخة اللي بتعملها لازم تتبع نفس الرخصة الأصلية.</p>
+          </div>
+          <div class="gl-term" data-cat="rights">
+            <h4 data-ar="Duration of Protection — مدة الحماية" data-en="Duration of Protection">Duration of Protection — مدة الحماية</h4>
+            <p data-ar="المدة اللي حقوق المبدع الاقتصادية بتفضل شغالة، وبتنتهي بعد 50 سنة من وفاته." data-en="The period a creator's economic rights last, which ends 50 years after the creator's death.">المدة اللي حقوق المبدع الاقتصادية بتفضل شغالة، وبتنتهي بعد 50 سنة من وفاته.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -1412,6 +1606,51 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
       wireCards();
       wireRevealBtns();
     });
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
   </script>
 </body>
 

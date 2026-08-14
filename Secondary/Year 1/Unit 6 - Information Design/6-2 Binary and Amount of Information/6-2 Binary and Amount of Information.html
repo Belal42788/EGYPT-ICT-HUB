@@ -1,0 +1,3419 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>النظام الثنائي وكمية المعلومات — Binary and Amount of Information | 6-2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #193cff;
+      --accent: #00d4aa;
+      --bg: #0a0e27;
+      --card: #111638;
+      --card-hover: #1a2050;
+      --text: #fff;
+      --dim: #8892b0;
+      --success: #00ff88;
+      --danger: #ff4757;
+      --warn: #ffd700;
+      --s1: #06B6D4;
+      --s2: #F59E0B;
+      --s3: #8B5CF6;
+      --s4: #10B981;
+      --s5: #EC4899;
+      --s6: #EF4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--dim);
+      line-height: 1.9;
+      overflow-x: hidden
+    }
+
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+        radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
+      animation: bgDrift 18s ease-in-out infinite;
+    }
+
+    @keyframes bgDrift {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(-30px, 20px) scale(1.08)
+      }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none
+    }
+
+    .particles i {
+      position: absolute;
+      bottom: -10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: .3;
+      animation: floatUp 14s linear infinite
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0
+      }
+
+      10% {
+        opacity: .3
+      }
+
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0
+      }
+    }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 39, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(25, 60, 255, .3);
+      transform: translateY(-100%);
+      transition: transform .35s ease
+    }
+
+    nav.show {
+      transform: translateY(0)
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 24px
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: var(--primary)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      padding: 4px 2px;
+      flex: 1
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none
+    }
+
+    .nav-links a {
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid transparent;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(25, 60, 255, .2);
+      border-color: var(--primary)
+    }
+
+    .lang-toggle {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all .3s ease
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 60px 24px
+    }
+
+    .hero-circles span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: .16;
+      z-index: 0;
+      animation: heroFloat 6s ease-in-out infinite
+    }
+
+    .hero-circles span:nth-child(1) {
+      width: 280px;
+      height: 280px;
+      background: var(--primary);
+      top: 12%;
+      left: 10%;
+      animation-delay: 0s
+    }
+
+    .hero-circles span:nth-child(2) {
+      width: 220px;
+      height: 220px;
+      background: var(--accent);
+      bottom: 15%;
+      right: 12%;
+      animation-delay: 2s
+    }
+
+    .hero-circles span:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      background: #8B5CF6;
+      top: 55%;
+      left: 22%;
+      animation-delay: 4s
+    }
+
+    @keyframes heroFloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-26px)
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: .85rem;
+      font-weight: 700;
+      background: rgba(25, 60, 255, .15);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--accent);
+      margin-bottom: 26px;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .1s forwards
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.15;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .3s forwards
+    }
+
+    .hero-title .grad {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      max-width: 680px;
+      margin: 18px auto 34px;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .5s forwards
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: #fff;
+      font-weight: 900;
+      padding: 16px 38px;
+      border-radius: 50px;
+      font-size: 1.05rem;
+      box-shadow: 0 10px 40px rgba(25, 60, 255, .4);
+      transition: .25s;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .7s forwards
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 50px rgba(0, 212, 170, .35)
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ---------- layout ---------- */
+    main {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    section {
+      padding: 38px 0
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 16px
+    }
+
+    .section-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--bg);
+      animation: glow 3s ease-in-out infinite
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(25, 60, 255, .25)
+      }
+
+      50% {
+        box-shadow: 0 0 42px rgba(25, 60, 255, .6)
+      }
+    }
+
+    .section-header h2 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.3
+    }
+
+    .section-header .tag {
+      font-size: .9rem
+    }
+
+    .section-inner {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .6s cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .section-inner.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .section-inner+.section-inner {
+      margin-top: 16px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 18px;
+      transition: .3s
+    }
+
+    .card:hover {
+      background: var(--card-hover);
+      transform: translateY(-5px);
+      border-color: rgba(25, 60, 255, .3)
+    }
+
+    .diagram-wrap {
+      position: relative;
+      border-radius: 24px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      overflow: hidden
+    }
+
+    .diagram-wrap .topbar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent))
+    }
+
+    .diagram-wrap .inner {
+      padding: 16px
+    }
+
+    h3 {
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      line-height: 1.4
+    }
+
+    p {
+      margin-bottom: 12px
+    }
+
+    b,
+    strong {
+      color: var(--text)
+    }
+
+    .note {
+      background: rgba(255, 215, 0, .06);
+      border: 1px solid rgba(255, 215, 0, .25);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: .95rem
+    }
+
+    .note b {
+      color: var(--warn)
+    }
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
+    }
+
+    /* ---------- error box ---------- */
+    .error-box {
+      border: 1px solid rgba(255, 71, 87, .2);
+      background: rgba(255, 71, 87, .05);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 6px
+    }
+
+    .error-box h4,
+    .error-box h3 {
+      color: var(--danger);
+      font-weight: 900;
+      margin-bottom: 10px;
+      font-size: 1rem
+    }
+
+    .error-box ul {
+      list-style: none
+    }
+
+    .error-box li {
+      padding: 4px 0;
+      position: relative;
+      padding-right: 26px
+    }
+
+    .error-box li::before {
+      content: "⚠️";
+      position: absolute;
+      right: 0;
+      top: 2px;
+      font-size: .95rem
+    }
+
+    .error-box li b {
+      color: var(--danger)
+    }
+
+    /* ---------- legend ---------- */
+    .legend {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 14px;
+      font-size: .85rem
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .legend i {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      display: inline-block
+    }
+
+    /* ---------- concept blocks ---------- */
+    .concept-block {
+      border-top: 3px solid var(--c);
+      padding-top: 30px;
+      margin-top: 14px
+    }
+
+    .concept-block:first-of-type {
+      margin-top: 0
+    }
+
+    .concept-head {
+      display: flex;
+      align-items: center;
+      gap: 14px
+    }
+
+    .chip-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--bg);
+      flex-shrink: 0
+    }
+
+    .concept-title {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.4
+    }
+
+    .concept-head .tag {
+      font-size: .88rem
+    }
+
+    /* ---------- activity grid ---------- */
+    .activity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px
+    }
+
+    @media(max-width:860px) {
+      .activity-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .activity-grid .demo-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      background: rgba(255, 255, 255, .03);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .demo-label {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--dim);
+      margin-bottom: 6px;
+      display: block
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin-bottom: 10px
+    }
+
+    .todo-item b {
+      color: var(--text)
+    }
+
+    /* ---------- buttons ---------- */
+    .btn {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border: none;
+      color: #fff;
+      font-family: inherit;
+      font-weight: 900;
+      padding: 12px 28px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: .95rem;
+      transition: .2s;
+      box-shadow: 0 6px 24px rgba(25, 60, 255, .3)
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0, 212, 170, .3)
+    }
+
+    .mini-btn {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: .85rem
+    }
+
+    .mini-btn:hover {
+      background: rgba(255, 255, 255, .12)
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .kbd {
+      display: inline-block;
+      background: #1a2050;
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 6px;
+      padding: 2px 10px;
+      font-size: .85rem;
+      color: var(--text);
+      font-family: 'Consolas', monospace
+    }
+
+    .hint-line {
+      font-size: .85rem;
+      color: var(--dim);
+      margin-top: 8px
+    }
+
+    /* ---------- flow cards (step reveal) ---------- */
+    .tl-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 24px
+    }
+
+    .tl-steps {
+      min-height: 120px;
+      display: flex;
+      align-items: center
+    }
+
+    .tl-step {
+      display: none;
+      text-align: center;
+      width: 100%
+    }
+
+    .tl-step.active {
+      display: block;
+      animation: tlIn .4s ease
+    }
+
+    @keyframes tlIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .tl-icon {
+      font-size: 2.1rem;
+      margin-bottom: 6px;
+      display: inline-block
+    }
+
+    .tl-year-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 20px;
+      padding: 3px 16px;
+      font-size: .85rem;
+      color: var(--accent);
+      font-weight: 700
+    }
+
+    .tl-title {
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin: 8px 0 6px
+    }
+
+    .tl-desc {
+      color: var(--dim);
+      font-size: .98rem;
+      max-width: 660px;
+      margin: 0 auto
+    }
+
+    .tl-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px
+    }
+
+    /* ---------- svg stage & labels ---------- */
+    .svg-stage {
+      position: relative;
+      max-width: 760px;
+      margin: 10px auto 0
+    }
+
+    .svg-stage .svg-main {
+      width: 100%;
+      height: auto;
+      display: block
+    }
+
+    .svg-label {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10, 14, 39, .88);
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 12px;
+      padding: 5px 12px;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+      z-index: 3;
+      pointer-events: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .45)
+    }
+
+    .svg-box {
+      fill: url(#bxG);
+      stroke: rgba(255, 255, 255, .14);
+      stroke-width: 2;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
+    }
+
+    .flow-box {
+      fill: url(#bxG);
+      stroke: rgba(255, 255, 255, .14);
+      stroke-width: 2;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
+      transition: stroke .3s, filter .3s
+    }
+
+    .flow-box.on {
+      stroke: var(--accent);
+      filter: drop-shadow(0 0 18px rgba(0, 212, 170, .5))
+    }
+
+    .flow-wire {
+      stroke: #2a3360;
+      stroke-width: 3;
+      fill: none;
+      transition: stroke .3s
+    }
+
+    .flow-wire.on {
+      stroke: var(--accent);
+      stroke-width: 3.5;
+      stroke-dasharray: 6 12;
+      stroke-linecap: round;
+      animation: flow 1.1s linear infinite;
+      filter: drop-shadow(0 0 6px rgba(0, 212, 170, .6))
+    }
+
+    @keyframes flow {
+      to {
+        stroke-dashoffset: -36
+      }
+    }
+
+    .wire-arrow {
+      fill: var(--accent);
+      opacity: 0;
+      transition: opacity .3s;
+      filter: drop-shadow(0 0 4px rgba(0, 212, 170, .6))
+    }
+
+    .wire-arrow.on {
+      opacity: 1
+    }
+
+    .flow-port {
+      fill: #2a3360;
+      stroke: var(--bg);
+      stroke-width: 2;
+      transition: fill .3s
+    }
+
+    .flow-port.on {
+      fill: var(--accent);
+      filter: drop-shadow(0 0 8px rgba(0, 212, 170, .8))
+    }
+
+    .bcast-wave {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 2;
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center
+    }
+
+    .bcast-wave.run {
+      animation: wave 1.8s ease-out infinite
+    }
+
+    .bcast-wave.run:nth-of-type(2) {
+      animation-delay: .5s
+    }
+
+    @keyframes wave {
+      0% {
+        opacity: .8;
+        transform: scale(.4)
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.5)
+      }
+    }
+
+    .flow-arrow {
+      color: var(--accent);
+      overflow: visible
+    }
+
+    .flow-arrow use {
+      transform-box: fill-box;
+      transform-origin: center
+    }
+
+    .flow-arrow use.flip {
+      transform: scaleX(-1)
+    }
+
+    /* ---------- matrix (classify) ---------- */
+    .mx-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px
+    }
+
+    .mx-grid>div {
+      border-radius: 14px;
+      padding: 14px
+    }
+
+    .mx-head {
+      background: rgba(25, 60, 255, .12);
+      border: 1px solid rgba(25, 60, 255, .35);
+      font-weight: 800;
+      color: var(--text);
+      text-align: center
+    }
+
+    .mx-row {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center
+    }
+
+    .mx-cell {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      min-height: 70px
+    }
+
+    .mx-cell b {
+      display: block;
+      color: var(--text);
+      font-size: .9rem;
+      margin-bottom: 4px
+    }
+
+    .mx-chip {
+      display: inline-block;
+      background: rgba(0, 212, 170, .1);
+      border: 1px solid rgba(0, 212, 170, .35);
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: .85rem;
+      margin: 4px
+    }
+
+    .mx-empty {
+      color: var(--dim);
+      font-size: .9rem;
+      text-align: center;
+      padding: 8px
+    }
+
+    @media(max-width:700px) {
+      .mx-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .mx-row {
+        grid-column: span 2
+      }
+    }
+
+    /* ---------- exercises ---------- */
+    .ex-item {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px
+    }
+
+    .ex-item .q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px
+    }
+
+    .ex-item .q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, .15);
+      border: 1px solid rgba(245, 158, 11, .5);
+      color: var(--warn);
+      font-weight: 900;
+      font-size: .8rem;
+      margin-left: 8px;
+      vertical-align: middle
+    }
+
+    .ex-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    @media(max-width:640px) {
+      .ex-options {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .ex-opt {
+      direction: rtl;
+      text-align: right;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .9rem;
+      color: #c7d2fe;
+      white-space: pre-wrap;
+      cursor: pointer;
+      transition: .15s;
+      user-select: none
+    }
+
+    .ex-opt:hover {
+      border-color: rgba(0, 212, 170, .5);
+      background: rgba(0, 212, 170, .08)
+    }
+
+    .ex-opt.picked {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .18);
+      color: #fff;
+      box-shadow: 0 0 0 1px var(--accent)
+    }
+
+    .ex-opt.correct {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .12);
+      color: var(--success)
+    }
+
+    .ex-opt.wrong {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .12);
+      color: #ffb3bd
+    }
+
+    .ex-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(139, 92, 246, .18);
+      border: 1px solid rgba(139, 92, 246, .55);
+      color: var(--s3);
+      font-weight: 900;
+      font-size: .78rem;
+      margin-right: 10px;
+      vertical-align: middle;
+      flex-shrink: 0
+    }
+
+    .ex-body {
+      vertical-align: middle;
+      display: inline-block;
+      white-space: normal
+    }
+
+    .ex-answer {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: .92rem
+    }
+
+    .ex-answer.show {
+      display: block;
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: rgba(0, 255, 136, .07);
+      color: var(--success)
+    }
+
+    .ex-answer.show b {
+      color: var(--success);
+      margin: 0 6px
+    }
+
+    .ex-score {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(0, 255, 136, .08);
+      border: 1px solid rgba(0, 255, 136, .35);
+      color: var(--success);
+      font-size: .95rem
+    }
+
+    .group-label {
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin: 22px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .group-label::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--s3);
+      flex-shrink: 0
+    }
+
+    /* ---------- recall quiz ---------- */
+    .recall {
+      display: none;
+      margin-top: 16px
+    }
+
+    .recall.show {
+      display: block
+    }
+
+    .rq {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px
+    }
+
+    .rq-q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px
+    }
+
+    .rq-opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    @media(max-width:640px) {
+      .rq-opts {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .rq-opt {
+      direction: rtl;
+      text-align: right;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .9rem;
+      color: #c7d2fe;
+      cursor: pointer;
+      transition: .15s;
+      user-select: none
+    }
+
+    .rq-opt:hover {
+      border-color: rgba(0, 212, 170, .5);
+      background: rgba(0, 212, 170, .08)
+    }
+
+    .rq-opt.disabled {
+      pointer-events: none;
+      opacity: .65
+    }
+
+    .rq-opt.correct {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .12);
+      color: var(--success)
+    }
+
+    .rq-opt.wrong {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .12);
+      color: #ffb3bd
+    }
+
+    .rq-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: #c7d2fe;
+      font-weight: 900;
+      font-size: .82rem;
+      margin-right: 10px;
+      vertical-align: middle;
+      flex-shrink: 0
+    }
+
+    .rq-fb {
+      margin-top: 10px;
+      display: none;
+      font-size: .92rem;
+      padding: 10px 14px;
+      border-radius: 10px
+    }
+
+    .rq-fb.show {
+      display: block
+    }
+
+    .rq-fb.ok {
+      background: rgba(0, 255, 136, .07);
+      border: 1px solid rgba(0, 255, 136, .35);
+      color: var(--success)
+    }
+
+    .rq-fb.no {
+      background: rgba(255, 71, 87, .07);
+      border: 1px solid rgba(255, 71, 87, .35);
+      color: #ffb3bd
+    }
+
+    /* ---------- recap journey ---------- */
+    .journey {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-right: 26px
+    }
+
+    .journey::before {
+      content: "";
+      position: absolute;
+      right: 9px;
+      top: 14px;
+      bottom: 14px;
+      width: 3px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
+    }
+
+    .j-node {
+      position: relative;
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 16px;
+      padding: 14px 0
+    }
+
+    .j-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 3px;
+      z-index: 2
+    }
+
+    .j-body .t {
+      color: var(--text);
+      font-weight: 700
+    }
+
+    .j-body .d {
+      font-size: .93rem
+    }
+
+    .journey-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      padding: 12px 0
+    }
+
+    .jn-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--text);
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+      margin-top: 2px
+    }
+
+    .journey-item h4 {
+      color: var(--text);
+      font-size: 1rem;
+      margin: 0 0 4px
+    }
+
+    .journey-item p {
+      margin: 0;
+      font-size: .92rem
+    }
+
+    /* ---------- pills (classify) ---------- */
+    .pill {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      font-size: .92rem;
+      line-height: 1.7
+    }
+
+    .pill-dot {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 7px
+    }
+
+    .mx-wrap {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      padding: 14px
+    }
+
+    /* ---------- exercise button row ---------- */
+    .ex-btn-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap
+    }
+
+    /* ---------- congrats card ---------- */
+    .congrats {
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
+    }
+
+    /* ---------- scroll top ---------- */
+    #scrollTop {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 60;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 212, 170, .4);
+      background: rgba(10, 14, 39, .9);
+      color: var(--accent);
+      font-size: 1.15rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: .2s;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .35)
+    }
+
+    #scrollTop.show {
+      display: flex
+    }
+
+    #scrollTop:hover {
+      background: rgba(0, 212, 170, .15)
+    }
+
+    /* ---------- emoji props ---------- */
+    .emoji-float {
+      display: inline-block;
+      animation: ef 3s ease-in-out infinite
+    }
+
+    @keyframes ef {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-5px)
+      }
+    }
+
+    .emoji-pulse {
+      display: inline-block;
+      animation: ep 2s ease-in-out infinite
+    }
+
+    @keyframes ep {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.12)
+      }
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      margin-top: 50px;
+      border-top: 1px solid rgba(25, 60, 255, .25);
+      padding: 40px 24px 34px;
+      text-align: center;
+      background: rgba(10, 14, 39, .6)
+    }
+
+    .footer-logo {
+      height: 40px;
+      border-radius: 8px
+    }
+
+    .footer-tag {
+      color: var(--dim);
+      margin-top: 14px;
+      font-size: .95rem
+    }
+
+    .footer-tag b {
+      color: var(--text)
+    }
+  </style>
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <linearGradient id="bxG" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#232a55" />
+        <stop offset="1" stop-color="#131a3f" />
+      </linearGradient>
+      <path id="arr" d="M15 3 L6 10 L15 17" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    </defs>
+  </svg>
+
+  <div class="bg-gradient"></div>
+  <div class="particles" id="particles"></div>
+
+  <nav id="topnav" aria-label="أقسام الدرس">
+    <div class="nav-inner">
+      <a href="../../../../index.html" aria-label="الرئيسية"><img class="nav-logo" src="data:image/webp;base64,UklGRsAcAABXRUJQVlA4ILQcAAAQsACdASpYAlUCPlEok0ajoqGhItWIMHAKCWdu/Eb3rSGO7W24Kxp8t/z35QbaL2P8mvy09B3LHy/76/vP/lMzu8T/Ov9N/jP3B/vn/////3R/1/qP/Uf6m/AB/Df4//kP7/+3f9m/////+rT1F/uJ6gP6r/d/+d/hf3/+a7/Jepz/JeoF/Vv7/1iHoCfsB6Yn/r/2Hwe/tJ/5v9F+//0Lfzz+7/9r8//kA9ADqx+wP9p7Rf7Z/XvPvq8+1nMHiU/Fftn+o/uftp7JfkXqBfiX8x/xP5Z8JQAD6t/6b+4+upM+yAOC8oAfpr1aP6T/6f5Pz7/of+X/ab4Dv57/aP+12E/2y///u7/uQEd8QtYY3sgthnhSjzlxsHsUNtqxsYPmY/tAnTWk3eRvx96FjeyHJvbr2WcMflxsHxsHxwNwpR5y43vhzrGX1TpNJmXt4xgkLqDmwfG99YZRGMFcyZ4Uo85gZwBbN+NllprGxSRxW1rTyCRoZg+h0Lk9hyLKBQ73OHulwtb0r7Yt5PSoBq70s+RV+vmqzZCqvAjDoiSnBwHM9u3kIwbzlxsBQO5nrVFmIT0cN4xUVTTop/in5EP7B8VPficNp4Uo9CYJ2MbGe2QcycuNhDjHYMc1hRlU7TBo7ET+m0ecuLWrsysVbJwwyW7Gwci7/f4b7eY3spo8hACO9F7eM0cndhYzBzYPjYPi2s3lloqwH/ypFHIWDg3LWx724JkPCjzlxsIARP9cmu7/ZownOm6SXZWcSrN1ionLjYPjYPdF1f9yA04STy2woP8q2ZDab97eMV4Uo8j+rxDgQtFzXmj0BexP/th4o9HZap/AcfrB8bB8bByt9LZK1LVnj6oAWMnX6h5/qUKSpGE52zPJmXt4xXhLKBMjlKRRBOFPTCBFLs0PlKB6EBul4xXhSgtMgQT6oNB3AFnhzPt44fdrVBd0wgBYJ5nkzL28YroE3NmKKreywfJTq9znjhtX1aq8EtMLlxsHuu2EKfH9FOy4j31Ko0UwYo70PeKl4jJoqMhKYlb5YktMajaS5Wc3/adyZdDaAfhhDWpYWGcPKvDaRep78mGQHCd7//L5zA9p7+w4sz5T9KoniwkKqUrmI71fQgTVtI0XVrqq7V+mYy9wK3ffqz/+Or3peC0mkpVYx955ZowcBHo6v9i29B5LQfA6DqaLpoV7SiHFmRAm0UldUDcX/ouciJah9bJ0zGUds8ApyspaVFT0aFb610bmwG8MKUciDdQbUxIc3kQgFF0BQ2+3/1twur1bsbB8bAIuNI7ctdbxiyyP8bBzhMbmYIM4b8pn03S9501OtiXK9jYPjYPjYBU0J1td0x2zWnRSj2ENErPauhSJbsbB8bB8WzQmMIoN6mSeoaPbS7xhqgz7Rm90udSbfM+/M+/M+2q5zkHwgOmW7IxrgGfnantR5bmZ/GwfGwfGwCfuyIPBLrvY17b1479hUwupcbB8bB8bAQAQPxFm5wHM/DGX2dGUTnPSSORRmBAFKPOXGwfGqnUawYBmUlb7o2gq3xIt+5qaTHReecuNg+Ng5S5VEPIKn7R5y5KdgNEP/CctFGRfdcbB8bB8bAG2kbnnjfj5oluv/gRhkt633Yzw7bkmwo85cbByF8VOjWFDUjwLg+AhHWghGXOkAj3IYK3YrIOKIEsJ2Lx5D63xJhyMnSjFi2aaOqZHGOU83UPjf+fNGyE+Z/GxpEB8bD1WDQ6zDahWy4eI+Q2GD/8t2/te3jGOtkUmvH29gn/+TICZmhiQUW7GwfLPCtqooUgpRoHcGtw3szflXEGGS3Y2D5Kdg+OQE+JVtRv+yklVIuo8dXQx116rM3el4dZCC3JvTG+pMds+GvBFYveHV3km1Cry4VeO7G9/euRjXSwAAP77d89+nafhMf4TD6F7w6ETqw/BiNp9R3MH+fjgGRkNcGuDzzJDh5wD5niJcxxptKbzbw2ZkkcLHYPDYtAgeyGavwCzeP1Hv+Jx2rSaoRfE+1+cYFN6+O2ZqnVjPDdbvv2KdVrlK5PMUvmhCbwAFqQybdpqs3k8yQvZtDTr3o6w4WQHXQz0sykl3GEA/CFxJfMOTkJ1y3/nSlwC+0naIxAJyDvxU6hMY1Kijbe/v3PVRvALgd+p4nomE6P93IUmkld97JR/G3ZE1/J8NqOg4AvmO7nptwCH3HSUoM6p/CRSrejS0vyLndCB//fmeUVLGONqwvyYyljGfrFourMOaQMXBCFRLQAyveZAUJ9JywJ+AVVD+sJNUA6GatZh4AdTxKA2dHNSOckmJRAt/7BHRHNkGj1FU7gHWJmbORZicUCUV2HnTtoWdwwJCBXehscM5VNujpC8Utn5blnaBm35pWeDb7CEt5w+HOnoOBgUZ8lMaeLgCEXlrUJpflBtRgV+gsy7lfDzZuTdBBC9bJ+WjVDLsilgNPYb2Bn4qLf9JCQJz93pPj6pXSeypSJqPO7tDcStOt7hJXjTIABlTAkEZ0ClV1T+Fk/GhKoe7jYAlVZe+AAPqHSZ/5HXWidWApbQ2UMwqybyTQme22FkskGS7op7bwWUmZEuNM5EptmdgYL/bSWxv5zSRLRzZtI7+AuJyPGu5bP91AAy63dbb2jeXmrncak0ayciOLtOOpK2k5sDSiibrh+Muv5FYYShZ3hrKRzQ8UBQ/gfQenCcUNsLynSscgfO50r8yMK9cDuaBxrBESuwTIv/Ba0OrhKBFGKoBl3qVLroHVXijv7TQvCDUoiNj6QzckInt4JNrVD40IKDUFeE+h6CHHeehl/ZG0Ad7sJ7kLTjyLucB/zjIcOzHcQucWaiZ51eTy08zaI7BEoOdEFW2o1U6cCEDY9tvkxj/0aGCk54aEKD6zCqjgQPFPLcXLVZZzkvGIJeZaXqa2WRZ/IIry/rCxb9h1PLcmZ8Wt1zX2zR9vZWfwAAJ9htLnPiA63VF7+H83NoFmLGnFiBJFoDISdaPlPU4X4+EhN0jDFe0wixZBfRJAZbnB3JEh2pivFjU96ax8UCq4Z0zsQib2CXlOVlDdgJeEzH+B4YnFVq8JzwVVUzHrUniFQI/sRaQriG+J2qKN9zH2+ilo3hKJkFjqFWNcKFPqxqK/gHQOYNWlcC3C/aIKttRqpz77PtqzMDT1f1F7c0dKBhiY3IYvx2O42at13k1Yhxf8TJeQJui1Kpa8fhmVemU1QNyk1TIm/1bghfQIAFYQF70bIV7Bpm55kEih6BcY9Uq3UjKZq1tlL5AUmpzCCXKf0Tmdp3LB48OISsYb/SME9HekTO91T31fF7Taf3f1MmICO+AWoIrVmAQmaX6h4PpP9j4/EkKrOyfSQnzitH19H/4c1yr9d0dHU3qN46Amo6Xf5Xd0Gc1FoPixuLj30doDHLcNjQkOekKELEf12Dcy+XllpnDZtzYdVQ7pYMpZ3UDCaGnKVvpzZM/NcwAAK+rG8FhSEcsLamGjV3RMDAHc/cLkPrHqti5utRJ//yFREt5ISjCeQFVrQSb90qDCwphOkX7tJk8STj9IRMoYKJStCMW0Wo0q+LTH+maNPCFUlkVFd8yT0MXTaTE1T1IYN5ZgnsayrqF0w612PjhakbgqBvk9WdsHHkfH5RlihZR+MfTG3a0eiYzaUv8ubMKwAAIqZJl705RYs2D/BSe2+dFn/APWfeDcHQm7effuGf6lb46uKXiOGwU00wIYC0biN/AsWpUy0rhg0gj85my03P7bTDm0u7TNGNcejLO85d50usVZUC/jagNbQDNiRKybMkWpqYAgWb3V99t1UzIaTDi9mhMhpda6hr6N/Zb9Drvr4p7mQ7q7VBZFypv+Mv+73DxLhb/VQAAeH0jvC/DkpFUdv9v43SCuH72zsCKB7f6um2hr77ez5P2RqJ6tv6p4hN5i3/FsTZv9bN+Nl4fv9KKUaDXnMXi7N7f/bZq4DwTNxpUnyiYDd2GQb1nCVo6Gjtzdn+HEbwtYeKBC8j1X1C4qCG30E7tvqEtjkrmhQ4PcACopAAASgT/5kXtSKi9J6EcBv8hPNt1uPaXHQeNjO2lQzqWPIZJUKdg/tFh1DmcnqHGGPFYSTQbfPsjERRa3WkpEh0Dy8sY/Yg0nhlsH0+GWPdBRPzFkd4zvkyT20zqeHtZ7JROwNGlAAvcQIlFJ9nvCvRNK38jR0rFWzvqPk6QViXkBLumJqMKlw2uOiEC9wER6v0Hflp3QYDQ25dkn/cFJ7Y5pS2kdTrLaFp0IRlr4ki2/IgDH5wxgaaybYh81w8Qt9zfoXR3UJhkhQIKIA7WAACd2f2peO5lvJ9lS7TMkCcwOMJh8v03NI4b6DBPlsKtsll+DYtgNcoarMQvauSVcU6okOjbu+Psle925mPQhZ+kV7uGVbW0Bi0jxV51h40/R5iFzu+OrHRhrCV1jBuR4GjHmrVllfL1HHLAQ+AAG2I0xcQol1N6Fk2XFP0e5tO4Y6flC0y01riBHNMDd2mT/VFHEoPb9OJoh+DNIjRmgjzjjxOrvtxOobdx8u7oAiSTWAeORxqDGj4hG5i5mAChl3tAGqbnpCu3ub5cOb+ZaSx61KYf6JuW/CdvA8o68PFWhpzD344h6IUB+RINaQBoB5kXjvYppl6LnvKobIqSlpQaNFFNdOqqRO3NdSdyp1fQiHBHfh13aAPQIr5Q0Ze+hCqrO/mkBLzeVhLmkAAVR+5qO45NgzGlNzWA98NI4zs/xTNG2ERCyHfF3xLhKeIdp97BhBIJceiMGYayZjcXNbw1msYweDmGYCT7SGL1CEPR/SqiOldqpxqfdnSA3Z5qiSmZJ4sOAlcPZvz6A28xZVTiZnZvccPSvpG7Lo3My862Kbx6Xh9nLNNxQJcFRHgZDm+cARCB7LCugHy7kbepoicKQ7UpVLr3o+YbbnvOR7BmMmIn5N3JkqnHF2Ej1bC2wMImRFvhcjsYFH3kL+zpp21DboPHPxU7uRVQM+QhrG5z5uVJ+swmIgwMT+SkqBlUuc1Flu4Uc6G2IjfoTd8N1xuw0bZVHlh8cDcK3oPJ7OxittMYz1zH8d0vZYkquEYU+i375WeraEDESfDjCgNVOE7cEnaouSNx4mciGplmk2ODV8uclKFuTRKTDs32n8XD8y7enPfBGPfMm79dvTU+yYRkTa1j5EuSBIxy2zrFLF0hD/ECUFIk5SHe2gQpcEbBX8yhF6IBZrMtEM12W8LD1Nlbr5/xY3ACw8q5OGgOFXLuYQQnlD+Uxa5ok0BLKGRWfc9wjUz4u8xGIZAhTlrq/qfnMZ2x49l9aUgULleRNw3aODmvc+6cth+WwJ5tuof2QffV5fkGtyBPKEIWD4TBHY9vaTfBAp4vzHSumXeoaM9lw+IvPtQlZr0aU1p25/az85EXf7wyzyHt0OcmzzMMiALkvXPsQAZWQ8nL+zMLA5zR96TKV9+jsoXW03yg1FbEV5URaTTKrdshYI8OUeYjZBrHIWyzETRdiEpp19H3TvGtQS/jDBHH7vf7UPvWwLXnErSl/F52L504J/TwiPNCEexYsHnIPeSn7uCfe8DQriX9WOR7wdSBBXgUZP5zmDHgIR5WC/1uecNdddnM3HbRrPs2lHbLbBAjcDNU8REL46FebHryj9KjLGsaxmS//66+KJu7Qg8e9yo34xjkn1bQYAXz7tN0O63IezR+DUQlCNWkiuuoQDLlJD8wW0bOEJihhKSJw00InMY0pxSUr5Byqxw8ou2Wbhzz4MFEjhF3eSUYnS192yMGP9pA0itiQwKOHBi7PJMk3MmA9zma7mtFiu33G4Pi5ikOyf3gxN2CMyuAyv+l8caLB8Qt/fRpbVHvVuOPXnGat3n3K+Oszq8z/bNWRqeUlgDAz/B8PtyDPZC92jHEAc+ioeNadDdUBCFplppPEhydgEgRc2KgzRwTDYg9Hx+dTopc9aXkhMM1KPddqGrHkpQP/ggLw+HGGIhPnjsksUd3QkgfVdUg8JeP8aGteK/umY6rXA+6QSvWGP7f/HJh/xDzHBfU2l90KF/aV5mp3bGD0Ms7qpju5ofDBfdIPH8bNu8rqy62u5KlnetQaULHdW7F+/zeJ5wlr9H8pls6DGH+irJngNGS82OSScvjRpENTt9XPHrlI+UN/duVQ3KnRTgEOg6GSt1ImqfBwa1Y06Oe+9YthZ4mEuY/itUjcW4Jggs+44stpmPoBHnGSOO7Lz2SCHX9FXfVPrT+QzXwveMMNhvyNwl4jpoBTsONU77voNQrD/zcveT7ckBcdT0gf1RMVqZ3GvM1mcCHgbuLT5xcAG3ZVLvKLrwiZWpDzjkOmg+/TCYuaX/PmRs2QaildfviW/Hevmw9fcUXrTPqGSG1H0GqrjyoxA23V8Bv1vcoq5T+skp8dIbcJSQWuOiEdN/9r6Wwt+ce/Owj5RMyX8svgiDy7Xia6lFiVez5+mc6+MH18/KBmUi0rBT5bMEzDB02KxSzK3qMi/OAOQbYPYfNIl59lkdsAQipp0fl0TyGTMHZ6ntmqj2l5zkJHU7TG1zdi/FIUctcz1DIEPg+NlhS9FbjN2wp3mA4pVD5nTNRsfJ8aoZDP/THBSRncKJ1B32ZKWVISad+YBO2I7HsSylu/2JAid4ONBCK+SXX0Ii5QJpT2K3qJoU5O0AEeUSCFgMH6Y0slKRny0AgFmKdd3IbCl0FGoDRgky6Kpl5nReBFLOxJS3raORhaVQNPjf6oF+EHRybCVLEr2dX0tp6of1g4ChOehyVdIHiy4yc+gbVR3W/VSagggPu3cNPok6jhStOwANbe5q7sXPijAPFAv6IzRTeO+embmWD/0qG5c0hamY1SJx7TGITr8KHQlNMLOnLk6d6hKiUFY33FuDSrU4FOK/DlA77NZOQ2DoItuiRVHrv93c3Ynvsatdiv8ltHKtG/HPn2xQ5i/+KmnggfDXrNjTme/buvA7XBzP+X4knz+wOMF/GahG7NjGP4B3LS0isYWNJlgzkv5ZfAqZmMgiDL4Uw4froX5zPClgLcuZvrSJ3LpZ0hehlg3LRhV48WBz4HdDyylIkXHc+1n8we2Bk9pRa002V390oHwHjfeG+UQzp8xz1K8/Cfw6bCvjE4aKrMJSUJ4q7/F7nFLMCzzZyEr44/A6jwLMnJ3s7RyEHPjMyGRN94cyyYkwoKb46jjdNwFExp+uDx84AAAAroJ0dGaMpTEuuEdi2qExu11QiBqZ/k52IRMSeBomwPLBUoCC8wSTtiP9HRqh7gJus94cKYgES9OiJll+Cd3eIwOD6JCQCieA/wbdylWAGytAp3nxurx9pmMhUhGTeB+MkM5BsZMrDn/2sMJOKRjjNt2g0gMbKKE6b5+Zj7Cnd+it9FsOUbY4dzXBasH8mOWkUdOI8rZbbZ5Ll0X32qlwrfJQrNejOjC88t/wEkQn0aj+6BXoSXhIqy/Og0akMBNMzvrKK+YGjEnqMgfR8Vpj0ee5n2jjWzUqk4KeO/ye62D30AACl1qF9rD6SKSdlx/s5cA4IilVP+dWfn0F78WBdIwyb//SQkDGmtdbenSegElOP6PacZhBb+i/K8WWTu9VXV3yrgDCPhPh6e1HISsrz0WbU+T58ifQfGwICXCSYKy3/m/Q75i2vmdDwxPgO8ZKBu9IGoODXA6ISUVPugBOst1nXbOPsFGCKUxkCIpAtzR0oGWylfhafGgcXX2YVelEAAGZgDheCp4xVtvY6XlUgAdaEsyBTVzlwPi/1zEK15FcNTBocGc2mwzP940f/Ashv782L8JhH49Yr5i19NOyEFc+9yVMP/6v+VKsyT4GdSWcrI4IuBItt9W0eC9/olYFePtXmHUf4orvWMA4Ok/W/DPiAUumcO3Z0vqCIn8iI0XTxO2/zE+EDIAAFuz8FhwjaiUQbn36vQuiVliQzezMSYEHFqL+njMKYWo93d8PUR898ko0xT6vUj+34B+74g4wqOCXw+Cpi7xYYwWrwcwF0nshveDXg8u+B6hLwmZwwxBeoOUIUGwH0wyzflw/31HIVK6kC5oZxg0wgAA82cHeRYUKwMf/ySi9883rB2PBjX8qg2kjev0DgFfZ1IKg9U4aUh8UT1bDFwl3sBQXGuyjBeDP8jqk45LpO+aPbW06uXAoE8nL95AopOsshrUb8sP84XohoiO/5/d08Xryx9hxWI4rLaIBcfmEfVc1NiDjAtOHWezpQb0QAACc5+bXJ/5c8ma7r1QlsmaQAHx0BfVeFYcWPOwD8qxBR4lUSO/nw6bIb6g7TWDahUxcJwuRqbh8PYZ/UtLQFpj8nXxP4U0xeR7RGm3rNZp7dgAYVm91AgbmXK2KNYeYYboTOI6Lh3nCBvAgjPDwP3JK8acBLD88RcNiUjnnXtI/wb+3ss4QXRBsBT6yAAAKLsVYaJb9tG38fU+Dy3kcwCp4xK+BxgigXzeGOjVZ1Zthw0Uot+zDRyv6/H3nGPexdydUWakaeWAvpJAFIx8fT5aJcWISdjzNts2ZCBu9xVyDQejhGxOb1sDHhs4Qk/7zoOavD7DRNkCZqWhPBXpgAAovbf2BaKv5fsKRRZIQGT5BaFjTtxayO1Vd6REt5oNcLWWuV6YaVjmIvvWr82rRWLLttX4fGSUxuQotS3+Y16SrHdinQSlfuhfvL+/uyeTARUxTmsR/AAL1vjINJMdmifKg0gVzJGIu1Z/Dkf5Y/hUzlqBcJb2osBeaSI4M4rnr8RVamVM8Z8AAGxpyQlWyeg+U2Tq5mgyuILgDWO+v8/0RzncBLV3LwOhX/Irt8x3SBRMSdvLIUn3icw4KNUhuDN5Lt+CSvxkqBG19L//adaEnZctqMCo9DEmXJl87OL/CIt6Blqbs3QvZXA9XV9ZAAA85GVkZ+1e47Id5Iy0J0PvVwLkzR2CU4xMBjk5msHJel6C8R0ziTx4LLVIaXvtaUTDd/G79Y0xDsLb6rqCzF28SD/EBTY7FtSFjUvEHAAGBNVeJtO0mdTot44rDszK8dYovrtO4nM7hzp90q6LKQol6jSi2aCdBg1acKvD1Aqv8HTsw66VaIOGvpPUYjPJxleE9cxsPm6UsFjd1dep90xrnSXr38Zz2i0Cs8PfS7DV0V/elsE4FXVUHZ8t7HYJNzeibY84HWUhoCiuWL1RVR8/DkCoD51uyMtlWbJPs/5BI+S8wTiPaQgME2YRkzJezhlvcu0BaaXWlRjPe04fYmbaCaZO4qaBheEE0tWchTr75PJV3HzhDTOdaSszkS/idII8KajAQ/lE1ia6RA3G2JaP8KQPy7Ug32nKmv29lkFjPRdgWsxgiETxNaGHPyAD5AgCXRhQFiSBDDTnAfDFmYIpfMFbI9vO2VWgP/DXKciVSHgZFCvOTrBQPSk5fktQlWoDVJLm318cOxMWCHhT4GfUZsqcA7UoBeHwIxyRbJ25xoP2E8Cyp4UIFXdIa6B5Go+OroDuZkXuw09nlRjdV4RPHCe+xM/Uw1OPHeHNhQ3Qxncojf6ikNcXmVFEqRW71oNAl6NBT7hVd+8Pjdv05Ijez2Y4Z9W2Qu0FlKO7aURS80VVzsFkSpPE2XMX69PwgCxIocOy/ulP4+hklymXG/633l6cdZBe0Or+Qm4vzJMvIFgaOslYHUvpQi1vQfq6j8SL9CNMlzK5AMhNxOYAABYD5T55OaqRumUpYFO85YMYSSAALKHSqDsuryuUgnYT+Bap4FwOS4o51LWFhi/ek4+Ah1dwLscK/+OnBM8TZ5dxmGxO0I1Ppo7wcdEXAKdaiHXyAq03+wgJDKzMcTxJ9T/QADJmGKIdThjZOeWspnLMJHUutYYH+vDPzW/BOQdz+QyyLg8AA" alt="logo"></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#intro" data-ar="البداية" data-en="Start">البداية</a>
+        <a href="#bit" data-ar="Bit" data-en="Bit">Bit</a>
+        <a href="#byte" data-ar="Byte" data-en="Byte">Byte</a>
+        <a href="#decimal" data-ar="Decimal" data-en="Decimal">Decimal</a>
+        <a href="#binary" data-ar="الثنائي" data-en="Binary">الثنائي</a>
+        <a href="#convert" data-ar="التحويل" data-en="Conversion">التحويل</a>
+        <a href="#practice" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
+        <a href="#recap" data-ar="الخلاصة" data-en="Recap">الخلاصة</a>
+        <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+      </div>
+      <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-circles"><span></span><span></span><span></span></div>
+    <div class="hero-content">
+      <div class="hero-badge" data-ar="درس 6-2 — Information Study" data-en="Lesson 6-2 — Information Study">درس 6-2
+        — Information Study</div>
+      <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>النظام الثنائي</span> وكمية المعلومات" data-en="<span class=&quot;grad&quot;>Binary</span> and Amount of Information">النظام الثنائي <span class="grad">وكمية المعلومات</span></h1>
+      <p class="hero-sub"
+        data-ar="Binary and Amount of Information — الكمبيوتر ما بيفهمش غير الرقمين 0 و1 — كل حاجة بتتخزّن على هيئة Bit وByte. النهارده هنعرف أصغر وحدة معلومات، والنظام العشري والثنائي، وإزاي بنحوّل بينهم."
+        data-en="Binary and Amount of Information — the computer only understands the two digits 0 and 1 — everything is stored as Bits and Bytes. Today we learn the smallest unit of information, the decimal and binary systems, and how to convert between them.">
+        <span dir="ltr">Binary and Amount of Information</span> — الكمبيوتر ما بيفهمش غير الرقمين 0 و1 — كل حاجة
+        بتتخزّن على هيئة <span dir="ltr">Bit</span> و<span dir="ltr">Byte</span>. النهارده هنعرف أصغر وحدة معلومات،
+        والنظام العشري والثنائي، وإزاي بنحوّل بينهم.</p>
+      <a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ →</a>
+    </div>
+  </header>
+
+  <main>
+<!-- ============ 01 INTRO ============ -->
+    <section id="intro">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#0e7490)">01</div>
+          <div>
+            <h2 data-ar="هنتعلم إيه النهارده؟" data-en="What will we learn today?">هنتعلم إيه النهارده؟</h2>
+            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — أصغر وحدة معلومات والتحويل بين الأنظمة"
+              data-en="Lesson introduction — the smallest unit of information and converting between systems">مقدمة الدرس — أصغر وحدة معلومات والتحويل بين الأنظمة</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="النهارده هنتعرف على أصغر وحدة معلومات في الكمبيوتر وهي البت (Bit) بتعالج الرقمين 0 و1، وبعدين المجموعة منها بنسميها بايت (Byte). وبعدين هنتعرف على النظام العشري (Decimal) اللي بنستخدمه في حياتنا اليومية، والنظام الثنائي (Binary) اللي الكمبيوتر بيفهمه، وإزاي بنحوّل رقم من نظام للتاني."
+          data-en="Today we will learn about the smallest unit of information in the computer, the bit (Bit), which handles the two digits 0 and 1, then the group of them we call the byte (Byte). Then we will learn the decimal system (Decimal) we use in our daily lives, and the binary system (Binary) the computer understands, and how to convert a number from one system to the other.">
+          النهارده هنتعرف على أصغر وحدة معلومات في الكمبيوتر وهي الـ <b><span dir="ltr">Bit</span></b> اللي بتتعامل مع
+          الرقمين 0 و1، وبعدين المجموعة منها بنسميها <b><span dir="ltr">Byte</span></b>. وبعدين هنتعرف على
+          <b>النظام العشري <span dir="ltr">(Decimal)</span></b> اللي بنستخدمه في حياتنا اليومية، و<b>النظام الثنائي
+            <span dir="ltr">(Binary)</span></b> اللي الكمبيوتر بيفهمه، وإزاي بنحوّل رقم من نظام للتاني.</p>
+        <div class="note"><b data-ar="افهمها كده:" data-en="Think of it this way:">افهمها كده:</b> <span
+            data-ar="خيالك إن عندك لمبة — إما شغالة أو مطفية، مفيش حالة تالتة. كل لمبة = بت (Bit)، وكل معلومات الكمبيوتر في الآخر هي لمبات شغالة ومطفية ورا بعض."
+            data-en="Imagine you have a light bulb — it is either on or off, there is no third state. Each bulb is a bit, and all computer information is ultimately bulbs turned on and off in a row.">خيالك
+            إن عندك لمبة — إما شغالة أو مطفية، مفيش حالة تالتة. كل لمبة = بت <span dir="ltr">(Bit)</span>، وكل
+            معلومات الكمبيوتر في الآخر هي لمبات شغالة ومطفية ورا بعض.</span></div>
+      </div>
+
+      <div class="section-inner">
+        <div class="activity-grid">
+          <div class="demo-panel">
+            <div class="demo-label" data-ar="هنتعلم النهارده 5 حاجات أساسية"
+              data-en="Today we'll learn 5 core things">هنتعلم النهارده 5 حاجات أساسية</div>
+            <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🔘</span><span><b
+                  style="color:var(--s2)" data-ar="Bit — أصغر وحدة معلومات" data-en="Bit — the smallest unit of information">Bit —
+                  أصغر وحدة معلومات</b> <b data-ar="— بتتعامل مع حالتين بس: 0 أو 1"
+                  data-en="— it handles only two states: 0 or 1">— بتتعامل مع حالتين بس: 0 أو 1</b></span></div>
+            <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">📦</span><span><b
+                  style="color:var(--s3)" data-ar="Byte — مجموعة من 8 بتات" data-en="Byte — a group of 8 bits">Byte — مجموعة
+                  من 8 بتات</b> <b data-ar="— 1 بايت بيمثل 256 احتمال" data-en="— 1 byte represents 256 possibilities">— 1
+                  بايت بيمثل 256 احتمال</b></span></div>
+            <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🔟</span><span><b
+                  style="color:var(--s4)" data-ar="Decimal — النظام العشري" data-en="Decimal — the base-10 system">Decimal —
+                  النظام العشري</b> <b data-ar="— الأرقام من 0 لـ 9 اللي بنستخدمها كل يوم"
+                  data-en="— the digits 0 to 9 we use every day">— الأرقام من 0 لـ 9 اللي بنستخدمها كل يوم</b></span></div>
+            <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">⚡</span><span><b
+                  style="color:var(--s5)" data-ar="Binary — النظام الثنائي" data-en="Binary — the base-2 system">Binary —
+                  النظام الثنائي</b> <b data-ar="— الأرقام 0 و1 بس، وده نظام الكمبيوتر"
+                  data-en="— only the digits 0 and 1, and that's the computer's system">— الأرقام 0 و1 بس، وده نظام
+                  الكمبيوتر</b></span></div>
+            <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🔄</span><span><b
+                  style="color:var(--s6)" data-ar="التحويل بين الأنظمة" data-en="Converting between systems">التحويل بين
+                  الأنظمة</b> <b data-ar="— ثنائي → عشري والعكس بخطوات بسيطة"
+                  data-en="— binary to decimal and back in simple steps">— ثنائي → عشري والعكس بخطوات بسيطة</b></span></div>
+          </div>
+          <div class="demo-panel">
+            <div class="demo-label" data-ar="ليه بنتعلّم ده؟" data-en="Why do we learn this?">ليه بنتعلّم ده؟</div>
+            <p style="font-size:.95rem"
+              data-ar="كل حاجة بتعملها على الكمبيوتر — تكتب رسالة، تسمع أغنية، تشوف صورة — بتتخزّن في الآخر كأصفار وواحدات. لما تفهم البت والبايت والنظام الثنائي، هتفهم ليه حجم الملفات بيتقاس بـ KB وMB وGB، وإزاي الكمبيوتر بيشوف العالم."
+              data-en="Everything you do on a computer — writing a message, listening to a song, seeing an image — is ultimately stored as zeros and ones. When you understand bits, bytes and the binary system, you will understand why file sizes are measured in KB, MB and GB, and how the computer sees the world.">
+              كل حاجة بتعملها على الكمبيوتر — تكتب رسالة، تسمع أغنية، تشوف صورة — بتتخزّن في الآخر كأصفار وواحدات.
+              لما تفهم البت والبايت والنظام الثنائي، هتفهم ليه حجم الملفات بيتقاس بـ <span dir="ltr">KB</span> و<span
+                dir="ltr">MB</span> و<span dir="ltr">GB</span>، وإزاي الكمبيوتر بيشوف العالم.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="الخلط بين البت والبايت — البت رقم واحد (0 أو 1)، والبايت مجموعة من 8 بتات."
+            data-en="Mixing up the bit and the byte — the bit is one digit (0 or 1), and the byte is a group of 8 bits.">
+            الخلط بين البت والبايت — البت رقم واحد (0 أو 1)، والبايت مجموعة من <b>8 بتات</b>.</li>
+          <li data-ar="اعتبار إن النظام العشري هو نظام الكمبيوتر — لأ، الكمبيوتر بيفهم النظام الثنائي بس."
+            data-en="Thinking the decimal system is the computer's system — no, the computer only understands the binary system.">
+            اعتبار إن النظام العشري هو نظام الكمبيوتر — لأ، الكمبيوتر بيفهم <b>النظام الثنائي</b> بس.</li>
+          <li data-ar="نسيان إن عدد الاحتمالات بيزيد بقوة 2 — n بتات = 2 أس n احتمال."
+            data-en="Forgetting that the number of possibilities grows by a power of 2 — n bits = 2 to the power of n.">
+            نسيان إن عدد الاحتمالات بيزيد بقوة 2 — <span dir="ltr">n</span> بتات = 2 أس <span dir="ltr">n</span>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 02 BIT ============ -->
+    <section id="bit">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#b45309)">02</div>
+          <div>
+            <h2 data-ar="مفهوم Bit" data-en="The Bit Concept">مفهوم <span dir="ltr">Bit</span></h2>
+            <div class="tag" style="color:var(--s2)" data-ar="أصغر وحدة معلومات — الكتاب صفحة 55"
+              data-en="the smallest unit of information — book page 55">أصغر وحدة معلومات — الكتاب صفحة 55</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="حالتان بس: 0 أو 1 — زي لمبة شغالة أو مطفية"
+              data-en="Only two states: 0 or 1 — like a light bulb on or off">حالتان بس: 0 أو 1 — زي لمبة شغالة أو
+              مطفية</div>
+            <div class="flow-card" data-id="bit">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="bit"></svg>
+                <div class="svg-label" data-fbox="sw" data-ar="🔘 لمبة شغالة / مطفية" data-en="🔘 Bulb on / off">🔘 لمبة
+                  شغالة / مطفية</div>
+                <div class="svg-label" data-fbox="bitcell" data-ar="0 أو 1" data-en="0 or 1">0 أو 1</div>
+                <div class="svg-label" data-fbox="info" data-ar="2 أس n احتمال" data-en="2 to the power of n">2 أس
+                  <span dir="ltr">n</span> احتمال</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="bitPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="bitNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="bitCounter">1 / 3</span>
+                <button class="mini-btn" data-id="bitReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="البت (Bit) هو أصغر وحدة معلومات في الكمبيوتر، وليه حالتين بس: 0 أو 1. البت الواحد بيمثل حالتين — زي لمبة شغالة أو مطفية، أو جهد كهربائي عالي أو واطي، أو اتجاه مغناطيس شمال أو جنوب."
+          data-en="The bit is the smallest unit of information in a computer, and it has only two states: 0 or 1. One bit represents two states — like a bulb on or off, a voltage high or low, or a magnet's orientation north or south.">
+          الـ <b>Bit</b> هو أصغر وحدة معلومات في الكمبيوتر، وليه حالتين بس: 0 أو 1. البت الواحد بيمثل حالتين — زي لمبة
+          شغالة أو مطفية، أو جهد كهربائي عالي أو واطي، أو اتجاه مغناطيس شمال أو جنوب.</p>
+        <p data-ar="أي معلومة حقيقية بتتمثل بترتيب مجموعة من البتات. بشكل عام، عدد البتات n بيمثل 2 أس n حاجة مختلفة. مثال: بت واحد بيمثل احتمالين (0 أو 1)، بتين بيمثلوا 4 احتمالات (00 و01 و10 و11)، و3 بتات بيمثلوا 8 احتمالات."
+          data-en="Any real information is represented by an arrangement of bits. In general, n bits can represent 2 to the power of n different things. For example: 1 bit represents 2 possibilities (0 or 1), 2 bits represent 4 (00, 01, 10, 11), and 3 bits represent 8.">
+          أي معلومة حقيقية بتتمثل بترتيب مجموعة من البتات. بشكل عام، عدد البتات <span dir="ltr">n</span> بيمثل
+          <b>2 أس <span dir="ltr">n</span></b> حاجة مختلفة. مثال: بت واحد بيمثل احتمالين (0 أو 1)، بتين بيمثلوا 4
+          احتمالات (00 و01 و10 و11)، و3 بتات بيمثلوا 8 احتمالات.</p>
+        <div class="note"><b data-ar="تذكّر:" data-en="Remember:">تذكّر:</b> <span
+            data-ar="1 بت = احتمالين، 2 بتات = 4 احتمالات، 3 بتات = 8 احتمالات — في كل مرة بنزيد بت واحد، عدد الاحتمالات بيتضاعف."
+            data-en="1 bit = 2 possibilities, 2 bits = 4 possibilities, 3 bits = 8 possibilities — every time we add one bit, the number of possibilities doubles.">1
+            بت = احتمالين، 2 بتات = 4 احتمالات، 3 بتات = 8 احتمالات — في كل مرة بنزيد بت واحد، عدد الاحتمالات
+            <b>بيتضاعف</b>.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="bitQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="bitRecall">
+          <div class="rq" data-id="bitRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="أصغر وحدة معلومات في الكمبيوتر هي إيه؟"
+                data-en="What is the smallest unit of information in a computer?">أصغر وحدة معلومات في الكمبيوتر هي
+                إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="bitRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! البت هو أصغر وحدة معلومات وليه حالتين: 0 أو 1."
+                data-fb-en="Correct! The bit is the smallest unit of information and has two states: 0 or 1."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="Bit"
+                  data-en="Bit">Bit</span></div>
+              <div class="rq-opt" data-id="bitRq1o2" data-key="B"
+                data-fb-ar="مش كده — البايت هو مجموعة من 8 بتات، مش أصغر وحدة."
+                data-fb-en="Not quite — the byte is a group of 8 bits, not the smallest unit."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="Byte"
+                  data-en="Byte">Byte</span></div>
+              <div class="rq-opt" data-id="bitRq1o3" data-key="C"
+                data-fb-ar="النظام الثنائي طريقة تمثيل، مش وحدة معلومات."
+                data-fb-en="The binary system is a representation method, not a unit of information."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="Binary"
+                  data-en="Binary">Binary</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="bitRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="bitRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="بتتين (2 bits) بيمثلوا كام احتمال مختلف؟"
+                data-en="How many different possibilities can 2 bits represent?">بتتين <span dir="ltr">(2
+                  bits)</span> بيمثلوا كام احتمال مختلف؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="bitRq2o1" data-key="A"
+                data-fb-ar="مش كده — 2 أس 2 = 4 احتمالات، مش احتمالين."
+                data-fb-en="Not quite — 2 to the power of 2 = 4 possibilities, not two."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="2 احتمالات"
+                  data-en="2 possibilities">2 احتمالات</span></div>
+              <div class="rq-opt" data-id="bitRq2o2" data-key="B"
+                data-fb-ar="دي 3 بتات — 3 بتات بتمثل 8 احتمالات."
+                data-fb-en="That is 3 bits — 3 bits represent 8 possibilities."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="8 احتمالات"
+                  data-en="8 possibilities">8 احتمالات</span></div>
+              <div class="rq-opt" data-id="bitRq2o3" data-key="C" data-ok="1"
+                data-fb-ar="صحيح! 2 أس 2 = 4 احتمالات: 00 و01 و10 و11."
+                data-fb-en="Correct! 2 to the power of 2 = 4 possibilities: 00, 01, 10, 11."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="4 احتمالات"
+                  data-en="4 possibilities">4 احتمالات</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="bitRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="الخلط بين البت والبايت — البت رقم واحد بس، والبايت 8 بتات."
+            data-en="Mixing up the bit and the byte — the bit is just one digit, and the byte is 8 bits.">
+            الخلط بين البت والبايت — البت <b>رقم واحد</b> بس، والبايت <b>8 بتات</b>.</li>
+          <li data-ar="نسيان إن الاحتمالات بتتحسب بـ 2 أس n مش n ضرب 2."
+            data-en="Forgetting that possibilities are computed as 2 to the power of n, not n times 2.">
+            نسيان إن الاحتمالات بتتحسب بـ <b>2 أس <span dir="ltr">n</span></b> مش <span dir="ltr">n</span> ضرب 2.</li>
+          <li data-ar="اعتبار إن البت ممكن ياخد أكتر من حالتين — لأ، حالتين بس: 0 أو 1."
+            data-en="Thinking a bit can have more than two states — no, only two states: 0 or 1.">
+            اعتبار إن البت ممكن ياخد أكتر من حالتين — لأ، حالتين بس: 0 أو 1.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 03 BYTE ============ -->
+    <section id="byte">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">03</div>
+          <div>
+            <h2 data-ar="مفهوم Byte" data-en="The Byte Concept">مفهوم <span dir="ltr">Byte</span></h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مجموعة من 8 بتات — الكتاب صفحة 55"
+              data-en="a group of 8 bits — book page 55">مجموعة من 8 بتات — الكتاب صفحة 55</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="8 بتات = 1 بايت = 256 احتمال — والوحدات بتكبر كل 1024"
+              data-en="8 bits = 1 byte = 256 possibilities — and the units grow by 1024">8 بتات = 1 بايت = 256 احتمال —
+              والوحدات بتكبر كل 1024</div>
+            <div class="flow-card" data-id="byte">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="byte"></svg>
+                <div class="svg-label" data-fbox="bits8" data-ar="🔢 8 بتات" data-en="🔢 8 bits">🔢 8 بتات</div>
+                <div class="svg-label" data-fbox="bytecell" data-ar="1 بايت = 1 B" data-en="1 byte = 1 B">1 بايت = 1
+                  <span dir="ltr">B</span></div>
+                <div class="svg-label" data-fbox="units" data-ar="KB · MB · GB · TB" data-en="KB · MB · GB · TB">KB ·
+                  MB · GB · TB</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="bytePrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="byteNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="byteCounter">1 / 3</span>
+                <button class="mini-btn" data-id="byteReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="البت الواحد صغير جداً، فبنستخدم وحدة أكبر اسمها البايت (Byte). البايت الواحد عبارة عن مجموعة من 8 بتات، وبنرمز له بالرمز B. البايت الواحد بيمثل 256 احتمال — لأن 2 أس 8 = 256."
+          data-en="One bit is very small, so we use a larger unit called the byte. One byte is a group of 8 bits, and we write it as B. One byte represents 256 possibilities — because 2 to the power of 8 = 256.">
+          البت الواحد صغير جداً، فبنستخدم وحدة أكبر اسمها الـ <b>Byte</b>. البايت الواحد عبارة عن مجموعة من
+          <b>8 بتات</b>، وبنرمز له بالرمز <span dir="ltr">B</span>. البايت الواحد بيمثل <b>256 احتمال</b> — لأن 2 أس 8
+          = 256.</p>
+        <p data-ar="وحدة المعلومات الأساسية هي 1 بايت، والوحدة بتتغير كل 2 أس 10 = 1024 مرة: 1 كيلوبايت = 1024 بايت، و1 ميجابايت = 1024 كيلوبايت، و1 جيجابايت = 1024 ميجابايت، و1 تيرابايت = 1024 جيجابايت."
+          data-en="The basic unit of information is 1 byte, and the unit changes every 2 to the power of 10 = 1024 times: 1 KB = 1024 B, 1 MB = 1024 KB, 1 GB = 1024 MB, 1 TB = 1024 GB.">
+          وحدة المعلومات الأساسية هي 1 بايت، والوحدة بتتغير كل <b>2 أس 10 = 1024</b> مرة: 1 كيلوبايت <span
+            dir="ltr">(KB)</span> = 1024 بايت، و1 ميجابايت <span dir="ltr">(MB)</span> = 1024 كيلوبايت، و1 جيجابايت
+          <span dir="ltr">(GB)</span> = 1024 ميجابايت، و1 تيرابايت <span dir="ltr">(TB)</span> = 1024 جيجابايت.</p>
+        <div class="note"><b data-ar="تذكّر:" data-en="Remember:">تذكّر:</b> <span
+            data-ar="1 بايت = 8 بتات = 256 احتمال. والوحدات الأكبر (KB وMB وGB وTB) كل واحدة = 1024 من اللي قبلها."
+            data-en="1 byte = 8 bits = 256 possibilities. And the larger units (KB, MB, GB, TB) each equal 1024 of the previous one.">1
+            بايت = 8 بتات = 256 احتمال. والوحدات الأكبر (KB وMB وGB وTB) كل واحدة = <b>1024</b> من اللي قبلها.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="byteQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="byteRecall">
+          <div class="rq" data-id="byteRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="البايت الواحد عبارة عن كام بت؟"
+                data-en="How many bits are in one byte?">البايت الواحد عبارة عن كام بت؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="byteRq1o1" data-key="A"
+                data-fb-ar="مش كده — 4 بتات بتمثل 16 احتمال بس."
+                data-fb-en="Not quite — 4 bits represent only 16 possibilities."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="4 بتات"
+                  data-en="4 bits">4 بتات</span></div>
+              <div class="rq-opt" data-id="byteRq1o2" data-key="B" data-ok="1"
+                data-fb-ar="صحيح! البايت = 8 بتات، وبيتمثل بالرمز B."
+                data-fb-en="Correct! The byte = 8 bits, written as B."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="8 بتات"
+                  data-en="8 bits">8 بتات</span></div>
+              <div class="rq-opt" data-id="byteRq1o3" data-key="C"
+                data-fb-ar="دي الـ 32 بتات، اللي بتساوي 4 بايتات."
+                data-fb-en="That is 32 bits, which equals 4 bytes."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="32 بت"
+                  data-en="32 bits">32 بت</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="byteRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="byteRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="1 بايت بيمثل كام احتمال؟"
+                data-en="How many possibilities does 1 byte represent?">1 بايت بيمثل كام احتمال؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="byteRq2o1" data-key="A"
+                data-fb-ar="مش كده — 1 بايت = 8 بتات، يعني أكتر من 128 بكتير."
+                data-fb-en="Not quite — 1 byte = 8 bits, so much more than 128."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="128 احتمال"
+                  data-en="128 possibilities">128 احتمال</span></div>
+              <div class="rq-opt" data-id="byteRq2o2" data-key="B" data-ok="1"
+                data-fb-ar="صحيح! 2 أس 8 = 256 احتمال."
+                data-fb-en="Correct! 2 to the power of 8 = 256 possibilities."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="256 احتمال"
+                  data-en="256 possibilities">256 احتمال</span></div>
+              <div class="rq-opt" data-id="byteRq2o3" data-key="C"
+                data-fb-ar="دي 3 بتات — البايت أكبر من كده."
+                data-fb-en="That is 3 bits — the byte is bigger than that."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="8 احتمالات"
+                  data-en="8 possibilities">8 احتمالات</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="byteRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="نسيان إن الوحدات بتكبر بمعامل 1024 مش 1000 — 1 كيلوبايت = 1024 بايت."
+            data-en="Forgetting that units grow by a factor of 1024, not 1000 — 1 KB = 1024 B.">
+            نسيان إن الوحدات بتكبر بمعامل <b>1024</b> مش 1000 — 1 كيلوبايت = 1024 بايت.</li>
+          <li data-ar="الخلط بين الرمزين B وb — B الكبيرة = بايت، b الصغيرة = بت."
+            data-en="Mixing up the symbols B and b — uppercase B = byte, lowercase b = bit.">
+            الخلط بين الرمزين <span dir="ltr">B</span> و<span dir="ltr">b</span> — <span dir="ltr">B</span> الكبيرة =
+            بايت، <span dir="ltr">b</span> الصغيرة = بت.</li>
+          <li data-ar="اعتبار إن البايت بيمثل 8 احتمالات — لأ، بيمثل 256 لأن 2 أس 8."
+            data-en="Thinking a byte represents 8 possibilities — no, it represents 256 because 2 to the power of 8.">
+            اعتبار إن البايت بيمثل 8 احتمالات — لأ، بيمثل <b>256</b> لأن 2 أس 8.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 04 DECIMAL ============ -->
+    <section id="decimal">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
+          <div>
+            <h2 data-ar="مفهوم Decimal" data-en="The Decimal Concept">مفهوم <span dir="ltr">Decimal</span></h2>
+            <div class="tag" style="color:var(--s4)" data-ar="النظام العشري — الأرقام من 0 لـ 9 — الكتاب صفحة 55"
+              data-en="the decimal system — digits 0 to 9 — book page 55">النظام العشري — الأرقام من 0 لـ 9 — الكتاب
+              صفحة 55</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="عشرة أرقام بس: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9"
+              data-en="Only ten digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9">عشرة أرقام بس: 0, 1, 2, 3, 4, 5, 6, 7, 8,
+              9</div>
+            <div class="flow-card" data-id="decimal">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="decimal"></svg>
+                <div class="svg-label" data-fbox="daily" data-ar="🔟 أرقامنا اليومية" data-en="🔟 Our daily numbers">🔟
+                  أرقامنا اليومية</div>
+                <div class="svg-label" data-fbox="ten" data-ar="من 0 لـ 9" data-en="From 0 to 9">من 0 لـ 9</div>
+                <div class="svg-label" data-fbox="value" data-ar="المنازل: آحاد، عشرات، مئات" data-en="Place values: units, tens, hundreds">المنازل:
+                  آحاد، عشرات، مئات</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="decimalPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="decimalNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="decimalCounter">1 / 3</span>
+                <button class="mini-btn" data-id="decimalReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="النظام العشري (Decimal) هو طريقة تمثيل الأرقام باستخدام عشرة أرقام من 0 لـ 9. الأرقام اللي بنستخدمها في حياتنا اليومية كلها عشري — زي 2026 أو 7.5 أو 100."
+          data-en="The decimal system is a method of representing numbers using ten digits from 0 to 9. The numbers we use in our daily lives are all decimal — like 2026 or 7.5 or 100.">
+          النظام العشري <span dir="ltr">(Decimal)</span> هو طريقة تمثيل الأرقام باستخدام <b>عشرة أرقام</b> من 0 لـ 9.
+          الأرقام اللي بنستخدمها في حياتنا اليومية كلها عشري — زي 2026 أو 7.5 أو 100.</p>
+        <p data-ar="الرقم المكتوب بالنظام العشري بيتسمى رقم عشري، ومنزلته بتتحدد بمكانه: الآحاد ثم العشرات ثم المئات وهكذا، وكل منزلة = 10 أضعاف اللي قبلها."
+          data-en="A number written in decimal notation is called a decimal number, and its place value is determined by its position: units, then tens, then hundreds, and so on, and each place = 10 times the previous one.">
+          الرقم المكتوب بالنظام العشري بيتسمى رقم عشري، ومنزلته بتتحدد بمكانه: الآحاد ثم العشرات ثم المئات وهكذا، وكل
+          منزلة = <b>10 أضعاف</b> اللي قبلها.</p>
+        <div class="note"><b data-ar="تذكّر:" data-en="Remember:">تذكّر:</b> <span
+            data-ar="النظام العشري أساسه الرقم 10 — ولهذا سمّيناه عشري."
+            data-en="The decimal system is based on the number 10 — that is why it is called decimal.">النظام العشري
+            أساسه الرقم <b>10</b> — ولهذا سمّيناه عشري.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="decimalQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="decimalRecall">
+          <div class="rq" data-id="decimalRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="النظام العشري بيستخدم كام رقم؟"
+                data-en="How many digits does the decimal system use?">النظام العشري بيستخدم كام رقم؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="decimalRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! عشرة أرقام من 0 لـ 9."
+                data-fb-en="Correct! Ten digits from 0 to 9."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="10 أرقام (من 0 لـ 9)"
+                  data-en="10 digits (0 to 9)">10 أرقام (من 0 لـ 9)</span></div>
+              <div class="rq-opt" data-id="decimalRq1o2" data-key="B"
+                data-fb-ar="مش كده — الرقمين 0 و1 دول النظام الثنائي."
+                data-fb-en="Not quite — the two digits 0 and 1 are the binary system."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="رقمين: 0 و1"
+                  data-en="Two digits: 0 and 1">رقمين: 0 و1</span></div>
+              <div class="rq-opt" data-id="decimalRq1o3" data-key="C"
+                data-fb-ar="دي الـ 16 رقم — أرقام النظام الست عشري."
+                data-fb-en="That is 16 digits — the hexadecimal system's digits."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="16 رقم"
+                  data-en="16 digits">16 رقم</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="decimalRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="decimalRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="الرقم 2026 اللي بنكتبه كل يوم هو رقم إيه؟"
+                data-en="The number 2026 we write every day is what kind of number?">الرقم 2026 اللي بنكتبه كل يوم هو رقم
+                إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="decimalRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! أي رقم بنستخدمه في حياتنا اليومية عشري."
+                data-fb-en="Correct! Any number we use in our daily lives is decimal."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="رقم عشري"
+                  data-en="A decimal number">رقم عشري</span></div>
+              <div class="rq-opt" data-id="decimalRq2o2" data-key="B"
+                data-fb-ar="لو كان ثنائي كان مكتوب بـ 0 و1 بس."
+                data-fb-en="If it were binary it would be written with only 0 and 1."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="رقم ثنائي"
+                  data-en="A binary number">رقم ثنائي</span></div>
+              <div class="rq-opt" data-id="decimalRq2o3" data-key="C"
+                data-fb-ar="مفيش رقم أنالوج — الأنالوج عن القيم المستمرة مش الأرقام."
+                data-fb-en="There is no analog number — analog is about continuous values, not numbers."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="رقم أنالوج"
+                  data-en="An analog number">رقم أنالوج</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="decimalRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="الخلط بين العشري والثنائي — العشري 10 أرقام والثنائي رقمين بس."
+            data-en="Mixing up decimal and binary — decimal has 10 digits and binary has only 2.">
+            الخلط بين العشري والثنائي — العشري <b>10 أرقام</b> والثنائي رقمين بس.</li>
+          <li data-ar="نسيان إن كل منزلة في العشري = 10 أضعاف اللي قبلها."
+            data-en="Forgetting that each place in decimal = 10 times the previous one.">
+            نسيان إن كل منزلة في العشري = <b>10 أضعاف</b> اللي قبلها.</li>
+          <li data-ar="اعتبار إن الكمبيوتر بيفهم الأرقام العشرية — لأ، بيفهم الثنائي بس."
+            data-en="Thinking the computer understands decimal numbers — no, it only understands binary.">
+            اعتبار إن الكمبيوتر بيفهم الأرقام العشرية — لأ، بيفهم <b>الثنائي</b> بس.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 05 BINARY ============ -->
+    <section id="binary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
+          <div>
+            <h2 data-ar="النظام الثنائي (Binary)" data-en="The Binary System">النظام الثنائي <span
+                dir="ltr">(Binary)</span></h2>
+            <div class="tag" style="color:var(--s5)" data-ar="الأرقام 0 و1 بس — الكتاب صفحة 55"
+              data-en="only the digits 0 and 1 — book page 55">الأرقام 0 و1 بس — الكتاب صفحة 55</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="رقمين بس: 0 و1 — والرقم بيتكتب مع علامة (2) تحت"
+              data-en="Only two digits: 0 and 1 — and the number is written with a subscript (2)">رقمين بس: 0 و1 — والرقم
+              بيتكتب مع علامة (2) تحت</div>
+            <div class="flow-card" data-id="binary">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="binary"></svg>
+                <div class="svg-label" data-fbox="two" data-ar="⚡ 0 و1" data-en="⚡ 0 and 1">⚡ 0 و1</div>
+                <div class="svg-label" data-fbox="sys" data-ar="النظام الثنائي" data-en="The binary system">النظام
+                  الثنائي</div>
+                <div class="svg-label" data-fbox="sub" data-ar="مثال: 1011 (2)" data-en="Example: 1011 (2)">مثال: 1011
+                  <span dir="ltr">(2)</span></div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="binaryPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="binaryNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="binaryCounter">1 / 3</span>
+                <button class="mini-btn" data-id="binaryReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="النظام الثنائي (Binary) هو طريقة تمثيل الأرقام باستخدام نوعين من الأرقام فقط: 0 و1. والرقم المتمثل بالنظام الثنائي بيتكتب أحياناً مع علامة (2) تحت الرقم من ناحية اليمين، مثل 1011(2)."
+          data-en="The binary system is a method of representing numbers using only two types of digits: 0 and 1. A number represented in binary is sometimes written with a subscript (2) placed at the bottom right, such as 1011(2).">
+          النظام الثنائي <span dir="ltr">(Binary)</span> هو طريقة تمثيل الأرقام باستخدام <b>نوعين من الأرقام فقط: 0
+            و1</b>. والرقم المتمثل بالنظام الثنائي بيتكتب أحياناً مع علامة <span dir="ltr">(2)</span> تحت الرقم من ناحية
+          اليمين، مثل <span dir="ltr">1011(2)</span>.</p>
+        <p data-ar="البيانات اللي الكمبيوتر بيعالجها بتعتمد بشكل أساسي على النظام الثنائي — لأن الدوائر الإلكترونية ليها حالتين بس: في كهرباء أو مفيش. الرقم 1 يعني في كهرباء، والرقم 0 يعني مفيش."
+          data-en="The data processed by a computer primarily uses the binary system — because electronic circuits have only two states: electricity or no electricity. The digit 1 means electricity, and 0 means no electricity.">
+          البيانات اللي الكمبيوتر بيعالجها بتعتمد بشكل أساسي على النظام الثنائي — لأن الدوائر الإلكترونية ليها
+          <b>حالتين بس</b>: في كهرباء أو مفيش. الرقم 1 يعني في كهرباء، والرقم 0 يعني مفيش.</p>
+        <div class="note"><b data-ar="تذكّر:" data-en="Remember:">تذكّر:</b> <span
+            data-ar="الرقم الثنائي بيتكتب 0 و1 بس، وبنحط (2) تحت الرقم عشان نفرّقه عن العشري."
+            data-en="A binary number is written with only 0 and 1, and we put a subscript (2) to distinguish it from decimal.">الرقم
+            الثنائي بيتكتب 0 و1 بس، وبنحط <span dir="ltr">(2)</span> تحت الرقم عشان نفرّقه عن العشري.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="binaryQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="binaryRecall">
+          <div class="rq" data-id="binaryRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="النظام الثنائي بيستخدم كام رقم؟"
+                data-en="How many digits does the binary system use?">النظام الثنائي بيستخدم كام رقم؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="binaryRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! النظام الثنائي بيستخدم 0 و1 بس."
+                data-fb-en="Correct! The binary system uses only 0 and 1."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="رقمين: 0 و1"
+                  data-en="Two digits: 0 and 1">رقمين: 0 و1</span></div>
+              <div class="rq-opt" data-id="binaryRq1o2" data-key="B"
+                data-fb-ar="مش كده — العشرة أرقام دول النظام العشري."
+                data-fb-en="Not quite — those ten digits are the decimal system."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="10 أرقام"
+                  data-en="10 digits">10 أرقام</span></div>
+              <div class="rq-opt" data-id="binaryRq1o3" data-key="C"
+                data-fb-ar="دي أرقام النظام الست عشري."
+                data-fb-en="Those are the hexadecimal system's digits."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="16 رقم"
+                  data-en="16 digits">16 رقم</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="binaryRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="binaryRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="الرقم 1011(2) هو رقم إيه؟"
+                data-en="The number 1011(2) is what kind of number?">الرقم <span dir="ltr">1011(2)</span> هو رقم
+                إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="binaryRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! علامة (2) بتقول إنه رقم ثنائي."
+                data-fb-en="Correct! The subscript (2) tells us it is a binary number."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="رقم ثنائي"
+                  data-en="A binary number">رقم ثنائي</span></div>
+              <div class="rq-opt" data-id="binaryRq2o2" data-key="B"
+                data-fb-ar="لو كان عشري ماكنش فيه علامة (2)."
+                data-fb-en="If it were decimal it would not have the subscript (2)."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="رقم عشري"
+                  data-en="A decimal number">رقم عشري</span></div>
+              <div class="rq-opt" data-id="binaryRq2o3" data-key="C"
+                data-fb-ar="الأنالوج مش عن الأرقام أصلًا."
+                data-fb-en="Analog is not about numbers at all."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="رقم أنالوج"
+                  data-en="An analog number">رقم أنالوج</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="binaryRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="نسيان علامة (2) تحت الرقم الثنائي — هي اللي بتميّزه عن العشري."
+            data-en="Forgetting the subscript (2) under a binary number — it is what distinguishes it from decimal.">
+            نسيان علامة <span dir="ltr">(2)</span> تحت الرقم الثنائي — هي اللي بتميّزه عن العشري.</li>
+          <li data-ar="الخلط بين 0 و1 في الثنائي والعشري — 10 في الثنائي مش عشرة، هي اتنين."
+            data-en="Mixing up 0 and 1 in binary and decimal — 10 in binary is not ten, it is two.">
+            الخلط بين 0 و1 في الثنائي والعشري — <span dir="ltr">10</span> في الثنائي مش عشرة، هي <b>اتنين</b>.</li>
+          <li data-ar="اعتبار إن أي رقم فيه 0 و1 عشري — وجود علامة (2) بيعني إنه ثنائي."
+            data-en="Thinking any number with 0 and 1 is decimal — the subscript (2) means it is binary.">
+            اعتبار إن أي رقم فيه 0 و1 عشري — وجود علامة <span dir="ltr">(2)</span> بيعني إنه ثنائي.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 06 CONVERT ============ -->
+    <section id="convert">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#b91c1c)">06</div>
+          <div>
+            <h2 data-ar="التحويل بين الأنظمة" data-en="Converting Between Systems">التحويل بين الأنظمة</h2>
+            <div class="tag" style="color:var(--s6)" data-ar="ثنائي → عشري والعكس — الكتاب صفحة 55"
+              data-en="binary to decimal and back — book page 55">ثنائي → عشري والعكس — الكتاب صفحة 55</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="من اليمين: اضرب كل خانة في 1 ثم 2 ثم 4 ثم 8 ... واجمع"
+              data-en="From the right: multiply each digit by 1, then 2, then 4, then 8 ... and add">من اليمين: اضرب كل
+              خانة في 1 ثم 2 ثم 4 ثم 8 ... واجمع</div>
+            <div class="flow-card" data-id="convert">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="convert"></svg>
+                <div class="svg-label" data-fbox="bin" data-ar="🔢 رقم ثنائي" data-en="🔢 A binary number">🔢 رقم ثنائي</div>
+                <div class="svg-label" data-fbox="weights" data-ar="✖️ الأوزان 1, 2, 4, 8..." data-en="✖️ Weights 1, 2, 4, 8...">✖️
+                  الأوزان 1, 2, 4, 8...</div>
+                <div class="svg-label" data-fbox="sum" data-ar="➕ الجمع = رقم عشري" data-en="➕ The sum = a decimal number">➕
+                  الجمع = رقم عشري</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="convertPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="convertNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="convertCounter">1 / 3</span>
+                <button class="mini-btn" data-id="convertReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="التحويل من ثنائي لعشري" data-en="Converting from binary to decimal">التحويل من ثنائي لعشري</h3>
+        <p data-ar="بنبدأ من الخانة اللي على أقصى اليمين، ونضرب كل خانة في 1 ثم 2 ثم 4 ثم 8 ... بالترتيب، وبعدين نجمع النتائج كلها."
+          data-en="Starting from the rightmost digit, we multiply each digit by 1, then 2, then 4, then 8 ... in order, then we add all the results.">
+          بنبدأ من الخانة اللي على أقصى اليمين، ونضرب كل خانة في 1 ثم 2 ثم 4 ثم 8 ... بالترتيب، وبعدين نجمع النتائج
+          كلها.</p>
+        <div class="note"><b data-ar="مثال من الكتاب:" data-en="Example from the book:">مثال من الكتاب:</b> <span
+            data-ar="حوّل 1011(2) لعشري: (1 × 1) + (1 × 2) + (0 × 4) + (1 × 8) = 1 + 2 + 0 + 8 = 11."
+            data-en="Convert 1011(2) to decimal: (1 × 1) + (1 × 2) + (0 × 4) + (1 × 8) = 1 + 2 + 0 + 8 = 11.">حوّل
+            <span dir="ltr">1011(2)</span> لعشري: (1 × 1) + (1 × 2) + (0 × 4) + (1 × 8) = 1 + 2 + 0 + 8 =
+            <b>11</b>.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="التحويل من عشري لثنائي" data-en="Converting from decimal to binary">التحويل من عشري لثنائي</h3>
+        <p data-ar="بناخد الرقم العشري ونقسّمه على 2 باستمرار لحد ما الناتج يبقى 1، وبعدين نكتب الباقي بالترتيب العكسي من الشمال للقسمة الأخيرة."
+          data-en="We take the decimal number and keep dividing it by 2 until the quotient becomes 1, then we write the remainders in reverse order from the last division.">
+          بناخد الرقم العشري ونقسّمه على 2 باستمرار لحد ما الناتج يبقى 1، وبعدين نكتب الباقي بالترتيب العكسي من الشمال
+          للقسمة الأخيرة.</p>
+        <div class="note"><b data-ar="مثال من الكتاب:" data-en="Example from the book:">مثال من الكتاب:</b> <span
+            data-ar="مثلًا الرقم 6: 6 ÷ 2 = 3 والباقي 0، ثم 3 ÷ 2 = 1 والباقي 1، ثم نكتب الباقي بالعكس فنحصل على 110(2)."
+            data-en="For example the number 6: 6 ÷ 2 = 3 remainder 0, then 3 ÷ 2 = 1 remainder 1, then we write the remainders in reverse and get 110(2).">مثلًا
+            الرقم 6: 6 ÷ 2 = 3 والباقي 0، ثم 3 ÷ 2 = 1 والباقي 1، ثم نكتب الباقي بالعكس فنحصل على <span
+              dir="ltr">110(2)</span>.</span></div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="convertQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="convertRecall">
+          <div class="rq" data-id="convertRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="1011(2) بتساوي كام في النظام العشري؟"
+                data-en="What is 1011(2) in the decimal system?"><span dir="ltr">1011(2)</span> بتساوي كام في النظام
+                العشري؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="convertRq1o1" data-key="A"
+                data-fb-ar="مش كده — 1 × 1 + 1 × 2 + 0 × 4 + 1 × 8 = 11 مش 10."
+                data-fb-en="Not quite — 1 × 1 + 1 × 2 + 0 × 4 + 1 × 8 = 11, not 10."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="10"
+                  data-en="10">10</span></div>
+              <div class="rq-opt" data-id="convertRq1o2" data-key="B" data-ok="1"
+                data-fb-ar="صحيح! 1 + 2 + 0 + 8 = 11."
+                data-fb-en="Correct! 1 + 2 + 0 + 8 = 11."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="11"
+                  data-en="11">11</span></div>
+              <div class="rq-opt" data-id="convertRq1o3" data-key="C"
+                data-fb-ar="لو كانت 1011 الست عشري كان الناتج أكبر بكتير."
+                data-fb-en="If 1011 were hexadecimal the result would be much larger."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="15"
+                  data-en="15">15</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="convertRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="convertRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="الرقم العشري 6 بيتكتب كام في النظام الثنائي؟"
+                data-en="How is the decimal number 6 written in the binary system?">الرقم العشري 6 بيتكتب كام في النظام
+                الثنائي؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="convertRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! 6 ÷ 2 = 3 (باقي 0)، 3 ÷ 2 = 1 (باقي 1) → 110(2)."
+                data-fb-en="Correct! 6 ÷ 2 = 3 (remainder 0), 3 ÷ 2 = 1 (remainder 1) → 110(2)."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="110(2)"
+                  data-en="110(2)">110<span dir="ltr">(2)</span></span></div>
+              <div class="rq-opt" data-id="convertRq2o2" data-key="B"
+                data-fb-ar="مش كده — دي 011 اللي بتساوي 3."
+                data-fb-en="Not quite — that is 011 which equals 3."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="011(2)"
+                  data-en="011(2)">011<span dir="ltr">(2)</span></span></div>
+              <div class="rq-opt" data-id="convertRq2o3" data-key="C"
+                data-fb-ar="الرقم ده أكبر — 111(2) بتساوي 7."
+                data-fb-en="That number is larger — 111(2) equals 7."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="111(2)"
+                  data-en="111(2)">111<span dir="ltr">(2)</span></span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="convertRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="البدء من اليسار في التحويل — لازم نبدأ من أقصى يمين الرقم الثنائي."
+            data-en="Starting from the left when converting — we must start from the rightmost digit of the binary number.">
+            البدء من اليسار في التحويل — لازم نبدأ من <b>أقصى يمين</b> الرقم الثنائي.</li>
+          <li data-ar="نسيان إن أول خانة بتتضرب في 1 مش في 2."
+            data-en="Forgetting that the first digit is multiplied by 1, not by 2.">
+            نسيان إن أول خانة بتتضرب في <b>1</b> مش في 2.</li>
+          <li data-ar="في التحويل من عشري لثنائي، نسيان كتابة الباقي بالترتيب العكسي."
+            data-en="When converting from decimal to binary, forgetting to write the remainders in reverse order.">
+            في التحويل من عشري لثنائي، نسيان كتابة الباقي <b>بالترتيب العكسي</b>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 07 PRACTICE ============ -->
+    <section id="practice">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#b45309)">07</div>
+          <div>
+            <h2 data-ar="التدريبات" data-en="Exercises">التدريبات</h2>
+            <div class="tag" style="color:var(--s2)" data-ar="كتابك: صفحة 56 – 58"
+              data-en="Your book: pages 56 – 58">كتابك: صفحة 56 – 58</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="demo-panel">
+          <div class="demo-label" data-ar="🎯 طريقة الحل" data-en="🎯 How to Solve">🎯 طريقة الحل</div>
+          <div class="todo-item"><span class="emoji-pulse">🖱️</span><span><b data-ar="اضغط على إجابتك"
+                data-en="click your answer">اضغط على إجابتك</b> <span data-ar="— الإجابة هتتظلل باللون الأزرق."
+                  data-en="— the answer will be highlighted in blue.">— الإجابة هتتظلل باللون الأزرق.</span></span></div>
+          <div class="todo-item"><span class="emoji-float">✔️</span><span><b data-ar="اضغط «اكشف الإجابات»"
+                data-en="click 'Reveal Answers'">اضغط «اكشف الإجابات»</b> <span
+                data-ar="— الصح هيتظلل بالأخضر والغلط بالأحمر، وهتشوف نتيجتك." data-en="— correct will turn green, wrong red, and you'll see your score.">—
+                الصح هيتظلل بالأخضر والغلط بالأحمر، وهتشوف نتيجتك.</span></span></div>
+          <div class="todo-item"><span class="emoji-pulse">🔄</span><span><b data-ar="اضغط «إعادة الحل»"
+                data-en="click 'Reset'">اضغط «إعادة الحل»</b> <span data-ar="— عشان تمسح كل اختياراتك وتحل من الأول."
+                  data-en="— to clear all your picks and start over.">— عشان تمسح كل اختياراتك وتحل من الأول.</span></span></div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ التمرين الأول: Warm Up — أكمل الفراغات A إلى E"
+          data-en="✍️ Exercise 1: Warm Up — fill in the blanks A to E">✍️ التمرين الأول: <span
+            dir="ltr">Warm Up</span> — أكمل الفراغات A إلى E</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">A</span> <span data-ar="أصغر وحدة معلومات اسمها بت (Bit)، وهي بتقابل رقم واحد في النظام الثنائي. الرقم ده بيمثل كام قيمة مختلفة؟"
+              data-en="The smallest unit of information is called a bit, which corresponds to one digit in binary notation. How many different values can this digit represent?">أصغر
+              وحدة معلومات اسمها بت <span dir="ltr">(Bit)</span>، وهي بتقابل رقم واحد في النظام الثنائي. الرقم ده بيمثل
+              كام قيمة مختلفة؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  1 قيمة" data-en="A  1 value">A  1 قيمة</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  2 قيم" data-en="B  2 values">B  2 قيم</div>
+            <div class="ex-opt" data-ar="C  4 قيم" data-en="C  4 values">C  4 قيم</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — قيمتين (0 أو 1)"
+              data-en="✅ Answer: B — two values (0 or 1)">✅ الإجابة: B — قيمتين (0 أو 1)</b> <span
+              data-ar="الرقم الثنائي الواحد بيمثل قيمتين مختلفتين: 0 أو 1."
+              data-en="one binary digit represents two different values: 0 or 1.">الرقم الثنائي الواحد بيمثل <b>قيمتين
+                مختلفتين</b>: 0 أو 1.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">B</span> <span data-ar="بت واحد بيمثل قيمتين، فـ كام نوع مختلف من المعلومات ممكن يمثلهم؟"
+              data-en="One bit represents two values, so how many different types of information can it represent?">بت
+              واحد بيمثل قيمتين، فـ كام نوع مختلف من المعلومات ممكن يمثلهم؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  2" data-en="A  2">A  2</div>
+            <div class="ex-opt" data-ar="B  8" data-en="B  8">B  8</div>
+            <div class="ex-opt" data-ar="C  256" data-en="C  256">C  256</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — 2" data-en="✅ Answer: A — 2">✅ الإجابة: A — 2</b> <span
+              data-ar="بت واحد بيمثل نوعين مختلفين من المعلومات."
+              data-en="one bit represents two different types of information.">بت واحد بيمثل <b>نوعين مختلفين</b> من
+              المعلومات.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">C</span> <span data-ar="مجموعة من كام بت بنسميها بايت (Byte) واحد؟"
+              data-en="A group of how many bits is called one byte?">مجموعة من كام بت بنسميها بايت <span
+                dir="ltr">(Byte)</span> واحد؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  4 بتات" data-en="A  4 bits">A  4 بتات</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  8 بتات" data-en="B  8 bits">B  8 بتات</div>
+            <div class="ex-opt" data-ar="C  16 بت" data-en="C  16 bits">C  16 بت</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — 8 بتات" data-en="✅ Answer: B — 8 bits">✅ الإجابة: B — 8
+              بتات</b> <span data-ar="مجموعة من 8 بتات اسمها بايت واحد، وبيتمثل بالرمز 1 B."
+              data-en="a group of 8 bits is called one byte, written as 1 B.">مجموعة من 8 بتات اسمها بايت واحد، وبيتمثل
+              بالرمز 1 <span dir="ltr">B</span>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">D</span> <span data-ar="المجموعة من 8 بتات اسمها إيه؟"
+              data-en="What is a group of 8 bits called?">المجموعة من 8 بتات اسمها إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  Bit" data-en="A  Bit">A  Bit</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  Byte" data-en="B  Byte">B  Byte</div>
+            <div class="ex-opt" data-ar="C  Binary" data-en="C  Binary">C  Binary</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — Byte" data-en="✅ Answer: B — Byte">✅ الإجابة: B —
+              Byte</b> <span data-ar="البايت هو وحدة معلومات = مجموعة من 8 بتات."
+              data-en="the byte is a unit of information = a group of 8 bits.">البايت هو وحدة معلومات = مجموعة من
+              <b>8 بتات</b>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">E</span> <span data-ar="لو عندنا 24 بت، فـ 24 بت دول بيساووا كام بايت؟"
+              data-en="If we have 24 bits, how many bytes do 24 bits equal?">لو عندنا 24 بت، فـ 24 بت دول بيساووا كام
+              بايت؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  2 B" data-en="A  2 B">A  2 <span dir="ltr">B</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B  3 B" data-en="B  3 B">B  3 <span dir="ltr">B</span></div>
+            <div class="ex-opt" data-ar="C  4 B" data-en="C  4 B">C  4 <span dir="ltr">B</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — 3 بايتات" data-en="✅ Answer: B — 3 bytes">✅ الإجابة: B — 3
+              بايتات</b> <span data-ar="بما إن 8 بتات = 1 بايت، فـ 24 ÷ 8 = 3 بايتات."
+              data-en="since 8 bits = 1 B, 24 ÷ 8 = 3 B.">بما إن 8 بتات = 1 بايت، فـ 24 ÷ 8 = <b>3</b> بايتات.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ التمرين الثاني: Warm Up — احسب كمية المعلومات"
+          data-en="✍️ Exercise 2: Warm Up — compute the amount of information">✍️ التمرين الثاني: <span
+            dir="ltr">Warm Up</span> — احسب كمية المعلومات</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="رمينا نردتين (واحدة كبيرة وواحدة صغيرة) — عايزين نمثل كل النواتج الممكنة. محتاجين كام بت؟"
+              data-en="We threw a set of dice (one large and one small) — we need to represent all possible outcomes. How many bits are required?">رمينا
+              نردتين (واحدة كبيرة وواحدة صغيرة) — عايزين نمثل كل النواتج الممكنة. محتاجين كام بت؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  5 بتات" data-en="A  5 bits">A  5 بتات</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  6 بتات" data-en="B  6 bits">B  6 بتات</div>
+            <div class="ex-opt" data-ar="C  7 بتات" data-en="C  7 bits">C  7 بتات</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — 6 بتات" data-en="✅ Answer: B — 6 bits">✅ الإجابة: B — 6
+              بتات</b> <span data-ar="6 × 6 = 36 ناتج. 5 بتات بتمثل 32 بس، و6 بتات بتمثل 64 — فالمطلوب 6 بتات."
+              data-en="6 × 6 = 36 outcomes. 5 bits represent only 32, and 6 bits represent 64 — so 6 bits are needed.">6
+              × 6 = 36 ناتج. 5 بتات بتمثل 32 بس، و6 بتات بتمثل 64 — فالمطلوب <b>6 بتات</b>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">2</span> <span data-ar="1 ميجابايت = كام بايت؟ اكتب الإجابة على شكل قوة العدد 2."
+              data-en="How many B is 1 MB? Write the answer in the form of a power of 2.">1 ميجابايت <span
+                dir="ltr">(MB)</span> = كام بايت؟ اكتب الإجابة على شكل قوة العدد 2.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  2 أس 10" data-en="A  2 to the power of 10">A  2 أس 10</div>
+            <div class="ex-opt" data-ar="B  2 أس 15" data-en="B  2 to the power of 15">B  2 أس 15</div>
+            <div class="ex-opt" data-ok="1" data-ar="C  2 أس 20" data-en="C  2 to the power of 20">C  2 أس 20</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — 2 أس 20" data-en="✅ Answer: C — 2 to the power of 20">✅
+              الإجابة: C — 2 أس 20</b> <span
+              data-ar="1 ميجابايت = 1024 كيلوبايت، و1 كيلوبايت = 1024 بايت، يعني 1024 × 1024 = 2 أس 10 × 2 أس 10 = 2 أس 20."
+              data-en="1 MB = 1024 KB, and 1 KB = 1024 B, so 1024 × 1024 = 2^10 × 2^10 = 2^20.">1 ميجابايت = 1024
+              كيلوبايت، و1 كيلوبايت = 1024 بايت، يعني 1024 × 1024 = 2 أس 10 × 2 أس 10 = <b>2 أس 20</b>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">3</span> <span data-ar="كمية المعلومات في 4 بتات أكبر من كمية المعلومات في 2 بتات بكام مرة؟"
+              data-en="How many times greater is the amount of information in 4 bits compared to 2 bits?">كمية المعلومات
+              في 4 بتات أكبر من كمية المعلومات في 2 بتات بكام مرة؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  مرتين" data-en="A  twice">A  مرتين</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  4 مرات" data-en="B  4 times">B  4 مرات</div>
+            <div class="ex-opt" data-ar="C  8 مرات" data-en="C  8 times">C  8 مرات</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — 4 مرات" data-en="✅ Answer: B — 4 times">✅ الإجابة: B — 4
+              مرات</b> <span data-ar="2 بتات بتمثل 4 احتمالات، و4 بتات بتمثل 16 احتمال. 16 ÷ 4 = 4 مرات."
+              data-en="2 bits represent 4 possibilities, and 4 bits represent 16. 16 ÷ 4 = 4 times.">2 بتات بتمثل 4
+              احتمالات، و4 بتات بتمثل 16 احتمال. 16 ÷ 4 = <b>4 مرات</b>.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ التمرين الثالث: Exercise (1) — حوّل من ثنائي لعشري"
+          data-en="✍️ Exercise 3: Exercise (1) — convert from binary to decimal">✍️ التمرين الثالث: <span
+            dir="ltr">Exercise</span> (1) — حوّل من ثنائي لعشري</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">A</span> <span data-ar="حوّل 11010(2) إلى رقم عشري."
+              data-en="Convert 11010(2) into decimal form.">حوّل <span dir="ltr">11010(2)</span> إلى رقم عشري.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  26" data-en="A  26">A  26</div>
+            <div class="ex-opt" data-ar="B  24" data-en="B  24">B  24</div>
+            <div class="ex-opt" data-ar="C  22" data-en="C  22">C  22</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — 26" data-en="✅ Answer: A — 26">✅ الإجابة: A — 26</b> <span
+              data-ar="0 × 1 + 1 × 2 + 0 × 4 + 1 × 8 + 1 × 16 = 0 + 2 + 0 + 8 + 16 = 26."
+              data-en="0 × 1 + 1 × 2 + 0 × 4 + 1 × 8 + 1 × 16 = 0 + 2 + 0 + 8 + 16 = 26.">0 × 1 + 1 × 2 + 0 × 4 + 1 × 8
+              + 1 × 16 = 0 + 2 + 0 + 8 + 16 = <b>26</b>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">B</span> <span data-ar="حوّل 101011(2) إلى رقم عشري."
+              data-en="Convert 101011(2) into decimal form.">حوّل <span dir="ltr">101011(2)</span> إلى رقم عشري.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  43" data-en="A  43">A  43</div>
+            <div class="ex-opt" data-ar="B  41" data-en="B  41">B  41</div>
+            <div class="ex-opt" data-ar="C  45" data-en="C  45">C  45</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — 43" data-en="✅ Answer: A — 43">✅ الإجابة: A — 43</b> <span
+              data-ar="1 × 1 + 1 × 2 + 0 × 4 + 1 × 8 + 0 × 16 + 1 × 32 = 1 + 2 + 0 + 8 + 0 + 32 = 43."
+              data-en="1 × 1 + 1 × 2 + 0 × 4 + 1 × 8 + 0 × 16 + 1 × 32 = 1 + 2 + 0 + 8 + 0 + 32 = 43.">1 × 1 + 1 × 2 + 0
+              × 4 + 1 × 8 + 0 × 16 + 1 × 32 = 1 + 2 + 0 + 8 + 0 + 32 = <b>43</b>.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ التمرين الرابع: Exercise (2) — حوّل من عشري لثنائي"
+          data-en="✍️ Exercise 4: Exercise (2) — convert from decimal to binary">✍️ التمرين الرابع: <span
+            dir="ltr">Exercise</span> (2) — حوّل من عشري لثنائي</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">A</span> <span data-ar="حوّل الرقم العشري 39 إلى رقم ثنائي."
+              data-en="Convert the decimal number 39 into binary.">حوّل الرقم العشري 39 إلى رقم ثنائي.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  100111(2)" data-en="A  100111(2)">A  100111<span dir="ltr">(2)</span></div>
+            <div class="ex-opt" data-ar="B  110011(2)" data-en="B  110011(2)">B  110011<span dir="ltr">(2)</span></div>
+            <div class="ex-opt" data-ar="C  101001(2)" data-en="C  101001(2)">C  101001<span dir="ltr">(2)</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — 100111(2)" data-en="✅ Answer: A — 100111(2)">✅ الإجابة: A —
+              100111<span dir="ltr">(2)</span></b> <span
+              data-ar="بالقسمة المتكررة على 2، الناتج 100111(2)."
+              data-en="by repeated division by 2, the result is 100111(2).">بالقسمة المتكررة على 2، الناتج 100111<span
+                dir="ltr">(2)</span>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">B</span> <span data-ar="حوّل الرقم العشري 120 إلى رقم ثنائي."
+              data-en="Convert the decimal number 120 into binary.">حوّل الرقم العشري 120 إلى رقم ثنائي.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  1111000(2)" data-en="A  1111000(2)">A  1111000<span dir="ltr">(2)</span></div>
+            <div class="ex-opt" data-ar="B  1011010(2)" data-en="B  1011010(2)">B  1011010<span dir="ltr">(2)</span></div>
+            <div class="ex-opt" data-ar="C  1101100(2)" data-en="C  1101100(2)">C  1101100<span dir="ltr">(2)</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — 1111000(2)" data-en="✅ Answer: A — 1111000(2)">✅ الإجابة: A —
+              1111000<span dir="ltr">(2)</span></b> <span
+              data-ar="بالقسمة المتكررة على 2، الناتج 1111000(2)."
+              data-en="by repeated division by 2, the result is 1111000(2).">بالقسمة المتكررة على 2، الناتج 1111000<span
+                dir="ltr">(2)</span>.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ التمرين الخامس: Exercise (3) — أسئلة شاملة"
+          data-en="✍️ Exercise 5: Exercise (3) — comprehensive questions">✍️ التمرين الخامس: <span
+            dir="ltr">Exercise</span> (3) — أسئلة شاملة</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="خمسة بايتات بيساووا كام بت؟"
+              data-en="How many bits are in 5 bytes?">خمسة بايتات بيساووا كام بت؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  40 بت" data-en="A  40 bits">A  40 بت</div>
+            <div class="ex-opt" data-ar="B  35 بت" data-en="B  35 bits">B  35 بت</div>
+            <div class="ex-opt" data-ar="C  45 بت" data-en="C  45 bits">C  45 بت</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — 40 بت" data-en="✅ Answer: A — 40 bits">✅ الإجابة: A — 40
+              بت</b> <span data-ar="5 × 8 = 40 بت."
+              data-en="5 × 8 = 40 bits.">5 × 8 = <b>40</b> بت.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">2</span> <span data-ar="1 بايت بيمثل كام معلومة مختلفة؟"
+              data-en="How many different pieces of information can 1 byte represent?">1 بايت بيمثل كام معلومة
+              مختلفة؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  256" data-en="A  256">A  256</div>
+            <div class="ex-opt" data-ar="B  128" data-en="B  128">B  128</div>
+            <div class="ex-opt" data-ar="C  512" data-en="C  512">C  512</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — 256" data-en="✅ Answer: A — 256">✅ الإجابة: A — 256</b>
+            <span data-ar="1 بايت = 8 بتات = 2 أس 8 = 256 معلومة."
+              data-en="1 byte = 8 bits = 2^8 = 256 pieces of information.">1 بايت = 8 بتات = 2 أس 8 = <b>256</b>
+              معلومة.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">3</span> <span data-ar="كمية المعلومات في 5 بتات أكبر من كمية المعلومات في 3 بتات بكام مرة؟"
+              data-en="How many times is the amount of information in 5 bits compared to 3 bits?">كمية المعلومات في 5
+              بتات أكبر من كمية المعلومات في 3 بتات بكام مرة؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  مرتين" data-en="A  twice">A  مرتين</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  4 مرات" data-en="B  4 times">B  4 مرات</div>
+            <div class="ex-opt" data-ar="C  8 مرات" data-en="C  8 times">C  8 مرات</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — 4 مرات" data-en="✅ Answer: B — 4 times">✅ الإجابة: B — 4
+              مرات</b> <span data-ar="3 بتات بتمثل 8 احتمالات، و5 بتات بتمثل 32 احتمال. 32 ÷ 8 = 4 مرات."
+              data-en="3 bits represent 8 possibilities, and 5 bits represent 32. 32 ÷ 8 = 4 times.">3 بتات بتمثل 8
+              احتمالات، و5 بتات بتمثل 32 احتمال. 32 ÷ 8 = <b>4 مرات</b>.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">4</span> <span data-ar="كام ميجابايت في 1 جيجابايت؟ وكام بايت في 1 جيجابايت (على شكل قوة العدد 2)؟"
+              data-en="How many MB are in 1 GB? Also, how many B is it (in the form of a power of 2)?">كام ميجابايت في 1
+              جيجابايت؟ وكام بايت في 1 جيجابايت <span dir="ltr">(على شكل قوة العدد 2)</span>؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  1024 MB = 2 أس 20 B" data-en="A  1024 MB = 2^20 B">A  1024 <span dir="ltr">MB</span> = 2 أس 20 <span dir="ltr">B</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B  1024 MB = 2 أس 30 B" data-en="B  1024 MB = 2^30 B">B  1024 <span dir="ltr">MB</span> = 2 أس 30 <span dir="ltr">B</span></div>
+            <div class="ex-opt" data-ar="C  1000 MB = 2 أس 30 B" data-en="C  1000 MB = 2^30 B">C  1000 <span dir="ltr">MB</span> = 2 أس 30 <span dir="ltr">B</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — 1024 ميجابايت = 2 أس 30 بايت"
+              data-en="✅ Answer: B — 1024 MB = 2^30 B">✅ الإجابة: B — 1024 ميجابايت = 2 أس 30 بايت</b> <span
+              data-ar="1 جيجابايت = 1024 ميجابايت = 1024 × 1024 × 1024 بايت = 2 أس 30."
+              data-en="1 GB = 1024 MB = 1024 × 1024 × 1024 B = 2^30.">1 جيجابايت = 1024 ميجابايت = 1024 × 1024 × 1024
+              بايت = <b>2 أس 30</b>.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 08 RECAP ============ -->
+    <section id="recap">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">08</div>
+          <div>
+            <h2 data-ar="الخلاصة" data-en="Recap">الخلاصة</h2>
+            <div class="tag" style="color:var(--s4)" data-ar="رحلة سريعة في كل اللي خدناه النهارده"
+              data-en="a quick journey through everything we learned today">رحلة سريعة في كل اللي خدناه النهارده</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="journey">
+              <div class="journey-item">
+                <span class="jn-num">01</span>
+                <div>
+                  <h4 data-ar="Bit — أصغر وحدة معلومات" data-en="Bit — the smallest unit">Bit — أصغر وحدة معلومات</h4>
+                  <p data-ar="حالتين بس: 0 أو 1، وn بتات بتمثل 2 أس n احتمال."
+                    data-en="only two states: 0 or 1, and n bits represent 2^n possibilities.">حالتين بس: 0 أو 1،
+                    و<span dir="ltr">n</span> بتات بتمثل 2 أس <span dir="ltr">n</span> احتمال.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">02</span>
+                <div>
+                  <h4 data-ar="Byte — مجموعة من 8 بتات" data-en="Byte — a group of 8 bits">Byte — مجموعة من 8 بتات</h4>
+                  <p data-ar="1 بايت = 1 B بيمثل 256 احتمال، والوحدات بتكبر كل 1024."
+                    data-en="1 byte = 1 B represents 256 possibilities, and the units grow by 1024.">1 بايت = 1 <span
+                      dir="ltr">B</span> بيمثل 256 احتمال، والوحدات بتكبر كل 1024.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">03</span>
+                <div>
+                  <h4 data-ar="Decimal — النظام العشري" data-en="Decimal — the base-10 system">Decimal — النظام العشري</h4>
+                  <p data-ar="الأرقام من 0 لـ 9 اللي بنستخدمها في حياتنا اليومية."
+                    data-en="the digits 0 to 9 we use in our daily lives.">الأرقام من 0 لـ 9 اللي بنستخدمها في حياتنا
+                    اليومية.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">04</span>
+                <div>
+                  <h4 data-ar="Binary — النظام الثنائي" data-en="Binary — the base-2 system">Binary — النظام الثنائي</h4>
+                  <p data-ar="الرقمين 0 و1 بس، وده نظام الكمبيوتر، والرقم بيتكتب مع علامة (2)."
+                    data-en="only the digits 0 and 1, that's the computer's system, and the number is written with a subscript (2).">الرقمين
+                    0 و1 بس، وده نظام الكمبيوتر، والرقم بيتكتب مع علامة <span dir="ltr">(2)</span>.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">05</span>
+                <div>
+                  <h4 data-ar="التحويل بين الأنظمة" data-en="Converting between systems">التحويل بين الأنظمة</h4>
+                  <p data-ar="ثنائي → عشري: اضرب كل خانة في 1 ثم 2 ثم 4 ثم 8 واجمع. عشري → ثنائي: قسّم على 2 واكتب الباقي بالعكس."
+                    data-en="binary to decimal: multiply each digit by 1, 2, 4, 8 and add. decimal to binary: divide by 2 and write the remainders in reverse.">ثنائي
+                    → عشري: اضرب كل خانة في 1 ثم 2 ثم 4 ثم 8 واجمع. عشري → ثنائي: قسّم على 2 واكتب الباقي بالعكس.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك في الآخر — استرجاع سريع" data-en="Test yourself at the end — a quick recap">اختبر نفسك في
+          الآخر — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="recapQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="recapRecall">
+          <div class="rq" data-id="recapRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="الكمبيوتر بيعتمد بشكل أساسي على إيه في تمثيل المعلومات؟"
+                data-en="What does the computer primarily rely on to represent information?">الكمبيوتر بيعتمد بشكل أساسي
+                على إيه في تمثيل المعلومات؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! الكمبيوتر بيفهم النظام الثنائي — أصفار وواحدات."
+                data-fb-en="Correct! The computer understands the binary system — zeros and ones."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="النظام الثنائي (Binary)"
+                  data-en="The binary system">النظام الثنائي <span dir="ltr">(Binary)</span></span></div>
+              <div class="rq-opt" data-id="recapRq1o2" data-key="B"
+                data-fb-ar="العشري هو نظامنا اليومي، مش نظام الكمبيوتر."
+                data-fb-en="Decimal is our daily system, not the computer's."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="النظام العشري (Decimal)"
+                  data-en="The decimal system">النظام العشري <span dir="ltr">(Decimal)</span></span></div>
+              <div class="rq-opt" data-id="recapRq1o3" data-key="C"
+                data-fb-ar="الأنالوج عن القيم المستمرة، مش نظام الكمبيوتر."
+                data-fb-en="Analog is about continuous values, not the computer's system."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="النظام الأنالوج"
+                  data-en="The analog system">النظام الأنالوج</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="recapRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="1 كيلوبايت (KB) بيساوي كام بايت؟"
+                data-en="How many bytes are in 1 KB?">1 كيلوبايت <span dir="ltr">(KB)</span> بيساوي كام بايت؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq2o1" data-key="A"
+                data-fb-ar="مش كده — 1000 هو معامل العشري، الوحدات هنا بتكبر بـ 1024."
+                data-fb-en="Not quite — 1000 is the decimal factor, here units grow by 1024."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="1000 بايت"
+                  data-en="1000 bytes">1000 بايت</span></div>
+              <div class="rq-opt" data-id="recapRq2o2" data-key="B" data-ok="1"
+                data-fb-ar="صحيح! 1 كيلوبايت = 1024 بايت."
+                data-fb-en="Correct! 1 KB = 1024 bytes."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="1024 بايت"
+                  data-en="1024 bytes">1024 بايت</span></div>
+              <div class="rq-opt" data-id="recapRq2o3" data-key="C"
+                data-fb-ar="دي الـ 1 ميجابايت، مش الكيلوبايت."
+                data-fb-en="That is 1 MB, not the KB."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="1,048,576 بايت"
+                  data-en="1,048,576 bytes">1,048,576 بايت</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="recapRq3">
+            <div class="rq-q"><span class="q-num">3</span> <span data-ar="الرقم الثنائي 101(2) بيساوي كام في العشري؟"
+                data-en="What is the binary number 101(2) in decimal?">الرقم الثنائي <span dir="ltr">101(2)</span>
+                بيساوي كام في العشري؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq3o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! 1 × 1 + 0 × 2 + 1 × 4 = 1 + 0 + 4 = 5."
+                data-fb-en="Correct! 1 × 1 + 0 × 2 + 1 × 4 = 1 + 0 + 4 = 5."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="5"
+                  data-en="5">5</span></div>
+              <div class="rq-opt" data-id="recapRq3o2" data-key="B"
+                data-fb-ar="لو كانت 101 عشري كانت 101، بس هي ثنائية."
+                data-fb-en="If 101 were decimal it would be 101, but it is binary."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="101"
+                  data-en="101">101</span></div>
+              <div class="rq-opt" data-id="recapRq3o3" data-key="C"
+                data-fb-ar="مش كده — 1 × 1 + 0 × 2 + 1 × 4 = 5 مش 6."
+                data-fb-en="Not quite — 1 × 1 + 0 × 2 + 1 × 4 = 5, not 6."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="6"
+                  data-en="6">6</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq3Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 09 GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">09</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s5)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="basic" data-ar="أساسيات" data-en="Basics">أساسيات</button>
+          <button class="mini-btn gl-filter" data-filter="units" data-ar="الوحدات" data-en="Units">الوحدات</button>
+          <button class="mini-btn gl-filter" data-filter="binary" data-ar="ثنائي" data-en="Binary">ثنائي</button>
+          <button class="mini-btn gl-filter" data-filter="conv" data-ar="تحويل" data-en="Conversion">تحويل</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="basic">
+            <h4 data-ar="Bit — بت" data-en="Bit">Bit — بت</h4>
+            <p data-ar="أصغر وحدة معلومات، وليها حالتين بس: 0 أو 1." data-en="The smallest unit of information, with only two states: 0 or 1.">أصغر وحدة معلومات، وليها حالتين بس: 0 أو 1.</p>
+          </div>
+          <div class="gl-term" data-cat="basic">
+            <h4 data-ar="Byte — بايت" data-en="Byte">Byte — بايت</h4>
+            <p data-ar="وحدة معلومات = مجموعة من 8 بتات، وبتتمثل بالرمز 1 B." data-en="A unit of information = a group of 8 bits, written as 1 B.">وحدة معلومات = مجموعة من 8 بتات، وبتتمثل بالرمز 1 <span dir="ltr">B</span>.</p>
+          </div>
+          <div class="gl-term" data-cat="units">
+            <h4 data-ar="KB — كيلوبايت" data-en="KB — kilobyte">KB — كيلوبايت</h4>
+            <p data-ar="وحدة معلومات = 1024 بايت." data-en="A unit of information = 1024 bytes.">وحدة معلومات = 1024 بايت.</p>
+          </div>
+          <div class="gl-term" data-cat="units">
+            <h4 data-ar="MB — ميجابايت" data-en="MB — megabyte">MB — ميجابايت</h4>
+            <p data-ar="وحدة معلومات = 1024 كيلوبايت = 2 أس 20 بايت." data-en="A unit of information = 1024 KB = 2^20 bytes.">وحدة معلومات = 1024 كيلوبايت = 2 أس 20 بايت.</p>
+          </div>
+          <div class="gl-term" data-cat="units">
+            <h4 data-ar="GB — جيجابايت" data-en="GB — gigabyte">GB — جيجابايت</h4>
+            <p data-ar="وحدة معلومات = 1024 ميجابايت = 2 أس 30 بايت." data-en="A unit of information = 1024 MB = 2^30 bytes.">وحدة معلومات = 1024 ميجابايت = 2 أس 30 بايت.</p>
+          </div>
+          <div class="gl-term" data-cat="units">
+            <h4 data-ar="TB — تيرابايت" data-en="TB — terabyte">TB — تيرابايت</h4>
+            <p data-ar="وحدة معلومات = 1024 جيجابايت." data-en="A unit of information = 1024 GB.">وحدة معلومات = 1024 جيجابايت.</p>
+          </div>
+          <div class="gl-term" data-cat="binary">
+            <h4 data-ar="Binary — النظام الثنائي" data-en="Binary">Binary — النظام الثنائي</h4>
+            <p data-ar="طريقة تمثيل الأرقام باستخدام نوعين من الأرقام فقط: 0 و1." data-en="A method of representing numbers using only two types of digits: 0 and 1.">طريقة تمثيل الأرقام باستخدام نوعين من الأرقام فقط: 0 و1.</p>
+          </div>
+          <div class="gl-term" data-cat="binary">
+            <h4 data-ar="Decimal — النظام العشري" data-en="Decimal">Decimal — النظام العشري</h4>
+            <p data-ar="طريقة تمثيل الأرقام باستخدام عشرة أرقام من 0 لـ 9." data-en="A method of representing numbers using ten digits from 0 to 9.">طريقة تمثيل الأرقام باستخدام عشرة أرقام من 0 لـ 9.</p>
+          </div>
+          <div class="gl-term" data-cat="conv">
+            <h4 data-ar="Conversion — التحويل بين الأنظمة" data-en="Conversion">Conversion — التحويل بين الأنظمة</h4>
+            <p data-ar="تحويل رقم ثنائي لعشري بضرب كل خانة في 1 ثم 2 ثم 4 ثم 8، أو عشري لثنائي بالقسمة على 2." data-en="Converting a binary number to decimal by multiplying each digit by 1, 2, 4, 8, or decimal to binary by dividing by 2.">تحويل رقم ثنائي لعشري بضرب كل خانة في 1 ثم 2 ثم 4 ثم 8، أو عشري لثنائي بالقسمة على 2.</p>
+          </div>
+          <div class="gl-term" data-cat="conv">
+            <h4 data-ar="Power of 2 — قوة العدد 2" data-en="Power of 2">Power of 2 — قوة العدد 2</h4>
+            <p data-ar="عدد الاحتمالات اللي بتمثلها n بتات — 2 أس n. مثل 2 أس 8 = 256." data-en="The number of possibilities n bits can represent — 2 to the power of n. For example 2^8 = 256.">عدد الاحتمالات اللي بتمثلها <span dir="ltr">n</span> بتات — 2 أس <span dir="ltr">n</span>. مثل 2 أس 8 = 256.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <button id="scrollTop" data-ar="↑" data-en="↑">↑</button>
+  </main>
+  <footer>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
+      <img class="footer-logo" src="data:image/webp;base64,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" alt="logo">
+      <span style="font-size:1rem;font-weight:800;color:var(--text);line-height:1.4"
+        data-ar="كويس جداً! دلوقتي بقيت تعرف البت والبايت والنظام الثنائي والعشري، وإزاي بنحوّل بينهم 🚀"
+        data-en="Great! Now you know bits and bytes, the binary and decimal systems, and how to convert between them 🚀">كويس
+        جداً! دلوقتي بقيت تعرف البت والبايت والنظام الثنائي والعشري، وإزاي بنحوّل بينهم 🚀</span>
+    </div>
+    <div class="footer-tag"
+      data-ar="درس 6-2 — Binary and Amount of Information — صفحة 55–58 · البت والبايت، النظام العشري والثنائي، والتحويل بينهم"
+      data-en="Lesson 6-2 — Binary and Amount of Information — pages 55–58 · bits and bytes, the decimal and binary systems, and converting between them">
+      درس 6-2 — Binary and Amount of Information — صفحة 55–58 · البت والبايت، النظام العشري والثنائي، والتحويل بينهم</div>
+  </footer>
+  <script>
+    'use strict';
+    var lang = localStorage.getItem('langPreference') || 'ar';
+    var currentLang = lang;
+
+    function L() {
+      return currentLang;
+    }
+
+    function tr(ar, en) {
+      return currentLang === 'en' ? en : ar;
+    }
+
+    function byId(id) {
+      return document.querySelector('[data-id="' + id + '"]') || document.getElementById(id);
+    }
+
+    /* ---------- particles ---------- */
+    (function () {
+      var box = document.getElementById('particles');
+      if (!box) return;
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < 28; i++) {
+        var s = document.createElement('i');
+        s.style.left = (Math.random() * 100) + 'vw';
+        s.style.animationDuration = (14 + Math.random() * 14) + 's';
+        s.style.animationDelay = (Math.random() * 12) + 's';
+        s.style.width = s.style.height = (2 + Math.random() * 4) + 'px';
+        if (Math.random() > .65) s.style.background = 'var(--accent)';
+        frag.appendChild(s);
+      }
+      box.appendChild(frag);
+    })();
+
+    /* ---------- nav ---------- */
+    var nav = document.getElementById('topnav');
+    var scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 60) nav.classList.add('show');
+      else nav.classList.remove('show');
+      if (window.scrollY > 500) scrollBtn.classList.add('show');
+      else scrollBtn.classList.remove('show');
+    }, { passive: true });
+    if (scrollBtn) scrollBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function wireNav() {
+      var links = Array.prototype.slice.call(document.querySelectorAll('#navLinks a'));
+      var secs = ['intro', 'bit', 'byte', 'decimal', 'binary', 'convert', 'practice', 'recap', 'glossary'];
+      if (!('IntersectionObserver' in window)) return;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            var id = en.target.id;
+            links.forEach(function (a) {
+              a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      secs.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) io.observe(el);
+      });
+    }
+
+    /* ---------- reveal on scroll ---------- */
+    function wireReveal() {
+      var els = document.querySelectorAll('.section-inner');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('visible'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+        });
+      }, { threshold: .08 });
+      els.forEach(function (e) { io.observe(e); });
+    }
+
+    /* ---------- keyboard navigation ---------- */
+    var SECTIONS = ['intro', 'bit', 'byte', 'decimal', 'binary', 'convert', 'practice', 'recap', 'glossary'];
+    window.addEventListener('keydown', function (e) {
+      if (e.target.matches('input,textarea')) return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      var cur = -1;
+      for (var i = 0; i < SECTIONS.length; i++) {
+        var el = document.getElementById(SECTIONS[i]);
+        if (el && el.getBoundingClientRect().top <= window.innerHeight * .5) cur = i;
+      }
+      var n = cur + (e.key === 'ArrowLeft' ? -1 : 1);
+      if (n >= 0 && n < SECTIONS.length) {
+        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    /* ================= FLOW ENGINE (sender→receiver diagrams) ================= */
+var FLOWS = {
+      bit: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'sw', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'bitcell', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'info', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { s: { x: 240, y: 200 }, b1: { x: 360, y: 200 }, b2: { x: 540, y: 200 }, i: { x: 660, y: 200 } },
+        wires: [
+          { from: 's', to: 'b1', k: 'w1' },
+          { from: 'b2', to: 'i', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. الحالة (The state)', enT: '1. The State', arD: 'أي حاجة في الكمبيوتر ليها حالتين بس — لمبة شغالة أو مطفية، كهرباء موجودة أو مفيش. مفيش حالة تالتة.', enD: 'Everything in the computer has only two states — a bulb on or off, electricity present or absent. There is no third state.', icon: '🔘', boxes: ['sw'], nodes: ['s'], wires: [] },
+          { arT: '2. البت (The bit)', enT: '2. The Bit', arD: 'كل حالة بنمثلها برقم واحد: 0 أو 1. الرقم ده هو البت — أصغر وحدة معلومات في الكمبيوتر.', enD: 'We represent each state with one digit: 0 or 1. That digit is the bit — the smallest unit of information in a computer.', icon: '🔢', boxes: ['bitcell'], nodes: ['b1'], wires: ['w1'] },
+          { arT: '3. عدد الاحتمالات (The possibilities)', enT: '3. The Possibilities', arD: 'بشكل عام، n بتات بتمثل 2 أس n احتمال. بت واحد = 2 احتمالات، بتتين = 4، و3 بتات = 8.', enD: 'In general, n bits represent 2 to the power of n possibilities. 1 bit = 2, 2 bits = 4, and 3 bits = 8.', icon: '📈', boxes: ['info'], nodes: ['i'], wires: ['w2'] }
+        ]
+      },
+      byte: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'bits8', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'bytecell', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'units', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { b: { x: 240, y: 200 }, y1: { x: 360, y: 200 }, y2: { x: 540, y: 200 }, u: { x: 660, y: 200 } },
+        wires: [
+          { from: 'b', to: 'y1', k: 'w1' },
+          { from: 'y2', to: 'u', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. 8 بتات (8 bits)', enT: '1. 8 Bits', arD: 'البت الواحد صغير جداً، فبنجمع 8 بتات مع بعض عشان نحصل على وحدة أكبر وأسهل في الاستخدام.', enD: 'One bit is very small, so we group 8 bits together to get a larger, easier-to-use unit.', icon: '🔢', boxes: ['bits8'], nodes: ['b'], wires: [] },
+          { arT: '2. البايت (The byte)', enT: '2. The Byte', arD: 'المجموعة من 8 بتات اسمها بايت واحد، وبنرمز لها بالرمز 1 B. البايت بيمثل 256 احتمال لأن 2 أس 8 = 256.', enD: 'A group of 8 bits is called one byte, written as 1 B. The byte represents 256 possibilities because 2^8 = 256.', icon: '📦', boxes: ['bytecell'], nodes: ['y1'], wires: ['w1'] },
+          { arT: '3. الوحدات (The units)', enT: '3. The Units', arD: 'الوحدات بتكبر كل 2 أس 10 = 1024 مرة: 1 كيلوبايت = 1024 بايت، و1 ميجابايت = 1024 كيلوبايت، وهكذا لحد التيرابايت.', enD: 'The units grow by 2^10 = 1024 each time: 1 KB = 1024 B, 1 MB = 1024 KB, and so on up to the terabyte.', icon: '📊', boxes: ['units'], nodes: ['u'], wires: ['w2'] }
+        ]
+      },
+      decimal: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'daily', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'ten', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'value', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { d: { x: 240, y: 200 }, t1: { x: 360, y: 200 }, t2: { x: 540, y: 200 }, v: { x: 660, y: 200 } },
+        wires: [
+          { from: 'd', to: 't1', k: 'w1' },
+          { from: 't2', to: 'v', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. أرقامنا اليومية (Our daily numbers)', enT: '1. Our Daily Numbers', arD: 'كل الأرقام اللي بنستخدمها كل يوم — سعر، عمر، رقم تليفون — دي أرقام عشرية.', enD: 'All the numbers we use every day — prices, ages, phone numbers — are decimal numbers.', icon: '🔟', boxes: ['daily'], nodes: ['d'], wires: [] },
+          { arT: '2. عشرة أرقام (Ten digits)', enT: '2. Ten Digits', arD: 'النظام العشري بيستخدم عشرة أرقام من 0 لـ 9. عشان كده اسمه عشري — أساسه الرقم 10.', enD: 'The decimal system uses ten digits from 0 to 9. That is why it is called decimal — it is based on 10.', icon: '🔢', boxes: ['ten'], nodes: ['t1'], wires: ['w1'] },
+          { arT: '3. المنازل (Place values)', enT: '3. Place Values', arD: 'قيمة الرقم بتتحدد بمكانه: آحاد، ثم عشرات، ثم مئات — وكل منزلة = 10 أضعاف اللي قبلها.', enD: 'A digit\'s value is set by its place: units, then tens, then hundreds — each place = 10 times the previous one.', icon: '📏', boxes: ['value'], nodes: ['v'], wires: ['w2'] }
+        ]
+      },
+      binary: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'two', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'sys', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'sub', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { t: { x: 240, y: 200 }, s1: { x: 360, y: 200 }, s2: { x: 540, y: 200 }, su: { x: 660, y: 200 } },
+        wires: [
+          { from: 't', to: 's1', k: 'w1' },
+          { from: 's2', to: 'su', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. الرقمين 0 و1 (The digits 0 and 1)', enT: '1. The Digits 0 and 1', arD: 'النظام الثنائي بيستخدم رقمين بس: 0 و1. الرقم 1 يعني في كهرباء، والرقم 0 يعني مفيش كهرباء.', enD: 'The binary system uses only two digits: 0 and 1. The digit 1 means electricity, and 0 means no electricity.', icon: '⚡', boxes: ['two'], nodes: ['t'], wires: [] },
+          { arT: '2. نظام الكمبيوتر (The computer\'s system)', enT: '2. The Computer\'s System', arD: 'الكمبيوتر بيفهم النظام الثنائي بس — لأن دوائره الإلكترونية ليها حالتين فقط: في كهرباء أو مفيش.', enD: 'The computer only understands the binary system — because its electronic circuits have only two states: electricity or no electricity.', icon: '💻', boxes: ['sys'], nodes: ['s1'], wires: ['w1'] },
+          { arT: '3. علامة (2) (The subscript (2))', enT: '3. The Subscript (2)', arD: 'عشان نفرّق الرقم الثنائي عن العشري، بنكتب علامة (2) تحت الرقم من ناحية اليمين — مثل 1011(2).', enD: 'To distinguish a binary number from a decimal one, we write a subscript (2) at the bottom right — like 1011(2).', icon: '📝', boxes: ['sub'], nodes: ['su'], wires: ['w2'] }
+        ]
+      },
+      convert: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'bin', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'weights', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'sum', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { b: { x: 240, y: 200 }, w1: { x: 360, y: 200 }, w2: { x: 540, y: 200 }, s: { x: 660, y: 200 } },
+        wires: [
+          { from: 'b', to: 'w1', k: 'w1' },
+          { from: 'w2', to: 's', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. الرقم الثنائي (The binary number)', enT: '1. The Binary Number', arD: 'بنبدأ برقم ثنائي زي 1011(2) — عايزين نحوّله لرقم عشري يفهمه أي حد.', enD: 'We start with a binary number like 1011(2) — we want to convert it into a decimal number anyone can read.', icon: '🔢', boxes: ['bin'], nodes: ['b'], wires: [] },
+          { arT: '2. الأوزان (The weights)', enT: '2. The Weights', arD: 'من أقصى اليمين، بنضرب كل خانة في 1 ثم 2 ثم 4 ثم 8 ثم 16 ... بالترتيب.', enD: 'From the rightmost digit, we multiply each digit by 1, then 2, then 4, then 8, then 16 ... in order.', icon: '✖️', boxes: ['weights'], nodes: ['w1'], wires: ['w1'] },
+          { arT: '3. الجمع (The sum)', enT: '3. The Sum', arD: 'بعدين نجمع النتائج كلها فنجد إن 1011(2) = 1 + 2 + 0 + 8 = 11.', enD: 'Then we add all the results and find that 1011(2) = 1 + 2 + 0 + 8 = 11.', icon: '➕', boxes: ['sum'], nodes: ['s'], wires: ['w2'] }
+        ]
+      }
+    };
+
+    var FLOW_STATE = {};
+    document.querySelectorAll('.flow-card').forEach(function () {});
+
+    function boxCenter(cfg, k) {
+      for (var i = 0; i < cfg.boxes.length; i++) {
+        if (cfg.boxes[i].k === k) {
+          var b = cfg.boxes[i];
+          return { x: b.x + b.w / 2, y: b.y + b.h / 2 };
+        }
+      }
+      return { x: 450, y: 200 };
+    }
+
+    function buildFlow(id) {
+      var cfg = FLOWS[id];
+      if (!cfg) return;
+      var card = document.querySelector('.flow-card[data-id="' + id + '"]');
+      if (!card) return;
+      var svg = card.querySelector('.svg-main');
+      var ns = 'http://www.w3.org/2000/svg';
+      function mk(tag, attrs) {
+        var e = document.createElementNS(ns, tag);
+        for (var k in attrs) e.setAttribute(k, attrs[k]);
+        return e;
+      }
+      svg.innerHTML = '';
+      var gWires = mk('g', {}), gArrows = mk('g', {}), gBoxes = mk('g', {}), gPorts = mk('g', {});
+      cfg.wires.forEach(function (w) {
+        var a = cfg.nodes[w.from], b = cfg.nodes[w.to];
+        gWires.appendChild(mk('line', { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
+        var ang = Math.atan2(b.y - a.y, b.x - a.x);
+        function arrow(tip) {
+          var bx = tip.x - 12 * Math.cos(ang), by = tip.y - 12 * Math.sin(ang);
+          return mk('polygon', {
+            points: [tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
+            class: 'wire-arrow', 'data-w': w.k
+          });
+        }
+        gArrows.appendChild(arrow(b));
+        if (w.both) gArrows.appendChild(arrow(a));
+      });
+      cfg.boxes.forEach(function (b) {
+        gBoxes.appendChild(mk('rect', { x: b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
+      });
+      Object.keys(cfg.nodes).forEach(function (k) {
+        gPorts.appendChild(mk('circle', { cx: cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
+      });
+      svg.appendChild(gWires);
+      svg.appendChild(gArrows);
+      svg.appendChild(gBoxes);
+      svg.appendChild(gPorts);
+
+      card.querySelectorAll('.svg-label[data-fbox]').forEach(function (lab) {
+        var k = lab.getAttribute('data-fbox');
+        var c = boxCenter(cfg, k);
+        lab.style.left = (c.x / 900 * 100) + '%';
+        lab.style.top = (c.y / 400 * 100) + '%';
+      });
+
+      var stepsBox = card.querySelector('.flow-steps');
+      stepsBox.innerHTML = '';
+      cfg.steps.forEach(function (st, i) {
+        var s = document.createElement('div');
+        s.className = 'tl-step';
+        s.innerHTML =
+          '<div class="tl-icon emoji-pulse">' + st.icon + '</div>' +
+          '<div class="tl-year-badge">' + (i + 1) + ' / ' + cfg.steps.length + '</div>' +
+          '<div class="tl-title">' + st[L() + 'T'] + '</div>' +
+          '<div class="tl-desc">' + st[L() + 'D'] + '</div>';
+        stepsBox.appendChild(s);
+      });
+      FLOW_STATE[id] = FLOW_STATE[id] || { cur: 0 };
+      showFlowStep(id, FLOW_STATE[id].cur);
+    }
+
+    function showFlowStep(id, idx) {
+      var cfg = FLOWS[id];
+      var card = document.querySelector('.flow-card[data-id="' + id + '"]');
+      if (!cfg || !card) return;
+      var n = cfg.steps.length;
+      if (idx < 0) idx = n - 1;
+      if (idx >= n) idx = 0;
+      FLOW_STATE[id].cur = idx;
+      var st = cfg.steps[idx];
+      card.querySelectorAll('.flow-step-active').forEach(function () { });
+      card.querySelectorAll('.tl-step').forEach(function (s, i) { s.classList.toggle('active', i === idx); });
+      card.querySelectorAll('.flow-box').forEach(function (b) {
+        b.classList.toggle('on', st.boxes.indexOf(b.getAttribute('data-b')) > -1);
+      });
+      card.querySelectorAll('.flow-port').forEach(function (p) {
+        p.classList.toggle('on', st.nodes.indexOf(p.getAttribute('data-p')) > -1);
+      });
+      card.querySelectorAll('.flow-wire').forEach(function (w) {
+        w.classList.toggle('on', st.wires.indexOf(w.getAttribute('data-w')) > -1);
+      });
+      card.querySelectorAll('.wire-arrow').forEach(function (a) {
+        a.classList.toggle('on', st.wires.indexOf(a.getAttribute('data-w')) > -1);
+      });
+      var counter = document.getElementById(id + 'Counter');
+      if (counter) counter.textContent = (idx + 1) + ' / ' + n;
+    }
+
+    function wireFlows() {
+      Object.keys(FLOWS).forEach(function (id) {
+        var prev = byId(id + 'Prev');
+        var next = byId(id + 'Next');
+        var replay = byId(id + 'Replay');
+        if (prev) prev.addEventListener('click', function () { showFlowStep(id, FLOW_STATE[id].cur - 1); });
+        if (next) next.addEventListener('click', function () { showFlowStep(id, FLOW_STATE[id].cur + 1); });
+        if (replay) replay.addEventListener('click', function () { showFlowStep(id, 0); });
+        buildFlow(id);
+      });
+    }
+
+    /* ---------- exercises (self-work then reveal) ---------- */
+    function normalizeExLabels() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.ex-key')) return;
+        var txt = o.textContent.replace(/\u00a0/g, ' ').trim();
+        var m = /^([A-E])\s+([\s\S]*)$/.exec(txt);
+        if (!m) return;
+        o.textContent = '';
+        var k = document.createElement('span');
+        k.className = 'ex-key';
+        k.textContent = m[1];
+        var b = document.createElement('span');
+        b.className = 'ex-body';
+        b.textContent = m[2];
+        o.appendChild(k);
+        o.appendChild(b);
+      });
+    }
+
+    function wireRevealBtns() {
+      normalizeExLabels();
+      document.querySelectorAll('.ex-opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          var item = opt.closest('.ex-item');
+          if (!item) return;
+          if (item.hasAttribute('data-multi')) {
+            opt.classList.toggle('picked');
+            return;
+          }
+          item.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked'); });
+          opt.classList.add('picked');
+        });
+      });
+      document.querySelectorAll('[data-reveal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card');
+          if (!card) return;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            item.querySelectorAll('.ex-opt').forEach(function (o) {
+              o.classList.remove('correct', 'wrong');
+              if (o.getAttribute('data-ok')) o.classList.add('correct');
+              else o.classList.add('wrong');
+            });
+          });
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.add('show'); });
+          var scored = 0, right = 0;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            var okOpts = item.querySelectorAll('.ex-opt[data-ok]');
+            if (!okOpts.length) return;
+            if (item.hasAttribute('data-multi')) {
+              scored += okOpts.length;
+              okOpts.forEach(function (o) {
+                if (o.classList.contains('picked')) right++;
+              });
+              return;
+            }
+            scored++;
+            var picked = item.querySelector('.ex-opt.picked');
+            if (picked && okOpts[0] && picked === okOpts[0]) right++;
+          });
+          var s = card.querySelector('.ex-score');
+          if (!s) {
+            s = document.createElement('div');
+            s.className = 'ex-score';
+            card.appendChild(s);
+          }
+          var rawAr = '✅ إجاباتك الصحيحة: ' + right + ' من ' + scored;
+          var rawEn = '✅ Your correct answers: ' + right + ' of ' + scored;
+          s.dataset.rawAr = rawAr;
+          s.dataset.rawEn = rawEn;
+          s.textContent = tr(rawAr, rawEn);
+        });
+      });
+      document.querySelectorAll('[data-hide]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card');
+          if (!card) return;
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.remove('show'); });
+          card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('correct', 'wrong', 'picked'); });
+          var s = card.querySelector('.ex-score');
+          if (s) s.remove();
+        });
+      });
+    }
+
+    /* ---------- recall quiz ---------- */
+    function rqFb(el) {
+      return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
+    }
+
+    function wireRecall() {
+      document.querySelectorAll('.recall').forEach(function (quiz) {
+        var start = quiz.querySelector('[data-start]');
+        function paintQuizBtn() {
+          if (!start) return;
+          start.textContent = quiz.classList.contains('show')
+            ? tr('إخفاء الاختبار', 'Hide the quiz')
+            : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+        }
+        if (start) start.addEventListener('click', function () {
+          quiz.classList.toggle('show');
+          paintQuizBtn();
+        });
+        quiz.querySelectorAll('.rq').forEach(function (q) {
+          var opts = q.querySelectorAll('.rq-opt');
+          var skip = q.querySelector('.rq-skip');
+          var fb = q.querySelector('.rq-fb');
+          function lock(qq) {
+            qq.classList.add('done');
+            opts.forEach(function (o) { o.classList.add('disabled'); });
+            if (skip) skip.style.display = 'none';
+          }
+          function showFb(ok, text, correctKey) {
+            fb.classList.add('show');
+            fb.classList.toggle('ok', ok);
+            fb.classList.toggle('no', !ok);
+            fb.textContent = (ok ? '✅ ' : '❌ ') +
+              (correctKey ? (L() === 'en' ? 'The correct answer is ' + correctKey + '. ' : 'الإجابة الصحيحة ' + correctKey + '. ') : '') + text;
+          }
+          opts.forEach(function (o) {
+            o.addEventListener('click', function () {
+              if (q.classList.contains('done')) return;
+              var ok = o.getAttribute('data-ok') === '1';
+              opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+              if (ok) o.classList.add('correct');
+              else {
+                o.classList.add('wrong');
+                var co = q.querySelector('.rq-opt[data-ok="1"]');
+                if (co) co.classList.add('correct');
+              }
+              lock(q);
+              showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+            });
+          });
+          if (skip) skip.addEventListener('click', function () {
+            if (q.classList.contains('done')) return;
+            var co = q.querySelector('.rq-opt[data-ok="1"]');
+            opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+            if (co) co.classList.add('correct');
+            lock(q);
+            showFb(true, rqFb(co), co.getAttribute('data-key'));
+          });
+        });
+      });
+    }
+
+    /* ---------- language toggle ---------- */
+    function setLang(l) {
+      currentLang = l;
+      document.documentElement.setAttribute('lang', l);
+      document.documentElement.setAttribute('dir', l === 'en' ? 'ltr' : 'rtl');
+      var btn = document.getElementById('langToggle');
+      if (btn) btn.textContent = l === 'en' ? 'ع' : 'EN';
+      document.querySelectorAll('[data-ar][data-en]').forEach(function (el) {
+        if (el.hasAttribute('data-lang-keep')) return;
+        var val = (l === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-ar');
+        if (val !== null && val !== undefined) el.innerHTML = val;
+      });
+      Object.keys(FLOWS).forEach(function (id) { buildFlow(id); });
+      normalizeExLabels();
+      repaintScores();
+      repaintQuizBtns();
+      localStorage.setItem('langPreference', l);
+    }
+
+    function repaintScores() {
+      document.querySelectorAll('.ex-score').forEach(function (s) {
+        if (s.dataset.raw) s.textContent = tr(s.dataset.rawAr, s.dataset.rawEn);
+      });
+    }
+
+    function repaintQuizBtns() {
+      document.querySelectorAll('.recall').forEach(function (quiz) {
+        var start = quiz.querySelector('[data-start]');
+        if (!start) return;
+        start.textContent = quiz.classList.contains('show')
+          ? tr('إخفاء الاختبار', 'Hide the quiz')
+          : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+      });
+    }
+
+    /* ---------- boot ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      setLang(currentLang);
+      wireNav();
+      wireReveal();
+      wireFlows();
+      wireRevealBtns();
+      wireRecall();
+      byId('langToggle').addEventListener('click', function () {
+        setLang(currentLang === 'ar' ? 'en' : 'ar');
+      });
+    });
+
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
+  </script>
+</body>
+
+</html>
