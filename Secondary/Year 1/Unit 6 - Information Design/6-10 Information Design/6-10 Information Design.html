@@ -1,0 +1,3256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تصميم المعلومات - Information Design | 6-10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #193cff;
+      --accent: #00d4aa;
+      --bg: #0a0e27;
+      --card: #111638;
+      --card-hover: #1a2050;
+      --text: #fff;
+      --dim: #8892b0;
+      --success: #00ff88;
+      --danger: #ff4757;
+      --warn: #ffd700;
+      --s1: #06B6D4;
+      --s2: #F59E0B;
+      --s3: #8B5CF6;
+      --s4: #10B981;
+      --s5: #EC4899;
+      --s6: #EF4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--dim);
+      line-height: 1.9;
+      overflow-x: hidden
+    }
+
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+        radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
+      animation: bgDrift 18s ease-in-out infinite;
+    }
+
+    @keyframes bgDrift {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(-30px, 20px) scale(1.08)
+      }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none
+    }
+
+    .particles i {
+      position: absolute;
+      bottom: -10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: .3;
+      animation: floatUp 14s linear infinite
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0
+      }
+
+      10% {
+        opacity: .3
+      }
+
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0
+      }
+    }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 39, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(25, 60, 255, .3);
+      transform: translateY(-100%);
+      transition: transform .35s ease
+    }
+
+    nav.show {
+      transform: translateY(0)
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 24px
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: var(--primary)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      padding: 4px 2px;
+      flex: 1
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none
+    }
+
+    .nav-links a {
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid transparent;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(25, 60, 255, .2);
+      border-color: var(--primary)
+    }
+
+    .lang-toggle {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all .3s ease
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 60px 24px
+    }
+
+    .hero-circles span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: .16;
+      z-index: 0;
+      animation: heroFloat 6s ease-in-out infinite
+    }
+
+    .hero-circles span:nth-child(1) {
+      width: 280px;
+      height: 280px;
+      background: var(--primary);
+      top: 12%;
+      left: 10%;
+      animation-delay: 0s
+    }
+
+    .hero-circles span:nth-child(2) {
+      width: 220px;
+      height: 220px;
+      background: var(--accent);
+      bottom: 15%;
+      right: 12%;
+      animation-delay: 2s
+    }
+
+    .hero-circles span:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      background: #8B5CF6;
+      top: 55%;
+      left: 22%;
+      animation-delay: 4s
+    }
+
+    @keyframes heroFloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-26px)
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: .85rem;
+      font-weight: 700;
+      background: rgba(25, 60, 255, .15);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--accent);
+      margin-bottom: 26px;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .1s forwards
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.15;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .3s forwards
+    }
+
+    .hero-title .grad {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      max-width: 680px;
+      margin: 18px auto 34px;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .5s forwards
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: #fff;
+      font-weight: 900;
+      padding: 16px 38px;
+      border-radius: 50px;
+      font-size: 1.05rem;
+      box-shadow: 0 10px 40px rgba(25, 60, 255, .4);
+      transition: .25s;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .7s forwards
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 50px rgba(0, 212, 170, .35)
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ---------- layout ---------- */
+    main {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    section {
+      padding: 38px 0
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 16px
+    }
+
+    .section-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--bg);
+      animation: glow 3s ease-in-out infinite
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(25, 60, 255, .25)
+      }
+
+      50% {
+        box-shadow: 0 0 42px rgba(25, 60, 255, .6)
+      }
+    }
+
+    .section-header h2 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.3
+    }
+
+    .section-header .tag {
+      font-size: .9rem
+    }
+
+    .section-inner {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .6s cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .section-inner.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .section-inner+.section-inner {
+      margin-top: 16px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 18px;
+      transition: .3s
+    }
+
+    .card:hover {
+      background: var(--card-hover);
+      transform: translateY(-5px);
+      border-color: rgba(25, 60, 255, .3)
+    }
+
+    .diagram-wrap {
+      position: relative;
+      border-radius: 24px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      overflow: hidden
+    }
+
+    .diagram-wrap .topbar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent))
+    }
+
+    .diagram-wrap .inner {
+      padding: 16px
+    }
+
+    h3 {
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      line-height: 1.4
+    }
+
+    p {
+      margin-bottom: 12px
+    }
+
+    b,
+    strong {
+      color: var(--text)
+    }
+
+    .note {
+      background: rgba(255, 215, 0, .06);
+      border: 1px solid rgba(255, 215, 0, .25);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: .95rem
+    }
+
+    .note b {
+      color: var(--warn)
+    }
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
+    }
+
+    /* ---------- error box ---------- */
+    .error-box {
+      border: 1px solid rgba(255, 71, 87, .2);
+      background: rgba(255, 71, 87, .05);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 6px
+    }
+
+    .error-box h4,
+    .error-box h3 {
+      color: var(--danger);
+      font-weight: 900;
+      margin-bottom: 10px;
+      font-size: 1rem
+    }
+
+    .error-box ul {
+      list-style: none
+    }
+
+    .error-box li {
+      padding: 4px 0;
+      position: relative;
+      padding-right: 26px
+    }
+
+    .error-box li::before {
+      content: "⚠️";
+      position: absolute;
+      right: 0;
+      top: 2px;
+      font-size: .95rem
+    }
+
+    .error-box li b {
+      color: var(--danger)
+    }
+
+    /* ---------- legend ---------- */
+    .legend {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 14px;
+      font-size: .85rem
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .legend i {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      display: inline-block
+    }
+
+    /* ---------- concept blocks ---------- */
+    .concept-block {
+      border-top: 3px solid var(--c);
+      padding-top: 30px;
+      margin-top: 14px
+    }
+
+    .concept-block:first-of-type {
+      margin-top: 0
+    }
+
+    .concept-head {
+      display: flex;
+      align-items: center;
+      gap: 14px
+    }
+
+    .chip-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--bg);
+      flex-shrink: 0
+    }
+
+    .concept-title {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.4
+    }
+
+    .concept-head .tag {
+      font-size: .88rem
+    }
+
+    /* ---------- activity grid ---------- */
+    .activity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px
+    }
+
+    @media(max-width:860px) {
+      .activity-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .activity-grid .demo-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      background: rgba(255, 255, 255, .03);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .demo-label {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--dim);
+      margin-bottom: 6px;
+      display: block
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin-bottom: 10px
+    }
+
+    .todo-item b {
+      color: var(--text)
+    }
+
+    /* ---------- buttons ---------- */
+    .btn {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border: none;
+      color: #fff;
+      font-family: inherit;
+      font-weight: 900;
+      padding: 12px 28px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: .95rem;
+      transition: .2s;
+      box-shadow: 0 6px 24px rgba(25, 60, 255, .3)
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0, 212, 170, .3)
+    }
+
+    .mini-btn {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: .85rem
+    }
+
+    .mini-btn:hover {
+      background: rgba(255, 255, 255, .12)
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .kbd {
+      display: inline-block;
+      background: #1a2050;
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 6px;
+      padding: 2px 10px;
+      font-size: .85rem;
+      color: var(--text);
+      font-family: 'Consolas', monospace
+    }
+
+    .hint-line {
+      font-size: .85rem;
+      color: var(--dim);
+      margin-top: 8px
+    }
+
+    /* ---------- flow cards (step reveal) ---------- */
+    .tl-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 24px
+    }
+
+    .tl-steps {
+      min-height: 120px;
+      display: flex;
+      align-items: center
+    }
+
+    .tl-step {
+      display: none;
+      text-align: center;
+      width: 100%
+    }
+
+    .tl-step.active {
+      display: block;
+      animation: tlIn .4s ease
+    }
+
+    @keyframes tlIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .tl-icon {
+      font-size: 2.1rem;
+      margin-bottom: 6px;
+      display: inline-block
+    }
+
+    .tl-year-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 20px;
+      padding: 3px 16px;
+      font-size: .85rem;
+      color: var(--accent);
+      font-weight: 700
+    }
+
+    .tl-title {
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin: 8px 0 6px
+    }
+
+    .tl-desc {
+      color: var(--dim);
+      font-size: .98rem;
+      max-width: 660px;
+      margin: 0 auto
+    }
+
+    .tl-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px
+    }
+
+    /* ---------- svg stage & labels ---------- */
+    .svg-stage {
+      position: relative;
+      max-width: 760px;
+      margin: 10px auto 0
+    }
+
+    .svg-stage .svg-main {
+      width: 100%;
+      height: auto;
+      display: block
+    }
+
+    .svg-label {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10, 14, 39, .88);
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 12px;
+      padding: 5px 12px;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+      z-index: 3;
+      pointer-events: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .45)
+    }
+
+    .svg-box {
+      fill: url(#bxG);
+      stroke: rgba(255, 255, 255, .14);
+      stroke-width: 2;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
+    }
+
+    .flow-box {
+      fill: url(#bxG);
+      stroke: rgba(255, 255, 255, .14);
+      stroke-width: 2;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
+      transition: stroke .3s, filter .3s
+    }
+
+    .flow-box.on {
+      stroke: var(--accent);
+      filter: drop-shadow(0 0 18px rgba(0, 212, 170, .5))
+    }
+
+    .flow-wire {
+      stroke: #2a3360;
+      stroke-width: 3;
+      fill: none;
+      transition: stroke .3s
+    }
+
+    .flow-wire.on {
+      stroke: var(--accent);
+      stroke-width: 3.5;
+      stroke-dasharray: 6 12;
+      stroke-linecap: round;
+      animation: flow 1.1s linear infinite;
+      filter: drop-shadow(0 0 6px rgba(0, 212, 170, .6))
+    }
+
+    @keyframes flow {
+      to {
+        stroke-dashoffset: -36
+      }
+    }
+
+    .wire-arrow {
+      fill: var(--accent);
+      opacity: 0;
+      transition: opacity .3s;
+      filter: drop-shadow(0 0 4px rgba(0, 212, 170, .6))
+    }
+
+    .wire-arrow.on {
+      opacity: 1
+    }
+
+    .flow-port {
+      fill: #2a3360;
+      stroke: var(--bg);
+      stroke-width: 2;
+      transition: fill .3s
+    }
+
+    .flow-port.on {
+      fill: var(--accent);
+      filter: drop-shadow(0 0 8px rgba(0, 212, 170, .8))
+    }
+
+    .bcast-wave {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 2;
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center
+    }
+
+    .bcast-wave.run {
+      animation: wave 1.8s ease-out infinite
+    }
+
+    .bcast-wave.run:nth-of-type(2) {
+      animation-delay: .5s
+    }
+
+    @keyframes wave {
+      0% {
+        opacity: .8;
+        transform: scale(.4)
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.5)
+      }
+    }
+
+    .flow-arrow {
+      color: var(--accent);
+      overflow: visible
+    }
+
+    .flow-arrow use {
+      transform-box: fill-box;
+      transform-origin: center
+    }
+
+    .flow-arrow use.flip {
+      transform: scaleX(-1)
+    }
+
+    /* ---------- matrix (classify) ---------- */
+    .mx-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px
+    }
+
+    .mx-grid>div {
+      border-radius: 14px;
+      padding: 14px
+    }
+
+    .mx-head {
+      background: rgba(25, 60, 255, .12);
+      border: 1px solid rgba(25, 60, 255, .35);
+      font-weight: 800;
+      color: var(--text);
+      text-align: center
+    }
+
+    .mx-row {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center
+    }
+
+    .mx-cell {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      min-height: 70px
+    }
+
+    .mx-cell b {
+      display: block;
+      color: var(--text);
+      font-size: .9rem;
+      margin-bottom: 4px
+    }
+
+    .mx-chip {
+      display: inline-block;
+      background: rgba(0, 212, 170, .1);
+      border: 1px solid rgba(0, 212, 170, .35);
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: .85rem;
+      margin: 4px
+    }
+
+    .mx-empty {
+      color: var(--dim);
+      font-size: .9rem;
+      text-align: center;
+      padding: 8px
+    }
+
+    @media(max-width:700px) {
+      .mx-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .mx-row {
+        grid-column: span 2
+      }
+    }
+
+    /* ---------- exercises ---------- */
+    .ex-item {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px
+    }
+
+    .ex-item .q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px
+    }
+
+    .ex-item .q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, .15);
+      border: 1px solid rgba(245, 158, 11, .5);
+      color: var(--warn);
+      font-weight: 900;
+      font-size: .8rem;
+      margin-left: 8px;
+      vertical-align: middle
+    }
+
+    .ex-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    @media(max-width:640px) {
+      .ex-options {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .ex-opt {
+      direction: rtl;
+      text-align: right;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .9rem;
+      color: #c7d2fe;
+      white-space: pre-wrap;
+      cursor: pointer;
+      transition: .15s;
+      user-select: none
+    }
+
+    .ex-opt:hover {
+      border-color: rgba(0, 212, 170, .5);
+      background: rgba(0, 212, 170, .08)
+    }
+
+    .ex-opt.picked {
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .18);
+      color: #fff;
+      box-shadow: 0 0 0 1px var(--primary)
+    }
+
+    .ex-opt.correct {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .12);
+      color: var(--success)
+    }
+
+    .ex-opt.wrong {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .12);
+      color: #ffb3bd
+    }
+
+    .ex-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(139, 92, 246, .18);
+      border: 1px solid rgba(139, 92, 246, .55);
+      color: var(--s3);
+      font-weight: 900;
+      font-size: .78rem;
+      margin-right: 10px;
+      vertical-align: middle;
+      flex-shrink: 0
+    }
+
+    .ex-body {
+      vertical-align: middle;
+      display: inline-block;
+      white-space: normal
+    }
+
+    .ex-answer {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: .92rem
+    }
+
+    .ex-answer.show {
+      display: block;
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: rgba(0, 255, 136, .07);
+      color: var(--success)
+    }
+
+    .ex-answer.show b {
+      color: var(--success);
+      margin: 0 6px
+    }
+
+    .ex-score {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(0, 255, 136, .08);
+      border: 1px solid rgba(0, 255, 136, .35);
+      color: var(--success);
+      font-size: .95rem
+    }
+
+    .group-label {
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin: 22px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .group-label::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--s3);
+      flex-shrink: 0
+    }
+
+    /* ---------- recall quiz ---------- */
+    .recall {
+      display: none;
+      margin-top: 16px
+    }
+
+    .recall.show {
+      display: block
+    }
+
+    .rq {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px
+    }
+
+    .rq-q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px
+    }
+
+    .rq-opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    @media(max-width:640px) {
+      .rq-opts {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .rq-opt {
+      direction: rtl;
+      text-align: right;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .9rem;
+      color: #c7d2fe;
+      cursor: pointer;
+      transition: .15s;
+      user-select: none
+    }
+
+    .rq-opt:hover {
+      border-color: rgba(0, 212, 170, .5);
+      background: rgba(0, 212, 170, .08)
+    }
+
+    .rq-opt.disabled {
+      pointer-events: none;
+      opacity: .65
+    }
+
+    .rq-opt.correct {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .12);
+      color: var(--success)
+    }
+
+    .rq-opt.wrong {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .12);
+      color: #ffb3bd
+    }
+
+    .rq-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: #c7d2fe;
+      font-weight: 900;
+      font-size: .82rem;
+      margin-right: 10px;
+      vertical-align: middle;
+      flex-shrink: 0
+    }
+
+    .rq-fb {
+      margin-top: 10px;
+      display: none;
+      font-size: .92rem;
+      padding: 10px 14px;
+      border-radius: 10px
+    }
+
+    .rq-fb.show {
+      display: block
+    }
+
+    .rq-fb.ok {
+      background: rgba(0, 255, 136, .07);
+      border: 1px solid rgba(0, 255, 136, .35);
+      color: var(--success)
+    }
+
+    .rq-fb.no {
+      background: rgba(255, 71, 87, .07);
+      border: 1px solid rgba(255, 71, 87, .35);
+      color: #ffb3bd
+    }
+
+    /* ---------- recap journey ---------- */
+    .journey {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-right: 26px
+    }
+
+    .journey::before {
+      content: "";
+      position: absolute;
+      right: 9px;
+      top: 14px;
+      bottom: 14px;
+      width: 3px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
+    }
+
+    .j-node {
+      position: relative;
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 16px;
+      padding: 14px 0
+    }
+
+    .j-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 3px;
+      z-index: 2
+    }
+
+    .j-body .t {
+      color: var(--text);
+      font-weight: 700
+    }
+
+    .j-body .d {
+      font-size: .93rem
+    }
+
+    .journey-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      padding: 12px 0
+    }
+
+    .jn-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--text);
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+      margin-top: 2px
+    }
+
+    .journey-item h4 {
+      color: var(--text);
+      font-size: 1rem;
+      margin: 0 0 4px
+    }
+
+    .journey-item p {
+      margin: 0;
+      font-size: .92rem
+    }
+
+    /* ---------- pills (classify) ---------- */
+    .pill {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      font-size: .92rem;
+      line-height: 1.7
+    }
+
+    .pill-dot {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 7px
+    }
+
+    .mx-wrap {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      padding: 14px
+    }
+
+    /* ---------- exercise button row ---------- */
+    .ex-btn-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap
+    }
+
+    /* ---------- congrats card ---------- */
+    .congrats {
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
+    }
+
+    /* ---------- scroll top ---------- */
+    #scrollTop {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 60;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 212, 170, .4);
+      background: rgba(10, 14, 39, .9);
+      color: var(--accent);
+      font-size: 1.15rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: .2s;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .35)
+    }
+
+    #scrollTop.show {
+      display: flex
+    }
+
+    #scrollTop:hover {
+      background: rgba(0, 212, 170, .15)
+    }
+
+    /* ---------- emoji props ---------- */
+    .emoji-float {
+      display: inline-block;
+      animation: ef 3s ease-in-out infinite
+    }
+
+    @keyframes ef {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-5px)
+      }
+    }
+
+    .emoji-pulse {
+      display: inline-block;
+      animation: ep 2s ease-in-out infinite
+    }
+
+    @keyframes ep {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.12)
+      }
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      margin-top: 50px;
+      border-top: 1px solid rgba(25, 60, 255, .25);
+      padding: 40px 24px 34px;
+      text-align: center;
+      background: rgba(10, 14, 39, .6)
+    }
+
+    .footer-logo {
+      height: 40px;
+      border-radius: 8px
+    }
+
+    .footer-tag {
+      color: var(--dim);
+      margin-top: 14px;
+      font-size: .95rem
+    }
+
+    .footer-tag b {
+      color: var(--text)
+    }
+  </style>
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <linearGradient id="bxG" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#232a55" />
+        <stop offset="1" stop-color="#131a3f" />
+      </linearGradient>
+      <path id="arr" d="M15 3 L6 10 L15 17" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    </defs>
+  </svg>
+
+  <div class="bg-gradient"></div>
+  <div class="particles" id="particles"></div>
+
+<nav id="topnav" aria-label="أقسام الدرس">
+    <div class="nav-inner">
+      <a href="../../../../index.html" aria-label="الرئيسية">      <a href="../../../../index.html" aria-label="الرئيسية">      <a href="../../../../index.html" aria-label="الرئيسية">      <a href="../../../../index.html" aria-label="الرئيسية">      <a href="../../../../index.html" aria-label="الرئيسية">      <a href="../../../../index.html" aria-label="الرئيسية">      <a href="../../../../index.html" aria-label="الرئيسية">      <a href="../../../../index.html" aria-label="الرئيسية"><img class="nav-logo" src="data:image/webp;base64,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" alt="logo"></a></a></a></a></a></a></a></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#intro" data-ar="البداية" data-en="Start">البداية</a>
+        <a href="#info" data-ar="تصميم المعلومات" data-en="Information Design">تصميم المعلومات</a>
+        <a href="#ui" data-ar="واجهة المستخدم" data-en="User Interface">واجهة المستخدم</a>
+        <a href="#ux" data-ar="تجربة المستخدم" data-en="User Experience">تجربة المستخدم</a>
+        <a href="#afford" data-ar="الاستطاعة" data-en="Affordance">الاستطاعة</a>
+        <a href="#sign" data-ar="المؤشر" data-en="Signifier">المؤشر</a>
+        <a href="#practice" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
+        <a href="#recap" data-ar="الخلاصة" data-en="Recap">الخلاصة</a>
+      </div>
+      <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
+    </div>
+  </nav>
+<header class="hero">
+    <div class="hero-circles"><span></span><span></span><span></span></div>
+    <div class="hero-content">
+      <div class="hero-badge" data-ar="درس 6-10 — Information Study" data-en="Lesson 6-10 — Information Study">درس 6-10
+        — Information Study</div>
+      <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>تصميم</span> المعلومات" data-en="<span class=&quot;grad&quot;>Information</span> Design">تصميم <span class="grad">المعلومات</span></h1>
+      <p class="hero-sub"
+        data-ar="Information Design — تنظيم المعلومات والتعبير عنها بشكل إبداعي حسب هدفها. النهارده هنتعلم طرق تصميم المعلومات، وواجهة المستخدم UI، وتجربة المستخدم UX، والاستطاعة والمؤشر."
+        data-en="Information Design — organizing and creatively expressing information according to its purpose. Today we learn the Information Design methods, the User Interface UI, the User Experience UX, and Affordance and Signifier.">
+        <span dir="ltr">Information Design</span> — تنظيم المعلومات والتعبير عنها بشكل إبداعي حسب هدفها. النهارده
+        هنتعلم طرق تصميم المعلومات، وواجهة المستخدم UI، وتجربة المستخدم UX، والاستطاعة والمؤشر.</p>
+      <a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ →</a>
+    </div>
+  </header>
+<main>
+<!-- ============ 01 INTRO ============ -->
+    <section id="intro">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#0e7490)">01</div>
+          <div>
+            <h2 data-ar="هنتعلم إيه النهارده؟" data-en="What will we learn today?">هنتعلم إيه النهارده؟</h2>
+            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — تصميم المعلومات"
+              data-en="Lesson introduction — Information Design">مقدمة الدرس — تصميم المعلومات</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="المواقع والتطبيقات اللي بنستخدمها كل يوم مش بتظهر كده بالصدفة — ورا كل تصميم قرارات عشان توصل الرسالة صح. النهارده هنتعلم تصميم المعلومات (Information Design) وإزاي ننظم ونعبّر عن المعلومات، وإزاي الأجهزة بتتبادلها معانا (UI) وإزاي نحس بيها (UX)."
+          data-en="The websites and apps we use every day do not appear by accident — behind every design there are decisions to deliver the message correctly. Today we learn Information Design and how to organize and express information, how devices exchange it with us (UI) and how we feel it (UX).">
+          المواقع والتطبيقات اللي بنستخدمها كل يوم مش بتظهر كده بالصدفة — ورا كل تصميم قرارات عشان توصل الرسالة صح.
+          النهارده هنتعلم تصميم المعلومات (Information Design) وإزاي ننظم ونعبّر عن المعلومات، وإزاي الأجهزة بتتبادلها
+          معانا (UI) وإزاي نحس بيها (UX).</p>
+        <div class="note"><b data-ar="افهمها كده:" data-en="Think of it this way:">افهمها كده:</b> <span
+            data-ar="تصميم المعلومات هو إنك تحط المعلومات الصح في الشكل الصح — زي لافتة في محطة المترو مينفعش تكون مجرد نص طويل، لازم تكون رمز واضح يفهمه الكل."
+            data-en="Information Design is putting the right information in the right form — like a sign at a metro station that cannot be a long text, it must be a clear symbol everyone understands.">تصميم
+            المعلومات هو إنك تحط المعلومات الصح في الشكل الصح — زي لافتة في محطة المترو مينفعش تكون مجرد نص طويل، لازم
+            تكون رمز واضح يفهمه الكل.</span></div>
+      </div>
+
+      <div class="section-inner">
+        <div class="activity-grid">
+          <div class="demo-panel">
+            <div class="demo-label" data-ar="هنتعلم النهارده 5 مفاهيم"
+              data-en="Today we'll learn 5 concepts">هنتعلم النهارده 5 مفاهيم</div>
+            <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">📊</span><span><b
+                  style="color:var(--s2)" data-ar="تصميم المعلومات وطرقه — Abstraction و Visualization و Structuring"
+                  data-en="Information Design and its methods — Abstraction, Visualization and Structuring">تصميم
+                  المعلومات وطرقه — Abstraction و Visualization و Structuring</b></span></div>
+            <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">🖥️</span><span><b
+                  style="color:var(--s3)" data-ar="واجهة المستخدم UI — و CUI و GUI"
+                  data-en="the User Interface UI — plus CUI and GUI">واجهة المستخدم UI — و CUI و GUI</b></span></div>
+            <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🎮</span><span><b
+                  style="color:var(--s4)" data-ar="تجربة المستخدم UX"
+                  data-en="the User Experience UX">تجربة المستخدم UX</b></span></div>
+            <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">🧭</span><span><b
+                  style="color:var(--s5)" data-ar="Affordance و Signifier"
+                  data-en="Affordance and Signifier">Affordance و Signifier</b></span></div>
+            <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🛡️</span><span><b
+                  style="color:var(--s6)" data-ar="Usability و Accessibility و Universal design"
+                  data-en="Usability, Accessibility and Universal design">Usability و Accessibility و Universal
+                  design</b></span></div>
+          </div>
+          <div class="demo-panel">
+            <div class="demo-label" data-ar="ليه بنتعلّم ده؟" data-en="Why do we learn this?">ليه بنتعلّم ده؟</div>
+            <p style="font-size:.95rem"
+              data-ar="لما تفهم إزاي المعلومات بتتتنظم وإزاي الواجهات بتشتغل، هتفهم ليه بعض المواقع سهلة والبعض التاني محيّر — وهتقدر تصمم واجهات واضحة بنفسك."
+              data-en="When you understand how information is organized and how interfaces work, you will understand why some sites are easy and others confusing — and you can design clear interfaces yourself.">
+              لما تفهم إزاي المعلومات بتتتنظم وإزاي الواجهات بتشتغل، هتفهم ليه بعض المواقع سهلة والبعض التاني محيّر — وهتقدر
+              تصمم واجهات واضحة بنفسك.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner error-box">
+        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <ul>
+          <li data-ar="خلط UI بـ UX — الأول هو الواجهة اللي بتتعامل معاها، والتاني هو التجربة والشعور اللي بيوصلك من استخدامها."
+            data-en="Confusing UI with UX — the first is the interface you interact with, the second is the experience and feeling you get from using it.">
+            خلط UI بـ UX — الأول هو الواجهة اللي بتتعامل معاها، والتاني هو التجربة والشعور اللي بيوصلك من استخدامها.</li>
+          <li data-ar="خلط Affordance بـ Signifier — الأول هو الأفعال الممكنة على الشيء، والتاني هو الإشارة اللي بتخليك تعرف إنك تقدر تعمل الفعل."
+            data-en="Confusing Affordance with Signifier — the first is the possible actions on an object, the second is the cue that lets you know you can do the action.">
+            خلط Affordance بـ Signifier — الأول هو الأفعال الممكنة على الشيء، والتاني هو الإشارة اللي بتخليك تعرف إنك
+            تقدر تعمل الفعل.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 02 INFORMATION DESIGN ============ -->
+    <section id="info">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#b45309)">02</div>
+          <div>
+            <h2 data-ar="تصميم المعلومات" data-en="Information Design">تصميم المعلومات <span dir="ltr">(Information
+                Design)</span></h2>
+            <div class="tag" style="color:var(--s2)" data-ar="طرقه الثلاثة — الكتاب صفحة 81"
+              data-en="its three methods — book page 81">طرقه الثلاثة — الكتاب صفحة 81</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="تصميم المعلومات (Information Design) هو عملية تنظيم المعلومات والتعبير عنها بشكل إبداعي حسب هدفها، بحيث تتأكد إن الرسالة المقصودة بتتوصّل صح للجمهور المستهدف."
+          data-en="Information Design is the process of organizing and creatively expressing information according to its purpose, thereby ensuring that the intended message is correctly conveyed to the target audience.">
+          <b>تصميم المعلومات <span dir="ltr">(Information Design)</span></b> هو عملية تنظيم المعلومات والتعبير عنها بشكل
+          إبداعي حسب هدفها، بحيث تتأكد إن الرسالة المقصودة بتتوصّل صح للجمهور المستهدف.</p>
+        <p data-ar="وفي طرق أساسية بنستخدمها في تصميم المعلومات: التجريد (Abstraction)، والتصوير البصري (Visualization)، والهيكلة (Structuring)."
+          data-en="There are basic methods used in Information Design: Abstraction, Visualization, and Structuring.">وفي
+          طرق أساسية بنستخدمها في تصميم المعلومات: التجريد (Abstraction)، والتصوير البصري (Visualization)، والهيكلة
+          (Structuring).</p>
+      </div>
+
+      <div class="section-inner card">
+        <div class="concept-block" style="--c:var(--s2)">
+          <div class="concept-head">
+            <span class="chip-num" style="background:linear-gradient(135deg,var(--s2),#b45309)">١</span>
+            <div>
+              <div class="concept-title" data-ar="التجريد (Abstraction)" data-en="Abstraction">التجريد <span
+                  dir="ltr">(Abstraction)</span></div>
+              <div class="tag" style="color:var(--s2)" data-ar="نوصل المعلومات المطلوبة ببساطة من وسط كمية كبيرة من البيانات"
+                data-en="conveying the intended information simply from within a large amount of data">نوصل المعلومات
+                المطلوبة ببساطة من وسط كمية كبيرة من البيانات</div>
+            </div>
+          </div>
+          <p data-ar="بنلخّص ونستخرج العناصر المهمة بس، وبنعبّر عنها برموز — ومن أهم رموزها: البكتوغرام (Pictogram) وهو رمز مصوّر بيتوصّل المعلومة من غير كلام وبنستخدمه في اللافتات بالمحطات والمطارات، والأيقونة (Icon) وهي تمثيل لمحتوى برنامج على الكمبيوتر أو الموبايل بالصور أو الرسوم."
+            data-en="We summarize and extract only the important elements, and express them with symbols — among its most important symbols: the Pictogram, a pictorial symbol that conveys information without words used for signs at stations and airports, and the Icon, a representation of a program's content on a computer or smartphone through images or illustrations.">
+            بنلخّص ونستخرج العناصر المهمة بس، وبنعبّر عنها برموز — ومن أهم رموزها: <b>البكتوغرام <span dir="ltr">(Pictogram)</span></b>
+            وهو رمز مصوّر بيتوصّل المعلومة من غير كلام وبنستخدمه في اللافتات بالمحطات والمطارات، و<b>الأيقونة <span
+              dir="ltr">(Icon)</span></b> وهي تمثيل لمحتوى برنامج على الكمبيوتر أو الموبايل بالصور أو الرسوم.</p>
+        </div>
+        <div class="concept-block" style="--c:var(--s3)">
+          <div class="concept-head">
+            <span class="chip-num" style="background:linear-gradient(135deg,var(--s3),#7c3aed)">٢</span>
+            <div>
+              <div class="concept-title" data-ar="التصوير البصري (Visualization)" data-en="Visualization">التصوير البصري
+                <span dir="ltr">(Visualization)</span></div>
+              <div class="tag" style="color:var(--s3)" data-ar="تمثيل المعلومات بصرياً عشان تبقى أسهل في الفهم"
+                data-en="visually representing information to make it more understandable">تمثيل المعلومات بصرياً عشان
+                تبقى أسهل في الفهم</div>
+            </div>
+          </div>
+          <p data-ar="بنحوّل المعلومات لصور ورسوم وجداول — زي جداول البيانات والرسوم البيانية (Graphs)."
+            data-en="We convert information into pictures, drawings, and tables — like data tables and graphs.">بنحوّل
+            المعلومات لصور ورسوم وجداول — زي جداول البيانات والرسوم البيانية <span dir="ltr">(Graphs)</span>.</p>
+        </div>
+        <div class="concept-block" style="--c:var(--s4)">
+          <div class="concept-head">
+            <span class="chip-num" style="background:linear-gradient(135deg,var(--s4),#047857)">٣</span>
+            <div>
+              <div class="concept-title" data-ar="الهيكلة (Structuring)" data-en="Structuring">الهيكلة <span
+                  dir="ltr">(Structuring)</span></div>
+              <div class="tag" style="color:var(--s4)" data-ar="تنظيم المعلومات وترتيبها حسب العلاقات والمستويات"
+                data-en="organizing information by relationships, connections, levels, stages, order, etc.">تنظيم
+                المعلومات وترتيبها حسب العلاقات والمستويات</div>
+            </div>
+          </div>
+          <p data-ar="بنرتّب المعلومات في مجموعات ومستويات — زي القوائم الهرمية في صفحات الويب، وخريطة أدوار المتجر."
+            data-en="We arrange information into groups and levels — like hierarchical menus on web pages, and department store floor maps.">بنرتّب
+            المعلومات في مجموعات ومستويات — زي القوائم الهرمية في صفحات الويب، وخريطة أدوار المتجر.</p>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="طرق تصميم المعلومات"
+              data-en="the methods of Information Design">طرق تصميم المعلومات</div>
+            <div class="flow-card" data-id="info">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="info"></svg>
+                <div class="svg-label" data-fbox="abs" data-ar="Abstraction — استخراج المهم ورمزته"
+                  data-en="Abstraction — extracting what matters and symbolizing it">Abstraction — استخراج المهم ورمزته</div>
+                <div class="svg-label" data-fbox="viz" data-ar="Visualization — تمثيل بصري"
+                  data-en="Visualization — visual representation">Visualization — تمثيل بصري</div>
+                <div class="svg-label" data-fbox="str" data-ar="Structuring — ترتيب وهرمية"
+                  data-en="Structuring — ordering and hierarchy">Structuring — ترتيب وهرمية</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="infoPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="infoNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="infoCounter">1 / 3</span>
+                <button class="mini-btn" data-id="infoReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="infoQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="infoRecall">
+          <div class="rq" data-id="infoRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="الرمز المصوّر اللي بيتوصّل المعلومة من غير كلام وبنستخدمه في المحطات والمطارات اسمه إيه؟"
+                data-en="What is the pictorial symbol that conveys information without words and is used at stations and airports?">الرمز
+                المصوّر اللي بيتوصّل المعلومة من غير كلام وبنستخدمه في المحطات والمطارات اسمه إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="infoRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! البكتوغرام (Pictogram) هو الرمز المصوّر اللي بيتوصّل المعلومة من غير كلام."
+                data-fb-en="Correct! A Pictogram is the pictorial symbol that conveys information without words."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="البكتوغرام (Pictogram)"
+                  data-en="the Pictogram">البكتوغرام (Pictogram)</span></div>
+              <div class="rq-opt" data-id="infoRq1o2" data-key="B"
+                data-fb-ar="مش كده — الأيقونة بتمثّل محتوى برنامج على الجهاز." data-fb-en="Not quite — an Icon represents a program's content on a device."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="الأيقونة (Icon)"
+                  data-en="the Icon">الأيقونة (Icon)</span></div>
+              <div class="rq-opt" data-id="infoRq1o3" data-key="C"
+                data-fb-ar="مش كده — الجدول من أمثلة التصوير البصري مش الرمز المصوّر." data-fb-en="Not quite — a table is a Visualization example, not a pictorial symbol."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="الجدول (Table)"
+                  data-en="the Table">الجدول (Table)</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="infoRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="infoRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="أي طريقة من طرق تصميم المعلومات بنرتّب فيها المعلومات في قوائم هرمية زي صفحات الويب؟"
+                data-en="Which Information Design method arranges information into hierarchical menus like on web pages?">أي
+                طريقة من طرق تصميم المعلومات بنرتّب فيها المعلومات في قوائم هرمية زي صفحات الويب؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="infoRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! الهيكلة (Structuring) بتنظم المعلومات حسب العلاقات والمستويات."
+                data-fb-en="Correct! Structuring organizes information by relationships and levels."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="الهيكلة (Structuring)"
+                  data-en="Structuring">الهيكلة (Structuring)</span></div>
+              <div class="rq-opt" data-id="infoRq2o2" data-key="B"
+                data-fb-ar="مش كده — التجريد بيستخرج المهم من كمية كبيرة." data-fb-en="Not quite — Abstraction extracts what matters from a large amount."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="التجريد (Abstraction)"
+                  data-en="Abstraction">التجريد (Abstraction)</span></div>
+              <div class="rq-opt" data-id="infoRq2o3" data-key="C"
+                data-fb-ar="مش كده — التصوير البصري بيمثّل المعلومات بصرياً زي الجداول."
+                data-fb-en="Not quite — Visualization represents information visually like tables."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="التصوير البصري (Visualization)"
+                  data-en="Visualization">التصوير البصري (Visualization)</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="infoRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 USER INTERFACE UI ============ -->
+    <section id="ui">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#7c3aed)">03</div>
+          <div>
+            <h2 data-ar="واجهة المستخدم" data-en="The User Interface">واجهة المستخدم <span dir="ltr">(User Interface —
+                UI)</span></h2>
+            <div class="tag" style="color:var(--s3)" data-ar="الوسيط بين الإنسان والجهاز — الكتاب صفحة 81"
+              data-en="the medium between humans and devices — book page 81">الوسيط بين الإنسان والجهاز — الكتاب صفحة 81</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="واجهة المستخدم (User Interface — UI) هي نظام لنقل المعلومات بين البشر والأجهزة."
+          data-en="A User Interface (UI) is a system for transferring information between humans and devices.">
+          <b>واجهة المستخدم <span dir="ltr">(User Interface — UI)</span></b> هي نظام لنقل المعلومات بين البشر والأجهزة.</p>
+        <p data-ar="وعندنا نوعين أساسيين: واجهة أوامر نصية (CUI) اللي بتشتغل بإدخال أوامر من الكيبورد، وواجهة رسومية (GUI) اللي بتسمح للمستخدم يعلّم على الأيقونات والأزرار بشكل بديهي وسهل."
+          data-en="There are two main types: the Character User Interface (CUI) operated by entering commands via a keyboard, and the Graphical User Interface (GUI) that allows users to issue commands intuitively using icons and buttons.">
+          وعندنا نوعين أساسيين: <b>واجهة الأوامر النصية <span dir="ltr">(CUI)</span></b> اللي بتشتغل بإدخال أوامر من
+          الكيبورد، و<b>الواجهة الرسومية <span dir="ltr">(GUI)</span></b> اللي بتسمح للمستخدم يعلّم على الأيقونات والأزرار
+          بشكل بديهي وسهل.</p>
+        <div class="note"><b data-ar="تذكّر:" data-en="Remember:">تذكّر:</b> <span
+            data-ar="الكمبيوترات القديمة كانت بتستخدم CUI بالنصوص، أما الحالية فبتستخدم GUI بالأيقونات والفأرة."
+            data-en="early computers used CUI with text, while current ones use GUI with icons and a mouse.">الكمبيوترات
+            <b>القديمة</b> كانت بتستخدم CUI بالنصوص، أما <b>الحالية</b> فبتستخدم GUI بالأيقونات والفأرة.</span></div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="من الواجهة للنوعين"
+              data-en="from the interface to its two types">من الواجهة للنوعين</div>
+            <div class="flow-card" data-id="ui">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="ui"></svg>
+                <div class="svg-label" data-fbox="transfer" data-ar="UI — نظام نقل المعلومات بين الإنسان والجهاز"
+                  data-en="UI — a system for transferring information between humans and devices">UI — نظام نقل المعلومات
+                  بين الإنسان والجهاز</div>
+                <div class="svg-label" data-fbox="cui" data-ar="CUI — أوامر نصية من الكيبورد"
+                  data-en="CUI — text commands from a keyboard">CUI — أوامر نصية من الكيبورد</div>
+                <div class="svg-label" data-fbox="gui" data-ar="GUI — أيقونات وأزرار بالفأرة"
+                  data-en="GUI — icons and buttons with a mouse">GUI — أيقونات وأزرار بالفأرة</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="uiPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="uiNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="uiCounter">1 / 3</span>
+                <button class="mini-btn" data-id="uiReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="uiQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="uiRecall">
+          <div class="rq" data-id="uiRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="الواجهة اللي بتشتغل بإدخال أوامر نصية من الكيبورد اسمها إيه؟"
+                data-en="What is the interface operated by entering text commands from a keyboard?">الواجهة اللي بتشتغل
+                بإدخال أوامر نصية من الكيبورد اسمها إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="uiRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! CUI بتشتغل بالأوامر النصية من الكيبورد."
+                data-fb-en="Correct! CUI works with text commands from a keyboard."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="CUI" data-en="CUI">CUI</span></div>
+              <div class="rq-opt" data-id="uiRq1o2" data-key="B"
+                data-fb-ar="مش كده — GUI بتستخدم الأيقونات والأزرار." data-fb-en="Not quite — GUI uses icons and buttons."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="GUI" data-en="GUI">GUI</span></div>
+              <div class="rq-opt" data-id="uiRq1o3" data-key="C"
+                data-fb-ar="مش كده — UX هي التجربة مش الواجهة." data-fb-en="Not quite — UX is the experience, not the interface."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="UX" data-en="UX">UX</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="uiRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="uiRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="أي واجهة بيستخدمها الكمبيوتر الحالي عشان المستخدم يعلّم على الأيقونات بالفأرة؟"
+                data-en="Which interface does a current computer use so the user can click icons with a mouse?">أي واجهة
+                بيستخدمها الكمبيوتر الحالي عشان المستخدم يعلّم على الأيقونات بالفأرة؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="uiRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! GUI بتسمح بالأوامر البديهية بالأيقونات والأزرار."
+                data-fb-en="Correct! GUI allows intuitive commands with icons and buttons."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="الواجهة الرسومية GUI"
+                  data-en="the Graphical User Interface GUI">الواجهة الرسومية GUI</span></div>
+              <div class="rq-opt" data-id="uiRq2o2" data-key="B"
+                data-fb-ar="مش كده — CUI بالنصوص اللي بتتكتب من الكيبورد."
+                data-fb-en="Not quite — CUI is text typed from a keyboard."><span class="rq-key">B</span><span
+                  class="rq-body" data-ar="الواجهة النصية CUI" data-en="the text interface CUI">الواجهة النصية CUI</span></div>
+              <div class="rq-opt" data-id="uiRq2o3" data-key="C"
+                data-fb-ar="مش كده — دي التجربة مش الواجهة." data-fb-en="Not quite — that is the experience, not the interface."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="تجربة المستخدم UX"
+                  data-en="the User Experience UX">تجربة المستخدم UX</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="uiRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 USER EXPERIENCE UX ============ -->
+    <section id="ux">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
+          <div>
+            <h2 data-ar="تجربة المستخدم" data-en="The User Experience">تجربة المستخدم <span dir="ltr">(User Experience —
+                UX)</span></h2>
+            <div class="tag" style="color:var(--s4)" data-ar="التجربة والمشاعر — الكتاب صفحة 81"
+              data-en="the experience and feelings — book page 81">التجربة والمشاعر — الكتاب صفحة 81</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="تجربة المستخدم (User Experience — UX) هي التجربة أو الأثر العاطفي اللي بيحصل عليه المستخدم من التفاعل مع منتج أو خدمة."
+          data-en="The User Experience (UX) is the experience or emotional impact that users gain from interacting with a product or service.">
+          <b>تجربة المستخدم <span dir="ltr">(User Experience — UX)</span></b> هي التجربة أو الأثر العاطفي اللي بيحصل عليه
+          المستخدم من التفاعل مع منتج أو خدمة.</p>
+        <p data-ar="والهدف مش مجرد سهولة الاستخدام، لكن كمان إن المستخدم يحس بالراحة — وبنوصل للراحة دي بتبسيط الواجهة اللي بنشتغل بيها، واختيار ألوان مراعية اختلاف الإدراك بين الناس، وإضافة معلومات نصية مساعدة."
+          data-en="The aim is not just ease of use, but also a sense of comfort — achieved by simplifying the interface, choosing colors with consideration for differences in perception, and adding helpful textual information.">
+          والهدف مش مجرد سهولة الاستخدام، لكن كمان إن المستخدم يحس بالراحة — وبنوصل للراحة دي بتبسيط الواجهة اللي
+          بنشتغل بيها، واختيار ألوان مراعية اختلاف الإدراك بين الناس، وإضافة معلومات نصية مساعدة.</p>
+        <div class="note"><b data-ar="افهمها كده:" data-en="Think of it this way:">افهمها كده:</b> <span
+            data-ar="UX هي «إحساسك» كله بالمنتج — مبسوط؟ حاسس إنه سهل؟ حاسس إنه سريع؟ حتى لو المهمة عملتها، التجربة هي اللي بتتسجل في دماغك."
+            data-en="UX is your whole 'feeling' about the product — happy? easy? fast? Even if you completed the task, the experience is what your brain records.">UX
+            هي «إحساسك» كله بالمنتج — مبسوط؟ حاسس إنه سهل؟ حاسس إنه سريع؟ حتى لو المهمة عملتها، التجربة هي اللي
+            بتتسجل في دماغك.</span></div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="من التجربة للراحة"
+              data-en="from the experience to comfort">من التجربة للراحة</div>
+            <div class="flow-card" data-id="ux">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="ux"></svg>
+                <div class="svg-label" data-fbox="exp" data-ar="UX — التجربة والأثر العاطفي"
+                  data-en="UX — the experience and emotional impact">UX — التجربة والأثر العاطفي</div>
+                <div class="svg-label" data-fbox="usab" data-ar="مش بس سهولة الاستخدام"
+                  data-en="not only ease of use">مش بس سهولة الاستخدام</div>
+                <div class="svg-label" data-fbox="comf" data-ar="كمان الشعور بالراحة والرضا"
+                  data-en="also a sense of comfort and satisfaction">كمان الشعور بالراحة والرضا</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="uxPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="uxNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="uxCounter">1 / 3</span>
+                <button class="mini-btn" data-id="uxReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="uxQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="uxRecall">
+          <div class="rq" data-id="uxRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="تجربة المستخدم (UX) هي إيه بالظبط؟"
+                data-en="What exactly is the User Experience (UX)?">تجربة المستخدم (UX) هي إيه بالظبط؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="uxRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! UX هي التجربة أو الأثر العاطفي اللي بيكسبه المستخدم من التفاعل."
+                data-fb-en="Correct! UX is the experience or emotional impact gained from interacting."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="التجربة والأثر العاطفي من التفاعل"
+                  data-en="the experience and emotional impact from interacting">التجربة والأثر العاطفي من التفاعل</span></div>
+              <div class="rq-opt" data-id="uxRq1o2" data-key="B"
+                data-fb-ar="مش كده — ده تعريف واجهة المستخدم UI." data-fb-en="Not quite — that is the UI definition."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="نظام نقل المعلومات بين الإنسان والجهاز"
+                  data-en="a system for transferring information between humans and devices">نظام نقل المعلومات بين الإنسان
+                  والجهاز</span></div>
+              <div class="rq-opt" data-id="uxRq1o3" data-key="C"
+                data-fb-ar="مش كده — دي إشارة تحفيز المستخدم." data-fb-en="Not quite — that is a cue that prompts users."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="الإشارات اللي بتدفع المستخدم للفعل"
+                  data-en="the cues that prompt users to act">الإشارات اللي بتدفع المستخدم للفعل</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="uxRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="uxRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="هدف تجربة المستخدم مش بس سهولة الاستخدام — إيه كمان؟"
+                data-en="The aim of UX is not just ease of use — what else?">هدف تجربة المستخدم مش بس سهولة الاستخدام —
+                إيه كمان؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="uxRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! الهدف كمان تحقيق الشعور بالراحة والرضا."
+                data-fb-en="Correct! The aim is also a sense of comfort and satisfaction."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="تحقيق شعور بالراحة والرضا"
+                  data-en="achieving a sense of comfort and satisfaction">تحقيق شعور بالراحة والرضا</span></div>
+              <div class="rq-opt" data-id="uxRq2o2" data-key="B"
+                data-fb-ar="مش كده — بتبسيط الواجهة بنوصل للراحة مش العكس."
+                data-fb-en="Not quite — we reach comfort by simplifying the interface, not the opposite."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="تعقيد الواجهة عشان التحدي"
+                  data-en="complicating the interface for a challenge">تعقيد الواجهة عشان التحدي</span></div>
+              <div class="rq-opt" data-id="uxRq2o3" data-key="C"
+                data-fb-ar="مش كده — المستخدم هو الهدف مش الجهاز." data-fb-en="Not quite — the user is the target, not the device."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="إعطاء الأولوية للجهاز"
+                  data-en="prioritizing the device">إعطاء الأولوية للجهاز</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="uxRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 AFFORDANCE ============ -->
+    <section id="afford">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
+          <div>
+            <h2 data-ar="الاستطاعة" data-en="Affordance">الاستطاعة <span dir="ltr">(Affordance)</span></h2>
+            <div class="tag" style="color:var(--s5)" data-ar="الأفعال الممكنة على الشيء — الكتاب صفحة 81"
+              data-en="the possible actions on an object — book page 81">الأفعال الممكنة على الشيء — الكتاب صفحة 81</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="الاستطاعة (Affordance) هي الأفعال أو العمليات اللي ممكن تنفّذ على شيء ما."
+          data-en="Affordance is the actions or operations that can be performed on an object.">
+          <b>الاستطاعة <span dir="ltr">(Affordance)</span></b> هي الأفعال أو العمليات اللي ممكن تنفّذ على شيء ما.</p>
+        <p data-ar="يعني شكل الشيء بيلوّح بإمكانياته: زر مرفوع بيوحي إنه قابل للضغط، ومقبض بيلوّح بالسحب أو الدفع، وحقل نصي بيوحي بكتابة فيه."
+          data-en="So the shape of an object hints at its possibilities: a raised button suggests it can be pressed, a handle suggests pulling or pushing, and a text field suggests typing into it.">
+          يعني شكل الشيء بيلوّح بإمكانياته: زر مرفوع بيوحي إنه قابل للضغط، ومقبض بيلوّح بالسحب أو الدفع، وحقل نصي بيوحي
+          بكتابة فيه.</p>
+        <div class="note"><b data-ar="افهمها كده:" data-en="Think of it this way:">افهمها كده:</b> <span
+            data-ar="شكل المقعد نفسه بيلوّح إنك تقدر تقعد عليه — دي الاستطاعة. هي في التصميم عن الأشياء اللي شكلها بيدل على استخدامها من غير ما تفتح دليل."
+            data-en="The shape of a chair itself suggests you can sit on it — that is affordance. In design it is about things whose shape hints at their use without reading a manual.">شكل
+            المقعد نفسه بيلوّح إنك تقدر تقعد عليه — دي الاستطاعة. هي في التصميم عن الأشياء اللي شكلها بيدل على استخدامها
+            من غير ما تفتح دليل.</span></div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="شكل الشيء بيلوّح باستخدامه"
+              data-en="the shape of an object hints at its use">شكل الشيء بيلوّح باستخدامه</div>
+            <div class="flow-card" data-id="afford">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="afford"></svg>
+                <div class="svg-label" data-fbox="btn" data-ar="زر مرفوع → بيوحي بالضغط"
+                  data-en="a raised button → suggests pressing">زر مرفوع → بيوحي بالضغط</div>
+                <div class="svg-label" data-fbox="handle" data-ar="مقبض → بيوحي بالسحب أو الدفع"
+                  data-en="a handle → suggests pulling or pushing">مقبض → بيوحي بالسحب أو الدفع</div>
+                <div class="svg-label" data-fbox="act" data-ar="Affordance — الأفعال الممكنة على الشيء"
+                  data-en="Affordance — the actions possible on an object">Affordance — الأفعال الممكنة على الشيء</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="affordPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="affordNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="affordCounter">1 / 3</span>
+                <button class="mini-btn" data-id="affordReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="affordQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="affordRecall">
+          <div class="rq" data-id="affordRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="الاستطاعة (Affordance) هي إيه؟"
+                data-en="What is Affordance?">الاستطاعة (Affordance) هي إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="affordRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! الاستطاعة هي الأفعال أو العمليات الممكنة على الشيء."
+                data-fb-en="Correct! Affordance is the actions or operations possible on an object."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="الأفعال أو العمليات الممكنة على الشيء"
+                  data-en="the actions or operations possible on an object">الأفعال أو العمليات الممكنة على الشيء</span></div>
+              <div class="rq-opt" data-id="affordRq1o2" data-key="B"
+                data-fb-ar="مش كده — دي الإشارات اللي بتدفع المستخدم للفعل."
+                data-fb-en="Not quite — that is the cues that prompt users to act."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="الإشارات اللي بتدفع المستخدم للفعل"
+                  data-en="the cues that prompt users to act">الإشارات اللي بتدفع المستخدم للفعل</span></div>
+              <div class="rq-opt" data-id="affordRq1o3" data-key="C"
+                data-fb-ar="مش كده — دي مقياس سهولة الاستخدام." data-fb-en="Not quite — that is a measure of ease of use."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="مقياس سهولة الفهم والاستخدام"
+                  data-en="a measure of how easy and understandable it is">مقياس سهولة الفهم والاستخدام</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="affordRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="affordRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="أي مثال على الاستطاعة (Affordance)؟"
+                data-en="Which is an example of Affordance?">أي مثال على الاستطاعة (Affordance)؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="affordRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! شكل الزر المرفوع بيلوّح إنه قابل للضغط — دي استطاعة."
+                data-fb-en="Correct! A raised button's shape suggests it can be pressed — that is affordance."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="زر مرفوع شكله بيدل على إنه قابل للضغط"
+                  data-en="a raised button whose shape suggests it can be pressed">زر مرفوع شكله بيدل على إنه قابل
+                للضغط</span></div>
+              <div class="rq-opt" data-id="affordRq2o2" data-key="B"
+                data-fb-ar="مش كده — ده مثال على السيغنيفاير (الإشارة)." data-fb-en="Not quite — that is an example of a Signifier."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="سهم مضيء بيدل على اتجاه التمرير"
+                  data-en="a glowing arrow indicating the scroll direction">سهم مضيء بيدل على اتجاه التمرير</span></div>
+              <div class="rq-opt" data-id="affordRq2o3" data-key="C"
+                data-fb-ar="مش كده — ده مثال على التصوير البصري." data-fb-en="Not quite — that is an example of Visualization."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="جدول بيانات بنتلخّص فيه النتائج"
+                  data-en="a data table summarizing results">جدول بيانات بنتلخّص فيه النتائج</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="affordRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 SIGNIFIER ============ -->
+    <section id="sign">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#b91c1c)">06</div>
+          <div>
+            <h2 data-ar="المؤشر" data-en="The Signifier">المؤشر <span dir="ltr">(Signifier)</span></h2>
+            <div class="tag" style="color:var(--s6)" data-ar="الإشارات اللي بتدفع المستخدم للفعل — الكتاب صفحة 81"
+              data-en="the cues that prompt users to take action — book page 81">الإشارات اللي بتدفع المستخدم للفعل —
+              الكتاب صفحة 81</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <p data-ar="المؤشر (Signifier) هو الإشارات اللي بتدفع المستخدم لاتخاذ إجراء."
+          data-en="The Signifier is the cues that prompt users to take action.">
+          <b>المؤشر <span dir="ltr">(Signifier)</span></b> هو الإشارات اللي بتدفع المستخدم لاتخاذ إجراء.</p>
+        <p data-ar="لو الاستطاعة هي إن الزر قابل للضغط، فالمؤشر هو اللي بيخليك تلاحظ إنه قابل للضغط — زي السهم المضيء اللي بيدل على اتجاه التمرير، أو لون مميز، أو نص بيقولك «اضغط هنا»."
+          data-en="If affordance is that a button can be pressed, then the signifier is what makes you notice it can be pressed — like a glowing arrow showing the scroll direction, a distinctive color, or text saying 'click here'.">
+          لو الاستطاعة هي إن الزر قابل للضغط، فالمؤشر هو اللي بيخليك تلاحظ إنه قابل للضغط — زي السهم المضيء اللي بيدل
+          على اتجاه التمرير، أو لون مميز، أو نص بيقولك «اضغط هنا».</p>
+        <div class="note"><b data-ar="الفرق ببساطة:" data-en="The difference simply:">الفرق ببساطة:</b> <span
+            data-ar="الاستطاعة = الفعل الممكن (الزر بيتضغط). المؤشر = الإشارة اللي بتقولك اعمل الفعل (شكل الزر اللي بيخليك تعرف)."
+            data-en="Affordance = the possible action (the button can be pressed). Signifier = the cue telling you to do it (the shape that lets you know).">الاستطاعة
+            = الفعل الممكن (الزر بيتضغط). المؤشر = الإشارة اللي بتقولك اعمل الفعل (شكل الزر اللي بيخليك تعرف).</span></div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="demo-label" data-ar="الإشارة اللي بتخليك تلاحظ"
+              data-en="the cue that makes you notice">الإشارة اللي بتخليك تلاحظ</div>
+            <div class="flow-card" data-id="sign">
+              <div class="svg-stage">
+                <svg viewBox="0 0 900 400" class="svg-main" data-flow="sign"></svg>
+                <div class="svg-label" data-fbox="cue" data-ar="سهم مضيء → بيدل على اتجاه التمرير"
+                  data-en="a glowing arrow → indicates the scroll direction">سهم مضيء → بيدل على اتجاه التمرير</div>
+                <div class="svg-label" data-fbox="notice" data-ar="المستخدم بيلاحظ إن في فعل ممكن"
+                  data-en="the user notices a possible action">المستخدم بيلاحظ إن في فعل ممكن</div>
+                <div class="svg-label" data-fbox="sign" data-ar="Signifier — الإشارات اللي بتدفع للفعل"
+                  data-en="Signifier — the cues that prompt action">Signifier — الإشارات اللي بتدفع للفعل</div>
+              </div>
+              <div class="tl-steps flow-steps"></div>
+              <div class="tl-nav">
+                <button class="btn" data-id="signPrev" data-ar="→ السابق" data-en="← Previous">→ السابق</button>
+                <button class="btn" data-id="signNext" data-ar="التالي ←" data-en="Next →">التالي ←</button>
+                <span class="kbd" id="signCounter">1 / 3</span>
+                <button class="mini-btn" data-id="signReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
+              </div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i> <span data-ar="الجزء الشغال في الخطوة دي"
+                  data-en="the part active in this step">الجزء الشغال في الخطوة دي</span></span>
+              <span><i style="background:#2a3360"></i> <span data-ar="الأجزاء التانية"
+                  data-en="the other parts">الأجزاء التانية</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">اختبر نفسك — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="signQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="signRecall">
+          <div class="rq" data-id="signRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="المؤشر (Signifier) هو إيه؟"
+                data-en="What is the Signifier?">المؤشر (Signifier) هو إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="signRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! المؤشر هو الإشارات اللي بتدفع المستخدم لاتخاذ إجراء."
+                data-fb-en="Correct! The Signifier is the cues that prompt users to take action."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="الإشارات اللي بتدفع المستخدم لاتخاذ إجراء"
+                  data-en="the cues that prompt users to take action">الإشارات اللي بتدفع المستخدم لاتخاذ إجراء</span></div>
+              <div class="rq-opt" data-id="signRq1o2" data-key="B"
+                data-fb-ar="مش كده — دي الاستطاعة." data-fb-en="Not quite — that is Affordance."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="الأفعال الممكنة على الشيء"
+                  data-en="the actions possible on an object">الأفعال الممكنة على الشيء</span></div>
+              <div class="rq-opt" data-id="signRq1o3" data-key="C"
+                data-fb-ar="مش كده — ده تصميم مقصود للكل." data-fb-en="Not quite — that is design intended for everyone."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="تصميم مخلوق عشان الكل يستخدمه"
+                  data-en="design created so everyone can use it">تصميم مخلوق عشان الكل يستخدمه</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="signRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="signRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="أي مثال على المؤشر (Signifier)؟"
+                data-en="Which is an example of a Signifier?">أي مثال على المؤشر (Signifier)؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="signRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! السهم المضيء بيوصّلك إن في إجراء ممكن."
+                data-fb-en="Correct! A glowing arrow signals that an action is possible."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="سهم مضيء بيدل على اتجاه التمرير"
+                  data-en="a glowing arrow indicating the scroll direction">سهم مضيء بيدل على اتجاه التمرير</span></div>
+              <div class="rq-opt" data-id="signRq2o2" data-key="B"
+                data-fb-ar="مش كده — ده مثال على الاستطاعة." data-fb-en="Not quite — that is an example of Affordance."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="زر مرفوع شكله بيدل على إنه بيتضغط"
+                  data-en="a raised button whose shape suggests pressing">زر مرفوع شكله بيدل على إنه بيتضغط</span></div>
+              <div class="rq-opt" data-id="signRq2o3" data-key="C"
+                data-fb-ar="مش كده — ده مثال على تجربة المستخدم."
+                data-fb-en="Not quite — that is an example of the User Experience."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="الشعور بالراحة بعد إنجاز المهمة"
+                  data-en="the feeling of comfort after completing the task">الشعور بالراحة بعد إنجاز المهمة</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="signRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 PRACTICE ============ -->
+    <section id="practice">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#b45309)">07</div>
+          <div>
+            <h2 data-ar="التدريبات" data-en="Exercises">التدريبات</h2>
+            <div class="tag" style="color:var(--s2)" data-ar="كتابك: صفحة 82–84"
+              data-en="Your book: pages 82–84">كتابك: صفحة 82–84</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="demo-panel">
+          <div class="demo-label" data-ar="🎯 طريقة الحل" data-en="🎯 How to Solve">🎯 طريقة الحل</div>
+          <div class="todo-item"><span class="emoji-pulse">🖱️</span><span><b data-ar="اضغط على إجابتك"
+                data-en="click your answer">اضغط على إجابتك</b> <span data-ar="— الإجابة هتتظلل باللون الأزرق."
+                  data-en="— the answer will be highlighted in blue.">— الإجابة هتتظلل باللون الأزرق.</span></span></div>
+          <div class="todo-item"><span class="emoji-float">✔️</span><span><b data-ar="اضغط «اكشف الإجابات»"
+                data-en="click 'Reveal Answers'">اضغط «اكشف الإجابات»</b> <span
+                data-ar="— الصح هيتظلل بالأخضر والغلط بالأحمر، وهتشوف نتيجتك." data-en="— correct will turn green, wrong red, and you'll see your score.">—
+                الصح هيتظلل بالأخضر والغلط بالأحمر، وهتشوف نتيجتك.</span></span></div>
+          <div class="todo-item"><span class="emoji-pulse">🔄</span><span><b data-ar="اضغط «إعادة الحل»"
+                data-en="click 'Reset'">اضغط «إعادة الحل»</b> <span data-ar="— عشان تمسح كل اختياراتك وتحل من الأول."
+                  data-en="— to clear all your picks and start over.">— عشان تمسح كل اختياراتك وتحل من الأول.</span></span></div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ تمرين 1 — طرق تصميم المعلومات" data-en="✍️ Exercise 1: Information Design methods">✍️ تمرين 1 — طرق
+          تصميم المعلومات</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="أي مثال مناسب للتجريد (Abstraction) كطريقة من طرق تصميم المعلومات؟"
+              data-en="Which is the most appropriate example of Abstraction as a method of Information Design?">أي مثال
+              مناسب للتجريد (Abstraction) كطريقة من طرق تصميم المعلومات؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  تم عمل بكتوغرامات لكل فصل لتوجيه الناس في المدرسة"
+              data-en="A  pictograms were created for each classroom to guide people around the school">A  تم عمل
+              بكتوغرامات لكل فصل لتوجيه الناس في المدرسة</div>
+            <div class="ex-opt" data-ar="B  صفحة ويب بتنظيمها في قوائم حسب الهرمية"
+              data-en="B  a web page organized with menus for each hierarchy">B  صفحة ويب بتنظيمها في قوائم حسب
+            الهرمية</div>
+            <div class="ex-opt" data-ar="C  نتائج الاستبيان اترتبت في جداول ورسوم بيانية"
+              data-en="C  survey results were compiled into tables and graphs">C  نتائج الاستبيان اترتبت في جداول ورسوم
+            بيانية</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A" data-en="✅ Answer: A">✅ الإجابة: A</b> <span
+              data-ar="البكتوغرامات رمز مصوّر بيختصر المعلومة ببساطة — ده التجريد. والصفحة الهرمية هيكلة، والجداول تصوير بصري."
+              data-en="Pictograms are pictorial symbols that simply summarize information — that is Abstraction. The hierarchical page is Structuring, and tables are Visualization.">البكتوغرامات
+              رمز مصوّر بيختصر المعلومة ببساطة — ده التجريد. والصفحة الهرمية هيكلة، والجداول تصوير بصري.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">2</span> <span data-ar="أي مثال مناسب للتصوير البصري (Visualization)؟"
+              data-en="Which is the most appropriate example of Visualization?">أي مثال مناسب للتصوير البصري
+              (Visualization)؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  نص بيتلخّص فيه كذا موضوع في نقاط"
+              data-en="A  text summarizing multiple matters in bullet points">A  نص بيتلخّص فيه كذا موضوع في
+            نقاط</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  نتائج الاستبيان اترتبت في جداول ورسوم بيانية"
+              data-en="B  survey results were compiled into tables and graphs">B  نتائج الاستبيان اترتبت في جداول ورسوم
+            بيانية</div>
+            <div class="ex-opt" data-ar="C  صفحة ويب بتنظيمها في قوائم حسب الهرمية"
+              data-en="C  a web page organized with menus for each hierarchy">C  صفحة ويب بتنظيمها في قوائم حسب
+            الهرمية</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B" data-en="✅ Answer: B">✅ الإجابة: B</b> <span
+              data-ar="الجداول والرسوم البيانية من أمثلة التصوير البصري — تمثيل المعلومات بصرياً."
+              data-en="Tables and graphs are examples of Visualization — visually representing information.">الجداول
+              والرسوم البيانية من أمثلة التصوير البصري — تمثيل المعلومات بصرياً.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">3</span> <span data-ar="أي مصطلح بيناسب الجملة: «طريقة لاستخراج العناصر الضرورية فقط من كمية كبيرة من المعلومات»؟"
+              data-en="Which term fits: 'a method for extracting only the necessary elements from a large amount of information'?">أي
+              مصطلح بيناسب الجملة: «طريقة لاستخراج العناصر الضرورية فقط من كمية كبيرة من المعلومات»؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  الهيكلة (Structuring)" data-en="A  Structuring">A  الهيكلة <span
+                dir="ltr">(Structuring)</span></div>
+            <div class="ex-opt" data-ar="B  التصوير البصري (Visualization)" data-en="B  Visualization">B  التصوير البصري
+              <span dir="ltr">(Visualization)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C  التجريد (Abstraction)" data-en="C  Abstraction">C  التجريد
+              <span dir="ltr">(Abstraction)</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — التجريد" data-en="✅ Answer: C — Abstraction">✅ الإجابة: C —
+              التجريد</b> <span data-ar="التجريد بيتوصّل المعلومة المطلوبة ببساطة من وسط كمية كبيرة من البيانات."
+              data-en="Abstraction conveys the intended information simply from within a large amount of data.">التجريد
+              بيتوصّل المعلومة المطلوبة ببساطة من وسط كمية كبيرة من البيانات.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ تمرين 2 — UI و UX" data-en="✍️ Exercise 2: UI and UX">✍️ تمرين 2 — UI و UX</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="الكمبيوترات الحالية بتستخدم على نطاق واسع (...) اللي بتحسّب الأيقونات بالفأرة، بينما الكمبيوترات القديمة كانت بتستخدم (...) بالأوامر النصية."
+              data-en="Current computers widely use (...) which handles icons with a mouse, while early computers used (...) with text commands.">الكمبيوترات
+              الحالية بتستخدم على نطاق واسع (...) اللي بتحسّب الأيقونات بالفأرة، بينما الكمبيوترات القديمة كانت بتستخدم
+              (...) بالأوامر النصية.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1" data-ar="A  [1] GUI ، [2] CUI" data-en="A  [1] GUI, [2] CUI">A  <span
+                dir="ltr">[1] GUI</span> ، <span dir="ltr">[2] CUI</span></div>
+            <div class="ex-opt" data-ar="B  [1] CUI ، [2] GUI" data-en="B  [1] CUI, [2] GUI">B  <span
+                dir="ltr">[1] CUI</span> ، <span dir="ltr">[2] GUI</span></div>
+            <div class="ex-opt" data-ar="C  [1] UX ، [2] UI" data-en="C  [1] UX, [2] UI">C  <span
+                dir="ltr">[1] UX</span> ، <span dir="ltr">[2] UI</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A" data-en="✅ Answer: A">✅ الإجابة: A</b> <span
+              data-ar="الحالية GUI بالأيقونات والفأرة، والقديمة CUI بالأوامر النصية من الكيبورد."
+              data-en="current computers use GUI with icons and a mouse, early ones used CUI with text commands from a keyboard.">الحالية
+              GUI بالأيقونات والفأرة، والقديمة CUI بالأوامر النصية من الكيبورد.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">2</span> <span data-ar="«التجربة أو الأثر العاطفي اللي بيكسبه المستخدم من التفاعل مع منتج أو خدمة» ده تعريف إيه؟"
+              data-en="'The experience or emotional impact that users gain from interacting with a product or service' is the definition of?">«التجربة
+              أو الأثر العاطفي اللي بيكسبه المستخدم من التفاعل مع منتج أو خدمة» ده تعريف إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  واجهة المستخدم (UI)" data-en="A  User Interface (UI)">A  واجهة المستخدم
+              <span dir="ltr">(UI)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B  تجربة المستخدم (UX)" data-en="B  User Experience (UX)">B  تجربة
+              المستخدم <span dir="ltr">(UX)</span></div>
+            <div class="ex-opt" data-ar="C  الاستطاعة (Affordance)" data-en="C  Affordance">C  الاستطاعة <span
+                dir="ltr">(Affordance)</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — UX" data-en="✅ Answer: B — UX">✅ الإجابة: B — UX</b> <span
+              data-ar="UX هي التجربة والأثر العاطفي من التفاعل — مش الواجهة نفسها."
+              data-en="UX is the experience and emotional impact from interacting — not the interface itself.">UX هي
+              التجربة والأثر العاطفي من التفاعل — مش الواجهة نفسها.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">3</span> <span data-ar="نظام نقل المعلومات بين البشر والأجهزة — دي واجهة المستخدم (...)؟"
+              data-en="The system for transferring information between humans and devices — this is the (...) User Interface?">نظام
+              نقل المعلومات بين البشر والأجهزة — دي واجهة المستخدم (...)؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  UX" data-en="A  UX">A  <span dir="ltr">UX</span></div>
+            <div class="ex-opt" data-ar="B  CUI" data-en="B  CUI">B  <span dir="ltr">CUI</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C  UI" data-en="C  UI">C  <span dir="ltr">UI</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — UI" data-en="✅ Answer: C — UI">✅ الإجابة: C — UI</b> <span
+              data-ar="واجهة المستخدم UI هي نظام نقل المعلومات بين البشر والأجهزة."
+              data-en="UI is the system for transferring information between humans and devices.">واجهة المستخدم UI هي
+              نظام نقل المعلومات بين البشر والأجهزة.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ تمرين 3 — Affordance و Signifier" data-en="✍️ Exercise 3: Affordance and Signifier">✍️ تمرين 3 —
+          Affordance و Signifier</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="الأفعال أو العمليات اللي ممكن تنفّذ على شيء ما — ده تعريف إيه؟"
+              data-en="The actions or operations that can be performed on an object — what is the definition?">الأفعال
+              أو العمليات اللي ممكن تنفّذ على شيء ما — ده تعريف إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  المؤشر (Signifier)" data-en="A  Signifier">A  المؤشر <span
+                dir="ltr">(Signifier)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B  الاستطاعة (Affordance)" data-en="B  Affordance">B  الاستطاعة
+              <span dir="ltr">(Affordance)</span></div>
+            <div class="ex-opt" data-ar="C  قابلية الاستخدام (Usability)" data-en="C  Usability">C  قابلية الاستخدام
+              <span dir="ltr">(Usability)</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — Affordance" data-en="✅ Answer: B — Affordance">✅ الإجابة: B —
+              Affordance</b> <span data-ar="الاستطاعة هي الأفعال أو العمليات الممكنة على الشيء."
+              data-en="Affordance is the actions or operations possible on an object.">الاستطاعة هي الأفعال أو العمليات
+              الممكنة على الشيء.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">2</span> <span data-ar="الإشارات اللي بتدفع المستخدم لاتخاذ إجراء — ده تعريف إيه؟"
+              data-en="The cues that prompt users to take action — what is the definition?">الإشارات اللي بتدفع المستخدم
+              لاتخاذ إجراء — ده تعريف إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  الاستطاعة (Affordance)" data-en="A  Affordance">A  الاستطاعة <span
+                dir="ltr">(Affordance)</span></div>
+            <div class="ex-opt" data-ar="B  تجربة المستخدم (UX)" data-en="B  User Experience (UX)">B  تجربة المستخدم
+              <span dir="ltr">(UX)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C  المؤشر (Signifier)" data-en="C  Signifier">C  المؤشر <span
+                dir="ltr">(Signifier)</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — Signifier" data-en="✅ Answer: C — Signifier">✅ الإجابة: C —
+              Signifier</b> <span data-ar="المؤشر هو الإشارات اللي بتدفع المستخدم لاتخاذ إجراء."
+              data-en="The Signifier is the cues that prompt users to take action.">المؤشر هو الإشارات اللي بتدفع
+              المستخدم لاتخاذ إجراء.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">3</span> <span data-ar="أي مثال على المؤشر (Signifier)؟"
+              data-en="Which is an example of a Signifier?">أي مثال على المؤشر (Signifier)؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  زر مرفوع شكله بيدل على إنه بيتضغط"
+              data-en="A  a raised button whose shape suggests pressing">A  زر مرفوع شكله بيدل على إنه بيتضغط</div>
+            <div class="ex-opt" data-ok="1" data-ar="B  سهم مضيء بيدل على اتجاه التمرير"
+              data-en="B  a glowing arrow indicating the scroll direction">B  سهم مضيء بيدل على اتجاه التمرير</div>
+            <div class="ex-opt" data-ar="C  حقل نصي شكله بيدل على الكتابة فيه"
+              data-en="C  a text field whose shape suggests typing">C  حقل نصي شكله بيدل على الكتابة فيه</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B" data-en="✅ Answer: B">✅ الإجابة: B</b> <span
+              data-ar="السهم المضيء إشارة بتوصّلك إن في إجراء ممكن — أما شكل الزر والحقل فهما استطاعة."
+              data-en="a glowing arrow is a cue telling you an action is possible — while the button's and field's shapes are affordance.">السهم
+              المضيء إشارة بتوصّلك إن في إجراء ممكن — أما شكل الزر والحقل فهما استطاعة.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="✍️ تمرين 4 — تصنيف المعلومات وتصميم شامل" data-en="✍️ Exercise 4: organizing information and universal design">✍️
+          تمرين 4 — تصنيف المعلومات وتصميم شامل</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="طريقة تنظيم المعلومات وترتيبها حسب الموقع، والحروف، والزمن، والتصنيف، والهرمية اسمها إيه؟"
+              data-en="The principle that organizes information by Location, Alphabet, Time, Category, and Hierarchy is called?">طريقة
+              تنظيم المعلومات وترتيبها حسب الموقع، والحروف، والزمن، والتصنيف، والهرمية اسمها إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  طريقة RUN" data-en="A  the RUN method">A  طريقة RUN</div>
+            <div class="ex-opt" data-ar="B  طريقة CUI" data-en="B  the CUI method">B  طريقة CUI</div>
+            <div class="ex-opt" data-ok="1" data-ar="C  طريقة LATCH" data-en="C  the LATCH method">C  طريقة LATCH</div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — LATCH" data-en="✅ Answer: C — LATCH">✅ الإجابة: C — LATCH</b>
+            <span data-ar="LATCH بتختصر خمس معايير: Location (الموقع)، Alphabet (الحروف)، Time (الزمن)، Category (التصنيف)، Hierarchy (الهرمية)."
+              data-en="LATCH stands for five criteria: Location, Alphabet, Time, Category, and Hierarchy.">LATCH بتختصر
+              خمس معايير: Location (الموقع)، Alphabet (الحروف)، Time (الزمن)، Category (التصنيف)، Hierarchy
+            (الهرمية).</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">2</span> <span data-ar="«تصميم متعمد إن الكل يقدر يستخدمه من غير صعوبة — مهما كان السن أو اللغة أو الجنسية أو القدرات الجسدية» ده تعريف إيه؟"
+              data-en="'Design thoughtfully created so everyone can use it without difficulty, regardless of age, language, nationality, or physical ability' is the definition of?">«تصميم
+              متعمد إن الكل يقدر يستخدمه من غير صعوبة — مهما كان السن أو اللغة أو الجنسية أو القدرات الجسدية» ده تعريف
+              إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  قابلية الاستخدام (Usability)" data-en="A  Usability">A  قابلية الاستخدام
+              <span dir="ltr">(Usability)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B  التصميم الشامل (Universal design)" data-en="B  Universal design">B
+              التصميم الشامل <span dir="ltr">(Universal design)</span></div>
+            <div class="ex-opt" data-ar="C  سهولة الوصول (Accessibility)" data-en="C  Accessibility">C  سهولة الوصول
+              <span dir="ltr">(Accessibility)</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — Universal design" data-en="✅ Answer: B — Universal design">✅
+              الإجابة: B — Universal design</b> <span
+              data-ar="التصميم الشامل متعمد إن كل الناس تقدر تستخدمه من غير صعوبة."
+              data-en="Universal design is thoughtfully created so all people can use it without difficulty.">التصميم
+              الشامل متعمد إن كل الناس تقدر تستخدمه من غير صعوبة.</span></div>
+        </div>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">3</span> <span data-ar="مقياس بيستخدم لبيان مدى سهولة الفهم والاستخدام للمستخدمين — ده تعريف إيه؟"
+              data-en="A measure used to indicate how easy and understandable it is for users — what is the definition?">مقياس
+              بيستخدم لبيان مدى سهولة الفهم والاستخدام للمستخدمين — ده تعريف إيه؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ar="A  الاستطاعة (Affordance)" data-en="A  Affordance">A  الاستطاعة <span
+                dir="ltr">(Affordance)</span></div>
+            <div class="ex-opt" data-ar="B  المؤشر (Signifier)" data-en="B  Signifier">B  المؤشر <span
+                dir="ltr">(Signifier)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C  قابلية الاستخدام (Usability)" data-en="C  Usability">C  قابلية
+              الاستخدام <span dir="ltr">(Usability)</span></div>
+          </div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — Usability" data-en="✅ Answer: C — Usability">✅ الإجابة: C —
+              Usability</b> <span data-ar="قابلية الاستخدام مقياس لسهولة الفهم والاستخدام."
+              data-en="Usability is a measure of how easy and understandable it is.">قابلية الاستخدام مقياس لسهولة الفهم
+              والاستخدام.</span></div>
+        </div>
+        <div class="ex-btn-row">
+          <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
+          <button class="mini-btn" data-hide data-ar="↺ إعادة الحل" data-en="↺ Reset">↺ إعادة الحل</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 08 RECAP ============ -->
+    <section id="recap">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">08</div>
+          <div>
+            <h2 data-ar="الخلاصة" data-en="Recap">الخلاصة</h2>
+            <div class="tag" style="color:var(--s4)" data-ar="رحلة سريعة في كل اللي خدناه النهارده"
+              data-en="a quick journey through everything we learned today">رحلة سريعة في كل اللي خدناه النهارده</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner">
+        <div class="diagram-wrap">
+          <span class="topbar"></span>
+          <div class="inner">
+            <div class="journey">
+              <div class="journey-item">
+                <span class="jn-num">01</span>
+                <div>
+                  <h4 data-ar="تصميم المعلومات" data-en="Information Design">تصميم المعلومات</h4>
+                  <p data-ar="تنظيم المعلومات والتعبير عنها بشكل إبداعي حسب هدفها — بطرق التجريد والتصوير البصري والهيكلة."
+                    data-en="organizing and creatively expressing information according to its purpose — via Abstraction, Visualization, and Structuring.">تنظيم
+                    المعلومات والتعبير عنها بشكل إبداعي حسب هدفها — بطرق التجريد والتصوير البصري والهيكلة.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">02</span>
+                <div>
+                  <h4 data-ar="واجهة المستخدم UI" data-en="The User Interface UI">واجهة المستخدم UI</h4>
+                  <p data-ar="نظام نقل المعلومات بين البشر والأجهزة — بنوعين: CUI النصية وGUI الرسومية."
+                    data-en="a system for transferring information between humans and devices — with two types: text CUI and graphical GUI.">نظام
+                    نقل المعلومات بين البشر والأجهزة — بنوعين: CUI النصية وGUI الرسومية.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">03</span>
+                <div>
+                  <h4 data-ar="تجربة المستخدم UX" data-en="The User Experience UX">تجربة المستخدم UX</h4>
+                  <p data-ar="التجربة والأثر العاطفي من التفاعل — الهدف مش بس السهولة لكن كمان الراحة."
+                    data-en="the experience and emotional impact from interacting — the aim is not only ease but also comfort.">التجربة
+                    والأثر العاطفي من التفاعل — الهدف مش بس السهولة لكن كمان الراحة.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">04</span>
+                <div>
+                  <h4 data-ar="Affordance و Signifier" data-en="Affordance and Signifier">Affordance و Signifier</h4>
+                  <p data-ar="الاستطاعة هي الأفعال الممكنة على الشيء، والمؤشر هو الإشارات اللي بتدفع المستخدم للفعل."
+                    data-en="Affordance is the possible actions on an object, and the Signifier is the cues that prompt the user to act.">الاستطاعة
+                    هي الأفعال الممكنة على الشيء، والمؤشر هو الإشارات اللي بتدفع المستخدم للفعل.</p>
+                </div>
+              </div>
+              <div class="journey-item">
+                <span class="jn-num">05</span>
+                <div>
+                  <h4 data-ar="الاستخدام والوصول" data-en="Usability and Accessibility">الاستخدام والوصول</h4>
+                  <p data-ar="قابلية الاستخدام مقياس للسهولة، وسهولة الوصول للكل، والتصميم الشامل متعمد إن كل الناس تستخدمه من غير صعوبة."
+                    data-en="Usability is a measure of ease, Accessibility is ease of access for everyone, and Universal design is intentionally created for all people without difficulty.">قابلية
+                    الاستخدام مقياس للسهولة، وسهولة الوصول للكل، والتصميم الشامل متعمد إن كل الناس تستخدمه من غير صعوبة.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-inner card">
+        <h3 data-ar="اختبر نفسك في الآخر — استرجاع سريع" data-en="Test yourself at the end — a quick recap">اختبر نفسك في
+          الآخر — استرجاع سريع</h3>
+        <p style="font-size:.9rem"
+          data-ar="الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال."
+          data-en="The quiz is hidden at first — open it when you're ready, click your answer to see the result and explanation, or skip the question.">
+          الاختبار مخفي في البداية — افتحه لما تكون جاهز، اضغط على إجابتك وشوف النتيجة والتفسير، أو تخطَّ السؤال.</p>
+        <button class="btn" data-id="recapQuizStart" data-start data-ar="💡 ابدأ الاختبار"
+          data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="recapRecall">
+          <div class="rq" data-id="recapRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="أي طريقة بنعبّر فيها عن المعلومات بصرياً زي الجداول والرسوم؟"
+                data-en="Which method expresses information visually like tables and graphs?">أي طريقة بنعبّر فيها عن
+                المعلومات بصرياً زي الجداول والرسوم؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq1o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! التصوير البصري بيمثّل المعلومات بصرياً."
+                data-fb-en="Correct! Visualization represents information visually."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="التصوير البصري (Visualization)"
+                  data-en="Visualization">التصوير البصري (Visualization)</span></div>
+              <div class="rq-opt" data-id="recapRq1o2" data-key="B"
+                data-fb-ar="مش كده — التجريد بيستخرج المهم ببساطة." data-fb-en="Not quite — Abstraction extracts what matters simply."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="التجريد (Abstraction)"
+                  data-en="Abstraction">التجريد (Abstraction)</span></div>
+              <div class="rq-opt" data-id="recapRq1o3" data-key="C"
+                data-fb-ar="مش كده — الهيكلة بترتّب حسب العلاقات." data-fb-en="Not quite — Structuring arranges by relationships."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="الهيكلة (Structuring)"
+                  data-en="Structuring">الهيكلة (Structuring)</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="recapRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="أي واجهة بتستخدم الأيقونات والأزرار بشكل بديهي؟"
+                data-en="Which interface uses icons and buttons intuitively?">أي واجهة بتستخدم الأيقونات والأزرار بشكل
+                بديهي؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq2o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! GUI بتسمح بالأوامر البديهية بالأيقونات والأزرار."
+                data-fb-en="Correct! GUI allows intuitive commands with icons and buttons."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="الواجهة الرسومية GUI"
+                  data-en="the Graphical User Interface GUI">الواجهة الرسومية GUI</span></div>
+              <div class="rq-opt" data-id="recapRq2o2" data-key="B"
+                data-fb-ar="مش كده — CUI بالنصوص من الكيبورد." data-fb-en="Not quite — CUI is text from a keyboard."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="الواجهة النصية CUI"
+                  data-en="the text interface CUI">الواجهة النصية CUI</span></div>
+              <div class="rq-opt" data-id="recapRq2o3" data-key="C"
+                data-fb-ar="مش كده — دي التجربة مش الواجهة." data-fb-en="Not quite — that is the experience, not the interface."><span
+                  class="rq-key">C</span><span class="rq-body" data-ar="تجربة المستخدم UX"
+                  data-en="the User Experience UX">تجربة المستخدم UX</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+          <div class="rq" data-id="recapRq3">
+            <div class="rq-q"><span class="q-num">3</span> <span data-ar="شكل الزر المرفوع بيدل على إنه قابل للضغط — ده مثال على إيه؟"
+                data-en="A raised button's shape suggesting it can be pressed — this is an example of?">شكل الزر المرفوع
+                بيدل على إنه قابل للضغط — ده مثال على إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq3o1" data-key="A" data-ok="1"
+                data-fb-ar="صحيح! شكل الزر بيوحي بالفعل الممكن — دي استطاعة."
+                data-fb-en="Correct! The button's shape hints at the possible action — that is affordance."><span
+                  class="rq-key">A</span><span class="rq-body" data-ar="الاستطاعة (Affordance)"
+                  data-en="Affordance">الاستطاعة (Affordance)</span></div>
+              <div class="rq-opt" data-id="recapRq3o2" data-key="B"
+                data-fb-ar="مش كده — المؤشر هو الإشارة اللي بتدفع للفعل." data-fb-en="Not quite — the Signifier is the cue that prompts action."><span
+                  class="rq-key">B</span><span class="rq-body" data-ar="المؤشر (Signifier)"
+                  data-en="the Signifier">المؤشر (Signifier)</span></div>
+              <div class="rq-opt" data-id="recapRq3o3" data-key="C"
+                data-fb-ar="مش كده — دي مقياس سهولة الاستخدام."
+                data-fb-en="Not quite — that is a measure of ease of use."><span class="rq-key">C</span><span
+                  class="rq-body" data-ar="قابلية الاستخدام (Usability)" data-en="Usability">قابلية الاستخدام
+                  (Usability)</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq3Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <button id="scrollTop" data-ar="↑" data-en="↑">↑</button>
+  </main>
+  <footer>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
+      <img class="footer-logo" src="data:image/webp;base64,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" alt="logo">
+      <span style="font-size:1rem;font-weight:800;color:var(--text);line-height:1.4"
+        data-ar="كويس جداً! دلوقتي بقيت تعرف تصميم المعلومات وطرقه، وواجهة المستخدم UI بتوعيها، وتجربة المستخدم UX، والاستطاعة والمؤشر 🎨"
+        data-en="Great! Now you know Information Design and its methods, the User Interface UI types, the User Experience UX, and Affordance and Signifier 🎨">كويس
+        جداً! دلوقتي بقيت تعرف تصميم المعلومات وطرقه، وواجهة المستخدم UI بتوعيها، وتجربة المستخدم UX، والاستطاعة والمؤشر 🎨</span>
+    </div>
+    <div class="footer-tag"
+      data-ar="درس 6-10 — Information Design — صفحة 81–84 · طرق تصميم المعلومات Abstraction وVisualization وStructuring، وواجهة المستخدم UI وCUI وGUI، وتجربة المستخدم UX، والاستطاعة Affordance والمؤشر Signifier"
+      data-en="Lesson 6-10 — Information Design — pages 81–84 · the Information Design methods Abstraction, Visualization and Structuring, the User Interface UI, CUI and GUI, the User Experience UX, Affordance and Signifier">
+      درس 6-10 — Information Design — صفحة 81–84 · طرق تصميم المعلومات Abstraction وVisualization وStructuring، وواجهة
+      المستخدم UI وCUI وGUI، وتجربة المستخدم UX، والاستطاعة Affordance والمؤشر Signifier</div>
+  </footer>
+  <script>
+    'use strict';
+    var lang = localStorage.getItem('langPreference') || 'ar';
+    var currentLang = lang;
+
+    function L() {
+      return currentLang;
+    }
+
+    function tr(ar, en) {
+      return currentLang === 'en' ? en : ar;
+    }
+
+    function byId(id) {
+      return document.querySelector('[data-id="' + id + '"]') || document.getElementById(id);
+    }
+
+    /* ---------- particles ---------- */
+    (function () {
+      var box = document.getElementById('particles');
+      if (!box) return;
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < 28; i++) {
+        var s = document.createElement('i');
+        s.style.left = (Math.random() * 100) + 'vw';
+        s.style.animationDuration = (14 + Math.random() * 14) + 's';
+        s.style.animationDelay = (Math.random() * 12) + 's';
+        s.style.width = s.style.height = (2 + Math.random() * 4) + 'px';
+        if (Math.random() > .65) s.style.background = 'var(--accent)';
+        frag.appendChild(s);
+      }
+      box.appendChild(frag);
+    })();
+
+    /* ---------- nav ---------- */
+    var nav = document.getElementById('topnav');
+    var scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 60) nav.classList.add('show');
+      else nav.classList.remove('show');
+      if (window.scrollY > 500) scrollBtn.classList.add('show');
+      else scrollBtn.classList.remove('show');
+    }, { passive: true });
+    if (scrollBtn) scrollBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function wireNav() {
+      var links = Array.prototype.slice.call(document.querySelectorAll('#navLinks a'));
+      var secs = ['intro', 'info', 'ui', 'ux', 'afford', 'sign', 'practice', 'recap'];
+      if (!('IntersectionObserver' in window)) return;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            var id = en.target.id;
+            links.forEach(function (a) {
+              a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      secs.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) io.observe(el);
+      });
+    }
+
+    /* ---------- reveal on scroll ---------- */
+    function wireReveal() {
+      var els = document.querySelectorAll('.section-inner');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('visible'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+        });
+      }, { threshold: .08 });
+      els.forEach(function (e) { io.observe(e); });
+    }
+
+    /* ---------- keyboard navigation ---------- */
+    var SECTIONS = ['intro', 'info', 'ui', 'ux', 'afford', 'sign', 'practice', 'recap'];
+    window.addEventListener('keydown', function (e) {
+      if (e.target.matches('input,textarea')) return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      var cur = -1;
+      for (var i = 0; i < SECTIONS.length; i++) {
+        var el = document.getElementById(SECTIONS[i]);
+        if (el && el.getBoundingClientRect().top <= window.innerHeight * .5) cur = i;
+      }
+      var n = cur + (e.key === 'ArrowLeft' ? -1 : 1);
+      if (n >= 0 && n < SECTIONS.length) {
+        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    /* ================= FLOW ENGINE (sender→receiver diagrams) ================= */
+var FLOWS = {
+      info: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'abs', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'viz', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'str', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
+        wires: [
+          { from: 'a', to: 'b', k: 'w1' },
+          { from: 'c', to: 'd', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. التجريد (Abstraction)', enT: '1. Abstraction', arD: 'بنستخرج المهم بس من كمية كبيرة من البيانات، وبنعبّر عنه برموز زي البكتوغرام والأيقونة.', enD: 'We extract only what matters from a large amount of data, and express it with symbols like Pictograms and Icons.', icon: '🎯', boxes: ['abs'], nodes: ['a'], wires: [] },
+          { arT: '2. التصوير البصري (Visualization)', enT: '2. Visualization', arD: 'بنمثّل المعلومات بصرياً — زي الجداول والرسوم البيانية — عشان تبقى أسهل في الفهم.', enD: 'We represent the information visually — like tables and graphs — so it becomes easier to understand.', icon: '📊', boxes: ['viz'], nodes: ['b'], wires: ['w1'] },
+          { arT: '3. الهيكلة (Structuring)', enT: '3. Structuring', arD: 'بنرتّب المعلومات في مجموعات ومستويات — زي القوائم الهرمية وخريطة أدوار المتجر.', enD: 'We arrange the information into groups and levels — like hierarchical menus and department store floor maps.', icon: '🧱', boxes: ['str'], nodes: ['d'], wires: ['w2'] }
+        ]
+      },
+      ui: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'transfer', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'cui', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'gui', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { e: { x: 240, y: 200 }, f: { x: 360, y: 200 }, g: { x: 540, y: 200 }, h: { x: 660, y: 200 } },
+        wires: [
+          { from: 'e', to: 'f', k: 'w1' },
+          { from: 'g', to: 'h', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. الواجهة (UI)', enT: '1. The Interface (UI)', arD: 'واجهة المستخدم هي نظام نقل المعلومات بين البشر والأجهزة.', enD: 'The User Interface is the system for transferring information between humans and devices.', icon: '🖥️', boxes: ['transfer'], nodes: ['e'], wires: [] },
+          { arT: '2. الواجهة النصية (CUI)', enT: '2. The Character Interface (CUI)', arD: 'بتشتغل بإدخال أوامر من الكيبورد — زي الكمبيوترات القديمة.', enD: 'It is operated by entering commands via a keyboard — like early computers.', icon: '⌨️', boxes: ['cui'], nodes: ['f'], wires: ['w1'] },
+          { arT: '3. الواجهة الرسومية (GUI)', enT: '3. The Graphical Interface (GUI)', arD: 'بتستخدم الأيقونات والأزرار بشكل بديهي بالفأرة — زي الكمبيوترات الحالية.', enD: 'It uses icons and buttons intuitively with a mouse — like current computers.', icon: '🖱️', boxes: ['gui'], nodes: ['h'], wires: ['w2'] }
+        ]
+      },
+      ux: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'exp', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'usab', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'comf', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { i: { x: 240, y: 200 }, j: { x: 360, y: 200 }, k: { x: 540, y: 200 }, l: { x: 660, y: 200 } },
+        wires: [
+          { from: 'i', to: 'j', k: 'w1' },
+          { from: 'k', to: 'l', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. التجربة (UX)', enT: '1. The Experience (UX)', arD: 'تجربة المستخدم هي التجربة أو الأثر العاطفي اللي بيكسبه المستخدم من التفاعل مع منتج أو خدمة.', enD: 'UX is the experience or emotional impact users gain from interacting with a product or service.', icon: '🎮', boxes: ['exp'], nodes: ['i'], wires: [] },
+          { arT: '2. مش بس سهولة الاستخدام', enT: '2. Not Only Ease of Use', arD: 'الهدف مش مجرد إن المهمة تنجز — لكن إن المستخدم يحس بالراحة وهو بيعملها.', enD: 'The aim is not only completing the task — but the user feeling comfortable while doing it.', icon: '🧩', boxes: ['usab'], nodes: ['j'], wires: ['w1'] },
+          { arT: '3. كمان الراحة والرضا', enT: '3. Also Comfort and Satisfaction', arD: 'بنوصل للراحة بتبسيط الواجهة، واختيار ألوان مناسبة، وإضافة معلومات نصية مساعدة.', enD: 'We reach comfort by simplifying the interface, choosing suitable colors, and adding helpful textual information.', icon: '😌', boxes: ['comf'], nodes: ['l'], wires: ['w2'] }
+        ]
+      },
+      afford: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'btn', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'handle', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'act', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { m: { x: 240, y: 200 }, n: { x: 360, y: 200 }, o: { x: 540, y: 200 }, p: { x: 660, y: 200 } },
+        wires: [
+          { from: 'm', to: 'n', k: 'w1' },
+          { from: 'o', to: 'p', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. زر مرفوع (a raised button)', enT: '1. A Raised Button', arD: 'شكل الزر المرفوع بيلوّح إنه قابل للضغط — من غير ما حد يقولك.', enD: 'The raised button\'s shape suggests it can be pressed — without anyone telling you.', icon: '🔘', boxes: ['btn'], nodes: ['m'], wires: [] },
+          { arT: '2. مقبض (a handle)', enT: '2. A Handle', arD: 'شكل المقبض بيلوّح بالسحب أو الدفع — بيوحي بالفعل الممكن.', enD: 'The handle\'s shape suggests pulling or pushing — it hints at the possible action.', icon: '🚪', boxes: ['handle'], nodes: ['n'], wires: ['w1'] },
+          { arT: '3. الاستطاعة (Affordance)', enT: '3. Affordance', arD: 'دي الأفعال أو العمليات الممكنة على الشيء — شكل الشيء بيدل على استخدامه.', enD: 'These are the actions or operations possible on an object — its shape hints at its use.', icon: '💡', boxes: ['act'], nodes: ['p'], wires: ['w2'] }
+        ]
+      },
+      sign: {
+        vb: '0 0 900 400',
+        boxes: [
+          { k: 'cue', x: 60, y: 140, w: 180, h: 120 },
+          { k: 'notice', x: 360, y: 140, w: 180, h: 120 },
+          { k: 'sign', x: 660, y: 140, w: 180, h: 120 }
+        ],
+        nodes: { q: { x: 240, y: 200 }, r: { x: 360, y: 200 }, s: { x: 540, y: 200 }, t: { x: 660, y: 200 } },
+        wires: [
+          { from: 'q', to: 'r', k: 'w1' },
+          { from: 's', to: 't', k: 'w2' }
+        ],
+        steps: [
+          { arT: '1. الإشارة (a cue)', enT: '1. A Cue', arD: 'سهم مضيء أو لون مميز بيلفت نظرك لإن في إجراء ممكن.', enD: 'A glowing arrow or a distinctive color draws your attention to a possible action.', icon: '🧭', boxes: ['cue'], nodes: ['q'], wires: [] },
+          { arT: '2. المستخدم بيلاحظ (the user notices)', enT: '2. The User Notices', arD: 'الإشارة بتخلي المستخدم يلاحظ إن في فعل ممكن قبل ما يعمله.', enD: 'The cue makes the user notice a possible action before doing it.', icon: '👀', boxes: ['notice'], nodes: ['r'], wires: ['w1'] },
+          { arT: '3. المؤشر (Signifier)', enT: '3. The Signifier', arD: 'دي الإشارات اللي بتدفع المستخدم لاتخاذ إجراء.', enD: 'These are the cues that prompt users to take action.', icon: '🪧', boxes: ['sign'], nodes: ['t'], wires: ['w2'] }
+        ]
+      }
+    };
+
+    var FLOW_STATE = {};
+    document.querySelectorAll('.flow-card').forEach(function () {});
+
+    function boxCenter(cfg, k) {
+      for (var i = 0; i < cfg.boxes.length; i++) {
+        if (cfg.boxes[i].k === k) {
+          var b = cfg.boxes[i];
+          return { x: b.x + b.w / 2, y: b.y + b.h / 2 };
+        }
+      }
+      return { x: 450, y: 200 };
+    }
+
+    function buildFlow(id) {
+      var cfg = FLOWS[id];
+      if (!cfg) return;
+      var card = document.querySelector('.flow-card[data-id="' + id + '"]');
+      if (!card) return;
+      var svg = card.querySelector('.svg-main');
+      var ns = 'http://www.w3.org/2000/svg';
+      function mk(tag, attrs) {
+        var e = document.createElementNS(ns, tag);
+        for (var k in attrs) e.setAttribute(k, attrs[k]);
+        return e;
+      }
+      svg.innerHTML = '';
+      var gWires = mk('g', {}), gArrows = mk('g', {}), gBoxes = mk('g', {}), gPorts = mk('g', {});
+      cfg.wires.forEach(function (w) {
+        var a = cfg.nodes[w.from], b = cfg.nodes[w.to];
+        gWires.appendChild(mk('line', { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
+        var ang = Math.atan2(b.y - a.y, b.x - a.x);
+        function arrow(tip) {
+          var bx = tip.x - 12 * Math.cos(ang), by = tip.y - 12 * Math.sin(ang);
+          return mk('polygon', {
+            points: [tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
+            class: 'wire-arrow', 'data-w': w.k
+          });
+        }
+        gArrows.appendChild(arrow(b));
+        if (w.both) gArrows.appendChild(arrow(a));
+      });
+      cfg.boxes.forEach(function (b) {
+        gBoxes.appendChild(mk('rect', { x: b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
+      });
+      Object.keys(cfg.nodes).forEach(function (k) {
+        gPorts.appendChild(mk('circle', { cx: cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
+      });
+      svg.appendChild(gWires);
+      svg.appendChild(gArrows);
+      svg.appendChild(gBoxes);
+      svg.appendChild(gPorts);
+
+      card.querySelectorAll('.svg-label[data-fbox]').forEach(function (lab) {
+        var k = lab.getAttribute('data-fbox');
+        var c = boxCenter(cfg, k);
+        lab.style.left = (c.x / 900 * 100) + '%';
+        lab.style.top = (c.y / 400 * 100) + '%';
+      });
+
+      var stepsBox = card.querySelector('.flow-steps');
+      stepsBox.innerHTML = '';
+      cfg.steps.forEach(function (st, i) {
+        var s = document.createElement('div');
+        s.className = 'tl-step';
+        s.innerHTML =
+          '<div class="tl-icon emoji-pulse">' + st.icon + '</div>' +
+          '<div class="tl-year-badge">' + (i + 1) + ' / ' + cfg.steps.length + '</div>' +
+          '<div class="tl-title">' + st[L() + 'T'] + '</div>' +
+          '<div class="tl-desc">' + st[L() + 'D'] + '</div>';
+        stepsBox.appendChild(s);
+      });
+      FLOW_STATE[id] = FLOW_STATE[id] || { cur: 0 };
+      showFlowStep(id, FLOW_STATE[id].cur);
+    }
+
+    function showFlowStep(id, idx) {
+      var cfg = FLOWS[id];
+      var card = document.querySelector('.flow-card[data-id="' + id + '"]');
+      if (!cfg || !card) return;
+      var n = cfg.steps.length;
+      if (idx < 0) idx = n - 1;
+      if (idx >= n) idx = 0;
+      FLOW_STATE[id].cur = idx;
+      var st = cfg.steps[idx];
+      card.querySelectorAll('.flow-step-active').forEach(function () { });
+      card.querySelectorAll('.tl-step').forEach(function (s, i) { s.classList.toggle('active', i === idx); });
+      card.querySelectorAll('.flow-box').forEach(function (b) {
+        b.classList.toggle('on', st.boxes.indexOf(b.getAttribute('data-b')) > -1);
+      });
+      card.querySelectorAll('.flow-port').forEach(function (p) {
+        p.classList.toggle('on', st.nodes.indexOf(p.getAttribute('data-p')) > -1);
+      });
+      card.querySelectorAll('.flow-wire').forEach(function (w) {
+        w.classList.toggle('on', st.wires.indexOf(w.getAttribute('data-w')) > -1);
+      });
+      card.querySelectorAll('.wire-arrow').forEach(function (a) {
+        a.classList.toggle('on', st.wires.indexOf(a.getAttribute('data-w')) > -1);
+      });
+      var counter = document.getElementById(id + 'Counter');
+      if (counter) counter.textContent = (idx + 1) + ' / ' + n;
+    }
+
+    function wireFlows() {
+      Object.keys(FLOWS).forEach(function (id) {
+        var prev = byId(id + 'Prev');
+        var next = byId(id + 'Next');
+        var replay = byId(id + 'Replay');
+        if (prev) prev.addEventListener('click', function () { showFlowStep(id, FLOW_STATE[id].cur - 1); });
+        if (next) next.addEventListener('click', function () { showFlowStep(id, FLOW_STATE[id].cur + 1); });
+        if (replay) replay.addEventListener('click', function () { showFlowStep(id, 0); });
+        buildFlow(id);
+      });
+    }
+
+    /* ---------- exercises (self-work then reveal) ---------- */
+    function normalizeExLabels() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.ex-key')) return;
+        var txt = o.textContent.replace(/\u00a0/g, ' ').trim();
+        var m = /^([A-E])\s+([\s\S]*)$/.exec(txt);
+        if (!m) return;
+        o.textContent = '';
+        var k = document.createElement('span');
+        k.className = 'ex-key';
+        k.textContent = m[1];
+        var b = document.createElement('span');
+        b.className = 'ex-body';
+        b.textContent = m[2];
+        o.appendChild(k);
+        o.appendChild(b);
+      });
+    }
+
+    function wireRevealBtns() {
+      normalizeExLabels();
+      document.querySelectorAll('.ex-opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          var item = opt.closest('.ex-item');
+          if (!item) return;
+          if (item.hasAttribute('data-multi')) {
+            opt.classList.toggle('picked');
+            return;
+          }
+          item.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked'); });
+          opt.classList.add('picked');
+        });
+      });
+      document.querySelectorAll('[data-reveal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card');
+          if (!card) return;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            item.querySelectorAll('.ex-opt').forEach(function (o) {
+              o.classList.remove('correct', 'wrong');
+              if (o.getAttribute('data-ok')) o.classList.add('correct');
+              else o.classList.add('wrong');
+            });
+          });
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.add('show'); });
+          var scored = 0, right = 0;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            var okOpts = item.querySelectorAll('.ex-opt[data-ok]');
+            if (!okOpts.length) return;
+            if (item.hasAttribute('data-multi')) {
+              scored += okOpts.length;
+              okOpts.forEach(function (o) {
+                if (o.classList.contains('picked')) right++;
+              });
+              return;
+            }
+            scored++;
+            var picked = item.querySelector('.ex-opt.picked');
+            if (picked && okOpts[0] && picked === okOpts[0]) right++;
+          });
+          var s = card.querySelector('.ex-score');
+          if (!s) {
+            s = document.createElement('div');
+            s.className = 'ex-score';
+            card.appendChild(s);
+          }
+          var rawAr = '✅ إجاباتك الصحيحة: ' + right + ' من ' + scored;
+          var rawEn = '✅ Your correct answers: ' + right + ' of ' + scored;
+          s.dataset.rawAr = rawAr;
+          s.dataset.rawEn = rawEn;
+          s.textContent = tr(rawAr, rawEn);
+        });
+      });
+      document.querySelectorAll('[data-hide]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card');
+          if (!card) return;
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.remove('show'); });
+          card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('correct', 'wrong', 'picked'); });
+          var s = card.querySelector('.ex-score');
+          if (s) s.remove();
+        });
+      });
+    }
+
+    /* ---------- recall quiz ---------- */
+    function rqFb(el) {
+      return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
+    }
+
+    function recallStart(quiz) {
+      var s = quiz.querySelector('[data-start]');
+      if (!s) {
+        var p = quiz.previousElementSibling;
+        if (p && p.hasAttribute('data-start')) s = p;
+      }
+      return s;
+    }
+
+    function wireRecall() {
+      document.querySelectorAll('.recall').forEach(function (quiz) {
+        var start = recallStart(quiz);
+        function paintQuizBtn() {
+          if (!start) return;
+          start.textContent = quiz.classList.contains('show')
+            ? tr('إخفاء الاختبار', 'Hide the quiz')
+            : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+        }
+        if (start) start.addEventListener('click', function () {
+          quiz.classList.toggle('show');
+          paintQuizBtn();
+        });
+        quiz.querySelectorAll('.rq').forEach(function (q) {
+          var opts = q.querySelectorAll('.rq-opt');
+          var skip = q.querySelector('.rq-skip');
+          var fb = q.querySelector('.rq-fb');
+          function lock(qq) {
+            qq.classList.add('done');
+            opts.forEach(function (o) { o.classList.add('disabled'); });
+            if (skip) skip.style.display = 'none';
+          }
+          function showFb(ok, text, correctKey) {
+            fb.classList.add('show');
+            fb.classList.toggle('ok', ok);
+            fb.classList.toggle('no', !ok);
+            fb.textContent = (ok ? '✅ ' : '❌ ') +
+              (correctKey ? (L() === 'en' ? 'The correct answer is ' + correctKey + '. ' : 'الإجابة الصحيحة ' + correctKey + '. ') : '') + text;
+          }
+          opts.forEach(function (o) {
+            o.addEventListener('click', function () {
+              if (q.classList.contains('done')) return;
+              var ok = o.getAttribute('data-ok') === '1';
+              opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+              if (ok) o.classList.add('correct');
+              else {
+                o.classList.add('wrong');
+                var co = q.querySelector('.rq-opt[data-ok="1"]');
+                if (co) co.classList.add('correct');
+              }
+              lock(q);
+              showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+            });
+          });
+          if (skip) skip.addEventListener('click', function () {
+            if (q.classList.contains('done')) return;
+            var co = q.querySelector('.rq-opt[data-ok="1"]');
+            opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+            if (co) co.classList.add('correct');
+            lock(q);
+            showFb(true, rqFb(co), co.getAttribute('data-key'));
+          });
+        });
+      });
+    }
+
+    /* ---------- language toggle ---------- */
+    function setLang(l) {
+      currentLang = l;
+      document.documentElement.setAttribute('lang', l);
+      document.documentElement.setAttribute('dir', l === 'en' ? 'ltr' : 'rtl');
+      var btn = document.getElementById('langToggle');
+      if (btn) btn.textContent = l === 'en' ? 'ع' : 'EN';
+      document.querySelectorAll('[data-ar][data-en]').forEach(function (el) {
+        if (el.hasAttribute('data-lang-keep')) return;
+        var val = (l === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-ar');
+        if (val !== null && val !== undefined) el.innerHTML = val;
+      });
+      Object.keys(FLOWS).forEach(function (id) { buildFlow(id); });
+      normalizeExLabels();
+      repaintScores();
+      repaintQuizBtns();
+      localStorage.setItem('langPreference', l);
+    }
+
+    function repaintScores() {
+      document.querySelectorAll('.ex-score').forEach(function (s) {
+        if (s.dataset.raw) s.textContent = tr(s.dataset.rawAr, s.dataset.rawEn);
+      });
+    }
+
+    function repaintQuizBtns() {
+      document.querySelectorAll('.recall').forEach(function (quiz) {
+        var start = recallStart(quiz);
+        if (!start) return;
+        start.textContent = quiz.classList.contains('show')
+          ? tr('إخفاء الاختبار', 'Hide the quiz')
+          : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+      });
+    }
+
+    /* ---------- boot ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      setLang(currentLang);
+      wireNav();
+      wireReveal();
+      wireFlows();
+      wireRevealBtns();
+      wireRecall();
+      byId('langToggle').addEventListener('click', function () {
+        setLang(currentLang === 'ar' ? 'en' : 'ar');
+      });
+    });
+
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
+  </script>
+</body>
+
+</html>
