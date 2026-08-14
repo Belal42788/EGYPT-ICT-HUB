@@ -1111,6 +1111,23 @@
       margin-bottom: 10px
     }
 
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
     .ex-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1118,7 +1135,24 @@
     }
 
     @media(max-width:640px) {
-      .ex-options {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
         grid-template-columns: 1fr
       }
     }
@@ -1408,6 +1442,83 @@
         transform: scale(1.12)
       }
     }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
+    }
   </style>
 </head>
 
@@ -1429,7 +1540,8 @@
         <a href="#sequence" data-ar="البنية التسلسلية" data-en="Sequential Structure">البنية التسلسلية</a>
         <a href="#practice" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#recap" data-ar="الخلاصة" data-en="Recap">الخلاصة</a>
-      </div>
+              <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+</div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -2405,6 +2517,81 @@ print(a ** b)</textarea>
           شيء: كلهم بيتنفذوا بالتسلسل — سطر ورا سطر.</p>
       </div>
     </section>
+  
+    <!-- ============ GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">08</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="python" data-ar="بايثون" data-en="Python">بايثون</button>
+          <button class="mini-btn gl-filter" data-filter="variables" data-ar="متغيرات" data-en="Variables">متغيرات</button>
+          <button class="mini-btn gl-filter" data-filter="operators" data-ar="معاملات" data-en="Operators">معاملات</button>
+          <button class="mini-btn gl-filter" data-filter="errors" data-ar="أخطاء" data-en="Errors">أخطاء</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="python">
+            <h4 data-ar="print statement — الأمر print" data-en="print statement">print statement — الأمر print</h4>
+            <p data-ar="أمر في بايثون بيخلي الكمبيوتر يعرض النصوص أو الأرقام على الشاشة — مش طباعة على ورق!" data-en="A Python command that displays text or numbers on the screen.">أمر في بايثون بيخلي الكمبيوتر يعرض النصوص أو الأرقام على الشاشة — مش طباعة على ورق!</p>
+          </div>
+          <div class="gl-term" data-cat="python">
+            <h4 data-ar="Character string — النص (سلسلة الأحرف)" data-en="Character string">Character string — النص (سلسلة الأحرف)</h4>
+            <p data-ar="الكلام اللي بينكتب بين علامتي تنصيص زي 'Hello'، وبايثون بتعامل معاه كنص مش كرقم." data-en="Text written between quotation marks, like 'Hello', which Python treats as words, not numbers.">الكلام اللي بينكتب بين علامتي تنصيص زي 'Hello'، وبايثون بتعامل معاه كنص مش كرقم.</p>
+          </div>
+          <div class="gl-term" data-cat="variables">
+            <h4 data-ar="Variable — المتغير" data-en="Variable">Variable — المتغير</h4>
+            <p data-ar="صندوق في ذاكرة الكمبيوتر بندي له اسم وبنحط جواه قيمة، وبعدين نستخدمها في أي وقت." data-en="A named box in the computer's memory where you store a value to use later.">صندوق في ذاكرة الكمبيوتر بندي له اسم وبنحط جواه قيمة، وبعدين نستخدمها في أي وقت.</p>
+          </div>
+          <div class="gl-term" data-cat="variables">
+            <h4 data-ar="Assignment operator (=) — معامل الإسناد (=)" data-en="Assignment operator (=)">Assignment operator (=) — معامل الإسناد (=)</h4>
+            <p data-ar="علامة = اللي معناها «حط القيمة اللي على اليمين في المتغير اللي على الشمال» — مش معناها يساوي." data-en="The = sign, which puts the value on the right into the variable on the left — it does not mean 'equals'.">علامة = اللي معناها «حط القيمة اللي على اليمين في المتغير اللي على الشمال» — مش معناها يساوي.</p>
+          </div>
+          <div class="gl-term" data-cat="operators">
+            <h4 data-ar="Arithmetic operators — المعاملات الحسابية" data-en="Arithmetic operators">Arithmetic operators — المعاملات الحسابية</h4>
+            <p data-ar="الرموز زي + و - و * و / و // و % و ** اللي بنستخدمها في بايثون عشان نحسب." data-en="The symbols +, -, *, /, //, %, ** used in Python to do math calculations.">الرموز زي + و - و * و / و // و % و ** اللي بنستخدمها في بايثون عشان نحسب.</p>
+          </div>
+          <div class="gl-term" data-cat="operators">
+            <h4 data-ar="Division (/) — القسمة" data-en="Division (/)">Division (/) — القسمة</h4>
+            <p data-ar="قسمة في بايثون ناتجها بيبقى عشري، زي 5 / 3 = 1.666." data-en="A division operation in Python that gives a decimal result, like 5 / 3 = 1.666...">قسمة في بايثون ناتجها بيبقى عشري، زي 5 / 3 = 1.666.</p>
+          </div>
+          <div class="gl-term" data-cat="operators">
+            <h4 data-ar="Quotient (//) — ناتج القسمة الصحيحة" data-en="Quotient (//)">Quotient (//) — ناتج القسمة الصحيحة</h4>
+            <p data-ar="قسمة صحيحة في بايثون بتحذف الجزء العشري وبتديك رقم صحيح، زي 5 // 3 = 1." data-en="Integer division in Python that drops the decimal part and gives a whole number, like 5 // 3 = 1.">قسمة صحيحة في بايثون بتحذف الجزء العشري وبتديك رقم صحيح، زي 5 // 3 = 1.</p>
+          </div>
+          <div class="gl-term" data-cat="operators">
+            <h4 data-ar="Remainder (%) — الباقي" data-en="Remainder (%)">Remainder (%) — الباقي</h4>
+            <p data-ar="العملية اللي بتديك باقي القسمة، زي 5 % 3 = 2." data-en="The operator that gives the leftover of a division, like 5 % 3 = 2.">العملية اللي بتديك باقي القسمة، زي 5 % 3 = 2.</p>
+          </div>
+          <div class="gl-term" data-cat="operators">
+            <h4 data-ar="Power (**) — الأس" data-en="Power (**)">Power (**) — الأس</h4>
+            <p data-ar="العملية اللي بتضرب الرقم في نفسه عدد مرات معين، زي 5 ** 3 = 125." data-en="The operator that raises a number to a power, like 5 ** 3 = 125.">العملية اللي بتضرب الرقم في نفسه عدد مرات معين، زي 5 ** 3 = 125.</p>
+          </div>
+          <div class="gl-term" data-cat="python">
+            <h4 data-ar="Sequential structure — البنية التسلسلية" data-en="Sequential structure">Sequential structure — البنية التسلسلية</h4>
+            <p data-ar="طريقة شغل بايثون للبرنامج سطر ورا سطر بالترتيب من فوق لتحت، ولو حصل خطأ البرنامج يقف." data-en="The way Python runs a program one line at a time, from top to bottom, in order.">طريقة شغل بايثون للبرنامج سطر ورا سطر بالترتيب من فوق لتحت، ولو حصل خطأ البرنامج يقف.</p>
+          </div>
+          <div class="gl-term" data-cat="errors">
+            <h4 data-ar="NameError — NameError" data-en="NameError">NameError — NameError</h4>
+            <p data-ar="خطأ بيحصل في بايثون لما تستخدم اسم متغير قبل ما تعرّفه أصلاً." data-en="An error in Python that happens when you use a name or variable that has not been defined yet.">خطأ بيحصل في بايثون لما تستخدم اسم متغير قبل ما تعرّفه أصلاً.</p>
+          </div>
+          <div class="gl-term" data-cat="errors">
+            <h4 data-ar="SyntaxError — SyntaxError" data-en="SyntaxError">SyntaxError — SyntaxError</h4>
+            <p data-ar="خطأ بيحصل لما الكود يخالف قواعد لغة بايثون، زي لما تنسى علامة تنصيص أو قوس." data-en="An error that happens when the code breaks Python's grammar rules, like missing a quotation mark.">خطأ بيحصل لما الكود يخالف قواعد لغة بايثون، زي لما تنسى علامة تنصيص أو قوس.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <footer>
     <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
@@ -3177,6 +3364,52 @@ print(a ** b)</textarea>
         });
       }
     });
+
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
   </script>
 </body>
 

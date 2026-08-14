@@ -460,6 +460,23 @@
       flex-shrink: 0
     }
 
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
     .ex-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -708,7 +725,24 @@
 
     /* ---------- responsive ---------- */
     @media (max-width: 860px) {
-      .ex-options {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
         grid-template-columns: 1fr
       }
       .nav-inner {
@@ -721,6 +755,83 @@
         animation-duration: 0s !important;
         transition-duration: 0s !important
       }
+    }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -742,7 +853,8 @@
         <a href="#ssl" data-ar="SSL/TLS" data-en="SSL/TLS">SSL/TLS</a>
         <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
-      </div>
+              <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+</div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -1434,6 +1546,82 @@
         <p data-ar="افتكر دايمًا: التوقيع الرقمي بيثبت إن الرسالة منك، والجهة المصدقة بتأكد إن المفتاح بتاعك — وSSL/TLS بتحميك على الويب!" data-en="Always remember: a digital signature proves the message is from you, the CA confirms your key, and SSL/TLS protects you on the web!">افتكر دايمًا: التوقيع الرقمي بيثبت إن الرسالة منك، والجهة المصدقة بتأكد إن المفتاح بتاعك — و<span dir="ltr">SSL/TLS</span> بتحميك على الويب!</p>
       </div>
     </section>
+  
+    <!-- ============ GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">07</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="signature" data-ar="توقيع رقمي" data-en="Digital Signature">توقيع رقمي</button>
+          <button class="mini-btn gl-filter" data-filter="hash" data-ar="هاش" data-en="Hashing">هاش</button>
+          <button class="mini-btn gl-filter" data-filter="keys" data-ar="مفاتيح" data-en="Keys">مفاتيح</button>
+          <button class="mini-btn gl-filter" data-filter="trust" data-ar="ثقة" data-en="Trust">ثقة</button>
+          <button class="mini-btn gl-filter" data-filter="websec" data-ar="أمان الويب" data-en="Web Security">أمان الويب</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="signature">
+            <h4 data-ar="Digital signature — التوقيع الرقمي" data-en="Digital signature">Digital signature — التوقيع الرقمي</h4>
+            <p data-ar="تكنولوجيا بتثبت إن الرسالة فعلاً من المرسل وإن محدش عدل فيها، وبتشتغل بالتشفير العام وقيم الهاش." data-en="A technology that proves a message really came from the sender and was not changed, using public key encryption and hash values.">تكنولوجيا بتثبت إن الرسالة فعلاً من المرسل وإن محدش عدل فيها، وبتشتغل بالتشفير العام وقيم الهاش.</p>
+          </div>
+          <div class="gl-term" data-cat="signature">
+            <h4 data-ar="Electronic authentication — المصادقة الإلكترونية" data-en="Electronic authentication">Electronic authentication — المصادقة الإلكترونية</h4>
+            <p data-ar="التحقق الإلكتروني إن الرسالة من مصدرها الصحيح وسليمة، وبيحصل لما قيمتي الهاش يتطابقوا مع بعض." data-en="The electronic verification of a message's source and integrity, confirmed when the two hash values match.">التحقق الإلكتروني إن الرسالة من مصدرها الصحيح وسليمة، وبيحصل لما قيمتي الهاش يتطابقوا مع بعض.</p>
+          </div>
+          <div class="gl-term" data-cat="signature">
+            <h4 data-ar="Data integrity — سلامة البيانات" data-en="Data integrity">Data integrity — سلامة البيانات</h4>
+            <p data-ar="التأكد إن البيانات متغيرتش ولا حد عدل فيها وهي بتتبعت من المرسل للمستقبل." data-en="Making sure data has not been tampered with or changed while being transmitted.">التأكد إن البيانات متغيرتش ولا حد عدل فيها وهي بتتبعت من المرسل للمستقبل.</p>
+          </div>
+          <div class="gl-term" data-cat="hash">
+            <h4 data-ar="Hash function — وظيفة الهاش" data-en="Hash function">Hash function — وظيفة الهاش</h4>
+            <p data-ar="دالة بتاخد البيانات وتطلّع منها قيمة فريدة (زي بصمة) — وأي تغيير في البيانات بيغير البصمة كلها." data-en="A function that takes data and produces a unique value (a fingerprint) based on that data.">دالة بتاخد البيانات وتطلّع منها قيمة فريدة (زي بصمة) — وأي تغيير في البيانات بيغير البصمة كلها.</p>
+          </div>
+          <div class="gl-term" data-cat="hash">
+            <h4 data-ar="Hash value — قيمة الهاش" data-en="Hash value">Hash value — قيمة الهاش</h4>
+            <p data-ar="القيمة اللي بتخرج من وظيفة الهاش — لو حرف واحد اتغير في البيانات القيمة بتتغير كلها، ومستحيل نرجع منها البيانات الأصلية." data-en="The unique fingerprint produced by a hash function; any small change in the data changes it completely, and you cannot get the original data back from it.">القيمة اللي بتخرج من وظيفة الهاش — لو حرف واحد اتغير في البيانات القيمة بتتغير كلها، ومستحيل نرجع منها البيانات الأصلية.</p>
+          </div>
+          <div class="gl-term" data-cat="keys">
+            <h4 data-ar="Sender's private key — المفتاح الخاص للمرسل" data-en="Sender's private key">Sender's private key — المفتاح الخاص للمرسل</h4>
+            <p data-ar="المفتاح السري اللي المرسل هو بس اللي يملكه، وبيستخدم في تشفير قيمة الهاش عشان يعمل التوقيع الرقمي." data-en="The secret key owned only by the sender, used to encrypt the hash value and create the digital signature.">المفتاح السري اللي المرسل هو بس اللي يملكه، وبيستخدم في تشفير قيمة الهاش عشان يعمل التوقيع الرقمي.</p>
+          </div>
+          <div class="gl-term" data-cat="keys">
+            <h4 data-ar="Sender's public key — المفتاح العام للمرسل" data-en="Sender's public key">Sender's public key — المفتاح العام للمرسل</h4>
+            <p data-ar="مفتاح المرسل العام اللي المستقبل بيستخدمه يفك تشفير التوقيع الرقمي ويتأكد من قيمة الهاش." data-en="The sender's public key, used by the recipient to decrypt the digital signature and check the hash value.">مفتاح المرسل العام اللي المستقبل بيستخدمه يفك تشفير التوقيع الرقمي ويتأكد من قيمة الهاش.</p>
+          </div>
+          <div class="gl-term" data-cat="trust">
+            <h4 data-ar="Certification Authority (CA) — الجهة المصدقة" data-en="Certification Authority (CA)">Certification Authority (CA) — الجهة المصدقة</h4>
+            <p data-ar="منظمة طرف تالت موثوقة بتتحقق إن المفتاح العام فعلاً ملك الشخص اللي مدّعي إنه بتاعه." data-en="A trusted third-party organization that verifies a public key really belongs to its claimed owner.">منظمة طرف تالت موثوقة بتتحقق إن المفتاح العام فعلاً ملك الشخص اللي مدّعي إنه بتاعه.</p>
+          </div>
+          <div class="gl-term" data-cat="trust">
+            <h4 data-ar="Digital certificate — الشهادة الرقمية" data-en="Digital certificate">Digital certificate — الشهادة الرقمية</h4>
+            <p data-ar="وثيقة إلكترونية بتصدرها الجهة المصدقة فيها المفتاح العام ومعلومات صاحبه، وبتضمن إن المفتاح ملكه فعلاً." data-en="An electronic document issued by a CA that contains a public key and the owner's identity, guaranteeing the key belongs to them.">وثيقة إلكترونية بتصدرها الجهة المصدقة فيها المفتاح العام ومعلومات صاحبه، وبتضمن إن المفتاح ملكه فعلاً.</p>
+          </div>
+          <div class="gl-term" data-cat="websec">
+            <h4 data-ar="SSL/TLS — SSL/TLS" data-en="SSL/TLS">SSL/TLS — SSL/TLS</h4>
+            <p data-ar="تكنولوجيا بتشفّر الاتصال بين السيرفر والمتصفح على النت، وبتستخدم طريقة مفتاح الجلسة في التشفير." data-en="A technology that encrypts communication between a web server and a web browser, using the session key method.">تكنولوجيا بتشفّر الاتصال بين السيرفر والمتصفح على النت، وبتستخدم طريقة مفتاح الجلسة في التشفير.</p>
+          </div>
+          <div class="gl-term" data-cat="websec">
+            <h4 data-ar="Session key method — طريقة مفتاح الجلسة" data-en="Session key method">Session key method — طريقة مفتاح الجلسة</h4>
+            <p data-ar="طريقة هجينة بتمزج التشفير المتناظر مع التشفير العام مع بعض، ودي اللي SSL/TLS بتستخدمها." data-en="A hybrid method that combines symmetric and public key encryption together, which is what SSL/TLS uses.">طريقة هجينة بتمزج التشفير المتناظر مع التشفير العام مع بعض، ودي اللي SSL/TLS بتستخدمها.</p>
+          </div>
+          <div class="gl-term" data-cat="websec">
+            <h4 data-ar="https:// — https://" data-en="https://">https:// — https://</h4>
+            <p data-ar="بداية رابط موقع بتدل إن الاتصال متشفّر بـ SSL/TLS — الـ S فيه معناها Secure يعني آمن." data-en="The start of a website address that tells you the connection is encrypted with SSL/TLS.">بداية رابط موقع بتدل إن الاتصال متشفّر بـ SSL/TLS — الـ S فيه معناها Secure يعني آمن.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -1576,6 +1764,51 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
       wireCards();
       wireRevealBtns();
     });
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
   </script>
 </body>
 

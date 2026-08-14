@@ -460,6 +460,23 @@
       flex-shrink: 0
     }
 
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
     .ex-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -708,7 +725,24 @@
 
     /* ---------- responsive ---------- */
     @media (max-width: 860px) {
-      .ex-options {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
         grid-template-columns: 1fr
       }
       .nav-inner {
@@ -721,6 +755,83 @@
         animation-duration: 0s !important;
         transition-duration: 0s !important
       }
+    }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -741,7 +852,8 @@
         <a href="#threats" data-ar="التهديدات" data-en="Threats">التهديدات</a>
         <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
-      </div>
+              <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+</div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -1310,6 +1422,89 @@
         <p data-ar="افتكر دايمًا: أمن المعلومات مبني على السرية والنزاهة والتوفر — وخد بالك من البرمجيات الخبيثة والجرائم الإلكترونية!" data-en="Always remember: information security is built on confidentiality, integrity, and availability — and watch out for malware and cybercrime!">افتكر دايمًا: أمن المعلومات مبني على السرية والنزاهة والتوفر — وخد بالك من البرمجيات الخبيثة والجرائم الإلكترونية!</p>
       </div>
     </section>
+  
+    <!-- ============ GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">06</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="security" data-ar="أمن" data-en="Security">أمن</button>
+          <button class="mini-btn gl-filter" data-filter="threats" data-ar="تهديدات" data-en="Threats">تهديدات</button>
+          <button class="mini-btn gl-filter" data-filter="malware" data-ar="برمجيات خبيثة" data-en="Malware">برمجيات خبيثة</button>
+          <button class="mini-btn gl-filter" data-filter="crime" data-ar="جرائم" data-en="Crime">جرائم</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="security">
+            <h4 data-ar="Information Security — أمن المعلومات" data-en="Information Security">Information Security — أمن المعلومات</h4>
+            <p data-ar="هو إدارة المعلومات بشكل سليم والحفاظ عليها آمنة، عشان محدش يوصّلها غلط أو يعدّل فيها." data-en="The practice of managing information properly and keeping it safe from unauthorized access or changes.">هو إدارة المعلومات بشكل سليم والحفاظ عليها آمنة، عشان محدش يوصّلها غلط أو يعدّل فيها.</p>
+          </div>
+          <div class="gl-term" data-cat="security">
+            <h4 data-ar="Confidentiality — السرية" data-en="Confidentiality">Confidentiality — السرية</h4>
+            <p data-ar="العنصر اللي بيضمن إن المصرح لهم بس هما اللي يقدرون يشوفوا المعلومة." data-en="The security element that makes sure only authorized people can access the information.">العنصر اللي بيضمن إن المصرح لهم بس هما اللي يقدرون يشوفوا المعلومة.</p>
+          </div>
+          <div class="gl-term" data-cat="security">
+            <h4 data-ar="Integrity — النزاهة" data-en="Integrity">Integrity — النزاهة</h4>
+            <p data-ar="العنصر اللي بيضمن إن المعلومة تفضل زي ما هي، مش مدمرة ولا معدلة ولا ممحية." data-en="The security element that makes sure information is not destroyed, altered, or erased.">العنصر اللي بيضمن إن المعلومة تفضل زي ما هي، مش مدمرة ولا معدلة ولا ممحية.</p>
+          </div>
+          <div class="gl-term" data-cat="security">
+            <h4 data-ar="Availability — التوفر" data-en="Availability">Availability — التوفر</h4>
+            <p data-ar="العنصر اللي بيضمن إن تقدر توصل للمعلومة في أي وقت محتاجها فيه." data-en="The security element that makes sure information can be accessed whenever it is needed.">العنصر اللي بيضمن إن تقدر توصل للمعلومة في أي وقت محتاجها فيه.</p>
+          </div>
+          <div class="gl-term" data-cat="threats">
+            <h4 data-ar="Unauthorized Access — الوصول غير المصرح به" data-en="Unauthorized Access">Unauthorized Access — الوصول غير المصرح به</h4>
+            <p data-ar="إنك تدخل على نظام كمبيوتر من غير إذن، زي ما تستخدم يوزر وباسورد حد تاني." data-en="Entering a computer system without permission, like using someone else's user ID and password.">إنك تدخل على نظام كمبيوتر من غير إذن، زي ما تستخدم يوزر وباسورد حد تاني.</p>
+          </div>
+          <div class="gl-term" data-cat="threats">
+            <h4 data-ar="Cracking — الاختراق" data-en="Cracking">Cracking — الاختراق</h4>
+            <p data-ar="فعل الوصول غير القانوني لنظام عشان تعدل أو تسرق أو تمسح بيانات." data-en="The illegal act of accessing a system to tamper with, steal, or erase data.">فعل الوصول غير القانوني لنظام عشان تعدل أو تسرق أو تمسح بيانات.</p>
+          </div>
+          <div class="gl-term" data-cat="threats">
+            <h4 data-ar="Cracker — المخترق" data-en="Cracker">Cracker — المخترق</h4>
+            <p data-ar="الشخص اللي بيكسر أنظمة الكمبيوتر بشكل غير قانوني عشان يسرق أو يدمر بيانات." data-en="A person who illegally breaks into computer systems to steal or destroy data.">الشخص اللي بيكسر أنظمة الكمبيوتر بشكل غير قانوني عشان يسرق أو يدمر بيانات.</p>
+          </div>
+          <div class="gl-term" data-cat="malware">
+            <h4 data-ar="Malware — البرمجيات الخبيثة" data-en="Malware">Malware — البرمجيات الخبيثة</h4>
+            <p data-ar="مصطلح عام للبرامج الخبيثة اللي متصممة عشان تضر الكمبيوتر، زي الفيروسات وحصان طروادة." data-en="A general term for malicious software designed to harm computers, like viruses and Trojan horses.">مصطلح عام للبرامج الخبيثة اللي متصممة عشان تضر الكمبيوتر، زي الفيروسات وحصان طروادة.</p>
+          </div>
+          <div class="gl-term" data-cat="malware">
+            <h4 data-ar="Computer Virus — فيروس الكمبيوتر" data-en="Computer Virus">Computer Virus — فيروس الكمبيوتر</h4>
+            <p data-ar="برنامج متصمم عمداً عشان يضر جهازك، وبينتشر لما المستخدم يعمل حاجة زي فتح مرفق." data-en="A program built to cause harm, like destroying data, and it needs a user action to spread.">برنامج متصمم عمداً عشان يضر جهازك، وبينتشر لما المستخدم يعمل حاجة زي فتح مرفق.</p>
+          </div>
+          <div class="gl-term" data-cat="malware">
+            <h4 data-ar="Trojan Horse — حصان طروادة" data-en="Trojan Horse">Trojan Horse — حصان طروادة</h4>
+            <p data-ar="برنامج خبيث متخفي في شكل برنامج شرعي عشان يدخل النظام ويشن هجمات بهدوء من غير ما تحس." data-en="A malicious program that hides inside a legitimate-looking program to quietly attack your system.">برنامج خبيث متخفي في شكل برنامج شرعي عشان يدخل النظام ويشن هجمات بهدوء من غير ما تحس.</p>
+          </div>
+          <div class="gl-term" data-cat="malware">
+            <h4 data-ar="Worm — الدودة" data-en="Worm">Worm — الدودة</h4>
+            <p data-ar="برنامج بيكرر نفسه وينتشر على الشبكة لوحده، من غير ما يحتاج فعل من المستخدم." data-en="A program that copies itself and spreads across the internet by itself, without needing a user action.">برنامج بيكرر نفسه وينتشر على الشبكة لوحده، من غير ما يحتاج فعل من المستخدم.</p>
+          </div>
+          <div class="gl-term" data-cat="malware">
+            <h4 data-ar="Spyware — برنامج التجسس" data-en="Spyware">Spyware — برنامج التجسس</h4>
+            <p data-ar="برنامج بيجمع بياناتك الشخصية من غير ما تعرف وبيبعتتها لطرف تالت." data-en="A program that secretly collects personal information from your computer and sends it to third parties.">برنامج بيجمع بياناتك الشخصية من غير ما تعرف وبيبعتتها لطرف تالت.</p>
+          </div>
+          <div class="gl-term" data-cat="malware">
+            <h4 data-ar="Ransomware — برنامج الفدية" data-en="Ransomware">Ransomware — برنامج الفدية</h4>
+            <p data-ar="برنامج بيقفل بياناتك ويطلب منك تدفع فدية عشان ترجعلك إياها." data-en="A program that locks your data and demands a ransom payment to give you back access.">برنامج بيقفل بياناتك ويطلب منك تدفع فدية عشان ترجعلك إياها.</p>
+          </div>
+          <div class="gl-term" data-cat="crime">
+            <h4 data-ar="Cybercrime — الجرائم الإلكترونية" data-en="Cybercrime">Cybercrime — الجرائم الإلكترونية</h4>
+            <p data-ar="أفعال إجرامية بتتحصل عبر شبكات الكمبيوتر، زي الاحتيال والتشهير وانتهاك حقوق النشر." data-en="Criminal acts committed over computer networks, like fraud, defamation, and copyright infringement.">أفعال إجرامية بتتحصل عبر شبكات الكمبيوتر، زي الاحتيال والتشهير وانتهاك حقوق النشر.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -1452,6 +1647,51 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
       wireCards();
       wireRevealBtns();
     });
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
   </script>
 </body>
 

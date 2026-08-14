@@ -460,6 +460,23 @@
       flex-shrink: 0
     }
 
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
     .ex-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -708,7 +725,24 @@
 
     /* ---------- responsive ---------- */
     @media (max-width: 860px) {
-      .ex-options {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
         grid-template-columns: 1fr
       }
       .nav-inner {
@@ -721,6 +755,83 @@
         animation-duration: 0s !important;
         transition-duration: 0s !important
       }
+    }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -742,7 +853,8 @@
         <a href="#changes" data-ar="أثر التكنولوجيا" data-en="Life Changes">أثر التكنولوجيا</a>
         <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
-      </div>
+              <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+</div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -1339,7 +1451,91 @@
           </div>
         </div>
       </div>
-    </section></main>
+    </section>
+    <!-- ============ GLOSSARY ============ -->
+    <section id="glossary">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#6d28d9)">07</div>
+          <div>
+            <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+            <div class="tag" style="color:var(--s3)" data-ar="مصطلحات الدرس" data-en="Lesson Terms">مصطلحات الدرس</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-inner card">
+        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <div class="glossary-filters">
+          <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+          <button class="mini-btn gl-filter" data-filter="datatech" data-ar="بيانات وذكاء" data-en="Data & AI">بيانات وذكاء</button>
+          <button class="mini-btn gl-filter" data-filter="iot" data-ar="إنترنت الأشياء" data-en="IoT">إنترنت الأشياء</button>
+          <button class="mini-btn gl-filter" data-filter="reality" data-ar="واقع" data-en="Reality">واقع</button>
+          <button class="mini-btn gl-filter" data-filter="health" data-ar="صحة" data-en="Health">صحة</button>
+          <button class="mini-btn gl-filter" data-filter="society" data-ar="مجتمع" data-en="Society">مجتمع</button>
+        </div>
+        <div class="glossary-list">
+          <div class="gl-term" data-cat="datatech">
+            <h4 data-ar="Big Data — البيانات الضخمة" data-en="Big Data">Big Data — البيانات الضخمة</h4>
+            <p data-ar="كميات ضخمة جداً من البيانات بأشكال وأنواع كتير، وبتتوصف بثلاث حاجات: الحجم والتنوع وتردد التحديث." data-en="Vast collections of data in many forms and types, described by volume, variety, and how often it is updated.">كميات ضخمة جداً من البيانات بأشكال وأنواع كتير، وبتتوصف بثلاث حاجات: الحجم والتنوع وتردد التحديث.</p>
+          </div>
+          <div class="gl-term" data-cat="datatech">
+            <h4 data-ar="AI (Artificial Intelligence) — الذكاء الاصطناعي" data-en="AI (Artificial Intelligence)">AI (Artificial Intelligence) — الذكاء الاصطناعي</h4>
+            <p data-ar="تقنية بتخلي الكمبيوتر يحاكي ذكاء الإنسان وسلوكه الفكري بطريقة مصطنعة." data-en="Technology that uses computers to artificially mimic human intelligent behavior.">تقنية بتخلي الكمبيوتر يحاكي ذكاء الإنسان وسلوكه الفكري بطريقة مصطنعة.</p>
+          </div>
+          <div class="gl-term" data-cat="datatech">
+            <h4 data-ar="Machine Learning — التعلم الآلي" data-en="Machine Learning">Machine Learning — التعلم الآلي</h4>
+            <p data-ar="تقنية بتتعلم فيها الكمبيوترات من كميات بيانات ضخمة عشان تطلع منها قواعد وأنماط." data-en="A technology where computers learn from huge amounts of data to find rules and patterns in it.">تقنية بتتعلم فيها الكمبيوترات من كميات بيانات ضخمة عشان تطلع منها قواعد وأنماط.</p>
+          </div>
+          <div class="gl-term" data-cat="iot">
+            <h4 data-ar="IoT (Internet of Things) — إنترنت الأشياء" data-en="IoT (Internet of Things)">IoT (Internet of Things) — إنترنت الأشياء</h4>
+            <p data-ar="تقنية بتوصل الأجهزة العادية والحاجات اللي حواليها بالإنترنت عشان تقدر تتواصل مع بعضها." data-en="A technology that connects everyday devices and objects to the internet so they can talk to each other.">تقنية بتوصل الأجهزة العادية والحاجات اللي حواليها بالإنترنت عشان تقدر تتواصل مع بعضها.</p>
+          </div>
+          <div class="gl-term" data-cat="iot">
+            <h4 data-ar="Smart Home — البيت الذكي" data-en="Smart Home">Smart Home — البيت الذكي</h4>
+            <p data-ar="بيت بيستخدم تقنيات الـIoT والذكاء الاصطناعي عشان يخلي الحياة فيه أكتر راحة." data-en="A home that uses IoT and AI technologies to make living more comfortable.">بيت بيستخدم تقنيات الـIoT والذكاء الاصطناعي عشان يخلي الحياة فيه أكتر راحة.</p>
+          </div>
+          <div class="gl-term" data-cat="reality">
+            <h4 data-ar="VR (Virtual Reality) — الواقع الافتراضي" data-en="VR (Virtual Reality)">VR (Virtual Reality) — الواقع الافتراضي</h4>
+            <p data-ar="تقنية بتوديك لعالم افتراضي كامل من صنع الكمبيوتر وتحس إنك جواه فعلاً." data-en="A technology that lets users experience a fake world inside a fully simulated environment.">تقنية بتوديك لعالم افتراضي كامل من صنع الكمبيوتر وتحس إنك جواه فعلاً.</p>
+          </div>
+          <div class="gl-term" data-cat="reality">
+            <h4 data-ar="AR (Augmented Reality) — الواقع المعزز" data-en="AR (Augmented Reality)">AR (Augmented Reality) — الواقع المعزز</h4>
+            <p data-ar="تقنية بتضيف معلومات رقمية فوق البيئة الواقعية الحقيقية زي صور وفيديوهات بمعالجة الكمبيوتر." data-en="A technology that uses computer processing to add digital information on top of the real world.">تقنية بتضيف معلومات رقمية فوق البيئة الواقعية الحقيقية زي صور وفيديوهات بمعالجة الكمبيوتر.</p>
+          </div>
+          <div class="gl-term" data-cat="health">
+            <h4 data-ar="Technostress — الإجهاد التقني" data-en="Technostress">Technostress — الإجهاد التقني</h4>
+            <p data-ar="المشاكل النفسية والجسدية اللي بتظهر بسبب استخدام الكمبيوترات، زي القلق والإحباط." data-en="The mental and physical problems that come from using computers too much.">المشاكل النفسية والجسدية اللي بتظهر بسبب استخدام الكمبيوترات، زي القلق والإحباط.</p>
+          </div>
+          <div class="gl-term" data-cat="health">
+            <h4 data-ar="Technophobia — الخوف التقني" data-en="Technophobia">Technophobia — الخوف التقني</h4>
+            <p data-ar="خوف أو قلق من استخدام الكمبيوترات عشان الواحد مش مرتاح أو واثق في التعامل معاها." data-en="Anxiety or fear of using computers because you feel uncomfortable or not confident with them.">خوف أو قلق من استخدام الكمبيوترات عشان الواحد مش مرتاح أو واثق في التعامل معاها.</p>
+          </div>
+          <div class="gl-term" data-cat="health">
+            <h4 data-ar="Techno-Addiction — الإدمان التقني" data-en="Techno-Addiction">Techno-Addiction — الإدمان التقني</h4>
+            <p data-ar="الاعتماد المفرط على الكمبيوترات لدرجة إنك مش عارف تستغنى عنها." data-en="Excessive dependency on computers and devices to the point you cannot stop using them.">الاعتماد المفرط على الكمبيوترات لدرجة إنك مش عارف تستغنى عنها.</p>
+          </div>
+          <div class="gl-term" data-cat="health">
+            <h4 data-ar="VDT Disorder — اضطراب شاشة العرض" data-en="VDT Disorder">VDT Disorder — اضطراب شاشة العرض</h4>
+            <p data-ar="تيبس في الكتف وإجهاد في العين بسبب القعدة الطويلة قدام الكمبيوتر." data-en="Shoulder stiffness and eye strain caused by sitting in front of a computer for a long time.">تيبس في الكتف وإجهاد في العين بسبب القعدة الطويلة قدام الكمبيوتر.</p>
+          </div>
+          <div class="gl-term" data-cat="society">
+            <h4 data-ar="Digital Divide — الفجوة الرقمية" data-en="Digital Divide">Digital Divide — الفجوة الرقمية</h4>
+            <p data-ar="الفجوة بين الناس اللي بيقدروا يستخدموا التكنولوجيا والنت، والناس اللي مش قادرين." data-en="The gap between people who can use information technology and those who cannot.">الفجوة بين الناس اللي بيقدروا يستخدموا التكنولوجيا والنت، والناس اللي مش قادرين.</p>
+          </div>
+          <div class="gl-term" data-cat="society">
+            <h4 data-ar="Society 5.0 — المجتمع 5.0" data-en="Society 5.0">Society 5.0 — المجتمع 5.0</h4>
+            <p data-ar="مجتمع جديد بيدمج الفضاء الافتراضي مع الفضاء الحقيقي عشان يحل مشاكل المجتمع ويطور الاقتصاد." data-en="A future society that mixes virtual space (cyberspace) with real space to solve social problems and grow the economy.">مجتمع جديد بيدمج الفضاء الافتراضي مع الفضاء الحقيقي عشان يحل مشاكل المجتمع ويطور الاقتصاد.</p>
+          </div>
+          <div class="gl-term" data-cat="society">
+            <h4 data-ar="Information society — المجتمع المعلوماتي" data-en="Information society">Information society — المجتمع المعلوماتي</h4>
+            <p data-ar="المجتمع اللي بدأ من النص التاني من القرن العشرين، وفيه الأتمتة اتقدمت بفضل الكمبيوترات." data-en="The society that began in the second half of the 20th century, where automation grew thanks to computers.">المجتمع اللي بدأ من النص التاني من القرن العشرين، وفيه الأتمتة اتقدمت بفضل الكمبيوترات.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ============ FOOTER ============ -->
   <footer>
@@ -1481,6 +1677,51 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
       wireCards();
       wireRevealBtns();
     });
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
   </script>
 </body>
 
