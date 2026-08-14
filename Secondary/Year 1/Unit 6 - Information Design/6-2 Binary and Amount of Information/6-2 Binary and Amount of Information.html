@@ -1098,10 +1098,10 @@
     }
 
     .ex-opt.picked {
-      border-color: var(--accent);
-      background: rgba(0, 212, 170, .18);
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .18);
       color: #fff;
-      box-shadow: 0 0 0 1px var(--accent)
+      box-shadow: 0 0 0 1px var(--primary)
     }
 
     .ex-opt.correct {
@@ -3277,9 +3277,18 @@ var FLOWS = {
       return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
     }
 
+    function recallStart(quiz) {
+      var s = quiz.querySelector('[data-start]');
+      if (!s) {
+        var p = quiz.previousElementSibling;
+        if (p && p.hasAttribute('data-start')) s = p;
+      }
+      return s;
+    }
+
     function wireRecall() {
       document.querySelectorAll('.recall').forEach(function (quiz) {
-        var start = quiz.querySelector('[data-start]');
+        var start = recallStart(quiz);
         function paintQuizBtn() {
           if (!start) return;
           start.textContent = quiz.classList.contains('show')
@@ -3360,7 +3369,7 @@ var FLOWS = {
 
     function repaintQuizBtns() {
       document.querySelectorAll('.recall').forEach(function (quiz) {
-        var start = quiz.querySelector('[data-start]');
+        var start = recallStart(quiz);
         if (!start) return;
         start.textContent = quiz.classList.contains('show')
           ? tr('إخفاء الاختبار', 'Hide the quiz')
