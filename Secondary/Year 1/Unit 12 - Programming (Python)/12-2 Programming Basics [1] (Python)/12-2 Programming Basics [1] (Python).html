@@ -469,6 +469,119 @@
       color: var(--warn)
     }
 
+    /* ---------- recall quiz ---------- */
+    .recall {
+      display: none;
+      margin-top: 16px
+    }
+
+    .recall.show {
+      display: block
+    }
+
+    .rq {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px
+    }
+
+    .rq-q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px
+    }
+
+    .rq-opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    @media(max-width:640px) {
+      .rq-opts {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .rq-opt {
+      direction: rtl;
+      text-align: right;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .9rem;
+      color: #c7d2fe;
+      cursor: pointer;
+      transition: .15s;
+      user-select: none
+    }
+
+    .rq-opt:hover {
+      border-color: rgba(0, 212, 170, .5);
+      background: rgba(0, 212, 170, .08)
+    }
+
+    .rq-opt.disabled {
+      pointer-events: none;
+      opacity: .65
+    }
+
+    .rq-opt.correct {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .12);
+      color: var(--success)
+    }
+
+    .rq-opt.wrong {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .12);
+      color: #ffb3bd
+    }
+
+    .rq-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: #c7d2fe;
+      font-weight: 900;
+      font-size: .82rem;
+      margin-right: 10px;
+      vertical-align: middle;
+      flex-shrink: 0
+    }
+
+    .rq-fb {
+      margin-top: 10px;
+      display: none;
+      font-size: .92rem;
+      padding: 10px 14px;
+      border-radius: 10px
+    }
+
+    .rq-fb.show {
+      display: block
+    }
+
+    .rq-fb.ok {
+      background: rgba(0, 255, 136, .07);
+      border: 1px solid rgba(0, 255, 136, .35);
+      color: var(--success)
+    }
+
+    .rq-fb.no {
+      background: rgba(255, 71, 87, .07);
+      border: 1px solid rgba(255, 71, 87, .35);
+      color: #ffb3bd
+    }
+
     /* ---------- error box ---------- */
     .error-box {
       border: 1px solid rgba(255, 71, 87, .2);
@@ -1201,10 +1314,10 @@
     }
 
     .ex-opt.picked {
-      border-color: var(--accent);
-      background: rgba(0, 212, 170, .18);
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .18);
       color: #fff;
-      box-shadow: 0 0 0 1px var(--accent)
+      box-shadow: 0 0 0 1px var(--primary)
     }
 
     .ex-opt.correct {
@@ -1778,6 +1891,32 @@ print(2023 + 1)</textarea>
             التنصيص الافتتاحية أو الختامية → خطأ صياغة <span dir="ltr">SyntaxError</span>.</li>
         </ul>
       </div>
+
+      <div class="section-inner card">
+        <button class="btn" data-id="printQuizStart" data-start data-ar="💡 ابدأ الاختبار" data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="printRecall">
+          <div class="rq" data-id="printRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه اللي بيخلي الكمبيوتر يعرض نص على الشاشة؟" data-en="What makes the computer display text on the screen?">إيه اللي بيخلي الكمبيوتر يعرض نص على الشاشة؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="printRq1o1" data-key="A" data-ok="1" data-fb-ar="صح! الأمر print بيخلي الكمبيوتر يعرض النص أو الرقم على الشاشة." data-fb-en="Correct! The print statement makes the computer display text or numbers on the screen."><span class="rq-key">A</span><span class="rq-body" data-ar="الأمر print" data-en="The print statement">الأمر <span dir="ltr">print</span></span></div>
+              <div class="rq-opt" data-id="printRq1o2" data-key="B" data-fb-ar="مش بالظبط — while بيتحكم في التكرار مش في العرض." data-fb-en="Not quite — while controls repetition, not display."><span class="rq-key">B</span><span class="rq-body" data-ar="الأمر while" data-en="The while statement">الأمر <span dir="ltr">while</span></span></div>
+              <div class="rq-opt" data-id="printRq1o3" data-key="C" data-fb-ar="مش صح — if بيحكم في الاختيار مش في العرض." data-fb-en="Not right — if controls a choice, not display."><span class="rq-key">C</span><span class="rq-body" data-ar="الأمر if" data-en="The if statement">الأمر <span dir="ltr">if</span></span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="printRq1Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+          <div class="rq" data-id="printRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="لما نعرض نص في بايثون، بنكتبه بين إيه؟" data-en="When displaying text in Python, what do we write it between?">لما نعرض نص في بايثون، بنكتبه بين إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="printRq2o1" data-key="A" data-ok="1" data-fb-ar="صح! النصوص بنكتبها بين علامتي تنصيص زي 'Hello' أو &quot;Hello&quot;." data-fb-en="Correct! Text goes between quotation marks, like 'Hello' or &quot;Hello&quot;."><span class="rq-key">A</span><span class="rq-body" data-ar="علامتي تنصيص" data-en="Quotation marks">علامتي تنصيص</span></div>
+              <div class="rq-opt" data-id="printRq2o2" data-key="B" data-fb-ar="مش صح — الأقواس بتاعة print مش بتنصيص النص." data-fb-en="Not right — the print parentheses don't quote the text."><span class="rq-key">B</span><span class="rq-body" data-ar="قوسين" data-en="Parentheses">قوسين</span></div>
+              <div class="rq-opt" data-id="printRq2o3" data-key="C" data-fb-ar="مش صح — النص لازم يتنصّص عشان بايثون يفهمه." data-fb-en="Not right — text must be quoted for Python to understand it."><span class="rq-key">C</span><span class="rq-body" data-ar="من غير أي علامات" data-en="No marks at all">من غير أي علامات</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="printRq2Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============ 03 VARIABLE ============ -->
@@ -1903,6 +2042,32 @@ print(age)</textarea>
             نسيان تنصيص النصوص: <span dir="ltr">city = Cairo</span> غلط لأن <span dir="ltr">Cairo</span> هنا هتتعامل
             كاسم متغير غير معروف. لازم <span dir="ltr">city = "Cairo"</span>.</li>
         </ul>
+      </div>
+
+      <div class="section-inner card">
+        <button class="btn" data-id="varQuizStart" data-start data-ar="💡 ابدأ الاختبار" data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="varRecall">
+          <div class="rq" data-id="varRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="المتغير في بايثون زي إيه؟" data-en="What is a variable in Python like?">المتغير في بايثون زي إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="varRq1o1" data-key="A" data-ok="1" data-fb-ar="صح! المتغير زي صندوق بنسميه ونحط جواه قيمة عشان نستخدمها بعدين." data-fb-en="Correct! A variable is like a named box we store a value in to use later."><span class="rq-key">A</span><span class="rq-body" data-ar="صندوق بنسميه وبنخزن جواه قيمة" data-en="A named box where we store a value">صندوق بنسميه وبنخزن جواه قيمة</span></div>
+              <div class="rq-opt" data-id="varRq1o2" data-key="B" data-fb-ar="مش صح — المتغير مش دالة." data-fb-en="Not right — a variable is not a function."><span class="rq-key">B</span><span class="rq-body" data-ar="دالة بتعرض على الشاشة" data-en="A function that displays on screen">دالة بتعرض على الشاشة</span></div>
+              <div class="rq-opt" data-id="varRq1o3" data-key="C" data-fb-ar="مش صح — المتغير بيخزن قيمة واحدة في كل مرة." data-fb-en="Not right — a variable stores one value at a time."><span class="rq-key">C</span><span class="rq-body" data-ar="برنامج كامل" data-en="A whole program">برنامج كامل</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="varRq1Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+          <div class="rq" data-id="varRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="علامة = في بايثون معناها إيه؟" data-en="What does the = sign mean in Python?">علامة <span dir="ltr">=</span> في بايثون معناها إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="varRq2o1" data-key="A" data-ok="1" data-fb-ar="صح! = معناها «حط القيمة اللي على اليمين في المتغير اللي على الشمال»." data-fb-en="Correct! = means put the value on the right into the variable on the left."><span class="rq-key">A</span><span class="rq-body" data-ar="إسناد القيمة للمتغير" data-en="Assigning the value to the variable">إسناد القيمة للمتغير</span></div>
+              <div class="rq-opt" data-id="varRq2o2" data-key="B" data-fb-ar="مش صح — المقارنة بترمز لها بـ ==." data-fb-en="Not right — comparison is written as ==."><span class="rq-key">B</span><span class="rq-body" data-ar="مقارنة إن القيمتين متساويين" data-en="Comparing whether two values are equal">مقارنة إن القيمتين متساويين</span></div>
+              <div class="rq-opt" data-id="varRq2o3" data-key="C" data-fb-ar="مش صح — = بتخزن مش بتعرض." data-fb-en="Not right — = stores, it doesn't display."><span class="rq-key">C</span><span class="rq-body" data-ar="عرض قيمة على الشاشة" data-en="Displaying a value on screen">عرض قيمة على الشاشة</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="varRq2Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2073,6 +2238,32 @@ print(a ** b)</textarea>
             والمطلوب <span dir="ltr">a ** x</span>.</li>
         </ul>
       </div>
+
+      <div class="section-inner card">
+        <button class="btn" data-id="opsQuizStart" data-start data-ar="💡 ابدأ الاختبار" data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="opsRecall">
+          <div class="rq" data-id="opsRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="الرمز // بيعمل إيه في بايثون؟" data-en="What does the // symbol do in Python?">الرمز <span dir="ltr">//</span> بيعمل إيه في بايثون؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="opsRq1o1" data-key="A" data-ok="1" data-fb-ar="صح! // بيدّي ناتج القسمة الصحيحة (بيدلّف الجزء العشري)." data-fb-en="Correct! // gives the integer quotient (drops the decimal part)."><span class="rq-key">A</span><span class="rq-body" data-ar="ناتج القسمة الصحيحة" data-en="Integer quotient">ناتج القسمة الصحيحة</span></div>
+              <div class="rq-opt" data-id="opsRq1o2" data-key="B" data-fb-ar="مش صح — / بيطلع ناتج عشري." data-fb-en="Not right — / gives a decimal result."><span class="rq-key">B</span><span class="rq-body" data-ar="ناتج عشري" data-en="A decimal result">ناتج عشري</span></div>
+              <div class="rq-opt" data-id="opsRq1o3" data-key="C" data-fb-ar="مش صح — % هو اللي بيدّي الباقي." data-fb-en="Not right — % gives the remainder."><span class="rq-key">C</span><span class="rq-body" data-ar="باقي القسمة" data-en="The remainder">باقي القسمة</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="opsRq1Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+          <div class="rq" data-id="opsRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="الرمز اللي بيضرب الرقم في نفسه عدد مرات معين؟" data-en="The symbol that raises a number to a power?">الرمز اللي بيضرب الرقم في نفسه عدد مرات معين؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="opsRq2o1" data-key="A" data-ok="1" data-fb-ar="صح! ** هو الأس، زي 3 ** 2 = 9." data-fb-en="Correct! ** is the power, like 3 ** 2 = 9."><span class="rq-key">A</span><span class="rq-body" data-ar="الأس **" data-en="The power **">الأس <span dir="ltr">**</span></span></div>
+              <div class="rq-opt" data-id="opsRq2o2" data-key="B" data-fb-ar="مش صح — % بيدّي الباقي." data-fb-en="Not right — % gives the remainder."><span class="rq-key">B</span><span class="rq-body" data-ar="الباقي %" data-en="The remainder %">الباقي <span dir="ltr">%</span></span></div>
+              <div class="rq-opt" data-id="opsRq2o3" data-key="C" data-fb-ar="مش صح — / للقسمة العادية." data-fb-en="Not right — / is for regular division."><span class="rq-key">C</span><span class="rq-body" data-ar="القسمة /" data-en="Division /">القسمة <span dir="ltr">/</span></span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="opsRq2Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============ 05 SEQUENTIAL ============ -->
@@ -2147,6 +2338,32 @@ print(a ** b)</textarea>
             data-en="The variable must be defined before being used in the sequence.">المتغير لازم يتعرف قبل استخدامه في
             التسلسل.</li>
         </ul>
+      </div>
+
+      <div class="section-inner card">
+        <button class="btn" data-id="seqQuizStart" data-start data-ar="💡 ابدأ الاختبار" data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="seqRecall">
+          <div class="rq" data-id="seqRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="البنية التسلسلية بتشتغل إزاي؟" data-en="How does the sequential structure work?">البنية التسلسلية بتشتغل إزاي؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="seqRq1o1" data-key="A" data-ok="1" data-fb-ar="صح! البرنامج بيتنفذ سطر ورا سطر من فوق لتحت بالترتيب." data-fb-en="Correct! The program runs line by line, top to bottom, in order."><span class="rq-key">A</span><span class="rq-body" data-ar="سطر ورا سطر من فوق لتحت" data-en="Line by line, top to bottom">سطر ورا سطر من فوق لتحت</span></div>
+              <div class="rq-opt" data-id="seqRq1o2" data-key="B" data-fb-ar="مش صح — الترتيب ثابت وبيبدأ من الأول." data-fb-en="Not right — the order is fixed and starts from the beginning."><span class="rq-key">B</span><span class="rq-body" data-ar="من الآخر للبداية" data-en="From the end to the start">من الآخر للبداية</span></div>
+              <div class="rq-opt" data-id="seqRq1o3" data-key="C" data-fb-ar="مش صح — كل سطر بيتنفذ مرة واحدة بالترتيب." data-fb-en="Not right — each line runs once, in order."><span class="rq-key">C</span><span class="rq-body" data-ar="كل الأسطر في نفس اللحظة" data-en="All lines at the same moment">كل الأسطر في نفس اللحظة</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="seqRq1Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+          <div class="rq" data-id="seqRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="لو استخدمنا متغير قبل ما نعرّفه في البرنامج؟" data-en="What if we use a variable before defining it in the program?">لو استخدمنا متغير قبل ما نعرّفه في البرنامج؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="seqRq2o1" data-key="A" data-ok="1" data-fb-ar="صح! بايثون يعطي خطأ NameError ويوقف التنفيذ." data-fb-en="Correct! Python gives a NameError and stops execution."><span class="rq-key">A</span><span class="rq-body" data-ar="يعطي خطأ NameError ويتوقف" data-en="Gives a NameError and stops">يعطي خطأ <span dir="ltr">NameError</span> ويتوقف</span></div>
+              <div class="rq-opt" data-id="seqRq2o2" data-key="B" data-fb-ar="مش صح — بايثون مش بيعرض قيمة صفر للمتغير الغير معروف." data-fb-en="Not right — Python doesn't show zero for an unknown variable."><span class="rq-key">B</span><span class="rq-body" data-ar="يعرض 0" data-en="Displays 0">يعرض 0</span></div>
+              <div class="rq-opt" data-id="seqRq2o3" data-key="C" data-fb-ar="مش صح — الخطأ بيحصل فعلًا وبيوقف البرنامج." data-fb-en="Not right — an error does happen and stops the program."><span class="rq-key">C</span><span class="rq-body" data-ar="يكمل عادي من غير ما يشتغل" data-en="Continues normally without an error">يكمل عادي من غير ما يشتغل</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="seqRq2Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2516,6 +2733,42 @@ print(a ** b)</textarea>
           كل برنامج عظيم بيبدأ بكلمات قليلة: <span dir="ltr">print</span>، تخزين قيمة في متغير، ثم عملية حسابية. وأهم
           شيء: كلهم بيتنفذوا بالتسلسل — سطر ورا سطر.</p>
       </div>
+
+      <div class="section-inner card" style="margin-top:24px">
+        <button class="btn" data-id="recapQuizStart" data-start data-ar="💡 ابدأ الاختبار" data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+        <div class="recall" id="recapRecall">
+          <div class="rq" data-id="recapRq1">
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="لما نكتب print(&quot;Hello&quot;) في بايثون، إيه اللي هيحصل؟" data-en="When we write print(&quot;Hello&quot;) in Python, what happens?">لما نكتب <span dir="ltr">print("Hello")</span> في بايثون، إيه اللي هيحصل؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq1o1" data-key="A" data-ok="1" data-fb-ar="صح! print بيخلي الكمبيوتر يعرض الكلمة Hello على الشاشة." data-fb-en="Correct! print makes the computer display the word Hello on the screen."><span class="rq-key">A</span><span class="rq-body" data-ar="يعرض Hello على الشاشة" data-en="Displays Hello on the screen">يعرض <span dir="ltr">Hello</span> على الشاشة</span></div>
+              <div class="rq-opt" data-id="recapRq1o2" data-key="B" data-fb-ar="مش صح — علامات التنصيص مش بتتطبع." data-fb-en="Not right — the quotation marks aren't printed."><span class="rq-key">B</span><span class="rq-body" data-ar="يعرض &quot;Hello&quot; بعلامات التنصيص" data-en="Displays &quot;Hello&quot; with quotes">يعرض "Hello" بعلامات التنصيص</span></div>
+              <div class="rq-opt" data-id="recapRq1o3" data-key="C" data-fb-ar="مش صح — مش خطأ لأن النص متشوّش صح." data-fb-en="Not right — it's not an error because the text is quoted properly."><span class="rq-key">C</span><span class="rq-body" data-ar="يعطي خطأ NameError" data-en="Gives a NameError">يعطي خطأ <span dir="ltr">NameError</span></span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq1Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+          <div class="rq" data-id="recapRq2">
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="الرمز + في بايثون بيعمل إيه؟" data-en="What does the + symbol do in Python?">الرمز <span dir="ltr">+</span> في بايثون بيعمل إيه؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq2o1" data-key="A" data-ok="1" data-fb-ar="صح! + معامل حسابي بيعمل الجمع، زي 5 + 3 = 8." data-fb-en="Correct! + is an arithmetic operator for addition, like 5 + 3 = 8."><span class="rq-key">A</span><span class="rq-body" data-ar="بيجمع (معامل حسابي)" data-en="Adds (arithmetic operator)">بيجمع (معامل حسابي)</span></div>
+              <div class="rq-opt" data-id="recapRq2o2" data-key="B" data-fb-ar="مش صح — + بيعمل الجمع، مش مقارنة." data-fb-en="Not right — + does addition, not comparison."><span class="rq-key">B</span><span class="rq-body" data-ar="بيقارن بين قيمتين" data-en="Compares two values">بيقارن بين قيمتين</span></div>
+              <div class="rq-opt" data-id="recapRq2o3" data-key="C" data-fb-ar="مش صح — + مش بيعرض، هو بيفكّر." data-fb-en="Not right — + doesn't display, it calculates."><span class="rq-key">C</span><span class="rq-body" data-ar="بيعرض قيمة على الشاشة" data-en="Displays a value on screen">بيعرض قيمة على الشاشة</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq2Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+          <div class="rq" data-id="recapRq3">
+            <div class="rq-q"><span class="q-num">3</span> <span data-ar="الترتيب الصحيح لأول برنامج: عرّف المتغير، بعدين؟" data-en="Correct order for a first program: define the variable, then?">الترتيب الصحيح لأول برنامج: عرّف المتغير، بعدين؟</span></div>
+            <div class="rq-opts">
+              <div class="rq-opt" data-id="recapRq3o1" data-key="A" data-ok="1" data-fb-ar="صح! نعرّف المتغير الأول وبعدين نستخدمه، عشان نتجنب خطأ NameError." data-fb-en="Correct! Define the variable first then use it, to avoid a NameError."><span class="rq-key">A</span><span class="rq-body" data-ar="استخدمه في print" data-en="Use it in print">استخدمه في <span dir="ltr">print</span></span></div>
+              <div class="rq-opt" data-id="recapRq3o2" data-key="B" data-fb-ar="مش صح — نعرّف المتغير الأول مش بعده." data-fb-en="Not right — define the variable first, not after."><span class="rq-key">B</span><span class="rq-body" data-ar="استخدمه قبل ما تعرّفه" data-en="Use it before defining it">استخدمه قبل ما تعرّفه</span></div>
+              <div class="rq-opt" data-id="recapRq3o3" data-key="C" data-fb-ar="مش صح — لازم نعرّفه الأول." data-fb-en="Not right — we must define it first."><span class="rq-key">C</span><span class="rq-body" data-ar="متعرّفهوش خالص" data-en="Don't define it at all">متعرّفهوش خالص</span></div>
+            </div>
+            <div class="rq-fb"></div>
+            <button class="mini-btn rq-skip" data-id="recapRq3Skip" data-ar="تخطّى" data-en="Skip">تخطّى</button>
+          </div>
+        </div>
+      </div>
     </section>
   
     <!-- ============ GLOSSARY ============ -->
@@ -2876,6 +3129,92 @@ print(a ** b)</textarea>
         });
       });
     }
+
+    /* ---------- recall quiz ---------- */
+    function tr(ar, en) {
+      return window.currentLang === 'en' ? en : ar;
+    }
+
+    function rqFb(el) {
+      return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
+    }
+
+    function recallStart(quiz) {
+      var s = quiz.querySelector('[data-start]');
+      if (!s) {
+        var p = quiz.previousElementSibling;
+        if (p && p.hasAttribute('data-start')) s = p;
+      }
+      return s;
+    }
+
+    function wireRecall() {
+      document.querySelectorAll('.recall').forEach(function (quiz) {
+        var start = recallStart(quiz);
+        function paintQuizBtn() {
+          if (!start) return;
+          start.textContent = quiz.classList.contains('show')
+            ? tr('إخفاء الاختبار', 'Hide the quiz')
+            : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+        }
+        if (start) start.addEventListener('click', function () {
+          quiz.classList.toggle('show');
+          paintQuizBtn();
+        });
+        quiz.querySelectorAll('.rq').forEach(function (q) {
+          var opts = q.querySelectorAll('.rq-opt');
+          var skip = q.querySelector('.rq-skip');
+          var fb = q.querySelector('.rq-fb');
+          function lock(qq) {
+            qq.classList.add('done');
+            opts.forEach(function (o) { o.classList.add('disabled'); });
+            if (skip) skip.style.display = 'none';
+          }
+          function showFb(ok, text, correctKey) {
+            fb.classList.add('show');
+            fb.classList.toggle('ok', ok);
+            fb.classList.toggle('no', !ok);
+            fb.textContent = (ok ? '✅ ' : '❌ ') +
+              (correctKey ? (window.currentLang === 'en' ? 'The correct answer is ' + correctKey + '. ' : 'الإجابة الصحيحة ' + correctKey + '. ') : '') + text;
+          }
+          opts.forEach(function (o) {
+            o.addEventListener('click', function () {
+              if (q.classList.contains('done')) return;
+              var ok = o.getAttribute('data-ok') === '1';
+              opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+              if (ok) o.classList.add('correct');
+              else {
+                o.classList.add('wrong');
+                var co = q.querySelector('.rq-opt[data-ok="1"]');
+                if (co) co.classList.add('correct');
+              }
+              lock(q);
+              showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+            });
+          });
+          if (skip) skip.addEventListener('click', function () {
+            if (q.classList.contains('done')) return;
+            var co = q.querySelector('.rq-opt[data-ok="1"]');
+            opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+            if (co) co.classList.add('correct');
+            lock(q);
+            showFb(true, rqFb(co), co.getAttribute('data-key'));
+          });
+        });
+      });
+    }
+
+    function repaintQuizBtns() {
+      document.querySelectorAll('.recall').forEach(function (quiz) {
+        var start = recallStart(quiz);
+        if (!start) return;
+        start.textContent = quiz.classList.contains('show')
+          ? tr('إخفاء الاختبار', 'Hide the quiz')
+          : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+      });
+    }
+
+    document.addEventListener('langChange', repaintQuizBtns);
 
     /* ---------- keyboard navigation ---------- */
     var SECTIONS = ['intro', 'print', 'variable', 'operators', 'sequence', 'practice', 'recap'];
@@ -3313,6 +3652,7 @@ print(a ** b)</textarea>
       wireSeq();
       wireRevealBtns();
       wireEditors();
+      wireRecall();
     });
 
     /* ---------- AR/EN toggle ---------- */
