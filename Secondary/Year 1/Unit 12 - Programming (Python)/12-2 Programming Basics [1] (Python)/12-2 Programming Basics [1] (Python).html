@@ -3313,6 +3313,13 @@ print(a ** b)</textarea>
       function call(fn, args) {
         if (fn.k === 'fn') {
           var name = fn.name;
+          if (name in __funcs) {
+            var fdef = __funcs[name];
+            var local = {};
+            for (var p = 0; p < fdef.params.length; p++) local[fdef.params[p]] = args[p] !== undefined ? args[p] : PNone;
+            var rr2 = __execStatements(fdef.body, local, out);
+            return rr2.__isReturn ? rr2.value : PNone;
+          }
           if (name === 'print') {
             var sep = ' ', end = '\n', vals = [];
             for (var a = 0; a < args.length; a++) {
@@ -3514,10 +3521,83 @@ print(a ** b)</textarea>
     function pyTopEq(s) { var depth = 0, inStr = null; for (var i = 0; i < s.length; i++) { var c = s[i]; if (inStr) { if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; continue; } if (c === '(' || c === '[') depth++; if (c === ')' || c === ']') depth--; if (c === '=' && depth === 0) { var pr = s[i - 1], nx = s[i + 1]; if (pr === '=' || pr === '>' || pr === '<' || pr === '!' || nx === '=') continue; return i; } } return -1; }
     function pySplitStmts(code) { var out = [], depth = 0, inStr = null, cur = ''; for (var i = 0; i < code.length; i++) { var c = code[i]; if (inStr) { cur += c; if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; cur += c; continue; } if (c === '(' || c === '[') { depth++; cur += c; continue; } if (c === ')' || c === ']') { depth--; cur += c; continue; } if (c === ';' && depth === 0) { out.push(cur); cur = ''; continue; } cur += c; } if (cur.trim() !== '') out.push(cur); return out; }
 
+    var __funcs = {}, __curLine = 0;
+    function __execStatements(arr, env, out) {
+      var ret = { __isReturn: false, value: null };
+      var i = 0;
+      while (i < arr.length) {
+        var ln = arr[i];
+        __curLine = ln.line;
+        if (/^(if|elif|else)\b/.test(ln.code)) {
+          var bi = ln.indent, clauses = [];
+          while (i < arr.length) {
+            var cur = arr[i];
+            var cm = /^(if|elif|else)\b/.exec(cur.code);
+            if (!cm || cur.indent !== bi) break;
+            var colonIdx = pyTopColon(cur.code);
+            var condSrc = cm[1] === 'else' ? '' : cur.code.slice(cm[0].length, colonIdx).trim();
+            var tail = colonIdx >= 0 ? cur.code.slice(colonIdx + 1).trim() : '';
+            var body = [];
+            if (tail) body.push({ indent: bi + 1, code: tail, line: cur.line });
+            var j = i + 1;
+            while (j < arr.length && arr[j].indent > bi) { body.push(arr[j]); j++; }
+            clauses.push({ kw: cm[1], cond: condSrc, body: body });
+            i = j;
+            var nl = arr[i];
+            if (!(nl && /^(elif|else)\b/.test(nl.code) && nl.indent === bi)) break;
+          }
+          var matched = false;
+          for (var c = 0; c < clauses.length; c++) {
+            var cl = clauses[c];
+            var runIt;
+            if (cl.kw === 'else') runIt = !matched;
+            else { runIt = !matched && truthy(pyParse(cl.cond, env, out).parseResult()); if (runIt) matched = true; }
+            if (runIt) { var rr = __execStatements(cl.body, env, out); if (rr.__isReturn) return rr; }
+          }
+        } else if (/^for\b/.test(ln.code)) {
+          var fm = /^for\s+([A-Za-z_][A-Za-z0-9_]*)\s+in\s+(.+)$/.exec(ln.code.replace(/\s*:\s*$/, ''));
+          var body2 = [];
+          var j2 = i + 1;
+          while (j2 < arr.length && arr[j2].indent > ln.indent) { body2.push(arr[j2]); j2++; }
+          var iter = pyParse(fm[2], env, out).parseResult();
+          var vals2;
+          if (iter.t === 'list') vals2 = iter.v;
+          else if (iter.t === 'str') vals2 = iter.v.split('');
+          else throw pErr("TypeError: '" + ptype(iter) + "' object is not iterable");
+          for (var k = 0; k < vals2.length; k++) { env[fm[1]] = vals2[k]; var r2 = __execStatements(body2, env, out); if (r2.__isReturn) return r2; }
+          i = j2;
+        } else if (/^def\b/.test(ln.code)) {
+          var dm = /^def\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(([^)]*)\)\s*:/.exec(ln.code);
+          var params = (dm[2] || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+          var fbody = [];
+          var j3 = i + 1;
+          while (j3 < arr.length && arr[j3].indent > ln.indent) { fbody.push(arr[j3]); j3++; }
+          __funcs[dm[1]] = { params: params, body: fbody };
+          i = j3;
+        } else if (/^return\b/.test(ln.code)) {
+          var rv = ln.code.replace(/^return\b/, '').trim();
+          return { __isReturn: true, value: rv === '' ? PNone : pyParse(rv, env, out).parseResult() };
+        } else {
+          pySplitStmts(ln.code).forEach(function (st) {
+            var eq = pyTopEq(st);
+            if (eq > 0) {
+              var name = st.slice(0, eq).trim();
+              var rhs = st.slice(eq + 1).trim();
+              if (/^[A-Za-z_][A-Za-z0-9_]*$/.test(name)) { env[name] = pyParse(rhs, env, out).parseResult(); return; }
+            }
+            pyParse(st, env, out).parseResult();
+          });
+          i++;
+        }
+      }
+      return ret;
+    }
     function pyRun(src, inputs, seeds) {
       var env = {}, curLine = 0;
       for (var s in seeds) env[s] = PStr(seeds[s]);
       var out = { buf: '', inQ: (inputs || []).slice() };
+      __curLine = 0;
+      __funcs = {};
       try {
         var raw = src.split('\n'), lines = [], pending = '';
         for (var r = 0; r < raw.length; r++) {
@@ -3531,71 +3611,13 @@ print(a ** b)</textarea>
           lines.push({ indent: indent, code: code, line: r + 1 });
         }
         if (pending.trim() !== '') lines.push({ indent: 0, code: pending.trim(), line: raw.length });
-        function runStmts(arr, start) {
-          var i = start;
-          while (i < arr.length) {
-            var ln = arr[i];
-            curLine = ln.line;
-            if (/^(if|elif|else)\b/.test(ln.code)) {
-              var bi = ln.indent, clauses = [];
-              while (i < arr.length) {
-                var cur = arr[i];
-                var cm = /^(if|elif|else)\b/.exec(cur.code);
-                if (!cm || cur.indent !== bi) break;
-                var colonIdx = pyTopColon(cur.code);
-                var condSrc = cm[1] === 'else' ? '' : cur.code.slice(cm[0].length, colonIdx).trim();
-                var tail = colonIdx >= 0 ? cur.code.slice(colonIdx + 1).trim() : '';
-                var body = [];
-                if (tail) body.push({ indent: bi + 1, code: tail, line: cur.line });
-                var j = i + 1;
-                while (j < arr.length && arr[j].indent > bi) { body.push(arr[j]); j++; }
-                clauses.push({ kw: cm[1], cond: condSrc, body: body });
-                i = j;
-                var nl = arr[i];
-                if (!(nl && /^(elif|else)\b/.test(nl.code) && nl.indent === bi)) break;
-              }
-              var matched = false;
-              for (var c = 0; c < clauses.length; c++) {
-                var cl = clauses[c];
-                var runIt;
-                if (cl.kw === 'else') runIt = !matched;
-                else { runIt = !matched && truthy(pyParse(cl.cond, env, out).parseResult()); if (runIt) matched = true; }
-                if (runIt) runStmts(cl.body, 0);
-              }
-            } else if (/^for\b/.test(ln.code)) {
-              var fm = /^for\s+([A-Za-z_][A-Za-z0-9_]*)\s+in\s+(.+)$/.exec(ln.code.replace(/\s*:\s*$/, ''));
-              var body2 = [];
-              var j2 = i + 1;
-              while (j2 < arr.length && arr[j2].indent > ln.indent) { body2.push(arr[j2]); j2++; }
-              var iter = pyParse(fm[2], env, out).parseResult();
-              var vals2;
-              if (iter.t === 'list') vals2 = iter.v;
-              else if (iter.t === 'str') vals2 = iter.v.split('');
-              else throw pErr("TypeError: '" + ptype(iter) + "' object is not iterable");
-              for (var k = 0; k < vals2.length; k++) { env[fm[1]] = vals2[k]; runStmts(body2, 0); }
-              i = j2;
-            } else {
-              pySplitStmts(ln.code).forEach(function (st) {
-                var eq = pyTopEq(st);
-                if (eq > 0) {
-                  var name = st.slice(0, eq).trim();
-                  var rhs = st.slice(eq + 1).trim();
-                  if (/^[A-Za-z_][A-Za-z0-9_]*$/.test(name)) { env[name] = pyParse(rhs, env, out).parseResult(); return; }
-                }
-                pyParse(st, env, out).parseResult();
-              });
-              i++;
-            }
-          }
-          return i;
-        }
-        runStmts(lines, 0);
+        __execStatements(lines, env, out);
         var text = out.buf;
         if (text.slice(-1) === '\n') text = text.slice(0, -1);
         return { out: (text === '' ? [] : text.split('\n')), err: null };
       } catch (e) {
         var msg = e && e.msg ? e.msg : String(e && e.message || e);
-        return { out: [], err: { line: curLine, msg: msg } };
+        return { out: [], err: { line: __curLine, msg: msg } };
       }
     }
     window.pyRun = pyRun;
