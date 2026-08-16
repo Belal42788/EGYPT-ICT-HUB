@@ -1,0 +1,3156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Breaker Summary — ملخص Block Breaker | 13-11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #193cff;
+      --accent: #00d4aa;
+      --bg: #0a0e27;
+      --card: #111638;
+      --card-hover: #1a2050;
+      --text: #fff;
+      --dim: #8892b0;
+      --success: #00ff88;
+      --danger: #ff4757;
+      --warn: #ffd700;
+      --s1: #06B6D4;
+      --s2: #F59E0B;
+      --s3: #8B5CF6;
+      --s4: #10B981;
+      --s5: #EC4899;
+      --s6: #EF4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--dim);
+      line-height: 1.9;
+      overflow-x: hidden
+    }
+
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+        radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
+      animation: bgDrift 20s ease-in-out infinite;
+    }
+
+    @keyframes bgDrift {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      50% {
+        transform: translate(-30px, 20px) scale(1.08)
+      }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none
+    }
+
+    .particles i {
+      position: absolute;
+      bottom: -10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: .3;
+      animation: floatUp 15s linear infinite
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0
+      }
+
+      10% {
+        opacity: .3
+      }
+
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0
+      }
+    }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 39, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(25, 60, 255, .3);
+      transform: translateY(-100%);
+      transition: transform .35s ease
+    }
+
+    nav.show {
+      transform: translateY(0)
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 24px
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: var(--primary)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      padding: 4px 2px;
+      flex: 1
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none
+    }
+
+    .nav-links a {
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid transparent;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(25, 60, 255, .2);
+      border-color: var(--primary)
+    }
+
+    .lang-toggle {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: transparent;
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all .3s ease
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .1)
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 60px 24px
+    }
+
+    .hero-circles span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: .16;
+      z-index: 0;
+      animation: heroFloat 6s ease-in-out infinite
+    }
+
+    .hero-circles span:nth-child(1) {
+      width: 280px;
+      height: 280px;
+      background: var(--primary);
+      top: 12%;
+      left: 10%;
+      animation-delay: 0s
+    }
+
+    .hero-circles span:nth-child(2) {
+      width: 220px;
+      height: 220px;
+      background: var(--accent);
+      bottom: 15%;
+      right: 12%;
+      animation-delay: 2s
+    }
+
+    .hero-circles span:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      background: #8B5CF6;
+      top: 55%;
+      left: 22%;
+      animation-delay: 4s
+    }
+
+    @keyframes heroFloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-26px)
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: .85rem;
+      font-weight: 700;
+      background: rgba(25, 60, 255, .15);
+      border: 1px solid rgba(25, 60, 255, .4);
+      color: var(--accent);
+      margin-bottom: 26px;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .1s forwards
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.15;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .3s forwards
+    }
+
+    .hero-title .grad {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      max-width: 640px;
+      margin: 18px auto 34px;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .5s forwards
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: #fff;
+      font-weight: 900;
+      padding: 16px 38px;
+      border-radius: 50px;
+      font-size: 1.05rem;
+      box-shadow: 0 10px 40px rgba(25, 60, 255, .4);
+      transition: .25s;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .7s forwards
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 50px rgba(0, 212, 170, .35)
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ---------- layout ---------- */
+    main {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    section {
+      padding: 70px 0
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 30px
+    }
+
+    .section-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--bg);
+      animation: glow 3s ease-in-out infinite
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(25, 60, 255, .25)
+      }
+
+      50% {
+        box-shadow: 0 0 42px rgba(25, 60, 255, .6)
+      }
+    }
+
+    .section-header h2 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.3
+    }
+
+    .section-header .tag {
+      font-size: .9rem
+    }
+
+    .section-inner {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .6s cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .section-inner.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .section-inner+.section-inner {
+      margin-top: 24px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 24px;
+      padding: 26px;
+      transition: .3s
+    }
+
+    .card:hover {
+      background: var(--card-hover);
+      transform: translateY(-5px);
+      border-color: rgba(25, 60, 255, .3)
+    }
+
+    .diagram-wrap {
+      position: relative;
+      border-radius: 24px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      overflow: hidden
+    }
+
+    .diagram-wrap .topbar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent))
+    }
+
+    .diagram-wrap .inner {
+      padding: 26px
+    }
+
+    h3 {
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      line-height: 1.4
+    }
+
+    p {
+      margin-bottom: 12px
+    }
+
+    b,
+    strong {
+      color: var(--text)
+    }
+
+    code.inline {
+      background: rgba(25, 60, 255, .15);
+      border: 1px solid rgba(25, 60, 255, .3);
+      color: #c7d2fe;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: .85em;
+      font-family: 'Consolas', 'Courier New', monospace
+    }
+
+    .note {
+      background: rgba(255, 215, 0, .06);
+      border: 1px solid rgba(255, 215, 0, .25);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: .95rem
+    }
+
+    .note b {
+      color: var(--warn)
+    }
+
+    /* ---------- recall quiz ---------- */
+    .recall {
+      display: none;
+      margin-top: 16px
+    }
+
+    .recall.show {
+      display: block
+    }
+
+    .rq {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px
+    }
+
+    .rq-q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px
+    }
+
+    .rq-opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    @media(max-width:640px) {
+      .rq-opts {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .rq-opt {
+      direction: rtl;
+      text-align: right;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .9rem;
+      color: #c7d2fe;
+      cursor: pointer;
+      transition: .15s;
+      user-select: none
+    }
+
+    .rq-opt:hover {
+      border-color: rgba(0, 212, 170, .5);
+      background: rgba(0, 212, 170, .08)
+    }
+
+    .rq-opt.disabled {
+      pointer-events: none;
+      opacity: .65
+    }
+
+    .rq-opt.correct {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .12);
+      color: var(--success)
+    }
+
+    .rq-opt.wrong {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .12);
+      color: #ffb3bd
+    }
+
+    .rq-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: #c7d2fe;
+      font-weight: 900;
+      font-size: .82rem;
+      margin-right: 10px;
+      vertical-align: middle;
+      flex-shrink: 0
+    }
+
+    .rq-fb {
+      margin-top: 10px;
+      display: none;
+      font-size: .92rem;
+      padding: 10px 14px;
+      border-radius: 10px
+    }
+
+    .rq-fb.show {
+      display: block
+    }
+
+    .rq-fb.ok {
+      background: rgba(0, 255, 136, .07);
+      border: 1px solid rgba(0, 255, 136, .35);
+      color: var(--success)
+    }
+
+    .rq-fb.no {
+      background: rgba(255, 71, 87, .07);
+      border: 1px solid rgba(255, 71, 87, .35);
+      color: #ffb3bd
+    }
+
+    /* ---------- error box ---------- */
+    .error-box {
+      border: 1px solid rgba(255, 71, 87, .2);
+      background: rgba(255, 71, 87, .05);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 26px
+    }
+
+    .error-box h4,
+    .error-box h3 {
+      color: var(--danger);
+      font-weight: 900;
+      margin-bottom: 10px;
+      font-size: 1rem
+    }
+
+    .error-box ul {
+      list-style: none
+    }
+
+    .error-box li {
+      padding: 4px 0;
+      position: relative;
+      padding-right: 26px
+    }
+
+    .error-box li::before {
+      content: "⚠️";
+      position: absolute;
+      right: 0;
+      top: 2px;
+      font-size: .95rem
+    }
+
+    .error-box li b {
+      color: var(--danger)
+    }
+
+    /* ---------- legend ---------- */
+    .legend {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 14px;
+      font-size: .85rem
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .legend i {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      display: inline-block
+    }
+
+    /* ---------- operator gallery ---------- */
+    .op-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px
+    }
+
+    @media(max-width:960px) {
+      .op-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+    }
+
+    @media(max-width:560px) {
+      .op-gallery {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .op-chip {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      padding: 18px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: .2s;
+      position: relative
+    }
+
+    .op-chip:hover,
+    .op-chip.active {
+      background: var(--card-hover);
+      border-color: var(--s3);
+      transform: translateY(-3px)
+    }
+
+    .op-chip .sym {
+      display: block;
+      font-family: 'Consolas', monospace;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--s3);
+      direction: ltr
+    }
+
+    .op-chip .name {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-top: 6px
+    }
+
+    .op-detail {
+      margin-top: 14px;
+      border-radius: 12px;
+      overflow: hidden
+    }
+
+    .op-detail:empty {
+      display: none
+    }
+
+    .op-detail .body {
+      padding: 16px 18px;
+      background: rgba(139, 92, 246, .08);
+      border: 1px solid rgba(139, 92, 246, .3)
+    }
+
+    .op-detail .exp {
+      font-family: 'Consolas', monospace;
+      direction: ltr;
+      text-align: left;
+      font-size: .95rem;
+      color: #d8b4fe;
+      margin-top: 6px
+    }
+
+    .op-detail .out {
+      margin-top: 6px;
+      color: var(--accent);
+      direction: ltr;
+      font-family: 'Consolas', monospace;
+      font-size: .95rem
+    }
+
+    .op-choice {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px
+    }
+
+    .op-opt {
+      flex: 1;
+      min-width: 52px;
+      padding: 10px 8px;
+      font-family: 'Consolas', monospace;
+      direction: ltr;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #c7d2fe;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .18s
+    }
+
+    .op-opt:hover {
+      border-color: rgba(0, 212, 170, .5)
+    }
+
+    .op-opt.active {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, .18);
+      color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent)
+    }
+
+    /* ---------- activity grid ---------- */
+    .activity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px
+    }
+
+    @media(max-width:860px) {
+      .activity-grid {
+        grid-template-columns: 1fr
+      }
+
+      .activity-grid .demo-panel {
+        order: 1
+      }
+
+      .activity-grid .code-panel {
+        order: 2
+      }
+    }
+
+    .activity-grid .demo-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      background: rgba(255, 255, 255, .03);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .activity-grid .demo-panel input,
+    .activity-grid .demo-panel select {
+      width: 100%;
+      background: #1a2050;
+      border: 1px solid rgba(255, 255, 255, .15);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-family: inherit;
+      color-scheme: dark
+    }
+
+    .activity-grid .demo-panel select option {
+      background: #111638;
+      color: var(--text)
+    }
+
+    .activity-grid .demo-panel input:focus,
+    .activity-grid .demo-panel select:focus {
+      outline: none;
+      border-color: var(--primary)
+    }
+
+    .demo-label {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--dim);
+      margin-bottom: 6px;
+      display: block
+    }
+
+    .big-num {
+      font-family: 'Consolas', monospace;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-align: center;
+      direction: ltr;
+      background: #05070f;
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid rgba(0, 212, 170, .25)
+    }
+
+    /* ---------- buttons ---------- */
+    .btn {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border: none;
+      color: #fff;
+      font-family: inherit;
+      font-weight: 900;
+      padding: 12px 28px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: .95rem;
+      transition: .2s;
+      box-shadow: 0 6px 24px rgba(25, 60, 255, .3)
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0, 212, 170, .3)
+    }
+
+    .mini-btn {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: .85rem
+    }
+
+    .mini-btn:hover {
+      background: rgba(255, 255, 255, .12)
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    /* ---------- code playground ---------- */
+    .code-panel {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0c1230;
+      border: 1px solid rgba(255, 255, 255, .09)
+    }
+
+    .code-panel .code-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      font-size: .8rem;
+      color: var(--dim);
+      border-bottom: 1px solid rgba(25, 60, 255, .2)
+    }
+
+    .code-panel .code-header::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0
+    }
+
+    .code-panel,
+    .code-panel .code-body,
+    .code-panel .code-header {
+      direction: ltr;
+      text-align: left;
+      unicode-bidi: isolate
+    }
+
+    .py-edit,
+    .py-edit:focus {
+      display: block;
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 14px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: .88rem;
+      line-height: 1.7;
+      color: #e0e7ff;
+      resize: none;
+      overflow: hidden;
+      height: auto;
+      min-height: 56px;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      overflow-wrap: normal;
+      box-sizing: border-box
+    }
+
+    .py-ctl {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 14px;
+      border-top: 1px solid rgba(25, 60, 255, .15)
+    }
+
+    .py-ctl .hint {
+      color: var(--dim);
+      font-size: .75rem;
+      margin-left: auto
+    }
+
+    .term {
+      background: #05070f;
+      border: 1px solid rgba(0, 212, 170, .25);
+      border-radius: 12px;
+      padding: 14px;
+      font-family: Consolas, monospace;
+      font-size: .85rem;
+      min-height: 60px;
+      margin: 10px 0;
+      direction: ltr;
+      text-align: left;
+      display: none
+    }
+
+    .term .out-line {
+      color: var(--accent);
+      opacity: 0;
+      transform: translateY(4px);
+      animation: lineIn .3s forwards
+    }
+
+    @keyframes lineIn {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .py-err {
+      background: #1a0a0f;
+      border: 1px solid rgba(255, 71, 87, .45);
+      border-radius: 12px;
+      color: #ffb3bd;
+      padding: 14px 16px;
+      margin: 8px 14px;
+      direction: ltr;
+      text-align: left;
+      line-height: 1.6;
+      animation: errIn .25s ease;
+      display: none
+    }
+
+    @keyframes errIn {
+      from {
+        opacity: 0;
+        transform: translateY(-4px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .py-err .errtag .errbadge {
+      background: rgba(255, 71, 87, .18);
+      border: 1px solid rgba(255, 71, 87, .4);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-weight: 700;
+      font-size: .8rem;
+      color: #ff6474;
+      text-transform: uppercase;
+      letter-spacing: .3px
+    }
+
+    .py-err .errmain {
+      font-family: Consolas, monospace;
+      font-size: .92rem;
+      color: #fff;
+      margin-top: 8px
+    }
+
+    .py-err .errctx {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 71, 87, .2);
+      color: var(--dim);
+      font-size: .8rem
+    }
+
+    .py-err .errline {
+      background: rgba(255, 71, 87, .12);
+      border-radius: 6px;
+      padding: 6px 10px;
+      margin-top: 6px;
+      font-family: Consolas, monospace;
+      color: #ffd9de;
+      font-size: .8rem;
+      white-space: pre;
+      overflow-x: auto
+    }
+
+    .py-err .errline .ln {
+      display: inline-block;
+      min-width: 2.2em;
+      color: #ff6470;
+      margin-right: 8px;
+      user-select: none
+    }
+
+    /* ---------- variable box animation ---------- */
+    .var-anim {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative
+    }
+
+    .var-fly {
+      position: absolute;
+      font-family: 'Consolas', monospace;
+      font-weight: 700;
+      color: var(--accent);
+      direction: ltr;
+      font-size: 1.15rem;
+      z-index: 5;
+      pointer-events: none;
+      transition: all .55s cubic-bezier(.5, 0, .3, 1)
+    }
+
+    .var-src {
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Consolas', monospace;
+      font-weight: 700;
+      color: var(--accent);
+      direction: ltr;
+      font-size: 1.15rem
+    }
+
+    .var-box {
+      width: 160px;
+      height: 116px;
+      border-radius: 18px;
+      background: var(--card);
+      border: 2px dashed var(--s3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: .35s;
+      position: relative
+    }
+
+    .var-box .vname {
+      font-family: 'Consolas', monospace;
+      font-weight: 700;
+      color: var(--s3);
+      font-size: 1.05rem;
+      direction: ltr
+    }
+
+    .var-box .v-val {
+      font-family: 'Consolas', monospace;
+      color: #e0e7ff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      direction: ltr;
+      min-height: 1.8rem
+    }
+
+    .var-box.live {
+      background: #142a72;
+      border-color: var(--success);
+      box-shadow: 0 0 34px rgba(0, 255, 136, .25)
+    }
+
+    .var-box.live .v-val {
+      color: var(--success)
+    }
+
+    /* ---------- sequential step replay ---------- */
+    .seq-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: #0c1230
+    }
+
+    .seq-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: #0a1230;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .seq-lines {
+      direction: ltr;
+      text-align: left;
+      font-family: 'Consolas', monospace;
+      font-size: .9rem;
+      line-height: 2.1;
+      padding: 8px 0
+    }
+
+    .seq-lines .sl {
+      display: flex;
+      padding: 0 16px;
+      transition: .15s;
+      border-right: 3px solid transparent
+    }
+
+    .seq-lines .sl .ln {
+      width: 34px;
+      color: #3d4a7a;
+      flex-shrink: 0;
+      text-align: left;
+      user-select: none
+    }
+
+    .seq-lines .sl .src {
+      white-space: pre;
+      color: #c6d1ff
+    }
+
+    .seq-lines .sl.run {
+      background: rgba(0, 212, 170, .12);
+      border-right-color: var(--accent)
+    }
+
+    .seq-lines .sl.run .src {
+      color: var(--accent)
+    }
+
+    .seq-term {
+      background: #05070f;
+      border: 1px solid rgba(0, 212, 170, .25);
+      border-radius: 12px;
+      margin: 0 16px 16px;
+      padding: 12px;
+      font-family: Consolas, monospace;
+      direction: ltr;
+      text-align: left;
+      font-size: .85rem;
+      min-height: 56px;
+      color: var(--accent)
+    }
+
+    .seq-term .out-line {
+      opacity: 0;
+      transform: translateY(4px);
+      animation: lineIn .3s forwards
+    }
+
+    /* ---------- exercises ---------- */
+    .ex-item {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px
+    }
+
+    .ex-item .q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px
+    }
+
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    @media(max-width:640px) {
+  
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: .82rem;
+      margin-inline-end: 8px;
+      flex-shrink: 0
+    }
+    .ex-options {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .ex-opt {
+      font-family: 'Consolas', monospace;
+      direction: ltr;
+      text-align: left;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .85rem;
+      color: #c7d2fe;
+      white-space: pre-wrap;
+      cursor: pointer;
+      transition: .15s;
+      user-select: none
+    }
+
+    .ex-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(139, 92, 246, .18);
+      border: 1px solid rgba(139, 92, 246, .55);
+      color: var(--s3);
+      font-weight: 900;
+      font-size: .78rem;
+      margin-right: 14px;
+      vertical-align: middle;
+      flex-shrink: 0
+    }
+
+    .ex-body {
+      vertical-align: middle;
+      display: inline-block
+    }
+
+    .ex-opt:hover {
+      border-color: rgba(0, 212, 170, .5);
+      background: rgba(0, 212, 170, .08)
+    }
+
+    .ex-opt.picked {
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .18);
+      color: #fff;
+      box-shadow: 0 0 0 1px var(--primary)
+    }
+
+    .ex-opt.correct {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .12);
+      color: var(--success)
+    }
+
+    .ex-opt.wrong {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .12);
+      color: #ffb3bd
+    }
+
+    .ex-opt.correct .ex-key {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .15);
+      color: var(--success)
+    }
+
+    .ex-opt.wrong .ex-key {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .15);
+      color: var(--danger)
+    }
+
+    .ex-score {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(0, 255, 136, .08);
+      border: 1px solid rgba(0, 255, 136, .35);
+      color: var(--success);
+      font-size: .95rem
+    }
+
+    .ex-answer {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: .92rem
+    }
+
+    .ex-answer.show {
+      display: block;
+      border: 1px solid rgba(0, 255, 136, .35);
+      background: rgba(0, 255, 136, .07);
+      color: var(--success)
+    }
+
+    .ex-answer.show b {
+      color: var(--success);
+      margin: 0 6px
+    }
+
+    .ex-item .q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, .15);
+      border: 1px solid rgba(245, 158, 11, .5);
+      color: var(--warn);
+      font-weight: 900;
+      font-size: .8rem;
+      margin-left: 8px;
+      vertical-align: middle
+    }
+
+    /* ---------- recap journey ---------- */
+    .journey {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-right: 26px
+    }
+
+    .journey::before {
+      content: "";
+      position: absolute;
+      right: 9px;
+      top: 14px;
+      bottom: 14px;
+      width: 3px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, var(--s1), var(--s2), var(--s3), var(--s4))
+    }
+
+    .j-node {
+      position: relative;
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 16px;
+      padding: 14px 0
+    }
+
+    .j-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 3px;
+      z-index: 2
+    }
+
+    .j-body .t {
+      color: var(--text);
+      font-weight: 700
+    }
+
+    .j-body .d {
+      font-size: .93rem
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      margin-top: 50px;
+      border-top: 1px solid rgba(25, 60, 255, .25);
+      padding: 40px 24px 34px;
+      text-align: center;
+      background: rgba(10, 14, 39, .6)
+    }
+
+    .footer-logo {
+      height: 40px;
+      border-radius: 8px
+    }
+
+    .footer-tag {
+      color: var(--dim);
+      margin-top: 14px;
+      font-size: .95rem
+    }
+
+    .footer-tag b {
+      color: var(--text)
+    }
+
+    /* ---------- misc ---------- */
+    .hint-line {
+      font-size: .85rem;
+      color: var(--dim);
+      margin-top: 8px
+    }
+
+    .kbd {
+      display: inline-block;
+      background: #1a2050;
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 6px;
+      padding: 0 8px;
+      font-size: .78rem;
+      color: var(--text);
+      font-family: 'Consolas', monospace
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px
+    }
+
+    .table th,
+    .table td {
+      text-align: right;
+      padding: 10px 14px;
+      font-size: .95rem;
+      border: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .table th {
+      color: var(--text);
+      font-weight: 700;
+      background: rgba(139, 92, 246, .12)
+    }
+
+    .table td {
+      color: var(--dim)
+    }
+
+    .table code {
+      direction: ltr;
+      font-family: 'Consolas', monospace;
+      color: #d7b4fe
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin-bottom: 10px
+    }
+
+    .todo-item b {
+      color: var(--text)
+    }
+
+    .emoji-float {
+      display: inline-block;
+      animation: ef 3s ease-in-out infinite
+    }
+
+    @keyframes ef {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-5px)
+      }
+    }
+
+    .emoji-pulse {
+      display: inline-block;
+      animation: ep 2s ease-in-out infinite
+    }
+
+    @keyframes ep {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.12)
+      }
+    }
+  
+
+    /* ===== Glossary ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      color-scheme: dark;
+      margin: 14px 0;
+    }
+
+    .glossary-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .glossary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .gl-filter {
+      padding: 6px 16px;
+    }
+
+    .gl-filter.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--s3);
+      color: var(--text);
+    }
+
+    .glossary-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .glossary-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gl-term {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .gl-term:hover {
+      background: var(--card-hover);
+      border-color: var(--s3);
+    }
+
+    .gl-term h4 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--s3);
+    }
+
+    .gl-term p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .gl-term.hidden {
+      display: none;
+    }
+  
+    /* ---------- diagram container top bar ---------- */
+    .diagram-wrap {
+      position: relative;
+      border-radius: 24px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      overflow: hidden
+    }
+
+    .diagram-top {
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent))
+    }
+
+    .diagram-body {
+      padding: 22px;
+      overflow-x: auto
+    }
+
+    /* ---------- outcome cards (intro) ---------- */
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 18px 0
+    }
+
+    @media(max-width:760px) {
+      .outcome-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .outcome-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 20px;
+      padding: 20px;
+      transition: .3s;
+      border-top: 3px solid var(--sc)
+    }
+
+    .outcome-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(25, 60, 255, .3);
+      background: var(--card-hover)
+    }
+
+    .oc-ic {
+      font-size: 2rem;
+      margin-bottom: 8px
+    }
+
+    .outcome-card h4 {
+      font-weight: 900;
+      margin-bottom: 6px;
+      color: var(--text)
+    }
+
+    .outcome-card p {
+      font-size: .88rem;
+      color: var(--dim)
+    }
+
+    /* ---------- function flow visualization ---------- */
+    .fn-flow {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 12px;
+      min-width: 420px
+    }
+
+    .fn-node {
+      flex: 1;
+      max-width: 170px;
+      text-align: center;
+      border-radius: 16px;
+      padding: 16px 10px;
+      font-weight: 900;
+      font-size: .9rem;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .fn-node span {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 900;
+      direction: ltr
+    }
+
+    .fn-node.in {
+      background: rgba(25, 60, 255, .14);
+      border: 2px solid rgba(25, 60, 255, .5);
+      color: #e0e7ff
+    }
+
+    .fn-node.box {
+      background: rgba(139, 92, 246, .14);
+      border: 2px solid rgba(139, 92, 246, .5);
+      color: #ede9fe
+    }
+
+    .fn-node.out {
+      background: rgba(0, 212, 170, .14);
+      border: 2px solid rgba(0, 212, 170, .5);
+      color: var(--accent)
+    }
+
+    .fn-arrow {
+      display: flex;
+      align-items: center;
+      font-size: 1.6rem;
+      color: var(--accent)
+    }
+
+    .legend {
+      margin-top: 16px;
+      text-align: center;
+      font-size: .9rem;
+      color: var(--dim)
+    }
+
+
+    /* ---------- web playground (HTML/CSS) ---------- */
+    .web-panel {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0c1230;
+      border: 1px solid rgba(255, 255, 255, .09)
+    }
+    .web-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      font-size: .8rem;
+      color: var(--dim);
+      border-bottom: 1px solid rgba(25, 60, 255, .2)
+    }
+    .web-edit,
+    .web-edit:focus {
+      display: block;
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 14px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: .82rem;
+      line-height: 1.6;
+      color: #e0e7ff;
+      resize: none;
+      overflow: hidden;
+      height: auto;
+      min-height: 90px;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      overflow-wrap: normal;
+      box-sizing: border-box
+    }
+    .web-frame {
+      display: none;
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-top: 1px solid rgba(0, 212, 170, .25);
+      background: #fff;
+      margin: 0
+    }
+  
+
+    /* ---------- tip grid ---------- */
+    .tip-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 18px 0
+    }
+    .tip-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 20px;
+      padding: 20px;
+      transition: .3s;
+      border-top: 3px solid rgba(255, 255, 255, .1)
+    }
+    .tip-card:hover {
+      transform: translateY(-5px);
+      background: var(--card-hover)
+    }
+    @media(max-width:860px) {
+      .tip-grid {
+        grid-template-columns: 1fr
+      }
+    }
+  
+</style>
+</head>
+
+<body>
+
+  <div class="bg-gradient"></div>
+  <div class="particles" id="particles"></div>
+
+    <nav id="topnav" aria-label="أقسام الدرس">
+    <div class="nav-inner">
+      <a href="../../../../index.html" aria-label="الرئيسية"><img class="nav-logo" src="data:image/webp;base64,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" alt="logo"></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#intro" data-ar="البداية" data-en="Start">البداية</a>
+        <a href="#reflect" data-ar="نتأمّل" data-en="Reflect">نتأمّل</a>
+        <a href="#format" data-ar="ننظم العرض" data-en="Organize">ننظم العرض</a>
+        <a href="#practice" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
+        <a href="#recap" data-ar="الخلاصة" data-en="Recap">الخلاصة</a>
+        <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
+      </div>
+      <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <header class="hero">
+    <div class="hero-inner">
+      <h1 data-ar="ملخص Block Breaker" data-en="Block Breaker Summary">ملخص Block Breaker</h1>
+      <p class="hero-sub" data-ar="Block Breaker Summary" data-en="Block Breaker Summary">Block Breaker Summary</p>
+      <p class="hero-desc" data-ar="الدرس الحادي عشر من وحدة البرمجة بالذكاء الاصطناعي — بنحضّر لعرض لعبة Block Breaker: بنتأمل في اللعبة، ونكتب إبداعنا وصعوباتنا، وننظمها في 4-5 سلايدز."
+        data-en="The eleventh lesson of the AI programming unit — we prepare to present the Block Breaker game: we reflect on it, write our creativity and difficulties, and organize them into 4-5 slides.">
+        الدرس الحادي عشر من وحدة البرمجة بالذكاء الاصطناعي — بنحضّر لعرض لعبة Block Breaker: بنتأمل في اللعبة، ونكتب إبداعنا وصعوباتنا، وننظمها في 4-5 سلايدز.</p>
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <main>
+  <!-- ============ 01 INTRO ============ -->
+  <section id="intro" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-number" style="background:linear-gradient(135deg,var(--s1),var(--s2))">1</div>
+        <h2 data-ar="هنتعلم إيه النهارده؟" data-en="What are we learning today?">هنتعلم إيه النهارده؟</h2>
+      </div>
+      <p class="lead"
+        data-ar="النهارده هنحضّر عرض لعبة Block Breaker اللي عملناها: بنفكّر في اللعبة، نكتب إبداعنا وصعوباتنا، وننظمها في 4-5 سلايدز."
+        data-en="Today we prepare the presentation of the Block Breaker game we made: we reflect on the game, write our creativity and difficulties, and organize them into 4-5 slides.">
+        النهارده هنحضّر عرض لعبة Block Breaker اللي عملناها: بنفكّر في اللعبة، نكتب إبداعنا وصعوباتنا، وننظمها في 4-5 سلايدز.</p>
+      <div class="outcome-grid">
+        <div class="outcome-card" style="--sc:var(--s1)">
+          <div class="oc-ic">🧠</div>
+          <h4 data-ar="نتأمّل اللعبة" data-en="Reflect on the game">نتأمّل اللعبة</h4>
+          <p data-ar="بنكتب أفكارنا: نوع اللعبة وقواعدها وإبداعنا وصعوباتنا." data-en="We write our thoughts: game type and rules, creativity, and difficulties.">بنكتب أفكارنا: نوع اللعبة وقواعدها وإبداعنا وصعوباتنا.</p>
+        </div>
+        <div class="outcome-card" style="--sc:var(--s2)">
+          <div class="oc-ic">🤝</div>
+          <h4 data-ar="التعاون مع الـ AI" data-en="Collaboration with AI">التعاون مع الـ AI</h4>
+          <p data-ar="نحدد إيه اللي الـ AI يقدر يعمله وإيه اللي ما يقدرش." data-en="We define what AI can do and what it cannot do.">نحدد إيه اللي الـ AI يقدر يعمله وإيه اللي ما يقدرش.</p>
+        </div>
+        <div class="outcome-card" style="--sc:var(--s3)">
+          <div class="oc-ic">📊</div>
+          <h4 data-ar="عرض منظم" data-en="Organized presentation">عرض منظم</h4>
+          <p data-ar="بنلخّص شغلنا في 4-5 سلايدز ونتمرن على العرض." data-en="We summarize our work into 4-5 slides and practice presenting.">بنلخّص شغلنا في 4-5 سلايدز ونتمرن على العرض.</p>
+        </div>
+      </div>
+      <div class="error-box">
+        <div class="err-head"><span>⚠️</span><b data-ar="أخطاء شائعة" data-en="Common mistakes">أخطاء شائعة</b></div>
+        <ul>
+          <li data-ar="تنسى توثيق إبداعك وصعوباتك وانت شغّال — التوثيق بيرجع يفيدك في العرض." data-en="Forgetting to document your creativity and difficulties while working — documentation helps you in the presentation.">تنسى توثيق إبداعك وصعوباتك وانت شغّال — التوثيق بيرجع يفيدك في العرض.</li>
+          <li data-ar="تعمل عرض طويل زيادة عن اللزوم — المطلوب 4-5 سلايدز بس." data-en="Making the presentation longer than needed — only 4-5 slides are required.">تعمل عرض طويل زيادة عن اللزوم — المطلوب 4-5 سلايدز بس.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 REFLECT ============ -->
+  <section id="reflect" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-number" style="background:linear-gradient(135deg,var(--s2),var(--s4))">2</div>
+        <h2 data-ar="نتأمّل في اللعبة" data-en="Reflect on the game">نتأمّل في اللعبة</h2>
+      </div>
+      <p
+        data-ar="بنفكّر في لعبة Block Breaker اللي عملناها في الدرس اللي فات، ونكتب أفكارنا على تلات نقاط."
+        data-en="We reflect on the Block Breaker game we made last lesson, and write our thoughts on three points.">
+        بنفكّر في لعبة Block Breaker اللي عملناها في الدرس اللي فات، ونكتب أفكارنا على <b>تلات نقاط</b>.</p>
+      <div class="journey" data-id="reflJourney">
+        <div class="jp" data-step="1"><span class="jp-n">1</span><span data-ar="نوع اللعبة: العنوان والقواعد (أرواح، نقاط، عناصر...)." data-en="Game type: title and rules (lives, score, items...).">نوع اللعبة: العنوان والقواعد (أرواح، نقاط، عناصر...).</span></div>
+        <div class="jp" data-step="2"><span class="jp-n">2</span><span data-ar="قصص التطوير: النقاط الإبداعية (الاستراتيجيات) والصعوبات." data-en="Development stories: creative points (strategies) and difficulties.">قصص التطوير: النقاط الإبداعية (الاستراتيجيات) والصعوبات.</span></div>
+        <div class="jp" data-step="3"><span class="jp-n">3</span><span data-ar="التعاون مع الـ AI: إيه يقدر يعمله وإيه ما يقدرش." data-en="Collaboration with AI: what it can do and what it cannot.">التعاون مع الـ AI: إيه يقدر يعمله وإيه ما يقدرش.</span></div>
+      </div>
+      <p
+        data-ar="ممكن تستعين بالـ AI عشان يفكرك في النقاط دي. مثال إبداع: خليت سرعة الكورة تتغير كل ما تضرب المضرب. مثال صعوبة: زيادة عدد المكعبات خلت اللعبة صعبة جدًا."
+        data-en="You may use AI to help you think about these points. Example creativity: I made the ball speed change every time it hits the player. Example difficulty: increasing the number of blocks made the game too difficult.">
+        ممكن تستعين بالـ AI عشان يفكرك في النقاط دي. مثال إبداع: خليت سرعة الكورة تتغير كل ما تضرب المضرب. مثال صعوبة: زيادة عدد المكعبات خلت اللعبة صعبة جدًا.</p>
+      <div class="error-box">
+        <div class="err-head"><span>⚠️</span><b data-ar="أخطاء شائعة" data-en="Common mistakes">أخطاء شائعة</b></div>
+        <ul>
+          <li data-ar="تحكي إن اللعبة اشتغلت من أول مرة من غير صعوبات — الصعوبات جزء من القصة الحقيقية." data-en="Claiming the game worked perfectly the first time — difficulties are part of the real story.">تحكي إن اللعبة اشتغلت من أول مرة من غير صعوبات — الصعوبات جزء من القصة الحقيقية.</li>
+          <li data-ar="تخلط بين إيه اللي الـ AI عمله وإيه اللي إنت عملته — لازم تفصل بوضوح." data-en="Confusing what AI did and what you did — you must separate them clearly.">تخلط بين إيه اللي الـ AI عمله وإيه اللي إنت عملته — لازم تفصل بوضوح.</li>
+        </ul>
+      </div>
+      <button class="btn" data-id="reflQuizStart" data-start data-ar="اختبر نفسك" data-en="Test yourself">اختبر نفسك</button>
+      <div class="recall" id="reflRecall">
+        <div class="rq" data-id="reflRq1">
+          <div class="rq-q"><span class="q-num">1</span> <span data-ar="أول نقطة في التفكير في اللعبة؟" data-en="The first reflection point?">أول نقطة في التفكير في اللعبة؟</span></div>
+          <div class="rq-opts">
+            <div class="rq-opt" data-id="reflRq1o1" data-key="A" data-ok="1" data-fb-ar="صحيح! نوع اللعبة: العنوان والقواعد." data-fb-en="Correct! Game type: title and rules."><span class="rq-key">A</span><span class="rq-body" data-ar="نوع اللعبة (العنوان والقواعد)" data-en="game type (title and rules)">نوع اللعبة (العنوان والقواعد)</span></div>
+            <div class="rq-opt" data-id="reflRq1o2" data-key="B" data-fb-ar="لأ، دي خطوة أخرانية." data-fb-en="No, that's a later step."><span class="rq-key">B</span><span class="rq-body" data-ar="التعاون مع الـ AI" data-en="collaboration with AI">التعاون مع الـ AI</span></div>
+            <div class="rq-opt" data-id="reflRq1o3" data-key="C" data-fb-ar="لأ، دي تاني نقطة." data-fb-en="No, that's the second point."><span class="rq-key">C</span><span class="rq-body" data-ar="قصص التطوير" data-en="development stories">قصص التطوير</span></div>
+          </div>
+          <div class="rq-fb"></div>
+          <button class="mini-btn rq-skip" data-id="reflRq1Skip" data-ar="تخطي" data-en="Skip">تخطي</button>
+        </div>
+        <div class="rq" data-id="reflRq2">
+          <div class="rq-q"><span class="q-num">2</span> <span data-ar="من الأمثلة على النقاط الإبداعية؟" data-en="An example of a creative point?">من الأمثلة على النقاط الإبداعية؟</span></div>
+          <div class="rq-opts">
+            <div class="rq-opt" data-id="reflRq2o1" data-key="A" data-ok="1" data-fb-ar="صحيح! تغيير سرعة الكورة كل ما تضرب المضرب." data-fb-en="Correct! Changing the ball speed every time it hits the player."><span class="rq-key">A</span><span class="rq-body" data-ar="تغيير سرعة الكورة كل ما تضرب المضرب" data-en="changing the ball speed each paddle hit">تغيير سرعة الكورة كل ما تضرب المضرب</span></div>
+            <div class="rq-opt" data-id="reflRq2o2" data-key="B" data-fb-ar="لأ، إيه الصعوبة اللي واجهتها؟" data-fb-en="No, that's a difficulty."><span class="rq-key">B</span><span class="rq-body" data-ar="البرنامج وقف نص الشغل" data-en="the program stopped halfway">البرنامج وقف نص الشغل</span></div>
+            <div class="rq-opt" data-id="reflRq2o3" data-key="C" data-fb-ar="لأ، ده عنوان اللعبة." data-fb-en="No, that's the game title."><span class="rq-key">C</span><span class="rq-body" data-ar="عنوان اللعبة" data-en="the game title">عنوان اللعبة</span></div>
+          </div>
+          <div class="rq-fb"></div>
+          <button class="mini-btn rq-skip" data-id="reflRq2Skip" data-ar="تخطي" data-en="Skip">تخطي</button>
+        </div>
+        <div class="rq" data-id="reflRq3">
+          <div class="rq-q"><span class="q-num">3</span> <span data-ar="التالتة من نقاط التفكير؟" data-en="The third reflection point?">التالتة من نقاط التفكير؟</span></div>
+          <div class="rq-opts">
+            <div class="rq-opt" data-id="reflRq3o1" data-key="A" data-ok="1" data-fb-ar="صحيح! التعاون مع الـ AI: إيه يقدر وإيه ما يقدرش." data-fb-en="Correct! Collaboration with AI: what it can and cannot do."><span class="rq-key">A</span><span class="rq-body" data-ar="التعاون مع الـ AI" data-en="collaboration with AI">التعاون مع الـ AI</span></div>
+            <div class="rq-opt" data-id="reflRq3o2" data-key="B" data-fb-ar="لأ، دي أول نقطة." data-fb-en="No, that's the first point."><span class="rq-key">B</span><span class="rq-body" data-ar="نوع اللعبة" data-en="game type">نوع اللعبة</span></div>
+            <div class="rq-opt" data-id="reflRq3o3" data-key="C" data-fb-ar="لأ، مفيش نقطة تالتة." data-fb-en="No, there's no third point."><span class="rq-key">C</span><span class="rq-body" data-ar="مفيش نقطة تالتة" data-en="no third point">مفيش نقطة تالتة</span></div>
+          </div>
+          <div class="rq-fb"></div>
+          <button class="mini-btn rq-skip" data-id="reflRq3Skip" data-ar="تخطي" data-en="Skip">تخطي</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 FORMAT ============ -->
+  <section id="format" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-number" style="background:linear-gradient(135deg,var(--s4),var(--s1))">3</div>
+        <h2 data-ar="ننظم العرض" data-en="Organize the presentation">ننظم العرض</h2>
+      </div>
+      <p
+        data-ar="بنرتب اللي كتبناه على هيئة عرض من 4 لـ 5 سلايدز. ممكن نستعين بالـ AI عشان يلخصلنا."
+        data-en="We organize what we wrote into a presentation of 4 to 5 slides. We may use AI to help us summarize.">
+        بنرتب اللي كتبناه على هيئة عرض من <b>4 لـ 5 سلايدز</b>. ممكن نستعين بالـ AI عشان يلخصلنا.</p>
+      <div class="journey" data-id="fmtJourney">
+        <div class="jp" data-step="1"><span class="jp-n">1</span><span data-ar="سلايد 1: العنوان ونوع اللعبة وقواعدها." data-en="Slide 1: title, game type, and rules.">سلايد 1: العنوان ونوع اللعبة وقواعدها.</span></div>
+        <div class="jp" data-step="2"><span class="jp-n">2</span><span data-ar="سلايد 2: النقاط الإبداعية والاستراتيجيات." data-en="Slide 2: creative points and strategies.">سلايد 2: النقاط الإبداعية والاستراتيجيات.</span></div>
+        <div class="jp" data-step="3"><span class="jp-n">3</span><span data-ar="سلايد 3: الصعوبات وإزاي عدّيتها." data-en="Slide 3: difficulties and how you overcame them.">سلايد 3: الصعوبات وإزاي عدّيتها.</span></div>
+        <div class="jp" data-step="4"><span class="jp-n">4</span><span data-ar="سلايد 4: إيه اللي الـ AI يعمله وإيه اللي ما يعملوش." data-en="Slide 4: what AI can do and cannot do.">سلايد 4: إيه اللي الـ AI يعمله وإيه اللي ما يعملوش.</span></div>
+        <div class="jp" data-step="5"><span class="jp-n">5</span><span data-ar="سلايد 5: ملخص وخلاصة اللعبة." data-en="Slide 5: summary and conclusion.">سلايد 5: ملخص وخلاصة اللعبة.</span></div>
+      </div>
+      <div class="error-box">
+        <div class="err-head"><span>⚠️</span><b data-ar="أخطاء شائعة" data-en="Common mistakes">أخطاء شائعة</b></div>
+        <ul>
+          <li data-ar="تحط كل حاجة في سلايد واحد — وزّع على 4-5 سلايدز." data-en="Putting everything on one slide — spread it over 4-5 slides.">تحط كل حاجة في سلايد واحد — وزّع على 4-5 سلايدز.</li>
+          <li data-ar="تنسخ كلام طويل حرفيًا — السلايد لازم يكون ملخص وجمل قصيرة." data-en="Copying long text verbatim — a slide should be a short summary.">تنسخ كلام طويل حرفيًا — السلايد لازم يكون ملخص وجمل قصيرة.</li>
+        </ul>
+      </div>
+      <button class="btn" data-id="fmtQuizStart" data-start data-ar="اختبر نفسك" data-en="Test yourself">اختبر نفسك</button>
+      <div class="recall" id="fmtRecall">
+        <div class="rq" data-id="fmtRq1">
+          <div class="rq-q"><span class="q-num">1</span> <span data-ar="العرض المفروض يبقى من كام سلايد؟" data-en="How many slides should the presentation be?">العرض المفروض يبقى من كام سلايد؟</span></div>
+          <div class="rq-opts">
+            <div class="rq-opt" data-id="fmtRq1o1" data-key="A" data-ok="1" data-fb-ar="صحيح! من 4 لـ 5 سلايدز." data-fb-en="Correct! From 4 to 5 slides."><span class="rq-key">A</span><span class="rq-body" data-ar="من 4 لـ 5 سلايدز" data-en="4 to 5 slides">من 4 لـ 5 سلايدز</span></div>
+            <div class="rq-opt" data-id="fmtRq1o2" data-key="B" data-fb-ar="لأ، أقل من كده." data-fb-en="No, fewer than that."><span class="rq-key">B</span><span class="rq-body" data-ar="سلايد واحد" data-en="one slide">سلايد واحد</span></div>
+            <div class="rq-opt" data-id="fmtRq1o3" data-key="C" data-fb-ar="لأ، أكتر من كده." data-fb-en="No, more than that."><span class="rq-key">C</span><span class="rq-body" data-ar="10 سلايدز" data-en="10 slides">10 سلايدز</span></div>
+          </div>
+          <div class="rq-fb"></div>
+          <button class="mini-btn rq-skip" data-id="fmtRq1Skip" data-ar="تخطي" data-en="Skip">تخطي</button>
+        </div>
+        <div class="rq" data-id="fmtRq2">
+          <div class="rq-q"><span class="q-num">2</span> <span data-ar="بنلخص السلايدز بإزاي؟" data-en="How do we summarize the slides?">بنلخص السلايدز بإزاي؟</span></div>
+          <div class="rq-opts">
+            <div class="rq-opt" data-id="fmtRq2o1" data-key="A" data-ok="1" data-fb-ar="صحيح! بجمل قصيرة وملخصة، وممكن الـ AI يساعد." data-fb-en="Correct! With short summary sentences, and AI may help."><span class="rq-key">A</span><span class="rq-body" data-ar="جمل قصيرة وملخصة + الـ AI" data-en="short summary sentences + AI">جمل قصيرة وملخصة + الـ AI</span></div>
+            <div class="rq-opt" data-id="fmtRq2o2" data-key="B" data-fb-ar="لأ، بكلام طويل حرفيًا." data-fb-en="No, not verbatim long text."><span class="rq-key">B</span><span class="rq-body" data-ar="كلام طويل حرفيًا" data-en="verbatim long text">كلام طويل حرفيًا</span></div>
+            <div class="rq-opt" data-id="fmtRq2o3" data-key="C" data-fb-ar="لأ، من غير ملخص." data-fb-en="No, without a summary."><span class="rq-key">C</span><span class="rq-body" data-ar="من غير ملخص" data-en="no summary">من غير ملخص</span></div>
+          </div>
+          <div class="rq-fb"></div>
+          <button class="mini-btn rq-skip" data-id="fmtRq2Skip" data-ar="تخطي" data-en="Skip">تخطي</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 PRACTICE ============ -->
+  <section id="practice" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-number" style="background:linear-gradient(135deg,var(--s2),var(--s5))">4</div>
+        <h2 data-ar="التدريبات" data-en="Exercises">التدريبات</h2>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--s2)" data-ar="Exercise — صفحة 200" data-en="Exercise — Page 200">Exercise — صفحة 200</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="إيه اللي لازم تعمله قبل الحصة الجاية؟" data-en="What do you need to do before the next class?">إيه اللي لازم تعمله قبل الحصة الجاية؟</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1">A&nbsp;&nbsp;تتمرن على العرض</div>
+          </div>
+          <div class="ex-answer" data-ar="الاجابة: تتمرن على عرض اللعبة قبل الحصة الجاية." data-en="Answer: practice your presentation before the next class.">الاجابة: تتمرن على عرض اللعبة قبل الحصة الجاية.</div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="ex" data-ar="اعرض الاجابة" data-en="Show Answer">اعرض الاجابة</button>
+          <button class="mini-btn" data-hide="ex" data-ar="إخفاء الاجابة" data-en="Hide Answer">إخفاء الاجابة</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--s2)" data-ar="Try — صفحة 200" data-en="Try — Page 200">Try — صفحة 200</h3>
+        <div class="ex-item">
+          <div class="q"><span class="q-num">1</span> <span data-ar="جرب تكتب سلايد واحد بس: عنوان اللعبة + قاعدتين." data-en="Try writing just one slide: the game title + two rules.">جرب تكتب سلايد واحد بس: عنوان اللعبة + قاعدتين.</span></div>
+          <div class="ex-options">
+            <div class="ex-opt" data-ok="1">A&nbsp;&nbsp;مثال: Block Breaker — الكورة بترتد عن المضرب، كل مكعب بـ score</div>
+          </div>
+          <div class="ex-answer" data-ar="الاجابة: مثال: Block Breaker — الكورة بترتد عن المضرب، وكل مكعب بيتكسر بيديك نقاط." data-en="Answer: Example: Block Breaker — the ball bounces off the paddle, and each broken block gives you score.">الاجابة: مثال: Block Breaker — الكورة بترتد عن المضرب، وكل مكعب بيتكسر بيديك نقاط.</div>
+        </div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" data-reveal="try" data-ar="اعرض الاجابة" data-en="Show Answer">اعرض الاجابة</button>
+          <button class="mini-btn" data-hide="try" data-ar="إخفاء الاجابة" data-en="Hide Answer">إخفاء الاجابة</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RECAP ============ -->
+  <section id="recap" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-number" style="background:linear-gradient(135deg,var(--s3),var(--s6))">5</div>
+        <h2 data-ar="الخلاصة" data-en="Recap">الخلاصة</h2>
+      </div>
+      <div class="journey" data-id="recapJourney">
+        <div class="jp" data-step="1"><span class="jp-n">1</span><span data-ar="اكتب نوع اللعبة: العنوان والقواعد." data-en="Write the game type: title and rules.">اكتب نوع اللعبة: العنوان والقواعد.</span></div>
+        <div class="jp" data-step="2"><span class="jp-n">2</span><span data-ar="اكتب قصص التطوير: الإبداع والصعوبات." data-en="Write development stories: creativity and difficulties.">اكتب قصص التطوير: الإبداع والصعوبات.</span></div>
+        <div class="jp" data-step="3"><span class="jp-n">3</span><span data-ar="حدد إيه اللي الـ AI يعمله وإيه اللي ما يعملوش." data-en="Define what AI can do and cannot do.">حدد إيه اللي الـ AI يعمله وإيه اللي ما يعملوش.</span></div>
+        <div class="jp" data-step="4"><span class="jp-n">4</span><span data-ar="نظمها في 4-5 سلايدز بجمل قصيرة." data-en="Organize them into 4-5 slides with short sentences.">نظمها في 4-5 سلايدز بجمل قصيرة.</span></div>
+        <div class="jp" data-step="5"><span class="jp-n">5</span><span data-ar="تدرّب على العرض قبل الحصة الجاية." data-en="Practice the presentation before the next class.">تدرّب على العرض قبل الحصة الجاية.</span></div>
+      </div>
+      <button class="btn" data-id="recapQuizStart" data-start data-ar="اختبر نفسك" data-en="Test yourself">اختبر نفسك</button>
+      <div class="recall" id="recapRecall">
+        <div class="rq" data-id="recapRq1">
+          <div class="rq-q"><span class="q-num">1</span> <span data-ar="العرض من كام سلايد؟" data-en="How many slides is the presentation?">العرض من كام سلايد؟</span></div>
+          <div class="rq-opts">
+            <div class="rq-opt" data-id="recapRq1o1" data-key="A" data-ok="1" data-fb-ar="صحيح! من 4 لـ 5 سلايدز." data-fb-en="Correct! From 4 to 5 slides."><span class="rq-key">A</span><span class="rq-body" data-ar="4-5 سلايدز" data-en="4-5 slides">4-5 سلايدز</span></div>
+            <div class="rq-opt" data-id="recapRq1o2" data-key="B" data-fb-ar="لأ، مش 10." data-fb-en="No, not 10."><span class="rq-key">B</span><span class="rq-body" data-ar="10 سلايدز" data-en="10 slides">10 سلايدز</span></div>
+            <div class="rq-opt" data-id="recapRq1o3" data-key="C" data-fb-ar="لأ، مش سلايد واحد." data-fb-en="No, not one."><span class="rq-key">C</span><span class="rq-body" data-ar="سلايد واحد" data-en="one slide">سلايد واحد</span></div>
+          </div>
+          <div class="rq-fb"></div>
+          <button class="mini-btn rq-skip" data-id="recapRq1Skip" data-ar="تخطي" data-en="Skip">تخطي</button>
+        </div>
+        <div class="rq" data-id="recapRq2">
+          <div class="rq-q"><span class="q-num">2</span> <span data-ar="قبل الحصة الجاية إيه اللي نعمله؟" data-en="What do we do before the next class?">قبل الحصة الجاية إيه اللي نعمله؟</span></div>
+          <div class="rq-opts">
+            <div class="rq-opt" data-id="recapRq2o1" data-key="A" data-ok="1" data-fb-ar="صحيح! نتمرن على العرض." data-fb-en="Correct! We practice the presentation."><span class="rq-key">A</span><span class="rq-body" data-ar="نتمرن على العرض" data-en="practice the presentation">نتمرن على العرض</span></div>
+            <div class="rq-opt" data-id="recapRq2o2" data-key="B" data-fb-ar="لأ، مفيش حاجة." data-fb-en="No, nothing."><span class="rq-key">B</span><span class="rq-body" data-ar="مفيش حاجة" data-en="nothing">مفيش حاجة</span></div>
+            <div class="rq-opt" data-id="recapRq2o3" data-key="C" data-fb-ar="لأ، نمسح اللعبة." data-fb-en="No, we don't delete the game."><span class="rq-key">C</span><span class="rq-body" data-ar="نمسح اللعبة" data-en="delete the game">نمسح اللعبة</span></div>
+          </div>
+          <div class="rq-fb"></div>
+          <button class="mini-btn rq-skip" data-id="recapRq2Skip" data-ar="تخطي" data-en="Skip">تخطي</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 GLOSSARY ============ -->
+  <section id="glossary" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-number" style="background:linear-gradient(135deg,var(--s6),var(--s4))">6</div>
+        <h2 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h2>
+      </div>
+      <div class="glossary">
+        <div class="gl-item"><span class="gl-term">Presentation</span><p data-ar="عرض شفهي لشغلك قدام زمايلك في الحصة." data-en="A spoken presentation of your work in front of your classmates in class.">عرض شفهي لشغلك قدام زمايلك في الحصة.</p></div>
+        <div class="gl-item"><span class="gl-term">Reflect</span><p data-ar="تراجع شغلك وتفكّر فيه عشان تفهم إيه اللي اتعمل." data-en="Reviewing your work and thinking about it to understand what was done.">تراجع شغلك وتفكّر فيه عشان تفهم إيه اللي اتعمل.</p></div>
+        <div class="gl-item"><span class="gl-term">Creative point</span><p data-ar="فكرة أو استراتيجية إنت أضفتها بتخلي اللعبة مميزة." data-en="An idea or strategy you added that makes the game special.">فكرة أو استراتيجية إنت أضفتها بتخلي اللعبة مميزة.</p></div>
+        <div class="gl-item"><span class="gl-term">Difficulty</span><p data-ar="مشكلة واجهتها في التطوير وإزاي حليتها." data-en="A problem you faced during development and how you solved it.">مشكلة واجهتها في التطوير وإزاي حليتها.</p></div>
+        <div class="gl-item"><span class="gl-term">Slide</span><p data-ar="صفحة من العرض تحتوي على ملخص قصير." data-en="One page of the presentation containing a short summary.">صفحة من العرض تحتوي على ملخص قصير.</p></div>
+        <div class="gl-item"><span class="gl-term">Summarize</span><p data-ar="تقلّص الكلام الطويل لجمل قصيرة وواضحة." data-en="Condensing long text into short, clear sentences.">تقلّص الكلام الطويل لجمل قصيرة وواضحة.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
+      <img class="footer-logo"
+        src="data:image/webp;base64,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"
+        alt="Bilal">
+      <span style="font-size:1rem;font-weight:800;color:var(--text);line-height:1.4"
+        data-ar="تمام! كمّل سطر ورا سطر — وإنت بتبني في البرمجة 🚀"
+        data-en="Great! Keep going line after line — you're building yourself in programming 🚀">تمام! كمّل سطر ورا سطر
+        — وإنت بتبني في البرمجة 🚀</span>
+    </div>
+    <div class="footer-tag" data-ar="درس 13-11 — Block Breaker Summary — صفحة 199–200 · ملخص Block Breaker" data-en="Lesson 13-11 — Block Breaker Summary — pages 199–200 · Block Breaker Summary">درس 13-11 — Block Breaker Summary — صفحة 199–200 · ملخص Block Breaker</div>
+  </footer>
+  <script>
+    /* ============================================================
+       Interactive Explainer JS — Programming Basics (Python)
+       ============================================================ */
+
+    /* ---------- particles ---------- */
+    (function () {
+      var p = document.getElementById('particles'), frag = document.createDocumentFragment();
+      for (var i = 0; i < 30; i++) {
+        var d = document.createElement('i');
+        d.style.left = (Math.random() * 100) + 'vw';
+        d.style.animationDuration = (12 + Math.random() * 8) + 's';
+        d.style.animationDelay = (Math.random() * 15) + 's';
+        if (Math.random() > .5) d.style.background = 'var(--accent)';
+        frag.appendChild(d);
+      }
+      p.appendChild(frag);
+    })();
+
+    /* ---------- nav ---------- */
+    var nav = document.getElementById('topnav');
+    window.addEventListener('scroll', function () { nav.classList.toggle('show', window.scrollY > 100); });
+
+    function wireNav() {
+      var links = document.querySelectorAll('#navLinks a');
+      var ies = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            var id = en.target.id;
+            links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
+          }
+        });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+      document.querySelectorAll('section[id]').forEach(function (s) { ies.observe(s); });
+    }
+
+    /* ---------- reveals ---------- */
+    function wireReveal() {
+      var els = document.querySelectorAll('.section-inner');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.05 });
+      els.forEach(function (el) { io.observe(el); });
+    }
+
+    /* ---------- operator gallery ---------- */
+    var OP_DATA = [
+      { t: '+', name: 'الجمع', nameEn: 'Addition', desc: 'Addition', ex: '5 + 3', out: '8' },
+      { t: '-', name: 'الطرح', nameEn: 'Subtraction', desc: 'Subtraction', ex: '8 - 3', out: '5' },
+      { t: '*', name: 'الضرب', nameEn: 'Multiplication', desc: 'Multiplication', ex: '5 * 3', out: '15' },
+      { t: '/', name: 'القسمة', nameEn: 'Division', desc: 'Division', ex: '5 / 3', out: '1.666…' },
+      { t: '//', name: 'ناتج صحيح', nameEn: 'Quotient', desc: 'Quotient', ex: '17 // 5', out: '3' },
+      { t: '%', name: 'الباقي', nameEn: 'Remainder', desc: 'Remainder', ex: '17 % 5', out: '2' },
+      { t: '**', name: 'الأس', nameEn: 'Power', desc: 'Power', ex: '2 ** 4', out: '16' }
+    ];
+    function opName(o) { return (window.currentLang === 'en') ? o.nameEn : o.name; }
+    function divZeroMsg() { return window.currentLang === 'en' ? 'Cannot divide by zero' : 'ممنوع القسمة على صفر'; }
+    function paintOpDetail(data) {
+      var d = document.getElementById('opDetail'); if (!d || !data) return;
+      d.innerHTML =
+        '<div class="body"><div style="color:var(--text);font-weight:700">' + opName(data) + ' <span style="color:var(--dim);font-weight:400;font-size:.85rem">(' + data.desc + ')</span></div>' +
+        '<div class="exp">print(' + data.ex + ')</div>' +
+        '<div class="out">&gt;&gt; ' + data.out + '</div></div>';
+    }
+    function wireOperators() {
+      var g = document.getElementById('opGallery'); if (!g) return;
+      OP_DATA.forEach(function (o) {
+        var c = document.createElement('div'); c.className = 'op-chip';
+        c.innerHTML = '<span class="sym">' + o.t + '</span><span class="name">' + opName(o) + '</span>';
+        (function (chip, data) {
+          chip.addEventListener('click', function () {
+            g.querySelectorAll('.op-chip').forEach(function (x) { x.classList.remove('active'); });
+            chip.classList.add('active');
+            paintOpDetail(data);
+          });
+        })(c, o);
+        g.appendChild(c);
+      });
+      var calcBtn = document.querySelector('[data-id="opCalcBtn"]');
+      var resetBtn = document.querySelector('[data-id="opResetCal"]');
+      var opBtns = document.querySelectorAll('#opChoice .op-opt');
+      var currentOp = '+';
+      if (opBtns.length) {
+        opBtns.forEach(function (b) {
+          b.addEventListener('click', function () {
+            currentOp = b.getAttribute('data-op');
+            opBtns.forEach(function (x) { x.classList.toggle('active', x === b); });
+          });
+        });
+        opBtns[0].classList.add('active');
+      }
+      function calc() {
+        var a = parseFloat(document.getElementById('ga').value) || 0;
+        var b = parseFloat(document.getElementById('gb').value) || 0;
+        var r;
+        switch (currentOp) {
+          case '-': r = a - b; break;
+          case '*': r = a * b; break;
+          case '/': r = b === 0 ? divZeroMsg() : a / b; break;
+          case '//': r = b === 0 ? divZeroMsg() : Math.floor(a / b); break;
+          case '%': r = b === 0 ? divZeroMsg() : a % b; break;
+          case '**': r = Math.pow(a, b); break;
+          default: r = a + b;
+        }
+        document.getElementById('opResult').innerHTML = '<span dir="ltr">' + a + ' ' + currentOp + ' ' + b + ' = ' + (typeof r === 'number' && !/^\d+$/.test(String(r)) ? (+r.toFixed(4)) : r) + '</span>';
+      }
+      if (calcBtn) calcBtn.addEventListener('click', function () { calc(); });
+      if (resetBtn) resetBtn.addEventListener('click', function () {
+        document.getElementById('ga').value = '5'; document.getElementById('gb').value = '3';
+        curOp(); document.getElementById('opResult').innerHTML = '<span dir="ltr">8</span>';
+      });
+      function curOp() { if (opBtns.length) { currentOp = '+'; opBtns.forEach(function (x) { x.classList.toggle('active', x === opBtns[0]); }); } calc(); }
+      calc();
+    }
+
+    /* ---------- variable box animation ---------- */
+    function wireVarBox() {
+      var box = document.getElementById('varBox'), val = document.getElementById('varVal');
+      var store = document.querySelector('[data-id="storeBtn"]'), reset = document.querySelector('[data-id="resetBox"]');
+      var flyAncestor = document.querySelector('.var-anim'), srcEl = document.querySelector('.var-src');
+      if (!box || !val) return;
+      if (store) store.addEventListener('click', function () {
+        box.classList.remove('live');
+        val.textContent = '...';
+        var fly = null;
+        if (srcEl && flyAncestor) {
+          fly = document.createElement('div');
+          fly.className = 'var-fly'; fly.textContent = 'Cairo';
+          var ar = flyAncestor.getBoundingClientRect();
+          var sr = srcEl.getBoundingClientRect();
+          fly.style.left = (sr.left - ar.left) + 'px';
+          fly.style.top = (sr.top - ar.top) + 'px';
+          flyAncestor.appendChild(fly);
+          fly.offsetHeight;
+          var vr = val.getBoundingClientRect();
+          fly.style.left = (vr.left - ar.left) + 'px';
+          fly.style.top = (vr.top - ar.top) + 'px';
+          fly.style.opacity = '0';
+        }
+        setTimeout(function () {
+          if (fly) fly.remove();
+          val.textContent = '"Cairo"'; box.classList.add('live');
+        }, 650);
+      });
+      if (reset) reset.addEventListener('click', function () {
+        val.textContent = '...'; box.classList.remove('live');
+      });
+    }
+
+    /* ---------- sequential animation ---------- */
+    var SEQ = [
+      ['a = 5', ''],
+      ['b = 3', ''],
+      ['print(a + b)', '8'],
+      ['print(a - b)', '2'],
+      ['print(a * b)', '15'],
+      ['print(a / b)', '1.6666666666666667'],
+      ['print(a // b)', '1'],
+      ['print(a % b)', '2'],
+      ['print(a ** b)', '125']
+    ];
+    var seqIdx = 0, seqTimer = null;
+    function buildSeq() {
+      var t = document.getElementById('seqLines'); if (!t) return;
+      t.innerHTML = '';
+      SEQ.forEach(function (item, i) {
+        var d = document.createElement('div'); d.className = 'sl';
+        d.innerHTML = '<span class="ln">' + (i + 1) + '</span><span class="src">' + item[0] + '</span>';
+        t.appendChild(d);
+      });
+    }
+    function seqReset() {
+      clearInterval(seqTimer); seqIdx = 0;
+      document.querySelectorAll('#seqLines .sl').forEach(function (x) { x.classList.remove('run'); });
+      document.getElementById('seqTerm').innerHTML = '';
+      document.getElementById('seqCounter').textContent = '0 / ' + SEQ.length;
+    }
+    function seqRun() {
+      var term = document.getElementById('seqTerm');
+      var lines = document.querySelectorAll('#seqLines .sl');
+      lines.forEach(function (x) { x.classList.remove('run'); });
+      if (seqIdx >= SEQ.length) { seqReset(); return; }
+      var cur = lines[seqIdx];
+      cur.classList.add('run');
+      var out = SEQ[seqIdx][1];
+      if (out !== '') {
+        var d = document.createElement('div'); d.className = 'out-line'; d.textContent = out;
+        term.appendChild(d);
+      }
+      term.style.display = 'block';
+      document.getElementById('seqCounter').textContent = (seqIdx + 1) + ' / ' + SEQ.length;
+      seqIdx++;
+      if (seqIdx === SEQ.length) clearInterval(seqTimer);
+    }
+    function wireSeq() {
+      buildSeq();
+      var btn = document.querySelector('[data-id="seqRun"]'), reset = document.querySelector('[data-id="seqReset"]');
+      if (btn) btn.addEventListener('click', function () {
+        clearInterval(seqTimer);
+        if (seqIdx >= SEQ.length || seqIdx === 0) seqReset();
+        seqTimer = setInterval(seqRun, 650);
+      });
+      if (reset) reset.addEventListener('click', seqReset);
+    }
+
+    /* ---------- exercises reveal ---------- */
+    /* ---------- exercises reveal ---------- */
+    function normalizeExLabels() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.ex-key')) return;
+        var txt = o.textContent.replace(/\u00a0/g, ' ').trim();
+        var m = /^(\[(?:[0-9]+)\]|[A-E])\s+([\s\S]*)$/.exec(txt);
+        if (!m) return;
+        var label = m[1];
+        var rest = m[2].replace(/^\s+/, '');
+        var nm = /^\[([0-9]+)\]$/.exec(label);
+        if (nm) label = String.fromCharCode(64 + parseInt(nm[1], 10));
+        o.textContent = '';
+        var k = document.createElement('span'); k.className = 'ex-key'; k.textContent = label;
+        var b = document.createElement('span'); b.className = 'ex-body'; b.textContent = rest;
+        o.appendChild(k); o.appendChild(b);
+      });
+    }
+    function wireRevealBtns() {
+      normalizeExLabels();
+      document.querySelectorAll('.ex-opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          var item = opt.closest('.ex-item'); if (!item) return;
+          item.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked'); });
+          opt.classList.add('picked');
+        });
+      });
+      document.querySelectorAll('[data-reveal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card'); if (!card) return;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            item.querySelectorAll('.ex-opt').forEach(function (o) {
+              o.classList.remove('correct', 'wrong');
+              if (o.classList.contains('picked') && o.getAttribute('data-ok')) o.classList.add(o.getAttribute('data-ok') === '1' ? 'correct' : 'wrong');
+            });
+          });
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.add('show'); });
+          var scored = 0, right = 0, noAns = 0;
+          card.querySelectorAll('.ex-item').forEach(function (item) {
+            if (!item.querySelector('.ex-opt[data-ok="1"]')) return;
+            scored++;
+            var picked = item.querySelector('.ex-opt.picked');
+            if (!picked) { noAns++; return; }
+            if (picked.getAttribute('data-ok') === '1') right++;
+          });
+          var s = card.querySelector('.ex-score');
+          if (!s) { s = document.createElement('div'); s.className = 'ex-score'; card.appendChild(s); }
+          var n = window.currentLang === 'en';
+          s.innerHTML = n
+            ? '✅ Your correct answers: <b>' + right + '</b> out of ' + scored
+            + (noAns ? ' — <span style="color:var(--dim);font-weight:400">with ' + noAns + ' question(s) you still haven\'t answered</span>' : '')
+            : '✅ إجاباتك الصحيحة: <b>' + right + '</b> من ' + scored
+            + (noAns ? ' — <span style="color:var(--dim);font-weight:400">مع ' + noAns + ' سؤال لسه ما جاوبت عليه</span>' : '');
+        });
+      });
+      document.querySelectorAll('[data-hide]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.card'); if (!card) return;
+          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.remove('show'); });
+          card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('correct', 'wrong'); });
+          var s = card.querySelector('.ex-score'); if (s) s.remove();
+        });
+      });
+    }
+
+    /* ---------- recall quiz ---------- */
+    function tr(ar, en) {
+      return window.currentLang === 'en' ? en : ar;
+    }
+
+    function rqFb(el) {
+      return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
+    }
+
+    function recallStart(quiz) {
+      var s = quiz.querySelector('[data-start]');
+      if (!s) {
+        var p = quiz.previousElementSibling;
+        if (p && p.hasAttribute('data-start')) s = p;
+      }
+      return s;
+    }
+
+    function wireRecall() {
+      document.querySelectorAll('.recall').forEach(function (quiz) {
+        var start = recallStart(quiz);
+        function paintQuizBtn() {
+          if (!start) return;
+          start.textContent = quiz.classList.contains('show')
+            ? tr('إخفاء الاختبار', 'Hide the quiz')
+            : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+        }
+        if (start) start.addEventListener('click', function () {
+          quiz.classList.toggle('show');
+          paintQuizBtn();
+        });
+        quiz.querySelectorAll('.rq').forEach(function (q) {
+          var opts = q.querySelectorAll('.rq-opt');
+          var skip = q.querySelector('.rq-skip');
+          var fb = q.querySelector('.rq-fb');
+          function lock(qq) {
+            qq.classList.add('done');
+            opts.forEach(function (o) { o.classList.add('disabled'); });
+            if (skip) skip.style.display = 'none';
+          }
+          function showFb(ok, text, correctKey) {
+            fb.classList.add('show');
+            fb.classList.toggle('ok', ok);
+            fb.classList.toggle('no', !ok);
+            fb.textContent = (ok ? '✅ ' : '❌ ') +
+              (correctKey ? (window.currentLang === 'en' ? 'The correct answer is ' + correctKey + '. ' : 'الإجابة الصحيحة ' + correctKey + '. ') : '') + text;
+          }
+          opts.forEach(function (o) {
+            o.addEventListener('click', function () {
+              if (q.classList.contains('done')) return;
+              var ok = o.getAttribute('data-ok') === '1';
+              opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+              if (ok) o.classList.add('correct');
+              else {
+                o.classList.add('wrong');
+                var co = q.querySelector('.rq-opt[data-ok="1"]');
+                if (co) co.classList.add('correct');
+              }
+              lock(q);
+              showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+            });
+          });
+          if (skip) skip.addEventListener('click', function () {
+            if (q.classList.contains('done')) return;
+            var co = q.querySelector('.rq-opt[data-ok="1"]');
+            opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+            if (co) co.classList.add('correct');
+            lock(q);
+            showFb(true, rqFb(co), co.getAttribute('data-key'));
+          });
+        });
+      });
+    }
+
+    function repaintQuizBtns() {
+      document.querySelectorAll('.recall').forEach(function (quiz) {
+        var start = recallStart(quiz);
+        if (!start) return;
+        start.textContent = quiz.classList.contains('show')
+          ? tr('إخفاء الاختبار', 'Hide the quiz')
+          : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+      });
+    }
+
+    document.addEventListener('langChange', repaintQuizBtns);
+
+    /* ---------- keyboard navigation ---------- */
+    var SECTIONS = ['intro', 'reflect', 'format', 'practice', 'recap'];;;;;;;;;;;;
+    window.addEventListener('keydown', function (e) {
+      if (e.target.matches('input,textarea')) return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      var cur = -1;
+      for (var i = 0; i < SECTIONS.length; i++) {
+        var el = document.getElementById(SECTIONS[i]);
+        if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.5) cur = i;
+      }
+      var n = cur + ((e.key === 'ArrowLeft') ? -1 : 1);
+      if (n >= 0 && n < SECTIONS.length) document.getElementById(SECTIONS[n]).scrollIntoView({ behavior: 'smooth' });
+    });
+
+    /* ============================================================
+       MINI PYTHON INTERPRETER + EDITOR WIRING (verbatim reference)
+       ============================================================ */
+    var PNone = { t: 'none' };
+    function PNum(v, f) { return { t: f ? 'float' : 'int', v: v }; }
+    function PStr(v) { return { t: 'str', v: String(v) }; }
+    function PBool(v) { return { t: 'bool', v: !!v }; }
+    function PType(n) { return { t: 'type', name: n }; }
+    function isNum(x) { return x.t === 'int' || x.t === 'float'; }
+    function pstr(x) {
+      if (x.t === 'int') return String(x.v);
+      if (x.t === 'float') { return Number.isInteger(x.v) ? x.v + '.0' : String(x.v); }
+      if (x.t === 'str') return x.v;
+      if (x.t === 'bool') return x.v ? 'True' : 'False';
+      if (x.t === 'none') return 'None';
+      if (x.t === 'type') return "<class '" + x.name + "'>";
+      if (x.t === 'list') return '[' + x.v.map(function (e) { return e.t === 'str' ? "'" + e.v + "'" : pstr(e); }).join(', ') + ']';
+      return '';
+    }
+    function ptype(x) { return x.t === 'int' ? 'int' : x.t === 'float' ? 'float' : x.t === 'str' ? 'str' : x.t === 'bool' ? 'bool' : x.t === 'none' ? 'NoneType' : x.t === 'list' ? 'list' : 'object'; }
+    function truthy(x) { if (x.t === 'bool') return x.v; if (isNum(x)) return x.v !== 0; if (x.t === 'str') return x.v.length > 0; if (x.t === 'list') return x.v.length > 0; return false; }
+    function pErr(msg) { var e = new Error(msg); e.msg = msg; return e; }
+
+    function pyEscape(ch) { if (ch === 'n') return '\n'; if (ch === 't') return '\t'; if (ch === '\\') return '\\'; return ch; }
+    function pyTokenize(code) {
+      var toks = [], i = 0, n = code.length;
+      while (i < n) {
+        var c = code[i];
+        if (/\s/.test(c)) { i++; continue; }
+        if (/[0-9]/.test(c) || (c === '.' && /[0-9]/.test(code[i + 1] || ''))) {
+          var m = /^(?:\d+\.\d*|\.\d+|\d+)(?:[eE][+-]?\d+)?/.exec(code.slice(i));
+          var num = parseFloat(m[0]);
+          toks.push({ k: 'num', v: num, f: /[.eE]/.test(m[0]) }); i += m[0].length; continue;
+        }
+        if (c === 'f' && (code[i + 1] === '"' || code[i + 1] === "'")) {
+          var q2 = code[i + 1], k = i + 2, s2 = '';
+          while (k < n && code[k] !== q2) { if (code[k] === '\\' && k + 1 < n) { s2 += pyEscape(code[k + 1]); k += 2; } else { s2 += code[k]; k++; } }
+          toks.push({ k: 'fstr', v: s2 }); i = k + 1; continue;
+        }
+        if (c === '"' || c === "'") {
+          var q = c, j = i + 1, s = '';
+          while (j < n && code[j] !== q) { if (code[j] === '\\' && j + 1 < n) { s += pyEscape(code[j + 1]); j += 2; } else { s += code[j]; j++; } }
+          toks.push({ k: 'str', v: s }); i = j + 1; continue;
+        }
+        if (/[A-Za-z_]/.test(c)) {
+          var m2 = /^[A-Za-z_][A-Za-z0-9_]*/.exec(code.slice(i));
+          toks.push({ k: 'id', v: m2[0] }); i += m2[0].length; continue;
+        }
+        var two = code.slice(i, i + 2);
+        if (two === '//' || two === '**' || two === '>=' || two === '<=' || two === '==') { toks.push({ k: 'op', v: two }); i += 2; continue; }
+        if (c === '!') { toks.push({ k: 'op', v: '!=' }); i += 2; continue; }
+        if ('+-*/%()[].,:<>='.indexOf(c) >= 0) { toks.push({ k: 'op', v: c }); i++; continue; }
+        toks.push({ k: 'op', v: c }); i++;
+      }
+      toks.push({ k: 'eof', v: '' }); return toks;
+    }
+
+    function pyParse(code, env, out) {
+      var toks = pyTokenize(code), i = 0;
+      function peek() { return toks[i]; }
+      function next() { return toks[i++]; }
+      function binPrec(t) {
+        if (t.k === 'id') { if (t.v === 'or') return 1; if (t.v === 'and') return 2; return null; }
+        if (t.k === 'op') { var m = { '==': 4, '!=': 4, '<': 4, '>': 4, '<=': 4, '>=': 4, '+': 5, '-': 5, '*': 6, '/': 6, '//': 6, '%': 6, '**': 7 }; return m[t.v] !== undefined ? m[t.v] : null; }
+        return null;
+      }
+      function parseFStr(raw) {
+        var s = '', depth = 0, sub = '';
+        for (var j = 0; j < raw.length; j++) {
+          var c = raw[j];
+          if (c === '{' && depth === 0) { depth = 1; sub = ''; continue; }
+          if (depth > 0) {
+            if (c === '{') depth++;
+            else if (c === '}') { depth--; if (depth === 0) { var v = pyParse(sub, env, out).parseAll(); s += pstr(v); continue; } }
+            sub += c; continue;
+          }
+          s += c;
+        }
+        return PStr(s);
+      }
+      function call(fn, args) {
+        if (fn.k === 'fn') {
+          var name = fn.name;
+          if (name in __funcs) {
+            var fdef = __funcs[name];
+            var local = {};
+            for (var p = 0; p < fdef.params.length; p++) local[fdef.params[p]] = args[p] !== undefined ? args[p] : PNone;
+            var rr2 = __execStatements(fdef.body, local, out);
+            return rr2.__isReturn ? rr2.value : PNone;
+          }
+          if (name === 'print') {
+            var sep = ' ', end = '\n', vals = [];
+            for (var a = 0; a < args.length; a++) {
+              if (args[a].k === 'kw') { if (args[a].n === 'sep') sep = pstr(args[a].v); else if (args[a].n === 'end') end = pstr(args[a].v); }
+              else vals.push(args[a]);
+            }
+            out.buf += vals.map(pstr).join(sep) + end; return PNone;
+          }
+          if (name === 'input') { var iv = out.inQ.length ? out.inQ.shift() : ''; return PStr(iv); }
+          if (name === 'int') {
+            var x = args[0];
+            if (x.t === 'int') return x;
+            if (x.t === 'float') return PNum(Math.trunc(x.v));
+            if (x.t === 'bool') return PNum(x.v ? 1 : 0);
+            if (x.t === 'str') { var s = x.v.trim(); if (/^[+-]?\d+$/.test(s)) return PNum(parseInt(s, 10)); if (/^[+-]?(\d+\.\d*|\.\d+|\d+)([eE][+-]?\d+)?$/.test(s)) return PNum(parseInt(parseFloat(s), 10)); throw pErr("ValueError: invalid literal"); }
+            throw pErr("TypeError: int() argument must be a string or a number");
+          }
+          if (name === 'float') {
+            var y = args[0];
+            if (y.t === 'float') return y;
+            if (y.t === 'int') return PNum(y.v, true);
+            if (y.t === 'bool') return PNum(y.v ? 1 : 0, true);
+            if (y.t === 'str') { var s2 = y.v.trim(); if (/^[+-]?(\d+\.\d*|\.\d+|\d+)([eE][+-]?\d+)?$/.test(s2)) return PNum(parseFloat(s2), true); throw pErr("ValueError: could not convert string to float: '" + y.v + "'"); }
+            throw pErr("TypeError: float() argument must be a string or a number");
+          }
+          if (name === 'str') return PStr(pstr(args[0]));
+          if (name === 'bool') return PBool(truthy(args[0]));
+          if (name === 'len') { if (args[0].t === 'str') return PNum(args[0].v.length); if (args[0].t === 'list') return PNum(args[0].v.length); throw pErr("TypeError: object of type '" + ptype(args[0]) + "' has no len()"); }
+          if (name === 'round') { var rv = args[0].v, nd = args.length > 1 ? args[1].v : null; var r = nd === null ? Math.round(rv) : Math.round(rv * Math.pow(10, nd)) / Math.pow(10, nd); return PNum(r, nd !== null); }
+          if (name === 'type') return PType(ptype(args[0]));
+          if (name === 'range') {
+            var r0, r1, r2;
+            if (args.length === 1) { r0 = 0; r1 = args[0].v; r2 = 1; }
+            else { r0 = args[0].v; r1 = args[1].v; r2 = args.length > 2 ? args[2].v : 1; }
+            if (r2 === 0) throw pErr("ValueError: range() arg 3 must not be zero");
+            var items = [];
+            if (r2 > 0) { for (var vv = r0; vv < r1; vv += r2) items.push(PNum(vv)); }
+            else { for (var ww = r0; ww > r1; ww += r2) items.push(PNum(ww)); }
+            return { t: 'list', v: items };
+          }
+          throw pErr("NameError: name '" + name + "' is not defined");
+        }
+        throw pErr("TypeError: '" + ptype(fn) + "' object is not callable");
+      }
+      function normIdx(v, len) { var i = v.v; return i < 0 ? i + len : i; }
+      function index(x, a, b, hasColon) {
+        if (x.t !== 'str' && x.t !== 'list') throw pErr("TypeError: '" + ptype(x) + "' object is not subscriptable");
+        var s = x.v;
+        if (hasColon) {
+          if (x.t === 'list') throw pErr("TypeError: list indices must be integers or slices, not 'slice'");
+          var st = a === null ? 0 : normIdx(a, s.length), en = b === null ? s.length : normIdx(b, s.length);
+          st = Math.max(0, Math.min(st, s.length)); en = Math.max(0, Math.min(en, s.length));
+          return PStr(s.slice(st, en));
+        }
+        var idx = normIdx(a, s.length);
+        if (idx < 0 || idx >= s.length) throw pErr("IndexError: list index out of range");
+        return x.t === 'list' ? s[idx] : PStr(s[idx]);
+      }
+      function method(x, m, args) {
+        if (x.t === 'list') {
+          if (m === 'append') { if (!args.length) throw pErr("TypeError: append() takes exactly one argument (0 given)"); x.v.push(args[0]); return PNone; }
+          if (m === 'pop') { var pi = args.length ? args[0].v : x.v.length - 1; if (pi < 0 || pi >= x.v.length) throw pErr("IndexError: pop index out of range"); return x.v.splice(pi, 1)[0]; }
+          throw pErr("AttributeError: 'list' object has no attribute '" + m + "'");
+        }
+        if (x.t !== 'str') throw pErr("AttributeError: '" + ptype(x) + "' object has no attribute '" + m + "'");
+        if (m === 'upper') return PStr(x.v.toUpperCase());
+        if (m === 'lower') return PStr(x.v.toLowerCase());
+        if (m === 'count') { var sub = args.length ? pstr(args[0]) : ''; return PNum(x.v.split(sub).length - 1); }
+        throw pErr("AttributeError: 'str' object has no attribute '" + m + "'");
+      }
+      function parseList() {
+        var items = [];
+        if (peek().v !== ']') {
+          for (;;) { items.push(parseExpr2(0)); if (peek().v !== ',') break; next(); }
+        }
+        if (peek().v === ']') next();
+        return { t: 'list', v: items };
+      }
+      function parsePrimary() {
+        var t = next();
+        if (t.k === 'num') return PNum(t.v, t.f);
+        if (t.k === 'str') return PStr(t.v);
+        if (t.k === 'fstr') return parseFStr(t.v);
+        if (t.k === 'id') {
+          if (t.v === 'True') return PBool(true);
+          if (t.v === 'False') return PBool(false);
+          if (t.v === 'None') return PNone;
+          if (t.v in env) return env[t.v];
+          var nt = peek();
+          if (nt.k === 'op' && nt.v === '(') return { k: 'fn', name: t.v };
+          throw pErr("NameError: name '" + t.v + "' is not defined");
+        }
+        if (t.k === 'op' && t.v === '(') { var e = parseExpr2(0); if (peek().v === ')') next(); return e; }
+        if (t.k === 'op' && t.v === '[') return parseList();
+        var tk = (t.k === 'op' ? t.v : t.v);
+        throw pErr("SyntaxError: unexpected token" + (tk ? (" '" + tk + "'") : " in the expression"));
+      }
+      function parsePostfix(x) {
+        for (; ;) {
+          var t = peek();
+          if (t.k === 'op' && t.v === '(') {
+            next(); var args = [];
+            while (peek().v !== ')') {
+              if (peek().k === 'id' && toks[i + 1] && toks[i + 1].k === 'op' && toks[i + 1].v === '=') { var kn = next().v; next(); args.push({ k: 'kw', n: kn, v: parseExpr2(0) }); }
+              else args.push(parseExpr2(0));
+              if (peek().v === ',') next();
+            }
+            if (peek().v === ')') next();
+            return call(x, args);
+          }
+          if (t.k === 'op' && t.v === '[') {
+            next(); var a = null, b = null, hasColon = false;
+            if (peek().v === ':') { next(); hasColon = true; if (peek().v !== ']') b = parseExpr2(0); }
+            else { a = parseExpr2(0); if (peek().v === ':') { next(); hasColon = true; if (peek().v !== ']') b = parseExpr2(0); } }
+            if (peek().v === ']') next();
+            x = index(x, a, b, hasColon); continue;
+          }
+          if (t.k === 'op' && t.v === '.') {
+            next(); var m = next();
+            var args2 = [];
+            if (peek().v === '(') {
+              next();
+              while (peek().v !== ')') {
+                if (peek().k === 'id' && toks[i + 1] && toks[i + 1].k === 'op' && toks[i + 1].v === '=') { var kn2 = next().v; next(); args2.push({ k: 'kw', n: kn2, v: parseExpr2(0) }); }
+                else args2.push(parseExpr2(0));
+                if (peek().v === ',') next();
+              }
+              if (peek().v === ')') next();
+            }
+            return parsePostfix(method(x, m.v, args2));
+          }
+          break;
+        }
+        return x;
+      }
+      function parsePrefix() {
+        var t = peek();
+        if (t.k === 'id' && t.v === 'not') { next(); return PBool(!truthy(parseExpr2(3))); }
+        if (t.k === 'op' && t.v === '-') {
+          next(); var v = parseExpr2(7);
+          if (isNum(v)) return PNum(-v.v, v.t === 'float');
+          if (v.t === 'bool') return PNum(v.v ? 1 : 0);
+          throw pErr("TypeError: bad operand type for unary -: '" + ptype(v) + "'");
+        }
+        return parsePostfix(parsePrimary());
+      }
+      function binOp(t, a, b) {
+        var op = t.k === 'id' ? t.v : t.v;
+        if (op === 'and') return truthy(a) ? b : a;
+        if (op === 'or') return truthy(a) ? a : b;
+        if (op === '==' || op === '!=') {
+          var eq = false;
+          if (isNum(a) && isNum(b)) eq = a.v === b.v;
+          else if (a.t === 'str' && b.t === 'str') eq = a.v === b.v;
+          else if (a.t === 'bool' && b.t === 'bool') eq = a.v === b.v;
+          else if (a.t === 'none' && b.t === 'none') eq = true;
+          return PBool(op === '==' ? eq : !eq);
+        }
+        if (op === '<' || op === '>' || op === '<=' || op === '>=') { var r = op === '<' ? a.v < b.v : op === '>' ? a.v > b.v : op === '<=' ? a.v <= b.v : a.v >= b.v; return PBool(r); }
+        if (op === '+') {
+          if (a.t === 'str' && b.t === 'str') return PStr(a.v + b.v);
+          if (a.t === 'str' || b.t === 'str') throw pErr("TypeError: can only concatenate str (not '" + ptype(isNum(a) ? b : a) + "') to str");
+          return PNum(a.v + b.v, a.t === 'float' || b.t === 'float');
+        }
+        if (op === '*' && a.t === 'str' && b.t === 'int') return PStr(a.v.repeat(b.v));
+        if (op === '*' && a.t === 'int' && b.t === 'str') return PStr(b.v.repeat(a.v));
+        if (!isNum(a) || !isNum(b)) throw pErr("TypeError: unsupported operand type(s) for " + op + ": '" + ptype(a) + "' and '" + ptype(b) + "'");
+        var x = a.v, y = b.v, fl = a.t === 'float' || b.t === 'float';
+        if (op === '-') return PNum(x - y, fl);
+        if (op === '*') return PNum(x * y, fl);
+        if (op === '/') { if (y === 0) throw pErr("ZeroDivisionError: division by zero"); return PNum(x / y, true); }
+        if (op === '//') { if (y === 0) throw pErr("ZeroDivisionError: integer division or modulo by zero"); return PNum(Math.floor(x / y), fl); }
+        if (op === '%') { if (y === 0) throw pErr("ZeroDivisionError: integer division or modulo by zero"); return PNum(x % y, fl); }
+        if (op === '**') return PNum(Math.pow(x, y), fl);
+        throw pErr("SyntaxError: unknown operator " + op);
+      }
+      function parseExpr2(minPrec) {
+        var left = parsePrefix();
+        for (; ;) {
+          var t = peek();
+          var prec = binPrec(t);
+          if (prec === null || prec < minPrec) break;
+          next();
+          var right = parseExprRight(prec, t);
+          left = binOp(t, left, right);
+        }
+        return left;
+      }
+      function parseExprRight(prec, t) {
+        var isPow = (t.k === 'op' && t.v === '**');
+        return parseExpr2(isPow ? prec : prec + 1);
+      }
+      function parseExpr() { return { parseAll: function () { var v = parseExpr2(0); if (peek().k !== 'eof') throw pErr("SyntaxError: trailing tokens in expression"); return v; }, parseResult: function () { var v = parseExpr2(0); if (peek().k !== 'eof') throw pErr("SyntaxError: trailing tokens in expression"); return v; } }; }
+      return parseExpr();
+    }
+
+    function pyStripComment(line) { var inStr = null; for (var i = 0; i < line.length; i++) { var c = line[i]; if (inStr) { if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; continue; } if (c === '#') return line.slice(0, i); } return line; }
+    function pyTopColon(s) { var depth = 0, inStr = null; for (var i = 0; i < s.length; i++) { var c = s[i]; if (inStr) { if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; continue; } if (c === '(' || c === '[') depth++; if (c === ')' || c === ']') depth--; if (c === ':' && depth === 0) return i; } return -1; }
+    function pyTopEq(s) { var depth = 0, inStr = null; for (var i = 0; i < s.length; i++) { var c = s[i]; if (inStr) { if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; continue; } if (c === '(' || c === '[') depth++; if (c === ')' || c === ']') depth--; if (c === '=' && depth === 0) { var pr = s[i - 1], nx = s[i + 1]; if (pr === '=' || pr === '>' || pr === '<' || pr === '!' || nx === '=') continue; return i; } } return -1; }
+    function pySplitStmts(code) { var out = [], depth = 0, inStr = null, cur = ''; for (var i = 0; i < code.length; i++) { var c = code[i]; if (inStr) { cur += c; if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; cur += c; continue; } if (c === '(' || c === '[') { depth++; cur += c; continue; } if (c === ')' || c === ']') { depth--; cur += c; continue; } if (c === ';' && depth === 0) { out.push(cur); cur = ''; continue; } cur += c; } if (cur.trim() !== '') out.push(cur); return out; }
+
+    var __funcs = {}, __curLine = 0;
+    function __execStatements(arr, env, out) {
+      var ret = { __isReturn: false, value: null };
+      var i = 0;
+      while (i < arr.length) {
+        var ln = arr[i];
+        __curLine = ln.line;
+        if (/^(if|elif|else)\b/.test(ln.code)) {
+          var bi = ln.indent, clauses = [];
+          while (i < arr.length) {
+            var cur = arr[i];
+            var cm = /^(if|elif|else)\b/.exec(cur.code);
+            if (!cm || cur.indent !== bi) break;
+            var colonIdx = pyTopColon(cur.code);
+            var condSrc = cm[1] === 'else' ? '' : cur.code.slice(cm[0].length, colonIdx).trim();
+            var tail = colonIdx >= 0 ? cur.code.slice(colonIdx + 1).trim() : '';
+            var body = [];
+            if (tail) body.push({ indent: bi + 1, code: tail, line: cur.line });
+            var j = i + 1;
+            while (j < arr.length && arr[j].indent > bi) { body.push(arr[j]); j++; }
+            clauses.push({ kw: cm[1], cond: condSrc, body: body });
+            i = j;
+            var nl = arr[i];
+            if (!(nl && /^(elif|else)\b/.test(nl.code) && nl.indent === bi)) break;
+          }
+          var matched = false;
+          for (var c = 0; c < clauses.length; c++) {
+            var cl = clauses[c];
+            var runIt;
+            if (cl.kw === 'else') runIt = !matched;
+            else { runIt = !matched && truthy(pyParse(cl.cond, env, out).parseResult()); if (runIt) matched = true; }
+            if (runIt) { var rr = __execStatements(cl.body, env, out); if (rr.__isReturn) return rr; }
+          }
+        } else if (/^for\b/.test(ln.code)) {
+          var fm = /^for\s+([A-Za-z_][A-Za-z0-9_]*)\s+in\s+(.+)$/.exec(ln.code.replace(/\s*:\s*$/, ''));
+          var body2 = [];
+          var j2 = i + 1;
+          while (j2 < arr.length && arr[j2].indent > ln.indent) { body2.push(arr[j2]); j2++; }
+          var iter = pyParse(fm[2], env, out).parseResult();
+          var vals2;
+          if (iter.t === 'list') vals2 = iter.v;
+          else if (iter.t === 'str') vals2 = iter.v.split('');
+          else throw pErr("TypeError: '" + ptype(iter) + "' object is not iterable");
+          for (var k = 0; k < vals2.length; k++) { env[fm[1]] = vals2[k]; var r2 = __execStatements(body2, env, out); if (r2.__isReturn) return r2; }
+          i = j2;
+        } else if (/^def\b/.test(ln.code)) {
+          var dm = /^def\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(([^)]*)\)\s*:/.exec(ln.code);
+          var params = (dm[2] || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+          var fbody = [];
+          var j3 = i + 1;
+          while (j3 < arr.length && arr[j3].indent > ln.indent) { fbody.push(arr[j3]); j3++; }
+          __funcs[dm[1]] = { params: params, body: fbody };
+          i = j3;
+        } else if (/^return\b/.test(ln.code)) {
+          var rv = ln.code.replace(/^return\b/, '').trim();
+          return { __isReturn: true, value: rv === '' ? PNone : pyParse(rv, env, out).parseResult() };
+        } else {
+          pySplitStmts(ln.code).forEach(function (st) {
+            var eq = pyTopEq(st);
+            if (eq > 0) {
+              var name = st.slice(0, eq).trim();
+              var rhs = st.slice(eq + 1).trim();
+              if (/^[A-Za-z_][A-Za-z0-9_]*$/.test(name)) { env[name] = pyParse(rhs, env, out).parseResult(); return; }
+            }
+            pyParse(st, env, out).parseResult();
+          });
+          i++;
+        }
+      }
+      return ret;
+    }
+    function pyRun(src, inputs, seeds) {
+      var env = {}, curLine = 0;
+      for (var s in seeds) env[s] = PStr(seeds[s]);
+      var out = { buf: '', inQ: (inputs || []).slice() };
+      __curLine = 0;
+      __funcs = {};
+      try {
+        var raw = src.split('\n'), lines = [], pending = '';
+        for (var r = 0; r < raw.length; r++) {
+          var line = raw[r].replace(/\r$/, '');
+          var stripped = pyStripComment(line);
+          var indentMatch = /^[ \t]*/.exec(line)[0];
+          var indent = indentMatch.replace(/\t/g, '    ').length;
+          if (/\\\s*$/.test(stripped)) { pending += stripped.replace(/\\\s*$/, '').replace(/^[ \t]*/, '') + ' '; continue; }
+          var code = (pending + stripped).trim(); pending = '';
+          if (code === '') continue;
+          lines.push({ indent: indent, code: code, line: r + 1 });
+        }
+        if (pending.trim() !== '') lines.push({ indent: 0, code: pending.trim(), line: raw.length });
+        __execStatements(lines, env, out);
+        var text = out.buf;
+        if (text.slice(-1) === '\n') text = text.slice(0, -1);
+        return { out: (text === '' ? [] : text.split('\n')), err: null };
+      } catch (e) {
+        var msg = e && e.msg ? e.msg : String(e && e.message || e);
+        return { out: [], err: { line: __curLine, msg: msg } };
+      }
+    }
+    window.pyRun = pyRun;
+
+    /* ---------- editor wiring ---------- */
+    function wireEditors() {
+      function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+      document.querySelectorAll('.code-panel').forEach(function (panel) {
+        var edit = panel.querySelector('.py-edit');
+        if (!edit) return;
+        if (!edit.getAttribute('data-src')) edit.setAttribute('data-src', edit.value);
+        function grow() { edit.style.height = 'auto'; edit.style.height = (edit.scrollHeight + 2) + 'px'; }
+        edit.addEventListener('input', grow);
+        var term = panel.querySelector('.term'), errBox = panel.querySelector('.py-err');
+        var ctl = panel.querySelector('.py-ctl');
+        if (ctl) {
+          var run = null, reset = null;
+          ctl.querySelectorAll('button').forEach(function (b) {
+            if (/إعادة|تصفير/.test(b.textContent)) reset = b;
+            else if (!run) run = b;
+          });
+          function runIt() {
+            var code = edit.value;
+            var inputs = [];
+            (panel.getAttribute('data-inputs') || edit.getAttribute('data-inputs') || '').split(',').map(function (x) { return x.trim(); }).filter(Boolean).forEach(function (id) {
+              var el = document.getElementById(id); inputs.push(el ? el.value : '');
+            });
+            var seeds = {};
+            (panel.getAttribute('data-seed') || '').split(',').map(function (x) { return x.trim(); }).filter(Boolean).forEach(function (pair) {
+              var p = pair.split('='); if (p.length === 2) { var el = document.getElementById(p[1]); if (el) seeds[p[0]] = el.value; }
+            });
+            term.innerHTML = ''; errBox.innerHTML = ''; term.style.display = 'none'; errBox.style.display = 'none';
+            var res = window.pyRun ? pyRun(code, inputs, seeds) : null;
+            if (res && res.err) { errBox.appendChild(friendlyErr(res.err, code)); errBox.style.display = 'block'; }
+            else if (res && res.out && res.out.length) {
+              res.out.forEach(function (l) { var d = document.createElement('div'); d.className = 'out-line'; d.textContent = l; term.appendChild(d); });
+              term.style.display = 'block';
+            } else if (res) {
+              var e = document.createElement('div'); e.className = 'out-line'; e.textContent = '✔';
+              term.appendChild(e); term.style.display = 'block';
+            }
+          }
+          if (run) run.addEventListener('click', runIt);
+          if (reset) reset.addEventListener('click', function () { edit.value = edit.getAttribute('data-src'); grow(); runIt(); });
+        }
+        grow();
+      });
+      function friendlyErr(er, codeSrc) {
+        var lineN = er && er.line ? er.line : 1;
+        function lineSrc(n) { if (n < 1) return ''; var l = (codeSrc || '').split('\n'); return (n - 1 < l.length) ? l[n - 1].trim() : ''; }
+        var msgTxt = String(er && er.msg ? er.msg : 'Unknown error'), kind = 'SyntaxError', detail = msgTxt;
+        var km = /^([A-Za-z]+(?:Error|Exception)):\s*/.exec(msgTxt);
+        if (km) { kind = km[1]; detail = msgTxt.slice(km[0].length); }
+        var hintAr = {
+          NameError: 'الاسم مش معرّف — لازم تعرّفه قبل ما تستخدمه (مثلاً: name = "يمني")',
+          TypeError: 'نوع القيمة مش صح للعملية دي — مثلاً مينفعش تجمع نص مع رقم',
+          ValueError: 'القيمة مش قابلة للتحويل للنوع المطلوب',
+          ZeroDivisionError: 'مينفعش تقسم على صفر',
+          IndexError: 'المؤشر برّه حدود النص — الترقيم بيبدأ من صفر',
+          AttributeError: 'الخاصية أو الميثود دي مش موجودة على القيمة',
+          SyntaxError: 'فيه غلطة في الصياغة — راجع الأقواس أو علامات التنصيص'
+        };
+        var hintEn = {
+          NameError: 'The name is not defined — define it before using it (e.g. name = "Yumna")',
+          TypeError: 'The type of the value is wrong for this operation — e.g. you can\'t add text and a number',
+          ValueError: 'The value cannot be converted to the required type',
+          ZeroDivisionError: 'You cannot divide by zero',
+          IndexError: 'The index is out of range — the numbering starts from zero',
+          AttributeError: 'This property or method doesn\'t exist on the value',
+          SyntaxError: 'There is a syntax error — check the parentheses or the quotation marks'
+        };
+        var hints = window.currentLang === 'en' ? hintEn : hintAr;
+        var locTxt = window.currentLang === 'en' ? 'Location: line ' : 'المكان: السطر ';
+        var frag = document.createDocumentFragment();
+        var tag = document.createElement('div'); tag.className = 'errtag';
+        var badge = document.createElement('span'); badge.className = 'errbadge'; badge.textContent = kind;
+        tag.appendChild(badge); frag.appendChild(tag);
+        var main = document.createElement('div'); main.className = 'errmain'; main.textContent = hints[kind] || detail || msgTxt; frag.appendChild(main);
+        var ctx = document.createElement('div'); ctx.className = 'errctx'; ctx.textContent = locTxt + lineN; frag.appendChild(ctx);
+        var srcTxt = lineSrc(lineN);
+        if (srcTxt) { var lr = document.createElement('div'); lr.className = 'errline'; var spn = document.createElement('span'); spn.className = 'ln'; spn.textContent = lineN; lr.appendChild(spn); lr.appendChild(document.createTextNode(srcTxt)); frag.appendChild(lr); }
+        return frag;
+      }
+    }
+
+    /* ---------- web playground runner (HTML/CSS) ---------- */
+    function wireWebPanels() {
+      document.querySelectorAll('.web-panel').forEach(function (panel) {
+        var edit = panel.querySelector('.web-edit');
+        if (!edit) return;
+        if (!edit.getAttribute('data-src')) edit.setAttribute('data-src', edit.value);
+        var frame = panel.querySelector('.web-frame');
+        var errBox = panel.querySelector('.py-err');
+        function grow() { edit.style.height = 'auto'; edit.style.height = (edit.scrollHeight + 2) + 'px'; }
+        edit.addEventListener('input', grow);
+        function runIt() {
+          errBox.innerHTML = ''; errBox.style.display = 'none';
+          try {
+            frame.srcdoc = edit.value;
+            frame.style.display = 'block';
+          } catch (er) {
+            errBox.textContent = er.message;
+            errBox.style.display = 'block';
+          }
+        }
+        var ctl = panel.querySelector('.py-ctl');
+        if (ctl) {
+          var run = null, reset = null;
+          ctl.querySelectorAll('button').forEach(function (b) {
+            if (/إعادة|تصفير/.test(b.textContent)) reset = b;
+            else if (!run) run = b;
+          });
+          if (run) run.addEventListener('click', runIt);
+          if (reset) reset.addEventListener('click', function () { edit.value = edit.getAttribute('data-src'); grow(); runIt(); });
+        }
+        grow();
+      });
+    }
+
+    /* ---------- boot ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      wireNav();
+      wireReveal();
+      wireOperators();
+      wireVarBox();
+      wireSeq();
+      wireRevealBtns();
+      wireEditors();
+      wireWebPanels();
+      wireRecall();
+    });
+
+    /* ---------- AR/EN toggle ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      var langBtn = document.getElementById('langToggle');
+      if (!langBtn) return;
+      function refreshOperators(lang) {
+        var g = document.getElementById('opGallery');
+        if (!g) return;
+        var active = g.querySelector('.op-chip.active');
+        var activeIdx = active ? Array.prototype.indexOf.call(g.children, active) : -1;
+        g.querySelectorAll('.op-chip .name').forEach(function (nm, i) {
+          var o = OP_DATA[i];
+          nm.textContent = (lang === 'en') ? o.nameEn : o.name;
+        });
+        if (activeIdx >= 0 && OP_DATA[activeIdx]) {
+          paintOpDetail(OP_DATA[activeIdx]);
+        }
+      }
+      function setLang(lang) {
+        window.currentLang = lang;
+        langBtn.setAttribute('data-current', lang);
+        langBtn.textContent = (lang === 'ar') ? 'EN' : 'AR';
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+        document.querySelectorAll('[data-ar][data-en]').forEach(function (el) {
+          var val = (lang === 'ar') ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+          if (val !== null) { el.innerHTML = val; el.setAttribute('data-lang', lang); }
+        });
+        refreshOperators(lang);
+        document.dispatchEvent(new CustomEvent('langChange', { detail: { lang: lang } }));
+        localStorage.setItem('langPreference', lang);
+      }
+      var storedLang = localStorage.getItem('langPreference');
+      if (!storedLang) storedLang = 'ar';
+      setLang(storedLang);
+      langBtn.addEventListener('click', function () {
+        setLang(window.currentLang === 'ar' ? 'en' : 'ar');
+      });
+
+      // keep op-result in sync if a division-by-zero message was showing
+      var resEl = document.getElementById('opResult');
+      if (resEl) {
+        document.addEventListener('langChange', function (ev) {
+          var txt = resEl.textContent.trim();
+          if (txt === 'ممنوع القسمة على صفر' || txt === 'Cannot divide by zero') {
+            resEl.innerHTML = '<span dir="ltr">' + divZeroMsg() + '</span>';
+          }
+        });
+      }
+    });
+
+    /* ---------- option key boxes ---------- */
+    function decorateOpts() {
+      document.querySelectorAll('.ex-opt').forEach(function (o) {
+        if (o.querySelector('.opt-key')) return;
+        var t = o.innerHTML;
+        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
+        if (m) {
+          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
+        }
+      });
+    }
+    document.addEventListener('langChange', decorateOpts);
+  
+    /* ---------- glossary ---------- */
+    (function () {
+      var search = document.getElementById('glossarySearch');
+      if (!search) return;
+      var filters = document.querySelectorAll('.gl-filter');
+      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var q = search.value.trim().toLowerCase();
+        terms.forEach(function (t) {
+          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
+          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
+          t.classList.toggle('hidden', !(catOk && textOk));
+        });
+      }
+
+      filters.forEach(function (f) {
+        f.addEventListener('click', function () {
+          filters.forEach(function (x) { x.classList.remove('active'); });
+          f.classList.add('active');
+          activeFilter = f.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      search.addEventListener('input', applyFilters);
+
+      document.addEventListener('langChange', function () {
+        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
+      });
+    })();
+  </script>
+</body>
+
+</html>
