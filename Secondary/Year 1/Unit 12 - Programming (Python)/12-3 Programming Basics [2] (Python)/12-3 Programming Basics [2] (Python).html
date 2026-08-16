@@ -2786,10 +2786,11 @@ print(result)</textarea>
       if (x.t === 'bool') return x.v ? 'True' : 'False';
       if (x.t === 'none') return 'None';
       if (x.t === 'type') return "<class '" + x.name + "'>";
+      if (x.t === 'list') return '[' + x.v.map(function (e) { return e.t === 'str' ? "'" + e.v + "'" : pstr(e); }).join(', ') + ']';
       return '';
     }
-    function ptype(x) { return x.t === 'int' ? 'int' : x.t === 'float' ? 'float' : x.t === 'str' ? 'str' : x.t === 'bool' ? 'bool' : x.t === 'none' ? 'NoneType' : 'object'; }
-    function truthy(x) { if (x.t === 'bool') return x.v; if (isNum(x)) return x.v !== 0; if (x.t === 'str') return x.v.length > 0; return false; }
+    function ptype(x) { return x.t === 'int' ? 'int' : x.t === 'float' ? 'float' : x.t === 'str' ? 'str' : x.t === 'bool' ? 'bool' : x.t === 'none' ? 'NoneType' : x.t === 'list' ? 'list' : 'object'; }
+    function truthy(x) { if (x.t === 'bool') return x.v; if (isNum(x)) return x.v !== 0; if (x.t === 'str') return x.v.length > 0; if (x.t === 'list') return x.v.length > 0; return false; }
     function pErr(msg) { var e = new Error(msg); e.msg = msg; return e; }
 
     function pyEscape(ch) { if (ch === 'n') return '\n'; if (ch === 't') return '\t'; if (ch === '\\') return '\\'; return ch; }
@@ -2879,32 +2880,56 @@ print(result)</textarea>
           }
           if (name === 'str') return PStr(pstr(args[0]));
           if (name === 'bool') return PBool(truthy(args[0]));
-          if (name === 'len') { if (args[0].t === 'str') return PNum(args[0].v.length); throw pErr("TypeError: object of type '" + ptype(args[0]) + "' has no len()"); }
+          if (name === 'len') { if (args[0].t === 'str') return PNum(args[0].v.length); if (args[0].t === 'list') return PNum(args[0].v.length); throw pErr("TypeError: object of type '" + ptype(args[0]) + "' has no len()"); }
           if (name === 'round') { var rv = args[0].v, nd = args.length > 1 ? args[1].v : null; var r = nd === null ? Math.round(rv) : Math.round(rv * Math.pow(10, nd)) / Math.pow(10, nd); return PNum(r, nd !== null); }
           if (name === 'type') return PType(ptype(args[0]));
+          if (name === 'range') {
+            var r0, r1, r2;
+            if (args.length === 1) { r0 = 0; r1 = args[0].v; r2 = 1; }
+            else { r0 = args[0].v; r1 = args[1].v; r2 = args.length > 2 ? args[2].v : 1; }
+            if (r2 === 0) throw pErr("ValueError: range() arg 3 must not be zero");
+            var items = [];
+            if (r2 > 0) { for (var vv = r0; vv < r1; vv += r2) items.push(PNum(vv)); }
+            else { for (var ww = r0; ww > r1; ww += r2) items.push(PNum(ww)); }
+            return { t: 'list', v: items };
+          }
           throw pErr("NameError: name '" + name + "' is not defined");
         }
         throw pErr("TypeError: '" + ptype(fn) + "' object is not callable");
       }
       function normIdx(v, len) { var i = v.v; return i < 0 ? i + len : i; }
       function index(x, a, b, hasColon) {
-        if (x.t !== 'str') throw pErr("TypeError: '" + ptype(x) + "' object is not subscriptable");
+        if (x.t !== 'str' && x.t !== 'list') throw pErr("TypeError: '" + ptype(x) + "' object is not subscriptable");
         var s = x.v;
         if (hasColon) {
+          if (x.t === 'list') throw pErr("TypeError: list indices must be integers or slices, not 'slice'");
           var st = a === null ? 0 : normIdx(a, s.length), en = b === null ? s.length : normIdx(b, s.length);
           st = Math.max(0, Math.min(st, s.length)); en = Math.max(0, Math.min(en, s.length));
           return PStr(s.slice(st, en));
         }
         var idx = normIdx(a, s.length);
-        if (idx < 0 || idx >= s.length) throw pErr("IndexError: string index out of range");
-        return PStr(s[idx]);
+        if (idx < 0 || idx >= s.length) throw pErr("IndexError: list index out of range");
+        return x.t === 'list' ? s[idx] : PStr(s[idx]);
       }
       function method(x, m, args) {
+        if (x.t === 'list') {
+          if (m === 'append') { if (!args.length) throw pErr("TypeError: append() takes exactly one argument (0 given)"); x.v.push(args[0]); return PNone; }
+          if (m === 'pop') { var pi = args.length ? args[0].v : x.v.length - 1; if (pi < 0 || pi >= x.v.length) throw pErr("IndexError: pop index out of range"); return x.v.splice(pi, 1)[0]; }
+          throw pErr("AttributeError: 'list' object has no attribute '" + m + "'");
+        }
         if (x.t !== 'str') throw pErr("AttributeError: '" + ptype(x) + "' object has no attribute '" + m + "'");
         if (m === 'upper') return PStr(x.v.toUpperCase());
         if (m === 'lower') return PStr(x.v.toLowerCase());
         if (m === 'count') { var sub = args.length ? pstr(args[0]) : ''; return PNum(x.v.split(sub).length - 1); }
         throw pErr("AttributeError: 'str' object has no attribute '" + m + "'");
+      }
+      function parseList() {
+        var items = [];
+        if (peek().v !== ']') {
+          for (;;) { items.push(parseExpr2(0)); if (peek().v !== ',') break; next(); }
+        }
+        if (peek().v === ']') next();
+        return { t: 'list', v: items };
       }
       function parsePrimary() {
         var t = next();
@@ -2921,6 +2946,7 @@ print(result)</textarea>
           throw pErr("NameError: name '" + t.v + "' is not defined");
         }
         if (t.k === 'op' && t.v === '(') { var e = parseExpr2(0); if (peek().v === ')') next(); return e; }
+        if (t.k === 'op' && t.v === '[') return parseList();
         var tk = (t.k === 'op' ? t.v : t.v);
         throw pErr("SyntaxError: unexpected token" + (tk ? (" '" + tk + "'") : " in the expression"));
       }
@@ -2942,7 +2968,7 @@ print(result)</textarea>
             if (peek().v === ':') { next(); hasColon = true; if (peek().v !== ']') b = parseExpr2(0); }
             else { a = parseExpr2(0); if (peek().v === ':') { next(); hasColon = true; if (peek().v !== ']') b = parseExpr2(0); } }
             if (peek().v === ']') next();
-            return index(x, a, b, hasColon);
+            x = index(x, a, b, hasColon); continue;
           }
           if (t.k === 'op' && t.v === '.') {
             next(); var m = next();
@@ -3076,6 +3102,18 @@ print(result)</textarea>
                 else { runIt = !matched && truthy(pyParse(cl.cond, env, out).parseResult()); if (runIt) matched = true; }
                 if (runIt) runStmts(cl.body, 0);
               }
+            } else if (/^for\b/.test(ln.code)) {
+              var fm = /^for\s+([A-Za-z_][A-Za-z0-9_]*)\s+in\s+(.+)$/.exec(ln.code.replace(/\s*:\s*$/, ''));
+              var body2 = [];
+              var j2 = i + 1;
+              while (j2 < arr.length && arr[j2].indent > ln.indent) { body2.push(arr[j2]); j2++; }
+              var iter = pyParse(fm[2], env, out).parseResult();
+              var vals2;
+              if (iter.t === 'list') vals2 = iter.v;
+              else if (iter.t === 'str') vals2 = iter.v.split('');
+              else throw pErr("TypeError: '" + ptype(iter) + "' object is not iterable");
+              for (var k = 0; k < vals2.length; k++) { env[fm[1]] = vals2[k]; runStmts(body2, 0); }
+              i = j2;
             } else {
               pySplitStmts(ln.code).forEach(function (st) {
                 var eq = pyTopEq(st);
