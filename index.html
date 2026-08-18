@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Egypt ICT Hub — تعلّم تكنولوجيا المعلومات بالعربي</title>
+  <title>Egypt ICT Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -335,7 +335,7 @@
       color: var(--accent);
       font-weight: 700;
       font-size: 1.15rem;
-      margin: -6px 0 8px;
+      margin: 8px 0 8px;
       opacity: 0;
       animation: fadeUp .8s ease-out .4s forwards
     }
@@ -379,7 +379,7 @@
       font-size: clamp(32px, 5.2vw, 58px);
       font-weight: 900;
       color: var(--text);
-      line-height: 1.1;
+      line-height: 1.25;
       letter-spacing: -.02em;
       opacity: 0;
       animation: fadeUp .8s ease-out .3s forwards
@@ -730,6 +730,133 @@
       gap: 10px
     }
 
+    .stage-card .stage-sub {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px
+    }
+
+    .stage-card .stage-highlight {
+      display: block;
+      color: var(--text);
+      font-weight: 700;
+      font-size: .95rem;
+      margin: 8px 0 4px
+    }
+
+    /* ---------- feature grid ---------- */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch
+    }
+
+    @media(max-width:860px) {
+      .feature-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .feature-card {
+      height: 100%
+    }
+
+    .section-desc {
+      max-width: 680px;
+      margin: -12px 0 32px;
+      font-size: 1.05rem;
+      color: var(--dim)
+    }
+
+    /* ---------- teacher education ---------- */
+    .edu-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 18px
+    }
+
+    .edu-pill {
+      background: rgba(59, 91, 255, .1);
+      border: 1px solid rgba(59, 91, 255, .25);
+      color: var(--text);
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: .9rem
+    }
+
+    /* ---------- beginner ---------- */
+    .beginner-highlight {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-top: 10px
+    }
+
+    /* ---------- final cta ---------- */
+    .cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 28px
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-weight: 800;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-size: 1rem;
+      box-shadow: 0 10px 40px rgba(59, 91, 255, .35);
+      transition: transform .2s ease, box-shadow .2s ease
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 50px rgba(0, 200, 150, .3)
+    }
+
+    .cta-btn:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px
+    }
+
+    .section-number.s3 {
+      background: linear-gradient(135deg, var(--s5), var(--s6))
+    }
+
+    .section-number.s4 {
+      background: linear-gradient(135deg, var(--s2), var(--s5))
+    }
+
+    .section-number.s5 {
+      background: linear-gradient(135deg, var(--s3), var(--s4))
+    }
+
+    .section-number.s6 {
+      background: linear-gradient(135deg, var(--s6), var(--s3))
+    }
+
+    .hero-support {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 1.05rem;
+      margin: -24px 0 36px;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .6s forwards
+    }
+
     @media(prefers-reduced-motion: reduce) {
 
       *,
@@ -764,6 +891,19 @@
     .footer-tag b {
       color: var(--text)
     }
+
+    .footer-desc {
+      color: var(--dim);
+      margin-top: 8px;
+      font-size: .9rem
+    }
+
+    .footer-copy {
+      color: var(--dim);
+      margin-top: 18px;
+      font-size: .85rem;
+      opacity: .7
+    }
   </style>
 </head>
 
@@ -796,45 +936,98 @@
       </div>
       <div class="hero-content">
         <div class="hero-badge" data-ar="Egypt ICT Hub" data-en="Egypt ICT Hub">Egypt ICT Hub</div>
-        <h1 class="hero-title" data-ar="بلال <span class='grad'>عبدالناصر</span>"
-          data-en="Bilal <span class='grad'>Abdelnasser</span>">بلال <span class="grad">عبدالناصر</span></h1>
-        <p class="hero-role" data-ar="مدرّب تكنولوجيا معلومات وعلوم حاسب" data-en="ICT &amp; Computer Science Trainer">
-          مدرّب تكنولوجيا معلومات وعلوم حاسب</p>
+        <h1 class="hero-title"
+          data-ar="افهم <span dir='ltr'>ICT</span>... <span class='grad'>وطبّق اللي بتتعلمه</span>"
+          data-en="Understand ICT. <span class='grad'>Apply What You Learn.</span>">افهم <span dir="ltr">ICT</span>...
+          <span class="grad">وطبّق اللي بتتعلمه</span></h1>
+        <p class="hero-role" data-ar="مدرّب <span dir='ltr'>ICT</span> وعلوم حاسب" data-en="ICT &amp; Computer Science Instructor">
+          مدرّب <span dir="ltr">ICT</span> وعلوم حاسب</p>
         <p class="hero-sub"
-          data-ar="منصّة مصرية لتعلّم منهج <span dir='ltr'>ICT</span> للمرحلة الإعدادية والثانوية — شرح مبسّط بالعربي، تصوّرات تفاعلية، وتمارين عمليّة خطوة بخطوة."
-          data-en="An Egyptian platform for learning the <span dir='ltr'>ICT</span> curriculum for preparatory and secondary stages — simplified explanations in English and Arabic, interactive visualizations, and hands-on exercises step by step.">
-          منصّة مصرية لتعلّم منهج <span dir="ltr">ICT</span> للمرحلة الإعدادية والثانوية — شرح مبسّط بالعربي والانجليزي،
-          تصوّرات
-          تفاعلية، وتمارين عمليّة خطوة بخطوة.</p>
-        <a href="#teacher" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's go →">يلا نبدأ ←</a>
+          data-ar="منصة تعليمية لطلاب المرحلة الإعدادية والثانوية، تساعدك تتعلّم منهج <span dir='ltr'>ICT</span> من خلال شرح واضح، أمثلة عملية، وتطبيق خطوة بخطوة."
+          data-en="An educational platform for preparatory and secondary students to learn ICT through clear explanations, practical examples, and step-by-step learning.">
+          منصة تعليمية لطلاب المرحلة الإعدادية والثانوية، تساعدك تتعلّم منهج <span dir="ltr">ICT</span> من خلال شرح
+          واضح، أمثلة عملية، وتطبيق خطوة بخطوة.</p>
+        <p class="hero-support"
+          data-ar="مش هنكتفي إنك تعرف المعلومة... المهم إنك تفهمها وتعرف تستخدمها."
+          data-en="We won't just give you information... the goal is to understand it and know how to use it.">
+          مش هنكتفي إنك تعرف المعلومة... المهم إنك تفهمها وتعرف تستخدمها.</p>
+        <a href="#teacher" class="hero-btn" data-id="heroStart" data-ar="ابدأ التعلّم ←" data-en="Start Learning ←">ابدأ
+          التعلّم ←</a>
       </div>
     </div>
   </header>
 
   <main>
 
-    <!-- عن المعلّم -->
-    <section id="teacher">
+    <!-- طريقة التعلّم -->
+    <section id="approach">
       <div class="section-header section-inner">
         <div class="section-number s1">01</div>
         <div>
-          <h2 data-ar="عن المعلّم" data-en="About Teacher">عن المعلّم</h2>
+          <h2 data-ar="اتعلّم من الفهم للتطبيق" data-en="From Understanding to Practice">اتعلّم من الفهم للتطبيق</h2>
+          <div class="tag" data-ar="مش مجرد شرح للمنهج" data-en="More Than Just Explaining the Curriculum">مش مجرد
+            شرح للمنهج</div>
+        </div>
+      </div>
+      <p class="section-desc section-inner"
+        data-ar="في <span dir='ltr'>Egypt ICT Hub</span>، كل درس بيتقدّم بطريقة تخليك تعرف الفكرة، تفهمها، تشوفها في مثال، وتطبّقها بنفسك."
+        data-en="At <span dir='ltr'>Egypt ICT Hub</span>, every lesson is designed to help you understand the idea, see it in action, and apply it yourself.">
+        في <span dir="ltr">Egypt ICT Hub</span>، كل درس بيتقدّم بطريقة تخليك تعرف الفكرة، تفهمها، تشوفها في مثال،
+        وتطبّقها بنفسك.</p>
+      <div class="feature-grid">
+        <div class="card feature-card section-inner">
+          <h3 data-ar="افهم" data-en="Understand">افهم</h3>
+          <p data-ar="نفهم الفكرة من البداية وبطريقة بسيطة." data-en="Start with the concept and understand it from the basics.">نفهم
+            الفكرة من البداية وبطريقة بسيطة.</p>
+        </div>
+        <div class="card feature-card section-inner">
+          <h3 data-ar="شوف" data-en="Explore">شوف</h3>
+          <p data-ar="نشوف أمثلة توضّح المفهوم وتربطه بالحياة العملية." data-en="See practical examples that make the concept easier to understand.">نشوف
+            أمثلة توضّح المفهوم وتربطه بالحياة العملية.</p>
+        </div>
+        <div class="card feature-card section-inner">
+          <h3 data-ar="طبّق" data-en="Apply">طبّق</h3>
+          <p data-ar="نحوّل اللي اتعلمناه إلى تطبيق عملي خطوة بخطوة." data-en="Turn what you learn into practical work, step by step.">نحوّل
+            اللي اتعلمناه إلى تطبيق عملي خطوة بخطوة.</p>
+        </div>
+        <div class="card feature-card section-inner">
+          <h3 data-ar="اختبر نفسك" data-en="Test Yourself">اختبر نفسك</h3>
+          <p data-ar="نراجع ونحل تمارين عشان نتأكد إن المفهوم ثبت." data-en="Review, practice, and check your understanding.">نراجع
+            ونحل تمارين عشان نتأكد إن المفهوم ثبت.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- عن المعلّم -->
+    <section id="teacher">
+      <div class="section-header section-inner">
+        <div class="section-number s2">02</div>
+        <div>
+          <h2 data-ar="مين بلال؟" data-en="Meet Bilal">مين بلال؟</h2>
           <div class="tag" data-ar="مين اللي بيشرحلك المنهج؟" data-en="Who is teaching you the curriculum?">مين اللي
             بيشرحلك المنهج؟</div>
         </div>
       </div>
       <div class="card teacher-card section-inner" data-id="teacherCard">
         <div class="t-name" dir="ltr">Bilal Abdelnasser</div>
-        <div class="t-role" data-ar="مدرّب تكنولوجيا معلومات وعلوم حاسب" data-en="ICT &amp; Computer Science Trainer">
-          مدرّب تكنولوجيا معلومات وعلوم حاسب</div>
+        <div class="t-role" data-ar="مدرّب <span dir='ltr'>ICT</span> وعلوم حاسب" data-en="ICT &amp; Computer Science Instructor">
+          مدرّب <span dir="ltr">ICT</span> وعلوم حاسب</div>
         <div class="teacher-bio" data-id="teacherBio"
-          data-ar="<p>مرحبًا بك في <span dir='ltr'>Egypt ICT Hub</span>.</p><p>أنا بلال عبدالناصر، مدرّب تكنولوجيا معلومات وعلوم حاسب. أؤمن إن تعلّم التكنولوجيا مش بيعتمد على الحفظ، بل على الفهم والتجرّبة.</p><p>المنصّة بجمع بين الشرح المبسّط والتطبيق العملي في البرمجة، وتصميم الويب، والأنظمة المدمجة، والأمن السيبراني — عشان تساعد الطلاب يكتشفوا قدراتهم ويستعدّوا لعالم المستقبل.</p>"
-          data-en="<p>Welcome to <span dir='ltr'>Egypt ICT Hub</span>.</p><p>I am Bilal Abdelnasser, an ICT and Computer Science trainer. I believe that learning technology is not about memorization, but about understanding and hands-on experience.</p><p>The platform combines simplified explanations with practical application in ICT and programming — to help students discover their potential and prepare for the future.</p>">
-          <p>مرحبًا بك في <span dir="ltr">Egypt ICT Hub</span>.</p>
-          <p>أنا بلال عبدالناصر، مدرّب تكنولوجيا معلومات وعلوم حاسب. أؤمن إن تعلّم التكنولوجيا مش بيعتمد على الحفظ، بل
-            على الفهم والتجرّبة.</p>
-          <p>المنصّة بجمع بين الشرح المبسّط والتطبيق العملي في البرمجة، وتصميم الويب، والأنظمة المدمجة، والأمن السيبراني
-            — عشان تساعد الطلاب يكتشفوا قدراتهم ويستعدّوا لعالم المستقبل.</p>
+          data-ar="<p>أنا بلال عبدالناصر، مدرّب <span dir='ltr'>ICT</span> وعلوم حاسب.</p><p>بدأت التدريس لأنّي مؤمن إن تعلّم التكنولوجيا مش معناه إنك تحفظ خطوات أو تحفظ كود.</p><p>لما تفهم الفكرة، تقدر تطبّقها بنفسك.</p><p>وعشان كده، بنيت <span dir='ltr'>Egypt ICT Hub</span> كمنصة تجمع بين شرح المنهج والتطبيق العملي، بحيث تقدر تمشي في الدرس خطوة بخطوة وتفهم الموضوع بدل ما تحفظه.</p><p>هتلاقي هنا موضوعات من منهج <span dir='ltr'>ICT</span>، بالإضافة إلى مفاهيم وتطبيقات مرتبطة بالبرمجة، تصميم الويب، الأنظمة المدمجة، والأمن السيبراني.</p>"
+          data-en="<p>I am Bilal Abdelnasser, an ICT and Computer Science instructor.</p><p>I started teaching because I believe learning technology is not about memorizing steps or memorizing code.</p><p>When you understand the idea, you can apply it yourself.</p><p>That's why I built <span dir='ltr'>Egypt ICT Hub</span> as a platform that combines curriculum-based learning with practical application, helping students learn step by step instead of simply memorizing information.</p><p>Here you'll find topics from the ICT curriculum, along with concepts and practical applications related to programming, web development, embedded systems, and cybersecurity.</p>">
+          <p>أنا بلال عبدالناصر، مدرّب <span dir="ltr">ICT</span> وعلوم حاسب.</p>
+          <p>بدأت التدريس لأنّي مؤمن إن تعلّم التكنولوجيا مش معناه إنك تحفظ خطوات أو تحفظ كود.</p>
+          <p>لما تفهم الفكرة، تقدر تطبّقها بنفسك.</p>
+          <p>وعشان كده، بنيت <span dir="ltr">Egypt ICT Hub</span> كمنصة تجمع بين شرح المنهج والتطبيق العملي، بحيث تقدر
+            تمشي في الدرس خطوة بخطوة وتفهم الموضوع بدل ما تحفظه.</p>
+          <p>هتلاقي هنا موضوعات من منهج <span dir="ltr">ICT</span>، بالإضافة إلى مفاهيم وتطبيقات مرتبطة بالبرمجة، تصميم
+            الويب، الأنظمة المدمجة، والأمن السيبراني.</p>
+        </div>
+        <div class="edu-row">
+          <div class="edu-pill" data-ar="خريج علوم حاسب — جامعة القاهرة" data-en="Computer Science Graduate — Cairo University">خريج
+            علوم حاسب — جامعة القاهرة</div>
+          <div class="edu-pill" data-ar="من أوائل 3 طلاب في قسم علوم الحاسب" data-en="Ranked among the Top 3 students in the Computer Science Department">من
+            أوائل 3 طلاب في قسم علوم الحاسب</div>
         </div>
         <div class="contact-row">
           <a class="contact-btn" href="https://www.linkedin.com/in/bilal-abdelnasser-abdelfattah-b17915247/"
@@ -843,14 +1036,12 @@
               <path
                 d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.27 2.3-2.6 4.73-2.6 5.06 0 6 3.33 6 7.66V24h-5v-7.5c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.88 1.95-2.88 3.97V24h-5V8z" />
             </svg>
-            <span dir="ltr">LinkedIn</span>
           </a>
           <a class="contact-btn" href="mailto:Belal4278@gmail.com" data-id="emailBtn">
             <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path
                 d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
             </svg>
-            <span dir="ltr">Belal4278@gmail.com</span>
           </a>
         </div>
       </div>
@@ -859,14 +1050,17 @@
     <!-- اختار مرحلتك -->
     <section id="stages">
       <div class="section-header section-inner">
-        <div class="section-number s2">02</div>
+        <div class="section-number s3">03</div>
         <div>
-          <h2 data-ar="اختار مرحلتك" data-en="Choose your stage">اختار مرحلتك</h2>
-          <div class="tag" data-ar="امشي خطوة بخطوة: مرحلة ← سنة دراسية ← وحدة ← درس"
-            data-en="Step by step: Stage ← Academic year ← Unit ← Lesson">امشي خطوة بخطوة: مرحلة ← سنة دراسية ← وحدة ←
-            درس</div>
+          <h2 data-ar="ابدأ من مرحلتك" data-en="Start With Your Stage">ابدأ من مرحلتك</h2>
+          <div class="tag" data-ar="اختار طريقك" data-en="Choose Your Learning Path">اختار طريقك</div>
         </div>
       </div>
+      <p class="section-desc section-inner"
+        data-ar="اختار المرحلة، وبعدها الصف والوحدة والدرس. كل المحتوى متقسم بشكل منظم عشان توصل للدرس اللي محتاجه بسهولة وتكمل تعلّمك خطوة بخطوة."
+        data-en="Choose your educational stage, then your grade, unit, and lesson. Everything is organized to help you find what you need and learn step by step.">
+        اختار المرحلة، وبعدها الصف والوحدة والدرس. كل المحتوى متقسم بشكل منظم عشان توصل للدرس اللي محتاجه بسهولة
+        وتكمل تعلّمك خطوة بخطوة.</p>
       <div class="stage-cards">
         <a class="stage-card sec section-inner" href="secondary.html" data-id="stageSecondary">
           <div class="stage-ico">
@@ -878,10 +1072,15 @@
             </svg>
           </div>
           <h3 data-ar="المرحلة الثانوية" data-en="Secondary Stage">المرحلة الثانوية</h3>
-          <p data-ar="منهج الثانوية العامة — وحدات ودروس كاملة عن المعلوماتية والبرمجة."
-            data-en="Secondary general curriculum — complete units and lessons on informatics and programming.">منهج
-            الثانوية العامة — وحدات ودروس كاملة عن المعلوماتية والبرمجة.</p>
-          <span class="go" data-ar="تصفّح الوحدات ←" data-en="Browse units ←">تصفّح الوحدات ←</span>
+          <div class="stage-sub" data-ar="<span dir='ltr'>ICT</span> للمرحلة الثانوية" data-en="ICT for Secondary Students"><span dir="ltr">ICT</span> للمرحلة الثانوية</div>
+          <p data-ar="شرح وحدات ودروس منهج <span dir='ltr'>ICT</span> للمرحلة الثانوية، مع تبسيط المفاهيم وربطها بالتطبيق العملي."
+            data-en="Curriculum-based ICT lessons for secondary students, with clear explanations and practical applications.">شرح
+            وحدات ودروس منهج <span dir="ltr">ICT</span> للمرحلة الثانوية، مع تبسيط المفاهيم وربطها بالتطبيق العملي.</p>
+          <strong class="stage-highlight"
+            data-ar="افهم المفاهيم. طبّق اللي اتعلمته. وكمل خطوة بخطوة."
+            data-en="Understand the concepts. Apply what you learn. Keep moving forward step by step.">افهم المفاهيم.
+            طبّق اللي اتعلمته. وكمل خطوة بخطوة.</strong>
+          <span class="go" data-ar="ابدأ المرحلة الثانوية ←" data-en="Start Secondary Stage →">ابدأ المرحلة الثانوية ←</span>
         </a>
         <a class="stage-card prep section-inner" href="preparatory.html" data-id="stagePreparatory">
           <div class="stage-ico">
@@ -893,11 +1092,90 @@
             </svg>
           </div>
           <h3 data-ar="المرحلة الإعدادية" data-en="Preparatory Stage">المرحلة الإعدادية</h3>
-          <p data-ar="منهج الإعدادية — الترم الثاني للصف الأول والثاني الإعدادي."
-            data-en="Preparatory curriculum — second semester of first and second preparatory grades.">منهج الإعدادية —
-            الترم الثاني للصف الأول والثاني الإعدادي.</p>
-          <span class="go" data-ar="افتح المرحلة ←" data-en="Open stage ←">افتح المرحلة ←</span>
+          <div class="stage-sub" data-ar="<span dir='ltr'>ICT</span> للمرحلة الإعدادية" data-en="ICT for Preparatory Students"><span dir="ltr">ICT</span> للمرحلة الإعدادية</div>
+          <p data-ar="شرح منهج <span dir='ltr'>ICT</span> بطريقة واضحة ومناسبة لطلاب المرحلة الإعدادية، من فهم الأساسيات إلى التطبيق والتمارين."
+            data-en="Clear and accessible ICT lessons for preparatory students, starting with the basics and moving toward practical application and exercises.">شرح
+            منهج <span dir="ltr">ICT</span> بطريقة واضحة ومناسبة لطلاب المرحلة الإعدادية، من فهم الأساسيات إلى التطبيق
+            والتمارين.</p>
+          <strong class="stage-highlight"
+            data-ar="ابدأ من الدرس الأول... وكمل خطوة بخطوة."
+            data-en="Start with the first lesson and keep learning step by step.">ابدأ من الدرس الأول... وكمل خطوة
+            بخطوة.</strong>
+          <span class="go" data-ar="ابدأ المرحلة الإعدادية ←" data-en="Start Preparatory Stage →">ابدأ المرحلة الإعدادية ←</span>
         </a>
+      </div>
+    </section>
+
+    <!-- إيه اللي هتلاقيه هنا -->
+    <section id="find">
+      <div class="section-header section-inner">
+        <div class="section-number s4">04</div>
+        <div>
+          <h2 data-ar="إيه اللي هتلاقيه هنا؟" data-en="What Will You Find Here?">إيه اللي هتلاقيه هنا؟</h2>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <div class="card feature-card section-inner">
+          <h3 data-ar="شرح واضح" data-en="Clear Explanations">شرح واضح</h3>
+          <p data-ar="الموضوع بيتشرح من البداية، من غير ما نفترض إنك عارف كل حاجة." data-en="Learn each topic from the basics without assuming you already know everything.">الموضوع
+            بيتشرح من البداية، من غير ما نفترض إنك عارف كل حاجة.</p>
+        </div>
+        <div class="card feature-card section-inner">
+          <h3 data-ar="أمثلة عملية" data-en="Practical Examples">أمثلة عملية</h3>
+          <p data-ar="مش بس تعريفات... هنشوف المفاهيم وهي بتشتغل في أمثلة حقيقية." data-en="Not just definitions. See how concepts work through practical examples.">مش
+            بس تعريفات... هنشوف المفاهيم وهي بتشتغل في أمثلة حقيقية.</p>
+        </div>
+        <div class="card feature-card section-inner">
+          <h3 data-ar="تطبيق خطوة بخطوة" data-en="Step-by-Step Practice">تطبيق خطوة بخطوة</h3>
+          <p data-ar="لما يكون فيه تطبيق عملي، هنمشي فيه مع بعض خطوة بخطوة." data-en="Whenever there is a practical activity, we work through it step by step.">لما
+            يكون فيه تطبيق عملي، هنمشي فيه مع بعض خطوة بخطوة.</p>
+        </div>
+        <div class="card feature-card section-inner">
+          <h3 data-ar="تمارين ومراجعة" data-en="Practice &amp; Review">تمارين ومراجعة</h3>
+          <p data-ar="بعد الشرح، تقدر تراجع وتحل وتختبر فهمك." data-en="Review what you learned, solve exercises, and check your understanding.">بعد
+            الشرح، تقدر تراجع وتحل وتختبر فهمك.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- رسالة المبتدئين -->
+    <section id="beginner">
+      <div class="section-header section-inner">
+        <div class="section-number s5">05</div>
+        <div>
+          <h2 data-ar="مش لازم تكون خبير" data-en="You Don't Have to Be an Expert">مش لازم تكون خبير</h2>
+        </div>
+      </div>
+      <div class="card section-inner" style="text-align:center">
+        <p data-ar="لو دي أول مرة تتعامل مع Programming أو Web Development أو أي موضوع جديد في <span dir='ltr'>ICT</span>، ده طبيعي."
+          data-en="If this is your first time learning Programming, Web Development, or any new ICT topic, that's completely fine.">لو
+          دي أول مرة تتعامل مع <span dir="ltr">Programming</span> أو <span dir="ltr">Web Development</span> أو أي موضوع
+          جديد في <span dir="ltr">ICT</span>، ده طبيعي.</p>
+        <p data-ar="الهدف هنا إنك تبدأ من الأساس وتبني فهمك خطوة بخطوة."
+          data-en="The goal is to start with the basics and build your understanding step by step.">الهدف هنا إنك تبدأ من
+          الأساس وتبني فهمك خطوة بخطوة.</p>
+        <span class="beginner-highlight" data-ar="مش مهم تبدأ منين." data-en="It doesn't matter where you start.">مش مهم
+          تبدأ منين.</span>
+        <span class="beginner-highlight" data-ar="المهم إنك تبدأ." data-en="What matters is that you start.">المهم إنك
+          تبدأ.</span>
+      </div>
+    </section>
+
+    <!-- ابدأ دلوقتي -->
+    <section id="cta">
+      <div class="section-header section-inner">
+        <div class="section-number s6">06</div>
+        <div>
+          <h2 data-ar="جاهز تبدأ؟" data-en="Ready to Start?">جاهز تبدأ؟</h2>
+        </div>
+      </div>
+      <p class="section-desc section-inner" data-ar="اختار مرحلتك وابدأ أول درس."
+        data-en="Choose your stage and start your first lesson.">اختار مرحلتك وابدأ أول درس.</p>
+      <div class="cta-row section-inner">
+        <a href="secondary.html" class="cta-btn" data-id="ctaSecondary" data-ar="المرحلة الثانوية ←" data-en="Secondary Stage →">المرحلة
+          الثانوية ←</a>
+        <a href="preparatory.html" class="cta-btn" data-id="ctaPreparatory" data-ar="المرحلة الإعدادية ←" data-en="Preparatory Stage →">المرحلة
+          الإعدادية ←</a>
       </div>
     </section>
 
@@ -906,10 +1184,14 @@
   <footer>
     <img class="footer-logo" src="assets/logo-wordmark.webp" alt="Bilal">
     <div class="footer-tag"
-      data-ar="<b>Egypt ICT Hub</b> — تعلّم تكنولوجيا المعلومات بطريقة ممتعة وتفاعلية، خطوة بخطوة معاك لحد ما تفهم تماماً"
-      data-en="<b>Egypt ICT Hub</b> — Learn information technology in a fun and interactive way, step by step until you fully understand it">
-      <b>Egypt ICT Hub</b> — تعلّم تكنولوجيا المعلومات بطريقة ممتعة وتفاعلية، خطوة بخطوة معاك لحد ما تفهم تماماً
+      data-ar="<b>Egypt ICT Hub</b> — افهم <span dir='ltr'>ICT</span>. طبّق. وتعلّم خطوة بخطوة."
+      data-en="<b>Egypt ICT Hub</b> — Understand ICT. Apply. Learn Step by Step.">
+      <b>Egypt ICT Hub</b> — افهم <span dir="ltr">ICT</span>. طبّق. وتعلّم خطوة بخطوة.
     </div>
+    <p class="footer-desc" data-ar="منصة تعليمية لطلاب المرحلة الإعدادية والثانوية."
+      data-en="An educational platform for preparatory and secondary students.">منصة تعليمية لطلاب المرحلة الإعدادية
+      والثانوية.</p>
+    <div class="footer-copy">© 2026 Egypt ICT Hub — Bilal Abdelnasser</div>
   </footer>
 
   <script>
