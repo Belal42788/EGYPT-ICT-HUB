@@ -3565,7 +3565,13 @@
       return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
     }
 
-    function wireRecall() {
+          function recallStart(quiz) {
+        var s = quiz.querySelector('[data-start]');
+        if (!s) { var p = quiz.previousElementSibling; if (p && p.hasAttribute('data-start')) s = p; }
+        return s;
+      }
+
+function wireRecall() {
       document.querySelectorAll('.recall').forEach(function (quiz) {
         var start = quiz.previousElementSibling && quiz.previousElementSibling.hasAttribute('data-start')
           ? quiz.previousElementSibling

@@ -1016,10 +1016,10 @@
     }
 
     .ex-opt.picked {
-      border-color: var(--accent);
-      background: rgba(0, 212, 170, .18);
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .18);
       color: #fff;
-      box-shadow: 0 0 0 1px var(--accent)
+      box-shadow: 0 0 0 1px var(--primary)
     }
 
     .ex-opt.correct {
@@ -1497,7 +1497,8 @@
         <a href="#practice" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#recap" data-ar="الخلاصة" data-en="Recap">الخلاصة</a>
         <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
-      </div>
+            <a href="#recall" data-section="recall" data-ar="اختبار الاسترجاع" data-en="Recall Quiz">اختبار الاسترجاع</a>
+    </div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -2361,6 +2362,46 @@
       </div>
     </section>
 
+        <!-- Recall quiz (contract) -->
+      <section class="lesson-section" id="recall" data-accent="primary">
+        <div class="section-head section-inner">
+          <div class="section-number">★</div>
+          <h2 class="section-title" data-ar="اختبار الاسترجاع" data-en="Recall Quiz">اختبار الاسترجاع</h2>
+        </div>
+        <div class="section-inner">
+          <button class="btn hero-btn" data-start data-ar="💡 ابدأ الاختبار" data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+          <form class="recall" id="cmRecall" style="display:none">
+            <div class="rq" data-id="cmRq1">
+              <div class="rq-q"><span class="q-num">1</span> <span data-ar="مين اللي اخترع التلغراف مورس (Morse) وإمتى؟" data-en="Who invented the Morse telegraph and when?">مين اللي اخترع التلغراف مورس (Morse) وإمتى؟</span></div>
+              <div class="rq-opts">
+                <div class="rq-opt" data-key="A" data-ok="1" data-fb-ar="صح! مورس اخترع التلغراف مورس سنة 1837 (أمريكي)." data-fb-en="Correct! Morse, an American, invented the Morse telegraph in 1837."><span class="rq-key">A</span><span class="rq-body" data-ar="مورس — 1837" data-en="Morse — 1837">مورس — 1837</span></div>
+                <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — بيل اخترع التليفون مش التلغراف مورس." data-fb-en="Not this — Bell invented the telephone, not the Morse telegraph."><span class="rq-key">B</span><span class="rq-body" data-ar="بيل — 1876" data-en="Bell — 1876">بيل — 1876</span></div>
+                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ماركوني اخترع التلغراف اللاسلكي مش مورس." data-fb-en="Not this — Marconi invented the wireless telegraph, not Morse's."><span class="rq-key">C</span><span class="rq-body" data-ar="ماركوني — 1895" data-en="Marconi — 1895">ماركوني — 1895</span></div>
+              </div>
+              <div class="rq-fb"></div>
+            </div>
+            <div class="rq" data-id="cmRq2">
+              <div class="rq-q"><span class="q-num">2</span> <span data-ar="إمتى بدأ نظام البريد الحديث؟" data-en="When was the modern postal system established?">إمتى بدأ نظام البريد الحديث؟</span></div>
+              <div class="rq-opts">
+                <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — 1840 هو سنة البريد الحديث." data-fb-en="Not this — 1840 is the modern postal system."><span class="rq-key">A</span><span class="rq-body" data-ar="1837" data-en="1837">1837</span></div>
+                <div class="rq-opt" data-key="B" data-ok="1" data-fb-ar="صح! نظام البريد الحديث اتأسس سنة 1840." data-fb-en="Correct! The modern postal system was established in 1840."><span class="rq-key">B</span><span class="rq-body" data-ar="1840" data-en="1840">1840</span></div>
+                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — 1946 هي بداية الموبايل." data-fb-en="Not this — 1946 is when cellular phones began."><span class="rq-key">C</span><span class="rq-body" data-ar="1946" data-en="1946">1946</span></div>
+              </div>
+              <div class="rq-fb"></div>
+            </div>
+            <div class="rq" data-id="cmRq3">
+              <div class="rq-q"><span class="q-num">3</span> <span data-ar="إيه هي 'الوسائط الجماهيرية' (Mass media)؟" data-en="What is 'Mass communication / Mass media'?">إيه هي 'الوسائط الجماهيرية' (Mass media)؟</span></div>
+              <div class="rq-opts">
+                <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده توصيل لشخص واحد (1-1)." data-fb-en="Not this — that is one-to-one communication."><span class="rq-key">A</span><span class="rq-body" data-ar="إرسال لمستلم واحد بس" data-en="Sending to a single recipient">إرسال لمستلم واحد بس</span></div>
+                <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده استقبال من مصادر كتير (many-to-one)." data-fb-en="Not this — that is many-to-one (e.g. surveys)."><span class="rq-key">B</span><span class="rq-body" data-ar="استقبال من مصادر كتير" data-en="Receiving from many sources">استقبال من مصادر كتير</span></div>
+                <div class="rq-opt" data-key="C" data-ok="1" data-fb-ar="صح! الوسائط الجماهيرية بتوصل المعلومة لعدد كبير من الناس مرة واحدة." data-fb-en="Correct! Mass media sends information to a large number of people at once."><span class="rq-key">C</span><span class="rq-body" data-ar="إرسال لمجموعة كبيرة دفعة واحدة" data-en="Sending to a large group at once">إرسال لمجموعة كبيرة دفعة واحدة</span></div>
+              </div>
+              <div class="rq-fb"></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
   </main>
 
   <footer>
@@ -2805,6 +2846,58 @@
 
     /* ---------- boot ---------- */
     document.addEventListener('DOMContentLoaded', function () {
+      /* ===== Recall quiz scaffold (contract: tr/recallStart/wireRecall) ===== */
+      function tr(ar, en) {
+        return (window.currentLang === 'en') ? en : ar;
+      }
+      function rqFb(el) {
+        return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
+      }
+      function recallStart(quiz) {
+        var s = quiz.querySelector('[data-start]');
+        if (!s) { var p = quiz.previousElementSibling; if (p && p.hasAttribute('data-start')) s = p; }
+        return s;
+      }
+      function wireRecall() {
+        document.querySelectorAll('.recall').forEach(function (quiz) {
+          var start = recallStart(quiz);
+          function paintQuizBtn() {
+            if (!start) return;
+            start.textContent = quiz.classList.contains('show')
+              ? tr('إخفاء الاختبار', 'Hide the quiz')
+              : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+          }
+          if (start) start.addEventListener('click', function () { quiz.classList.toggle('show'); paintQuizBtn(); });
+          quiz.querySelectorAll('.rq').forEach(function (q) {
+            var opts = q.querySelectorAll('.rq-opt');
+            var skip = q.querySelector('.rq-skip');
+            var fb = q.querySelector('.rq-fb');
+            function lock(qq) { qq.classList.add('done'); opts.forEach(function (o){o.classList.add('disabled');}); if (skip) skip.style.display='none'; }
+            function showFb(ok, text, correctKey) {
+              fb.classList.add('show'); fb.classList.toggle('ok', ok); fb.classList.toggle('no', !ok);
+              fb.textContent = (ok ? '✅ ' : '❌ ') + (correctKey ? ((window.currentLang==='en'?'The correct answer is '+correctKey+'. ':'الإجابة الصحيحة '+correctKey+'. ')) : '') + text;
+            }
+            opts.forEach(function (o) {
+              o.addEventListener('click', function () {
+                if (q.classList.contains('done')) return;
+                var ok = o.getAttribute('data-ok') === '1';
+                opts.forEach(function (x){x.classList.remove('correct','wrong');});
+                if (ok) o.classList.add('correct');
+                else { o.classList.add('wrong'); var co=q.querySelector('.rq-opt[data-ok="1"]'); if(co) co.classList.add('correct'); }
+                lock(q);
+                showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+              });
+            });
+            if (skip) skip.addEventListener('click', function () {
+              if (q.classList.contains('done')) return;
+              var co=q.querySelector('.rq-opt[data-ok="1"]'); opts.forEach(function(x){x.classList.remove('correct','wrong');}); if(co) co.classList.add('correct'); lock(q);
+              showFb(true, rqFb(co), co.getAttribute('data-key'));
+            });
+          });
+        });
+      }
+      wireRecall();
+
       wireNav();
       wireReveal();
       wireSteppers();
