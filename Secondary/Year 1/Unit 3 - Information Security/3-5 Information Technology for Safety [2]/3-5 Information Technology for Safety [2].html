@@ -854,7 +854,8 @@
         <a href="#exercises" data-ar="التدريبات" data-en="Exercises">التدريبات</a>
         <a href="#summary" data-ar="الخلاصة" data-en="Summary">الخلاصة</a>
               <a href="#glossary" data-ar="المصطلحات" data-en="Glossary">المصطلحات</a>
-</div>
+      <a href="#recall" data-section="recall" data-ar="اختبار الاسترجاع" data-en="Recall Quiz">اختبار الاسترجاع</a>
+    </div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
   </nav>
@@ -1622,6 +1623,46 @@
       </div>
     </section>
 
+        <!-- Recall quiz (contract) -->
+      <section class="lesson-section" id="recall" data-accent="primary">
+        <div class="section-head section-inner">
+          <div class="section-number">★</div>
+          <h2 class="section-title" data-ar="اختبار الاسترجاع" data-en="Recall Quiz">اختبار الاسترجاع</h2>
+        </div>
+        <div class="section-inner">
+          <button class="btn hero-btn" data-start data-ar="💡 ابدأ الاختبار" data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+          <div class="recall" id="dsRecall">
+            <div class="rq" data-id="dsRq1">
+              <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو الـ Digital signature (التوقيع الرقمي)؟" data-en="What is a 'Digital signature'?">إيه هو الـ Digital signature (التوقيع الرقمي)؟</span></div>
+              <div class="rq-opts">
+                <div class="rq-opt" data-key="A" data-ok="1" data-fb-ar="صح! التوقيع الرقمي بيستخدم التشفير بالمفتاح العام + قيمة التجزئة (hash) عشان يثبت إن البيانات من المرسل واتعدلتش." data-fb-en="Correct! A digital signature uses public-key encryption + hash values to prove data is from the sender and untampered."><span class="rq-key">A</span><span class="rq-body" data-ar="يثبت المصدر + سلامة البيانات (public key + hash)" data-en="Proves sender + integrity (public key + hash)">يثبت المصدر + سلامة البيانات (public key + hash)</span></div>
+                <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده الـ Hash function (تحسب قيمة فريدة)." data-fb-en="Not this — that is the hash function."><span class="rq-key">B</span><span class="rq-body" data-ar="دالة التجزئة (Hash)" data-en="Hash function">دالة التجزئة (Hash)</span></div>
+                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ده جهة التصديق (CA)." data-fb-en="Not this — that is the Certification Authority (CA)."><span class="rq-key">C</span><span class="rq-body" data-ar="جهة التصديق (CA)" data-en="Certification Authority (CA)">جهة التصديق (CA)</span></div>
+              </div>
+              <div class="rq-fb"></div>
+            </div>
+            <div class="rq" data-id="dsRq2">
+              <div class="rq-q"><span class="q-num">2</span> <span data-ar="المرسل بيوقّع إزاي في الـ Digital signature؟" data-en="How does the sender sign in a Digital signature?">المرسل بيوقّع إزاي في الـ Digital signature؟</span></div>
+              <div class="rq-opts">
+                <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده مفتاح المستلم العام." data-fb-en="Not this — that is the recipient's public key."><span class="rq-key">A</span><span class="rq-body" data-ar="يشفّر بـ public key للمستلم" data-en="Encrypts with recipient's public key">يشفّر بـ public key للمستلم</span></div>
+                <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده بيتم عند المستلم." data-fb-en="Not this — that happens at the recipient's side."><span class="rq-key">B</span><span class="rq-body" data-ar="يفك التشفير بـ public key للمرسل" data-en="Decrypts with sender's public key">يفك التشفير بـ public key للمرسل</span></div>
+                <div class="rq-opt" data-key="C" data-ok="1" data-fb-ar="صح! المرسل بيحسب hash value من النص، وبيعمله encrypt بـ private key بتاعه — ده اللي بيسموه digital signature." data-fb-en="Correct! The sender hashes the plaintext, then encrypts that hash with their OWN private key — that encrypted hash is the digital signature."><span class="rq-key">C</span><span class="rq-body" data-ar="يشفّر الـ hash بـ private key بتاعه" data-en="Encrypts the hash with own private key">يشفّر الـ hash بـ private key بتاعه</span></div>
+              </div>
+              <div class="rq-fb"></div>
+            </div>
+            <div class="rq" data-id="dsRq3">
+              <div class="rq-q"><span class="q-num">3</span> <span data-ar="إيه هي الـ Certification authority (CA)؟" data-en="What is a 'Certification authority (CA)'?">إيه هي الـ Certification authority (CA)؟</span></div>
+              <div class="rq-opts">
+                <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده قيمة التجزئة." data-fb-en="Not this — that is the hash value."><span class="rq-key">A</span><span class="rq-body" data-ar="قيمة التجزئة (hash value)" data-en="Hash value">قيمة التجزئة (hash value)</span></div>
+                <div class="rq-opt" data-key="B" data-ok="1" data-fb-ar="صح! الـ CA جهة تالتة موثوقة بتأكد إن المفتاح العام بيخص صاحبه فعلاً، و بتصدر شهادات رقمية." data-fb-en="Correct! The CA is a trusted third party that verifies a public key truly belongs to its owner and issues digital certificates."><span class="rq-key">B</span><span class="rq-body" data-ar="جهة موثوقة تأكد المفتاح العام وتصدر شهادات" data-en="Trusted party verifying public key, issuing certs">جهة موثوقة تأكد المفتاح العام وتصدر شهادات</span></div>
+                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ده التوقيع نفسه." data-fb-en="Not this — that is the signature itself."><span class="rq-key">C</span><span class="rq-body" data-ar="التوقيع الرقمي" data-en="The digital signature">التوقيع الرقمي</span></div>
+              </div>
+              <div class="rq-fb"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -1734,6 +1775,58 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
 
     /* ---------- AR/EN toggle ---------- */
     document.addEventListener('DOMContentLoaded', function () {
+      /* ===== Recall quiz scaffold (contract: tr/recallStart/wireRecall) ===== */
+      function tr(ar, en) {
+        return (window.currentLang === 'en') ? en : ar;
+      }
+      function rqFb(el) {
+        return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
+      }
+      function recallStart(quiz) {
+        var s = quiz.querySelector('[data-start]');
+        if (!s) { var p = quiz.previousElementSibling; if (p && p.hasAttribute('data-start')) s = p; }
+        return s;
+      }
+      function wireRecall() {
+        document.querySelectorAll('.recall').forEach(function (quiz) {
+          var start = recallStart(quiz);
+          function paintQuizBtn() {
+            if (!start) return;
+            start.textContent = quiz.classList.contains('show')
+              ? tr('إخفاء الاختبار', 'Hide the quiz')
+              : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+          }
+          if (start) start.addEventListener('click', function () { quiz.classList.toggle('show'); paintQuizBtn(); });
+          quiz.querySelectorAll('.rq').forEach(function (q) {
+            var opts = q.querySelectorAll('.rq-opt');
+            var skip = q.querySelector('.rq-skip');
+            var fb = q.querySelector('.rq-fb');
+            function lock(qq) { qq.classList.add('done'); opts.forEach(function (o){o.classList.add('disabled');}); if (skip) skip.style.display='none'; }
+            function showFb(ok, text, correctKey) {
+              fb.classList.add('show'); fb.classList.toggle('ok', ok); fb.classList.toggle('no', !ok);
+              fb.textContent = (ok ? '✅ ' : '❌ ') + (correctKey ? ((window.currentLang==='en'?'The correct answer is '+correctKey+'. ':'الإجابة الصحيحة '+correctKey+'. ')) : '') + text;
+            }
+            opts.forEach(function (o) {
+              o.addEventListener('click', function () {
+                if (q.classList.contains('done')) return;
+                var ok = o.getAttribute('data-ok') === '1';
+                opts.forEach(function (x){x.classList.remove('correct','wrong');});
+                if (ok) o.classList.add('correct');
+                else { o.classList.add('wrong'); var co=q.querySelector('.rq-opt[data-ok="1"]'); if(co) co.classList.add('correct'); }
+                lock(q);
+                showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+              });
+            });
+            if (skip) skip.addEventListener('click', function () {
+              if (q.classList.contains('done')) return;
+              var co=q.querySelector('.rq-opt[data-ok="1"]'); opts.forEach(function(x){x.classList.remove('correct','wrong');}); if(co) co.classList.add('correct'); lock(q);
+              showFb(true, rqFb(co), co.getAttribute('data-key'));
+            });
+          });
+        });
+      }
+      wireRecall();
+
       var langBtn = document.getElementById('langToggle');
       if (!langBtn) return;
       function setLang(lang) {
