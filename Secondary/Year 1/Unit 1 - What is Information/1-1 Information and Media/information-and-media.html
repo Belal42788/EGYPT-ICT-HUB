@@ -2187,6 +2187,126 @@
     .gl-term.hidden {
       display: none;
     }
+    /* ---------- recall quiz (contract scaffold) ---------- */
+    .recall {
+      display: none;
+      margin-top: 16px
+    }
+
+    .recall.show {
+      display: block
+    }
+
+    .rq {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px
+    }
+
+    .rq-q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px
+    }
+
+    .rq-opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    @media(max-width:640px) {
+      .rq-opts {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .rq-opt {
+      direction: rtl;
+      text-align: right;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: .9rem;
+      color: #c7d2fe;
+      cursor: pointer;
+      transition: .15s;
+      user-select: none
+    }
+
+    .rq-opt:hover {
+      border-color: rgba(0, 212, 170, .5);
+      background: rgba(0, 212, 170, .08)
+    }
+
+    .rq-opt.disabled {
+      pointer-events: none;
+      opacity: .65
+    }
+
+    .rq-opt.correct {
+      border-color: var(--success);
+      background: rgba(0, 255, 136, .12);
+      color: var(--success)
+    }
+
+    .rq-opt.wrong {
+      border-color: var(--danger);
+      background: rgba(255, 71, 87, .12);
+      color: #ffb3bd
+    }
+
+    .rq-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: rgba(25, 60, 255, .14);
+      border: 1px solid rgba(25, 60, 255, .5);
+      color: #c7d2fe;
+      font-weight: 900;
+      font-size: .82rem;
+      margin-right: 10px;
+      vertical-align: middle;
+      flex-shrink: 0
+    }
+
+    .rq-fb {
+      margin-top: 10px;
+      display: none;
+      font-size: .92rem;
+      padding: 10px 14px;
+      border-radius: 10px
+    }
+
+    .rq-fb.show {
+      display: block
+    }
+
+    .rq-fb.ok {
+      background: rgba(0, 255, 136, .07);
+      border: 1px solid rgba(0, 255, 136, .35);
+      color: var(--success)
+    }
+
+    .rq-fb.no {
+      background: rgba(255, 71, 87, .07);
+      border: 1px solid rgba(255, 71, 87, .35);
+      color: #ffb3bd
+    }
+
+    /* MCQ picked option (contract scaffold) */
+    .ex-opt.picked {
+      border-color: var(--primary);
+      background: rgba(25, 60, 255, .18);
+      color: #fff;
+      box-shadow: 0 0 0 1px var(--primary)
+    }
   </style>
 </head>
 
@@ -2208,6 +2328,7 @@
       <a href="#s5" data-section="5" data-ar="05 الإلمام بالوسائط" data-en="05 Media Literacy">05 الإلمام بالوسائط</a>
       <a href="#s6" data-section="6" data-ar="06 أسئلة الكتاب" data-en="06 Book Questions">06 أسئلة الكتاب</a>
       <a href="#glossary" data-section="glossary" data-ar="07 المصطلحات" data-en="07 Glossary">07 المصطلحات</a>
+      <a href="#recall" data-section="recall" data-ar="08 اختبار الاسترجاع" data-en="08 Recall Quiz">08 اختبار الاسترجاع</a>
     </div>
     <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
   </nav>
@@ -4161,6 +4282,46 @@
       </div>
     </section>
 
+      <!-- Recall quiz (contract) -->
+      <section class="lesson-section" id="recall" data-accent="primary">
+        <div class="section-head section-inner">
+          <div class="section-number">★</div>
+          <h2 class="section-title" data-ar="اختبار الاسترجاع" data-en="Recall Quiz">اختبار الاسترجاع</h2>
+        </div>
+        <div class="section-inner">
+          <button class="btn hero-btn" data-start data-ar="💡 ابدأ الاختبار" data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
+          <div class="recall" id="infoRecall">
+            <div class="rq" data-id="infoRq1">
+              <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه التعريف الصح للبيانات (Data)؟" data-en="What is the correct definition of Data?">إيه التعريف الصح للبيانات (Data)؟</span></div>
+              <div class="rq-opts">
+                <div class="rq-opt" data-key="A" data-ok="1" data-fb-ar="صح! البيانات هي حقائق أو أشياء مت représentة بأرقام أو رموز." data-fb-en="Correct! Data are facts or matters represented using numbers, characters, or symbols."><span class="rq-key">A</span><span class="rq-body" data-ar="حقائق أو أشياء مت Representة بأرقام أو رموز" data-en="Facts represented using numbers, characters, or symbols">حقائق أو أشياء مت Representة بأرقام أو رموز</span></div>
+                <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده المعلومة اللي ليها معنى وقيمة." data-fb-en="Not this — that describes information, which holds meaning/value."><span class="rq-key">B</span><span class="rq-body" data-ar="معلومة ليها معنى وقيمة وتساعد في اتخاذ قرار" data-en="Information that holds meaning and aids decisions">معلومة ليها معنى وقيمة وتساعد في اتخاذ قرار</span></div>
+                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ده المعرفة اللي اتحللت ونُظّمت لحل مشاكل." data-fb-en="Not this — that is knowledge, analyzed and systematized to solve problems."><span class="rq-key">C</span><span class="rq-body" data-ar="معرفة اتحللت ونُظّمت لحل مشاكل" data-en="Knowledge analyzed and systematized for problem-solving">معرفة اتحللت ونُظّمت لحل مشاكل</span></div>
+              </div>
+              <div class="rq-fb"></div>
+            </div>
+            <div class="rq" data-id="infoRq2">
+              <div class="rq-q"><span class="q-num">2</span> <span data-ar="أي خاصية من خصائص المعلومة تعبّر إن الغلط اللي ينتشر على الإنترنت ممكن يفضل موجود للأبد؟" data-en="Which information characteristic means false info spread online can persist indefinitely?">أي خاصية من خصائص المعلومة تعبّر إن الغلط اللي ينتشر على الإنترنت ممكن يفضل موجود للأبد؟</span></div>
+              <div class="rq-opts">
+                <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده معناه إن المعلومة بتتنسخ بسهولة بكميات كبيرة." data-fb-en="Not this — that is reproducibility (easy large-scale copying)."><span class="rq-key">A</span><span class="rq-body" data-ar="قابلية التكاثر (Reproducibility)" data-en="Reproducibility">قابلية التكاثر (Reproducibility)</span></div>
+                <div class="rq-opt" data-key="B" data-ok="1" data-fb-ar="صح! الثبات يعني المعلومة لما تتعمل مابتتمسحش تماماً حتى لو غلط." data-fb-en="Correct! Persistence means information, once created, cannot be completely erased."><span class="rq-key">B</span><span class="rq-body" data-ar="الثبات (Persistence)" data-en="Persistence">الثبات (Persistence)</span></div>
+                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ده معناه إن المعلومة بتنتشر وتوصل بسهولة." data-fb-en="Not this — that is propagation (easy spreading)."><span class="rq-key">C</span><span class="rq-body" data-ar="قابلية الانتشار (Propagation)" data-en="Propagation">قابلية الانتشار (Propagation)</span></div>
+              </div>
+              <div class="rq-fb"></div>
+            </div>
+            <div class="rq" data-id="infoRq3">
+              <div class="rq-q"><span class="q-num">3</span> <span data-ar="إيه تعريف الإلمام بالوسائط (Media Literacy)؟" data-en="What is the definition of Media Literacy?">إيه تعريف الإلمام بالوسائط (Media Literacy)؟</span></div>
+              <div class="rq-opts">
+                <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده استقبال من غير نقد، مش إلمام." data-fb-en="Not this — accepting media info without question is not literacy."><span class="rq-key">A</span><span class="rq-body" data-ar="قدرة إنك تقبل المعلومة اللي بتطلّع من الإعلام من غير تساؤل" data-en="Ability to accept media info without question">قدرة إنك تقبل المعلومة اللي بتطلّع من الإعلام من غير تساؤل</span></div>
+                <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده تحرير المعلومة حسب نية المرسل، مش إلمام." data-fb-en="Not this — that is editing info per sender intent, not literacy."><span class="rq-key">B</span><span class="rq-body" data-ar="استخدام الوسائط عشان نعدّل المعلومة حسب نية المرسل" data-en="Using media to edit info per sender intent">استخدام الوسائط عشان نعدّل المعلومة حسب نية المرسل</span></div>
+                <div class="rq-opt" data-key="C" data-ok="1" data-fb-ar="صح! الإلمام بالوسائط هو فهم معنى وخصائص الوسائط وتفسير المعلومة بدقة." data-fb-en="Correct! Media literacy is the ability to understand the meaning and characteristics of media and interpret information accurately."><span class="rq-key">C</span><span class="rq-body" data-ar="فهم معنى وخصائص الوسائط وتفسير المعلومة بدقة" data-en="Understanding media meaning/characteristics and interpreting info accurately">فهم معنى وخصائص الوسائط وتفسير المعلومة بدقة</span></div>
+              </div>
+              <div class="rq-fb"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
   </main>
 
   <!-- Footer -->
@@ -4174,6 +4335,75 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+      /* ===== Recall quiz scaffold (contract: recallStart / wireRecall) ===== */
+      function rqFb(el) {
+        return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
+      }
+      function recallStart(quiz) {
+        var s = quiz.querySelector('[data-start]');
+        if (!s) {
+          var p = quiz.previousElementSibling;
+          if (p && p.hasAttribute('data-start')) s = p;
+        }
+        return s;
+      }
+      function wireRecall() {
+        document.querySelectorAll('.recall').forEach(function (quiz) {
+          var start = recallStart(quiz);
+          function paintQuizBtn() {
+            if (!start) return;
+            start.textContent = quiz.classList.contains('show')
+              ? tr('إخفاء الاختبار', 'Hide the quiz')
+              : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
+          }
+          if (start) start.addEventListener('click', function () {
+            quiz.classList.toggle('show');
+            paintQuizBtn();
+          });
+          quiz.querySelectorAll('.rq').forEach(function (q) {
+            var opts = q.querySelectorAll('.rq-opt');
+            var skip = q.querySelector('.rq-skip');
+            var fb = q.querySelector('.rq-fb');
+            function lock(qq) {
+              qq.classList.add('done');
+              opts.forEach(function (o) { o.classList.add('disabled'); });
+              if (skip) skip.style.display = 'none';
+            }
+            function showFb(ok, text, correctKey) {
+              fb.classList.add('show');
+              fb.classList.toggle('ok', ok);
+              fb.classList.toggle('no', !ok);
+              fb.textContent = (ok ? '✅ ' : '❌ ') +
+                (correctKey ? (window.currentLang === 'en' ? 'The correct answer is ' + correctKey + '. ' : 'الإجابة الصحيحة ' + correctKey + '. ') : '') + text;
+            }
+            opts.forEach(function (o) {
+              o.addEventListener('click', function () {
+                if (q.classList.contains('done')) return;
+                var ok = o.getAttribute('data-ok') === '1';
+                opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+                if (ok) o.classList.add('correct');
+                else {
+                  o.classList.add('wrong');
+                  var co = q.querySelector('.rq-opt[data-ok="1"]');
+                  if (co) co.classList.add('correct');
+                }
+                lock(q);
+                showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+              });
+            });
+            if (skip) skip.addEventListener('click', function () {
+              if (q.classList.contains('done')) return;
+              var co = q.querySelector('.rq-opt[data-ok="1"]');
+              opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+              if (co) co.classList.add('correct');
+              lock(q);
+              showFb(true, rqFb(co), co.getAttribute('data-key'));
+            });
+          });
+        });
+      }
+      wireRecall();
 
       /* ===== Floating particles ===== */
       (function () {
