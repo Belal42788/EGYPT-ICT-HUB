@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Egypt ICT Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#3b5bff; --accent:#00c896; --bg:#0a0d1f; --ink:#e8e8f0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--accent);color:#04121a}
+  a{text-decoration:none;color:inherit}
+  .lang-toggle{position:fixed;top:16px;left:16px;z-index:300;border:2px solid var(--ink);background:transparent;
+    color:var(--ink);font-weight:900;padding:8px 14px;border-radius:0;font-size:.85rem;cursor:pointer}
+
+  /* BRUTALIST EDITORIAL: oversized type, hard grid, hairline rules */
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  .bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:2px solid var(--ink)}
+  .bar .logo{font-weight:900;font-size:1.1rem;letter-spacing:-.02em}
+  .bar nav a{margin-inline-start:18px;font-weight:700;font-size:.85rem}
+
+  .masthead{padding:9vh 0 5vh;border-bottom:2px solid var(--ink)}
+  .masthead .k{font-weight:700;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .masthead h1{font-weight:900;font-size:clamp(3rem,12vw,9rem);line-height:.92;letter-spacing:-.04em}
+  .masthead h1 .o{color:var(--primary)}
+  .masthead .sub{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px;align-items:end}
+  .masthead .sub p{font-size:1.05rem;max-width:40ch}
+  .masthead .sub .meta{font-weight:700;font-size:.85rem;text-align:start;border-top:2px solid var(--accent);padding-top:10px}
+
+  .rule{border-top:2px solid var(--ink);margin:0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .cell{padding:5vh 24px;border-bottom:2px solid var(--ink)}
+  .cell+.cell{border-inline-start:2px solid var(--ink)}
+  .cell h2{font-weight:900;font-size:clamp(1.4rem,3vw,2rem);margin-bottom:12px}
+  .cell p{font-size:.98rem;max-width:42ch}
+  .num-big{font-weight:900;font-size:clamp(3rem,8vw,5.5rem);line-height:.9;color:var(--primary);letter-spacing:-.03em}
+
+  .feature-img{padding:6vh 0;border-bottom:2px solid var(--ink)}
+  .feature-img img{width:100%;max-height:60vh;object-fit:cover;filter:grayscale(.2) contrast(1.05);border:2px solid var(--ink)}
+
+  .stage-split{display:grid;grid-template-columns:1fr 1fr}
+  .st{padding:8vh 28px;color:#fff;transition:.2s}
+  .st.sec{background:var(--primary)} .st.prep{background:var(--accent);color:#04121a}
+  .st:hover{filter:brightness(1.06)}
+  .st .n{font-weight:900;font-size:1.4rem;margin-bottom:8px}
+  .st h2{font-weight:900;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:10px;letter-spacing:-.02em}
+  .st p{font-size:1rem;margin-bottom:22px;max-width:34ch}
+  .st .go{display:inline-block;border:2px solid currentColor;font-weight:900;padding:12px 26px}
+
+  .foot{padding:6vh 24px 9vh;text-align:center;font-weight:700;font-size:.85rem}
+
+  @media(max-width:760px){.masthead .sub,.grid2,.stage-split{grid-template-columns:1fr}.cell+.cell{border-inline-start:none}.masthead .sub .meta{text-align:start}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+  <button class="lang-toggle" id="langToggle" aria-label="Switch to English"><span id="langIcon">EN</span></button>
+
+  <div class="wrap">
+    <div class="bar">
+      <div class="logo" data-ar="EGYPT ICT HUB" data-en="EGYPT ICT HUB">EGYPT ICT HUB</div>
+      <nav><a href="#stages" data-ar="المراحل" data-en="Stages">المراحل</a><a href="#about" data-ar="عن المعلّم" data-en="Teacher">عن المعلّم</a></nav>
+    </div>
+
+    <header class="masthead">
+      <div class="k" data-ar="منصّة ICT" data-en="ICT PLATFORM">منصّة ICT</div>
+      <h1 data-ar="افهم<span class='o'>.</span> طبّق<span class='o'>.</span> اتعلّم<span class='o'>.</span>" data-en="Understand<span class='o'>.</span> Apply<span class='o'>.</span> Learn<span class='o'>.</span>">افهم<span class="o">.</span> طبّق<span class="o">.</span> اتعلّم<span class="o">.</span></h1>
+      <div class="sub">
+        <p data-ar="منهج ICT للمرحلة الإعدادية والثانوية — شرح مبسّط، أمثلة حقيقية، وتطبيق خطوة بخطوة." data-en="The ICT curriculum for preparatory and secondary — clear explanations, real examples, step-by-step practice.">منهج ICT للمرحلة الإعدادية والثانوية — شرح مبسّط، أمثلة حقيقية، وتطبيق خطوة بخطوة.</p>
+        <div class="meta" data-ar="بداية من الأساس — بدون تعقيد." data-en="Start from the basics — no complexity.">بداية من الأساس — بدون تعقيد.</div>
+      </div>
+    </header>
+
+    <div class="feature-img">
+      <img src="assets/Untitled - August 12, 2026 at 01.30.25.png" alt="Bilal Abdelnasser" onerror="this.style.display='none'">
+    </div>
+
+    <section class="grid2" id="about">
+      <div class="cell">
+        <span class="num-big" data-ar="62" data-en="62">62</span>
+        <h2 data-ar="درس متاح" data-en="Lessons">درس متاح</h2>
+        <p data-ar="محتوى منظّم على 13 وحدة ومنهج كامل للمرحلتين." data-en="Content organized across 13 units and a full curriculum for both stages.">محتوى منظّم على 13 وحدة ومنهج كامل للمرحلتين.</p>
+      </div>
+      <div class="cell">
+        <h2 data-ar="مين بيشرح؟" data-en="Who Teaches?">مين بيشرح؟</h2>
+        <p data-ar="بلال عبد الناصر — معلّم ICT، خريج علوم حاسب (جامعة القاهرة)، من أوائل 3 طلاب على القسم." data-en="Bilal Abdelnasser — ICT teacher, CS graduate (Cairo University), top-3 of his department.">بلال عبد الناصر — معلّم ICT، خريج علوم حاسب (جامعة القاهرة)، من أوائل 3 طلاب على القسم.</p>
+      </div>
+    </section>
+
+    <section class="grid2">
+      <div class="cell">
+        <h2 data-ar="هتلاقي إيه؟" data-en="What You'll Find">هتلاقي إيه؟</h2>
+        <p data-ar="شرح واضح من الأول، وأمثلة عملية، وتطبيق خطوة بخطوة، وتمارين ومراجعة." data-en="Clear explanations from scratch, practical examples, step-by-step practice, exercises & review.">شرح واضح من الأول، وأمثلة عملية، وتطبيق خطوة بخطوة، وتمارين ومراجعة.</p>
+      </div>
+      <div class="cell">
+        <h2 data-ar="مش لازم تكون خبير" data-en="No Expertise Needed">مش لازم تكون خبير</h2>
+        <p data-ar="لو دي أول مرة تتعامل مع Programming أو Web — طبيعي. ابدأ من الأساس." data-en="First time with Programming or Web? That's fine. Start from the basics.">لو دي أول مرة تتعامل مع Programming أو Web — طبيعي. ابدأ من الأساس.</p>
+      </div>
+    </section>
+
+    <section class="stage-split" id="stages">
+      <a class="st sec" href="secondary.html" data-id="stageSecondary">
+        <div class="n" data-ar="المرحلة ١" data-en="STAGE 1">المرحلة ١</div>
+        <h2 data-ar="المرحلة الثانوية" data-en="Secondary Stage">المرحلة الثانوية</h2>
+        <p data-ar="منهج ICT للثانوي بشرح مبسّط وتطبيق عملي." data-en="ICT for secondary, simplified with hands-on practice.">منهج ICT للثانوي بشرح مبسّط وتطبيق عملي.</p>
+        <span class="go" data-ar="ابدأ الثانوية" data-en="Start Secondary">ابدأ الثانوية</span>
+      </a>
+      <a class="st prep" href="preparatory.html" data-id="stagePreparatory">
+        <div class="n" data-ar="المرحلة ٢" data-en="STAGE 2">المرحلة ٢</div>
+        <h2 data-ar="المرحلة الإعدادية" data-en="Preparatory Stage">المرحلة الإعدادية</h2>
+        <p data-ar="أساسيات ICT للإعدادي من الأول للتطبيق." data-en="ICT fundamentals for preparatory, basics to practice.">أساسيات ICT للإعدادي من الأول للتطبيق.</p>
+        <span class="go" data-ar="ابدأ الإعدادية" data-en="Start Preparatory">ابدأ الإعدادية</span>
+      </a>
+    </section>
+
+    <footer class="foot" data-ar="EGYPT ICT HUB — بلال عبد الناصر © 2026" data-en="EGYPT ICT HUB — Bilal Abdelnasser © 2026">EGYPT ICT HUB — بلال عبد الناصر © 2026</footer>
+  </div>
+
+  <script>
+    var langBtn=document.getElementById('langToggle'),currentLang='ar';window.currentLang=currentLang;
+    function setLang(l){window.currentLang=l;var ar=l==='ar';
+      langBtn.setAttribute('aria-label',ar?'Switch to English':'Switch to العربية');
+      var ic=document.getElementById('langIcon');if(ic)ic.textContent=ar?'EN':'AR';
+      document.documentElement.lang=l;document.documentElement.dir=ar?'rtl':'ltr';
+      document.querySelectorAll('[data-ar],[data-en]').forEach(function(e){var v=l==='ar'?e.getAttribute('data-ar'):e.getAttribute('data-en');if(v!==null){e.innerHTML=v;e.setAttribute('data-lang',l);}});
+      localStorage.setItem('langPreference',l);}
+    setLang(localStorage.getItem('langPreference')||'ar');
+    langBtn.addEventListener('click',function(){setLang(window.currentLang==='ar'?'en':'ar');});
+  </script>
+</body>
+</html>

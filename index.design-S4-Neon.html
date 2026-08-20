@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Egypt ICT Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#3b5bff; --accent:#00c896; --bg:#0a0d1f;
+    --text:#e8e8f0; --dim:#9ca3c0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--text);
+    line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--accent);color:#04121a}
+  a{text-decoration:none;color:inherit}
+  .lang-toggle{position:fixed;top:16px;left:16px;z-index:300;background:rgba(255,255,255,.08);color:#fff;
+    border:1px solid rgba(0,200,150,.5);backdrop-filter:blur(10px);font-weight:800;padding:9px 15px;border-radius:99px;font-size:.85rem;cursor:pointer}
+
+  /* TOKYO-NEON: animated gradient bg, glass cards, glow */
+  .bg{position:fixed;inset:0;z-index:-2;background:
+    radial-gradient(50% 40% at 20% 20%, rgba(59,91,255,.55), transparent 70%),
+    radial-gradient(50% 40% at 85% 30%, rgba(0,200,150,.45), transparent 70%),
+    radial-gradient(60% 50% at 50% 95%, rgba(167,139,250,.3), transparent 70%), #070a18;
+    animation:drift 18s ease-in-out infinite}
+  @keyframes drift{0%,100%{filter:hue-rotate(0deg) brightness(1)}50%{filter:hue-rotate(18deg) brightness(1.12)}}
+  .grain{position:fixed;inset:0;z-index:-1;opacity:.05;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:11vh 24px 10vh}
+  .glass{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px);border-radius:22px}
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:44px}
+  .kick{color:var(--accent);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.76rem;margin-bottom:16px}
+  .hero h1{color:#fff;font-size:clamp(2.2rem,5.5vw,4rem);font-weight:900;line-height:1.06;letter-spacing:-.02em;margin-bottom:16px;
+    text-shadow:0 0 30px rgba(59,91,255,.5)}
+  .hero h1 .g{background:linear-gradient(120deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{font-size:1.05rem;margin-bottom:24px;max-width:42ch}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .b{display:inline-flex;align-items:center;font-weight:800;padding:12px 24px;border-radius:99px;font-size:.95rem;transition:.2s}
+  .b.s{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:0 0 24px rgba(59,91,255,.5)}
+  .b.s:hover{transform:translateY(-2px);filter:brightness(1.1)}
+  .b.p{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(0,200,150,.5)}
+  .b.p:hover{background:rgba(0,200,150,.15)}
+  .hero-img img{width:100%;border-radius:20px;border:1px solid rgba(255,255,255,.15);box-shadow:0 0 40px rgba(0,200,150,.35)}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+  .stats .g{padding:22px;text-align:center}
+  .stats .n{font-size:2.4rem;font-weight:900;color:#fff;font-variant-numeric:tabular-nums;text-shadow:0 0 18px rgba(0,200,150,.5)}
+  .stats .l{font-size:.82rem;color:var(--dim)}
+
+  .row{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:18px}
+  .panel{padding:28px}
+  .panel h3{color:#fff;font-size:1.2rem;font-weight:800;margin-bottom:8px}
+  .panel p{font-size:.92rem}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .chip{background:rgba(59,91,255,.18);border:1px solid rgba(59,91,255,.4);color:#fff;padding:6px 13px;border-radius:99px;font-size:.82rem}
+
+  .stages{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+  .st{padding:30px;transition:.2s;position:relative;overflow:hidden}
+  .st:hover{transform:translateY(-4px);border-color:var(--primary);box-shadow:0 0 30px rgba(59,91,255,.3)}
+  .st .badge{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-weight:900;font-size:1.3rem;margin-bottom:14px;color:#fff}
+  .st.sec .badge{background:var(--primary)} .st.prep .badge{background:var(--accent);color:#04121a}
+  .st h2{color:#fff;font-size:1.5rem;font-weight:900;margin-bottom:6px}
+  .st p{font-size:.9rem;margin-bottom:16px}
+  .st .go{display:inline-flex;align-items:center;font-weight:800;padding:10px 20px;border-radius:99px;font-size:.9rem;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)}
+  .st:hover .go{background:var(--primary);border-color:transparent}
+
+  .foot{text-align:center;margin-top:24px;color:var(--dim);font-size:.82rem}
+  @media(max-width:820px){.hero,.stats,.row,.stages{grid-template-columns:1fr}.hero-img{order:-1;max-width:300px;margin:0 auto}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <button class="lang-toggle" id="langToggle" aria-label="Switch to English"><span id="langIcon">EN</span></button>
+
+  <div class="wrap">
+    <div class="glass hero">
+      <div>
+        <div class="kick" data-ar="منصّة ICT" data-en="ICT PLATFORM">منصّة ICT</div>
+        <h1 data-ar="افهم. <span class='g'>طبّق</span>. اتعلّم." data-en="Understand. <span class='g'>Apply</span>. Learn.">افهم. <span class="g">طبّق</span>. اتعلّم.</h1>
+        <p data-ar="منهج ICT للمرحلة الإعدادية والثانوية — شرح مبسّط، أمثلة حقيقية، وتطبيق خطوة بخطوة." data-en="The ICT curriculum for preparatory and secondary — clear explanations, real examples, step-by-step practice.">
+          منهج ICT للمرحلة الإعدادية والثانوية — شرح مبسّط، أمثلة حقيقية، وتطبيق خطوة بخطوة.</p>
+        <div class="btns">
+          <a class="b s" href="secondary.html" data-id="ctaSecondary" data-ar="المرحلة الثانوية" data-en="Secondary Stage">المرحلة الثانوية</a>
+          <a class="b p" href="preparatory.html" data-id="ctaPreparatory" data-ar="المرحلة الإعدادية" data-en="Preparatory Stage">المرحلة الإعدادية</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="assets/Untitled - August 12, 2026 at 01.30.25.png" alt="Bilal Abdelnasser" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="glass g"><div class="n" data-ar="62" data-en="62">62</div><div class="l" data-ar="درس" data-en="Lessons">درس</div></div>
+      <div class="glass g"><div class="n" data-ar="13" data-en="13">13</div><div class="l" data-ar="وحدة" data-en="Units">وحدة</div></div>
+      <div class="glass g"><div class="n" data-ar="2" data-en="2">2</div><div class="l" data-ar="مرحلة" data-en="Stages">مرحلة</div></div>
+    </div>
+
+    <div class="row">
+      <div class="glass panel">
+        <h3 data-ar="مين بيشرح؟" data-en="Who Teaches?">مين بيشرح؟</h3>
+        <p data-ar="بلال عبد الناصر — معلّم ICT، خريج علوم حاسب (جامعة القاهرة)، من أوائل 3 طلاب على القسم." data-en="Bilal Abdelnasser — ICT teacher, CS graduate (Cairo University), top-3 of his department.">بلال عبد الناصر — معلّم ICT، خريج علوم حاسب (جامعة القاهرة)، من أوائل 3 طلاب على القسم.</p>
+      </div>
+      <div class="glass panel">
+        <h3 data-ar="مش لازم تكون خبير" data-en="No Expertise Needed">مش لازم تكون خبير</h3>
+        <p data-ar="لو دي أول مرة تتعامل مع Programming أو Web — طبيعي. ابدأ من الأساس." data-en="First time with Programming or Web? That's fine. Start from the basics.">لو دي أول مرة تتعامل مع Programming أو Web — طبيعي. ابدأ من الأساس.</p>
+      </div>
+    </div>
+
+    <div class="glass panel" style="margin-top:18px">
+      <h3 data-ar="هتلاقي إيه؟" data-en="What You'll Find">هتلاقي إيه؟</h3>
+      <div class="chips">
+        <span class="chip" data-ar="شرح واضح" data-en="Clear explain">شرح واضح</span>
+        <span class="chip" data-ar="أمثلة عملية" data-en="Examples">أمثلة عملية</span>
+        <span class="chip" data-ar="تطبيق عملي" data-en="Practice">تطبيق عملي</span>
+        <span class="chip" data-ar="تمارين" data-en="Exercises">تمارين</span>
+      </div>
+    </div>
+
+    <div class="stages">
+      <a class="glass st sec" href="secondary.html" data-id="stageSecondary">
+        <span class="badge">ث</span>
+        <h2 data-ar="المرحلة الثانوية" data-en="Secondary Stage">المرحلة الثانوية</h2>
+        <p data-ar="منهج ICT للثانوي بشرح مبسّط وتطبيق عملي." data-en="ICT for secondary, simplified with hands-on practice.">منهج ICT للثانوي بشرح مبسّط وتطبيق عملي.</p>
+        <span class="go" data-ar="ابدأ الثانوية" data-en="Start Secondary">ابدأ الثانوية</span>
+      </a>
+      <a class="glass st prep" href="preparatory.html" data-id="stagePreparatory">
+        <span class="badge">إ</span>
+        <h2 data-ar="المرحلة الإعدادية" data-en="Preparatory Stage">المرحلة الإعدادية</h2>
+        <p data-ar="أساسيات ICT للإعدادي من الأول للتطبيق." data-en="ICT fundamentals for preparatory, basics to practice.">أساسيات ICT للإعدادي من الأول للتطبيق.</p>
+        <span class="go" data-ar="ابدأ الإعدادية" data-en="Start Preparatory">ابدأ الإعدادية</span>
+      </a>
+    </div>
+
+    <div class="foot" data-ar="Egypt ICT Hub — بلال عبد الناصر © 2026" data-en="Egypt ICT Hub — Bilal Abdelnasser © 2026">Egypt ICT Hub — بلال عبد الناصر © 2026</div>
+  </div>
+
+  <script>
+    var langBtn=document.getElementById('langToggle'),currentLang='ar';window.currentLang=currentLang;
+    function setLang(l){window.currentLang=l;var ar=l==='ar';
+      langBtn.setAttribute('aria-label',ar?'Switch to English':'Switch to العربية');
+      var ic=document.getElementById('langIcon');if(ic)ic.textContent=ar?'EN':'AR';
+      document.documentElement.lang=l;document.documentElement.dir=ar?'rtl':'ltr';
+      document.querySelectorAll('[data-ar],[data-en]').forEach(function(e){var v=l==='ar'?e.getAttribute('data-ar'):e.getAttribute('data-en');if(v!==null){e.innerHTML=v;e.setAttribute('data-lang',l);}});
+      localStorage.setItem('langPreference',l);}
+    setLang(localStorage.getItem('langPreference')||'ar');
+    langBtn.addEventListener('click',function(){setLang(window.currentLang==='ar'?'en':'ar');});
+  </script>
+</body>
+</html>
