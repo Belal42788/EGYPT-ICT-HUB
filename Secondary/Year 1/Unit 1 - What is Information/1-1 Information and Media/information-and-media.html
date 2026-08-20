@@ -740,6 +740,17 @@
       border-color: rgba(255, 255, 255, 0.1);
     }
 
+    /* After an answer is chosen the colours must stay fixed (green/red)
+       even while hovering — do NOT let :hover wash them out. */
+    .quiz-opt.correct.disabled:hover {
+      background: rgba(0, 255, 136, 0.08);
+      border-color: var(--success);
+    }
+    .quiz-opt.wrong.disabled:hover {
+      background: rgba(255, 71, 87, 0.08);
+      border-color: var(--danger);
+    }
+
     .quiz-feedback {
       margin-top: 10px;
       display: none;
@@ -2321,8 +2332,7 @@
         alt="Bilal"></a>
     <div class="nav-links" id="navLinks">
       <a href="#s1" data-section="1" data-ar="01 الهرم الأساسي" data-en="01 Basic Hierarchy">01 الهرم الأساسي</a>
-      <a href="#s2" data-section="2" data-ar="02 خصائص المعلومة" data-en="02 Information Characteristics">02 خصائص
-        المعلومة</a>
+      <a href="#s2" data-section="2" data-ar="02 خصائص المعلومة" data-en="02 Information Characteristics">02 خصائص المعلومة</a>
       <a href="#s3" data-section="3" data-ar="03 أولي وثانوي" data-en="03 Primary vs Secondary">03 أولي وثانوي</a>
       <a href="#s4" data-section="4" data-ar="04 أنواع الوسائط" data-en="04 Media Types">04 أنواع الوسائط</a>
       <a href="#s5" data-section="5" data-ar="05 الإلمام بالوسائط" data-en="05 Media Literacy">05 الإلمام بالوسائط</a>
@@ -2345,8 +2355,7 @@
     <h1 class="hero-title">المعلومات والوسائط<br><span class="gradient-text">Information and Media</span></h1>
     <p class="hero-subtitle">هنتعلم إزاي المعلومة بتتحول من بيانات خام لمعرفة، وإيه خصائصها، وإزاي نميّز بين أنواع
       الوسائط والإلمام بيها.</p>
-    <button class="btn hero-btn" data-action="scroll-to-sections" data-ar="ابدأ الدرس" data-en="Start Lesson">ابدأ
-      الدرس</button>
+    <button class="btn hero-btn" data-action="scroll-to-sections" data-ar="ابدأ الدرس" data-en="Start Lesson">ابدأ الدرس</button>
   </header>
 
   <!-- Main content -->
@@ -2357,44 +2366,35 @@
       <div class="section-head section-inner">
         <div class="section-number">01</div>
         <div>
-          <h2 class="section-title" data-ar="الهرم الأساسي: بيانات ← معلومات ← معرفة"
-            data-en="Basic Hierarchy: Data ← Information ← Knowledge">الهرم الأساسي: بيانات ← معلومات ← معرفة</h2>
-          <p class="section-subtitle" data-ar="البيانات، المعلومات، المعرفة" data-en="Data, Information, Knowledge">
-            Data, Information, Knowledge</p>
+          <h2 class="section-title" data-ar="الهرم الأساسي: البيانات (Data) ← المعلومات (Information) ← المعرفة (Knowledge)"
+            data-en="Basic Hierarchy: Data ← Information ← Knowledge">الهرم الأساسي: البيانات (Data) ← المعلومات (Information) ← المعرفة (Knowledge)</h2>
+          <p class="section-subtitle" data-ar="البيانات (Data)، المعلومات (Information)، المعرفة (Knowledge)" data-en="Data, Information, Knowledge">البيانات (Data)، المعلومات (Information)، المعرفة (Knowledge)</p>
         </div>
       </div>
       <div class="summary-box section-inner">
         <h4 data-ar="هدفنا النهارده" data-en="Our Goal Today">هدفنا النهارده</h4>
-        <p data-ar="نفهم إن البيانات والمعلومة والمعرفة مراحل على هرم، وكل مرحلة بتضيف قيمة على اللي قبلها — مش مجرد أسماء مختلفة."
-          data-en="Understand that data, information, and knowledge are stages on a pyramid, and each stage adds value to the one before it — not just different names.">
-          نفهم إن البيانات والمعلومة والمعرفة مراحل على هرم، وكل مرحلة بتضيف قيمة على اللي قبلها — مش مجرد أسماء مختلفة.
-        </p>
+        <p data-ar="نفهم إن البيانات (Data) والمعلومات (Information) والمعرفة (Knowledge) مراحل على هرم، هذه المرحلة بتضيف قيمة على اللي قبلها — مش مجرد أسماء مختلفة."
+          data-en="Understand that data, information, and knowledge are stages on a pyramid, and each stage adds value to the one before it — not just different names.">نفهم إن البيانات (Data) والمعلومات (Information) والمعرفة (Knowledge) مراحل على هرم، هذه المرحلة بتضيف قيمة على اللي قبلها — مش مجرد أسماء مختلفة.</p>
       </div>
 
       <div class="def-grid section-inner">
         <div class="def-card">
           <span class="def-icon emoji-glow">🔢</span>
-          <h4 data-ar="بيانات" data-en="Data">بيانات</h4>
-          <p data-ar="حقائق أو أمور متعرضة باستخدام أرقام أو حروف أو رموز — من غير سياق."
-            data-en="Facts or matters represented using numbers, characters, or symbols — without context.">
-            حقائق أو أمور متعرضة باستخدام أرقام أو حروف أو رموز — من غير سياق.
-          </p>
+          <h4 data-ar="البيانات (Data)" data-en="Data">البيانات (Data)</h4>
+          <p data-ar="حقائق أو حاجات متعبر عنها بأرقام أو حروف أو رموز — من غير سياق."
+            data-en="Facts or matters represented using numbers, characters, or symbols — without context.">حقائق أو حاجات متعبر عنها بأرقام أو حروف أو رموز — من غير سياق.</p>
         </div>
         <div class="def-card">
           <span class="def-icon emoji-glow" style="animation-delay:.5s">💡</span>
-          <h4 data-ar="معلومة" data-en="Information">معلومة</h4>
-          <p data-ar="حاجة ليها معنى وقيمة للمستقبل، وبتتاخد كأساس لاتخاذ القرار. عكس الأشياء، المعلومة مالها شكل."
-            data-en="Something that holds meaning or value for the recipient and serves as a basis for decision-making. Unlike objects, information has no form.">
-            حاجة ليها معنى وقيمة للمستقبل، وبتتاخد كأساس لاتخاذ القرار. عكس الأشياء، المعلومة مالها شكل.
-          </p>
+          <h4 data-ar="المعلومات (Information)" data-en="Information">المعلومات (Information)</h4>
+          <p data-ar="حاجة ليها معنى وقيمة بالنسبة للمستقبِل وبتتستخدم كأساس لاتخاذ القرار. عكس الأشياء، المعلومات (Information) مالهاش شكل."
+            data-en="Something that holds meaning or value for the recipient and serves as a basis for decision-making. Unlike objects, information has no form.">حاجة ليها معنى وقيمة بالنسبة للمستقبِل وبتتستخدم كأساس لاتخاذ القرار. عكس الأشياء، المعلومات (Information) مالهاش شكل.</p>
         </div>
         <div class="def-card">
           <span class="def-icon emoji-glow" style="animation-delay:1s">🧠</span>
-          <h4 data-ar="معرفة" data-en="Knowledge">معرفة</h4>
-          <p data-ar="معلومة اتحللت واتنظمت عشان تساعد في حل المشاكل."
-            data-en="Information that has been analyzed and systematized to aid in problem-solving.">
-            معلومة اتحللت واتنظمت عشان تساعد في حل المشاكل.
-          </p>
+          <h4 data-ar="المعرفة (Knowledge)" data-en="Knowledge">المعرفة (Knowledge)</h4>
+          <p data-ar="المعلومات (Information) اتحللت واتنظمت عشان تساعد في حل المشاكل."
+            data-en="Information that has been analyzed and systematized to aid in problem-solving.">المعلومات (Information) اتحللت واتنظمت عشان تساعد في حل المشاكل.</p>
         </div>
       </div>
 
@@ -2402,7 +2402,7 @@
         <div class="demo-panel">
           <span class="stage-pill" id="dikwStagePill" data-stage-1-ar="المرحلة: بيانات" data-stage-1-en="Stage: Data"
             data-stage-2-ar="المرحلة: معلومة" data-stage-2-en="Stage: Information" data-stage-3-ar="المرحلة: معرفة"
-            data-stage-3-en="Stage: Knowledge" data-ar="المرحلة: بيانات" data-en="Stage: Data">المرحلة: بيانات</span>
+            data-stage-3-en="Stage: Knowledge" data-ar="المرحلة: البيانات (Data)" data-en="Stage: Data">المرحلة: البيانات (Data)</span>
           <div class="pyramid-wrap" data-id="dikw-pyramid">
             <svg class="pyramid-svg" viewBox="0 0 400 340" aria-hidden="true">
               <defs>
@@ -2431,8 +2431,8 @@
               <span class="raw-chip" style="animation-delay:.6s">98%</span>
               <span class="raw-chip" style="animation-delay:.9s">14</span>
             </div>
-            <p style="text-align:center;font-size:14px;margin-top:8px;margin-bottom:0;" data-ar="أرقام رموز من غير سياق"
-              data-en="Numbers and symbols with no context">أرقام رموز من غير سياق</p>
+            <p style="text-align:center;font-size:14px;margin-top:8px;margin-bottom:0;" data-ar="أرقام ورموز من غير سياق"
+              data-en="Numbers and symbols with no context">أرقام ورموز من غير سياق</p>
           </div>
           <div class="demo-stage" data-stage="2" style="display:none;">
             <div class="chip-row">
@@ -2444,50 +2444,38 @@
                   data-en="Blood pressure">ضغط الدم</span></span>
             </div>
             <p style="text-align:center;font-size:14px;margin-top:8px;margin-bottom:0;"
-              data-ar="السياق ضاف المعنى والقيمة" data-en="Context added meaning and value">السياق ضاف المعنى والقيمة
-            </p>
+              data-ar="السياق ضاف المعنى والقيمة" data-en="Context added meaning and value">السياق ضاف المعنى والقيمة</p>
           </div>
           <div class="demo-stage" data-stage="3" style="display:none;">
             <div class="dx-card">
               <div class="dx-title" data-ar="النمط اللي بيظهر" data-en="The Pattern That Emerges">النمط اللي بيظهر</div>
-              <p data-ar="حرارة عالية + نقص أكسجين + ألم في الصدر" data-en="High temp + low oxygen + chest pain">حرارة
-                عالية + نقص أكسجين + ألم في الصدر</p>
+              <p data-ar="حرارة عالية + نقص أكسجين + ألم في الصدر" data-en="High temp + low oxygen + chest pain">حرارة عالية + نقص أكسجين + ألم في الصدر</p>
               <span class="dx-result" data-ar="← تشخيص: التهاب رئوي → خطة علاج"
                 data-en="← Diagnosis: pneumonia → treatment plan">← تشخيص: التهاب رئوي → خطة علاج</span>
             </div>
             <p style="text-align:center;font-size:14px;margin-top:8px;margin-bottom:0;"
-              data-ar="التحليل بيدي حل للمشكلة" data-en="Analysis leads to problem-solving">التحليل بيدي حل للمشكلة</p>
+              data-ar="التحليل بيوصل لحل المشكلة" data-en="Analysis leads to problem-solving">التحليل بيوصل لحل المشكلة</p>
           </div>
         </div>
 
         <div class="step-container" data-id="dikw-steps">
           <div class="step-card active" data-step="1">
             <span class="step-tag" data-ar="الخطوة 1" data-en="Step 1">الخطوة 1</span>
-            <h3 data-ar="بيانات — أرقام خام" data-en="Data — Raw Numbers">بيانات — أرقام خام</h3>
-            <p data-ar="ده اللي المستشفى بيسجله الأول: قياسات زي 37.5 و 120/80 و 98%. أرقام لوحدها من غير ما حد يشرحها — مالهاش معنى لسه."
-              data-en="This is what a hospital records first: readings like 37.5, 120/80, and 98%. Numbers alone, with no one explaining them — no meaning yet.">
-              ده اللي المستشفى بيسجله الأول: قياسات زي 37.5 و 120/80 و 98%. أرقام لوحدها من غير ما حد يشرحها — مالهاش
-              معنى لسه.
-            </p>
+            <h3 data-ar="البيانات (Data) — أرقام خام" data-en="Data — Raw Numbers">البيانات (Data) — أرقام خام</h3>
+            <p data-ar="ده أول حاجة المستشفى بيسجّلها: قرايات زي 37.5 و120/80 و98%. الأرقام لوحدها، من غير حد يشرحها — لسه مالهاش أي معنى."
+              data-en="This is what a hospital records first: readings like 37.5, 120/80, and 98%. Numbers alone, with no one explaining them — no meaning yet.">ده أول حاجة المستشفى بيسجّلها: قرايات زي 37.5 و120/80 و98%. الأرقام لوحدها، من غير حد يشرحها — لسه مالهاش أي معنى.</p>
           </div>
           <div class="step-card" data-step="2">
             <span class="step-tag" data-accent="amber" data-ar="الخطوة 2" data-en="Step 2">الخطوة 2</span>
-            <h3 data-ar="معلومة — ضفت السياق والمعنى" data-en="Information — Context Added">معلومة — ضفت السياق والمعنى
-            </h3>
-            <p data-ar="لما الطبيب يقرا 37.5 كدرجة حرارة للجسم، و98% كنسبة أكسجين — الأرقام بقى ليها معنى، وبقت أساس لاتخاذ قرار. هنا بتتحول لـ معلومة."
-              data-en="When the doctor reads 37.5 as body temperature and 98% as oxygen level — the numbers now have meaning and become a basis for a decision. That is Information.">
-              لما الطبيب يقرا 37.5 كدرجة حرارة للجسم، و98% كنسبة أكسجين — الأرقام بقى ليها معنى، وبقت أساس لاتخاذ قرار.
-              هنا بتتحول لـ معلومة.
-            </p>
+            <h3 data-ar="المعلومات (Information) — اتضاف السياق" data-en="Information — Context Added">المعلومات (Information) — اتضاف السياق</h3>
+            <p data-ar="لما الدكتور يقرأ 37.5 كحرارة جسم و98% كنسبة أكسجين — الأرقام دي بقت ليها معنى وبقت أساس لقرار. ده هو المعلومات (Information)."
+              data-en="When the doctor reads 37.5 as body temperature and 98% as oxygen level — the numbers now have meaning and become a basis for a decision. That is Information.">لما الدكتور يقرأ 37.5 كحرارة جسم و98% كنسبة أكسجين — الأرقام دي بقت ليها معنى وبقت أساس لقرار. ده هو المعلومات (Information).</p>
           </div>
           <div class="step-card" data-step="3">
             <span class="step-tag" data-accent="violet" data-ar="الخطوة 3" data-en="Step 3">الخطوة 3</span>
-            <h3 data-ar="معرفة — تحليل ونمط" data-en="Knowledge — Analysis & Pattern">معرفة — تحليل ونمط</h3>
-            <p data-ar="لما الأرقام تتحلل مع بعض وتبان العلاقة بينها: درجة حرارة عالية + نقص أكسجين = على الأغلب التهاب. النمط ده بيدي خطة علاج — دي المعرفة."
-              data-en="When numbers are analyzed together and a pattern appears: high temperature + low oxygen = likely infection. This pattern gives a treatment plan — that is Knowledge.">
-              لما الأرقام تتحلل مع بعض وتبان العلاقة بينها: درجة حرارة عالية + نقص أكسجين = على الأغلب التهاب. النمط ده
-              بيدي خطة علاج — دي المعرفة.
-            </p>
+            <h3 data-ar="المعرفة (Knowledge) — تحليل ونمط" data-en="Knowledge — Analysis & Pattern">المعرفة (Knowledge) — تحليل ونمط</h3>
+            <p data-ar="لما الأرقام بتتحلل مع بعضها ويظهر نمط: حرارة عالية + نقص أكسجين = غالباً التهاب. النمط ده بيدي خطة علاج — وده هو المعرفة (Knowledge)."
+              data-en="When numbers are analyzed together and a pattern appears: high temperature + low oxygen = likely infection. This pattern gives a treatment plan — that is Knowledge.">لما الأرقام بتتحلل مع بعضها ويظهر نمط: حرارة عالية + نقص أكسجين = غالباً التهاب. النمط ده بيدي خطة علاج — وده هو المعرفة (Knowledge).</p>
           </div>
           <div class="step-controls">
             <button class="mini-btn" data-action="prev" data-ar="السابق" data-en="Previous">السابق</button>
@@ -2499,25 +2487,18 @@
       </div>
 
       <div class="card section-inner">
-        <h3 data-ar="خلاصة سريعة" data-en="Quick Recap">خلاصة سريعة</h3>
-        <p data-ar="زي ما الهرم بيلف من تحت لفوق: Data بتضيف سياق فتبقى Information، وInformation بتتخصص وتحلل فتبقى Knowledge. كل مرحلة قيمة زيادة."
-          data-en="Like the pyramid going up: Data gains context to become Information, and Information gets analyzed to become Knowledge. Each stage is extra value.">
-          زي ما الهرم بيلف من تحت لفوق: Data بتضيف سياق فتبقى Information، وInformation بتتخصص وتحلل فتبقى Knowledge. كل
-          مرحلة قيمة زيادة.
-        </p>
+        <h3 data-ar="تلخيص سريع" data-en="Quick Recap">تلخيص سريع</h3>
+        <p data-ar="زي الهرم وهو بيطلع: البيانات (Data) بياخد سياق فيبقى المعلومات (Information)، والمعلومات (Information) بيتحلل فيبقى المعرفة (Knowledge). كل مرحلة قيمتها أكتر."
+          data-en="Like the pyramid going up: Data gains context to become Information, and Information gets analyzed to become Knowledge. Each stage is extra value.">زي الهرم وهو بيطلع: البيانات (Data) بياخد سياق فيبقى المعلومات (Information)، والمعلومات (Information) بيتحلل فيبقى المعرفة (Knowledge). كل مرحلة قيمتها أكتر.</p>
       </div>
 
       <div class="error-box section-inner">
         <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
         <ul>
-          <li data-ar="بيظن إن Knowledge مجرد معلومات أكتر — لأ، هي تحليل ونمط مش كمية زيادة."
-            data-en="Thinking Knowledge is just more information — no, it is analysis and patterns, not extra quantity.">
-            بيظن إن Knowledge مجرد معلومات أكتر — لأ، هي تحليل ونمط مش كمية زيادة.
-          </li>
-          <li data-ar="بيعتقد إن البيانات والمعلومة نفس الحاجة — الفرق هو السياق اللي بيضيف معنى."
-            data-en="Believing data and information are the same thing — the difference is the context that adds meaning.">
-            بيعتقد إن البيانات والمعلومة نفس الحاجة — الفرق هو السياق اللي بيضيف معنى.
-          </li>
+          <li data-ar="إنك تفتكر المعرفة (Knowledge) مجرد المعلومات (Information) أكتر — لأ، ده تحليل وأنماط، مش مجرد كمية أكبر."
+            data-en="Thinking Knowledge is just more information — no, it is analysis and patterns, not extra quantity.">إنك تفتكر المعرفة (Knowledge) مجرد المعلومات (Information) أكتر — لأ، ده تحليل وأنماط، مش مجرد كمية أكبر.</li>
+          <li data-ar="إنك تصدق إن البيانات (Data) والمعلومات (Information) حاجة واحدة — الفرق هو السياق اللي بيدي المعنى."
+            data-en="Believing data and information are the same thing — the difference is the context that adds meaning.">إنك تصدق إن البيانات (Data) والمعلومات (Information) حاجة واحدة — الفرق هو السياق اللي بيدي المعنى.</li>
         </ul>
       </div>
 
@@ -2525,73 +2506,58 @@
         <h3 data-ar="كويز سريع — 3 أسئلة" data-en="Quick Quiz — 3 Questions">كويز سريع — 3 أسئلة</h3>
         <div class="quiz-questions">
           <div class="quiz-q" data-id="s1q1" data-answer="A">
-            <h4 data-ar="1) «درجة حرارة الجسم 37.5» تعتبر إيه؟" data-en="1) “Body temperature 37.5” is what?">1) «درجة
-              حرارة الجسم 37.5» تعتبر إيه؟</h4>
+            <h4 data-ar="1) «درجة حرارة الجسم 37.5» ده إيه؟" data-en="1) “Body temperature 37.5” is what?">1) «درجة حرارة الجسم 37.5» ده إيه؟</h4>
             <div class="quiz-opts">
-              <div class="quiz-opt" data-opt="A" data-ar="Information" data-en="Information">Information</div>
-              <div class="quiz-opt" data-opt="B" data-ar="Knowledge" data-en="Knowledge">Knowledge</div>
-              <div class="quiz-opt" data-opt="C" data-ar="Data" data-en="Data">Data</div>
+              <div class="quiz-opt" data-opt="A" data-ar="المعلومات (Information)" data-en="Information">المعلومات (Information)</div>
+              <div class="quiz-opt" data-opt="B" data-ar="المعرفة (Knowledge)" data-en="Knowledge">المعرفة (Knowledge)</div>
+              <div class="quiz-opt" data-opt="C" data-ar="البيانات (Data)" data-en="Data">البيانات (Data)</div>
               <div class="quiz-opt" data-opt="D" data-ar="تحليل" data-en="Analysis">تحليل</div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! الرقم مع السياق (حرارة الجسم) بيدي معنى وقيمة — دي معلومة."
-                data-en="✅ Correct! The number with context (body temp) has meaning and value — that is Information.">
-                ✅ مظبوط! الرقم مع السياق (حرارة الجسم) بيدي معنى وقيمة — دي معلومة.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! الرقم مع السياق (حرارة الجسم) ليّه معنى وقيمة — وده الـ Information."
+                data-en="✅ Correct! The number with context (body temp) has meaning and value — that is Information.">✅ صح! الرقم مع السياق (حرارة الجسم) ليّه معنى وقيمة — وده الـ Information.</span>
               <span class="fb-wrong"
-                data-ar="❌ لأ — الرقم مع السياق والمستقبل بقى ليه معنى، فده Information مش مجرد Data."
-                data-en="❌ No — the number with context now has meaning for the receiver, so it is Information, not just Data.">
-                ❌ لأ — الرقم مع السياق والمستقبل بقى ليه معنى، فده Information مش مجرد Data.
-              </span>
+                data-ar="❌ لأ — الرقم مع السياق بقى ليّه معنى عند المستقبِل، يبقى هو المعلومات (Information) مش مجرد البيانات (Data)."
+                data-en="❌ No — the number with context now has meaning for the receiver, so it is Information, not just Data.">❌ لأ — الرقم مع السياق بقى ليّه معنى عند المستقبِل، يبقى هو المعلومات (Information) مش مجرد البيانات (Data).</span>
             </div>
           </div>
           <div class="quiz-q" data-id="s1q2" data-answer="B">
-            <h4 data-ar="2) رتّب المراحل من غير قيمة لأكتر قيمة:"
-              data-en="2) Order the stages from least to most value:">2) رتّب المراحل من غير قيمة لأكتر قيمة:</h4>
+            <h4 data-ar="2) رتّب المراحل من أقل لقيمة لـ أكتر قيمة:"
+              data-en="2) Order the stages from least to most value:">2) رتّب المراحل من أقل لقيمة لـ أكتر قيمة:</h4>
             <div class="quiz-opts">
-              <div class="quiz-opt" data-opt="A" data-ar="Information ← Data ← Knowledge"
-                data-en="Information ← Data ← Knowledge">Information ← Data ← Knowledge</div>
-              <div class="quiz-opt" data-opt="B" data-ar="Data ← Information ← Knowledge"
-                data-en="Data ← Information ← Knowledge">Data ← Information ← Knowledge</div>
-              <div class="quiz-opt" data-opt="C" data-ar="Knowledge ← Information ← Data"
-                data-en="Knowledge ← Information ← Data">Knowledge ← Information ← Data</div>
-              <div class="quiz-opt" data-opt="D" data-ar="Data ← Knowledge ← Information"
-                data-en="Data ← Knowledge ← Information">Data ← Knowledge ← Information</div>
+              <div class="quiz-opt" data-opt="A" data-ar="المعلومات (Information) ← البيانات (Data) ← المعرفة (Knowledge)"
+                data-en="Information ← Data ← Knowledge">المعلومات (Information) ← البيانات (Data) ← المعرفة (Knowledge)</div>
+              <div class="quiz-opt" data-opt="B" data-ar="البيانات (Data) ← المعلومات (Information) ← المعرفة (Knowledge)"
+                data-en="Data ← Information ← Knowledge">البيانات (Data) ← المعلومات (Information) ← المعرفة (Knowledge)</div>
+              <div class="quiz-opt" data-opt="C" data-ar="المعرفة (Knowledge) ← المعلومات (Information) ← البيانات (Data)"
+                data-en="Knowledge ← Information ← Data">المعرفة (Knowledge) ← المعلومات (Information) ← البيانات (Data)</div>
+              <div class="quiz-opt" data-opt="D" data-ar="البيانات (Data) ← المعرفة (Knowledge) ← المعلومات (Information)"
+                data-en="Data ← Knowledge ← Information">البيانات (Data) ← المعرفة (Knowledge) ← المعلومات (Information)</div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! بيانات بسياق → معلومة، وتحليل المعلومة → معرفة."
-                data-en="✅ Correct! Data + context → Information, and analyzing Information → Knowledge.">
-                ✅ مظبوط! بيانات بسياق → معلومة، وتحليل المعلومة → معرفة.
-              </span>
-              <span class="fb-wrong" data-ar="❌ لأ — الترتيب الصح: Data ثم Information ثم Knowledge."
-                data-en="❌ No — the right order is Data, then Information, then Knowledge.">
-                ❌ لأ — الترتيب الصح: Data ثم Information ثم Knowledge.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! البيانات (Data) + سياق → المعلومات (Information)، وتحليل المعلومات (Information) → المعرفة (Knowledge)."
+                data-en="✅ Correct! Data + context → Information, and analyzing Information → Knowledge.">✅ صح! البيانات (Data) + سياق → المعلومات (Information)، وتحليل المعلومات (Information) → المعرفة (Knowledge).</span>
+              <span class="fb-wrong" data-ar="❌ لأ — الترتيب الصح: البيانات (Data)، بعدها المعلومات (Information)، بعدها المعرفة (Knowledge)."
+                data-en="❌ No — the right order is Data, then Information, then Knowledge.">❌ لأ — الترتيب الصح: البيانات (Data)، بعدها المعلومات (Information)، بعدها المعرفة (Knowledge).</span>
             </div>
           </div>
           <div class="quiz-q" data-id="s1q3" data-answer="C">
-            <h4 data-ar="3) «كل سنة في مايو ويونيو بتمطر كتير» — المرحلة دي إيه؟"
-              data-en="3) “It rains a lot every May and June” — which stage is this?">3) «كل سنة في مايو ويونيو بتمطر
-              كتير» — المرحلة دي إيه؟</h4>
+            <h4 data-ar="3) «بيشت بكتير كل مايو ويونيو» — ده أي مرحلة؟"
+              data-en="3) “It rains a lot every May and June” — which stage is this?">3) «بيشت بكتير كل مايو ويونيو» — ده أي مرحلة؟</h4>
             <div class="quiz-opts">
-              <div class="quiz-opt" data-opt="A" data-ar="Information — معلومة بسياق"
-                data-en="Information — info with context">Information — معلومة بسياق</div>
-              <div class="quiz-opt" data-opt="B" data-ar="Data — أرقام خام" data-en="Data — raw numbers">Data — أرقام
-                خام</div>
-              <div class="quiz-opt" data-opt="C" data-ar="Knowledge — نمط اتحلل من بيانات"
-                data-en="Knowledge — a pattern analyzed from data">Knowledge — نمط اتحلل من بيانات</div>
+              <div class="quiz-opt" data-opt="A" data-ar="المعلومات (Information) — معلومة بسياق"
+                data-en="Information — info with context">المعلومات (Information) — معلومة بسياق</div>
+              <div class="quiz-opt" data-opt="B" data-ar="البيانات (Data) — أرقام خام" data-en="Data — raw numbers">البيانات (Data) — أرقام خام</div>
+              <div class="quiz-opt" data-opt="C" data-ar="المعرفة (Knowledge) — نمط اتحلل من البيانات (Data)"
+                data-en="Knowledge — a pattern analyzed from data">المعرفة (Knowledge) — نمط اتحلل من البيانات (Data)</div>
               <div class="quiz-opt" data-opt="D" data-ar="رأي شخصي" data-en="Personal opinion">رأي شخصي</div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! التعميم ده جاي من تحليل سنين بيانات — نمط ومعرفة."
-                data-en="✅ Correct! This generalization comes from analyzing years of data — a pattern and Knowledge.">
-                ✅ مظبوط! التعميم ده جاي من تحليل سنين بيانات — نمط ومعرفة.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! التعميم ده جاي من تحليل سنين من البيانات (Data) — نمط والمعرفة (Knowledge)."
+                data-en="✅ Correct! This generalization comes from analyzing years of data — a pattern and Knowledge.">✅ صح! التعميم ده جاي من تحليل سنين من البيانات (Data) — نمط والمعرفة (Knowledge).</span>
               <span class="fb-wrong"
-                data-ar="❌ لأ — الجملة فيها تحليل وتعيم على مرات كثيرة، فدي Knowledge مش مجرد معلومة."
-                data-en="❌ No — the sentence has analysis and generalization over many times, so it is Knowledge, not just information.">
-                ❌ لأ — الجملة فيها تحليل وتعيم على مرات كثيرة، فدي Knowledge مش مجرد معلومة.
-              </span>
+                data-ar="❌ لأ — الجملة فيها تحليل وتعميم على مدى مرات كتير، يبقى هي المعرفة (Knowledge) مش مجرد المعلومات (Information)."
+                data-en="❌ No — the sentence has analysis and generalization over many times, so it is Knowledge, not just information.">❌ لأ — الجملة فيها تحليل وتعميم على مدى مرات كتير، يبقى هي المعرفة (Knowledge) مش مجرد المعلومات (Information).</span>
             </div>
           </div>
         </div>
@@ -2599,7 +2565,7 @@
           <button class="btn btn-ghost mini-btn" data-action="reveal-quiz" data-ar="اعرض الأسئلة"
             data-en="Show questions">اعرض الأسئلة</button>
           <button class="mini-btn" data-action="skip-quiz" data-ar="تخطي" data-en="Skip">تخطي</button>
-          <button class="mini-btn" data-action="reset-quiz" data-ar="إعادة" data-en="Retry">إعادة</button>
+          <button class="mini-btn" data-action="reset-quiz" data-ar="إعادة المحاولة" data-en="Retry">إعادة المحاولة</button>
         </div>
       </div>
     </section>
@@ -2610,31 +2576,29 @@
         <div class="section-number">02</div>
         <div>
           <h2 class="section-title" data-ar="خصائص المعلومة" data-en="Information Characteristics">خصائص المعلومة</h2>
-          <p class="section-subtitle" data-ar="الثبات، قابلية النسخ، الانتشار"
-            data-en="Persistence, Reproducibility, Propagation">Persistence, Reproducibility, Propagation</p>
+          <p class="section-subtitle" data-ar="الثبات (Persistence)، القابلية للتكرار (Reproducibility)، الانتشار (Propagation)"
+            data-en="Persistence, Reproducibility, Propagation">الثبات (Persistence)، القابلية للتكرار (Reproducibility)، الانتشار (Propagation)</p>
         </div>
       </div>
       <div class="summary-box section-inner">
         <h4 data-ar="هدفنا النهارده" data-en="Our Goal Today">هدفنا النهارده</h4>
-        <p data-ar="نفهم الخصائص الثلاثة للمعلومة الرقمية، ونقدر نعرّف سيناريو حقيقي لكل خاصية."
-          data-en="Understand the three characteristics of digital information, and match a real scenario to each one.">
-          نفهم الخصائص الثلاثة للمعلومة الرقمية، ونقدر نعرّف سيناريو حقيقي لكل خاصية.
-        </p>
+        <p data-ar="نفهم التلات خصائص بتوع المعلومات الرقمية (digital information)، ونربط كل موقف حقيقي بواحدة منهم."
+          data-en="Understand the three characteristics of digital information, and match a real scenario to each one.">نفهم التلات خصائص بتوع المعلومات الرقمية (digital information)، ونربط كل موقف حقيقي بواحدة منهم.</p>
       </div>
 
       <div class="activity-grid section-inner">
         <div class="demo-panel" dir="ltr" style="text-align:left;">
           <span class="stage-pill" id="charStagePill"
             style="background:rgba(245,158,11,.15);border-color:var(--s2);color:var(--s2);"
-            data-ar="قصة صورة على تليفون" data-en="Story of a photo on a phone">قصة صورة على تليفون</span>
+            data-ar="قصة صورة على الموبايل" data-en="Story of a photo on a phone">قصة صورة على الموبايل</span>
           <div class="tl-sim" data-id="char-timeline">
             <div class="tl-track">
-              <div class="tl-zone tl-zone-persist"><span class="tz-label" data-ar="ثبات"
-                  data-en="Persistence">ثبات</span></div>
-              <div class="tl-zone tl-zone-repro"><span class="tz-label" data-ar="نسخ"
-                  data-en="Reproducibility">نسخ</span></div>
-              <div class="tl-zone tl-zone-propag"><span class="tz-label" data-ar="انتشار"
-                  data-en="Propagation">انتشار</span></div>
+              <div class="tl-zone tl-zone-persist"><span class="tz-label" data-ar="الثبات (Persistence)"
+                  data-en="Persistence">الثبات (Persistence)</span></div>
+              <div class="tl-zone tl-zone-repro"><span class="tz-label" data-ar="القابلية للتكرار (Reproducibility)"
+                  data-en="Reproducibility">القابلية للتكرار (Reproducibility)</span></div>
+              <div class="tl-zone tl-zone-propag"><span class="tz-label" data-ar="الانتشار (Propagation)"
+                  data-en="Propagation">الانتشار (Propagation)</span></div>
               <div class="tl-photo emoji-glow">📷</div>
             </div>
             <div class="tl-controls">
@@ -2644,58 +2608,46 @@
             </div>
           </div>
           <div class="tl-status" id="charStatus">
-            <span class="tl-status-head" data-ar="صورة اتحذفت لكن رجعت تاني!"
-              data-en="A photo was deleted but came back!">صورة اتحذفت لكن رجعت تاني!</span>
+            <span class="tl-status-head" data-ar="صورة اتمسحت بس رجعت!"
+              data-en="A photo was deleted but came back!">صورة اتمسحت بس رجعت!</span>
             <p class="tl-status-body"
-              data-ar="لما تمسح صورة من التليفون، ممكن تتلاقى في الحاجة الضايعة أو سحابة نسخ احتياطي. المعلومة اللي اتخلقت مرة عمرها ما بتمسح نهائي."
-              data-en="When you delete a photo from your phone, it can still be found in trash or cloud backup. Information, once created, can never be completely erased.">
-              لما تمسح صورة من التليفون، ممكن تتلاقى في الحاجة الضايعة أو سحابة نسخ احتياطي. المعلومة اللي اتخلقت مرة
-              عمرها ما بتمسح نهائي.
-            </p>
+              data-ar="لما تمسح صورة من الموبايل بتاعك، لسه ممكن تلاقيها في الزبالة أو cloud backup. المعلومات (Information)، مرة ما تتعمل، مابتتمسحش تماماً خالص."
+              data-en="When you delete a photo from your phone, it can still be found in trash or cloud backup. Information, once created, can never be completely erased.">لما تمسح صورة من الموبايل بتاعك، لسه ممكن تلاقيها في الزبالة أو cloud backup. المعلومات (Information)، مرة ما تتعمل، مابتتمسحش تماماً خالص.</p>
           </div>
         </div>
 
         <div class="card">
-          <h3 data-ar="الخصائص الثلاثة للمعلومة" data-en="The Three Characteristics of Information">الخصائص الثلاثة
-            للمعلومة</h3>
+          <h3 data-ar="التلات خصائص بتوع المعلومات (Information)" data-en="The Three Characteristics of Information">التلات خصائص بتوع المعلومات (Information)</h3>
           <div class="char-list">
             <div class="char-item char-persist">
               <span class="char-icon emoji-pulse">📂</span>
               <div>
-                <h4 data-ar="الثبات" data-en="Persistence">الثبات</h4>
-                <p data-ar="المعلومة مهما اتمسحت، عمرها ما بتتمسح نهائي. زي الصورة اللي حذفتها وبعدين لقيتها في نسخة احتياطية."
-                  data-en="No matter how hard you try, information can never be completely erased. Like the photo you deleted but found in a backup.">
-                  المعلومة مهما اتمسحت، عمرها ما بتتمسح نهائي. زي الصورة اللي حذفتها وبعدين لقيتها في نسخة احتياطية.
-                </p>
+                <h4 data-ar="الثبات (Persistence)" data-en="Persistence">الثبات (Persistence)</h4>
+                <p data-ar="مهما حاولت، المعلومات (Information) مابتتمسحش تماماً أبداً. زي الصورة اللي مسحتها ولقيتها في backup."
+                  data-en="No matter how hard you try, information can never be completely erased. Like the photo you deleted but found in a backup.">مهما حاولت، المعلومات (Information) مابتتمسحش تماماً أبداً. زي الصورة اللي مسحتها ولقيتها في backup.</p>
               </div>
             </div>
             <div class="char-item char-repro">
               <span class="char-icon emoji-pulse" style="animation-delay:.5s">📄</span>
               <div>
-                <h4 data-ar="قابلية النسخ" data-en="Reproducibility">قابلية النسخ</h4>
-                <p data-ar="المعلومة ممكن تتنقل من غير أي فقدان في الجودة. ملف منسوخ 1000 مرة يفضل مطابق للأصل."
-                  data-en="Information can be copied in large quantities without degradation. A file copied 1000 times stays identical to the original.">
-                  المعلومة ممكن تتنقل من غير أي فقدان في الجودة. ملف منسوخ 1000 مرة يفضل مطابق للأصل.
-                </p>
+                <h4 data-ar="القابلية للتكرار (Reproducibility)" data-en="Reproducibility">القابلية للتكرار (Reproducibility)</h4>
+                <p data-ar="المعلومات (Information) ممكن تتنسخ بكميات كبيرة من غير ما تبوظ. ملف اتنسخ 1000 مرة يفضل زي الأصل بالظبط."
+                  data-en="Information can be copied in large quantities without degradation. A file copied 1000 times stays identical to the original.">المعلومات (Information) ممكن تتنسخ بكميات كبيرة من غير ما تبوظ. ملف اتنسخ 1000 مرة يفضل زي الأصل بالظبط.</p>
               </div>
             </div>
             <div class="char-item char-propag">
               <span class="char-icon emoji-pulse" style="animation-delay:1s">📢</span>
               <div>
-                <h4 data-ar="الانتشار" data-en="Propagation">الانتشار</h4>
-                <p data-ar="المعلومة سهلة التوصيل والانتشار. تويت ممكن يوصل لملايين الناس في ثواني عبر الميديا والإنتيرنيت."
-                  data-en="Information is easy to convey and spread. A tweet can reach millions of people in seconds through mass media and the internet.">
-                  المعلومة سهلة التوصيل والانتشار. تويت ممكن يوصل لملايين الناس في ثواني عبر الميديا والإنتيرنيت.
-                </p>
+                <h4 data-ar="الانتشار (Propagation)" data-en="Propagation">الانتشار (Propagation)</h4>
+                <p data-ar="المعلومات (Information) سهلة إنها توصّل وتنتشر. تغريدة ممكن توصل لملايين الناس في ثواني عن طريق الوسائط الجماهيرية (mass media) والإنترنت."
+                  data-en="Information is easy to convey and spread. A tweet can reach millions of people in seconds through mass media and the internet.">المعلومات (Information) سهلة إنها توصّل وتنتشر. تغريدة ممكن توصل لملايين الناس في ثواني عن طريق الوسائط الجماهيرية (mass media) والإنترنت.</p>
               </div>
             </div>
           </div>
           <div class="summary-box" style="margin-top:18px;">
-            <h4 data-ar="لخّصها في كلمات" data-en="Summarize in words">لخّصها في كلمات</h4>
-            <p data-ar="الثبات: ما بتتمسحش. النسخ: بتتنسخ بسهولة. الانتشار: بتوصل بسرعة."
-              data-en="Persistence: it won't be erased. Reproducibility: it copies easily. Propagation: it spreads fast.">
-              الثبات: ما بتتمسحش. النسخ: بتتنسخ بسهولة. الانتشار: بتوصل بسرعة.
-            </p>
+            <h4 data-ar="لخّص بكلمات" data-en="Summarize in words">لخّص بكلمات</h4>
+            <p data-ar="الثبات (Persistence): مش هتمسح. القابلية للتكرار (Reproducibility): بتتنسخ بسهولة. الانتشار (Propagation): بتنتشر بسرعة."
+              data-en="Persistence: it won't be erased. Reproducibility: it copies easily. Propagation: it spreads fast.">الثبات (Persistence): مش هتمسح. القابلية للتكرار (Reproducibility): بتتنسخ بسهولة. الانتشار (Propagation): بتنتشر بسرعة.</p>
           </div>
         </div>
       </div>
@@ -2704,14 +2656,10 @@
         <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
         <ul>
           <li
-            data-ar="الخلط بين الثبات والانتشار: الثبات معناه إنها تفضل موجودة، والانتشار معناه إنها تنتقل بسرعة. مش نفس الحاجة."
-            data-en="Confusing Persistence with Propagation: Persistence means it stays, Propagation means it spreads fast. Not the same thing.">
-            الخلط بين الثبات والانتشار: الثبات معناه إنها تفضل موجودة، والانتشار معناه إنها تنتقل بسرعة. مش نفس الحاجة.
-          </li>
-          <li data-ar="بتنسي إن النسخ بتبقى بنفس الجودة بالظبط — المعلومة الرقمية مش بتعاني من فقدان الجودة."
-            data-en="Forgetting that copies keep exactly the same quality — digital information does not lose quality when copied.">
-            بتنسي إن النسخ بتبقى بنفس الجودة بالظبط — المعلومة الرقمية مش بتعاني من فقدان الجودة.
-          </li>
+            data-ar="إنك تلخبط بين الثبات (Persistence) والانتشار (Propagation): الثبات (Persistence) يعني بتفضل موجودة، الانتشار (Propagation) يعني بتنتشر بسرعة. مش نفس الحاجة."
+            data-en="Confusing Persistence with Propagation: Persistence means it stays, Propagation means it spreads fast. Not the same thing.">إنك تلخبط بين الثبات (Persistence) والانتشار (Propagation): الثبات (Persistence) يعني بتفضل موجودة، الانتشار (Propagation) يعني بتنتشر بسرعة. مش نفس الحاجة.</li>
+          <li data-ar="إنك تنسى إن النسخ بتفضل بنفس الجودة بالظبط — المعلومات الرقمية (digital information) مابتفقدش الجودة لما تتنسخ."
+            data-en="Forgetting that copies keep exactly the same quality — digital information does not lose quality when copied.">إنك تنسى إن النسخ بتفضل بنفس الجودة بالظبط — المعلومات الرقمية (digital information) مابتفقدش الجودة لما تتنسخ.</li>
         </ul>
       </div>
 
@@ -2719,73 +2667,52 @@
         <h3 data-ar="كويز سريع — 3 أسئلة" data-en="Quick Quiz — 3 Questions">كويز سريع — 3 أسئلة</h3>
         <div class="quiz-questions">
           <div class="quiz-q" data-id="s2q1" data-answer="D">
-            <h4 data-ar="1) اشتريت CD موسيقى ومش مسموحلي أستنسخه لأصحابي — ده ينتمي لأي خاصية؟"
-              data-en="1) You bought a music CD and aren't allowed to copy it for friends — which characteristic is this?">
-              1) اشتريت CD موسيقى ومش مسموحلي أستنسخه لأصحابي — ده ينتمي لأي خاصية؟
-            </h4>
+            <h4 data-ar="1) اشتريت CD موسيقى ومسموحش تنسخه لصحابك — دي أنهي خاصية؟"
+              data-en="1) You bought a music CD and aren't allowed to copy it for friends — which characteristic is this?">1) اشتريت CD موسيقى ومسموحش تنسخه لصحابك — دي أنهي خاصية؟</h4>
             <div class="quiz-opts">
-              <div class="quiz-opt" data-opt="A" data-ar="Propagation" data-en="Propagation">Propagation</div>
-              <div class="quiz-opt" data-opt="B" data-ar="Persistence" data-en="Persistence">Persistence</div>
-              <div class="quiz-opt" data-opt="C" data-ar="Media literacy" data-en="Media literacy">Media literacy</div>
-              <div class="quiz-opt" data-opt="D" data-ar="Reproducibility" data-en="Reproducibility">Reproducibility
-              </div>
+              <div class="quiz-opt" data-opt="A" data-ar="الانتشار (Propagation)" data-en="Propagation">الانتشار (Propagation)</div>
+              <div class="quiz-opt" data-opt="B" data-ar="الثبات (Persistence)" data-en="Persistence">الثبات (Persistence)</div>
+              <div class="quiz-opt" data-opt="C" data-ar="الإلمام بالوسائط (Media Literacy)" data-en="Media literacy">الإلمام بالوسائط (Media Literacy)</div>
+              <div class="quiz-opt" data-opt="D" data-ar="القابلية للتكرار (Reproducibility)" data-en="Reproducibility">القابلية للتكرار (Reproducibility)</div>
             </div>
             <div class="quiz-feedback">
               <span class="fb-correct"
-                data-ar="✅ مظبوط! الجملة عن إمكانية النسخ — دي Reproducibility، والقانون بيراقبها."
-                data-en="✅ Correct! The sentence is about the ability to copy — that is Reproducibility, and law regulates it.">
-                ✅ مظبوط! الجملة عن إمكانية النسخ — دي Reproducibility، والقانون بيراقبها.
-              </span>
-              <span class="fb-wrong" data-ar="❌ لأ — الكلام هنا عن إمكانية النسخ الكبيرة، فدي Reproducibility."
-                data-en="❌ No — this is about the ability to copy in large amounts, so it is Reproducibility.">
-                ❌ لأ — الكلام هنا عن إمكانية النسخ الكبيرة، فدي Reproducibility.
-              </span>
+                data-ar="✅ صح! الجملة بتتكلم عن القدرة على النسخ — وده القابلية للتكرار (Reproducibility)، والقانون بيظبطه."
+                data-en="✅ Correct! The sentence is about the ability to copy — that is Reproducibility, and law regulates it.">✅ صح! الجملة بتتكلم عن القدرة على النسخ — وده القابلية للتكرار (Reproducibility)، والقانون بيظبطه.</span>
+              <span class="fb-wrong" data-ar="❌ لأ — ده عن القدرة على النسخ بكميات كبيرة، يبقى هو القابلية للتكرار (Reproducibility)."
+                data-en="❌ No — this is about the ability to copy in large amounts, so it is Reproducibility.">❌ لأ — ده عن القدرة على النسخ بكميات كبيرة، يبقى هو القابلية للتكرار (Reproducibility).</span>
             </div>
           </div>
           <div class="quiz-q" data-id="s2q2" data-answer="A">
-            <h4 data-ar="2) إيميل بيوصلك لبره مصر في ثواني — أي خاصية؟"
-              data-en="2) An email reaches you outside Egypt in seconds — which characteristic?">
-              2) إيميل بيوصلك لبره مصر في ثواني — أي خاصية؟
-            </h4>
+            <h4 data-ar="2) إيميل يوصلك بره مصر في ثواني — أنهي خاصية؟"
+              data-en="2) An email reaches you outside Egypt in seconds — which characteristic?">2) إيميل يوصلك بره مصر في ثواني — أنهي خاصية؟</h4>
             <div class="quiz-opts">
-              <div class="quiz-opt" data-opt="A" data-ar="Propagation" data-en="Propagation">Propagation</div>
-              <div class="quiz-opt" data-opt="B" data-ar="Persistence" data-en="Persistence">Persistence</div>
-              <div class="quiz-opt" data-opt="C" data-ar="Reproducibility" data-en="Reproducibility">Reproducibility
-              </div>
-              <div class="quiz-opt" data-opt="D" data-ar="Data" data-en="Data">Data</div>
+              <div class="quiz-opt" data-opt="A" data-ar="الانتشار (Propagation)" data-en="Propagation">الانتشار (Propagation)</div>
+              <div class="quiz-opt" data-opt="B" data-ar="الثبات (Persistence)" data-en="Persistence">الثبات (Persistence)</div>
+              <div class="quiz-opt" data-opt="C" data-ar="القابلية للتكرار (Reproducibility)" data-en="Reproducibility">القابلية للتكرار (Reproducibility)</div>
+              <div class="quiz-opt" data-opt="D" data-ar="البيانات (Data)" data-en="Data">البيانات (Data)</div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! البعث والتوصيل الفوري ده انتشار — Propagation."
-                data-en="✅ Correct! Instant sending and delivery is Propagation.">
-                ✅ مظبوط! البعث والتوصيل الفوري ده انتشار — Propagation.
-              </span>
-              <span class="fb-wrong" data-ar="❌ لأ — الإرسال السريع لمسافة بعيدة ده انتشار Propagation."
-                data-en="❌ No — fast sending over long distances is Propagation.">
-                ❌ لأ — الإرسال السريع لمسافة بعيدة ده انتشار Propagation.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! الإرسال والتوصيل الفوري هو الانتشار (Propagation)."
+                data-en="✅ Correct! Instant sending and delivery is Propagation.">✅ صح! الإرسال والتوصيل الفوري هو الانتشار (Propagation).</span>
+              <span class="fb-wrong" data-ar="❌ لأ — الإرسال السريع على مسافات بعيدة هو الانتشار (Propagation)."
+                data-en="❌ No — fast sending over long distances is Propagation.">❌ لأ — الإرسال السريع على مسافات بعيدة هو الانتشار (Propagation).</span>
             </div>
           </div>
           <div class="quiz-q" data-id="s2q3" data-answer="B">
-            <h4 data-ar="3) شائعات عن الناس ممكن تفضل موجودة للأبد — دي؟"
-              data-en="3) Rumors about people can persist forever — this is?">
-              3) شائعات عن الناس ممكن تفضل موجودة للأبد — دي؟
-            </h4>
+            <h4 data-ar="3) الشائعات عن الناس ممكن تفضل للأبد — ده إيه؟"
+              data-en="3) Rumors about people can persist forever — this is?">3) الشائعات عن الناس ممكن تفضل للأبد — ده إيه؟</h4>
             <div class="quiz-opts">
-              <div class="quiz-opt" data-opt="A" data-ar="Propagation" data-en="Propagation">Propagation</div>
-              <div class="quiz-opt" data-opt="B" data-ar="Persistence" data-en="Persistence">Persistence</div>
-              <div class="quiz-opt" data-opt="C" data-ar="Reproducibility" data-en="Reproducibility">Reproducibility
-              </div>
-              <div class="quiz-opt" data-opt="D" data-ar="Media" data-en="Media">Media</div>
+              <div class="quiz-opt" data-opt="A" data-ar="الانتشار (Propagation)" data-en="Propagation">الانتشار (Propagation)</div>
+              <div class="quiz-opt" data-opt="B" data-ar="الثبات (Persistence)" data-en="Persistence">الثبات (Persistence)</div>
+              <div class="quiz-opt" data-opt="C" data-ar="القابلية للتكرار (Reproducibility)" data-en="Reproducibility">القابلية للتكرار (Reproducibility)</div>
+              <div class="quiz-opt" data-opt="D" data-ar="وسائط" data-en="Media">وسائط</div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! اللي عمره ما بيختفي ده الثبات — Persistence."
-                data-en="✅ Correct! Something that never disappears is Persistence.">
-                ✅ مظبوط! اللي عمره ما بيختفي ده الثبات — Persistence.
-              </span>
-              <span class="fb-wrong" data-ar="❌ لأ — الوجود للأبد ده ثبات، مش انتشار."
-                data-en="❌ No — staying forever is Persistence, not Propagation.">
-                ❌ لأ — الوجود للأبد ده ثبات، مش انتشار.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! حاجة مابتختفيش أبداً هي الثبات (Persistence)."
+                data-en="✅ Correct! Something that never disappears is Persistence.">✅ صح! حاجة مابتختفيش أبداً هي الثبات (Persistence).</span>
+              <span class="fb-wrong" data-ar="❌ لأ — إنها تفضل للأبد ده الثبات (Persistence) مش الانتشار (Propagation)."
+                data-en="❌ No — staying forever is Persistence, not Propagation.">❌ لأ — إنها تفضل للأبد ده الثبات (Persistence) مش الانتشار (Propagation).</span>
             </div>
           </div>
         </div>
@@ -2793,7 +2720,7 @@
           <button class="btn btn-ghost mini-btn" data-action="reveal-quiz" data-ar="اعرض الأسئلة"
             data-en="Show questions">اعرض الأسئلة</button>
           <button class="mini-btn" data-action="skip-quiz" data-ar="تخطي" data-en="Skip">تخطي</button>
-          <button class="mini-btn" data-action="reset-quiz" data-ar="إعادة" data-en="Retry">إعادة</button>
+          <button class="mini-btn" data-action="reset-quiz" data-ar="إعادة المحاولة" data-en="Retry">إعادة المحاولة</button>
         </div>
       </div>
     </section>
@@ -2803,109 +2730,87 @@
       <div class="section-head section-inner">
         <div class="section-number">03</div>
         <div>
-          <h2 class="section-title" data-ar="المعلومة الأولية والثانوية" data-en="Primary vs Secondary Information">
-            المعلومة الأولية والثانوية</h2>
-          <p class="section-subtitle" data-ar="المعلومة الأولية مقابل الثانوية"
-            data-en="Primary vs Secondary Information">Primary vs Secondary Information</p>
+          <h2 class="section-title" data-ar="معلومات أولي وثانوي" data-en="Primary vs Secondary Information">معلومات أولي وثانوي</h2>
+          <p class="section-subtitle" data-ar="معلومات أولي وثانوي"
+            data-en="Primary vs Secondary Information">معلومات أولي وثانوي</p>
         </div>
       </div>
       <div class="summary-box section-inner">
         <h4 data-ar="هدفنا النهارده" data-en="Our Goal Today">هدفنا النهارده</h4>
-        <p data-ar="نفهم الفرق بين المعلومة الأولية والثانوية، وإزاي التصنيف بيبقى نسبي حسب اللي بيعمل التحقق."
-          data-en="Understand the difference between primary and secondary information, and how the classification is relative to who is doing the checking.">
-          نفهم الفرق بين المعلومة الأولية والثانوية، وإزاي التصنيف بيبقى نسبي حسب اللي بيعمل التحقق.
-        </p>
+        <p data-ar="نفهم الفرق بين المعلومات الأولية (Primary) والمعلومات الثانوية (Secondary Information)، وإزاي التصنيف نسبي لـ مين اللي بيفحص."
+          data-en="Understand the difference between primary and secondary information, and how the classification is relative to who is doing the checking.">نفهم الفرق بين المعلومات الأولية (Primary) والمعلومات الثانوية (Secondary Information)، وإزاي التصنيف نسبي لـ مين اللي بيفحص.</p>
       </div>
 
       <div class="grid-2 section-inner">
         <div class="card">
-          <h3 data-ar="معلومة أولية" data-en="Primary Information">معلومة أولية</h3>
-          <p data-ar="المعلومة اللي بتتحصل عليها من تجربة شخصية مباشرة، أو من أبحاث وتجارب انت اللي عملتها بنفسك."
-            data-en="Information obtained through direct personal experience, or acquired through research and experiments you conducted yourself.">
-            المعلومة اللي بتتحصل عليها من تجربة شخصية مباشرة، أو من أبحاث وتجارب انت اللي عملتها بنفسك.
-          </p>
+          <h3 data-ar="المعلومات الأولية (Primary Information)" data-en="Primary Information">المعلومات الأولية (Primary Information)</h3>
+          <p data-ar="المعلومات (Information) بتجيلك من تجربة شخصية مباشرة، أو من بحث وتجارب إنت عملته بـ إيدك."
+            data-en="Information obtained through direct personal experience, or acquired through research and experiments you conducted yourself.">المعلومات (Information) بتجيلك من تجربة شخصية مباشرة، أو من بحث وتجارب إنت عملته بـ إيدك.</p>
           <div class="summary-box">
             <h4 data-ar="أمثلة" data-en="Examples">أمثلة</h4>
-            <p data-ar="تقرير تجربة معمل، نتايج استبيان، جدول نتايج استطلاع."
-              data-en="Lab experiment reports, survey results, tabulations of questionnaire results.">
-              تقرير تجربة معمل، نتايج استبيان، جدول نتايج استطلاع.
-            </p>
+            <p data-ar="تقارير تجارب معملية، نتائج استبيانات، جداول نتائج استبيانات."
+              data-en="Lab experiment reports, survey results, tabulations of questionnaire results.">تقارير تجارب معملية، نتائج استبيانات، جداول نتائج استبيانات.</p>
           </div>
         </div>
         <div class="card">
-          <h3 data-ar="معلومة ثانوية" data-en="Secondary Information">معلومة ثانوية</h3>
-          <p data-ar="المعلومة اللي مش متاخدة منك مباشرة، لكن وصلت ليك عن طريق حد تاني."
-            data-en="Information not obtained directly by yourself, but acquired through a third party.">
-            المعلومة اللي مش متاخدة منك مباشرة، لكن وصلت ليك عن طريق حد تاني.
-          </p>
+          <h3 data-ar="المعلومات الثانوية (Secondary Information)" data-en="Secondary Information">المعلومات الثانوية (Secondary Information)</h3>
+          <p data-ar="المعلومات (Information) مش مجيبة منك بشكل مباشر، لكن جاية من طرف تالت."
+            data-en="Information not obtained directly by yourself, but acquired through a third party.">المعلومات (Information) مش مجيبة منك بشكل مباشر، لكن جاية من طرف تالت.</p>
           <div class="summary-box">
             <h4 data-ar="أمثلة" data-en="Examples">أمثلة</h4>
-            <p data-ar="كتب، جرانيل، تليفزيون." data-en="Books, newspapers, television.">
-              كتب، جرانيل، تليفزيون.
-            </p>
+            <p data-ar="كتب، جرايد، تليفزيون." data-en="Books, newspapers, television.">كتب، جرايد، تليفزيون.</p>
           </div>
         </div>
       </div>
 
       <div class="card section-inner">
-        <h3 data-ar="التحقق من المعلومة — Cross-checking" data-en="Cross-checking">التحقق من المعلومة — <span
+        <h3 data-ar="التدقيق المتبادل (Cross-checking)" data-en="Cross-checking">التحقق من المعلومة — <span
             class="ltr-term">Cross-checking</span></h3>
-        <p data-ar="المعلومة الثانوية ممكن تتغير عن الأصل أو يتحط عليها تفسيرات. عشان كده لازم نقارن المعلومة من أكتر من زاوية بمصادر تانية، وده اسمه التحقق المتبادل."
-          data-en="Secondary information can sometimes differ from the original or have interpretations added to it. So we must compare the obtained information from multiple perspectives with other information — that is cross-checking.">
-          المعلومة الثانوية ممكن تتغير عن الأصل أو يتحط عليها تفسيرات. عشان كده لازم نقارن المعلومة من أكتر من زاوية
-          بمصادر تانية، وده اسمه التحقق المتبادل.
-        </p>
+        <p data-ar="المعلومات الثانوية (Secondary Information) أوقات ممكن تختلف عن الأصل أو يتضاف عليها تفسيرات. عشان كده لازم نقارن المعلومة اللي جبناها من زوايا متعددة مع معلومات تانية — وده هو التدقيق المتبادل (Cross-checking)."
+          data-en="Secondary information can sometimes differ from the original or have interpretations added to it. So we must compare the obtained information from multiple perspectives with other information — that is cross-checking.">المعلومات الثانوية (Secondary Information) أوقات ممكن تختلف عن الأصل أو يتضاف عليها تفسيرات. عشان كده لازم نقارن المعلومة اللي جبناها من زوايا متعددة مع معلومات تانية — وده هو التدقيق المتبادل (Cross-checking).</p>
       </div>
 
       <div class="card section-inner" data-id="crosscheck-sim">
-        <h3 data-ar="جرّب بنفسك: ادعاء «الشيكولاتة بتحسّن الذاكرة»"
-          data-en="Try it: the claim “chocolate improves memory”">جرّب بنفسك: ادعاء «الشيكولاتة بتحسّن الذاكرة»</h3>
-        <p data-ar="اختار 3 مصادر عشان تتحقق من الادعاء، وبعدين اضغط «تحقق من المصادر»."
-          data-en="Pick 3 sources to verify the claim, then press “Check sources”.">
-          اختار 3 مصادر عشان تتحقق من الادعاء، وبعدين اضغط «تحقق من المصادر».
-        </p>
+        <h3 data-ar="جرّب: ادعاء «الشوكولاتة بتحسّن الذاكرة»"
+          data-en="Try it: the claim “chocolate improves memory”">جرّب: ادعاء «الشوكولاتة بتحسّن الذاكرة»</h3>
+        <p data-ar="اختار 3 مصادر عشان تتأكد من الادعاء، وبعدين اضغط «افحص المصادر»."
+          data-en="Pick 3 sources to verify the claim, then press “Check sources”.">اختار 3 مصادر عشان تتأكد من الادعاء، وبعدين اضغط «افحص المصادر».</p>
         <div class="cc-grid">
           <div class="cc-source" data-id="src-official" data-score="85" data-type="primary">
             <span class="cc-emoji emoji-glow">🏫</span>
-            <h4 data-ar="موقع جامعة محترمة" data-en="Respected university site">موقع جامعة محترمة</h4>
-            <p data-ar="أبحاث منشورة في مجلات محكمة" data-en="Research published in peer-reviewed journals">أبحاث منشورة
-              في مجلات محكمة</p>
-            <span class="cc-badge" data-ar="أولي للباحثين" data-en="Primary for researchers">أولي للباحثين</span>
+            <h4 data-ar="موقع جامعة محترم" data-en="Respected university site">موقع جامعة محترم</h4>
+            <p data-ar="بحث منشور في مجلات مُراجَع من قِبل أقران (peer-reviewed)" data-en="Research published in peer-reviewed journals">بحث منشور في مجلات مُراجَع من قِبل أقران (peer-reviewed)</p>
+            <span class="cc-badge" data-ar="المعلومات الأولية (Primary) للباحثين" data-en="Primary for researchers">المعلومات الأولية (Primary) للباحثين</span>
           </div>
           <div class="cc-source" data-id="src-news" data-score="60" data-type="secondary">
             <span class="cc-emoji emoji-glow">📰</span>
-            <h4 data-ar="خبر في جريدة محترمة" data-en="Reputable newspaper story">خبر في جريدة محترمة</h4>
-            <p data-ar="بيتكلم عن الدراسة لكن اختصر كلامها" data-en="Talks about the study but summarizes it">بيتكلم عن
-              الدراسة لكن اختصر كلامها</p>
+            <h4 data-ar="قصة جريدة معتبرة" data-en="Reputable newspaper story">قصة جريدة معتبرة</h4>
+            <p data-ar="بتتكلم عن الدراسة بس بيلخّصوها" data-en="Talks about the study but summarizes it">بتتكلم عن الدراسة بس بيلخّصوها</p>
             <span class="cc-badge" data-ar="ثانوي" data-en="Secondary">ثانوي</span>
           </div>
           <div class="cc-source" data-id="src-wiki" data-score="45" data-type="secondary">
             <span class="cc-emoji emoji-glow">📖</span>
             <h4 data-ar="ويكيبيديا" data-en="Wikipedia">ويكيبيديا</h4>
-            <p data-ar="موسوعة مجمعة من مصادر تانية" data-en="An encyclopedia gathered from other sources">موسوعة مجمعة
-              من مصادر تانية</p>
+            <p data-ar="موسوعة مجمّعة من مصادر تانية" data-en="An encyclopedia gathered from other sources">موسوعة مجمّعة من مصادر تانية</p>
             <span class="cc-badge" data-ar="ثانوي" data-en="Secondary">ثانوي</span>
           </div>
           <div class="cc-source" data-id="src-blog" data-score="25" data-type="secondary">
             <span class="cc-emoji emoji-glow">✍️</span>
             <h4 data-ar="مدونة شخصية" data-en="Personal blog">مدونة شخصية</h4>
-            <p data-ar="رأي شخصي من غير أي مراجع" data-en="Personal opinion with no references">رأي شخصي من غير أي مراجع
-            </p>
-            <span class="cc-badge" data-ar="ثانوي وغير موثوق" data-en="Secondary, unreliable">ثانوي وغير موثوق</span>
+            <p data-ar="رأي شخصي من غير مراجع" data-en="Personal opinion with no references">رأي شخصي من غير مراجع</p>
+            <span class="cc-badge" data-ar="ثانوي، مش موثوق" data-en="Secondary, unreliable">ثانوي، مش موثوق</span>
           </div>
           <div class="cc-source" data-id="src-social" data-score="10" data-type="secondary">
             <span class="cc-emoji emoji-glow">📱</span>
-            <h4 data-ar="بوست فيسبوك" data-en="A Facebook post">بوست فيسبوك</h4>
-            <p data-ar="اتنشر بدون مصدر ولا دليل" data-en="Shared with no source or evidence">اتنشر بدون مصدر ولا دليل
-            </p>
-            <span class="cc-badge" data-ar="شائعة" data-en="Rumor">شائعة</span>
+            <h4 data-ar="بوست على فيسبوك" data-en="A Facebook post">بوست على فيسبوك</h4>
+            <p data-ar="مشارَك من غير مصدر أو دليل" data-en="Shared with no source or evidence">مشارَك من غير مصدر أو دليل</p>
+            <span class="cc-badge" data-ar="إشاعة" data-en="Rumor">إشاعة</span>
           </div>
           <div class="cc-source" data-id="src-experiment" data-score="90" data-type="primary">
             <span class="cc-emoji emoji-glow">🧪</span>
-            <h4 data-ar="تجربة عملتها انت بنفسك" data-en="An experiment you ran yourself">تجربة عملتها انت بنفسك</h4>
-            <p data-ar="قياس ذاكرة قبل وبعد الشيكولاتة" data-en="Measure memory before and after chocolate">قياس ذاكرة
-              قبل وبعد الشيكولاتة</p>
-            <span class="cc-badge" data-ar="أولي لك" data-en="Primary for you">أولي لك</span>
+            <h4 data-ar="تجربة عملتهـا بـ إيدك" data-en="An experiment you ran yourself">تجربة عملتهـا بـ إيدك</h4>
+            <p data-ar="قيس الذاكرة قبل وبعد الشوكولاتة" data-en="Measure memory before and after chocolate">قيس الذاكرة قبل وبعد الشوكولاتة</p>
+            <span class="cc-badge" data-ar="المعلومات الأولية (Primary) بالنسبة لك" data-en="Primary for you">المعلومات الأولية (Primary) بالنسبة لك</span>
           </div>
         </div>
         <div class="cc-actions">
@@ -2914,7 +2819,7 @@
           <span class="cc-counter" id="ccCounter">0 / 3</span>
         </div>
         <div class="cc-result" id="ccResult" style="display:none;">
-          <h4 data-ar="درجة موثوقية مصادرك" data-en="Credibility of your sources">درجة موثوقية مصادرك</h4>
+          <h4 data-ar="مصداقية المصادر بتاعتك" data-en="Credibility of your sources">مصداقية المصادر بتاعتك</h4>
           <div class="cc-bars" id="ccBars"></div>
           <div class="cc-verdict" id="ccVerdict"></div>
         </div>
@@ -2922,37 +2827,30 @@
 
       <div class="card section-inner">
         <h3 data-ar="التصنيف نسبي!" data-en="The classification is relative!">التصنيف نسبي!</h3>
-        <p data-ar="نفس المصدر ممكن يكون أولي لواحد وثانوي لواحد تاني. موقع الإحصاء: أولي للهيئة اللي عملت الاستطلاع، وثانوي للطالب اللي بيقراه."
-          data-en="The same source can be primary for one person and secondary for another. A statistics website: primary for the agency that ran the survey, secondary for a student reading it.">
-          نفس المصدر ممكن يكون أولي لواحد وثانوي لواحد تاني. موقع الإحصاء: أولي للهيئة اللي عملت الاستطلاع، وثانوي
-          للطالب اللي بيقراه.
-        </p>
+        <p data-ar="نفس المصدر ممكن يكون المعلومات الأولية (Primary) لشخص والمعلومات الثانوية (Secondary) لآخر. موقع إحصاءات: المعلومات الأولية (Primary) للجهة اللي عملت المسح، والمعلومات الثانوية (Secondary) لطالب بيقراه."
+          data-en="The same source can be primary for one person and secondary for another. A statistics website: primary for the agency that ran the survey, secondary for a student reading it.">نفس المصدر ممكن يكون المعلومات الأولية (Primary) لشخص والمعلومات الثانوية (Secondary) لآخر. موقع إحصاءات: المعلومات الأولية (Primary) للجهة اللي عملت المسح، والمعلومات الثانوية (Secondary) لطالب بيقراه.</p>
         <div class="flow-row">
           <div class="flow-node"><span class="fn-icon emoji-float">🏛️</span><span class="fn-label"
-              data-ar="هيئة الإحصاء" data-en="Statistics bureau">هيئة الإحصاء</span></div>
+              data-ar="جهاز الإحصاء" data-en="Statistics bureau">جهاز الإحصاء</span></div>
           <span class="flow-arrow">→</span>
           <div class="flow-node"><span class="fn-icon emoji-float" style="animation-delay:.5s">📊</span><span
-              class="fn-label" data-ar="موقع الإحصاء" data-en="Statistics website">موقع الإحصاء</span></div>
+              class="fn-label" data-ar="موقع إحصاءات" data-en="Statistics website">موقع إحصاءات</span></div>
           <span class="flow-arrow">→</span>
           <div class="flow-node"><span class="fn-icon emoji-float" style="animation-delay:1s">🧑‍🎓</span><span
-              class="fn-label" data-ar="الطالب" data-en="Student">الطالب</span></div>
+              class="fn-label" data-ar="طالب" data-en="Student">طالب</span></div>
         </div>
-        <p style="text-align:center;font-size:14px;" data-ar="أولي للهيئة ⟵ ⟶ ثانوي للطالب"
-          data-en="Primary for the bureau ⟵ ⟶ secondary for the student">أولي للهيئة ⟵ ⟶ ثانوي للطالب</p>
+        <p style="text-align:center;font-size:14px;" data-ar="المعلومات الأولية (Primary) للجهاز ⟵ ⟶ المعلومات الثانوية (Secondary) للطالب"
+          data-en="Primary for the bureau ⟵ ⟶ secondary for the student">المعلومات الأولية (Primary) للجهاز ⟵ ⟶ المعلومات الثانوية (Secondary) للطالب</p>
       </div>
 
       <div class="error-box section-inner">
         <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
         <ul>
-          <li data-ar="الاعتقاد إن المصادر الرسمية «دايماً» أولية — لأ، الحكم بيبقى حسب اللي حصل على المعلومة إزاي."
-            data-en="Believing official sources are always primary — no, the judgment depends on how the receiver got the information.">
-            الاعتقاد إن المصادر الرسمية «دايماً» أولية — لأ، الحكم بيبقى حسب اللي حصل على المعلومة إزاي.
-          </li>
+          <li data-ar="إنك تصدق إن المصادر الرسمية دايماً المعلومات الأولية (Primary) — لأ، الحكم بيعتمد على إزاي المستقبِل جاب المعلومة."
+            data-en="Believing official sources are always primary — no, the judgment depends on how the receiver got the information.">إنك تصدق إن المصادر الرسمية دايماً المعلومات الأولية (Primary) — لأ، الحكم بيعتمد على إزاي المستقبِل جاب المعلومة.</li>
           <li
-            data-ar="نسيان إن المعلومة الثانوية ممكن يكون فيها تحريف أو تفسير من تالت — عشان كده بنعمل cross-checking."
-            data-en="Forgetting that secondary information can be distorted or interpreted by a third party — that's why we cross-check.">
-            نسيان إن المعلومة الثانوية ممكن يكون فيها تحريف أو تفسير من تالت — عشان كده بنعمل cross-checking.
-          </li>
+            data-ar="إنك تنسى إن المعلومات الثانوية (Secondary Information) ممكن تتشوّه أو يتفسرها طرف تالت — وده ليه بنعمل cross-check."
+            data-en="Forgetting that secondary information can be distorted or interpreted by a third party — that's why we cross-check.">إنك تنسى إن المعلومات الثانوية (Secondary Information) ممكن تتشوّه أو يتفسرها طرف تالت — وده ليه بنعمل cross-check.</li>
         </ul>
       </div>
 
@@ -2960,19 +2858,17 @@
         <h3 data-ar="كويز سريع — 4 أسئلة" data-en="Quick Quiz — 4 Questions">كويز سريع — 4 أسئلة</h3>
         <div class="quiz-questions">
           <div class="quiz-q" data-id="s3q1" data-answer="C">
-            <h4 data-ar="1) تقرير معمل عملته بنفسك — معلومة إيه؟"
-              data-en="1) A lab report you made yourself — what kind?">1) تقرير معمل عملته بنفسك — معلومة إيه؟</h4>
+            <h4 data-ar="1) تقرير معملي عملته بـ إيدك — إيه نوعه؟"
+              data-en="1) A lab report you made yourself — what kind?">1) تقرير معملي عملته بـ إيدك — إيه نوعه؟</h4>
             <div class="quiz-opts">
-              <div class="quiz-opt" data-opt="A" data-ar="Secondary" data-en="Secondary">Secondary</div>
-              <div class="quiz-opt" data-opt="B" data-ar="Knowledge" data-en="Knowledge">Knowledge</div>
+              <div class="quiz-opt" data-opt="A" data-ar="ثانوي" data-en="Secondary">ثانوي</div>
+              <div class="quiz-opt" data-opt="B" data-ar="المعرفة (Knowledge)" data-en="Knowledge">المعرفة (Knowledge)</div>
               <div class="quiz-opt" data-opt="C" data-ar="Primary" data-en="Primary">Primary</div>
-              <div class="quiz-opt" data-opt="D" data-ar="Data" data-en="Data">Data</div>
+              <div class="quiz-opt" data-opt="D" data-ar="البيانات (Data)" data-en="Data">البيانات (Data)</div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! من تجربتك الشخصية مباشرة — دي Primary."
-                data-en="✅ Correct! From your own direct experience — Primary.">
-                ✅ مظبوط! من تجربتك الشخصية مباشرة — دي Primary.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! من تجربتك المباشرة — المعلومات الأولية (Primary)."
+                data-en="✅ Correct! From your own direct experience — Primary.">✅ صح! من تجربتك المباشرة — المعلومات الأولية (Primary).</span>
               <span class="fb-wrong" data-ar="❌ لأ — التجربة اللي عملتها بنفسك = Primary، مش Secondary."
                 data-en="❌ No — an experiment you did yourself = Primary, not Secondary.">
                 ❌ لأ — التجربة اللي عملتها بنفسك = Primary، مش Secondary.
@@ -2980,22 +2876,19 @@
             </div>
           </div>
           <div class="quiz-q" data-id="s3q2" data-answer="D">
-            <h4 data-ar="2) نفس موقع الإحصاء، بنسبة للهيئة اللي عملته؟"
-              data-en="2) The same statistics site, relative to the agency that made it?">2) نفس موقع الإحصاء، بنسبة
-              للهيئة اللي عملته؟</h4>
+            <h4 data-ar="2) نفس موقع الإحصاءات، بالنسبة للجهة اللي عملاه؟"
+              data-en="2) The same statistics site, relative to the agency that made it?">2) نفس موقع الإحصاءات، بالنسبة للجهة اللي عملاه؟</h4>
             <div class="quiz-opts">
               <div class="quiz-opt" data-opt="A" data-ar="Secondary — شافوه من تالت"
                 data-en="Secondary — they saw it third-hand">Secondary — شافوه من تالت</div>
-              <div class="quiz-opt" data-opt="B" data-ar="Knowledge" data-en="Knowledge">Knowledge</div>
-              <div class="quiz-opt" data-opt="C" data-ar="Propagation" data-en="Propagation">Propagation</div>
+              <div class="quiz-opt" data-opt="B" data-ar="المعرفة (Knowledge)" data-en="Knowledge">المعرفة (Knowledge)</div>
+              <div class="quiz-opt" data-opt="C" data-ar="الانتشار (Propagation)" data-en="Propagation">الانتشار (Propagation)</div>
               <div class="quiz-opt" data-opt="D" data-ar="Primary — هم عملوه بأنفسهم"
                 data-en="Primary — they made it themselves">Primary — هم عملوه بأنفسهم</div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! الهيئة اللي نفذت الاستطلاع بتاعها — أولي بالنسبة لها."
-                data-en="✅ Correct! The agency that ran the survey — primary for it.">
-                ✅ مظبوط! الهيئة اللي نفذت الاستطلاع بتاعها — أولي بالنسبة لها.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! الجهة اللي عملت المسح — المعلومات الأولية (Primary) بالنسبة لها."
+                data-en="✅ Correct! The agency that ran the survey — primary for it.">✅ صح! الجهة اللي عملت المسح — المعلومات الأولية (Primary) بالنسبة لها.</span>
               <span class="fb-wrong" data-ar="❌ لأ — لإنهم المصدر نفسه، فدي Primary بنسبتهم."
                 data-en="❌ No — since they are the source itself, it is Primary for them.">
                 ❌ لأ — لإنهم المصدر نفسه، فدي Primary بنسبتهم.
@@ -3003,9 +2896,8 @@
             </div>
           </div>
           <div class="quiz-q" data-id="s3q3" data-answer="A">
-            <h4 data-ar="3) لقيت ادعاء في بوست فيسبوك، أفضل تصرف؟"
-              data-en="3) You found a claim in a Facebook post — best action?">3) لقيت ادعاء في بوست فيسبوك، أفضل تصرف؟
-            </h4>
+            <h4 data-ar="3) لقيت ادعاء في بوست فيسبوك — أحسن حركة؟"
+              data-en="3) You found a claim in a Facebook post — best action?">3) لقيت ادعاء في بوست فيسبوك — أحسن حركة؟</h4>
             <div class="quiz-opts">
               <div class="quiz-opt" data-opt="A" data-ar="أقارنه بمصادر تانية وأتحقق"
                 data-en="Compare with other sources and verify">أقارنه بمصادر تانية وأتحقق</div>
@@ -3017,10 +2909,8 @@
               </div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! دي فكرة الـ Cross-checking — قارن من أكتر من زاوية."
-                data-en="✅ Correct! That's the idea of Cross-checking — compare from multiple perspectives.">
-                ✅ مظبوط! دي فكرة الـ Cross-checking — قارن من أكتر من زاوية.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! دي فكرة التدقيق المتبادل (Cross-checking) — قارن من زوايا متعددة."
+                data-en="✅ Correct! That's the idea of Cross-checking — compare from multiple perspectives.">✅ صح! دي فكرة التدقيق المتبادل (Cross-checking) — قارن من زوايا متعددة.</span>
               <span class="fb-wrong" data-ar="❌ لأ — البوست لوحده مش كافي، لازم مصادر تانية للتحقق."
                 data-en="❌ No — a post alone is not enough; you need other sources to verify.">
                 ❌ لأ — البوست لوحده مش كافي، لازم مصادر تانية للتحقق.
@@ -3028,9 +2918,8 @@
             </div>
           </div>
           <div class="quiz-q" data-id="s3q4" data-answer="B">
-            <h4 data-ar="4) إيه أقل مصدر موثوقية للتحقق من معلومة صحية؟"
-              data-en="4) Which is the least reliable source to verify health info?">4) إيه أقل مصدر موثوقية للتحقق من
-              معلومة صحية؟</h4>
+            <h4 data-ar="4) أنهي مصدر أقل مصداقية عشان تتأكد من معلومة صحية؟"
+              data-en="4) Which is the least reliable source to verify health info?">4) أنهي مصدر أقل مصداقية عشان تتأكد من معلومة صحية؟</h4>
             <div class="quiz-opts">
               <div class="quiz-opt" data-opt="A" data-ar="دراسة محكمة" data-en="A peer-reviewed study">دراسة محكمة</div>
               <div class="quiz-opt" data-opt="B" data-ar="بوست فيسبوك من غير مصدر"
@@ -3040,10 +2929,8 @@
               </div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! بوست من غير مصدر ولا دليل = شائعة، درجة موثوقيته ضعيفة جدًا."
-                data-en="✅ Correct! A post with no source or evidence = rumor, very weak credibility.">
-                ✅ مظبوط! بوست من غير مصدر ولا دليل = شائعة، درجة موثوقيته ضعيفة جدًا.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! بوست من غير مصدر أو دليل = إشاعة، مصداقيته ضعيفة جداً."
+                data-en="✅ Correct! A post with no source or evidence = rumor, very weak credibility.">✅ صح! بوست من غير مصدر أو دليل = إشاعة، مصداقيته ضعيفة جداً.</span>
               <span class="fb-wrong"
                 data-ar="❌ لأ — الدراسات المحكمة والمواقع الجامعية والجرايد المحترمة كلها أعلى موثوقية من البوستات."
                 data-en="❌ No — peer-reviewed studies, university sites, and reputable newspapers are all more reliable than posts.">
@@ -3056,7 +2943,7 @@
           <button class="btn btn-ghost mini-btn" data-action="reveal-quiz" data-ar="اعرض الأسئلة"
             data-en="Show questions">اعرض الأسئلة</button>
           <button class="mini-btn" data-action="skip-quiz" data-ar="تخطي" data-en="Skip">تخطي</button>
-          <button class="mini-btn" data-action="reset-quiz" data-ar="إعادة" data-en="Retry">إعادة</button>
+          <button class="mini-btn" data-action="reset-quiz" data-ar="إعادة المحاولة" data-en="Retry">إعادة المحاولة</button>
         </div>
       </div>
     </section>
@@ -3067,54 +2954,46 @@
         <div class="section-number">04</div>
         <div>
           <h2 class="section-title" data-ar="أنواع الوسائط" data-en="Media Types">أنواع الوسائط</h2>
-          <p class="section-subtitle" data-ar="التعبير، النقل، التسجيل" data-en="Expression, Transmission, Recording">
-            Expression, Transmission, Recording</p>
+          <p class="section-subtitle" data-ar="التعبير (Expression)، النقل (Transmission)، التسجيل (Recording)" data-en="Expression, Transmission, Recording">التعبير (Expression)، النقل (Transmission)، التسجيل (Recording)</p>
         </div>
       </div>
       <div class="summary-box section-inner">
         <h4 data-ar="هدفنا النهارده" data-en="Our Goal Today">هدفنا النهارده</h4>
-        <p data-ar="نتتبع مسار المعلومة عبر ثلاثة أنواع وسائط: تعبير، نقل، تسجيل — وكل نوع شغال إيه بالظبط."
-          data-en="Track how information travels through three media types: expression, transmission, and recording — and what each one does.">
-          نتتبع مسار المعلومة عبر ثلاثة أنواع وسائط: تعبير، نقل، تسجيل — وكل نوع شغال إيه بالظبط.
-        </p>
+        <p data-ar="نتابع إزاي المعلومة بتمشي خلال تلات أنواع وسائط: التعبير (Expression)، النقل (Transmission)، والتسجيل (Recording) — وكل واحدة بتعمل إيه."
+          data-en="Track how information travels through three media types: expression, transmission, and recording — and what each one does.">نتابع إزاي المعلومة بتمشي خلال تلات أنواع وسائط: التعبير (Expression)، النقل (Transmission)، والتسجيل (Recording) — وكل واحدة بتعمل إيه.</p>
       </div>
 
       <div class="card section-inner">
-        <h3 data-ar="الأنواع الثلاثة للوسائط" data-en="The Three Media Types">الأنواع الثلاثة للوسائط</h3>
+        <h3 data-ar="التلات أنواع وسائط" data-en="The Three Media Types">التلات أنواع وسائط</h3>
         <div class="cc-grid" style="grid-template-columns:repeat(3,minmax(0,1fr));">
           <div class="cc-source" style="cursor:default;">
             <span class="cc-emoji emoji-glow">✏️</span>
-            <h4 data-ar="وسائط تعبير" data-en="Expression media">وسائط تعبير</h4>
+            <h4 data-ar="وسائط التعبير (Expression)" data-en="Expression media">وسائط التعبير (Expression)</h4>
             <p data-ar="وسيلة للتعبير عن المعلومة: نص، صور، صوت، فيديو."
-              data-en="A means of expressing information: text, images, audio, video.">وسيلة للتعبير عن المعلومة: نص،
-              صور، صوت، فيديو.</p>
+              data-en="A means of expressing information: text, images, audio, video.">وسيلة للتعبير عن المعلومة: نص، صور، صوت، فيديو.</p>
             <span class="cc-badge" data-ar="إزاي بنعبّر" data-en="How we express">إزاي بنعبّر</span>
           </div>
           <div class="cc-source" style="cursor:default;">
             <span class="cc-emoji emoji-glow" style="animation-delay:.5s">📡</span>
-            <h4 data-ar="وسائط نقل/إرسال" data-en="Transmission media">وسائط نقل/إرسال</h4>
-            <p data-ar="وسيط لنقل المعلومة وتوصيلها: تليفزيون، راديو، جرايد، تليفون، إنتيرنيت."
-              data-en="A medium for transmission and communication: TV, radio, newspapers, telephone, internet.">وسيط
-              لنقل المعلومة وتوصيلها: تليفزيون، راديو، جرايد، تليفون، إنتيرنيت.</p>
-            <span class="cc-badge" data-ar="إزاي بتوصل" data-en="How it gets there">إزاي بتوصل</span>
+            <h4 data-ar="وسائط النقل (Transmission)" data-en="Transmission media">وسائط النقل (Transmission)</h4>
+            <p data-ar="وسيط للإرسال والتواصل: تليفزيون، راديو، جرايد، تليفون، إنترنت."
+              data-en="A medium for transmission and communication: TV, radio, newspapers, telephone, internet.">وسيط للإرسال والتواصل: تليفزيون، راديو، جرايد، تليفون، إنترنت.</p>
+            <span class="cc-badge" data-ar="إزاي توصل" data-en="How it gets there">إزاي توصل</span>
           </div>
           <div class="cc-source" style="cursor:default;">
             <span class="cc-emoji emoji-glow" style="animation-delay:1s">💾</span>
-            <h4 data-ar="وسائط تسجيل" data-en="Recording media">وسائط تسجيل</h4>
-            <p data-ar="وسيط للتخزين: ورق، فلاشة، DVD، سحابة تخزين."
-              data-en="A medium for recording and storing: paper, USB drives, DVDs, cloud storage.">وسيط للتخزين: ورق،
-              فلاشة، DVD، سحابة تخزين.</p>
-            <span class="cc-badge" data-ar="إزاي بنخزن" data-en="How we store">إزاي بنخزن</span>
+            <h4 data-ar="وسائط التسجيل (Recording)" data-en="Recording media">وسائط التسجيل (Recording)</h4>
+            <p data-ar="وسيط للتسجيل والتخزين: ورق، فلاشات USB، DVD، تخزين سحابي."
+              data-en="A medium for recording and storing: paper, USB drives, DVDs, cloud storage.">وسيط للتسجيل والتخزين: ورق، فلاشات USB، DVD، تخزين سحابي.</p>
+            <span class="cc-badge" data-ar="إزاي بنخزّن" data-en="How we store">إزاي بنخزّن</span>
           </div>
         </div>
       </div>
 
       <div class="card section-inner">
         <h3 data-ar="رحلة رسالة واتساب" data-en="The Journey of a WhatsApp Message">رحلة رسالة واتساب</h3>
-        <p data-ar="نفس المعلومة ممكن تمر بكل الوسائط الثلاثة. هاتكلم تخطوة خطوة."
-          data-en="The same information can pass through all three media types. Let's step through.">
-          نفس المعلومة ممكن تمر بكل الوسائط الثلاثة. هاتكلم تخطوة خطوة.
-        </p>
+        <p data-ar="نفس المعلومة ممكن تعدّي على التلات أنواع وسائط. خلينا نمشي عليها خطوة خطوة."
+          data-en="The same information can pass through all three media types. Let's step through.">نفس المعلومة ممكن تعدّي على التلات أنواع وسائط. خلينا نمشي عليها خطوة خطوة.</p>
 
         <div class="activity-grid">
           <div class="demo-panel" dir="ltr" style="text-align:left;">
@@ -3163,16 +3042,13 @@
           </div>
 
           <div class="card">
-            <h3 data-ar="إيه بيحصل في كل مرحلة؟" data-en="What happens at each stage?">إيه بيحصل في كل مرحلة؟</h3>
+            <h3 data-ar="إيه اللي بيحصل في كل مرحلة؟" data-en="What happens at each stage?">إيه اللي بيحصل في كل مرحلة؟</h3>
             <div class="step-container" data-id="journey-steps">
               <div class="step-card active" data-step="1">
                 <span class="step-tag" data-ar="المرحلة 1" data-en="Stage 1">المرحلة 1</span>
-                <h3 data-ar="تعبير — بتعمل المعلومة" data-en="Expression — creating the info">تعبير — بتعمل المعلومة
-                </h3>
-                <p data-ar="بتكتب الرسالة، أو بتاخد صورة، أو بتسجل صوت. أي شكل للمعلومة دي وسائط تعبير: نص، صورة، صوت، فيديو."
-                  data-en="You write the message, take a photo, or record audio. Any form of the info is expression media: text, image, audio, video.">
-                  بتكتب الرسالة، أو بتاخد صورة، أو بتسجل صوت. أي شكل للمعلومة دي وسائط تعبير: نص، صورة، صوت، فيديو.
-                </p>
+                <h3 data-ar="التعبير (Expression) — إنتاج المعلومة" data-en="Expression — creating the info">التعبير (Expression) — إنتاج المعلومة</h3>
+                <p data-ar="بتكتب الرسالة، تاخد صورة، أو تسجّل صوت. أي شكل للمعلومة هو وسائط التعبير (Expression): نص، صورة، صوت، فيديو."
+                  data-en="You write the message, take a photo, or record audio. Any form of the info is expression media: text, image, audio, video.">بتكتب الرسالة، تاخد صورة، أو تسجّل صوت. أي شكل للمعلومة هو وسائط التعبير (Expression): نص، صورة، صوت، فيديو.</p>
                 <div class="flow-row">
                   <div class="flow-node"><span class="fn-icon emoji-float">🔤</span><span class="fn-label" data-ar="نص"
                       data-en="Text">نص</span></div>
@@ -3189,13 +3065,9 @@
               </div>
               <div class="step-card" data-step="2">
                 <span class="step-tag" data-accent="violet" data-ar="المرحلة 2" data-en="Stage 2">المرحلة 2</span>
-                <h3 data-ar="نقل — بتوصل للمستقبل" data-en="Transmission — reaching the receiver">نقل — بتوصل للمستقبل
-                </h3>
-                <p data-ar="الرسالة بتتنقل عبر الإنتيرنيت أو شبكة التليفون. أي وسيط بيوصل المعلومة دي وسائط نقل: تليفزيون، راديو، تليفون، إنتيرنيت."
-                  data-en="The message travels over the internet or phone network. Any medium that delivers the info is transmission media: TV, radio, telephone, internet.">
-                  الرسالة بتتنقل عبر الإنتيرنيت أو شبكة التليفون. أي وسيط بيوصل المعلومة دي وسائط نقل: تليفزيون، راديو،
-                  تليفون، إنتيرنيت.
-                </p>
+                <h3 data-ar="النقل (Transmission) — وصول للمستقبِل" data-en="Transmission — reaching the receiver">النقل (Transmission) — وصول للمستقبِل</h3>
+                <p data-ar="الرسالة بتمشي على الإنترنت أو شبكة التليفون. أي وسيط بيوصّل المعلومة هو وسائط النقل (Transmission): تليفزيون، راديو، تليفون، إنترنت."
+                  data-en="The message travels over the internet or phone network. Any medium that delivers the info is transmission media: TV, radio, telephone, internet.">الرسالة بتمشي على الإنترنت أو شبكة التليفون. أي وسيط بيوصّل المعلومة هو وسائط النقل (Transmission): تليفزيون، راديو، تليفون، إنترنت.</p>
                 <div class="flow-row">
                   <div class="flow-node"><span class="fn-icon emoji-float">📺</span><span class="fn-label"
                       data-ar="تليفزيون" data-en="TV">تليفزيون</span></div>
@@ -3204,7 +3076,7 @@
                       class="fn-label" data-ar="راديو" data-en="Radio">راديو</span></div>
                   <span class="flow-arrow">·</span>
                   <div class="flow-node"><span class="fn-icon emoji-float" style="animation-delay:.6s">🌐</span><span
-                      class="fn-label" data-ar="إنتيرنيت" data-en="Internet">إنتيرنيت</span></div>
+                      class="fn-label" data-ar="إنترنت" data-en="Internet">إنترنت</span></div>
                   <span class="flow-arrow">·</span>
                   <div class="flow-node"><span class="fn-icon emoji-float" style="animation-delay:.9s">☎️</span><span
                       class="fn-label" data-ar="تليفون" data-en="Phone">تليفون</span></div>
@@ -3212,18 +3084,15 @@
               </div>
               <div class="step-card" data-step="3">
                 <span class="step-tag" data-accent="amber" data-ar="المرحلة 3" data-en="Stage 3">المرحلة 3</span>
-                <h3 data-ar="تسجيل — بتتخزن" data-en="Recording — being stored">تسجيل — بتتخزن</h3>
-                <p data-ar="الرسالة بتتحفظ في سحابة واتساب أو على ذاكرة التليفون. أي وسيلة تخزين دي وسائط تسجيل: ورق، فلاشة، DVD، سحابة."
-                  data-en="The message is saved in the WhatsApp cloud or phone storage. Any storage medium is recording media: paper, USB, DVD, cloud.">
-                  الرسالة بتتحفظ في سحابة واتساب أو على ذاكرة التليفون. أي وسيلة تخزين دي وسائط تسجيل: ورق، فلاشة، DVD،
-                  سحابة.
-                </p>
+                <h3 data-ar="التسجيل (Recording) — إنها بتتخزّن" data-en="Recording — being stored">التسجيل (Recording) — إنها بتتخزّن</h3>
+                <p data-ar="الرسالة بتتحفظ في cloud بتاع واتساب أو تخزين الموبايل. أي وسيط تخزين هو وسائط التسجيل (Recording): ورق، USB، DVD، سحابة."
+                  data-en="The message is saved in the WhatsApp cloud or phone storage. Any storage medium is recording media: paper, USB, DVD, cloud.">الرسالة بتتحفظ في cloud بتاع واتساب أو تخزين الموبايل. أي وسيط تخزين هو وسائط التسجيل (Recording): ورق، USB، DVD، سحابة.</p>
                 <div class="flow-row">
                   <div class="flow-node"><span class="fn-icon emoji-float">📄</span><span class="fn-label" data-ar="ورق"
                       data-en="Paper">ورق</span></div>
                   <span class="flow-arrow">·</span>
                   <div class="flow-node"><span class="fn-icon emoji-float" style="animation-delay:.3s">💾</span><span
-                      class="fn-label" data-ar="فلاشة" data-en="USB">فلاشة</span></div>
+                      class="fn-label" data-ar="USB" data-en="USB">USB</span></div>
                   <span class="flow-arrow">·</span>
                   <div class="flow-node"><span class="fn-icon emoji-float" style="animation-delay:.6s">📀</span><span
                       class="fn-label" data-ar="DVD" data-en="DVD">DVD</span></div>
@@ -3235,11 +3104,8 @@
             </div>
             <div class="summary-box" style="margin-top:18px;">
               <h4 data-ar="نقطة مهمة" data-en="Key point">نقطة مهمة</h4>
-              <p data-ar="الكتاب وسيلة واحدة بس؟ لأ — الكتاب فيه نص (تعبير)، بيوصل ليك (نقل)، وبتخزن معلوماته (تسجيل). الوسيلة الواحدة ممكن تعمل أكتر من دور."
-                data-en="Is a book one medium only? No — a book has text (expression), reaches you (transmission), and stores info (recording). One medium can play more than one role.">
-                الكتاب وسيلة واحدة بس؟ لأ — الكتاب فيه نص (تعبير)، بيوصل ليك (نقل)، وبتخزن معلوماته (تسجيل). الوسيلة
-                الواحدة ممكن تعمل أكتر من دور.
-              </p>
+              <p data-ar="هل الكتاب وسيط واحد بس؟ لأ — الكتاب فيه نص (expression)، بيوصلك (transmission)، وبيسجّل المعلومة (recording). وسيط واحد ممكن يلعب أكتر من دور."
+                data-en="Is a book one medium only? No — a book has text (expression), reaches you (transmission), and stores info (recording). One medium can play more than one role.">هل الكتاب وسيط واحد بس؟ لأ — الكتاب فيه نص (expression)، بيوصلك (transmission)، وبيسجّل المعلومة (recording). وسيط واحد ممكن يلعب أكتر من دور.</p>
             </div>
           </div>
         </div>
@@ -3248,14 +3114,10 @@
       <div class="error-box section-inner">
         <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
         <ul>
-          <li data-ar="مش بيشوف وسائط التسجيل منفصلة عن النقل — الكتاب مثلًا بيعمل الاتنين: بينقل وبيسجل."
-            data-en="Not seeing recording media as separate from transmission — a book, for example, does both: it transmits and records.">
-            مش بيشوف وسائط التسجيل منفصلة عن النقل — الكتاب مثلًا بيعمل الاتنين: بينقل وبيسجل.
-          </li>
-          <li data-ar="بيعتقد إن الصوت والفيديو وسائط نقل — لأ، دول وسائط تعبير؛ النقل بيبقى عبر الراديو أو الإنتيرنيت."
-            data-en="Thinking audio and video are transmission media — no, they are expression media; transmission happens via radio or internet.">
-            بيعتقد إن الصوت والفيديو وسائط نقل — لأ، دول وسائط تعبير؛ النقل بيبقى عبر الراديو أو الإنتيرنيت.
-          </li>
+          <li data-ar="إنك متشوفش وسائط التسجيل (Recording) منفصلة عن النقل (Transmission) — الكتاب مثلاً بيعمل الاتنين: بيـنقل وبيسجّل."
+            data-en="Not seeing recording media as separate from transmission — a book, for example, does both: it transmits and records.">إنك متشوفش وسائط التسجيل (Recording) منفصلة عن النقل (Transmission) — الكتاب مثلاً بيعمل الاتنين: بيـنقل وبيسجّل.</li>
+          <li data-ar="إنك تفتكر الصوت والفيديو وسائط النقل (Transmission) — لأ، هما وسائط التعبير (Expression)؛ النقل (Transmission) بيحصل عن طريق الراديو أو الإنترنت."
+            data-en="Thinking audio and video are transmission media — no, they are expression media; transmission happens via radio or internet.">إنك تفتكر الصوت والفيديو وسائط النقل (Transmission) — لأ، هما وسائط التعبير (Expression)؛ النقل (Transmission) بيحصل عن طريق الراديو أو الإنترنت.</li>
         </ul>
       </div>
 
@@ -3263,8 +3125,7 @@
         <h3 data-ar="كويز سريع — 4 أسئلة" data-en="Quick Quiz — 4 Questions">كويز سريع — 4 أسئلة</h3>
         <div class="quiz-questions">
           <div class="quiz-q" data-id="s4q1" data-answer="C">
-            <h4 data-ar="1) التليفزيون يندرج تحت أي نوع؟" data-en="1) Television falls under which type?">1) التليفزيون
-              يندرج تحت أي نوع؟</h4>
+            <h4 data-ar="1) التليفزيون بيندرج تحت أنهي نوع؟" data-en="1) Television falls under which type?">1) التليفزيون بيندرج تحت أنهي نوع؟</h4>
             <div class="quiz-opts">
               <div class="quiz-opt" data-opt="A" data-ar="تعبير" data-en="Expression">تعبير</div>
               <div class="quiz-opt" data-opt="B" data-ar="تسجيل" data-en="Recording">تسجيل</div>
@@ -3272,10 +3133,8 @@
               <div class="quiz-opt" data-opt="D" data-ar="تخزين سحابي" data-en="Cloud storage">تخزين سحابي</div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! التليفزيون وسيط بيوصل المعلومة — وسائط نقل."
-                data-en="✅ Correct! TV delivers information — transmission media.">
-                ✅ مظبوط! التليفزيون وسيط بيوصل المعلومة — وسائط نقل.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! التليفزيون بيوصّل المعلومة — وسائط النقل (Transmission)."
+                data-en="✅ Correct! TV delivers information — transmission media.">✅ صح! التليفزيون بيوصّل المعلومة — وسائط النقل (Transmission).</span>
               <span class="fb-wrong" data-ar="❌ لأ — التليفزيون بيدور على إيه؟ يوصّل — فده نقل."
                 data-en="❌ No — what does TV do? It delivers — so it's transmission.">
                 ❌ لأ — التليفزيون بيدور على إيه؟ يوصّل — فده نقل.
@@ -3283,8 +3142,7 @@
             </div>
           </div>
           <div class="quiz-q" data-id="s4q2" data-answer="D">
-            <h4 data-ar="2) فلاشة USB دي أي نوع؟" data-en="2) A USB flash drive is which type?">2) فلاشة USB دي أي نوع؟
-            </h4>
+            <h4 data-ar="2) فلاشة USB من أنهي نوع؟" data-en="2) A USB flash drive is which type?">2) فلاشة USB من أنهي نوع؟</h4>
             <div class="quiz-opts">
               <div class="quiz-opt" data-opt="A" data-ar="تعبير" data-en="Expression">تعبير</div>
               <div class="quiz-opt" data-opt="B" data-ar="نقل" data-en="Transmission">نقل</div>
@@ -3292,10 +3150,8 @@
               <div class="quiz-opt" data-opt="D" data-ar="تسجيل" data-en="Recording">تسجيل</div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! الفلاشة وسيلة تخزين — تسجيل."
-                data-en="✅ Correct! A flash drive stores info — recording.">
-                ✅ مظبوط! الفلاشة وسيلة تخزين — تسجيل.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! الفلاشة بتخزّن المعلومة — التسجيل (Recording)."
+                data-en="✅ Correct! A flash drive stores info — recording.">✅ صح! الفلاشة بتخزّن المعلومة — التسجيل (Recording).</span>
               <span class="fb-wrong" data-ar="❌ لأ — الفلاشة بتخزن المعلومة مش بتعبّر عنها — تسجيل."
                 data-en="❌ No — a flash drive stores info, it doesn't express it — recording.">
                 ❌ لأ — الفلاشة بتخزن المعلومة مش بتعبّر عنها — تسجيل.
@@ -3303,19 +3159,16 @@
             </div>
           </div>
           <div class="quiz-q" data-id="s4q3" data-answer="A">
-            <h4 data-ar="3) حرف نصي (Text character) أي نوع؟" data-en="3) A text character is which type?">3) حرف نصي
-              (Text character) أي نوع؟</h4>
+            <h4 data-ar="3) حرف نص من أنهي نوع؟" data-en="3) A text character is which type?">3) حرف نص من أنهي نوع؟</h4>
             <div class="quiz-opts">
               <div class="quiz-opt" data-opt="A" data-ar="تعبير" data-en="Expression">تعبير</div>
               <div class="quiz-opt" data-opt="B" data-ar="نقل" data-en="Transmission">نقل</div>
               <div class="quiz-opt" data-opt="C" data-ar="تسجيل" data-en="Recording">تسجيل</div>
-              <div class="quiz-opt" data-opt="D" data-ar="إنتيرنيت" data-en="Internet">إنتيرنيت</div>
+              <div class="quiz-opt" data-opt="D" data-ar="إنترنت" data-en="Internet">إنترنت</div>
             </div>
             <div class="quiz-feedback">
-              <span class="fb-correct" data-ar="✅ مظبوط! النص وسيلة تعبير عن الفكرة."
-                data-en="✅ Correct! Text is a way to express an idea.">
-                ✅ مظبوط! النص وسيلة تعبير عن الفكرة.
-              </span>
+              <span class="fb-correct" data-ar="✅ صح! النص طريقة للتعبير عن فكرة."
+                data-en="✅ Correct! Text is a way to express an idea.">✅ صح! النص طريقة للتعبير عن فكرة.</span>
               <span class="fb-wrong" data-ar="❌ لأ — الحروف بتمثل المعنى — دي وسائط تعبير."
                 data-en="❌ No — characters represent meaning — expression media.">
                 ❌ لأ — الحروف بتمثل المعنى — دي وسائط تعبير.
@@ -3323,8 +3176,8 @@
             </div>
           </div>
           <div class="quiz-q" data-id="s4q4" data-answer="B">
-            <h4 data-ar="4) الكتاب بيلعب أكتر من دور — إيه الدورين؟"
-              data-en="4) A book plays more than one role — which two?">4) الكتاب بيلعب أكتر من دور — إيه الدورين؟</h4>
+            <h4 data-ar="4) الكتاب بيلعب أكتر من دور — أنهي اتنين؟"
+              data-en="4) A book plays more than one role — which two?">4) الكتاب بيلعب أكتر من دور — أنهي اتنين؟</h4>
             <div class="quiz-opts">
               <div class="quiz-opt" data-opt="A" data-ar="تعبير وتسجيل فقط" data-en="Expression and recording only">
                 تعبير وتسجيل فقط</div>
@@ -3335,10 +3188,8 @@
             </div>
             <div class="quiz-feedback">
               <span class="fb-correct"
-                data-ar="✅ مظبوط! الكتاب فيه نص (تعبير)، بيوصل ليك (نقل)، وبخزن محتواه (تسجيل) — الأهم إنه بيعمل نقل وتسجيل."
-                data-en="✅ Correct! A book has text (expression), reaches you (transmission), and stores content (recording) — key is it does transmission and recording.">
-                ✅ مظبوط! الكتاب فيه نص (تعبير)، بيوصل ليك (نقل)، وبخزن محتواه (تسجيل) — الأهم إنه بيعمل نقل وتسجيل.
-              </span>
+                data-ar="✅ صح! الكتاب فيه نص (expression)، بيوصلك (transmission)، وبيسجّل المحتوى (recording) — المهم إنه بيعمل transmission وrecording."
+                data-en="✅ Correct! A book has text (expression), reaches you (transmission), and stores content (recording) — key is it does transmission and recording.">✅ صح! الكتاب فيه نص (expression)، بيوصلك (transmission)، وبيسجّل المحتوى (recording) — المهم إنه بيعمل transmission وrecording.</span>
               <span class="fb-wrong" data-ar="❌ لأ — الكتاب بينقل المعلومة ليك وبيحفظها — يعني نقل وتسجيل."
                 data-en="❌ No — a book delivers info to you and stores it — transmission and recording.">
                 ❌ لأ — الكتاب بينقل المعلومة ليك وبيحفظها — يعني نقل وتسجيل.
@@ -3350,7 +3201,7 @@
           <button class="btn btn-ghost mini-btn" data-action="reveal-quiz" data-ar="اعرض الأسئلة"
             data-en="Show questions">اعرض الأسئلة</button>
           <button class="mini-btn" data-action="skip-quiz" data-ar="تخطي" data-en="Skip">تخطي</button>
-          <button class="mini-btn" data-action="reset-quiz" data-ar="إعادة" data-en="Retry">إعادة</button>
+          <button class="mini-btn" data-action="reset-quiz" data-ar="إعادة المحاولة" data-en="Retry">إعادة المحاولة</button>
         </div>
       </div>
     </section>
@@ -3360,55 +3211,44 @@
       <div class="section-head section-inner">
         <div class="section-number">05</div>
         <div>
-          <h2 class="section-title" data-ar="الإلمام بالوسائط" data-en="Media Literacy">الإلمام بالوسائط</h2>
-          <p class="section-subtitle" data-ar="الإلمام بالوسائط" data-en="Media Literacy">Media Literacy</p>
+          <h2 class="section-title" data-ar="الإلمام بالوسائط (Media Literacy)" data-en="Media Literacy">الإلمام بالوسائط (Media Literacy)</h2>
+          <p class="section-subtitle" data-ar="الإلمام بالوسائط (Media Literacy)" data-en="Media Literacy">الإلمام بالوسائط (Media Literacy)</p>
         </div>
       </div>
       <div class="summary-box section-inner">
         <h4 data-ar="هدفنا النهارده" data-en="Our Goal Today">هدفنا النهارده</h4>
-        <p data-ar="نبتدي عادة التوقف قبل المشاركة: المصدر؟ الدليل؟ مصادر تانية؟ — عشان نقيّم المعلومة الصح."
-          data-en="Start the habit of pausing before sharing: the source? the evidence? other sources? — to evaluate information correctly.">
-          نبتدي عادة التوقف قبل المشاركة: المصدر؟ الدليل؟ مصادر تانية؟ — عشان نقيّم المعلومة الصح.
-        </p>
+        <p data-ar="ابدأ عادة إنك تقف قبل ما تشارك: المصدر؟ الدليل؟ مصادر تانية؟ — عشان تقيم المعلومة صح."
+          data-en="Start the habit of pausing before sharing: the source? the evidence? other sources? — to evaluate information correctly.">ابدأ عادة إنك تقف قبل ما تشارك: المصدر؟ الدليل؟ مصادر تانية؟ — عشان تقيم المعلومة صح.</p>
       </div>
 
       <div class="card section-inner">
-        <h3 data-ar="إيه معنى الإلمام بالوسائط؟" data-en="What is Media Literacy?">إيه معنى الإلمام بالوسائط؟</h3>
-        <p data-ar="هي القدرة على فهم معنى وخصائص الوسائط، وتفسير المعلومة اللي جاية منها بشكل دقيق — مش تقبل أي حاجة من غير ما تسأل."
-          data-en="It is the ability to understand the meaning and characteristics of media, and to accurately interpret the information coming from it — not accepting everything without questioning.">
-          هي القدرة على فهم معنى وخصائص الوسائط، وتفسير المعلومة اللي جاية منها بشكل دقيق — مش تقبل أي حاجة من غير ما
-          تسأل.
-        </p>
+        <h3 data-ar="إيه هي الإلمام بالوسائط (Media Literacy)؟" data-en="What is Media Literacy?">إيه هي الإلمام بالوسائط (Media Literacy)؟</h3>
+        <p data-ar="هي القدرة على فهم معنى وخصائص الوسائط، وتفسير المعلومة الجاية منها بدقة — من غير ما تقبل كل حاجة من غير تساؤل."
+          data-en="It is the ability to understand the meaning and characteristics of media, and to accurately interpret the information coming from it — not accepting everything without questioning.">هي القدرة على فهم معنى وخصائص الوسائط، وتفسير المعلومة الجاية منها بدقة — من غير ما تقبل كل حاجة من غير تساؤل.</p>
         <div class="flow-row">
           <div class="flow-node"><span class="fn-icon emoji-float">📱</span><span class="fn-label"
               data-ar="المعلومة بتوصل" data-en="Info arrives">المعلومة بتوصل</span></div>
           <span class="flow-arrow">→</span>
           <div class="flow-node"><span class="fn-icon emoji-float" style="animation-delay:.4s">🤔</span><span
-              class="fn-label" data-ar="نقف ونسأل" data-en="Pause and question">نقف ونسأل</span></div>
+              class="fn-label" data-ar="وقف وتساءل" data-en="Pause and question">وقف وتساءل</span></div>
           <span class="flow-arrow">→</span>
           <div class="flow-node"><span class="fn-icon emoji-float" style="animation-delay:.8s">✅</span><span
-              class="fn-label" data-ar="نقيّم بذكاء" data-en="Evaluate wisely">نقيّم بذكاء</span></div>
+              class="fn-label" data-ar="قّيّم بحكمة" data-en="Evaluate wisely">قّيّم بحكمة</span></div>
         </div>
       </div>
 
       <div class="card section-inner" data-id="lit-sim">
-        <h3 data-ar="قائمة تحقق المصداقية — 5 بوستات" data-en="Credibility Checklist — 5 Posts">قائمة تحقق المصداقية — 5
-          بوستات</h3>
-        <p data-ar="كل بوست له 4 معايير: المصدر، التاريخ، الدليل، التأكيد من مصدر تاني. لوّن صح/غلط لكل معيار، وبعدين اضغط «اكشف التحليل»."
-          data-en="Each post has 4 criteria: Source, Date, Evidence, Corroboration. Mark ✓/✗ for each, then press “Reveal analysis”.">
-          كل بوست له 4 معايير: المصدر، التاريخ، الدليل، التأكيد من مصدر تاني. لوّن صح/غلط لكل معيار، وبعدين اضغط «اكشف
-          التحليل».
-        </p>
+        <h3 data-ar="قائمة مصداقية — 5 بوستات" data-en="Credibility Checklist — 5 Posts">قائمة مصداقية — 5 بوستات</h3>
+        <p data-ar="كل بوست له 4 معايير: المصدر، التاريخ، الدليل، التأييد. علّم ✓/✗ لكل واحد، وبعدين اضغط «اكشف التحليل»."
+          data-en="Each post has 4 criteria: Source, Date, Evidence, Corroboration. Mark ✓/✗ for each, then press “Reveal analysis”.">كل بوست له 4 معايير: المصدر، التاريخ، الدليل، التأييد. علّم ✓/✗ لكل واحد، وبعدين اضغط «اكشف التحليل».</p>
 
         <div class="lit-posts">
           <div class="lit-post" data-id="lit-p1" data-score="95">
             <div class="lit-post-head">
               <span class="lit-emoji emoji-float">🏛️</span>
               <div>
-                <h4 data-ar="دراسة محكمة عن الشيكولاتة" data-en="Peer-reviewed study on chocolate">دراسة محكمة عن
-                  الشيكولاتة</h4>
-                <p data-ar="منشورة في مجلة علمية بمراجعة من لجنة" data-en="Published in a peer-reviewed journal">منشورة
-                  في مجلة علمية بمراجعة من لجنة</p>
+                <h4 data-ar="دراسة مُراجَع من قِبل أقران (peer-reviewed) عن الشوكولاتة" data-en="Peer-reviewed study on chocolate">دراسة مُراجَع من قِبل أقران (peer-reviewed) عن الشوكولاتة</h4>
+                <p data-ar="منشورة في مجلة مُراجَع من قِبل أقران (peer-reviewed)" data-en="Published in a peer-reviewed journal">منشورة في مجلة مُراجَع من قِبل أقران (peer-reviewed)</p>
               </div>
             </div>
             <div class="lit-checks">
@@ -3423,14 +3263,12 @@
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
               <div class="lit-criterion" data-correct="true">
-                <span class="lit-c-name" data-ar="فيه دليل وأرقام" data-en="Has evidence and numbers">فيه دليل
-                  وأرقام</span>
+                <span class="lit-c-name" data-ar="عندها دليل وأرقام" data-en="Has evidence and numbers">عندها دليل وأرقام</span>
                 <button class="lit-c-btn" data-action="set-yes">✓</button>
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
               <div class="lit-criterion" data-correct="true">
-                <span class="lit-c-name" data-ar="مؤكد من مصادر تانية" data-en="Corroborated by others">مؤكد من مصادر
-                  تانية</span>
+                <span class="lit-c-name" data-ar="مؤيَّدة من تانيين" data-en="Corroborated by others">مؤيَّدة من تانيين</span>
                 <button class="lit-c-btn" data-action="set-yes">✓</button>
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
@@ -3441,10 +3279,8 @@
             <div class="lit-post-head">
               <span class="lit-emoji emoji-float" style="animation-delay:.3s">🍫</span>
               <div>
-                <h4 data-ar="«الشيكولاتة بتعالج السرطان»" data-en="“Chocolate cures cancer”">«الشيكولاتة بتعالج السرطان»
-                </h4>
-                <p data-ar="بوست فيسبوك من غير اسم ولا تاريخ" data-en="A Facebook post with no name or date">بوست فيسبوك
-                  من غير اسم ولا تاريخ</p>
+                <h4 data-ar="«الشوكولاتة بتشفى السرطان»" data-en="“Chocolate cures cancer”">«الشوكولاتة بتشفى السرطان»</h4>
+                <p data-ar="بوست فيسبوك من غير اسم أو تاريخ" data-en="A Facebook post with no name or date">بوست فيسبوك من غير اسم أو تاريخ</p>
               </div>
             </div>
             <div class="lit-checks">
@@ -3459,14 +3295,12 @@
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
               <div class="lit-criterion" data-correct="false">
-                <span class="lit-c-name" data-ar="فيه دليل وأرقام" data-en="Has evidence and numbers">فيه دليل
-                  وأرقام</span>
+                <span class="lit-c-name" data-ar="عندها دليل وأرقام" data-en="Has evidence and numbers">عندها دليل وأرقام</span>
                 <button class="lit-c-btn" data-action="set-yes">✓</button>
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
               <div class="lit-criterion" data-correct="false">
-                <span class="lit-c-name" data-ar="مؤكد من مصادر تانية" data-en="Corroborated by others">مؤكد من مصادر
-                  تانية</span>
+                <span class="lit-c-name" data-ar="مؤيَّدة من تانيين" data-en="Corroborated by others">مؤيَّدة من تانيين</span>
                 <button class="lit-c-btn" data-action="set-yes">✓</button>
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
@@ -3477,9 +3311,8 @@
             <div class="lit-post-head">
               <span class="lit-emoji emoji-float" style="animation-delay:.6s">🏋️</span>
               <div>
-                <h4 data-ar="إعلان ممول عن مكمل غذائي" data-en="A sponsored supplement ad">إعلان ممول عن مكمل غذائي</h4>
-                <p data-ar="«محتوى ممول» لكن بدون دراسة موثقة" data-en="“Sponsored content” but no documented study">
-                  «محتوى ممول» لكن بدون دراسة موثقة</p>
+                <h4 data-ar="إعلان مكمّل برعاية" data-en="A sponsored supplement ad">إعلان مكمّل برعاية</h4>
+                <p data-ar="«محتوى برعاية» بس من غير دراسة موثّقة" data-en="“Sponsored content” but no documented study">«محتوى برعاية» بس من غير دراسة موثّقة</p>
               </div>
             </div>
             <div class="lit-checks">
@@ -3494,14 +3327,12 @@
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
               <div class="lit-criterion" data-correct="false">
-                <span class="lit-c-name" data-ar="فيه دليل وأرقام" data-en="Has evidence and numbers">فيه دليل
-                  وأرقام</span>
+                <span class="lit-c-name" data-ar="عندها دليل وأرقام" data-en="Has evidence and numbers">عندها دليل وأرقام</span>
                 <button class="lit-c-btn" data-action="set-yes">✓</button>
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
               <div class="lit-criterion" data-correct="false">
-                <span class="lit-c-name" data-ar="مؤكد من مصادر تانية" data-en="Corroborated by others">مؤكد من مصادر
-                  تانية</span>
+                <span class="lit-c-name" data-ar="مؤيَّدة من تانيين" data-en="Corroborated by others">مؤيَّدة من تانيين</span>
                 <button class="lit-c-btn" data-action="set-yes">✓</button>
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
@@ -3512,9 +3343,8 @@
             <div class="lit-post-head">
               <span class="lit-emoji emoji-float" style="animation-delay:.9s">📰</span>
               <div>
-                <h4 data-ar="خبر في جريدة مرموقة" data-en="A story in a reputable newspaper">خبر في جريدة مرموقة</h4>
-                <p data-ar="بذكر مصادرها وبينقل بيانات رسمية" data-en="Cites its sources and quotes official data">بذكر
-                  مصادرها وبينقل بيانات رسمية</p>
+                <h4 data-ar="قصة في جريدة معتبرة" data-en="A story in a reputable newspaper">قصة في جريدة معتبرة</h4>
+                <p data-ar="بتذكر مصادرها وتقتبس بيانات رسمية" data-en="Cites its sources and quotes official data">بتذكر مصادرها وتقتبس بيانات رسمية</p>
               </div>
             </div>
             <div class="lit-checks">
@@ -3529,14 +3359,12 @@
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
               <div class="lit-criterion" data-correct="false">
-                <span class="lit-c-name" data-ar="فيه دليل وأرقام" data-en="Has evidence and numbers">فيه دليل
-                  وأرقام</span>
+                <span class="lit-c-name" data-ar="عندها دليل وأرقام" data-en="Has evidence and numbers">عندها دليل وأرقام</span>
                 <button class="lit-c-btn" data-action="set-yes">✓</button>
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
               <div class="lit-criterion" data-correct="true">
-                <span class="lit-c-name" data-ar="مؤكد من مصادر تانية" data-en="Corroborated by others">مؤكد من مصادر
-                  تانية</span>
+                <span class="lit-c-name" data-ar="مؤيَّدة من تانيين" data-en="Corroborated by others">مؤيَّدة من تانيين</span>
                 <button class="lit-c-btn" data-action="set-yes">✓</button>
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
@@ -3547,9 +3375,9 @@
             <div class="lit-post-head">
               <span class="lit-emoji emoji-float" style="animation-delay:1.2s">💬</span>
               <div>
-                <h4 data-ar="منشن في جروب كبير" data-en="A message in a big group">منشن في جروب كبير</h4>
-                <p data-ar="«سمعت من حد إن...» من غير أي دليل"
-                  data-en="“I heard from someone that...” with no evidence">«سمعت من حد إن...» من غير أي دليل</p>
+                <h4 data-ar="رسالة في جروب كبير" data-en="A message in a big group">رسالة في جروب كبير</h4>
+                <p data-ar="«سمعت من حد إن...» من غير دليل"
+                  data-en="“I heard from someone that...” with no evidence">«سمعت من حد إن...» من غير دليل</p>
               </div>
             </div>
             <div class="lit-checks">
@@ -3564,14 +3392,12 @@
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
               <div class="lit-criterion" data-correct="false">
-                <span class="lit-c-name" data-ar="فيه دليل وأرقام" data-en="Has evidence and numbers">فيه دليل
-                  وأرقام</span>
+                <span class="lit-c-name" data-ar="عندها دليل وأرقام" data-en="Has evidence and numbers">عندها دليل وأرقام</span>
                 <button class="lit-c-btn" data-action="set-yes">✓</button>
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
               <div class="lit-criterion" data-correct="false">
-                <span class="lit-c-name" data-ar="مؤكد من مصادر تانية" data-en="Corroborated by others">مؤكد من مصادر
-                  تانية</span>
+                <span class="lit-c-name" data-ar="مؤيَّدة من تانيين" data-en="Corroborated by others">مؤيَّدة من تانيين</span>
                 <button class="lit-c-btn" data-action="set-yes">✓</button>
                 <button class="lit-c-btn" data-action="set-no">✗</button>
               </div>
@@ -3591,29 +3417,20 @@
       </div>
 
       <div class="card section-inner">
-        <h3 data-ar="دروس ناخدها" data-en="Lessons to take away">دروس ناخدها</h3>
-        <p data-ar="«شارة التوثيق» أو «منصة كبيرة» مش معناها مصداقية تلقائية. الدليل الحقيقي: المصدر الواضح + التاريخ + الأرقام + التأكيد من مصادر تانية."
-          data-en="A “verified badge” or “big platform” does not mean automatic credibility. Real evidence: clear source + date + numbers + corroboration.">
-          «شارة التوثيق» أو «منصة كبيرة» مش معناها مصداقية تلقائية. الدليل الحقيقي: المصدر الواضح + التاريخ + الأرقام +
-          التأكيد من مصادر تانية.
-        </p>
+        <h3 data-ar="دروس تاخدها" data-en="Lessons to take away">دروس تاخدها</h3>
+        <p data-ar="«علامة موثوق» أو «منصة كبيرة» مش معناها مصداقية تلقائية. الدليل الحقيقي: مصدر واضح + تاريخ + أرقام + تأييد."
+          data-en="A “verified badge” or “big platform” does not mean automatic credibility. Real evidence: clear source + date + numbers + corroboration.">«علامة موثوق» أو «منصة كبيرة» مش معناها مصداقية تلقائية. الدليل الحقيقي: مصدر واضح + تاريخ + أرقام + تأييد.</p>
       </div>
 
       <div class="error-box section-inner">
         <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
         <ul>
-          <li data-ar="الاعتقاد إن شارة توثيق أو منصة كبيرة = مصداقية تلقائية — لأ، المصداقية من المحتوى نفسه."
-            data-en="Thinking a verification badge or big platform means automatic credibility — no, credibility comes from the content itself.">
-            الاعتقاد إن شارة توثيق أو منصة كبيرة = مصداقية تلقائية — لأ، المصداقية من المحتوى نفسه.
-          </li>
-          <li data-ar="المشاركة الفورية من غير توقف — قبل ما تشارك، اسأل: المصدر؟ الدليل؟ مصادر تانية؟"
-            data-en="Sharing immediately without pausing — before sharing, ask: source? evidence? other sources?">
-            المشاركة الفورية من غير توقف — قبل ما تشارك، اسأل: المصدر؟ الدليل؟ مصادر تانية؟
-          </li>
-          <li data-ar="خلط المحتوى الممول بالخبر — الإعلان له مصلحة، الخبر هدفه المعلومة."
-            data-en="Confusing sponsored content with news — ads have an interest, news aims at information.">
-            خلط المحتوى الممول بالخبر — الإعلان له مصلحة، الخبر هدفه المعلومة.
-          </li>
+          <li data-ar="إنك تفتكر علامة التوثيق أو المنصة الكبيرة معناها مصداقية تلقائية — لأ، المصداقية جاية من المحتوى نفسه."
+            data-en="Thinking a verification badge or big platform means automatic credibility — no, credibility comes from the content itself.">إنك تفتكر علامة التوثيق أو المنصة الكبيرة معناها مصداقية تلقائية — لأ، المصداقية جاية من المحتوى نفسه.</li>
+          <li data-ar="إنك تشارك فوراً من غير ما تقف — قبل ما تشارك، اسأل: المصدر؟ الدليل؟ مصادر تانية؟"
+            data-en="Sharing immediately without pausing — before sharing, ask: source? evidence? other sources?">إنك تشارك فوراً من غير ما تقف — قبل ما تشارك، اسأل: المصدر؟ الدليل؟ مصادر تانية؟</li>
+          <li data-ar="إنك تلخبط المحتوى برعاية بالأخبار — الإعلانات ليها مصلحة، والأخبار هدفها المعلومة."
+            data-en="Confusing sponsored content with news — ads have an interest, news aims at information.">إنك تلخبط المحتوى برعاية بالأخبار — الإعلانات ليها مصلحة، والأخبار هدفها المعلومة.</li>
         </ul>
       </div>
     </section>
@@ -3624,48 +3441,40 @@
         <div class="section-number">06</div>
         <div>
           <h2 class="section-title" data-ar="أسئلة الكتاب" data-en="Book Questions">أسئلة الكتاب</h2>
-          <p class="section-subtitle" data-ar="التحضير + التمرين + المحاولة" data-en="Warm Up + Exercise + Try">Warm Up
-            + Exercise + Try</p>
+          <p class="section-subtitle" data-ar="Warm Up + Exercise + Try" data-en="Warm Up + Exercise + Try">Warm Up + Exercise + Try</p>
         </div>
       </div>
       <div class="summary-box section-inner">
         <h4 data-ar="هدفنا النهارده" data-en="Our Goal Today">هدفنا النهارده</h4>
-        <p data-ar="نتدرب على كل أسئلة الكتاب (Warm Up + Exercise + Try) كاختبار اختيار من متعدد."
-          data-en="Practice all the book questions (Warm Up + Exercise + Try) as a multiple-choice test.">
-          نتدرب على كل أسئلة الكتاب (Warm Up + Exercise + Try) كاختبار اختيار من متعدد.
-        </p>
+        <p data-ar="تمرّن على كل أسئلة الكتاب (Warm Up + Exercise + Try) كاختبار اختيارات متعددة."
+          data-en="Practice all the book questions (Warm Up + Exercise + Try) as a multiple-choice test.">تمرّن على كل أسئلة الكتاب (Warm Up + Exercise + Try) كاختبار اختيارات متعددة.</p>
       </div>
 
       <div class="card section-inner" data-id="book-mcq">
-        <h3 data-ar="أسئلة الكتاب — اختيار من متعدد" data-en="Book Questions — Multiple Choice">أسئلة الكتاب — اختيار من
-          متعدد</h3>
-        <p data-ar="جاوب بنفسك الأول من غير ما تعرف الإجابة الصح، وبعدين اضغط «اعرض كل الإجابات» عشان تتأكد."
-          data-en="Answer on your own first without knowing the right answer, then press “Show all answers” to check.">
-          جاوب بنفسك الأول من غير ما تعرف الإجابة الصح، وبعدين اضغط «اعرض كل الإجابات» عشان تتأكد.
-        </p>
+        <h3 data-ar="أسئلة الكتاب — اختيار من متعدد" data-en="Book Questions — Multiple Choice">أسئلة الكتاب — اختيار من متعدد</h3>
+        <p data-ar="جاوب بنفسك الأول من غير ما تعرف الإجابة الصح، وبعدين اضغط «اعرض كل الإجابات» عشان تتخلص."
+          data-en="Answer on your own first without knowing the right answer, then press “Show all answers” to check.">جاوب بنفسك الأول من غير ما تعرف الإجابة الصح، وبعدين اضغط «اعرض كل الإجابات» عشان تتخلص.</p>
 
         <div class="mcq-list">
           <div class="mcq-group">
             <div class="mcq-group-title"><span class="mg-tag" data-ar="Warm Up" data-en="Warm Up">Warm Up</span>
-              <h3 data-ar="الأسئلة 1–7: البيانات والمعرفة وخصائص المعلومة"
-                data-en="Questions 1–7: data, knowledge, and characteristics">الأسئلة 1–7: البيانات والمعرفة وخصائص
-                المعلومة</h3>
+              <h3 data-ar="أسئلة 1–7: البيانات (Data)، المعرفة (Knowledge)، وخصائص"
+                data-en="Questions 1–7: data, knowledge, and characteristics">أسئلة 1–7: البيانات (Data)، المعرفة (Knowledge)، وخصائص</h3>
             </div>
 
             <div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num">1</span><span
-                  data-ar="قيم درجة الحرارة والرطوبة — دي أي مرحلة؟"
-                  data-en="Temperature and humidity values — which stage?">قيم درجة الحرارة والرطوبة — دي أي
-                  مرحلة؟</span></div>
+                  data-ar="قيم الحرارة والرطوبة — أنهي مرحلة؟"
+                  data-en="Temperature and humidity values — which stage?">قيم الحرارة والرطوبة — أنهي مرحلة؟</span></div>
               <div class="mcq-opts">
-                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Information"
-                    data-en="Information">Information</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Knowledge"
-                    data-en="Knowledge">Knowledge</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Data"
-                    data-en="Data">Data</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Media"
-                    data-en="Media">Media</span></div>
+                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="المعلومات (Information)"
+                    data-en="Information">المعلومات (Information)</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="المعرفة (Knowledge)"
+                    data-en="Knowledge">المعرفة (Knowledge)</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="البيانات (Data)"
+                    data-en="Data">البيانات (Data)</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="وسائط"
+                    data-en="Media">وسائط</span></div>
               </div>
               <div class="mcq-explanation" data-ar="الأرقام الخام من غير سياق = Data."
                 data-en="Raw numbers without context = Data.">الأرقام الخام من غير سياق = Data.</div>
@@ -3673,18 +3482,17 @@
 
             <div class="mcq-q" data-answer="D">
               <div class="mcq-q-head"><span class="mcq-num">2</span><span
-                  data-ar="نتايج تحليل درجة الحرارة والرطوبة على مدى 10 سنين — أي مرحلة؟"
-                  data-en="Analysis results of temperature and humidity over 10 years — which stage?">نتايج تحليل درجة
-                  الحرارة والرطوبة على مدى 10 سنين — أي مرحلة؟</span></div>
+                  data-ar="نتائج تحليل الحرارة والرطوبة على مدى 10 سنين — أنهي مرحلة؟"
+                  data-en="Analysis results of temperature and humidity over 10 years — which stage?">نتائج تحليل الحرارة والرطوبة على مدى 10 سنين — أنهي مرحلة؟</span></div>
               <div class="mcq-opts">
-                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Data"
-                    data-en="Data">Data</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Knowledge"
-                    data-en="Knowledge">Knowledge</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Media"
-                    data-en="Media">Media</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Information"
-                    data-en="Information">Information</span></div>
+                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="البيانات (Data)"
+                    data-en="Data">البيانات (Data)</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="المعرفة (Knowledge)"
+                    data-en="Knowledge">المعرفة (Knowledge)</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="وسائط"
+                    data-en="Media">وسائط</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="المعلومات (Information)"
+                    data-en="Information">المعلومات (Information)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="التحليل اللي بيضيف معنى على المدى الطويل = Information."
                 data-en="Analysis that adds meaning over the long term = Information.">التحليل اللي بيضيف معنى على المدى
@@ -3693,18 +3501,18 @@
 
             <div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num">3</span><span
-                  data-ar="التوقعات الجوية (Weather forecast) — أي مرحلة؟"
-                  data-en="The weather forecast — which stage?">التوقعات الجوية (Weather forecast) — أي مرحلة؟</span>
+                  data-ar="توقعات الجو — أنهي مرحلة؟"
+                  data-en="The weather forecast — which stage?">توقعات الجو — أنهي مرحلة؟</span>
               </div>
               <div class="mcq-opts">
-                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Knowledge"
-                    data-en="Knowledge">Knowledge</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Data"
-                    data-en="Data">Data</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Information"
-                    data-en="Information">Information</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Propagation"
-                    data-en="Propagation">Propagation</span></div>
+                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="المعرفة (Knowledge)"
+                    data-en="Knowledge">المعرفة (Knowledge)</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="البيانات (Data)"
+                    data-en="Data">البيانات (Data)</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="المعلومات (Information)"
+                    data-en="Information">المعلومات (Information)</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="الانتشار (Propagation)"
+                    data-en="Propagation">الانتشار (Propagation)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="التوقع بيستخدم نمط معمم من سنين — معرفة Knowledge."
                 data-en="A forecast uses a generalized pattern from years — Knowledge.">التوقع بيستخدم نمط معمم من سنين
@@ -3713,9 +3521,8 @@
 
             <div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num">4</span><span
-                  data-ar="اختر الجملة اللي مش مناسبة كخاصية للمعلومة:"
-                  data-en="Choose the statement NOT suitable as a characteristic of information:">اختر الجملة اللي مش
-                  مناسبة كخاصية للمعلومة:</span></div>
+                  data-ar="اختار الجملة اللي مش مناسبة كخاصية للمعلومة:"
+                  data-en="Choose the statement NOT suitable as a characteristic of information:">اختار الجملة اللي مش مناسبة كخاصية للمعلومة:</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span
                     data-ar="معناها أو قيمتها بتتغير حسب المستقبل"
@@ -3736,18 +3543,17 @@
 
             <div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num">5</span><span
-                  data-ar="«حتى لو اشتريت CD، مش مسموح تعمل نسخ توزعها على أصحابك» — أي خاصية؟"
-                  data-en="“Even if you buy a CD, you can't make copies to distribute to friends” — which characteristic?">«حتى
-                  لو اشتريت CD، مش مسموح تعمل نسخ توزعها على أصحابك» — أي خاصية؟</span></div>
+                  data-ar="«حتى لو اشتريت CD، مش تقدر تعمل نسخ توزّعها لصحابك» — أنهي خاصية؟"
+                  data-en="“Even if you buy a CD, you can't make copies to distribute to friends” — which characteristic?">«حتى لو اشتريت CD، مش تقدر تعمل نسخ توزّعها لصحابك» — أنهي خاصية؟</span></div>
               <div class="mcq-opts">
-                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Persistence"
-                    data-en="Persistence">Persistence</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Propagation"
-                    data-en="Propagation">Propagation</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Reproducibility"
-                    data-en="Reproducibility">Reproducibility</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Media"
-                    data-en="Media">Media</span></div>
+                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="الثبات (Persistence)"
+                    data-en="Persistence">الثبات (Persistence)</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="الانتشار (Propagation)"
+                    data-en="Propagation">الانتشار (Propagation)</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="القابلية للتكرار (Reproducibility)"
+                    data-en="Reproducibility">القابلية للتكرار (Reproducibility)</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="وسائط"
+                    data-en="Media">وسائط</span></div>
               </div>
               <div class="mcq-explanation"
                 data-ar="الكلام عن إمكانية النسخ السهلة — Reproducibility، والقانون بيراقبها."
@@ -3757,18 +3563,17 @@
 
             <div class="mcq-q" data-answer="D">
               <div class="mcq-q-head"><span class="mcq-num">6</span><span
-                  data-ar="«الإيميلات ممكن تتأرس لبره البلاد في ثواني» — أي خاصية؟"
-                  data-en="“Emails can be sent overseas instantly” — which characteristic?">«الإيميلات ممكن تتأرس لبره
-                  البلاد في ثواني» — أي خاصية؟</span></div>
+                  data-ar="«الإيميلات ممكن تتتبعت بره فوراً» — أنهي خاصية؟"
+                  data-en="“Emails can be sent overseas instantly” — which characteristic?">«الإيميلات ممكن تتتبعت بره فوراً» — أنهي خاصية؟</span></div>
               <div class="mcq-opts">
-                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Persistence"
-                    data-en="Persistence">Persistence</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Reproducibility"
-                    data-en="Reproducibility">Reproducibility</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Cross-checking"
-                    data-en="Cross-checking">Cross-checking</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Propagation"
-                    data-en="Propagation">Propagation</span></div>
+                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="الثبات (Persistence)"
+                    data-en="Persistence">الثبات (Persistence)</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="القابلية للتكرار (Reproducibility)"
+                    data-en="Reproducibility">القابلية للتكرار (Reproducibility)</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="التدقيق المتبادل (Cross-checking)"
+                    data-en="Cross-checking">التدقيق المتبادل (Cross-checking)</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="الانتشار (Propagation)"
+                    data-en="Propagation">الانتشار (Propagation)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="الإرسال والتوصيل الفوري = انتشار Propagation."
                 data-en="Instant sending and delivery = Propagation.">الإرسال والتوصيل الفوري = انتشار Propagation.
@@ -3777,16 +3582,15 @@
 
             <div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num">7</span><span
-                  data-ar="«شائعات عن الناس ومعلومات غلط ممكن تفضل موجودة للأبد» — أي خاصية؟"
-                  data-en="“Rumors about people and false info can persist forever” — which characteristic?">«شائعات عن
-                  الناس ومعلومات غلط ممكن تفضل موجودة للأبد» — أي خاصية؟</span></div>
+                  data-ar="«الشائعات عن الناس والمعلومات الغلط ممكن تفضل للأبد» — أنهي خاصية؟"
+                  data-en="“Rumors about people and false info can persist forever” — which characteristic?">«الشائعات عن الناس والمعلومات الغلط ممكن تفضل للأبد» — أنهي خاصية؟</span></div>
               <div class="mcq-opts">
-                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Persistence"
-                    data-en="Persistence">Persistence</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Reproducibility"
-                    data-en="Reproducibility">Reproducibility</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Propagation"
-                    data-en="Propagation">Propagation</span></div>
+                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="الثبات (Persistence)"
+                    data-en="Persistence">الثبات (Persistence)</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="القابلية للتكرار (Reproducibility)"
+                    data-en="Reproducibility">القابلية للتكرار (Reproducibility)</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="الانتشار (Propagation)"
+                    data-en="Propagation">الانتشار (Propagation)</span></div>
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Primary"
                     data-en="Primary">Primary</span></div>
               </div>
@@ -3798,14 +3602,12 @@
 
           <div class="mcq-group">
             <div class="mcq-group-title"><span class="mg-tag" data-ar="Warm Up" data-en="Warm Up">Warm Up</span>
-              <h3 data-ar="الأسئلة 8–13: تصنيف الوسائط" data-en="Questions 8–13: classifying media">الأسئلة 8–13: تصنيف
-                الوسائط</h3>
+              <h3 data-ar="أسئلة 8–13: تصنيف الوسائط" data-en="Questions 8–13: classifying media">أسئلة 8–13: تصنيف الوسائط</h3>
             </div>
 
             <div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num">8</span><span
-                  data-ar="التليفزيون (Television) — أي نوع وسائط؟" data-en="Television — which media type?">التليفزيون
-                  (Television) — أي نوع وسائط؟</span></div>
+                  data-ar="التليفزيون — أنهي نوع وسيط؟" data-en="Television — which media type?">التليفزيون — أنهي نوع وسيط؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Expression"
                     data-en="Expression">Expression</span></div>
@@ -3813,8 +3615,8 @@
                     data-en="Transmission">Transmission</span></div>
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Recording"
                     data-en="Recording">Recording</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Media literacy"
-                    data-en="Media literacy">Media literacy</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="الإلمام بالوسائط (Media Literacy)"
+                    data-en="Media literacy">الإلمام بالوسائط (Media Literacy)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="التليفزيون وسيط نقل وتوصيل — Transmission."
                 data-en="TV is a transmission medium.">التليفزيون وسيط نقل وتوصيل — Transmission.</div>
@@ -3822,8 +3624,7 @@
 
             <div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num">9</span><span
-                  data-ar="التخزين السحابي (Cloud storage) — أي نوع؟" data-en="Cloud storage — which type?">التخزين
-                  السحابي (Cloud storage) — أي نوع؟</span></div>
+                  data-ar="التخزين السحابي — أنهي نوع؟" data-en="Cloud storage — which type?">التخزين السحابي — أنهي نوع؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Expression"
                     data-en="Expression">Expression</span></div>
@@ -3831,8 +3632,8 @@
                     data-en="Transmission">Transmission</span></div>
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Recording"
                     data-en="Recording">Recording</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Knowledge"
-                    data-en="Knowledge">Knowledge</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="المعرفة (Knowledge)"
+                    data-en="Knowledge">المعرفة (Knowledge)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="السحابة وسيلة تسجيل وتخزين — Recording."
                 data-en="Cloud is a recording/storage medium.">السحابة وسيلة تسجيل وتخزين — Recording.</div>
@@ -3840,15 +3641,14 @@
 
             <div class="mcq-q" data-answer="D">
               <div class="mcq-q-head"><span class="mcq-num">10</span><span
-                  data-ar="الصورة الفوتوغرافية (Photograph) — أي نوع؟" data-en="A photograph — which type?">الصورة
-                  الفوتوغرافية (Photograph) — أي نوع؟</span></div>
+                  data-ar="صورة — أنهي نوع؟" data-en="A photograph — which type?">صورة — أنهي نوع؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Transmission"
                     data-en="Transmission">Transmission</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Recording"
                     data-en="Recording">Recording</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Propagation"
-                    data-en="Propagation">Propagation</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="الانتشار (Propagation)"
+                    data-en="Propagation">الانتشار (Propagation)</span></div>
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Expression"
                     data-en="Expression">Expression</span></div>
               </div>
@@ -3858,8 +3658,8 @@
             </div>
 
             <div class="mcq-q" data-answer="A">
-              <div class="mcq-q-head"><span class="mcq-num">11</span><span data-ar="الإنتيرنيت (Internet) — أي نوع؟"
-                  data-en="The Internet — which type?">الإنتيرنيت (Internet) — أي نوع؟</span></div>
+              <div class="mcq-q-head"><span class="mcq-num">11</span><span data-ar="الإنترنت — أنهي نوع؟"
+                  data-en="The Internet — which type?">الإنترنت — أنهي نوع؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Transmission"
                     data-en="Transmission">Transmission</span></div>
@@ -3867,8 +3667,8 @@
                     data-en="Expression">Expression</span></div>
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Recording"
                     data-en="Recording">Recording</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Media literacy"
-                    data-en="Media literacy">Media literacy</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="الإلمام بالوسائط (Media Literacy)"
+                    data-en="Media literacy">الإلمام بالوسائط (Media Literacy)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="الإنتيرنيت بيوصّل المعلومة — Transmission."
                 data-en="The internet delivers info — Transmission.">الإنتيرنيت بيوصّل المعلومة — Transmission.</div>
@@ -3876,8 +3676,7 @@
 
             <div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num">12</span><span
-                  data-ar="الحرف النصي (Text character) — أي نوع؟" data-en="A text character — which type?">الحرف النصي
-                  (Text character) — أي نوع؟</span></div>
+                  data-ar="حرف نص — أنهي نوع؟" data-en="A text character — which type?">حرف نص — أنهي نوع؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Transmission"
                     data-en="Transmission">Transmission</span></div>
@@ -3885,16 +3684,16 @@
                     data-en="Expression">Expression</span></div>
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Recording"
                     data-en="Recording">Recording</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Data"
-                    data-en="Data">Data</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="البيانات (Data)"
+                    data-en="Data">البيانات (Data)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="النص بيعبّر عن المعلومة — Expression."
                 data-en="Text expresses information — Expression.">النص بيعبّر عن المعلومة — Expression.</div>
             </div>
 
             <div class="mcq-q" data-answer="C">
-              <div class="mcq-q-head"><span class="mcq-num">13</span><span data-ar="الكتاب (Book) — أي نوع؟"
-                  data-en="A book — which type?">الكتاب (Book) — أي نوع؟</span></div>
+              <div class="mcq-q-head"><span class="mcq-num">13</span><span data-ar="كتاب — أنهي نوع؟"
+                  data-en="A book — which type?">كتاب — أنهي نوع؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Expression"
                     data-en="Expression">Expression</span></div>
@@ -3902,8 +3701,8 @@
                     data-en="Recording">Recording</span></div>
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Transmission"
                     data-en="Transmission">Transmission</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Propagation"
-                    data-en="Propagation">Propagation</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="الانتشار (Propagation)"
+                    data-en="Propagation">الانتشار (Propagation)</span></div>
               </div>
               <div class="mcq-explanation"
                 data-ar="الكتاب وسيلة تنقل المعلومة (بيوصلها ليك) — Transmission. (وفيه دور تسجيل كمان!)"
@@ -3914,23 +3713,22 @@
 
           <div class="mcq-group">
             <div class="mcq-group-title"><span class="mg-tag" data-ar="Warm Up" data-en="Warm Up">Warm Up</span>
-              <h3 data-ar="الأسئلة 14–15: مصطلحات" data-en="Questions 14–15: terms">الأسئلة 14–15: مصطلحات</h3>
+              <h3 data-ar="أسئلة 14–15: مصطلحات" data-en="Questions 14–15: terms">أسئلة 14–15: مصطلحات</h3>
             </div>
 
             <div class="mcq-q" data-answer="D">
               <div class="mcq-q-head"><span class="mcq-num">14</span><span
-                  data-ar="إيه اسم القدرة على تفسير المعلومة الماخودة من الوسائط بشكل دقيق؟"
-                  data-en="What is the term for accurately interpreting information obtained from media?">إيه اسم القدرة
-                  على تفسير المعلومة الماخودة من الوسائط بشكل دقيق؟</span></div>
+                  data-ar="إيه المصطلح اللي بيعني التفسير الدقيق للمعلومة الجاية من الوسائط؟"
+                  data-en="What is the term for accurately interpreting information obtained from media?">إيه المصطلح اللي بيعني التفسير الدقيق للمعلومة الجاية من الوسائط؟</span></div>
               <div class="mcq-opts">
-                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Cross-checking"
-                    data-en="Cross-checking">Cross-checking</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Media"
-                    data-en="Media">Media</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Knowledge"
-                    data-en="Knowledge">Knowledge</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Media literacy"
-                    data-en="Media literacy">Media literacy</span></div>
+                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="التدقيق المتبادل (Cross-checking)"
+                    data-en="Cross-checking">التدقيق المتبادل (Cross-checking)</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="وسائط"
+                    data-en="Media">وسائط</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="المعرفة (Knowledge)"
+                    data-en="Knowledge">المعرفة (Knowledge)</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="الإلمام بالوسائط (Media Literacy)"
+                    data-en="Media literacy">الإلمام بالوسائط (Media Literacy)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="الإلمام بالوسائط = فهم معنى وخصائص الوسائط وتفسير المعلومة بدقة."
                 data-en="Media literacy = understanding media's meaning/characteristics and interpreting info accurately.">
@@ -3939,18 +3737,17 @@
 
             <div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num">15</span><span
-                  data-ar="إيه اسم الوسيط المستخدم لنقل المعلومة للناس؟"
-                  data-en="What is the term for the medium used to convey information to people?">إيه اسم الوسيط
-                  المستخدم لنقل المعلومة للناس؟</span></div>
+                  data-ar="إيه المصطلح للوسيط المستخدم عشان ينقل المعلومة للناس؟"
+                  data-en="What is the term for the medium used to convey information to people?">إيه المصطلح للوسيط المستخدم عشان ينقل المعلومة للناس؟</span></div>
               <div class="mcq-opts">
-                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Media"
-                    data-en="Media">Media</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Media literacy"
-                    data-en="Media literacy">Media literacy</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Data"
-                    data-en="Data">Data</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Knowledge"
-                    data-en="Knowledge">Knowledge</span></div>
+                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="وسائط"
+                    data-en="Media">وسائط</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="الإلمام بالوسائط (Media Literacy)"
+                    data-en="Media literacy">الإلمام بالوسائط (Media Literacy)</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="البيانات (Data)"
+                    data-en="Data">البيانات (Data)</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="المعرفة (Knowledge)"
+                    data-en="Knowledge">المعرفة (Knowledge)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="الوسائط = وسيلة نقل المعلومة للناس: جرايد، تليفزيون، إنتيرنيت."
                 data-en="Media = the medium for conveying info to people: newspapers, TV, internet.">الوسائط = وسيلة نقل
@@ -3960,24 +3757,22 @@
 
           <div class="mcq-group">
             <div class="mcq-group-title"><span class="mg-tag" data-ar="Exercise" data-en="Exercise">Exercise</span>
-              <h3 data-ar="الأسئلة 16–18: مفاهيم متقدمة" data-en="Questions 16–18: advanced concepts">الأسئلة 16–18:
-                مفاهيم متقدمة</h3>
+              <h3 data-ar="أسئلة 16–18: مفاهيم متقدمة" data-en="Questions 16–18: advanced concepts">أسئلة 16–18: مفاهيم متقدمة</h3>
             </div>
 
             <div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num">16</span><span
-                  data-ar="إيه المصطلح اللي بيعبّر عن تمثيل الحقائق بأرقام أو حروف أو رموز؟"
-                  data-en="What term represents facts using numbers, characters, or symbols?">إيه المصطلح اللي بيعبّر عن
-                  تمثيل الحقائق بأرقام أو حروف أو رموز؟</span></div>
+                  data-ar="إيه المصطلح اللي بيمثّل حقائق بأرقام أو حروف أو رموز؟"
+                  data-en="What term represents facts using numbers, characters, or symbols?">إيه المصطلح اللي بيمثّل حقائق بأرقام أو حروف أو رموز؟</span></div>
               <div class="mcq-opts">
-                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Knowledge"
-                    data-en="Knowledge">Knowledge</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Data"
-                    data-en="Data">Data</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Media"
-                    data-en="Media">Media</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Information"
-                    data-en="Information">Information</span></div>
+                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="المعرفة (Knowledge)"
+                    data-en="Knowledge">المعرفة (Knowledge)</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="البيانات (Data)"
+                    data-en="Data">البيانات (Data)</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="وسائط"
+                    data-en="Media">وسائط</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="المعلومات (Information)"
+                    data-en="Information">المعلومات (Information)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="التعريف الحرفي للبيانات: حقائق ممثلة بأرقام/حروف/رموز = Data."
                 data-en="The literal definition of data: facts represented by numbers/chars/symbols = Data.">التعريف
@@ -3986,9 +3781,8 @@
 
             <div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num">17</span><span
-                  data-ar="اختر الجملة الصحيحة عن خصائص المعلومة:"
-                  data-en="Choose the correct statement about information characteristics:">اختر الجملة الصحيحة عن خصائص
-                  المعلومة:</span></div>
+                  data-ar="اختار الجملة الصح عن خصائص المعلومة:"
+                  data-en="Choose the correct statement about information characteristics:">اختار الجملة الصح عن خصائص المعلومة:</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span
                     data-ar="المعلومة مالهاش خاصية قابلية النسخ"
@@ -4012,16 +3806,15 @@
 
             <div class="mcq-q" data-answer="D">
               <div class="mcq-q-head"><span class="mcq-num">18</span><span
-                  data-ar="إيه اسم المعلومة الماخودة من تجربة شخصية أو تحقيقات عملتها بنفسك؟"
-                  data-en="What is the term for information obtained from personal experience or investigations you ran yourself?">إيه
-                  اسم المعلومة الماخودة من تجربة شخصية أو تحقيقات عملتها بنفسك؟</span></div>
+                  data-ar="إيه المصطلح للمعلومة الجاية من تجربة شخصية أو تحقيقات عملتهـا بـ إيدك؟"
+                  data-en="What is the term for information obtained from personal experience or investigations you ran yourself?">إيه المصطلح للمعلومة الجاية من تجربة شخصية أو تحقيقات عملتهـا بـ إيدك؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Secondary information"
                     data-en="Secondary information">Secondary information</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Knowledge"
-                    data-en="Knowledge">Knowledge</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Data"
-                    data-en="Data">Data</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="المعرفة (Knowledge)"
+                    data-en="Knowledge">المعرفة (Knowledge)</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="البيانات (Data)"
+                    data-en="Data">البيانات (Data)</span></div>
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Primary information"
                     data-en="Primary information">Primary information</span></div>
               </div>
@@ -4033,24 +3826,22 @@
 
           <div class="mcq-group">
             <div class="mcq-group-title"><span class="mg-tag" data-ar="Try" data-en="Try">Try</span>
-              <h3 data-ar="الأسئلة 19–20: تحليل ومواقف" data-en="Questions 19–20: analysis and situations">الأسئلة
-                19–20: تحليل ومواقف</h3>
+              <h3 data-ar="أسئلة 19–20: تحليل ومواقف" data-en="Questions 19–20: analysis and situations">أسئلة 19–20: تحليل ومواقف</h3>
             </div>
 
             <div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num">19</span><span
-                  data-ar="«المعلومة اللي بتنشر على الإنتيرنيت بتنتشر على نطاق واسع في وقت قصير» — أي خاصية؟"
-                  data-en="“Information published on the internet spreads widely in a short time” — which characteristic?">«المعلومة
-                  اللي بتنشر على الإنتيرنيت بتنتشر على نطاق واسع في وقت قصير» — أي خاصية؟</span></div>
+                  data-ar="«معلومة منشورة على الإنترنت بتنتشر بسرعة في وقت قصير» — أنهي خاصية؟"
+                  data-en="“Information published on the internet spreads widely in a short time” — which characteristic?">«معلومة منشورة على الإنترنت بتنتشر بسرعة في وقت قصير» — أنهي خاصية؟</span></div>
               <div class="mcq-opts">
-                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="Propagation"
-                    data-en="Propagation">Propagation</span></div>
-                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="Persistence"
-                    data-en="Persistence">Persistence</span></div>
-                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="Reproducibility"
-                    data-en="Reproducibility">Reproducibility</span></div>
-                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="Cross-checking"
-                    data-en="Cross-checking">Cross-checking</span></div>
+                <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="الانتشار (Propagation)"
+                    data-en="Propagation">الانتشار (Propagation)</span></div>
+                <div class="mcq-opt" data-opt="B"><span class="mcq-letter">B</span><span data-ar="الثبات (Persistence)"
+                    data-en="Persistence">الثبات (Persistence)</span></div>
+                <div class="mcq-opt" data-opt="C"><span class="mcq-letter">C</span><span data-ar="القابلية للتكرار (Reproducibility)"
+                    data-en="Reproducibility">القابلية للتكرار (Reproducibility)</span></div>
+                <div class="mcq-opt" data-opt="D"><span class="mcq-letter">D</span><span data-ar="التدقيق المتبادل (Cross-checking)"
+                    data-en="Cross-checking">التدقيق المتبادل (Cross-checking)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="الانتشار الواسع والسريع = Propagation."
                 data-en="Wide and fast spread = Propagation.">الانتشار الواسع والسريع = Propagation.</div>
@@ -4058,9 +3849,8 @@
 
             <div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num">20</span><span
-                  data-ar="اختر كل الوسائط اللي تعتبر وسائط نقل/إرسال:"
-                  data-en="Choose ALL the media that qualify as transmission media:">اختر كل الوسائط اللي تعتبر وسائط
-                  نقل/إرسال:</span></div>
+                  data-ar="اختار كل الوسائط اللي بتعتبر وسائط النقل (Transmission):"
+                  data-en="Choose ALL the media that qualify as transmission media:">اختار كل الوسائط اللي بتعتبر وسائط النقل (Transmission):</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter">A</span><span data-ar="الحرف النصي والصوت"
                     data-en="Text character and audio">الحرف النصي والصوت</span></div>
@@ -4090,14 +3880,10 @@
       <div class="error-box section-inner">
         <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
         <ul>
-          <li data-ar="الاستعجال في القراية — اقرا كل خيار كويس قبل ما تختار."
-            data-en="Rushing without reading carefully — read every option well before choosing.">
-            الاستعجال في القراية — اقرا كل خيار كويس قبل ما تختار.
-          </li>
-          <li data-ar="نسيان إن سؤال «اختر كل» بيطلب أكتر من إجابة — دور على المجموعة الكاملة."
-            data-en="Forgetting that “choose all” questions need more than one answer — look for the full set.">
-            نسيان إن سؤال «اختر كل» بيطلب أكتر من إجابة — دور على المجموعة الكاملة.
-          </li>
+          <li data-ar="الاستعجال من غير ما تقرأ بتروي — اقرا كل خيار كويس قبل ما تختار."
+            data-en="Rushing without reading carefully — read every option well before choosing.">الاستعجال من غير ما تقرأ بتروي — اقرا كل خيار كويس قبل ما تختار.</li>
+          <li data-ar="إنك تنسى إن أسئلة «اختار الكل» محتاجة أكتر من إجابة — دوّر على المجموعة الكاملة."
+            data-en="Forgetting that “choose all” questions need more than one answer — look for the full set.">إنك تنسى إن أسئلة «اختار الكل» محتاجة أكتر من إجابة — دوّر على المجموعة الكاملة.</li>
         </ul>
       </div>
     </section>
@@ -4113,10 +3899,8 @@
       </div>
       <div class="card section-inner">
         <h3 data-ar="المصطلحات" data-en="Glossary">المصطلحات</h3>
-        <p data-ar="ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي."
-          data-en="Search any term or use the filters to narrow down.">
-          ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.
-        </p>
+        <p data-ar="ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق النطاق."
+          data-en="Search any term or use the filters to narrow down.">ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق النطاق.</p>
         <input type="text" class="glossary-search" id="glossarySearch" data-ar="ابحث عن مصطلح..."
           data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
         <div class="glossary-filters" id="glossaryFilters">
@@ -4131,73 +3915,68 @@
         </div>
         <div class="glossary-list" id="glossaryList">
           <div class="gl-term" data-cat="dikw">
-            <h4 data-ar="Data — بيانات" data-en="Data">Data — بيانات</h4>
+            <h4 data-ar="البيانات (Data)" data-en="Data">البيانات (Data)</h4>
             <p data-ar="حقائق أو أمور ممثلة بأرقام أو حروف أو رموز، من غير سياق."
               data-en="Facts or matters represented using numbers, characters, or symbols, without context.">
               حقائق أو أمور ممثلة بأرقام أو حروف أو رموز، من غير سياق.
             </p>
           </div>
           <div class="gl-term" data-cat="dikw">
-            <h4 data-ar="Information — معلومة" data-en="Information">Information — معلومة</h4>
+            <h4 data-ar="المعلومات (Information)" data-en="Information">المعلومات (Information)</h4>
             <p data-ar="حاجة ليها معنى وقيمة للمستقبل وبتتاخد أساس للقرار. مالها شكل زي الأشياء."
               data-en="Something with meaning and value for the recipient, used as a basis for decisions. Unlike objects, it has no form.">
               حاجة ليها معنى وقيمة للمستقبل وبتتاخد أساس للقرار. مالها شكل زي الأشياء.
             </p>
           </div>
           <div class="gl-term" data-cat="dikw">
-            <h4 data-ar="Knowledge — معرفة" data-en="Knowledge">Knowledge — معرفة</h4>
-            <p data-ar="معلومة اتحللت واتنظمت عشان تساعد في حل المشاكل."
-              data-en="Information that has been analyzed and systematized to aid in problem-solving.">
-              معلومة اتحللت واتنظمت عشان تساعد في حل المشاكل.
-            </p>
+            <h4 data-ar="المعرفة (Knowledge)" data-en="Knowledge">المعرفة (Knowledge)</h4>
+            <p data-ar="المعلومات (Information) اتحللت واتنظمت عشان تساعد في حل المشاكل."
+              data-en="Information that has been analyzed and systematized to aid in problem-solving.">المعلومات (Information) اتحللت واتنظمت عشان تساعد في حل المشاكل.</p>
           </div>
           <div class="gl-term" data-cat="chars">
-            <h4 data-ar="Persistence — الثبات" data-en="Persistence">Persistence — الثبات</h4>
+            <h4 data-ar="الثبات (Persistence)" data-en="Persistence">الثبات (Persistence)</h4>
             <p data-ar="المعلومة مهما اتمسحت عمرها ما بتمسح نهائي."
               data-en="Information, once created, cannot be completely erased.">
               المعلومة مهما اتمسحت عمرها ما بتمسح نهائي.
             </p>
           </div>
           <div class="gl-term" data-cat="chars">
-            <h4 data-ar="Reproducibility — قابلية النسخ" data-en="Reproducibility">Reproducibility — قابلية النسخ</h4>
+            <h4 data-ar="القابلية للتكرار (Reproducibility)" data-en="Reproducibility">القابلية للتكرار (Reproducibility)</h4>
             <p data-ar="المعلومة ممكن تتنسخ بكميات كبيرة من غير فقدان جودة."
               data-en="Information can be easily copied in large quantities without degradation.">
               المعلومة ممكن تتنسخ بكميات كبيرة من غير فقدان جودة.
             </p>
           </div>
           <div class="gl-term" data-cat="chars">
-            <h4 data-ar="Propagation — الانتشار" data-en="Propagation">Propagation — الانتشار</h4>
+            <h4 data-ar="الانتشار (Propagation)" data-en="Propagation">الانتشار (Propagation)</h4>
             <p data-ar="المعلومة سهلة التوصيل والانتشار عبر الميديا الجماهيرية والإنتيرنيت."
               data-en="Information is easy to convey and spread through mass media and the internet.">
               المعلومة سهلة التوصيل والانتشار عبر الميديا الجماهيرية والإنتيرنيت.
             </p>
           </div>
           <div class="gl-term" data-cat="source">
-            <h4 data-ar="Primary Information — معلومة أولية" data-en="Primary Information">Primary Information — معلومة
-              أولية</h4>
+            <h4 data-ar="المعلومات الأولية (Primary Information)" data-en="Primary Information">المعلومات الأولية (Primary Information)</h4>
             <p data-ar="معلومة من تجربة شخصية مباشرة أو من أبحاث وتجارب عملتها بنفسك."
               data-en="Information obtained through direct personal experience or your own research and experiments.">
               معلومة من تجربة شخصية مباشرة أو من أبحاث وتجارب عملتها بنفسك.
             </p>
           </div>
           <div class="gl-term" data-cat="source">
-            <h4 data-ar="Secondary Information — معلومة ثانوية" data-en="Secondary Information">Secondary Information —
-              معلومة ثانوية</h4>
+            <h4 data-ar="المعلومات الثانوية (Secondary Information)" data-en="Secondary Information">المعلومات الثانوية (Secondary Information)</h4>
             <p data-ar="معلومة وصلتك عن طريق طرف تالت، مش منك مباشرة."
               data-en="Information acquired through a third party, not directly by yourself.">
               معلومة وصلتك عن طريق طرف تالت، مش منك مباشرة.
             </p>
           </div>
           <div class="gl-term" data-cat="source">
-            <h4 data-ar="Cross-checking — التحقق المتبادل" data-en="Cross-checking">Cross-checking — التحقق المتبادل
-            </h4>
+            <h4 data-ar="التدقيق المتبادل (Cross-checking)" data-en="Cross-checking">التدقيق المتبادل (Cross-checking)</h4>
             <p data-ar="مقارنة المعلومة من أكتر من زاوية بمصادر تانية لتحديد درجة دقتها وموثوقيتها."
               data-en="Comparing obtained information from multiple perspectives with other information to determine its accuracy and reliability.">
               مقارنة المعلومة من أكتر من زاوية بمصادر تانية لتحديد درجة دقتها وموثوقيتها.
             </p>
           </div>
           <div class="gl-term" data-cat="media">
-            <h4 data-ar="Media — وسائط" data-en="Media">Media — وسائط</h4>
+            <h4 data-ar="وسائط" data-en="Media">وسائط</h4>
             <p data-ar="الوسيلة المستخدمة لنقل المعلومة للناس."
               data-en="The medium used for conveying information to people.">
               الوسيلة المستخدمة لنقل المعلومة للناس.
@@ -4205,10 +3984,8 @@
           </div>
           <div class="gl-term" data-cat="media">
             <h4 data-ar="Expression Media — وسائط تعبير" data-en="Expression Media">Expression Media — وسائط تعبير</h4>
-            <p data-ar="وسيلة تعبير عن المعلومة: نص، صور، صوت، فيديو."
-              data-en="A means of expressing information: text, images, audio, video.">
-              وسيلة تعبير عن المعلومة: نص، صور، صوت، فيديو.
-            </p>
+            <p data-ar="وسيلة للتعبير عن المعلومة: نص، صور، صوت، فيديو."
+              data-en="A means of expressing information: text, images, audio, video.">وسيلة للتعبير عن المعلومة: نص، صور، صوت، فيديو.</p>
           </div>
           <div class="gl-term" data-cat="media">
             <h4 data-ar="Transmission Media — وسائط نقل" data-en="Transmission Media">Transmission Media — وسائط نقل
@@ -4220,10 +3997,8 @@
           </div>
           <div class="gl-term" data-cat="media">
             <h4 data-ar="Recording Media — وسائط تسجيل" data-en="Recording Media">Recording Media — وسائط تسجيل</h4>
-            <p data-ar="وسيط لتسجيل وتخزين المعلومة: ورق، فلاشة، DVD، سحابة."
-              data-en="A medium for recording and storing: paper, USB drives, DVDs, cloud storage.">
-              وسيط لتسجيل وتخزين المعلومة: ورق، فلاشة، DVD، سحابة.
-            </p>
+            <p data-ar="وسيط للتسجيل والتخزين: ورق، فلاشات USB، DVD، تخزين سحابي."
+              data-en="A medium for recording and storing: paper, USB drives, DVDs, cloud storage.">وسيط للتسجيل والتخزين: ورق، فلاشات USB، DVD، تخزين سحابي.</p>
           </div>
           <div class="gl-term" data-cat="media">
             <h4 data-ar="Mass Media — وسائط جماهيرية" data-en="Mass Media">Mass Media — وسائط جماهيرية</h4>
@@ -4233,8 +4008,7 @@
             </p>
           </div>
           <div class="gl-term" data-cat="literacy">
-            <h4 data-ar="Media Literacy — الإلمام بالوسائط" data-en="Media Literacy">Media Literacy — الإلمام بالوسائط
-            </h4>
+            <h4 data-ar="الإلمام بالوسائط (Media Literacy)" data-en="Media Literacy">الإلمام بالوسائط (Media Literacy)</h4>
             <p data-ar="القدرة على تفسير المعلومة الماخودة من الوسائط بشكل دقيق."
               data-en="The ability to accurately interpret information obtained from media.">
               القدرة على تفسير المعلومة الماخودة من الوسائط بشكل دقيق.
@@ -4292,29 +4066,29 @@
           <button class="btn hero-btn" data-start data-ar="💡 ابدأ الاختبار" data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
           <div class="recall" id="infoRecall">
             <div class="rq" data-id="infoRq1">
-              <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه التعريف الصح للبيانات (Data)؟" data-en="What is the correct definition of Data?">إيه التعريف الصح للبيانات (Data)؟</span></div>
+              <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه التعريف الصح لـ البيانات (Data)؟" data-en="What is the correct definition of Data?">إيه التعريف الصح لـ البيانات (Data)؟</span></div>
               <div class="rq-opts">
-                <div class="rq-opt" data-key="A" data-ok="1" data-fb-ar="صح! البيانات هي حقائق أو أشياء مت représentة بأرقام أو رموز." data-fb-en="Correct! Data are facts or matters represented using numbers, characters, or symbols."><span class="rq-key">A</span><span class="rq-body" data-ar="حقائق أو أشياء مت Representة بأرقام أو رموز" data-en="Facts represented using numbers, characters, or symbols">حقائق أو أشياء مت Representة بأرقام أو رموز</span></div>
-                <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده المعلومة اللي ليها معنى وقيمة." data-fb-en="Not this — that describes information, which holds meaning/value."><span class="rq-key">B</span><span class="rq-body" data-ar="معلومة ليها معنى وقيمة وتساعد في اتخاذ قرار" data-en="Information that holds meaning and aids decisions">معلومة ليها معنى وقيمة وتساعد في اتخاذ قرار</span></div>
-                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ده المعرفة اللي اتحللت ونُظّمت لحل مشاكل." data-fb-en="Not this — that is knowledge, analyzed and systematized to solve problems."><span class="rq-key">C</span><span class="rq-body" data-ar="معرفة اتحللت ونُظّمت لحل مشاكل" data-en="Knowledge analyzed and systematized for problem-solving">معرفة اتحللت ونُظّمت لحل مشاكل</span></div>
+                <div class="rq-opt" data-key="A" data-ok="1" data-fb-ar="صح! البيانات هي حقائق أو أشياء مت représentة بأرقام أو رموز." data-fb-en="Correct! Data are facts or matters represented using numbers, characters, or symbols."><span class="rq-key">A</span><span class="rq-body" data-ar="حقائق متمثّلة بأرقام أو حروف أو رموز" data-en="Facts represented using numbers, characters, or symbols">حقائق متمثّلة بأرقام أو حروف أو رموز</span></div>
+                <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده المعلومة اللي ليها معنى وقيمة." data-fb-en="Not this — that describes information, which holds meaning/value."><span class="rq-key">B</span><span class="rq-body" data-ar="المعلومات (Information) ليها معنى وتساعد في القرارات" data-en="Information that holds meaning and aids decisions">المعلومات (Information) ليها معنى وتساعد في القرارات</span></div>
+                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ده المعرفة اللي اتحللت ونُظّمت لحل مشاكل." data-fb-en="Not this — that is knowledge, analyzed and systematized to solve problems."><span class="rq-key">C</span><span class="rq-body" data-ar="المعرفة (Knowledge) متحلّلة ومنظّمة لحل المشاكل" data-en="Knowledge analyzed and systematized for problem-solving">المعرفة (Knowledge) متحلّلة ومنظّمة لحل المشاكل</span></div>
               </div>
               <div class="rq-fb"></div>
             </div>
             <div class="rq" data-id="infoRq2">
-              <div class="rq-q"><span class="q-num">2</span> <span data-ar="أي خاصية من خصائص المعلومة تعبّر إن الغلط اللي ينتشر على الإنترنت ممكن يفضل موجود للأبد؟" data-en="Which information characteristic means false info spread online can persist indefinitely?">أي خاصية من خصائص المعلومة تعبّر إن الغلط اللي ينتشر على الإنترنت ممكن يفضل موجود للأبد؟</span></div>
+              <div class="rq-q"><span class="q-num">2</span> <span data-ar="أنهي خاصية معلومة بتعني إن المعلومة الغلط المنشورة أونلاين ممكن تفضل للأبد؟" data-en="Which information characteristic means false info spread online can persist indefinitely?">أنهي خاصية معلومة بتعني إن المعلومة الغلط المنشورة أونلاين ممكن تفضل للأبد؟</span></div>
               <div class="rq-opts">
-                <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده معناه إن المعلومة بتتنسخ بسهولة بكميات كبيرة." data-fb-en="Not this — that is reproducibility (easy large-scale copying)."><span class="rq-key">A</span><span class="rq-body" data-ar="قابلية التكاثر (Reproducibility)" data-en="Reproducibility">قابلية التكاثر (Reproducibility)</span></div>
+                <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده معناه إن المعلومة بتتنسخ بسهولة بكميات كبيرة." data-fb-en="Not this — that is reproducibility (easy large-scale copying)."><span class="rq-key">A</span><span class="rq-body" data-ar="القابلية للتكرار (Reproducibility)" data-en="Reproducibility">القابلية للتكرار (Reproducibility)</span></div>
                 <div class="rq-opt" data-key="B" data-ok="1" data-fb-ar="صح! الثبات يعني المعلومة لما تتعمل مابتتمسحش تماماً حتى لو غلط." data-fb-en="Correct! Persistence means information, once created, cannot be completely erased."><span class="rq-key">B</span><span class="rq-body" data-ar="الثبات (Persistence)" data-en="Persistence">الثبات (Persistence)</span></div>
-                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ده معناه إن المعلومة بتنتشر وتوصل بسهولة." data-fb-en="Not this — that is propagation (easy spreading)."><span class="rq-key">C</span><span class="rq-body" data-ar="قابلية الانتشار (Propagation)" data-en="Propagation">قابلية الانتشار (Propagation)</span></div>
+                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ده معناه إن المعلومة بتنتشر وتوصل بسهولة." data-fb-en="Not this — that is propagation (easy spreading)."><span class="rq-key">C</span><span class="rq-body" data-ar="الانتشار (Propagation)" data-en="Propagation">الانتشار (Propagation)</span></div>
               </div>
               <div class="rq-fb"></div>
             </div>
             <div class="rq" data-id="infoRq3">
               <div class="rq-q"><span class="q-num">3</span> <span data-ar="إيه تعريف الإلمام بالوسائط (Media Literacy)؟" data-en="What is the definition of Media Literacy?">إيه تعريف الإلمام بالوسائط (Media Literacy)؟</span></div>
               <div class="rq-opts">
-                <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده استقبال من غير نقد، مش إلمام." data-fb-en="Not this — accepting media info without question is not literacy."><span class="rq-key">A</span><span class="rq-body" data-ar="قدرة إنك تقبل المعلومة اللي بتطلّع من الإعلام من غير تساؤل" data-en="Ability to accept media info without question">قدرة إنك تقبل المعلومة اللي بتطلّع من الإعلام من غير تساؤل</span></div>
+                <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده استقبال من غير نقد، مش إلمام." data-fb-en="Not this — accepting media info without question is not literacy."><span class="rq-key">A</span><span class="rq-body" data-ar="القدرة على قبول معلومة الوسائط من غير تساؤل" data-en="Ability to accept media info without question">القدرة على قبول معلومة الوسائط من غير تساؤل</span></div>
                 <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده تحرير المعلومة حسب نية المرسل، مش إلمام." data-fb-en="Not this — that is editing info per sender intent, not literacy."><span class="rq-key">B</span><span class="rq-body" data-ar="استخدام الوسائط عشان نعدّل المعلومة حسب نية المرسل" data-en="Using media to edit info per sender intent">استخدام الوسائط عشان نعدّل المعلومة حسب نية المرسل</span></div>
-                <div class="rq-opt" data-key="C" data-ok="1" data-fb-ar="صح! الإلمام بالوسائط هو فهم معنى وخصائص الوسائط وتفسير المعلومة بدقة." data-fb-en="Correct! Media literacy is the ability to understand the meaning and characteristics of media and interpret information accurately."><span class="rq-key">C</span><span class="rq-body" data-ar="فهم معنى وخصائص الوسائط وتفسير المعلومة بدقة" data-en="Understanding media meaning/characteristics and interpreting info accurately">فهم معنى وخصائص الوسائط وتفسير المعلومة بدقة</span></div>
+                <div class="rq-opt" data-key="C" data-ok="1" data-fb-ar="صح! الإلمام بالوسائط هو فهم معنى وخصائص الوسائط وتفسير المعلومة بدقة." data-fb-en="Correct! Media literacy is the ability to understand the meaning and characteristics of media and interpret information accurately."><span class="rq-key">C</span><span class="rq-body" data-ar="فهم معنى/خصائص الوسائط وتفسير المعلومة بدقة" data-en="Understanding media meaning/characteristics and interpreting info accurately">فهم معنى/خصائص الوسائط وتفسير المعلومة بدقة</span></div>
               </div>
               <div class="rq-fb"></div>
             </div>
