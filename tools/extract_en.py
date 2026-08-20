@@ -387,7 +387,10 @@ def main():
             md = process_html(full)
             if not md:
                 continue
-            out_path = os.path.join(dp, 'extracted_en.md')
+            # write extracted_en.md into the parallel src/ tree (keeps lesson dirs html-only)
+            src_dir = os.path.join(base, 'src', os.path.relpath(dp, base))
+            os.makedirs(src_dir, exist_ok=True)
+            out_path = os.path.join(src_dir, 'extracted_en.md')
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(md)
             count_lessons += 1
