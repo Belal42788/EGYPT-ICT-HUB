@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Egypt ICT Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--primary:#3b5bff;--accent:#00c896;--bg:#0a0d1f;--ink:#e8e8f0;--dim:#9ca3c0}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--accent);color:#04121a}
+  a{text-decoration:none;color:inherit}
+  .lang-toggle{position:fixed;top:16px;left:16px;z-index:300;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font-weight:900;padding:8px 14px;font-size:.82rem;cursor:pointer}
+  .grid12{max-width:1200px;margin:0 auto;padding:0 32px}
+  /* SWISS: strict 12-col grid, huge type, hairline rules */
+  .toprule{display:flex;justify-content:space-between;align-items:baseline;padding:24px 0 14px;border-bottom:1.5px solid var(--ink)}
+  .toprule .logo{font-weight:900;font-size:1rem;letter-spacing:.02em}
+  .toprule nav a{margin-inline-start:20px;font-weight:700;font-size:.8rem;color:var(--dim)}
+  .hero{padding:12vh 0 6vh;border-bottom:1.5px solid var(--ink)}
+  .hero .idx{font-weight:700;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+  .hero h1{font-weight:900;font-size:clamp(3rem,11vw,8.5rem);line-height:.9;letter-spacing:-.04em}
+  .hero h1 em{font-style:normal;color:var(--primary)}
+  .hero .meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:40px}
+  .hero .meta p{font-size:.95rem;max-width:32ch}
+  .hero .meta .num{font-weight:900;font-size:2.4rem;color:var(--primary);line-height:1}
+  .g20{display:grid;grid-template-columns:7fr 5fr;gap:0;border-bottom:1.5px solid var(--ink)}
+  .g20>div{padding:6vh 32px}
+  .g20>div+div{border-inline-start:1.5px solid var(--ink)}
+  .g20 h2{font-weight:900;font-size:clamp(1.4rem,3vw,2rem);margin-bottom:12px}
+  .g20 p{font-size:.95rem;max-width:40ch}
+  .imgwrap{padding:6vh 0;border-bottom:1.5px solid var(--ink)}
+  .imgwrap img{width:100%;max-height:62vh;object-fit:cover;filter:contrast(1.05) saturate(.9)}
+  .stages{display:grid;grid-template-columns:1fr 1fr}
+  .st{padding:9vh 36px;color:#fff}
+  .st.sec{background:var(--primary)}.st.prep{background:var(--accent);color:#04121a}
+  .st .n{font-weight:900;font-size:1.2rem;margin-bottom:10px}
+  .st h2{font-weight:900;font-size:clamp(1.8rem,4vw,3rem);margin-bottom:12px;letter-spacing:-.02em}
+  .st p{font-size:1rem;margin-bottom:22px;max-width:34ch}
+  .st .go{display:inline-block;border:1.5px solid currentColor;font-weight:900;padding:12px 26px}
+  .foot{padding:6vh 32px 9vh;text-align:center;font-weight:700;font-size:.82rem}
+  @media(max-width:760px){.hero .meta,.g20,.stages{grid-template-columns:1fr}.g20>div+div{border-inline-start:none}.imgwrap img{max-height:42vh}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+  <button class="lang-toggle" id="langToggle" aria-label="Switch to English"><span id="langIcon">EN</span></button>
+  <div class="grid12">
+    <div class="toprule">
+      <div class="logo" data-ar="EGYPT ICT HUB" data-en="EGYPT ICT HUB">EGYPT ICT HUB</div>
+      <nav><a href="#stages" data-ar="المراحل" data-en="Stages">المراحل</a><a href="#about" data-ar="عن المعلّم" data-en="Teacher">عن المعلّم</a></nav>
+    </div>
+    <header class="hero">
+      <div class="idx" data-ar="منصّة ICT — تصميم سويسري" data-en="ICT PLATFORM — SWISS">منصّة ICT — تصميم سويسري</div>
+      <h1 data-ar="افهم<em>.</em> طبّق<em>.</em> اتعلّم<em>.</em>" data-en="Understand<em>.</em> Apply<em>.</em> Learn<em>.</em>">افهم<em>.</em> طبّق<em>.</em> اتعلّم<em>.</em></h1>
+      <div class="meta">
+        <div><div class="num" data-ar="62" data-en="62">62</div><p data-ar="درس متاح عبر 13 وحدة." data-en="Lessons across 13 units.">درس متاح عبر 13 وحدة.</p></div>
+        <div><p data-ar="منهج ICT للمرحلة الإعدادية والثانوية بشرح مبسّط وأمثلة حقيقية." data-en="ICT curriculum for preparatory & secondary, simplified with real examples.">منهج ICT للمرحلة الإعدادية والثانوية بشرح مبسّط وأمثلة حقيقية.</p></div>
+        <div><p data-ar="تبدأ من الأساس — بدون تعقيد." data-en="Start from the basics — no complexity.">تبدأ من الأساس — بدون تعقيد.</p></div>
+      </div>
+    </header>
+    <div class="imgwrap">
+      <img src="../assets/Untitled - August 12, 2026 at 01.30.25.png" alt="Bilal Abdelnasser" onerror="this.style.display='none'">
+    </div>
+    <section class="g20" id="about">
+      <div><h2 data-ar="مين بيشرح؟" data-en="Who Teaches?">مين بيشرح؟</h2><p data-ar="بلال عبد الناصر — معلّم ICT، خريج علوم حاسب (جامعة القاهرة)، من أوائل 3 طلاب على القسم." data-en="Bilal Abdelnasser — ICT teacher, CS graduate (Cairo University), top-3 of his department.">بلال عبد الناصر — معلّم ICT، خريج علوم حاسب (جامعة القاهرة)، من أوائل 3 طلاب على القسم.</p></div>
+      <div><h2 data-ar="هتلاقي إيه؟" data-en="What You'll Find">هتلاقي إيه؟</h2><p data-ar="شرح واضح، أمثلة عملية، تطبيق خطوة بخطوة، وتمارين ومراجعة." data-en="Clear explanations, practical examples, step-by-step practice, exercises & review.">شرح واضح، أمثلة عملية، تطبيق خطوة بخطوة، وتمارين ومراجعة.</p></div>
+    </section>
+    <section class="stages" id="stages">
+      <a class="st sec" href="../secondary.html" data-id="stageSecondary"><div class="n" data-ar="المرحلة ١" data-en="STAGE 1">المرحلة ١</div><h2 data-ar="المرحلة الثانوية" data-en="Secondary Stage">المرحلة الثانوية</h2><p data-ar="منهج ICT للثانوي بشرح مبسّط وتطبيق عملي." data-en="ICT for secondary, simplified with hands-on practice.">منهج ICT للثانوي بشرح مبسّط وتطبيق عملي.</p><span class="go" data-ar="ابدأ الثانوية" data-en="Start Secondary">ابدأ الثانوية</span></a>
+      <a class="st prep" href="../preparatory.html" data-id="stagePreparatory"><div class="n" data-ar="المرحلة ٢" data-en="STAGE 2">المرحلة ٢</div><h2 data-ar="المرحلة الإعدادية" data-en="Preparatory Stage">المرحلة الإعدادية</h2><p data-ar="أساسيات ICT للإعدادي من الأول للتطبيق." data-en="ICT fundamentals for preparatory, basics to practice.">أساسيات ICT للإعدادي من الأول للتطبيق.</p><span class="go" data-ar="ابدأ الإعدادية" data-en="Start Preparatory">ابدأ الإعدادية</span></a>
+    </section>
+    <footer class="foot" data-ar="EGYPT ICT HUB — بلال عبد الناصر © 2026" data-en="EGYPT ICT HUB — Bilal Abdelnasser © 2026">EGYPT ICT HUB — بلال عبد الناصر © 2026</footer>
+  </div>
+  <script>
+    var langBtn=document.getElementById('langToggle'),currentLang='ar';window.currentLang=currentLang;
+    function setLang(l){window.currentLang=l;var ar=l==='ar';
+      langBtn.setAttribute('aria-label',ar?'Switch to English':'Switch to العربية');
+      var ic=document.getElementById('langIcon');if(ic)ic.textContent=ar?'EN':'AR';
+      document.documentElement.lang=l;document.documentElement.dir=ar?'rtl':'ltr';
+      document.querySelectorAll('[data-ar],[data-en]').forEach(function(e){var v=l==='ar'?e.getAttribute('data-ar'):e.getAttribute('data-en');if(v!==null){e.innerHTML=v;e.setAttribute('data-lang',l);}});
+      localStorage.setItem('langPreference',l);}
+    setLang(localStorage.getItem('langPreference')||'ar');
+    langBtn.addEventListener('click',function(){setLang(window.currentLang==='ar'?'en':'ar');});
+  </script>
+</body>
+</html>
