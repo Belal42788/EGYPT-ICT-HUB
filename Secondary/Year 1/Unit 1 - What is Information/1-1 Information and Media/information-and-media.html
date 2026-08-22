@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1-1 Information and Media | المعلومات والوسائط</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #193cff;
@@ -37,7 +37,7 @@
     }
 
     body {
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Baloo Bhaijaan 2', 'Baloo 2', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
@@ -2318,7 +2318,73 @@
       color: #fff;
       box-shadow: 0 0 0 1px var(--primary)
     }
-  </style>
+  
+    /* ===== Unified flat design system (auto-applied) ===== */
+    .bg-gradient, .hero-circles, .particles,
+    .bg-animation, .hero-blob, .particle {
+      display: none !important;
+    }
+
+    .gradient-text,
+    .hero-title .grad {
+      background: none !important;
+      -webkit-text-fill-color: var(--primary) !important;
+      color: var(--primary) !important;
+    }
+
+    .lesson-section::before,
+    .lesson-section[data-accent]::before {
+      background: var(--primary) !important;
+    }
+
+    .section-number,
+    .lesson-section[data-accent] .section-number {
+      background: var(--primary) !important;
+      color: #fff !important;
+      box-shadow: none !important;
+      animation: none !important;
+    }
+
+    .step-card .step-tag,
+    .step-card .step-tag[data-accent] {
+      background: rgba(25, 60, 255, .12) !important;
+      border-color: var(--primary) !important;
+      color: var(--primary) !important;
+    }
+
+    [class*="-bar-fill"] {
+      background: var(--primary) !important;
+    }
+
+    [class*="-bar-fill"].good {
+      background: var(--success) !important;
+    }
+
+    [class*="-bar-fill"].mid {
+      background: var(--primary) !important;
+    }
+
+    [class*="-bar-fill"].bad {
+      background: var(--danger) !important;
+    }
+
+    .unit-num, .unit-card {
+      background: var(--primary) !important;
+    }
+
+    .cta-btn, .hero-btn, .btn {
+      background: var(--primary) !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .25) !important;
+    }
+
+    .cta-btn:hover, .hero-btn:hover, .btn:hover {
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .3) !important;
+    }
+
+    [style*="linear-gradient"] {
+      background: var(--primary) !important;
+    }
+</style>
 </head>
 
 <body>
@@ -4178,21 +4244,7 @@
         });
       }
       wireRecall();
-
-      /* ===== Floating particles ===== */
-      (function () {
-        for (var i = 0; i < 30; i++) {
-          var p = document.createElement('div');
-          p.className = 'particle';
-          p.style.left = (Math.random() * 100) + 'vw';
-          p.style.animationDelay = (Math.random() * 15) + 's';
-          p.style.animationDuration = (12 + Math.random() * 8) + 's';
-          p.style.opacity = (0.15 + Math.random() * 0.2).toFixed(2);
-          document.body.appendChild(p);
-        }
-      })();
-
-      /* ===== Scroll reveal ===== */
+/* ===== Scroll reveal ===== */
       var revealEls = document.querySelectorAll('.section-inner');
       var revealObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
