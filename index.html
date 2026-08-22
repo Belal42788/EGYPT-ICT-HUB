@@ -7,7 +7,7 @@
   <title>Egypt ICT Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #3b5bff;
@@ -39,42 +39,12 @@
     }
 
     body {
-      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      font-family: 'Baloo Bhaijaan 2', 'Baloo 2', system-ui, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--dim);
       line-height: 1.85;
       overflow-x: hidden;
       text-wrap: balance
-    }
-
-    .bg-gradient {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
-      animation: bgDrift 20s ease-in-out infinite;
-    }
-
-    @keyframes bgDrift {
-
-      0%,
-      100% {
-        transform: translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform: translate(-30px, 20px) scale(1.08)
-      }
-    }
-
-    .particles {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none
     }
 
     .noise {
@@ -86,33 +56,6 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-repeat: repeat;
       background-size: 180px
-    }
-
-    .particles i {
-      position: absolute;
-      bottom: -10px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--primary);
-      opacity: .3;
-      animation: floatUp 15s linear infinite
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 0
-      }
-
-      10% {
-        opacity: .3
-      }
-
-      100% {
-        transform: translateY(-110vh);
-        opacity: 0
-      }
     }
 
     /* ---------- nav ---------- */
@@ -253,13 +196,11 @@
     .hero-photo::before {
       content: "";
       position: absolute;
-      inset: -10px;
+      inset: -8px;
       z-index: -1;
-      border-radius: 34px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      filter: blur(26px);
-      opacity: .5;
-      animation: heroFloat 6s ease-in-out infinite
+      border-radius: 32px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .08)
     }
 
     .hero-photo img {
@@ -276,52 +217,30 @@
       transform: scale(1.03) rotate(-1deg)
     }
 
-    .hero-circles span {
+    .hero-photo-badge {
       position: absolute;
-      border-radius: 50%;
-      filter: blur(40px);
-      opacity: .16;
-      z-index: 0;
-      animation: heroFloat 6s ease-in-out infinite
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: var(--text);
+      font-weight: 800;
+      font-size: .85rem;
+      padding: 9px 18px;
+      border-radius: 50px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
+      white-space: nowrap
     }
 
-    .hero-circles span:nth-child(1) {
-      width: 280px;
-      height: 280px;
-      background: var(--primary);
-      top: 12%;
-      left: 10%;
-      animation-delay: 0s
-    }
-
-    .hero-circles span:nth-child(2) {
-      width: 220px;
-      height: 220px;
-      background: var(--accent);
-      bottom: 15%;
-      right: 12%;
-      animation-delay: 2s
-    }
-
-    .hero-circles span:nth-child(3) {
-      width: 180px;
-      height: 180px;
-      background: #8B5CF6;
-      top: 55%;
-      left: 22%;
-      animation-delay: 4s
-    }
-
-    @keyframes heroFloat {
-
-      0%,
-      100% {
-        transform: translateY(0)
-      }
-
-      50% {
-        transform: translateY(-26px)
-      }
+    .hero-photo-badge svg {
+      width: 16px;
+      height: 16px;
+      color: var(--primary);
+      flex-shrink: 0
     }
 
     .hero-content {
@@ -386,10 +305,19 @@
     }
 
     .hero-title .grad {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent
+      display: inline-block;
+      position: relative;
+      color: var(--primary)
+    }
+
+    .hero-title .grad svg {
+      position: absolute;
+      inset-inline-start: 0;
+      bottom: -10px;
+      width: 100%;
+      height: 12px;
+      color: var(--accent);
+      opacity: .85
     }
 
     .hero-sub {
@@ -406,13 +334,13 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: var(--primary);
       color: #fff;
       font-weight: 800;
       padding: 16px 38px;
       border-radius: 50px;
       font-size: 1.05rem;
-      box-shadow: 0 10px 40px rgba(59, 91, 255, .35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
       transition: all .25s cubic-bezier(.4, 0, .2, 1);
       opacity: 0;
       animation: fadeUp .8s ease-out .7s forwards;
@@ -422,17 +350,51 @@
 
     .hero-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 18px 50px rgba(0, 200, 150, .3)
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .3)
     }
 
     .hero-btn:active {
       transform: translateY(1px) scale(.98);
-      box-shadow: 0 6px 20px rgba(59, 91, 255, .25)
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .2)
     }
 
     .hero-btn:focus-visible {
       outline: 3px solid var(--accent);
       outline-offset: 4px
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeUp .8s ease-out .85s forwards
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: .85rem;
+      color: var(--dim);
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px)
+    }
+
+    .stat-pill b {
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1rem
+    }
+
+    @media(max-width:900px) {
+      .hero-stats {
+        justify-content: center
+      }
     }
 
     @keyframes fadeUp {
@@ -474,29 +436,9 @@
       justify-content: center;
       font-weight: 900;
       font-size: 18px;
-      color: var(--bg);
-      animation: glow 3s ease-in-out infinite;
+      color: #fff;
+      background: var(--primary);
       flex-shrink: 0
-    }
-
-    .section-number.s1 {
-      background: linear-gradient(135deg, var(--s1), var(--s3))
-    }
-
-    .section-number.s2 {
-      background: linear-gradient(135deg, var(--s4), var(--accent))
-    }
-
-    @keyframes glow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 20px rgba(25, 60, 255, .25)
-      }
-
-      50% {
-        box-shadow: 0 0 42px rgba(25, 60, 255, .6)
-      }
     }
 
     .section-header h2 {
@@ -523,17 +465,21 @@
     }
 
     .card {
-      background: var(--card);
+      background: rgba(18, 24, 54, .6);
+      border: 1px solid rgba(255, 255, 255, .06);
       border-radius: 20px;
       padding: 28px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       transition: all .3s cubic-bezier(.4, 0, .2, 1);
       position: relative
     }
 
     .card:hover {
-      background: var(--card-hover);
+      background: rgba(26, 33, 72, .75);
+      border-color: rgba(255, 255, 255, .12);
       transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, .35)
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .3)
     }
 
     h3 {
@@ -596,6 +542,18 @@
       color: var(--text);
       font-size: 1.05rem;
       font-weight: 700
+    }
+
+    .t-quote {
+      position: relative;
+      margin: 20px auto;
+      padding: 4px 28px;
+      max-width: 520px;
+      color: var(--text);
+      font-size: 1.15rem;
+      font-weight: 800;
+      font-style: normal;
+      border-inline-start: 3px solid var(--primary)
     }
 
     .contact-row {
@@ -665,16 +623,20 @@
       text-decoration: none;
       text-align: center;
       padding: 44px 28px;
-      background: var(--card);
+      background: rgba(18, 24, 54, .6);
+      border: 1px solid rgba(255, 255, 255, .06);
       border-radius: 22px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       transition: all .3s cubic-bezier(.4, 0, .2, 1);
       position: relative
     }
 
     .stage-card:hover {
-      background: var(--card-hover);
+      background: rgba(26, 33, 72, .75);
+      border-color: rgba(255, 255, 255, .12);
       transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(59, 91, 255, .2)
+      box-shadow: 0 20px 48px rgba(0, 0, 0, .3)
     }
 
     .stage-card:focus-visible {
@@ -698,11 +660,11 @@
     }
 
     .stage-card.sec .stage-ico {
-      background: linear-gradient(135deg, var(--s3), var(--s1))
+      background: var(--primary)
     }
 
     .stage-card.prep .stage-ico {
-      background: linear-gradient(135deg, var(--s2), var(--s4))
+      background: var(--primary)
     }
 
     .stage-card h3 {
@@ -732,15 +694,15 @@
       gap: 6px;
       padding: 11px 26px;
       border-radius: 50px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: 0 10px 36px rgba(59, 91, 255, .3);
+      background: var(--primary);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
       transition: gap .2s ease, transform .2s ease, box-shadow .2s ease
     }
 
     .stage-card:hover .go {
       gap: 10px;
       transform: translateY(-3px);
-      box-shadow: 0 16px 44px rgba(0, 200, 150, .28)
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .3)
     }
 
     .stage-card .stage-sub {
@@ -756,24 +718,6 @@
       font-weight: 700;
       font-size: .95rem;
       margin: 8px 0 4px
-    }
-
-    /* ---------- feature grid ---------- */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      align-items: stretch
-    }
-
-    @media(max-width:860px) {
-      .feature-grid {
-        grid-template-columns: 1fr
-      }
-    }
-
-    .feature-card {
-      height: 100%
     }
 
     .section-desc {
@@ -802,22 +746,102 @@
       font-size: .9rem
     }
 
-    /* ---------- beginner ---------- */
-    .beginner-highlight {
-      display: block;
-      font-size: 1.3rem;
-      font-weight: 900;
-      color: var(--text);
-      margin-top: 10px
-    }
-
-    /* ---------- final cta ---------- */
-    .cta-row {
+    .trust-row {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 28px
+      margin-top: 14px
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      color: var(--dim);
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: .85rem
+    }
+
+    .trust-pill svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+      flex-shrink: 0
+    }
+
+    /* ---------- reviews ---------- */
+    .review-track-wrap {
+      margin-top: 26px;
+      overflow: hidden;
+      position: relative;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    }
+    .review-track {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 18px;
+      width: max-content;
+      animation: reviewScroll 40s linear infinite;
+    }
+    .review-track:hover { animation-play-state: paused; }
+    @keyframes reviewScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    /* RTL: scroll direction flips, so animate the opposite way */
+    [dir="rtl"] .review-track {
+      animation-name: reviewScrollRTL;
+    }
+    @keyframes reviewScrollRTL {
+      from { transform: translateX(0); }
+      to   { transform: translateX(50%); }
+    }
+    .review-card {
+      flex: 0 0 320px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.25)
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .review-track { animation: none; }
+    }
+
+    .review-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .review-stars {
+      color: #ffb020;
+      font-size: 1rem;
+      letter-spacing: 2px
+    }
+
+    .review-card p {
+      color: var(--text);
+      font-size: 1rem;
+      margin: 0;
+      flex: 1
+    }
+
+    .review-tag {
+      color: var(--dim);
+      font-size: .82rem;
+      font-weight: 700
     }
 
     .cta-btn {
@@ -825,40 +849,24 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: var(--primary);
       color: #fff;
       font-weight: 800;
       padding: 14px 30px;
       border-radius: 50px;
       font-size: 1rem;
-      box-shadow: 0 10px 40px rgba(59, 91, 255, .35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
       transition: transform .2s ease, box-shadow .2s ease
     }
 
     .cta-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 18px 50px rgba(0, 200, 150, .3)
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .3)
     }
 
     .cta-btn:focus-visible {
       outline: 3px solid var(--accent);
       outline-offset: 4px
-    }
-
-    .section-number.s3 {
-      background: linear-gradient(135deg, var(--s5), var(--s6))
-    }
-
-    .section-number.s4 {
-      background: linear-gradient(135deg, var(--s2), var(--s5))
-    }
-
-    .section-number.s5 {
-      background: linear-gradient(135deg, var(--s3), var(--s4))
-    }
-
-    .section-number.s6 {
-      background: linear-gradient(135deg, var(--s6), var(--s3))
     }
 
     .hero-support {
@@ -917,12 +925,11 @@
       font-size: .85rem;
       opacity: .7
     }
+
   </style>
 </head>
 
 <body>
-  <div class="bg-gradient"></div>
-  <div class="particles" id="particles"></div>
   <div class="noise" aria-hidden="true"></div>
 
   <a href="#home"
@@ -942,31 +949,43 @@
   </nav>
 
   <header class="hero" id="home">
-    <div class="hero-circles"><span></span><span></span><span></span></div>
     <div class="hero-wrap">
       <div class="hero-photo">
         <img src="assets/Untitled - August 12, 2026 at 01.30.25.png" alt="بلال عبدالناصر">
+        <div class="hero-photo-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+            <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
+          </svg>
+          <span data-ar="مدرّب <span dir='ltr'>ICT</span>" data-en="ICT Instructor">مدرّب <span dir="ltr">ICT</span></span>
+        </div>
       </div>
       <div class="hero-content">
         <div class="hero-badge" data-ar="Egypt ICT Hub" data-en="Egypt ICT Hub">Egypt ICT Hub</div>
         <h1 class="hero-title"
-          data-ar="افهم <span dir='ltr'>ICT</span>... <span class='grad'>وطبّق اللي بتتعلمه</span>"
-          data-en="Understand ICT. <span class='grad'>Apply What You Learn.</span>">افهم <span dir="ltr">ICT</span>...
-          <span class="grad">وطبّق اللي بتتعلمه</span></h1>
-        <p class="hero-role" data-ar="مدرّب <span dir='ltr'>ICT</span> وعلوم حاسب" data-en="ICT &amp; Computer Science Instructor">
-          مدرّب <span dir="ltr">ICT</span> وعلوم حاسب</p>
+          data-ar="منهج <span dir='ltr'>ICT</span>... <span class='grad'>يتفهم مش يتحفظ<svg viewBox='0 0 200 12' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 8 Q 30 2, 55 7 T 105 6 T 155 8 T 198 5' fill='none' stroke='currentColor' stroke-width='4' stroke-linecap='round'/></svg></span>"
+          data-en="ICT, <span class='grad'>Actually Understood — Not Memorized<svg viewBox='0 0 200 12' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 8 Q 30 2, 55 7 T 105 6 T 155 8 T 198 5' fill='none' stroke='currentColor' stroke-width='4' stroke-linecap='round'/></svg></span>">منهج <span dir="ltr">ICT</span>...
+          <span class="grad">يتفهم مش يتحفظ<svg viewBox="0 0 200 12" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 8 Q 30 2, 55 7 T 105 6 T 155 8 T 198 5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></span></h1>
+        <p class="hero-role" data-ar="<b>بلال عبدالناصر</b> — مدرّب <span dir='ltr'>ICT</span> وعلوم حاسب" data-en="<b>Bilal Abdelnasser</b> — ICT &amp; Computer Science Instructor">
+          <b>بلال عبدالناصر</b> — مدرّب <span dir="ltr">ICT</span> وعلوم حاسب</p>
         <p class="hero-sub"
-          data-ar="منصة تعليمية لطلاب المرحلة الإعدادية والثانوية، تساعدك تتعلّم منهج <span dir='ltr'>ICT</span> من خلال شرح واضح، أمثلة عملية، وتطبيق خطوة بخطوة."
-          data-en="An educational platform for preparatory and secondary students to learn ICT through clear explanations, practical examples, and step-by-step learning.">
-          منصة تعليمية لطلاب المرحلة الإعدادية والثانوية، تساعدك تتعلّم منهج <span dir="ltr">ICT</span> من خلال شرح
-          واضح، أمثلة عملية، وتطبيق خطوة بخطوة.</p>
+          data-ar="منصة لطلاب الإعدادي والثانوي، بتشرحلك منهج <span dir='ltr'>ICT</span> بطريقة واضحة، بأمثلة من الواقع، وخطوات عملية تقدر تطبّقها بنفسك."
+          data-en="A learning platform for preparatory and secondary students — clear explanations, real examples, and practical steps you can apply yourself.">
+          منصة لطلاب الإعدادي والثانوي، بتشرحلك منهج <span dir="ltr">ICT</span> بطريقة واضحة، بأمثلة من الواقع،
+          وخطوات عملية تقدر تطبّقها بنفسك.</p>
         <p class="hero-support"
-          data-ar="مش هنكتفي إنك تعرف المعلومة... المهم إنك تفهمها وتعرف تستخدمها."
-          data-en="We won't just give you information... the goal is to understand it and know how to use it.">
-          مش هنكتفي إنك تعرف المعلومة... المهم إنك تفهمها وتعرف تستخدمها.</p>
+          data-ar="مش بس تحفظ المعلومة وتنساها بعد الامتحان... المهم تفهمها وتقدر تستخدمها."
+          data-en="It's not about memorizing and forgetting after the exam — it's about understanding it well enough to use it.">
+          مش بس تحفظ المعلومة وتنساها بعد الامتحان... المهم تفهمها وتقدر تستخدمها.</p>
         <div class="hero-stages">
           <a href="secondary.html" class="cta-btn" data-id="heroSecondary" data-ar="المرحلة الثانوية" data-en="Secondary Stage">المرحلة الثانوية</a>
           <a href="preparatory.html" class="cta-btn" data-id="heroPreparatory" data-ar="المرحلة الإعدادية" data-en="Preparatory Stage">المرحلة الإعدادية</a>
+        </div>
+        <div class="hero-stats">
+          <span class="stat-pill"><b data-ar="62" data-en="62">62</b> <span data-ar="درس" data-en="Lessons">درس</span></span>
+          <span class="stat-pill"><b data-ar="13" data-en="13">13</b> <span data-ar="وحدة" data-en="Units">وحدة</span></span>
+          <span class="stat-pill"><b data-ar="٤.٨٦ ★" data-en="4.86 ★">٤.٨٦ ★</b> <span data-ar="تقييم الطلاب" data-en="Student Rating">تقييم الطلاب</span></span>
         </div>
       </div>
     </div>
@@ -974,49 +993,10 @@
 
   <main>
 
-    <!-- طريقة التعلّم -->
-    <section id="approach">
-      <div class="section-header section-inner">
-        <div class="section-number s1">01</div>
-        <div>
-          <h2 data-ar="اتعلّم من الفهم للتطبيق" data-en="From Understanding to Practice">اتعلّم من الفهم للتطبيق</h2>
-          <div class="tag" data-ar="مش مجرد شرح للمنهج" data-en="More Than Just Explaining the Curriculum">مش مجرد
-            شرح للمنهج</div>
-        </div>
-      </div>
-      <p class="section-desc section-inner"
-        data-ar="في <span dir='ltr'>Egypt ICT Hub</span>، كل درس بيتقدّم بطريقة تخليك تعرف الفكرة، تفهمها، تشوفها في مثال، وتطبّقها بنفسك."
-        data-en="At <span dir='ltr'>Egypt ICT Hub</span>, every lesson is designed to help you understand the idea, see it in action, and apply it yourself.">
-        في <span dir="ltr">Egypt ICT Hub</span>، كل درس بيتقدّم بطريقة تخليك تعرف الفكرة، تفهمها، تشوفها في مثال،
-        وتطبّقها بنفسك.</p>
-      <div class="feature-grid">
-        <div class="card feature-card section-inner">
-          <h3 data-ar="افهم" data-en="Understand">افهم</h3>
-          <p data-ar="نفهم الفكرة من البداية وبطريقة بسيطة." data-en="Start with the concept and understand it from the basics.">نفهم
-            الفكرة من البداية وبطريقة بسيطة.</p>
-        </div>
-        <div class="card feature-card section-inner">
-          <h3 data-ar="شوف" data-en="Explore">شوف</h3>
-          <p data-ar="نشوف أمثلة توضّح المفهوم وتربطه بالحياة العملية." data-en="See practical examples that make the concept easier to understand.">نشوف
-            أمثلة توضّح المفهوم وتربطه بالحياة العملية.</p>
-        </div>
-        <div class="card feature-card section-inner">
-          <h3 data-ar="طبّق" data-en="Apply">طبّق</h3>
-          <p data-ar="نحوّل اللي اتعلمناه إلى تطبيق عملي خطوة بخطوة." data-en="Turn what you learn into practical work, step by step.">نحوّل
-            اللي اتعلمناه إلى تطبيق عملي خطوة بخطوة.</p>
-        </div>
-        <div class="card feature-card section-inner">
-          <h3 data-ar="اختبر نفسك" data-en="Test Yourself">اختبر نفسك</h3>
-          <p data-ar="نراجع ونحل تمارين عشان نتأكد إن المفهوم ثبت." data-en="Review, practice, and check your understanding.">نراجع
-            ونحل تمارين عشان نتأكد إن المفهوم ثبت.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- عن المعلّم -->
+<!-- عن المعلّم -->
     <section id="teacher">
       <div class="section-header section-inner">
-        <div class="section-number s2">02</div>
+        <div class="section-number s1">01</div>
         <div>
           <h2 data-ar="مين بلال؟" data-en="Meet Bilal">مين بلال؟</h2>
           <div class="tag" data-ar="مين اللي بيشرحلك المنهج؟" data-en="Who is teaching you the curriculum?">مين اللي
@@ -1024,25 +1004,43 @@
         </div>
       </div>
       <div class="card teacher-card section-inner" data-id="teacherCard">
-        <div class="t-name" dir="ltr">Bilal Abdelnasser</div>
+        <div class="t-name" data-ar="بلال عبدالناصر" data-en="Bilal Abdelnasser">بلال عبدالناصر</div>
         <div class="t-role" data-ar="مدرّب <span dir='ltr'>ICT</span> وعلوم حاسب" data-en="ICT &amp; Computer Science Instructor">
           مدرّب <span dir="ltr">ICT</span> وعلوم حاسب</div>
         <div class="teacher-bio" data-id="teacherBio"
-          data-ar="<p>أنا بلال عبدالناصر، مدرّب <span dir='ltr'>ICT</span> وعلوم حاسب.</p><p>بدأت التدريس لأنّي مؤمن إن تعلّم التكنولوجيا مش معناه إنك تحفظ خطوات أو تحفظ كود.</p><p>لما تفهم الفكرة، تقدر تطبّقها بنفسك.</p><p>وعشان كده، بنيت <span dir='ltr'>Egypt ICT Hub</span> كمنصة تجمع بين شرح المنهج والتطبيق العملي، بحيث تقدر تمشي في الدرس خطوة بخطوة وتفهم الموضوع بدل ما تحفظه.</p><p>هتلاقي هنا موضوعات من منهج <span dir='ltr'>ICT</span>، بالإضافة إلى مفاهيم وتطبيقات مرتبطة بالبرمجة، تصميم الويب، الأنظمة المدمجة، والأمن السيبراني.</p>"
-          data-en="<p>I am Bilal Abdelnasser, an ICT and Computer Science instructor.</p><p>I started teaching because I believe learning technology is not about memorizing steps or memorizing code.</p><p>When you understand the idea, you can apply it yourself.</p><p>That's why I built <span dir='ltr'>Egypt ICT Hub</span> as a platform that combines curriculum-based learning with practical application, helping students learn step by step instead of simply memorizing information.</p><p>Here you'll find topics from the ICT curriculum, along with concepts and practical applications related to programming, web development, embedded systems, and cybersecurity.</p>">
-          <p>أنا بلال عبدالناصر، مدرّب <span dir="ltr">ICT</span> وعلوم حاسب.</p>
-          <p>بدأت التدريس لأنّي مؤمن إن تعلّم التكنولوجيا مش معناه إنك تحفظ خطوات أو تحفظ كود.</p>
-          <p>لما تفهم الفكرة، تقدر تطبّقها بنفسك.</p>
-          <p>وعشان كده، بنيت <span dir="ltr">Egypt ICT Hub</span> كمنصة تجمع بين شرح المنهج والتطبيق العملي، بحيث تقدر
-            تمشي في الدرس خطوة بخطوة وتفهم الموضوع بدل ما تحفظه.</p>
-          <p>هتلاقي هنا موضوعات من منهج <span dir="ltr">ICT</span>، بالإضافة إلى مفاهيم وتطبيقات مرتبطة بالبرمجة، تصميم
-            الويب، الأنظمة المدمجة، والأمن السيبراني.</p>
+          data-ar="<p>خريج علوم حاسب من جامعة القاهرة، ومن أوائل ٣ طلاب في الدفعة.</p><p>بدأت أدرّس وأنا لسه بتعلّم، وحسّيت بنفسي إن الحفظ مبيوصلش... اللي بيوصل إنك تفهم الفكرة وتشوفها بتشتغل قدامك.</p><blockquote class='t-quote'>لما تفهم الفكرة، تقدر تطبّقها بنفسك.</blockquote><p>دلوقتي بدرّس مئات الطلاب في <span dir='ltr'>EYouth</span> و<span dir='ltr'>Codinger</span>، وبنيت <span dir='ltr'>Egypt ICT Hub</span> عشان تلاقي منهج <span dir='ltr'>ICT</span> متشرح بنفس الأسلوب، خطوة بخطوة.</p><p>هتلاقي هنا موضوعات من منهج <span dir='ltr'>ICT</span>، وحاجات تانية مرتبطة بالبرمجة، تصميم الويب، والأمن السيبراني.</p>"
+          data-en="<p>Computer Science graduate from Cairo University, ranked among the top 3 students in my class.</p><p>I started teaching while I was still a student myself, and quickly realized memorization just doesn't stick — understanding does.</p><blockquote class='t-quote'>When you understand the idea, you can apply it yourself.</blockquote><p>Today I teach hundreds of students at <span dir='ltr'>EYouth</span> and <span dir='ltr'>Codinger</span>, and I built <span dir='ltr'>Egypt ICT Hub</span> to bring that same step-by-step approach to the ICT curriculum.</p><p>Here you'll find topics from the ICT curriculum, along with related concepts in programming, web development, and cybersecurity.</p>">
+          <p>خريج علوم حاسب من جامعة القاهرة، ومن أوائل ٣ طلاب في الدفعة.</p>
+          <p>بدأت أدرّس وأنا لسه بتعلّم، وحسّيت بنفسي إن الحفظ مبيوصلش... اللي بيوصل إنك تفهم الفكرة وتشوفها بتشتغل
+            قدامك.</p>
+          <blockquote class="t-quote">لما تفهم الفكرة، تقدر تطبّقها بنفسك.</blockquote>
+          <p>دلوقتي بدرّس مئات الطلاب في <span dir="ltr">EYouth</span> و<span dir="ltr">Codinger</span>، وبنيت
+            <span dir="ltr">Egypt ICT Hub</span> عشان تلاقي منهج <span dir="ltr">ICT</span> متشرح بنفس الأسلوب،
+            خطوة بخطوة.</p>
+          <p>هتلاقي هنا موضوعات من منهج <span dir="ltr">ICT</span>، وحاجات تانية مرتبطة بالبرمجة، تصميم الويب،
+            والأمن السيبراني.</p>
         </div>
         <div class="edu-row">
           <div class="edu-pill" data-ar="خريج علوم حاسب — جامعة القاهرة" data-en="Computer Science Graduate — Cairo University">خريج
             علوم حاسب — جامعة القاهرة</div>
           <div class="edu-pill" data-ar="من أوائل 3 طلاب في قسم علوم الحاسب" data-en="Ranked among the Top 3 students in the Computer Science Department">من
             أوائل 3 طلاب في قسم علوم الحاسب</div>
+        </div>
+        <div class="trust-row">
+          <div class="trust-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+            <span data-ar="٤.٨٦ / ٥ من أكتر من ٨٥٠٠ تقييم طالب" data-en="4.86 / 5 from 8,500+ student ratings">٤.٨٦
+              / ٥ من أكتر من ٨٥٠٠ تقييم طالب</span>
+          </div>
+          <div class="trust-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2 2 7l10 5 10-5-10-5Zm0 8L2 5v6l10 5 10-5V5l-10 5Zm0 8-8-4v4l8 4 8-4v-4l-8 4Z" />
+            </svg>
+            <span data-ar="من أفضل المدرّبين وسط +٦٠٠ مدرّب في <span dir='ltr'>EYouth</span>" data-en="Top-rated among 600+ instructors at EYouth">من
+              أفضل المدرّبين وسط +٦٠٠ مدرّب في <span dir="ltr">EYouth</span></span>
+          </div>
         </div>
         <div class="contact-row">
           <a class="contact-btn" href="https://www.linkedin.com/in/bilal-abdelnasser-abdelfattah-b17915247/"
@@ -1065,17 +1063,16 @@
     <!-- اختار مرحلتك -->
     <section id="stages">
       <div class="section-header section-inner">
-        <div class="section-number s3">03</div>
+        <div class="section-number s2">02</div>
         <div>
           <h2 data-ar="ابدأ من مرحلتك" data-en="Start With Your Stage">ابدأ من مرحلتك</h2>
           <div class="tag" data-ar="اختار طريقك" data-en="Choose Your Learning Path">اختار طريقك</div>
         </div>
       </div>
       <p class="section-desc section-inner"
-        data-ar="اختار المرحلة، وبعدها الصف والوحدة والدرس. كل المحتوى متقسم بشكل منظم عشان توصل للدرس اللي محتاجه بسهولة وتكمل تعلّمك خطوة بخطوة."
-        data-en="Choose your educational stage, then your grade, unit, and lesson. Everything is organized to help you find what you need and learn step by step.">
-        اختار المرحلة، وبعدها الصف والوحدة والدرس. كل المحتوى متقسم بشكل منظم عشان توصل للدرس اللي محتاجه بسهولة
-        وتكمل تعلّمك خطوة بخطوة.</p>
+        data-ar="اختار مرحلتك، وبعدها الصف والوحدة والدرس اللي محتاجه. كل حاجة متقسمة ومنظّمة عشان توصل لللي عايزه بسرعة."
+        data-en="Pick your stage, then your grade, unit, and lesson. Everything is organized so you can find exactly what you need, fast.">
+        اختار مرحلتك، وبعدها الصف والوحدة والدرس اللي محتاجه. كل حاجة متقسمة ومنظّمة عشان توصل لللي عايزه بسرعة.</p>
       <div class="stage-cards">
         <a class="stage-card sec section-inner" href="secondary.html" data-id="stageSecondary">
           <div class="stage-ico">
@@ -1121,87 +1118,29 @@
       </div>
     </section>
 
-    <!-- إيه اللي هتلاقيه هنا -->
-    <section id="find">
+    <!-- آراء الطلاب -->
+    <section id="reviews">
       <div class="section-header section-inner">
-        <div class="section-number s4">04</div>
+        <div class="section-number s3">03</div>
         <div>
-          <h2 data-ar="إيه اللي هتلاقيه هنا؟" data-en="What Will You Find Here?">إيه اللي هتلاقيه هنا؟</h2>
+          <h2 data-ar="آراء الطلاب" data-en="What Students Say">آراء الطلاب</h2>
+          <div class="tag" data-ar="مش كلامي أنا... كلام اللي اتعلّموا فعلاً" data-en="Not just my word — real student feedback">مش كلامي أنا... كلام اللي اتعلّموا فعلاً</div>
         </div>
       </div>
-      <div class="feature-grid">
-        <div class="card feature-card section-inner">
-          <h3 data-ar="شرح واضح" data-en="Clear Explanations">شرح واضح</h3>
-          <p data-ar="الموضوع بيتشرح من البداية، من غير ما نفترض إنك عارف كل حاجة." data-en="Learn each topic from the basics without assuming you already know everything.">الموضوع
-            بيتشرح من البداية، من غير ما نفترض إنك عارف كل حاجة.</p>
-        </div>
-        <div class="card feature-card section-inner">
-          <h3 data-ar="أمثلة عملية" data-en="Practical Examples">أمثلة عملية</h3>
-          <p data-ar="مش بس تعريفات... هنشوف المفاهيم وهي بتشتغل في أمثلة حقيقية." data-en="Not just definitions. See how concepts work through practical examples.">مش
-            بس تعريفات... هنشوف المفاهيم وهي بتشتغل في أمثلة حقيقية.</p>
-        </div>
-        <div class="card feature-card section-inner">
-          <h3 data-ar="تطبيق خطوة بخطوة" data-en="Step-by-Step Practice">تطبيق خطوة بخطوة</h3>
-          <p data-ar="لما يكون فيه تطبيق عملي، هنمشي فيه مع بعض خطوة بخطوة." data-en="Whenever there is a practical activity, we work through it step by step.">لما
-            يكون فيه تطبيق عملي، هنمشي فيه مع بعض خطوة بخطوة.</p>
-        </div>
-        <div class="card feature-card section-inner">
-          <h3 data-ar="تمارين ومراجعة" data-en="Practice &amp; Review">تمارين ومراجعة</h3>
-          <p data-ar="بعد الشرح، تقدر تراجع وتحل وتختبر فهمك." data-en="Review what you learned, solve exercises, and check your understanding.">بعد
-            الشرح، تقدر تراجع وتحل وتختبر فهمك.</p>
-        </div>
-      </div>
-    </section>
+      <div class="review-track-wrap"><div class="review-track" id="reviewTrack"><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>المستر شرحه واضح وبسيط، وفهمت بسرعة، والسيشين كانت سهلة أوي.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>بيجاوب على كل الأسئلة اللي بنسألها، وبيشرح أكتر من مرة لحد ما المعلومة توصل.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>شرح ممتاز 10 من 10، وكان مبسّط بشكل كويس.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كان واضح جداً وحلو.. ما محتاجش أعيده تاني.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>مهندس أكتر من ممتاز بصراحة، ببسّط المعلومة ويشرح بأكتر من طريقة توصل المعلومة صح.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>من أحسن المدرسين بجد، طيب جداً وبيهزر معانا ومخلّي الحصة حلوة أوي.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>الشرح كان سهل الفهم.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>بيسأل أسئلة كثير وده حلو.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>بيجاوب على كل الأسئلة اللي بنسألها.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>جداً وبطريقة سهلة وبسيطة، استمتعت واستفدت من السيشن.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>الشرح كان سهل ومبسّط جداً واتشرح بشكل مفهوم وواضح.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>ايوا جداً المستر كان بيرد على كل الأسئلة بوضوح.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>عسول جداً بجد، أحلى حاجة في الحصة.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كان واضح جداً والباشمهندس كان بيجاوب على كل الأسئلة بوضوح جداً.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كالعادة المستر بجد كان 10 على 10 وفوق التقييم، وطريقته تحفة جداً.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كان متفاعل جداً وطريقة التعامل كويسة أوي وبيستمع للكل.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كلها مسيّبش حد كان عايز يسأل وسابو بجد.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كان متفاعل معنا بطريقة جميلة.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>الشرح كان واضح وكمان كان ممتع وفيه تفاصيل كتير.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>فهمنا الدرس بطريقة ممتعة وجاوب على كل الأسئلة.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>الحصة كانت خفيفة ولذيذة.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>حضرتك من أطيب المدرسين، بتعيد الشرح مرّة واتنين وتلاتة من غير ما تزعل، ربنا يبارك.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>المستر شرحه واضح وبسيط، وفهمت بسرعة، والسيشين كانت سهلة أوي.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>بيجاوب على كل الأسئلة اللي بنسألها، وبيشرح أكتر من مرة لحد ما المعلومة توصل.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>شرح ممتاز 10 من 10، وكان مبسّط بشكل كويس.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كان واضح جداً وحلو.. ما محتاجش أعيده تاني.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>مهندس أكتر من ممتاز بصراحة، ببسّط المعلومة ويشرح بأكتر من طريقة توصل المعلومة صح.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>من أحسن المدرسين بجد، طيب جداً وبيهزر معانا ومخلّي الحصة حلوة أوي.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>الشرح كان سهل الفهم.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>بيسأل أسئلة كثير وده حلو.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>بيجاوب على كل الأسئلة اللي بنسألها.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>جداً وبطريقة سهلة وبسيطة، استمتعت واستفدت من السيشن.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>الشرح كان سهل ومبسّط جداً واتشرح بشكل مفهوم وواضح.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>ايوا جداً المستر كان بيرد على كل الأسئلة بوضوح.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>عسول جداً بجد، أحلى حاجة في الحصة.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كان واضح جداً والباشمهندس كان بيجاوب على كل الأسئلة بوضوح جداً.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كالعادة المستر بجد كان 10 على 10 وفوق التقييم، وطريقته تحفة جداً.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كان متفاعل جداً وطريقة التعامل كويسة أوي وبيستمع للكل.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كلها مسيّبش حد كان عايز يسأل وسابو بجد.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>كان متفاعل معنا بطريقة جميلة.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>الشرح كان واضح وكمان كان ممتع وفيه تفاصيل كتير.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>فهمنا الدرس بطريقة ممتعة وجاوب على كل الأسئلة.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>الحصة كانت خفيفة ولذيذة.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div><div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>حضرتك من أطيب المدرسين، بتعيد الشرح مرّة واتنين وتلاتة من غير ما تزعل، ربنا يبارك.</p><span class="review-tag">طالب في الحصص الأونلاين</span></div></div></div></div></div></div></section>
 
-    <!-- رسالة المبتدئين -->
-    <section id="beginner">
-      <div class="section-header section-inner">
-        <div class="section-number s5">05</div>
-        <div>
-          <h2 data-ar="مش لازم تكون خبير" data-en="You Don't Have to Be an Expert">مش لازم تكون خبير</h2>
-        </div>
-      </div>
-      <div class="card section-inner" style="text-align:center">
-        <p data-ar="لو دي أول مرة تتعامل مع Programming أو Web Development أو أي موضوع جديد في <span dir='ltr'>ICT</span>، ده طبيعي."
-          data-en="If this is your first time learning Programming, Web Development, or any new ICT topic, that's completely fine.">لو
-          دي أول مرة تتعامل مع <span dir="ltr">Programming</span> أو <span dir="ltr">Web Development</span> أو أي موضوع
-          جديد في <span dir="ltr">ICT</span>، ده طبيعي.</p>
-        <p data-ar="الهدف هنا إنك تبدأ من الأساس وتبني فهمك خطوة بخطوة."
-          data-en="The goal is to start with the basics and build your understanding step by step.">الهدف هنا إنك تبدأ من
-          الأساس وتبني فهمك خطوة بخطوة.</p>
-        <span class="beginner-highlight" data-ar="مش مهم تبدأ منين." data-en="It doesn't matter where you start.">مش مهم
-          تبدأ منين.</span>
-        <span class="beginner-highlight" data-ar="المهم إنك تبدأ." data-en="What matters is that you start.">المهم إنك
-          تبدأ.</span>
-      </div>
-    </section>
 
-    <!-- ابدأ دلوقتي -->
-    <section id="cta">
-      <div class="section-header section-inner">
-        <div class="section-number s6">06</div>
-        <div>
-          <h2 data-ar="جاهز تبدأ؟" data-en="Ready to Start?">جاهز تبدأ؟</h2>
-        </div>
-      </div>
-      <p class="section-desc section-inner" data-ar="اختار مرحلتك وابدأ أول درس."
-        data-en="Choose your stage and start your first lesson.">اختار مرحلتك وابدأ أول درس.</p>
-      <div class="cta-row section-inner">
-        <a href="secondary.html" class="cta-btn" data-id="ctaSecondary" data-ar="المرحلة الثانوية" data-en="Secondary Stage">المرحلة
-          الثانوية</a>
-        <a href="preparatory.html" class="cta-btn" data-id="ctaPreparatory" data-ar="المرحلة الإعدادية" data-en="Preparatory Stage">المرحلة
-          الإعدادية</a>
-      </div>
-    </section>
+
+    
 
   </main>
 
   <footer>
     <img class="footer-logo" src="assets/logo-wordmark.webp" alt="Bilal">
     <div class="footer-tag"
-      data-ar="<b>Egypt ICT Hub</b> — افهم <span dir='ltr'>ICT</span>. طبّق. وتعلّم خطوة بخطوة."
-      data-en="<b>Egypt ICT Hub</b> — Understand ICT. Apply. Learn Step by Step.">
-      <b>Egypt ICT Hub</b> — افهم <span dir="ltr">ICT</span>. طبّق. وتعلّم خطوة بخطوة.
+      data-ar="<b>Egypt ICT Hub</b> — منهج <span dir='ltr'>ICT</span> يتفهم مش يتحفظ."
+      data-en="<b>Egypt ICT Hub</b> — ICT, Actually Understood.">
+      <b>Egypt ICT Hub</b> — منهج <span dir="ltr">ICT</span> يتفهم مش يتحفظ.
     </div>
     <p class="footer-desc" data-ar="منصة تعليمية لطلاب المرحلة الإعدادية والثانوية."
       data-en="An educational platform for preparatory and secondary students.">منصة تعليمية لطلاب المرحلة الإعدادية
@@ -1211,14 +1150,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var p = document.getElementById('particles');
-      for (var i = 0; i < 30; i++) {
-        var d = document.createElement('i');
-        d.style.left = Math.random() * 100 + '%';
-        d.style.animationDelay = (Math.random() * 15) + 's';
-        d.style.animationDuration = (12 + Math.random() * 8) + 's';
-        p.appendChild(d);
-      }
       var nav = document.getElementById('topnav');
       var sections = ['home', 'teacher', 'stages'];
       var links = document.querySelectorAll('.nav-links a[href^="#"]');
@@ -1283,42 +1214,11 @@
     setLang(storedLang);
     langBtn.addEventListener('click', function () {
       setLang(window.currentLang === 'ar' ? 'en' : 'ar');
-    });
+    })
+
   </script>
 
-  <!-- ===== Index redesign gallery (20 variants) ===== -->
-  <section id="redesigns" style="padding:8vh 6vw;background:linear-gradient(180deg,#0a0d1f,#0c1130);border-top:1px solid rgba(255,255,255,.08)">
-    <div style="max-width:1100px;margin:0 auto">
-      <div style="margin-bottom:30px">
-        <div style="color:#00c896;font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;margin-bottom:8px" data-ar="معرض التصاميم" data-en="DESIGN GALLERY">معرض التصاميم</div>
-        <h2 style="color:#fff;font-weight:900;font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:8px" data-ar="٢٠ نسخة تجريبية لصفحة الـ index" data-en="20 redesign variants of the index page">٢٠ نسخة تجريبية لصفحة الـ index</h2>
-        <p style="color:#9ca3c0;font-size:1rem;max-width:52ch" data-ar="كل نسخة بتحافظ على الالوان وبترجمة EN/AR. اختَر أي نسخة تشوفها أونلاين." data-en="Each variant keeps the brand colors and EN/AR translation. Pick any to view it online.">كل نسخة بتحافظ على الالوان وبترجمة EN/AR. اختَر أي نسخة تشوفها أونلاين.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
-        <a href="index-redesigns/01-linear-minimal.html"   style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">01</div><div style="font-weight:800;margin-top:4px" data-ar="Linear Minimal" data-en="Linear Minimal">Linear Minimal</div></a>
-        <a href="index-redesigns/02-vercel-precision.html" style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">02</div><div style="font-weight:800;margin-top:4px" data-ar="Vercel Precision" data-en="Vercel Precision">Vercel Precision</div></a>
-        <a href="index-redesigns/03-superhuman-glow.html" style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">03</div><div style="font-weight:800;margin-top:4px" data-ar="Superhuman Glow" data-en="Superhuman Glow">Superhuman Glow</div></a>
-        <a href="index-redesigns/04-split-sticky.html"    style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">04</div><div style="font-weight:800;margin-top:4px" data-ar="Split Sticky" data-en="Split Sticky">Split Sticky</div></a>
-        <a href="index-redesigns/05-bento-grid.html"      style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">05</div><div style="font-weight:800;margin-top:4px" data-ar="Bento Grid" data-en="Bento Grid">Bento Grid</div></a>
-        <a href="index-redesigns/06-centered-flow.html"   style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">06</div><div style="font-weight:800;margin-top:4px" data-ar="Centered Flow" data-en="Centered Flow">Centered Flow</div></a>
-        <a href="index-redesigns/07-stripe-gradient.html" style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">07</div><div style="font-weight:800;margin-top:4px" data-ar="Stripe Gradient" data-en="Stripe Gradient">Stripe Gradient</div></a>
-        <a href="index-redesigns/08-notion-doc.html"      style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">08</div><div style="font-weight:800;margin-top:4px" data-ar="Notion Doc" data-en="Notion Doc">Notion Doc</div></a>
-        <a href="index-redesigns/09-brutalist-editorial.html" style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">09</div><div style="font-weight:800;margin-top:4px" data-ar="Brutalist Editorial" data-en="Brutalist Editorial">Brutalist Editorial</div></a>
-        <a href="index-redesigns/10-neon-glass.html"      style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">10</div><div style="font-weight:800;margin-top:4px" data-ar="Neon Glass" data-en="Neon Glass">Neon Glass</div></a>
-        <a href="index-redesigns/11-swiss.html"           style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">11</div><div style="font-weight:800;margin-top:4px" data-ar="Swiss" data-en="Swiss">Swiss</div></a>
-        <a href="index-redesigns/12-neubrutalism.html"    style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">12</div><div style="font-weight:800;margin-top:4px" data-ar="Neubrutalism" data-en="Neubrutalism">Neubrutalism</div></a>
-        <a href="index-redesigns/13-memphis.html"         style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">13</div><div style="font-weight:800;margin-top:4px" data-ar="Memphis" data-en="Memphis">Memphis</div></a>
-        <a href="index-redesigns/14-bauhaus.html"         style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">14</div><div style="font-weight:800;margin-top:4px" data-ar="Bauhaus" data-en="Bauhaus">Bauhaus</div></a>
-        <a href="index-redesigns/15-terminal-mono.html"   style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">15</div><div style="font-weight:800;margin-top:4px" data-ar="Terminal Mono" data-en="Terminal Mono">Terminal Mono</div></a>
-        <a href="index-redesigns/16-scrollytelling.html"  style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">16</div><div style="font-weight:800;margin-top:4px" data-ar="Scrollytelling" data-en="Scrollytelling">Scrollytelling</div></a>
-        <a href="index-redesigns/17-duotone.html"         style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">17</div><div style="font-weight:800;margin-top:4px" data-ar="Duotone" data-en="Duotone">Duotone</div></a>
-        <a href="index-redesigns/18-neumorphism.html"     style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">18</div><div style="font-weight:800;margin-top:4px" data-ar="Neumorphism" data-en="Neumorphism">Neumorphism</div></a>
-        <a href="index-redesigns/19-editorial-mag.html"   style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">19</div><div style="font-weight:800;margin-top:4px" data-ar="Editorial Mag" data-en="Editorial Mag">Editorial Mag</div></a>
-        <a href="index-redesigns/20-asymmetric-overlap.html" style="display:block;background:#121836;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#3b5bff;font-weight:900;font-size:.8rem">20</div><div style="font-weight:800;margin-top:4px" data-ar="Asymmetric Overlap" data-en="Asymmetric Overlap">Asymmetric Overlap</div></a>
-        <a href="index-redesigns/21-claude-final.html" style="display:block;background:#121836;border:1px solid rgba(0,200,150,.4);border-radius:14px;padding:16px 18px;color:#e8e8f0;transition:.18s" onmouseover="this.style.background='#1a2148'" onmouseout="this.style.background='#121836'"><div style="color:#00c896;font-weight:900;font-size:.8rem">21</div><div style="font-weight:800;margin-top:4px" data-ar="Claude Final (مصرية + تقييمات)" data-en="Claude Final (Egyptian + Reviews)">Claude Final (مصرية + تقييمات)</div></a>
-      </div>
-    </div>
-  </section>
+  
 </body>
 
 </html>
