@@ -2392,6 +2392,7 @@
     /* ---------- particles ---------- */
     (function () {
       var box = document.getElementById('particles');
+      if (!box) return; /* 'particles' removed by design - skip safely */
       if (!box) return;
       var frag = document.createDocumentFragment();
       for (var i = 0; i < 28; i++) {
@@ -2827,6 +2828,7 @@ var FLOWS = {
     /* ---------- glossary ---------- */
     (function () {
       var search = document.getElementById('glossarySearch');
+      if (!search) return; /* 'glossarySearch' removed by design - skip safely */
       if (!search) return;
       var filters = document.querySelectorAll('.gl-filter');
       var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));

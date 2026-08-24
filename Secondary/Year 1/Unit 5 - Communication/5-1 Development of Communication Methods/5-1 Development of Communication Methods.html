@@ -2494,7 +2494,10 @@
 
     /* ---------- particles ---------- */
     (function () {
-      var p = document.getElementById('particles'), frag = document.createDocumentFragment();
+      var p = document.getElementById('particles');
+      if (!p) return; /* 'particles' removed by design - skip safely */
+      if (!p) return; /* particles div removed by design - skip safely */
+      var frag = document.createDocumentFragment();
       for (var i = 0; i < 30; i++) {
         var d = document.createElement('i');
         d.style.left = (Math.random() * 100) + 'vw';
@@ -2508,7 +2511,7 @@
 
     /* ---------- nav ---------- */
     var nav = document.getElementById('topnav');
-    window.addEventListener('scroll', function () { nav.classList.toggle('show', window.scrollY > 100); });
+    if (nav) window.addEventListener('scroll', function () { nav.classList.toggle('show', window.scrollY > 100); });
 
     function wireNav() {
       var links = document.querySelectorAll('#navLinks a');

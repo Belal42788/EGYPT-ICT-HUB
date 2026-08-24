@@ -2963,7 +2963,10 @@ else:
 
     /* ---------- particles ---------- */
     (function () {
-      var p = document.getElementById('particles'), frag = document.createDocumentFragment();
+      var p = document.getElementById('particles');
+      if (!p) return; /* 'particles' removed by design - skip safely */
+      if (!p) return; /* particles div removed by design - skip safely */
+      var frag = document.createDocumentFragment();
       for (var i = 0; i < 30; i++) {
         var d = document.createElement('i');
         d.style.left = (Math.random() * 100) + 'vw';
@@ -2977,7 +2980,7 @@ else:
 
     /* ---------- nav ---------- */
     var nav = document.getElementById('topnav');
-    window.addEventListener('scroll', function () { nav.classList.toggle('show', window.scrollY > 100); });
+    if (nav) window.addEventListener('scroll', function () { nav.classList.toggle('show', window.scrollY > 100); });
 
     function wireNav() {
       var links = document.querySelectorAll('#navLinks a');
@@ -3014,14 +3017,16 @@ else:
     function opName(o) { return (window.currentLang === 'en') ? o.nameEn : o.name; }
     function divZeroMsg() { return window.currentLang === 'en' ? 'Cannot divide by zero' : 'ممنوع القسمة على صفر'; }
     function paintOpDetail(data) {
-      var d = document.getElementById('opDetail'); if (!d || !data) return;
+      var d = document.getElementById('opDetail');
+      if (!d) return; /* 'opDetail' removed by design - skip safely */ if (!d || !data) return;
       d.innerHTML =
         '<div class="body"><div style="color:var(--text);font-weight:700">' + opName(data) + ' <span style="color:var(--dim);font-weight:400;font-size:.85rem">(' + data.desc + ')</span></div>' +
         '<div class="exp">print(' + data.ex + ')</div>' +
         '<div class="out">&gt;&gt; ' + data.out + '</div></div>';
     }
     function wireOperators() {
-      var g = document.getElementById('opGallery'); if (!g) return;
+      var g = document.getElementById('opGallery');
+      if (!g) return; /* 'opGallery' removed by design - skip safely */ if (!g) return;
       OP_DATA.forEach(function (o) {
         var c = document.createElement('div'); c.className = 'op-chip';
         c.innerHTML = '<span class="sym">' + o.t + '</span><span class="name">' + opName(o) + '</span>';
@@ -3119,7 +3124,8 @@ else:
     ];
     var seqIdx = 0, seqTimer = null;
     function buildSeq() {
-      var t = document.getElementById('seqLines'); if (!t) return;
+      var t = document.getElementById('seqLines');
+      if (!t) return; /* 'seqLines' removed by design - skip safely */ if (!t) return;
       t.innerHTML = '';
       SEQ.forEach(function (item, i) {
         var d = document.createElement('div'); d.className = 'sl';
@@ -3135,6 +3141,7 @@ else:
     }
     function seqRun() {
       var term = document.getElementById('seqTerm');
+      if (!term) return; /* 'seqTerm' removed by design - skip safely */
       var lines = document.querySelectorAll('#seqLines .sl');
       lines.forEach(function (x) { x.classList.remove('run'); });
       if (seqIdx >= SEQ.length) { seqReset(); return; }
@@ -3757,6 +3764,7 @@ else:
       if (!langBtn) return;
       function refreshOperators(lang) {
         var g = document.getElementById('opGallery');
+        if (!g) return; /* 'opGallery' removed by design - skip safely */
         if (!g) return;
         var active = g.querySelector('.op-chip.active');
         var activeIdx = active ? Array.prototype.indexOf.call(g.children, active) : -1;
@@ -3791,6 +3799,7 @@ else:
 
       // keep op-result in sync if a division-by-zero message was showing
       var resEl = document.getElementById('opResult');
+      if (!resEl) return; /* 'opResult' removed by design - skip safely */
       if (resEl) {
         document.addEventListener('langChange', function (ev) {
           var txt = resEl.textContent.trim();

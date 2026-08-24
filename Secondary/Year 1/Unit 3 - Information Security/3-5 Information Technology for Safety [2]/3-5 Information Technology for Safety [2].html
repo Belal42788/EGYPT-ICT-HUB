@@ -1750,6 +1750,7 @@
     /* ---------- particles ---------- */
     (function () {
       var box = document.getElementById('particles');
+      if (!box) return; /* 'particles' removed by design - skip safely */
       for (var i = 0; i < 30; i++) {
         var dot = document.createElement('i');
         dot.style.left = Math.random() * 100 + '%';
