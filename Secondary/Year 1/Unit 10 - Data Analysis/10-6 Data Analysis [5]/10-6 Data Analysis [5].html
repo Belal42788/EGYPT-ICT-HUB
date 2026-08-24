@@ -399,6 +399,12 @@
       transform: translateY(0)
     }
 
+    /* safety: never hide content if scroll-reveal fails */
+    @keyframes autoReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .section-inner { animation: autoReveal .7s ease-out both; }
+    .section-inner.visible { animation: none; opacity: 1; transform: translateY(0); }
+
+
     .section-inner+.section-inner {
       margin-top: 16px
     }
