@@ -204,14 +204,13 @@
 
     /* ---------- hero ---------- */
     .hero {
-      min-height: 88vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
-      padding: 60px 24px
+      padding: 104px 24px 26px
     }
 
     .hero-circles span {
@@ -283,10 +282,11 @@
     }
 
     .hero-title {
-      font-size: clamp(32px, 7vw, 64px);
+      font-size: clamp(28px, 5.4vw, 48px);
       font-weight: 800;
       color: var(--text);
-      line-height: 1.15;
+      line-height: 1.25;
+      text-wrap: balance;
       opacity: 0;
       animation: fadeUp .8s ease-out .3s forwards
     }
@@ -301,7 +301,7 @@
     .hero-sub {
       font-size: 1.2rem;
       max-width: 640px;
-      margin: 18px auto 34px;
+      margin: 12px auto 0;
       opacity: 0;
       animation: fadeUp .8s ease-out .5s forwards
     }
@@ -349,6 +349,10 @@
 
     section {
       padding: 70px 0
+    }
+
+    #units {
+      padding-top: 24px
     }
 
     .section-header {
@@ -469,7 +473,6 @@
 
     .unit-card:hover {
       background: var(--card-hover);
-      transform: translateY(-3px);
       border-color: rgba(25, 60, 255, .3)
     }
 
@@ -507,56 +510,181 @@
     }
 
     .lesson-list {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 10px;
       padding: 16px 20px
     }
 
     .lesson-link {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
+      min-height: 60px;
       text-decoration: none;
       color: var(--text);
       background: rgba(255, 255, 255, .04);
       border: 1px solid rgba(255, 255, 255, .08);
       border-radius: 12px;
-      padding: 8px 14px;
-      font-size: .85rem;
-      font-weight: 600;
+      padding: 10px 14px;
       transition: .2s
     }
 
     .lesson-link:hover {
       border-color: var(--primary);
-      background: rgba(25, 60, 255, .15);
-      transform: translateY(-2px)
+      background: rgba(25, 60, 255, .15)
+    }
+
+    .lesson-link:focus-visible,
+    .continue-bar:focus-visible,
+    .search input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px
     }
 
     .lesson-link .ln {
+      flex-shrink: 0;
+      min-width: 44px;
+      text-align: center;
       color: var(--dim);
+      background: rgba(255, 255, 255, .05);
+      border-radius: 8px;
+      padding: 2px 8px;
       font-size: .72rem;
       font-weight: 700;
       direction: ltr
     }
 
-    .lesson-link .st {
-      font-size: .68rem;
-      padding: 2px 9px;
-      border-radius: 20px;
+    .lesson-link .lt {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      flex: 1;
+      line-height: 1.45
+    }
+
+    .lesson-link .lt-main {
+      font-size: .92rem;
       font-weight: 700
     }
 
-    .lesson-link .st.ready {
-      color: #0a0d1f;
-      background: var(--success)
+    .lesson-link .lt-sub {
+      color: var(--dim);
+      font-size: .74rem;
+      font-weight: 400
     }
 
-    .lesson-link .st.soon {
-      color: var(--warn);
-      background: rgba(255, 215, 0, .12);
-      border: 1px solid rgba(255, 215, 0, .35)
+    [dir="ltr"] .lesson-link .lt-sub {
+      text-align: left
+    }
+
+    [dir="rtl"] .lesson-link .lt-sub {
+      text-align: right
+    }
+
+    .lesson-link .lc {
+      display: none;
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--success);
+      border: 1.5px solid var(--success)
+    }
+
+    .lesson-link .lc svg {
+      width: 12px;
+      height: 12px
+    }
+
+    .lesson-link.seen .lc {
+      display: inline-flex
+    }
+
+    .lesson-link[hidden],
+    .unit-card[hidden],
+    .continue-bar[hidden],
+    .no-results[hidden] {
+      display: none !important
+    }
+
+    .sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap
+    }
+
+    /* ---------- toolbar / continue ---------- */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px
+    }
+
+    .search {
+      flex: 1 1 260px;
+      max-width: 420px
+    }
+
+    .search input {
+      width: 100%;
+      font: inherit;
+      font-size: .95rem;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 50px;
+      padding: 10px 20px
+    }
+
+    .search input::placeholder {
+      color: var(--dim)
+    }
+
+    .progress-text {
+      color: var(--dim);
+      font-size: .9rem
+    }
+
+    .continue-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      text-decoration: none;
+      background: rgba(25, 60, 255, .12);
+      border: 1px solid var(--primary);
+      border-radius: 14px;
+      padding: 12px 18px;
+      margin-bottom: 18px;
+      transition: .2s
+    }
+
+    .continue-bar:hover {
+      background: rgba(25, 60, 255, .22)
+    }
+
+    .continue-bar .cb-label {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: .9rem
+    }
+
+    .continue-bar .cb-name {
+      color: var(--text);
+      font-weight: 700
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 30px 0
     }
 
     /* ---------- footer ---------- */
@@ -683,8 +811,6 @@
         data-ar="الصف الأول الثانوي — <span dir='ltr'>ICT</span> · 13 وحدة · 62 درس · اختار وابدأ فوراً."
         data-en="First secondary grade — <span dir='ltr'>ICT</span> · 13 units · 62 lessons · pick one and start right away.">
         الصف الأول الثانوي — <span dir="ltr">ICT</span> · 13 وحدة · 62 درس · اختار وابدأ فوراً.</p>
-      <a href="#units" class="hero-btn" data-id="heroStart" data-ar="تصفّح الوحدات ←" data-en="Browse units →">تصفّح
-        الوحدات ←</a>
     </div>
   </header>
 
@@ -707,344 +833,470 @@
         <span class="year-chip disabled" data-id="year3Sec" data-ar="السنة الثالثة" data-en="Third Year">السنة
           الثالثة</span>
       </div>
+      <a class="continue-bar section-inner" id="continueBar" href="#" hidden>
+        <span class="cb-label" data-ar="كمّل من حيث وقفت" data-en="Continue where you left off">كمّل من حيث وقفت</span>
+        <span class="cb-name" id="continueName"></span>
+      </a>
+      <div class="toolbar section-inner">
+        <label class="search" for="lessonSearch">
+          <span class="sr" data-ar="ابحث في الدروس" data-en="Search lessons">ابحث في الدروس</span>
+          <input id="lessonSearch" type="search" autocomplete="off" spellcheck="false">
+        </label>
+        <div class="progress-text" id="progressText" aria-live="polite"></div>
+      </div>
+      <p class="no-results" id="noResults" hidden data-ar="مفيش درس بالاسم ده. جرّب كلمة تانية أو رقم الدرس (مثلاً 8-2)." data-en="No lesson matches. Try another word or the lesson number (e.g. 8-2).">مفيش درس بالاسم ده. جرّب كلمة تانية أو رقم الدرس (مثلاً 8-2).</p>
       <div class="units-grid" id="unitsGrid">
-        <div class="unit-card section-inner" style="--uc:#06B6D4" data-id="unit-1">
+        <div class="unit-card section-inner" style="--uc:#06B6D4" data-id="unit-1" data-search="1 ما هي المعلومات What is Information">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#06B6D4,#3b5bff)">1</div>
             <div>
-              <h3>What is Information</h3>
-              <div class="lesson-count">2 دروس</div>
+              <h3 data-ar="ما هي المعلومات" data-en="What is Information">ما هي المعلومات</h3>
+              <div class="lesson-count" data-ar="درسين" data-en="2 Lessons">درسين</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 1 - What is Information/1-1 Information and Media/information-and-media.html"
-              data-id="lesson-1-1"><span class="ln">1-1</span><span>Information and Media</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 1 - What is Information/1-2 Information Ethics/1-2 Information Ethics.html"
-              data-id="lesson-1-2"><span class="ln">1-2</span><span>Information Ethics</span><span
-                class="st ready">متاح</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 1 - What is Information/1-1 Information and Media/information-and-media.html" data-id="lesson-1-1" data-lesson="1-1" data-search="1-1 المعلومات والوسائط Information and Media">
+              <span class="ln">1-1</span>
+              <span class="lt"><span class="lt-main" data-ar="المعلومات والوسائط" data-en="Information and Media">المعلومات والوسائط</span><span class="lt-sub" dir="auto" data-ar="Information and Media" data-en="المعلومات والوسائط">Information and Media</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 1 - What is Information/1-2 Information Ethics/1-2 Information Ethics.html" data-id="lesson-1-2" data-lesson="1-2" data-search="1-2 الأخلاقيات المعلوماتية Information Ethics">
+              <span class="ln">1-2</span>
+              <span class="lt"><span class="lt-main" data-ar="الأخلاقيات المعلوماتية" data-en="Information Ethics">الأخلاقيات المعلوماتية</span><span class="lt-sub" dir="auto" data-ar="Information Ethics" data-en="الأخلاقيات المعلوماتية">Information Ethics</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#F59E0B" data-id="unit-2">
+        <div class="unit-card section-inner" style="--uc:#F59E0B" data-id="unit-2" data-search="2 اللوائح والحقوق في مجتمع المعلومات Regulations and Rights in the Information Society">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#F59E0B,#3b5bff)">2</div>
             <div>
-              <h3>Regulations and Rights in the Information Society</h3>
-              <div class="lesson-count">3 دروس</div>
+              <h3 data-ar="اللوائح والحقوق في مجتمع المعلومات" data-en="Regulations and Rights in the Information Society">اللوائح والحقوق في مجتمع المعلومات</h3>
+              <div class="lesson-count" data-ar="3 دروس" data-en="3 Lessons">3 دروس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 2 - Regulations and Rights in the Information Society/2-1 Personal Information/2-1 Personal Information.html"
-              data-id="lesson-2-1"><span class="ln">2-1</span><span>Personal Information</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 2 - Regulations and Rights in the Information Society/2-2 Intellectual Property Rights/2-2 Intellectual Property Rights.html"
-              data-id="lesson-2-2"><span class="ln">2-2</span><span>Intellectual Property Rights</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 2 - Regulations and Rights in the Information Society/2-3 Utilization and Disclosure of Information/2-3 Utilization and Disclosure of Information.html"
-              data-id="lesson-2-3"><span class="ln">2-3</span><span>Utilization and Disclosure of
-                Information</span><span class="st ready">متاح</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 2 - Regulations and Rights in the Information Society/2-1 Personal Information/2-1 Personal Information.html" data-id="lesson-2-1" data-lesson="2-1" data-search="2-1 المعلومات الشخصية Personal Information">
+              <span class="ln">2-1</span>
+              <span class="lt"><span class="lt-main" data-ar="المعلومات الشخصية" data-en="Personal Information">المعلومات الشخصية</span><span class="lt-sub" dir="auto" data-ar="Personal Information" data-en="المعلومات الشخصية">Personal Information</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 2 - Regulations and Rights in the Information Society/2-2 Intellectual Property Rights/2-2 Intellectual Property Rights.html" data-id="lesson-2-2" data-lesson="2-2" data-search="2-2 حقوق الملكية الفكرية Intellectual Property Rights">
+              <span class="ln">2-2</span>
+              <span class="lt"><span class="lt-main" data-ar="حقوق الملكية الفكرية" data-en="Intellectual Property Rights">حقوق الملكية الفكرية</span><span class="lt-sub" dir="auto" data-ar="Intellectual Property Rights" data-en="حقوق الملكية الفكرية">Intellectual Property Rights</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 2 - Regulations and Rights in the Information Society/2-3 Utilization and Disclosure of Information/2-3 Utilization and Disclosure of Information.html" data-id="lesson-2-3" data-lesson="2-3" data-search="2-3 استخدام المعلومات وكشفها Utilization and Disclosure of Information">
+              <span class="ln">2-3</span>
+              <span class="lt"><span class="lt-main" data-ar="استخدام المعلومات وكشفها" data-en="Utilization and Disclosure of Information">استخدام المعلومات وكشفها</span><span class="lt-sub" dir="auto" data-ar="Utilization and Disclosure of Information" data-en="استخدام المعلومات وكشفها">Utilization and Disclosure of Information</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#06B6D4" data-id="unit-3">
+        <div class="unit-card section-inner" style="--uc:#06B6D4" data-id="unit-3" data-search="3 أمن المعلومات Information Security">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#06B6D4,#3b5bff)">3</div>
             <div>
-              <h3>Information Security</h3>
-              <div class="lesson-count">5 دروس</div>
+              <h3 data-ar="أمن المعلومات" data-en="Information Security">أمن المعلومات</h3>
+              <div class="lesson-count" data-ar="5 دروس" data-en="5 Lessons">5 دروس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 3 - Information Security/3-1 Threats and Countermeasures in Information Security [1]/3-1 Threats and Countermeasures in Information Security [1].html"
-              data-id="lesson-3-1"><span class="ln">3-1</span><span>Threats and Countermeasures in Information Security
-                [1]</span><span class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 3 - Information Security/3-2 Threats and Countermeasures in Information Security [2]/3-2 Threats and Countermeasures in Information Security [2].html"
-              data-id="lesson-3-2"><span class="ln">3-2</span><span>Threats and Countermeasures in Information Security
-                [2]</span><span class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 3 - Information Security/3-3 Threats and Countermeasures in Information Security [3]/3-3 Threats and Countermeasures in Information Security [3].html"
-              data-id="lesson-3-3"><span class="ln">3-3</span><span>Threats and Countermeasures in Information Security
-                [3]</span><span class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 3 - Information Security/3-4 Information Technology for Safety [1]/3-4 Information Technology for Safety [1].html"
-              data-id="lesson-3-4"><span class="ln">3-4</span><span>Information Technology for Safety [1]</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 3 - Information Security/3-5 Information Technology for Safety [2]/3-5 Information Technology for Safety [2].html"
-              data-id="lesson-3-5"><span class="ln">3-5</span><span>Information Technology for Safety [2]</span><span
-                class="st ready">متاح</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 3 - Information Security/3-1 Threats and Countermeasures in Information Security [1]/3-1 Threats and Countermeasures in Information Security [1].html" data-id="lesson-3-1" data-lesson="3-1" data-search="3-1 التهديدات ومواجهتها ١ Threats and Countermeasures in Information Security [1]">
+              <span class="ln">3-1</span>
+              <span class="lt"><span class="lt-main" data-ar="التهديدات ومواجهتها ١" data-en="Threats and Countermeasures in Information Security [1]">التهديدات ومواجهتها ١</span><span class="lt-sub" dir="auto" data-ar="Threats and Countermeasures in Information Security [1]" data-en="التهديدات ومواجهتها ١">Threats and Countermeasures in Information Security [1]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 3 - Information Security/3-2 Threats and Countermeasures in Information Security [2]/3-2 Threats and Countermeasures in Information Security [2].html" data-id="lesson-3-2" data-lesson="3-2" data-search="3-2 التهديدات ومواجهتها ٢ Threats and Countermeasures in Information Security [2]">
+              <span class="ln">3-2</span>
+              <span class="lt"><span class="lt-main" data-ar="التهديدات ومواجهتها ٢" data-en="Threats and Countermeasures in Information Security [2]">التهديدات ومواجهتها ٢</span><span class="lt-sub" dir="auto" data-ar="Threats and Countermeasures in Information Security [2]" data-en="التهديدات ومواجهتها ٢">Threats and Countermeasures in Information Security [2]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 3 - Information Security/3-3 Threats and Countermeasures in Information Security [3]/3-3 Threats and Countermeasures in Information Security [3].html" data-id="lesson-3-3" data-lesson="3-3" data-search="3-3 التهديدات ومواجهتها ٣ Threats and Countermeasures in Information Security [3]">
+              <span class="ln">3-3</span>
+              <span class="lt"><span class="lt-main" data-ar="التهديدات ومواجهتها ٣" data-en="Threats and Countermeasures in Information Security [3]">التهديدات ومواجهتها ٣</span><span class="lt-sub" dir="auto" data-ar="Threats and Countermeasures in Information Security [3]" data-en="التهديدات ومواجهتها ٣">Threats and Countermeasures in Information Security [3]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 3 - Information Security/3-4 Information Technology for Safety [1]/3-4 Information Technology for Safety [1].html" data-id="lesson-3-4" data-lesson="3-4" data-search="3-4 تكنولوجيا المعلومات للسلامة ١ Information Technology for Safety [1]">
+              <span class="ln">3-4</span>
+              <span class="lt"><span class="lt-main" data-ar="تكنولوجيا المعلومات للسلامة ١" data-en="Information Technology for Safety [1]">تكنولوجيا المعلومات للسلامة ١</span><span class="lt-sub" dir="auto" data-ar="Information Technology for Safety [1]" data-en="تكنولوجيا المعلومات للسلامة ١">Information Technology for Safety [1]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 3 - Information Security/3-5 Information Technology for Safety [2]/3-5 Information Technology for Safety [2].html" data-id="lesson-3-5" data-lesson="3-5" data-search="3-5 تكنولوجيا المعلومات للسلامة ٢ Information Technology for Safety [2]">
+              <span class="ln">3-5</span>
+              <span class="lt"><span class="lt-main" data-ar="تكنولوجيا المعلومات للسلامة ٢" data-en="Information Technology for Safety [2]">تكنولوجيا المعلومات للسلامة ٢</span><span class="lt-sub" dir="auto" data-ar="Information Technology for Safety [2]" data-en="تكنولوجيا المعلومات للسلامة ٢">Information Technology for Safety [2]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#10B981" data-id="unit-4">
+        <div class="unit-card section-inner" style="--uc:#10B981" data-id="unit-4" data-search="4 تكنولوجيا المعلومات والمجتمع Information Technology and Society">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#10B981,#3b5bff)">4</div>
             <div>
-              <h3>Information Technology and Society</h3>
-              <div class="lesson-count">1 دروس</div>
+              <h3 data-ar="تكنولوجيا المعلومات والمجتمع" data-en="Information Technology and Society">تكنولوجيا المعلومات والمجتمع</h3>
+              <div class="lesson-count" data-ar="درس واحد" data-en="1 Lesson">درس واحد</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 4 - Information Technology and Society/4-1 Development of Information Technology/4-1 Development of Information Technology.html"
-              data-id="lesson-4-1"><span class="ln">4-1</span><span>Development of Information Technology</span><span
-                class="st ready">متاح</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 4 - Information Technology and Society/4-1 Development of Information Technology/4-1 Development of Information Technology.html" data-id="lesson-4-1" data-lesson="4-1" data-search="4-1 تطور تكنولوجيا المعلومات Development of Information Technology">
+              <span class="ln">4-1</span>
+              <span class="lt"><span class="lt-main" data-ar="تطور تكنولوجيا المعلومات" data-en="Development of Information Technology">تطور تكنولوجيا المعلومات</span><span class="lt-sub" dir="auto" data-ar="Development of Information Technology" data-en="تطور تكنولوجيا المعلومات">Development of Information Technology</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#EC4899" data-id="unit-5">
+        <div class="unit-card section-inner" style="--uc:#EC4899" data-id="unit-5" data-search="5 الاتصال Communication">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#EC4899,#3b5bff)">5</div>
             <div>
-              <h3>Communication</h3>
-              <div class="lesson-count">3 دروس</div>
+              <h3 data-ar="الاتصال" data-en="Communication">الاتصال</h3>
+              <div class="lesson-count" data-ar="3 دروس" data-en="3 Lessons">3 دروس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 5 - Communication/5-1 Development of Communication Methods/5-1 Development of Communication Methods.html"
-              data-id="lesson-5-1"><span class="ln">5-1</span><span>Development of Communication Methods</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 5 - Communication/5-2 Communication and Its Forms/5-2 Communication and Its Forms.html"
-              data-id="lesson-5-2"><span class="ln">5-2</span><span>Communication and Its Forms</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 5 - Communication/5-3 Internet and Communication/5-3 Internet and Communication.html"
-              data-id="lesson-5-3"><span class="ln">5-3</span><span>Internet and Communication</span><span
-                class="st ready">متاح</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 5 - Communication/5-1 Development of Communication Methods/5-1 Development of Communication Methods.html" data-id="lesson-5-1" data-lesson="5-1" data-search="5-1 تطوّر وسائل الاتصال Development of Communication Methods">
+              <span class="ln">5-1</span>
+              <span class="lt"><span class="lt-main" data-ar="تطوّر وسائل الاتصال" data-en="Development of Communication Methods">تطوّر وسائل الاتصال</span><span class="lt-sub" dir="auto" data-ar="Development of Communication Methods" data-en="تطوّر وسائل الاتصال">Development of Communication Methods</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 5 - Communication/5-2 Communication and Its Forms/5-2 Communication and Its Forms.html" data-id="lesson-5-2" data-lesson="5-2" data-search="5-2 أشكال الاتصال وأنواعه Communication and Its Forms">
+              <span class="ln">5-2</span>
+              <span class="lt"><span class="lt-main" data-ar="أشكال الاتصال وأنواعه" data-en="Communication and Its Forms">أشكال الاتصال وأنواعه</span><span class="lt-sub" dir="auto" data-ar="Communication and Its Forms" data-en="أشكال الاتصال وأنواعه">Communication and Its Forms</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 5 - Communication/5-3 Internet and Communication/5-3 Internet and Communication.html" data-id="lesson-5-3" data-lesson="5-3" data-search="5-3 الإنترنت والاتصال Internet and Communication">
+              <span class="ln">5-3</span>
+              <span class="lt"><span class="lt-main" data-ar="الإنترنت والاتصال" data-en="Internet and Communication">الإنترنت والاتصال</span><span class="lt-sub" dir="auto" data-ar="Internet and Communication" data-en="الإنترنت والاتصال">Internet and Communication</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#EF4444" data-id="unit-6">
+        <div class="unit-card section-inner" style="--uc:#EF4444" data-id="unit-6" data-search="6 تصميم المعلومات Information Design">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#EF4444,#3b5bff)">6</div>
             <div>
-              <h3>Information Design</h3>
-              <div class="lesson-count">10 دروس</div>
+              <h3 data-ar="تصميم المعلومات" data-en="Information Design">تصميم المعلومات</h3>
+              <div class="lesson-count" data-ar="10 دروس" data-en="10 Lessons">10 دروس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 6 - Information Design/6-1 Analog and Digital/6-1 Analog and Digital.html"
-              data-id="lesson-6-1"><span class="ln">6-1</span><span>Analog and Digital</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 6 - Information Design/6-2 Binary and Amount of Information/6-2 Binary and Amount of Information.html"
-              data-id="lesson-6-2"><span class="ln">6-2</span><span>Binary and Amount of Information</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 6 - Information Design/6-3 Hexadecimal/6-3 Hexadecimal.html"
-              data-id="lesson-6-3"><span class="ln">6-3</span><span>Hexadecimal</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 6 - Information Design/6-4 Digital Representation of Characters/6-4 Digital Representation of Characters.html"
-              data-id="lesson-6-4"><span class="ln">6-4</span><span>Digital Representation of Characters</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 6 - Information Design/6-5 Numerical Calculations [1]/6-5 Numerical Calculations [1].html"
-              data-id="lesson-6-5"><span class="ln">6-5</span><span>Numerical Calculations [1]</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 6 - Information Design/6-6 Numerical Calculations [2]/6-6 Numerical Calculations [2].html"
-              data-id="lesson-6-6"><span class="ln">6-6</span><span>Numerical Calculations [2]</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 6 - Information Design/6-7 Digitalization of Sound/6-7 Digitalization of Sound.html"
-              data-id="lesson-6-7"><span class="ln">6-7</span><span>Digitalization of Sound</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 6 - Information Design/6-8 Digitization of Images/6-8 Digitization of Images.html"
-              data-id="lesson-6-8"><span class="ln">6-8</span><span>Digitization of Images</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 6 - Information Design/6-9 Digital Representation and Compression Technology for Videos/6-9 Digital Representation and Compression Technology for Videos.html"
-              data-id="lesson-6-9"><span class="ln">6-9</span><span>Digital Representation and Compression Technology
-                for Videos</span><span class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 6 - Information Design/6-10 Information Design/6-10 Information Design.html"
-              data-id="lesson-6-10"><span class="ln">6-10</span><span>Information Design</span><span
-                class="st ready">متاح</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 6 - Information Design/6-1 Analog and Digital/6-1 Analog and Digital.html" data-id="lesson-6-1" data-lesson="6-1" data-search="6-1 الأنالوج والديجيتال Analog and Digital">
+              <span class="ln">6-1</span>
+              <span class="lt"><span class="lt-main" data-ar="الأنالوج والديجيتال" data-en="Analog and Digital">الأنالوج والديجيتال</span><span class="lt-sub" dir="auto" data-ar="Analog and Digital" data-en="الأنالوج والديجيتال">Analog and Digital</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 6 - Information Design/6-2 Binary and Amount of Information/6-2 Binary and Amount of Information.html" data-id="lesson-6-2" data-lesson="6-2" data-search="6-2 النظام الثنائي وكمية المعلومات Binary and Amount of Information">
+              <span class="ln">6-2</span>
+              <span class="lt"><span class="lt-main" data-ar="النظام الثنائي وكمية المعلومات" data-en="Binary and Amount of Information">النظام الثنائي وكمية المعلومات</span><span class="lt-sub" dir="auto" data-ar="Binary and Amount of Information" data-en="النظام الثنائي وكمية المعلومات">Binary and Amount of Information</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 6 - Information Design/6-3 Hexadecimal/6-3 Hexadecimal.html" data-id="lesson-6-3" data-lesson="6-3" data-search="6-3 النظام الستعشري Hexadecimal">
+              <span class="ln">6-3</span>
+              <span class="lt"><span class="lt-main" data-ar="النظام الستعشري" data-en="Hexadecimal">النظام الستعشري</span><span class="lt-sub" dir="auto" data-ar="Hexadecimal" data-en="النظام الستعشري">Hexadecimal</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 6 - Information Design/6-4 Digital Representation of Characters/6-4 Digital Representation of Characters.html" data-id="lesson-6-4" data-lesson="6-4" data-search="6-4 التمثيل الرقمي للحروف Digital Representation of Characters">
+              <span class="ln">6-4</span>
+              <span class="lt"><span class="lt-main" data-ar="التمثيل الرقمي للحروف" data-en="Digital Representation of Characters">التمثيل الرقمي للحروف</span><span class="lt-sub" dir="auto" data-ar="Digital Representation of Characters" data-en="التمثيل الرقمي للحروف">Digital Representation of Characters</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 6 - Information Design/6-5 Numerical Calculations [1]/6-5 Numerical Calculations [1].html" data-id="lesson-6-5" data-lesson="6-5" data-search="6-5 الحسابات الرقمية ١ Numerical Calculations [1]">
+              <span class="ln">6-5</span>
+              <span class="lt"><span class="lt-main" data-ar="الحسابات الرقمية ١" data-en="Numerical Calculations [1]">الحسابات الرقمية ١</span><span class="lt-sub" dir="auto" data-ar="Numerical Calculations [1]" data-en="الحسابات الرقمية ١">Numerical Calculations [1]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 6 - Information Design/6-6 Numerical Calculations [2]/6-6 Numerical Calculations [2].html" data-id="lesson-6-6" data-lesson="6-6" data-search="6-6 الحسابات الرقمية ٢ Numerical Calculations [2]">
+              <span class="ln">6-6</span>
+              <span class="lt"><span class="lt-main" data-ar="الحسابات الرقمية ٢" data-en="Numerical Calculations [2]">الحسابات الرقمية ٢</span><span class="lt-sub" dir="auto" data-ar="Numerical Calculations [2]" data-en="الحسابات الرقمية ٢">Numerical Calculations [2]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 6 - Information Design/6-7 Digitalization of Sound/6-7 Digitalization of Sound.html" data-id="lesson-6-7" data-lesson="6-7" data-search="6-7 رقمنة الصوت Digitalization of Sound">
+              <span class="ln">6-7</span>
+              <span class="lt"><span class="lt-main" data-ar="رقمنة الصوت" data-en="Digitalization of Sound">رقمنة الصوت</span><span class="lt-sub" dir="auto" data-ar="Digitalization of Sound" data-en="رقمنة الصوت">Digitalization of Sound</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 6 - Information Design/6-8 Digitization of Images/6-8 Digitization of Images.html" data-id="lesson-6-8" data-lesson="6-8" data-search="6-8 رقمنة الصور Digitization of Images">
+              <span class="ln">6-8</span>
+              <span class="lt"><span class="lt-main" data-ar="رقمنة الصور" data-en="Digitization of Images">رقمنة الصور</span><span class="lt-sub" dir="auto" data-ar="Digitization of Images" data-en="رقمنة الصور">Digitization of Images</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 6 - Information Design/6-9 Digital Representation and Compression Technology for Videos/6-9 Digital Representation and Compression Technology for Videos.html" data-id="lesson-6-9" data-lesson="6-9" data-search="6-9 تمثيل الفيديو وضغط البيانات Digital Representation and Compression Technology for Videos">
+              <span class="ln">6-9</span>
+              <span class="lt"><span class="lt-main" data-ar="تمثيل الفيديو وضغط البيانات" data-en="Digital Representation and Compression Technology for Videos">تمثيل الفيديو وضغط البيانات</span><span class="lt-sub" dir="auto" data-ar="Digital Representation and Compression Technology for Videos" data-en="تمثيل الفيديو وضغط البيانات">Digital Representation and Compression Technology for Videos</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 6 - Information Design/6-10 Information Design/6-10 Information Design.html" data-id="lesson-6-10" data-lesson="6-10" data-search="6-10 تصميم المعلومات Information Design">
+              <span class="ln">6-10</span>
+              <span class="lt"><span class="lt-main" data-ar="تصميم المعلومات" data-en="Information Design">تصميم المعلومات</span><span class="lt-sub" dir="auto" data-ar="Information Design" data-en="تصميم المعلومات">Information Design</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#3b5bff" data-id="unit-7">
+        <div class="unit-card section-inner" style="--uc:#3b5bff" data-id="unit-7" data-search="7 الكمبيوتر Computers">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#3b5bff,#3b5bff)">7</div>
             <div>
-              <h3>Computers</h3>
-              <div class="lesson-count">3 دروس</div>
+              <h3 data-ar="الكمبيوتر" data-en="Computers">الكمبيوتر</h3>
+              <div class="lesson-count" data-ar="3 دروس" data-en="3 Lessons">3 دروس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 7 - Computers/7-1 Computer Configuration/7-1 Computer Configuration.html"
-              data-id="lesson-7-1"><span class="ln">7-1</span><span>Computer Configuration</span><span
-                class="st ready">جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 7 - Computers/7-2 Computer Software/7-2 Computer Software.html"
-              data-id="lesson-7-2"><span class="ln">7-2</span><span>Computer Software</span><span
-                class="st ready">جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 7 - Computers/7-3 Logic Circuits/7-3 Logic Circuits.html"
-              data-id="lesson-7-3"><span class="ln">7-3</span><span>Logic Circuits</span><span
-                class="st ready">جاهز</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 7 - Computers/7-1 Computer Configuration/7-1 Computer Configuration.html" data-id="lesson-7-1" data-lesson="7-1" data-search="7-1 تكوين الكمبيوتر Computer Configuration">
+              <span class="ln">7-1</span>
+              <span class="lt"><span class="lt-main" data-ar="تكوين الكمبيوتر" data-en="Computer Configuration">تكوين الكمبيوتر</span><span class="lt-sub" dir="auto" data-ar="Computer Configuration" data-en="تكوين الكمبيوتر">Computer Configuration</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 7 - Computers/7-2 Computer Software/7-2 Computer Software.html" data-id="lesson-7-2" data-lesson="7-2" data-search="7-2 برمجيات الكمبيوتر Computer Software">
+              <span class="ln">7-2</span>
+              <span class="lt"><span class="lt-main" data-ar="برمجيات الكمبيوتر" data-en="Computer Software">برمجيات الكمبيوتر</span><span class="lt-sub" dir="auto" data-ar="Computer Software" data-en="برمجيات الكمبيوتر">Computer Software</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 7 - Computers/7-3 Logic Circuits/7-3 Logic Circuits.html" data-id="lesson-7-3" data-lesson="7-3" data-search="7-3 الدوائر المنطقية Logic Circuits">
+              <span class="ln">7-3</span>
+              <span class="lt"><span class="lt-main" data-ar="الدوائر المنطقية" data-en="Logic Circuits">الدوائر المنطقية</span><span class="lt-sub" dir="auto" data-ar="Logic Circuits" data-en="الدوائر المنطقية">Logic Circuits</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#06B6D4" data-id="unit-8">
+        <div class="unit-card section-inner" style="--uc:#06B6D4" data-id="unit-8" data-search="8 الشبكات Networks">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#06B6D4,#3b5bff)">8</div>
             <div>
-              <h3>Networks</h3>
-              <div class="lesson-count">5 دروس</div>
+              <h3 data-ar="الشبكات" data-en="Networks">الشبكات</h3>
+              <div class="lesson-count" data-ar="5 دروس" data-en="5 Lessons">5 دروس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 8 - Networks/8-1 Computer Networks/8-1 Computer Networks.html"
-              data-id="lesson-8-1"><span class="ln">8-1</span><span>Computer Networks</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 8 - Networks/8-2 IP Addresses and Domain Names/8-2 IP Addresses and Domain Names.html"
-              data-id="lesson-8-2"><span class="ln">8-2</span><span>IP Addresses and Domain Names</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 8 - Networks/8-3 Communication Protocol/8-3 Communication Protocol.html"
-              data-id="lesson-8-3"><span class="ln">8-3</span><span>Communication Protocol</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 8 - Networks/8-4 Mechanism of Web Pages and Emails/8-4 Mechanism of Web Pages and Emails.html"
-              data-id="lesson-8-4"><span class="ln">8-4</span><span>Mechanism of Web Pages and Emails</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 8 - Networks/8-5 Network Transfer Speed/8-5 Network Transfer Speed.html"
-              data-id="lesson-8-5"><span class="ln">8-5</span><span>Network Transfer Speed</span><span
-                class="st ready">✔ جاهز</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 8 - Networks/8-1 Computer Networks/8-1 Computer Networks.html" data-id="lesson-8-1" data-lesson="8-1" data-search="8-1 شبكات الكمبيوتر Computer Networks">
+              <span class="ln">8-1</span>
+              <span class="lt"><span class="lt-main" data-ar="شبكات الكمبيوتر" data-en="Computer Networks">شبكات الكمبيوتر</span><span class="lt-sub" dir="auto" data-ar="Computer Networks" data-en="شبكات الكمبيوتر">Computer Networks</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 8 - Networks/8-2 IP Addresses and Domain Names/8-2 IP Addresses and Domain Names.html" data-id="lesson-8-2" data-lesson="8-2" data-search="8-2 عناوين IP وأسماء النطاقات IP Addresses and Domain Names">
+              <span class="ln">8-2</span>
+              <span class="lt"><span class="lt-main" data-ar="عناوين IP وأسماء النطاقات" data-en="IP Addresses and Domain Names">عناوين IP وأسماء النطاقات</span><span class="lt-sub" dir="auto" data-ar="IP Addresses and Domain Names" data-en="عناوين IP وأسماء النطاقات">IP Addresses and Domain Names</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 8 - Networks/8-3 Communication Protocol/8-3 Communication Protocol.html" data-id="lesson-8-3" data-lesson="8-3" data-search="8-3 بروتوكول الاتصال Communication Protocol">
+              <span class="ln">8-3</span>
+              <span class="lt"><span class="lt-main" data-ar="بروتوكول الاتصال" data-en="Communication Protocol">بروتوكول الاتصال</span><span class="lt-sub" dir="auto" data-ar="Communication Protocol" data-en="بروتوكول الاتصال">Communication Protocol</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 8 - Networks/8-4 Mechanism of Web Pages and Emails/8-4 Mechanism of Web Pages and Emails.html" data-id="lesson-8-4" data-lesson="8-4" data-search="8-4 آلية صفحات الويب والإيميلات Mechanism of Web Pages and Emails">
+              <span class="ln">8-4</span>
+              <span class="lt"><span class="lt-main" data-ar="آلية صفحات الويب والإيميلات" data-en="Mechanism of Web Pages and Emails">آلية صفحات الويب والإيميلات</span><span class="lt-sub" dir="auto" data-ar="Mechanism of Web Pages and Emails" data-en="آلية صفحات الويب والإيميلات">Mechanism of Web Pages and Emails</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 8 - Networks/8-5 Network Transfer Speed/8-5 Network Transfer Speed.html" data-id="lesson-8-5" data-lesson="8-5" data-search="8-5 سرعة نقل البيانات Network Transfer Speed">
+              <span class="ln">8-5</span>
+              <span class="lt"><span class="lt-main" data-ar="سرعة نقل البيانات" data-en="Network Transfer Speed">سرعة نقل البيانات</span><span class="lt-sub" dir="auto" data-ar="Network Transfer Speed" data-en="سرعة نقل البيانات">Network Transfer Speed</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#F59E0B" data-id="unit-9">
+        <div class="unit-card section-inner" style="--uc:#F59E0B" data-id="unit-9" data-search="9 قواعد البيانات Databases">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#F59E0B,#3b5bff)">9</div>
             <div>
-              <h3>Databases</h3>
-              <div class="lesson-count">3 دروس</div>
+              <h3 data-ar="قواعد البيانات" data-en="Databases">قواعد البيانات</h3>
+              <div class="lesson-count" data-ar="3 دروس" data-en="3 Lessons">3 دروس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link" href="Secondary/Year 1/Unit 9 - Databases/9-1 Database [1]/9-1 Database [1].html"
-              data-id="lesson-9-1"><span class="ln">9-1</span><span>Database [1]</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 9 - Databases/9-2 Database [2]/9-2 Database [2].html"
-              data-id="lesson-9-2"><span class="ln">9-2</span><span>Database [2]</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 9 - Databases/9-3 Various Information Systems/9-3 Various Information Systems.html"
-              data-id="lesson-9-3"><span class="ln">9-3</span><span>Various Information Systems</span><span
-                class="st ready">✔ جاهز</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 9 - Databases/9-1 Database [1]/9-1 Database [1].html" data-id="lesson-9-1" data-lesson="9-1" data-search="9-1 قواعد البيانات Database [1]">
+              <span class="ln">9-1</span>
+              <span class="lt"><span class="lt-main" data-ar="قواعد البيانات" data-en="Database [1]">قواعد البيانات</span><span class="lt-sub" dir="auto" data-ar="Database [1]" data-en="قواعد البيانات">Database [1]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 9 - Databases/9-2 Database [2]/9-2 Database [2].html" data-id="lesson-9-2" data-lesson="9-2" data-search="9-2 قواعد البيانات العلائقية Database [2]">
+              <span class="ln">9-2</span>
+              <span class="lt"><span class="lt-main" data-ar="قواعد البيانات العلائقية" data-en="Database [2]">قواعد البيانات العلائقية</span><span class="lt-sub" dir="auto" data-ar="Database [2]" data-en="قواعد البيانات العلائقية">Database [2]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 9 - Databases/9-3 Various Information Systems/9-3 Various Information Systems.html" data-id="lesson-9-3" data-lesson="9-3" data-search="9-3 أنظمة المعلومات المختلفة Various Information Systems">
+              <span class="ln">9-3</span>
+              <span class="lt"><span class="lt-main" data-ar="أنظمة المعلومات المختلفة" data-en="Various Information Systems">أنظمة المعلومات المختلفة</span><span class="lt-sub" dir="auto" data-ar="Various Information Systems" data-en="أنظمة المعلومات المختلفة">Various Information Systems</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#06B6D4" data-id="unit-10">
+        <div class="unit-card section-inner" style="--uc:#06B6D4" data-id="unit-10" data-search="10 تحليل البيانات Data Analysis">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#06B6D4,#3b5bff)">10</div>
             <div>
-              <h3>Data Analysis</h3>
-              <div class="lesson-count">6 دروس</div>
+              <h3 data-ar="تحليل البيانات" data-en="Data Analysis">تحليل البيانات</h3>
+              <div class="lesson-count" data-ar="6 دروس" data-en="6 Lessons">6 دروس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 10 - Data Analysis/10-1 Types of Data and Analysis/10-1 Types of Data and Analysis.html"
-              data-id="lesson-10-1"><span class="ln">10-1</span><span>Types of Data and Analysis</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 10 - Data Analysis/10-2 Data Analysis [1]/10-2 Data Analysis [1].html"
-              data-id="lesson-10-2"><span class="ln">10-2</span><span>Data Analysis [1]</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 10 - Data Analysis/10-3 Data Analysis [2]/10-3 Data Analysis [2].html"
-              data-id="lesson-10-3"><span class="ln">10-3</span><span>Data Analysis [2]</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 10 - Data Analysis/10-4 Data Analysis [3]/10-4 Data Analysis [3].html"
-              data-id="lesson-10-4"><span class="ln">10-4</span><span>Data Analysis [3]</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 10 - Data Analysis/10-5 Data Analysis [4]/10-5 Data Analysis [4].html"
-              data-id="lesson-10-5"><span class="ln">10-5</span><span>Data Analysis [4]</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 10 - Data Analysis/10-6 Data Analysis [5]/10-6 Data Analysis [5].html"
-              data-id="lesson-10-6"><span class="ln">10-6</span><span>Data Analysis [5]</span><span
-                class="st ready">✔ جاهز</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 10 - Data Analysis/10-1 Types of Data and Analysis/10-1 Types of Data and Analysis.html" data-id="lesson-10-1" data-lesson="10-1" data-search="10-1 أنواع البيانات وتحليلها Types of Data and Analysis">
+              <span class="ln">10-1</span>
+              <span class="lt"><span class="lt-main" data-ar="أنواع البيانات وتحليلها" data-en="Types of Data and Analysis">أنواع البيانات وتحليلها</span><span class="lt-sub" dir="auto" data-ar="Types of Data and Analysis" data-en="أنواع البيانات وتحليلها">Types of Data and Analysis</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 10 - Data Analysis/10-2 Data Analysis [1]/10-2 Data Analysis [1].html" data-id="lesson-10-2" data-lesson="10-2" data-search="10-2 تنظيم البيانات والنزعة المركزية Data Analysis [1]">
+              <span class="ln">10-2</span>
+              <span class="lt"><span class="lt-main" data-ar="تنظيم البيانات والنزعة المركزية" data-en="Data Analysis [1]">تنظيم البيانات والنزعة المركزية</span><span class="lt-sub" dir="auto" data-ar="Data Analysis [1]" data-en="تنظيم البيانات والنزعة المركزية">Data Analysis [1]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 10 - Data Analysis/10-3 Data Analysis [2]/10-3 Data Analysis [2].html" data-id="lesson-10-3" data-lesson="10-3" data-search="10-3 الربيعيات ومخطط الصندوق والشعيرات Data Analysis [2]">
+              <span class="ln">10-3</span>
+              <span class="lt"><span class="lt-main" data-ar="الربيعيات ومخطط الصندوق والشعيرات" data-en="Data Analysis [2]">الربيعيات ومخطط الصندوق والشعيرات</span><span class="lt-sub" dir="auto" data-ar="Data Analysis [2]" data-en="الربيعيات ومخطط الصندوق والشعيرات">Data Analysis [2]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 10 - Data Analysis/10-4 Data Analysis [3]/10-4 Data Analysis [3].html" data-id="lesson-10-4" data-lesson="10-4" data-search="10-4 التباين والانحراف المعياري Data Analysis [3]">
+              <span class="ln">10-4</span>
+              <span class="lt"><span class="lt-main" data-ar="التباين والانحراف المعياري" data-en="Data Analysis [3]">التباين والانحراف المعياري</span><span class="lt-sub" dir="auto" data-ar="Data Analysis [3]" data-en="التباين والانحراف المعياري">Data Analysis [3]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 10 - Data Analysis/10-5 Data Analysis [4]/10-5 Data Analysis [4].html" data-id="lesson-10-5" data-lesson="10-5" data-search="10-5 المخططات النقطية والارتباطات والجداول التقاطعية Data Analysis [4]">
+              <span class="ln">10-5</span>
+              <span class="lt"><span class="lt-main" data-ar="المخططات النقطية والارتباطات والجداول التقاطعية" data-en="Data Analysis [4]">المخططات النقطية والارتباطات والجداول التقاطعية</span><span class="lt-sub" dir="auto" data-ar="Data Analysis [4]" data-en="المخططات النقطية والارتباطات والجداول التقاطعية">Data Analysis [4]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 10 - Data Analysis/10-6 Data Analysis [5]/10-6 Data Analysis [5].html" data-id="lesson-10-6" data-lesson="10-6" data-search="10-6 تحليل الانحدار ومعادلة خط التوقع Data Analysis [5]">
+              <span class="ln">10-6</span>
+              <span class="lt"><span class="lt-main" data-ar="تحليل الانحدار ومعادلة خط التوقع" data-en="Data Analysis [5]">تحليل الانحدار ومعادلة خط التوقع</span><span class="lt-sub" dir="auto" data-ar="Data Analysis [5]" data-en="تحليل الانحدار ومعادلة خط التوقع">Data Analysis [5]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#10B981" data-id="unit-11">
+        <div class="unit-card section-inner" style="--uc:#10B981" data-id="unit-11" data-search="11 المحاكاة Simulations">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#10B981,#3b5bff)">11</div>
             <div>
-              <h3>Simulations</h3>
-              <div class="lesson-count">4 دروس</div>
+              <h3 data-ar="المحاكاة" data-en="Simulations">المحاكاة</h3>
+              <div class="lesson-count" data-ar="4 دروس" data-en="4 Lessons">4 دروس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link" href="Secondary/Year 1/Unit 11 - Simulations/11-1 Modeling/11-1 Modeling.html"
-              data-id="lesson-11-1"><span class="ln">11-1</span><span>Modeling</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 11 - Simulations/11-2 Simulations [1]/11-2 Simulations [1].html"
-              data-id="lesson-11-2"><span class="ln">11-2</span><span>Simulations [1]</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 11 - Simulations/11-3 Simulations [2]/11-3 Simulations [2].html"
-              data-id="lesson-11-3"><span class="ln">11-3</span><span>Simulations [2]</span><span
-                class="st ready">✔ جاهز</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 11 - Simulations/11-4 Queues/11-4 Queues.html" data-id="lesson-11-4"><span
-                class="ln">11-4</span><span>Queues</span><span class="st ready">✔ جاهز</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 11 - Simulations/11-1 Modeling/11-1 Modeling.html" data-id="lesson-11-1" data-lesson="11-1" data-search="11-1 النمذجة وأنواع النماذج Modeling">
+              <span class="ln">11-1</span>
+              <span class="lt"><span class="lt-main" data-ar="النمذجة وأنواع النماذج" data-en="Modeling">النمذجة وأنواع النماذج</span><span class="lt-sub" dir="auto" data-ar="Modeling" data-en="النمذجة وأنواع النماذج">Modeling</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 11 - Simulations/11-2 Simulations [1]/11-2 Simulations [1].html" data-id="lesson-11-2" data-lesson="11-2" data-search="11-2 المحاكاة في جداول البيانات Simulations [1]">
+              <span class="ln">11-2</span>
+              <span class="lt"><span class="lt-main" data-ar="المحاكاة في جداول البيانات" data-en="Simulations [1]">المحاكاة في جداول البيانات</span><span class="lt-sub" dir="auto" data-ar="Simulations [1]" data-en="المحاكاة في جداول البيانات">Simulations [1]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 11 - Simulations/11-3 Simulations [2]/11-3 Simulations [2].html" data-id="lesson-11-3" data-lesson="11-3" data-search="11-3 محاكاة النماذج الاحتمالية Simulations [2]">
+              <span class="ln">11-3</span>
+              <span class="lt"><span class="lt-main" data-ar="محاكاة النماذج الاحتمالية" data-en="Simulations [2]">محاكاة النماذج الاحتمالية</span><span class="lt-sub" dir="auto" data-ar="Simulations [2]" data-en="محاكاة النماذج الاحتمالية">Simulations [2]</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 11 - Simulations/11-4 Queues/11-4 Queues.html" data-id="lesson-11-4" data-lesson="11-4" data-search="11-4 الطوابير وتحليل أوقات الانتظار Queues">
+              <span class="ln">11-4</span>
+              <span class="lt"><span class="lt-main" data-ar="الطوابير وتحليل أوقات الانتظار" data-en="Queues">الطوابير وتحليل أوقات الانتظار</span><span class="lt-sub" dir="auto" data-ar="Queues" data-en="الطوابير وتحليل أوقات الانتظار">Queues</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#EC4899" data-id="unit-12">
+        <div class="unit-card section-inner" style="--uc:#EC4899" data-id="unit-12" data-search="12 البرمجة (بايثون) Programming (Python)">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#EC4899,#3b5bff)">12</div>
             <div>
-              <h3>Programming (Python)</h3>
-              <div class="lesson-count">5 دروس</div>
+              <h3 data-ar="البرمجة (بايثون)" data-en="Programming (Python)">البرمجة (بايثون)</h3>
+              <div class="lesson-count" data-ar="5 دروس" data-en="5 Lessons">5 دروس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 12 - Programming (Python)/12-1 Algorithm/12-1 Algorithm.html"
-              data-id="lesson-12-1"><span class="ln">12-1</span><span>Algorithm</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 12 - Programming (Python)/12-2 Programming Basics [1] (Python)/12-2 Programming Basics [1] (Python).html"
-              data-id="lesson-12-2"><span class="ln">12-2</span><span>Programming Basics [1] (Python)</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 12 - Programming (Python)/12-3 Programming Basics [2] (Python)/12-3 Programming Basics [2] (Python).html"
-              data-id="lesson-12-3"><span class="ln">12-3</span><span>Programming Basics [2] (Python)</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 12 - Programming (Python)/12-4 Application of Programming [1] (Python)/12-4 Application of Programming [1] (Python).html"
-              data-id="lesson-12-4"><span class="ln">12-4</span><span>Application of Programming [1]
-                (Python)</span><span class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 12 - Programming (Python)/12-5 Application of Programming [2] (Python)/12-5 Application of Programming [2] (Python).html"
-              data-id="lesson-12-5"><span class="ln">12-5</span><span>Application of Programming [2]
-                (Python)</span><span class="st ready">متاح</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 12 - Programming (Python)/12-1 Algorithm/12-1 Algorithm.html" data-id="lesson-12-1" data-lesson="12-1" data-search="12-1 الخوارزمية Algorithm">
+              <span class="ln">12-1</span>
+              <span class="lt"><span class="lt-main" data-ar="الخوارزمية" data-en="Algorithm">الخوارزمية</span><span class="lt-sub" dir="auto" data-ar="Algorithm" data-en="الخوارزمية">Algorithm</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 12 - Programming (Python)/12-2 Programming Basics [1] (Python)/12-2 Programming Basics [1] (Python).html" data-id="lesson-12-2" data-lesson="12-2" data-search="12-2 المتغيرات والبنية التسلسلية Programming Basics [1] (Python)">
+              <span class="ln">12-2</span>
+              <span class="lt"><span class="lt-main" data-ar="المتغيرات والبنية التسلسلية" data-en="Programming Basics [1] (Python)">المتغيرات والبنية التسلسلية</span><span class="lt-sub" dir="auto" data-ar="Programming Basics [1] (Python)" data-en="المتغيرات والبنية التسلسلية">Programming Basics [1] (Python)</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 12 - Programming (Python)/12-3 Programming Basics [2] (Python)/12-3 Programming Basics [2] (Python).html" data-id="lesson-12-3" data-lesson="12-3" data-search="12-3 أساسيات البرمجة (بايثون) ٢ Programming Basics [2] (Python)">
+              <span class="ln">12-3</span>
+              <span class="lt"><span class="lt-main" data-ar="أساسيات البرمجة (بايثون) ٢" data-en="Programming Basics [2] (Python)">أساسيات البرمجة (بايثون) ٢</span><span class="lt-sub" dir="auto" data-ar="Programming Basics [2] (Python)" data-en="أساسيات البرمجة (بايثون) ٢">Programming Basics [2] (Python)</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 12 - Programming (Python)/12-4 Application of Programming [1] (Python)/12-4 Application of Programming [1] (Python).html" data-id="lesson-12-4" data-lesson="12-4" data-search="12-4 تطبيقات البرمجة (بايثون) ١ Application of Programming [1] (Python)">
+              <span class="ln">12-4</span>
+              <span class="lt"><span class="lt-main" data-ar="تطبيقات البرمجة (بايثون) ١" data-en="Application of Programming [1] (Python)">تطبيقات البرمجة (بايثون) ١</span><span class="lt-sub" dir="auto" data-ar="Application of Programming [1] (Python)" data-en="تطبيقات البرمجة (بايثون) ١">Application of Programming [1] (Python)</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 12 - Programming (Python)/12-5 Application of Programming [2] (Python)/12-5 Application of Programming [2] (Python).html" data-id="lesson-12-5" data-lesson="12-5" data-search="12-5 تطبيقات البرمجة (بايثون) ٢ Application of Programming [2] (Python)">
+              <span class="ln">12-5</span>
+              <span class="lt"><span class="lt-main" data-ar="تطبيقات البرمجة (بايثون) ٢" data-en="Application of Programming [2] (Python)">تطبيقات البرمجة (بايثون) ٢</span><span class="lt-sub" dir="auto" data-ar="Application of Programming [2] (Python)" data-en="تطبيقات البرمجة (بايثون) ٢">Application of Programming [2] (Python)</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
-        <div class="unit-card section-inner" style="--uc:#EF4444" data-id="unit-13">
+        <div class="unit-card section-inner" style="--uc:#EF4444" data-id="unit-13" data-search="13 برمجة الذكاء الاصطناعي AI Programming">
           <div class="unit-head">
             <div class="unit-num" style="background:linear-gradient(135deg,#EF4444,#3b5bff)">13</div>
             <div>
-              <h3>AI Programming</h3>
-              <div class="lesson-count">12 دروس</div>
+              <h3 data-ar="برمجة الذكاء الاصطناعي" data-en="AI Programming">برمجة الذكاء الاصطناعي</h3>
+              <div class="lesson-count" data-ar="12 درس" data-en="12 Lessons">12 درس</div>
             </div>
           </div>
           <div class="lesson-list">
-            <a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-1 About Generative AI/13-1 About Generative AI.html"
-              data-id="lesson-13-1"><span class="ln">13-1</span><span>About Generative AI</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-2 HTML, CSS/13-2 HTML, CSS.html"
-              data-id="lesson-13-2"><span class="ln">13-2</span><span>HTML, CSS</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-3 HTML, JS/13-3 HTML, JS.html"
-              data-id="lesson-13-3"><span class="ln">13-3</span><span>HTML, JS</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-4 Creating Static Web Pages/13-4 Creating Static Web Pages.html"
-              data-id="lesson-13-4"><span class="ln">13-4</span><span>Creating Static Web Pages</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-5 Creating Dynamic Web Pages/13-5 Creating Dynamic Web Pages.html"
-              data-id="lesson-13-5"><span class="ln">13-5</span><span>Creating Dynamic Web Pages</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-6 Presenting Your Website/13-6 Presenting Your Website.html"
-              data-id="lesson-13-6"><span class="ln">13-6</span><span>Presenting Your Website</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-7 Developing a Quiz App/13-7 Developing a Quiz App.html"
-              data-id="lesson-13-7"><span class="ln">13-7</span><span>Developing a Quiz App</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-8 Quiz App Review/13-8 Quiz App Review.html"
-              data-id="lesson-13-8"><span class="ln">13-8</span><span>Quiz App Review</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-9 Developing a Block Breaker Game 1/13-9 Developing a Block Breaker Game 1.html"
-              data-id="lesson-13-9"><span class="ln">13-9</span><span>Developing a Block Breaker Game 1</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-10 Developing a Block Breaker Game 2/13-10 Developing a Block Breaker Game 2.html"
-              data-id="lesson-13-10"><span class="ln">13-10</span><span>Developing a Block Breaker Game 2</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-11 Block Breaker Summary/13-11 Block Breaker Summary.html"
-              data-id="lesson-13-11"><span class="ln">13-11</span><span>Block Breaker Summary</span><span
-                class="st ready">متاح</span></a><a class="lesson-link"
-              href="Secondary/Year 1/Unit 13 - AI Programming/13-12 Block Breaker Development Presentation/13-12 Block Breaker Development Presentation.html"
-data-id="lesson-13-12"><span class="ln">13-12</span><span>Block Breaker Development Presentation</span><span
-                class="st ready">متاح</span></a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-1 About Generative AI/13-1 About Generative AI.html" data-id="lesson-13-1" data-lesson="13-1" data-search="13-1 الذكاء الاصطناعي التوليدي About Generative AI">
+              <span class="ln">13-1</span>
+              <span class="lt"><span class="lt-main" data-ar="الذكاء الاصطناعي التوليدي" data-en="About Generative AI">الذكاء الاصطناعي التوليدي</span><span class="lt-sub" dir="auto" data-ar="About Generative AI" data-en="الذكاء الاصطناعي التوليدي">About Generative AI</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-2 HTML, CSS/13-2 HTML, CSS.html" data-id="lesson-13-2" data-lesson="13-2" data-search="13-2 HTML و CSS HTML, CSS">
+              <span class="ln">13-2</span>
+              <span class="lt"><span class="lt-main" data-ar="HTML و CSS" data-en="HTML, CSS">HTML و CSS</span><span class="lt-sub" dir="auto" data-ar="HTML, CSS" data-en="HTML و CSS">HTML, CSS</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-3 HTML, JS/13-3 HTML, JS.html" data-id="lesson-13-3" data-lesson="13-3" data-search="13-3 HTML و JavaScript HTML, JS">
+              <span class="ln">13-3</span>
+              <span class="lt"><span class="lt-main" data-ar="HTML و JavaScript" data-en="HTML, JS">HTML و JavaScript</span><span class="lt-sub" dir="auto" data-ar="HTML, JS" data-en="HTML و JavaScript">HTML, JS</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-4 Creating Static Web Pages/13-4 Creating Static Web Pages.html" data-id="lesson-13-4" data-lesson="13-4" data-search="13-4 إنشاء صفحات ويب ثابتة Creating Static Web Pages">
+              <span class="ln">13-4</span>
+              <span class="lt"><span class="lt-main" data-ar="إنشاء صفحات ويب ثابتة" data-en="Creating Static Web Pages">إنشاء صفحات ويب ثابتة</span><span class="lt-sub" dir="auto" data-ar="Creating Static Web Pages" data-en="إنشاء صفحات ويب ثابتة">Creating Static Web Pages</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-5 Creating Dynamic Web Pages/13-5 Creating Dynamic Web Pages.html" data-id="lesson-13-5" data-lesson="13-5" data-search="13-5 إنشاء صفحات ويب ديناميكية Creating Dynamic Web Pages">
+              <span class="ln">13-5</span>
+              <span class="lt"><span class="lt-main" data-ar="إنشاء صفحات ويب ديناميكية" data-en="Creating Dynamic Web Pages">إنشاء صفحات ويب ديناميكية</span><span class="lt-sub" dir="auto" data-ar="Creating Dynamic Web Pages" data-en="إنشاء صفحات ويب ديناميكية">Creating Dynamic Web Pages</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-6 Presenting Your Website/13-6 Presenting Your Website.html" data-id="lesson-13-6" data-lesson="13-6" data-search="13-6 تقديم موقعك Presenting Your Website">
+              <span class="ln">13-6</span>
+              <span class="lt"><span class="lt-main" data-ar="تقديم موقعك" data-en="Presenting Your Website">تقديم موقعك</span><span class="lt-sub" dir="auto" data-ar="Presenting Your Website" data-en="تقديم موقعك">Presenting Your Website</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-7 Developing a Quiz App/13-7 Developing a Quiz App.html" data-id="lesson-13-7" data-lesson="13-7" data-search="13-7 تطوير تطبيق اختبار Developing a Quiz App">
+              <span class="ln">13-7</span>
+              <span class="lt"><span class="lt-main" data-ar="تطوير تطبيق اختبار" data-en="Developing a Quiz App">تطوير تطبيق اختبار</span><span class="lt-sub" dir="auto" data-ar="Developing a Quiz App" data-en="تطوير تطبيق اختبار">Developing a Quiz App</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-8 Quiz App Review/13-8 Quiz App Review.html" data-id="lesson-13-8" data-lesson="13-8" data-search="13-8 مراجعة تطبيق الاختبار Quiz App Review">
+              <span class="ln">13-8</span>
+              <span class="lt"><span class="lt-main" data-ar="مراجعة تطبيق الاختبار" data-en="Quiz App Review">مراجعة تطبيق الاختبار</span><span class="lt-sub" dir="auto" data-ar="Quiz App Review" data-en="مراجعة تطبيق الاختبار">Quiz App Review</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-9 Developing a Block Breaker Game 1/13-9 Developing a Block Breaker Game 1.html" data-id="lesson-13-9" data-lesson="13-9" data-search="13-9 تطوير لعبة Block Breaker (1) Developing a Block Breaker Game 1">
+              <span class="ln">13-9</span>
+              <span class="lt"><span class="lt-main" data-ar="تطوير لعبة Block Breaker (1)" data-en="Developing a Block Breaker Game 1">تطوير لعبة Block Breaker (1)</span><span class="lt-sub" dir="auto" data-ar="Developing a Block Breaker Game 1" data-en="تطوير لعبة Block Breaker (1)">Developing a Block Breaker Game 1</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-10 Developing a Block Breaker Game 2/13-10 Developing a Block Breaker Game 2.html" data-id="lesson-13-10" data-lesson="13-10" data-search="13-10 تطوير لعبة Block Breaker (2) Developing a Block Breaker Game 2">
+              <span class="ln">13-10</span>
+              <span class="lt"><span class="lt-main" data-ar="تطوير لعبة Block Breaker (2)" data-en="Developing a Block Breaker Game 2">تطوير لعبة Block Breaker (2)</span><span class="lt-sub" dir="auto" data-ar="Developing a Block Breaker Game 2" data-en="تطوير لعبة Block Breaker (2)">Developing a Block Breaker Game 2</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-11 Block Breaker Summary/13-11 Block Breaker Summary.html" data-id="lesson-13-11" data-lesson="13-11" data-search="13-11 ملخص Block Breaker Block Breaker Summary">
+              <span class="ln">13-11</span>
+              <span class="lt"><span class="lt-main" data-ar="ملخص Block Breaker" data-en="Block Breaker Summary">ملخص Block Breaker</span><span class="lt-sub" dir="auto" data-ar="Block Breaker Summary" data-en="ملخص Block Breaker">Block Breaker Summary</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
+            <a class="lesson-link" href="Secondary/Year 1/Unit 13 - AI Programming/13-12 Block Breaker Development Presentation/13-12 Block Breaker Development Presentation.html" data-id="lesson-13-12" data-lesson="13-12" data-search="13-12 عرض تطوير Block Breaker Block Breaker Development Presentation">
+              <span class="ln">13-12</span>
+              <span class="lt"><span class="lt-main" data-ar="عرض تطوير Block Breaker" data-en="Block Breaker Development Presentation">عرض تطوير Block Breaker</span><span class="lt-sub" dir="auto" data-ar="Block Breaker Development Presentation" data-en="عرض تطوير Block Breaker">Block Breaker Development Presentation</span></span>
+              <span class="lc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr" data-ar="(فتحته قبل كده)" data-en="(opened before)">(فتحته قبل كده)</span></span>
+            </a>
           </div>
         </div>
       </div>
@@ -1128,13 +1380,6 @@ var nav = document.getElementById('topnav');
         var a = sp.getAttribute('data-ar'), e = sp.getAttribute('data-en');
         if (a && e) sp.textContent = (lang === 'ar') ? a : e;
       });
-      document.querySelectorAll('.lesson-count').forEach(function (el) {
-        var n = (el.textContent.match(/\d+/) || [''])[0];
-        if (n) el.textContent = n + ' ' + (lang === 'ar' ? 'دروس' : 'Lessons');
-      });
-      document.querySelectorAll('.st.ready').forEach(function (el) {
-        el.textContent = (lang === 'ar') ? 'متاح' : 'Available';
-      });
       document.querySelectorAll('.st.soon').forEach(function (el) {
         el.textContent = (lang === 'ar') ? 'قريباً' : 'Coming soon';
       });
@@ -1145,15 +1390,91 @@ var nav = document.getElementById('topnav');
       }
       document.dispatchEvent(new CustomEvent('langChange', { detail: { lang: lang } }));
       // persist language preference
-      localStorage.setItem('langPreference', lang);
+      try { localStorage.setItem('langPreference', lang); } catch (e) { }
     }
     // get stored language or default to Arabic
-    var storedLang = localStorage.getItem('langPreference');
+    var storedLang = null;
+    try { storedLang = localStorage.getItem('langPreference'); } catch (e) { }
     if (!storedLang) storedLang = 'ar';
     setLang(storedLang);
     langBtn.addEventListener('click', function () {
       setLang(window.currentLang === 'ar' ? 'en' : 'ar');
     });
+  </script>
+  <script>
+    /* ===== Lesson search + "opened" marks + continue ===== */
+    (function () {
+      var KEY_SEEN = 'ictHub:seen', KEY_LAST = 'ictHub:last';
+      var grid = document.getElementById('unitsGrid');
+      var input = document.getElementById('lessonSearch');
+      var bar = document.getElementById('continueBar');
+      var barName = document.getElementById('continueName');
+      var progress = document.getElementById('progressText');
+      var empty = document.getElementById('noResults');
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.unit-card'));
+      var links = Array.prototype.slice.call(grid.querySelectorAll('.lesson-link'));
+      var total = links.length;
+
+      function read(k, fallback) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : fallback; } catch (e) { return fallback; } }
+      function write(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { } }
+      var seen = read(KEY_SEEN, []);
+      if (!Array.isArray(seen)) seen = [];
+      var last = read(KEY_LAST, null);
+
+      function lang() { return window.currentLang === 'en' ? 'en' : 'ar'; }
+      function norm(s) {
+        return String(s || '').toLowerCase()
+          .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+          .replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/ة/g, 'ه')
+          .replace(/[٠-٩]/g, function (d) { return '٠١٢٣٤٥٦٧٨٩'.indexOf(d); })
+          .replace(/\s+/g, ' ').trim();
+      }
+
+      function render() {
+        var L = lang();
+        links.forEach(function (a) { a.classList.toggle('seen', seen.indexOf(a.getAttribute('data-lesson')) !== -1); });
+        var n = seen.filter(function (id) { return links.some(function (a) { return a.getAttribute('data-lesson') === id; }); }).length;
+        progress.textContent = n === 0
+          ? (L === 'ar' ? total + ' درس جاهزين' : total + ' lessons ready')
+          : (L === 'ar' ? 'فتحت ' + n + ' من ' + total + ' درس' : 'Opened ' + n + ' of ' + total + ' lessons');
+        input.placeholder = L === 'ar' ? 'ابحث عن درس… (مثلاً: شبكات أو 8-2)' : 'Search lessons… (e.g. network or 8-2)';
+        var lastLink = last && links.filter(function (a) { return a.getAttribute('data-lesson') === last; })[0];
+        if (lastLink) {
+          bar.hidden = false;
+          bar.href = lastLink.getAttribute('href');
+          barName.textContent = lastLink.getAttribute('data-lesson') + ' · ' + lastLink.querySelector('.lt-main').textContent;
+        } else { bar.hidden = true; }
+      }
+
+      function filter() {
+        var terms = norm(input.value).split(' ').filter(Boolean), shown = 0;
+        cards.forEach(function (c) {
+          var unitText = c.getAttribute('data-search'), any = false;
+          c.querySelectorAll('.lesson-link').forEach(function (a) {
+            var hay = norm(unitText + ' ' + a.getAttribute('data-search'));
+            var ok = terms.every(function (t) { return hay.indexOf(t) !== -1; });
+            a.hidden = !ok; if (ok) any = true;
+          });
+          c.hidden = !any; if (any) shown++;
+        });
+        empty.hidden = shown !== 0;
+      }
+
+      function mark(e) {
+        var a = e.target.closest && e.target.closest('.lesson-link');
+        if (!a) return;
+        var id = a.getAttribute('data-lesson');
+        if (seen.indexOf(id) === -1) seen.push(id);
+        last = id; write(KEY_SEEN, seen); write(KEY_LAST, id);
+        render();
+      }
+
+      input.addEventListener('input', filter);
+      grid.addEventListener('click', mark);
+      grid.addEventListener('auxclick', mark);
+      document.addEventListener('langChange', render);
+      render();
+    })();
   </script>
 </body>
 
