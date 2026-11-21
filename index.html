@@ -522,51 +522,134 @@
       color: var(--accent)
     }
 
-    /* ---------- teacher ---------- */
+    /* ---------- teacher profile ---------- */
     #teacher {
       padding: 48px 0 40px
     }
 
-    .teacher-card {
-      text-align: center;
-      padding: 28px 24px
+    .profile {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start
     }
 
-    .teacher-card .t-name {
-      font-size: 1.5rem;
+    .pf-card {
+      background: rgba(18, 24, 54, .6);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 20px;
+      padding: 24px
+    }
+
+    .pf-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      margin-bottom: 16px
+    }
+
+    .pf-card h3::before {
+      content: "";
+      width: 4px;
+      height: 1.1em;
+      background: var(--primary);
+      border-radius: 2px;
+      flex-shrink: 0
+    }
+
+    .pf-side {
+      position: sticky;
+      top: 88px;
+      text-align: center
+    }
+
+    .pf-avatar {
+      display: block;
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 50% 6%;
+      border: 3px solid rgba(59, 91, 255, .45);
+      background: var(--card)
+    }
+
+    .pf-name {
+      font-size: 1.45rem;
       font-weight: 800;
       color: var(--text)
     }
 
-    .teacher-card .t-role {
+    .pf-role {
       color: var(--accent);
       font-weight: 700;
-      margin: 2px 0 14px
+      margin: 2px 0 18px
     }
 
-    .teacher-bio {
-      max-width: 680px;
-      margin: 0 auto;
+    .pf-facts {
+      display: grid;
+      gap: 10px;
+      text-align: start;
+      margin-bottom: 18px
+    }
+
+    .pf-fact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 14px;
+      padding: 10px 12px
+    }
+
+    .pf-fact b {
+      flex: 0 0 74px;
+      text-align: center;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      direction: ltr
+    }
+
+    .pf-fact span {
+      font-size: .85rem;
       color: var(--dim);
-      font-size: 1rem;
-      text-align: center
+      line-height: 1.55
     }
 
-    .teacher-bio p {
-      margin-bottom: 12px
+    .pf-mini {
+      font-size: .85rem;
+      color: var(--dim);
+      line-height: 1.7;
+      margin-bottom: 14px
     }
 
-    .teacher-bio p:first-child {
+    .pf-mini strong {
+      color: var(--text)
+    }
+
+    .pf-main {
+      display: grid;
+      gap: 20px;
+      min-width: 0
+    }
+
+    .pf-bio p {
+      color: var(--dim)
+    }
+
+    .pf-bio p:first-child {
       color: var(--text);
       font-size: 1.05rem;
       font-weight: 700
     }
 
     .t-quote {
-      position: relative;
-      margin: 20px auto;
-      padding: 4px 28px;
-      max-width: 520px;
+      margin: 16px 0;
+      padding: 4px 18px;
       color: var(--text);
       font-size: 1.15rem;
       font-weight: 800;
@@ -574,12 +657,153 @@
       border-inline-start: 3px solid var(--primary)
     }
 
+    .tl {
+      list-style: none;
+      margin: 0 6px 0 0;
+      padding: 0
+    }
+
+    [dir="ltr"] .tl {
+      margin: 0 0 0 6px
+    }
+
+    .tl li {
+      position: relative;
+      padding-inline-start: 24px;
+      padding-bottom: 20px;
+      border-inline-start: 2px solid rgba(255, 255, 255, .08)
+    }
+
+    .tl li:last-child {
+      padding-bottom: 0;
+      border-inline-start-color: transparent
+    }
+
+    .tl li::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: -7px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--primary)
+    }
+
+    .tl li.now::before {
+      background: var(--accent);
+      border-color: var(--accent)
+    }
+
+    .tl-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4px 12px;
+      flex-wrap: wrap
+    }
+
+    .tl-title {
+      font-weight: 800;
+      color: var(--text)
+    }
+
+    .tl-date {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--dim)
+    }
+
+    .tl-org {
+      color: var(--accent);
+      font-size: .9rem;
+      font-weight: 700
+    }
+
+    .tl-desc {
+      color: var(--dim);
+      font-size: .92rem;
+      margin: 4px 0 0
+    }
+
+    .chip-group {
+      margin-bottom: 14px
+    }
+
+    .chip-group:last-child {
+      margin-bottom: 0
+    }
+
+    .chip-label {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--dim);
+      margin-bottom: 6px
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .chip {
+      background: rgba(59, 91, 255, .1);
+      border: 1px solid rgba(59, 91, 255, .25);
+      border-radius: 50px;
+      padding: 4px 12px;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--text);
+      direction: ltr
+    }
+
+    .proj {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px
+    }
+
+    .proj-item {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 14px;
+      padding: 14px
+    }
+
+    .proj-item b {
+      display: block;
+      color: var(--text);
+      margin-bottom: 2px
+    }
+
+    .proj-item small {
+      display: block;
+      color: var(--dim);
+      font-size: .85rem;
+      line-height: 1.6
+    }
+
+    .proj-item .proj-date {
+      color: var(--accent);
+      font-weight: 700;
+      margin-top: 6px
+    }
+
+    .proj-item a {
+      text-decoration: none
+    }
+
+    .proj-item a:hover {
+      text-decoration: underline
+    }
+
     .contact-row {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 16px
+      justify-content: center
     }
 
     .contact-btn {
@@ -591,9 +815,9 @@
       border: 1px solid rgba(59, 91, 255, .25);
       color: var(--text);
       font-weight: 700;
-      padding: 10px 20px;
+      padding: 9px 16px;
       border-radius: 50px;
-      font-size: .9rem;
+      font-size: .88rem;
       transition: all .2s cubic-bezier(.4, 0, .2, 1)
     }
 
@@ -616,6 +840,24 @@
       width: 18px;
       height: 18px;
       flex-shrink: 0
+    }
+
+    @media(max-width:860px) {
+      .profile {
+        grid-template-columns: 1fr
+      }
+
+      .pf-side {
+        position: static
+      }
+
+      .proj {
+        grid-template-columns: 1fr
+      }
+
+      .pf-card {
+        padding: 20px 16px
+      }
     }
 
     /* ---------- stage cards ---------- */
@@ -743,53 +985,6 @@
       margin: -12px 0 32px;
       font-size: 1.05rem;
       color: var(--dim)
-    }
-
-    /* ---------- teacher education ---------- */
-    .edu-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 18px
-    }
-
-    .edu-pill {
-      background: rgba(59, 91, 255, .1);
-      border: 1px solid rgba(59, 91, 255, .25);
-      color: var(--text);
-      font-weight: 700;
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-size: .9rem
-    }
-
-    .trust-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 14px
-    }
-
-    .trust-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .1);
-      color: var(--dim);
-      font-weight: 700;
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-size: .85rem
-    }
-
-    .trust-pill svg {
-      width: 16px;
-      height: 16px;
-      color: var(--accent);
-      flex-shrink: 0
     }
 
     /* ---------- reviews ---------- */
@@ -1053,64 +1248,100 @@
             بيشرحلك المنهج؟</div>
         </div>
       </div>
-      <div class="card teacher-card section-inner" data-id="teacherCard">
-        <div class="t-name" data-ar="بلال عبدالناصر" data-en="Bilal Abdelnasser">بلال عبدالناصر</div>
-        <div class="t-role" data-ar="مدرّب <span dir='ltr'>ICT</span> وعلوم حاسب"
-          data-en="ICT &amp; Computer Science Instructor">
-          مدرّب <span dir="ltr">ICT</span> وعلوم حاسب</div>
-        <div class="teacher-bio" data-id="teacherBio"
-          data-ar="<p>خريج علوم حاسب من جامعة القاهرة، ومن أوائل ٣ طلاب في الدفعة.</p><p>بدأت أدرّس وأنا لسه بتعلّم، وحسّيت بنفسي إن الحفظ مبيوصلش... اللي بيوصل إنك تفهم الفكرة وتشوفها بتشتغل قدامك.</p><blockquote class='t-quote'>لما تفهم الفكرة، تقدر تطبّقها بنفسك.</blockquote><p>دلوقتي بدرّس مئات الطلاب في <span dir='ltr'>EYouth</span> و<span dir='ltr'>Codinger</span>، وبنيت <span dir='ltr'>Egypt ICT Hub</span> عشان تلاقي منهج <span dir='ltr'>ICT</span> متشرح بنفس الأسلوب، خطوة بخطوة.</p><p>هتلاقي هنا موضوعات من منهج <span dir='ltr'>ICT</span>، وحاجات تانية مرتبطة بالبرمجة، تصميم الويب، والأمن السيبراني.</p>"
-          data-en="<p>Computer Science graduate from Cairo University, ranked among the top 3 students in my class.</p><p>I started teaching while I was still a student myself, and quickly realized memorization just doesn't stick — understanding does.</p><blockquote class='t-quote'>When you understand the idea, you can apply it yourself.</blockquote><p>Today I teach hundreds of students at <span dir='ltr'>EYouth</span> and <span dir='ltr'>Codinger</span>, and I built <span dir='ltr'>Egypt ICT Hub</span> to bring that same step-by-step approach to the ICT curriculum.</p><p>Here you'll find topics from the ICT curriculum, along with related concepts in programming, web development, and cybersecurity.</p>">
-          <p>خريج علوم حاسب من جامعة القاهرة، ومن أوائل ٣ طلاب في الدفعة.</p>
-          <p>بدأت أدرّس وأنا لسه بتعلّم، وحسّيت بنفسي إن الحفظ مبيوصلش... اللي بيوصل إنك تفهم الفكرة وتشوفها بتشتغل
-            قدامك.</p>
-          <blockquote class="t-quote">لما تفهم الفكرة، تقدر تطبّقها بنفسك.</blockquote>
-          <p>دلوقتي بدرّس مئات الطلاب في <span dir="ltr">EYouth</span> و<span dir="ltr">Codinger</span>، وبنيت
-            <span dir="ltr">Egypt ICT Hub</span> عشان تلاقي منهج <span dir="ltr">ICT</span> متشرح بنفس الأسلوب،
-            خطوة بخطوة.
-          </p>
-          <p>هتلاقي هنا موضوعات من منهج <span dir="ltr">ICT</span>، وحاجات تانية مرتبطة بالبرمجة، تصميم الويب،
-            والأمن السيبراني.</p>
-        </div>
-        <div class="edu-row">
-          <div class="edu-pill" data-ar="خريج علوم حاسب — جامعة القاهرة"
-            data-en="Computer Science Graduate — Cairo University">خريج
-            علوم حاسب — جامعة القاهرة</div>
-          <div class="edu-pill" data-ar="من أوائل 3 طلاب في قسم علوم الحاسب"
-            data-en="Ranked among the Top 3 students in the Computer Science Department">من
-            أوائل 3 طلاب في قسم علوم الحاسب</div>
-        </div>
-        <div class="trust-row">
-          <div class="trust-pill">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <span data-ar="٤.٨٦ / ٥ من أكتر من ٨٥٠٠ تقييم طالب" data-en="4.86 / 5 from 8,500+ student ratings">٤.٨٦
-              / ٥ من أكتر من ٨٥٠٠ تقييم طالب</span>
+
+      <div class="profile" data-id="teacherCard">
+
+        <aside class="pf-card pf-side section-inner">
+          <img class="pf-avatar" src="assets/bilal-abdelnasser.webp" alt="" width="112" height="112" loading="lazy" decoding="async">
+          <div class="pf-name" data-ar="بلال عبدالناصر" data-en="Bilal Abdelnasser">بلال عبدالناصر</div>
+          <div class="pf-role" data-ar="مدرّب <span dir='ltr'>ICT</span> وبرمجة" data-en="ICT &amp;amp; Coding Instructor">مدرّب <span dir='ltr'>ICT</span> وبرمجة</div>
+          <div class="pf-facts">
+          <div class="pf-fact"><b>Top 3</b><span data-ar="من أوائل ٣ طلاب في قسم علوم الحاسب — جامعة القاهرة" data-en="Top 3 students in the Computer Science Department — Cairo University">من أوائل ٣ طلاب في قسم علوم الحاسب — جامعة القاهرة</span></div>
+          <div class="pf-fact"><b>KG → 11</b><span data-ar="بدرّس <span dir='ltr'>ICT</span> والبرمجة من <span dir='ltr'>KG</span> لحد <span dir='ltr'>Grade 11</span>" data-en="Teaching ICT and coding from KG to Grade 11">بدرّس <span dir='ltr'>ICT</span> والبرمجة من <span dir='ltr'>KG</span> لحد <span dir='ltr'>Grade 11</span></span></div>
+          <div class="pf-fact"><b>4.86 / 5</b><span data-ar="من أكتر من ٨٥٠٠ تقييم طالب" data-en="From 8,500+ student ratings">من أكتر من ٨٥٠٠ تقييم طالب</span></div>
+          <div class="pf-fact"><b>EYouth</b><span data-ar="من أفضل المدرّبين وسط +٦٠٠ مدرّب" data-en="Top-rated among 600+ instructors">من أفضل المدرّبين وسط +٦٠٠ مدرّب</span></div>
           </div>
-          <div class="trust-pill">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2 2 7l10 5 10-5-10-5Zm0 8L2 5v6l10 5 10-5V5l-10 5Zm0 8-8-4v4l8 4 8-4v-4l-8 4Z" />
-            </svg>
-            <span data-ar="من أفضل المدرّبين وسط +٦٠٠ مدرّب في <span dir='ltr'>EYouth</span>"
-              data-en="Top-rated among 600+ instructors at EYouth">من
-              أفضل المدرّبين وسط +٦٠٠ مدرّب في <span dir="ltr">EYouth</span></span>
+          <p class="pf-mini" data-ar="<strong>التعليم:</strong> بكالوريوس علوم الحاسب — جامعة القاهرة (٢٠٢٠–٢٠٢٤)، تقدير جيد جدًا مع مرتبة الشرف." data-en="<strong>Education:</strong> B.Sc. Computer Science — Cairo University (2020–2024), Very Good with Honors."><strong>التعليم:</strong> بكالوريوس علوم الحاسب — جامعة القاهرة (٢٠٢٠–٢٠٢٤)، تقدير جيد جدًا مع مرتبة الشرف.</p>
+          <p class="pf-mini" data-ar="<strong>اللغات:</strong> العربية (لغة أم) · <span dir='ltr'>English (B2)</span>" data-en="<strong>Languages:</strong> Arabic (native) · English (B2)"><strong>اللغات:</strong> العربية (لغة أم) · <span dir='ltr'>English (B2)</span></p>
+          <div class="contact-row">
+            <a class="contact-btn" href="https://www.linkedin.com/in/bilal-abdelnasser-abdelfattah-b17915247/" target="_blank" rel="noopener" data-id="linkedInBtn" aria-label="LinkedIn">
+              <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.27 2.3-2.6 4.73-2.6 5.06 0 6 3.33 6 7.66V24h-5v-7.5c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.88 1.95-2.88 3.97V24h-5V8z" /></svg>
+              <span data-ar="لينكدإن" data-en="LinkedIn">لينكدإن</span>
+            </a>
+            <a class="contact-btn" href="https://github.com/Belal42788" target="_blank" rel="noopener" data-id="githubBtn" aria-label="GitHub">
+              <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" /></svg>
+              <span data-ar="جيت هب" data-en="GitHub">جيت هب</span>
+            </a>
+            <a class="contact-btn" href="mailto:Belal4278@gmail.com" data-id="emailBtn" aria-label="Email">
+              <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+              <span data-ar="إيميل" data-en="Email">إيميل</span>
+            </a>
           </div>
-        </div>
-        <div class="contact-row">
-          <a class="contact-btn" href="https://www.linkedin.com/in/bilal-abdelnasser-abdelfattah-b17915247/"
-            target="_blank" rel="noopener" data-id="linkedInBtn">
-            <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.27 2.3-2.6 4.73-2.6 5.06 0 6 3.33 6 7.66V24h-5v-7.5c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.88 1.95-2.88 3.97V24h-5V8z" />
-            </svg>
-          </a>
-          <a class="contact-btn" href="mailto:Belal4278@gmail.com" data-id="emailBtn">
-            <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-            </svg>
-          </a>
+        </aside>
+
+        <div class="pf-main">
+
+          <div class="pf-card pf-bio section-inner" data-id="teacherBio">
+            <h3 data-ar="عني" data-en="About">عني</h3>
+            <div data-ar="<p>خريج علوم حاسب من جامعة القاهرة، ومن أوائل ٣ طلاب في الدفعة.</p><p>بدأت أدرّس وأنا لسه بتعلّم، وحسّيت بنفسي إن الحفظ مبيوصلش... اللي بيوصل إنك تفهم الفكرة وتشوفها بتشتغل قدامك.</p><blockquote class=&quot;t-quote&quot;>لما تفهم الفكرة، تقدر تطبّقها بنفسك.</blockquote><p>دلوقتي بدرّس <span dir='ltr'>ICT</span> وبرمجة لطلاب من <span dir='ltr'>KG</span> لحد <span dir='ltr'>Grade 11</span>، وبدرّب في <span dir='ltr'>EYouth</span>، وبنيت <span dir='ltr'>Egypt ICT Hub</span> عشان تلاقي منهج <span dir='ltr'>ICT</span> متشرح بنفس الأسلوب، خطوة بخطوة.</p><p>هتلاقي هنا موضوعات من منهج <span dir='ltr'>ICT</span>، وحاجات تانية مرتبطة بالبرمجة، تصميم الويب، والأمن السيبراني.</p>" data-en="<p>Computer Science graduate from Cairo University, ranked among the top 3 students in my class.</p><p>I started teaching while I was still a student myself, and quickly realized memorization just doesn't stick — understanding does.</p><blockquote class=&quot;t-quote&quot;>When you understand the idea, you can apply it yourself.</blockquote><p>Today I teach ICT and coding to students from KG to Grade 11, train at EYouth, and built Egypt ICT Hub so you can find the ICT curriculum explained the same way, step by step.</p><p>Here you will find ICT curriculum topics, plus related material on programming, web design and cybersecurity.</p>"><p>خريج علوم حاسب من جامعة القاهرة، ومن أوائل ٣ طلاب في الدفعة.</p><p>بدأت أدرّس وأنا لسه بتعلّم، وحسّيت بنفسي إن الحفظ مبيوصلش... اللي بيوصل إنك تفهم الفكرة وتشوفها بتشتغل قدامك.</p><blockquote class="t-quote">لما تفهم الفكرة، تقدر تطبّقها بنفسك.</blockquote><p>دلوقتي بدرّس <span dir='ltr'>ICT</span> وبرمجة لطلاب من <span dir='ltr'>KG</span> لحد <span dir='ltr'>Grade 11</span>، وبدرّب في <span dir='ltr'>EYouth</span>، وبنيت <span dir='ltr'>Egypt ICT Hub</span> عشان تلاقي منهج <span dir='ltr'>ICT</span> متشرح بنفس الأسلوب، خطوة بخطوة.</p><p>هتلاقي هنا موضوعات من منهج <span dir='ltr'>ICT</span>، وحاجات تانية مرتبطة بالبرمجة، تصميم الويب، والأمن السيبراني.</p></div>
+          </div>
+
+          <div class="pf-card section-inner">
+            <h3 data-ar="الخبرة" data-en="Experience">الخبرة</h3>
+            <ul class="tl">
+            <li class="now">
+              <div class="tl-top"><span class="tl-title" data-ar="مدرّس <span dir='ltr'>ICT</span>" data-en="ICT Teacher">مدرّس <span dir='ltr'>ICT</span></span><span class="tl-date" data-ar="أكتوبر ٢٠٢٦ – الآن" data-en="Oct 2026 – Present">أكتوبر ٢٠٢٦ – الآن</span></div>
+              <div class="tl-org" data-ar="مدرسة دار لقمان الدولية للغات — القسم الأمريكي" data-en="Dar Loqman International Language School — American Division">مدرسة دار لقمان الدولية للغات — القسم الأمريكي</div>
+              <p class="tl-desc" data-ar="من <span dir='ltr'>KG</span> لحد <span dir='ltr'>Grade 11</span>: برمجة وتطوير تطبيقات (<span dir='ltr'>Scratch</span>، <span dir='ltr'>MIT App Inventor</span>، <span dir='ltr'>Python</span>)، و<span dir='ltr'>Microsoft Office</span>، وتصميم ثلاثي الأبعاد بـ<span dir='ltr'>Tinkercad</span>، ومونتاج بـ<span dir='ltr'>CapCut</span>." data-en="KG to Grade 11: programming and app development (Scratch, MIT App Inventor, Python), Microsoft Office, 3D design with Tinkercad and video editing with CapCut.">من <span dir='ltr'>KG</span> لحد <span dir='ltr'>Grade 11</span>: برمجة وتطوير تطبيقات (<span dir='ltr'>Scratch</span>، <span dir='ltr'>MIT App Inventor</span>، <span dir='ltr'>Python</span>)، و<span dir='ltr'>Microsoft Office</span>، وتصميم ثلاثي الأبعاد بـ<span dir='ltr'>Tinkercad</span>، ومونتاج بـ<span dir='ltr'>CapCut</span>.</p>
+            </li>
+            <li class="now">
+              <div class="tl-top"><span class="tl-title" data-ar="مدرّب برمجة (دوام جزئي)" data-en="Coding Instructor (part-time)">مدرّب برمجة (دوام جزئي)</span><span class="tl-date" data-ar="أبريل ٢٠٢٦ – الآن" data-en="Apr 2026 – Present">أبريل ٢٠٢٦ – الآن</span></div>
+              <div class="tl-org" data-ar="EYouth" data-en="EYouth">EYouth</div>
+              <p class="tl-desc" data-ar="أساسيات البرمجة و<span dir='ltr'>Python</span> وتطوير الويب (<span dir='ltr'>HTML/CSS/JavaScript</span>) ومفاهيم الذكاء الاصطناعي، مع مشاريع عملية في الأنظمة المدمجة والأمن السيبراني. اتصنّفت من أفضل المدرّبين." data-en="Programming fundamentals, Python, web development (HTML/CSS/JavaScript) and AI concepts, with hands-on projects in embedded systems and cybersecurity. Recognized as a top-performing instructor.">أساسيات البرمجة و<span dir='ltr'>Python</span> وتطوير الويب (<span dir='ltr'>HTML/CSS/JavaScript</span>) ومفاهيم الذكاء الاصطناعي، مع مشاريع عملية في الأنظمة المدمجة والأمن السيبراني. اتصنّفت من أفضل المدرّبين.</p>
+            </li>
+            <li>
+              <div class="tl-top"><span class="tl-title" data-ar="مدرّب برمجة" data-en="Coding Instructor">مدرّب برمجة</span><span class="tl-date" data-ar="أبريل – مايو ٢٠٢٦" data-en="Apr – May 2026">أبريل – مايو ٢٠٢٦</span></div>
+              <div class="tl-org" data-ar="Codinger — مدارس أمريكان (<span dir='ltr'>GIS</span> وغيرها)" data-en="Codinger — American schools (GIS and others)">Codinger — مدارس أمريكان (<span dir='ltr'>GIS</span> وغيرها)</div>
+              <p class="tl-desc" data-ar="جلسات برمجة لطلاب <span dir='ltr'>Grade 4–11</span> بـ<span dir='ltr'>Python</span> و<span dir='ltr'>HTML/CSS</span> وأدوات البرمجة بالبلوكات (<span dir='ltr'>MIT App Inventor</span>، <span dir='ltr'>mBlock</span>، <span dir='ltr'>PictoBlox</span>، <span dir='ltr'>Lovable</span>)، وحصة تفكير بيزنس: توليد أفكار و<span dir='ltr'>UI/UX</span> وتقديم المشاريع." data-en="Coding sessions for Grade 4–11 in Python, HTML/CSS and block-based programming (MIT App Inventor, mBlock, PictoBlox, Lovable), plus a business-thinking class: idea generation, UI/UX and pitching projects.">جلسات برمجة لطلاب <span dir='ltr'>Grade 4–11</span> بـ<span dir='ltr'>Python</span> و<span dir='ltr'>HTML/CSS</span> وأدوات البرمجة بالبلوكات (<span dir='ltr'>MIT App Inventor</span>، <span dir='ltr'>mBlock</span>، <span dir='ltr'>PictoBlox</span>، <span dir='ltr'>Lovable</span>)، وحصة تفكير بيزنس: توليد أفكار و<span dir='ltr'>UI/UX</span> وتقديم المشاريع.</p>
+            </li>
+            <li>
+              <div class="tl-top"><span class="tl-title" data-ar="مدرّس <span dir='ltr'>ICT</span>" data-en="ICT Teacher">مدرّس <span dir='ltr'>ICT</span></span><span class="tl-date" data-ar="أغسطس – أكتوبر ٢٠٢٦" data-en="Aug – Oct 2026">أغسطس – أكتوبر ٢٠٢٦</span></div>
+              <div class="tl-org" data-ar="مدرسة إخناتون المصرية للغات — القسم الأمريكي" data-en="Akhnaton Egyptian Language School — American Division">مدرسة إخناتون المصرية للغات — القسم الأمريكي</div>
+              <p class="tl-desc" data-ar="لطلاب <span dir='ltr'>Grades 4, 6, 7, 8, 9</span>: أساسيات الأمن السيبراني ونظم المعلومات، و<span dir='ltr'>MIT App Inventor</span>، وتطبيقات <span dir='ltr'>Google</span> و<span dir='ltr'>Word</span>، والنظام الثنائي وإزاي الكمبيوتر بيمثّل البيانات." data-en="For Grades 4, 6, 7, 8 and 9: cybersecurity fundamentals and information systems, MIT App Inventor, Google apps and Word, and the binary number system and how computers represent data.">لطلاب <span dir='ltr'>Grades 4, 6, 7, 8, 9</span>: أساسيات الأمن السيبراني ونظم المعلومات، و<span dir='ltr'>MIT App Inventor</span>، وتطبيقات <span dir='ltr'>Google</span> و<span dir='ltr'>Word</span>، والنظام الثنائي وإزاي الكمبيوتر بيمثّل البيانات.</p>
+            </li>
+            <li>
+              <div class="tl-top"><span class="tl-title" data-ar="مدرّب برمجة" data-en="Coding Instructor">مدرّب برمجة</span><span class="tl-date" data-ar="فبراير ٢٠٢٤ – مايو ٢٠٢٥" data-en="Feb 2024 – May 2025">فبراير ٢٠٢٤ – مايو ٢٠٢٥</span></div>
+              <div class="tl-org" data-ar="Almentor — مبادرة أشبال مصر الرقمية (<span dir='ltr'>DECI</span>)" data-en="Almentor — Digital Egypt Cubs Initiative (DECI)">Almentor — مبادرة أشبال مصر الرقمية (<span dir='ltr'>DECI</span>)</div>
+              <p class="tl-desc" data-ar="مفاهيم الكمبيوتر الأساسية، و<span dir='ltr'>MIT App Inventor</span> والبرمجة بالبلوكات، وتنمية التفكير الحسابي بالبرمجة النصية عن طريق <span dir='ltr'>Robomind</span>." data-en="Basic computer concepts, MIT App Inventor and block-based programming, and strengthening computational thinking with text-based programming in Robomind.">مفاهيم الكمبيوتر الأساسية، و<span dir='ltr'>MIT App Inventor</span> والبرمجة بالبلوكات، وتنمية التفكير الحسابي بالبرمجة النصية عن طريق <span dir='ltr'>Robomind</span>.</p>
+            </li>
+            <li>
+              <div class="tl-top"><span class="tl-title" data-ar="متدرّب <span dir='ltr'>React JS</span>" data-en="React JS Trainee">متدرّب <span dir='ltr'>React JS</span></span><span class="tl-date" data-ar="فبراير – أبريل ٢٠٢٤" data-en="Feb – Apr 2024">فبراير – أبريل ٢٠٢٤</span></div>
+              <div class="tl-org" data-ar="Rawmart" data-en="Rawmart">Rawmart</div>
+              <p class="tl-desc" data-ar="تدريب مكثّف ٣ شهور على <span dir='ltr'>React.js</span>: بناء مكوّنات واجهة ديناميكية قابلة لإعادة الاستخدام، والشغل ضمن فريق." data-en="Intensive 3-month React.js training: building dynamic, reusable UI components and working in a team.">تدريب مكثّف ٣ شهور على <span dir='ltr'>React.js</span>: بناء مكوّنات واجهة ديناميكية قابلة لإعادة الاستخدام، والشغل ضمن فريق.</p>
+            </li>
+            </ul>
+          </div>
+
+          <div class="pf-card section-inner">
+            <h3 data-ar="المهارات" data-en="Skills">المهارات</h3>
+            <div class="chip-group"><div class="chip-label" data-ar="لغات البرمجة" data-en="Programming languages">لغات البرمجة</div><div class="chips"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">C++</span><span class="chip">Java</span></div></div>
+            <div class="chip-group"><div class="chip-label" data-ar="تطوير الويب" data-en="Web development">تطوير الويب</div><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">React</span><span class="chip">Firebase</span><span class="chip">Git / GitHub</span><span class="chip">GitHub Pages</span></div></div>
+            <div class="chip-group"><div class="chip-label" data-ar="علوم الحاسب" data-en="Computer science">علوم الحاسب</div><div class="chips"><span class="chip">Data Structures</span><span class="chip">Algorithms</span><span class="chip">OOP</span><span class="chip">Problem Solving</span></div></div>
+            <div class="chip-group"><div class="chip-label" data-ar="الأنظمة المدمجة والأمن السيبراني" data-en="Embedded systems &amp; cybersecurity">الأنظمة المدمجة والأمن السيبراني</div><div class="chips"><span class="chip">ESP32</span><span class="chip">MicroPython</span><span class="chip">Cybersecurity</span></div></div>
+            <div class="chip-group"><div class="chip-label" data-ar="أدوات التدريس" data-en="Teaching platforms">أدوات التدريس</div><div class="chips"><span class="chip">Scratch</span><span class="chip">MIT App Inventor</span><span class="chip">PictoBlox</span><span class="chip">mBlock</span><span class="chip">Tinkercad</span><span class="chip">Lovable</span><span class="chip">Classera</span><span class="chip">NotebookLM</span></div></div>
+            <div class="chip-group"><div class="chip-label" data-ar="الإنتاجية والإبداع" data-en="Productivity &amp; creative tools">الإنتاجية والإبداع</div><div class="chips"><span class="chip">Word</span><span class="chip">Excel</span><span class="chip">PowerPoint</span><span class="chip">Access</span><span class="chip">Publisher</span><span class="chip">CapCut</span><span class="chip">Canva</span></div></div>
+          </div>
+
+          <div class="pf-card section-inner">
+            <h3 data-ar="مشاريع" data-en="Projects">مشاريع</h3>
+            <div class="proj">
+            <div class="proj-item"><b dir="ltr"><a href="https://github.com/Belal42788/EGYPT-ICT-HUB" target="_blank" rel="noopener">Egypt ICT Hub</a></b><small data-ar="منصة ثنائية اللغة (عربي/إنجليزي) لمنهج ICT في المدارس المصرية، بنظام تصميم موحّد وطباعة عربية متظبطة، ومنشورة على GitHub Pages." data-en="A bilingual (Arabic/English) ICT curriculum platform for Egyptian schools, with a unified design system and tuned Arabic typography, published on GitHub Pages.">منصة ثنائية اللغة (عربي/إنجليزي) لمنهج ICT في المدارس المصرية، بنظام تصميم موحّد وطباعة عربية متظبطة، ومنشورة على GitHub Pages.</small><small class="proj-date" data-ar="أغسطس ٢٠٢٦ – الآن" data-en="Aug 2026 – Present">أغسطس ٢٠٢٦ – الآن</small></div>
+            <div class="proj-item"><b dir="ltr">EduSphere</b><small data-ar="منصة تعليم أونلاين بـ React.js و .NET، فيها إدارة حسابات ومحتوى وسائط متعددة." data-en="An online learning platform built with React.js and .NET, with account management and multimedia course content.">منصة تعليم أونلاين بـ React.js و .NET، فيها إدارة حسابات ومحتوى وسائط متعددة.</small><small class="proj-date" data-ar="مايو – يونيو ٢٠٢٤" data-en="May – Jun 2024">مايو – يونيو ٢٠٢٤</small></div>
+            <div class="proj-item"><b dir="ltr">Luxury</b><small data-ar="تطبيق موبايل بـ React Native و Firebase: تسجيل دخول، وقاعدة بيانات لحظية، وواجهة لتصفّح السيارات الفاخرة." data-en="A mobile app built with React Native and Firebase: user authentication, a real-time database and an interface for browsing luxury cars.">تطبيق موبايل بـ React Native و Firebase: تسجيل دخول، وقاعدة بيانات لحظية، وواجهة لتصفّح السيارات الفاخرة.</small><small class="proj-date" data-ar="مارس – مايو ٢٠٢٣" data-en="Mar – May 2023">مارس – مايو ٢٠٢٣</small></div>
+            <div class="proj-item"><b dir="ltr">Gun Game</b><small data-ar="لعبة سطح مكتب بالـ Java: تحكم بالكيبورد، وأنيميشن، وصوت، ونظام نقاط." data-en="A Java desktop shooting game with keyboard controls, animations, sound effects and a scoring system.">لعبة سطح مكتب بالـ Java: تحكم بالكيبورد، وأنيميشن، وصوت، ونظام نقاط.</small><small class="proj-date" data-ar="ديسمبر ٢٠٢٢ – يناير ٢٠٢٣" data-en="Dec 2022 – Jan 2023">ديسمبر ٢٠٢٢ – يناير ٢٠٢٣</small></div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

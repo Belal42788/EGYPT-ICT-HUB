@@ -2,11 +2,33 @@
 
 A modern educational resource that helps students in Egyptian schools understand **Information and Communication Technology (ICT)** in a simple, clear, and engaging way.
 
+**Live site:** https://belal42788.github.io/EGYPT-ICT-HUB/
+
+<p align="center">
+  <img src="assets/screenshots/home-desktop.webp" alt="Egypt ICT Hub — home page" width="820">
+</p>
+
 ## About
 
 Egypt ICT Hub is an open educational project built around the ICT curriculum for Egyptian school students — initially the **first-year secondary school** level, with structure reserved for the remaining secondary years and the middle (preparatory) grades. Its goal is to take the standard ICT material and present it in a way that is easier to follow, more visual, and more interesting for young learners — turning everyday lessons into interactive, self-paced learning experiences.
 
 The platform is currently under active development, with content being organized unit-by-unit and lesson-by-lesson.
+
+## Screenshots
+
+**Desktop**
+
+| Home | About the teacher |
+| --- | --- |
+| ![Home page](assets/screenshots/home-desktop.webp) | ![About the teacher](assets/screenshots/about-desktop.webp) |
+| **Secondary stage — units and lessons** | **Lesson 1-1 — book text + explanation** |
+| ![Secondary page](assets/screenshots/secondary-desktop.webp) | ![Lesson page](assets/screenshots/lesson-desktop.webp) |
+
+**Mobile**
+
+| Home | Secondary stage | Lesson |
+| --- | --- | --- |
+| <img src="assets/screenshots/home-mobile.webp" alt="Home on mobile" width="230"> | <img src="assets/screenshots/secondary-mobile.webp" alt="Secondary page on mobile" width="230"> | <img src="assets/screenshots/lesson-mobile.webp" alt="Lesson on mobile" width="230"> |
 
 ## Goals
 
@@ -81,6 +103,7 @@ remains editable separately.
 - **Unit and lesson organization** — the curriculum is structured into units, each containing individual lessons.
 - **Lesson notes** — each lesson includes structured text content extracted alongside its exercises for reference.
 - **62 interactive lessons (Secondary Year 1)** — each a self-contained page with explanations and a quiz.
+- **Built on the official Ministry book** — lessons are being aligned so that definitions, key points and exam questions use the book's own wording (Arabic and English), with the extra explanation kept separate under "بالبسيط".
 - **Arabic / English toggle** — every lesson switches language; the choice is remembered in the browser.
 - **Secondary page tools** — search across all lessons, a "seen" tick on lessons you opened, and a "continue where you stopped" bar (saved locally in the browser, nothing is sent anywhere).
 - **Design system** — all colors, fonts and components follow `DESIGN.md`.
