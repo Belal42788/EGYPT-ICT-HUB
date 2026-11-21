@@ -89,6 +89,7 @@
     }
 
     nav.show {
+      background: #0a0d1f;
       transform: translateY(0)
     }
 
@@ -1159,7 +1160,30 @@
       font-size: .85rem;
       opacity: .7
     }
-  </style>
+
+    /* Keep the logo and language switch fixed while mobile links swipe. */
+    @media (max-width: 640px) {
+      .nav-inner { gap: 8px; padding: 10px 12px; }
+      .nav-inner > a, .lang-toggle { flex-shrink: 0; }
+      .nav-links {
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(130, 150, 210, .55) transparent;
+        padding-bottom: 5px;
+      }
+      .nav-links::-webkit-scrollbar { display: block; height: 3px; }
+      .nav-links::-webkit-scrollbar-thumb {
+        background: rgba(130, 150, 210, .55);
+        border-radius: 3px;
+      }
+      .nav-links a { padding: 6px 12px; }
+    }
+
+</style>
 </head>
 
 <body>
