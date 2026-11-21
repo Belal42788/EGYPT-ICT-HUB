@@ -46,28 +46,30 @@ EGYPT-ICT-HUB/
 │   │   ├── Unit 2 - Regulations and Rights in the Information Society/
 │   │   ├── ... (Units 3-13)
 │   │   └── The Book/       # source book PDF (ICT_En_Sec1_T1.pdf)
-│   ├── Year 2/             # الصف الثاني الثانوي — coming soon
-│   └── Year 3/             # الصف الثالث الثانوي — coming soon
-├── Preparatory/            # المرحلة الإعدادية (preparatory stage)
-│   ├── Year 1/             # الصف الأول الإعدادي — 19 lesson pages (content coming)
-│   ├── Year 2/             # الصف الثاني الإعدادي — coming soon
-│   └── Year 3/             # الصف الثالث الإعدادي — coming soon
-├── Secondary/src/          # source & generation files (kept separate from rendered HTML)
-│   └── Year 1/             # per-lesson: master-prompt*.md, extracted_en.md, *.txt
-├── index-redesigns/        # 20 alternative index (portfolio) designs — see below
+│   └── src/                # source & generation files (kept separate from rendered HTML)
+│       └── Year 1/         # per-lesson: master-prompt*.md, extracted_en.md, *.txt
+│   # Year 2 and Year 3 folders do not exist yet — planned
+├── Preparatory/            # المرحلة الإعدادية (preparatory stage) — placeholders only
+│   ├── Year 1/             # الصف الأول الإعدادي — 7 empty page stubs (Second term)
+│   └── Year 2/             # الصف الثاني الإعدادي — 12 empty page stubs (Second term)
+│   # Year 3 folder does not exist yet
+├── index-redesigns/        # 23 design files (original + 20 explorations + final + lesson sample) — see below
 ├── tools/                  # Python helpers for content extraction & application
 │   ├── extract_en.py
 │   ├── apply_json.py
 │   └── list_lessons.py
-├── assets/                 # images: logo, hero/teacher photo
+├── assets/                 # images: logo, favicons, og-image, hero/teacher photo (.webp)
 ├── index.html              # main landing page (primary index)
 ├── secondary.html          # secondary stage entry
 ├── preparatory.html        # preparatory stage entry
+├── 404.html                # custom "page not found" page
+├── sitemap.xml             # list of all pages (for search engines)
+├── DESIGN.md               # design rules: colors, fonts, spacing, components
 ├── IDEA.md                 # project notes / roadmap
 └── README.md
 ```
 
-**Architecture note:** each lesson is a self-contained HTML file (embedded CSS/JS, Google Fonts "Cairo").
+**Architecture note:** each lesson is a self-contained HTML file (embedded CSS/JS, Google Fonts "Baloo Bhaijaan 2").
 The raw source material (book text `.txt`, extracted English `extracted_en.md`, and `master-prompt*.md`
 generation prompts) lives under `Secondary/src/` so the lesson folders stay HTML-only and the source
 remains editable separately.
@@ -78,12 +80,15 @@ remains editable separately.
 
 - **Unit and lesson organization** — the curriculum is structured into units, each containing individual lessons.
 - **Lesson notes** — each lesson includes structured text content extracted alongside its exercises for reference.
-- **Interactive lesson pages** — dedicated HTML pages per lesson are being prepared to present the material in a web-based format.
+- **62 interactive lessons (Secondary Year 1)** — each a self-contained page with explanations and a quiz.
+- **Arabic / English toggle** — every lesson switches language; the choice is remembered in the browser.
+- **Secondary page tools** — search across all lessons, a "seen" tick on lessons you opened, and a "continue where you stopped" bar (saved locally in the browser, nothing is sent anywhere).
+- **Design system** — all colors, fonts and components follow `DESIGN.md`.
 
 ### Planned / Upcoming
 
-- Interactive visual explanations of key ICT concepts.
-- Self-assessment quizzes and exercises with feedback.
+- Secondary Year 2 and Year 3 lessons.
+- Preparatory (middle school) lessons — the pages exist but are still empty.
 - Practical, project-style activities that apply the concepts.
 - A cohesive visual design and navigation across all lessons.
 - Revision materials to help students prepare for exams.
@@ -92,8 +97,9 @@ remains editable separately.
 
 ## Index Redesign Gallery
 
-The main landing page (`index.html`) acts as a portfolio. Alongside it, **20 alternative designs**
-live in [`index-redesigns/`](index-redesigns/), each preserving the brand colors
+The main landing page (`index.html`) acts as a portfolio. Alongside it, `index-redesigns/` holds
+**23 files**: the original page (`00`), **20 alternative designs** (`01`–`20`), the chosen final
+version (`21-claude-final.html`) and a sample lesson (`22-lesson-1-1.html`). The 20 explorations each preserving the brand colors
 (`--primary:#3b5bff`, `--accent:#00c896`, `--bg:#0a0d1f`) and the bilingual EN/AR translation system.
 They were produced as design explorations using different design systems (Stripe, Notion, Swiss, Bauhaus,
 Memphis, Neubrutalism, Terminal/Mono, Scrollytelling, Duotone, Neumorphism, Editorial, etc.).
@@ -121,7 +127,7 @@ Memphis, Neubrutalism, Terminal/Mono, Scrollytelling, Duotone, Neumorphism, Edit
 | 19 | Editorial Mag | `index-redesigns/19-editorial-mag.html` |
 | 20 | Asymmetric Overlap | `index-redesigns/20-asymmetric-overlap.html` |
 
-A live gallery of all 20 is reachable from the bottom of `index.html` (the "معرض التصاميم / DESIGN GALLERY" section).
+These files are design experiments kept for reference. They are not linked from `index.html`; open them directly by their path (for example `/index-redesigns/05-bento-grid.html`).
 
 ## Project Status
 
