@@ -328,6 +328,12 @@
       color: var(--primary)
     }
 
+    /* Keep the English underline fitted to its final text line. */
+    .hero-title .grad-last {
+      display: inline-block;
+      position: relative
+    }
+
     .hero-title .grad svg {
       position: absolute;
       inset-inline-start: 0;
@@ -412,6 +418,48 @@
     @media(max-width:900px) {
       .hero-stats {
         justify-content: center
+      }
+    }
+
+    @media(max-width:900px) {
+
+      /* mobile hero: centered, equal-width stage buttons */
+      .hero-stages {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 220px;
+        max-width: 100%;
+        margin-inline: auto
+      }
+
+      .hero-stages .cta-btn {
+        justify-content: center;
+        padding: 8px 16px;
+        font-size: .875rem;
+        line-height: 1.4;
+        min-height: 40px
+      }
+
+      /* mobile hero: compact counts leave more room for the rating */
+      .hero-stats {
+        display: grid;
+        grid-template-columns: minmax(0, .8fr) minmax(0, .7fr) minmax(0, 1.5fr);
+        gap: 6px;
+        align-items: stretch
+      }
+
+      .hero-stats .stat-pill {
+        min-width: 0;
+        justify-content: center;
+        gap: 2px;
+        white-space: nowrap;
+        padding: 8px 2px;
+        font-size: clamp(11px, 3.2vw, 12px)
+      }
+
+      .hero-stats .stat-pill b {
+        font-size: inherit
       }
     }
 
@@ -1199,7 +1247,7 @@
         <div class="hero-badge" data-ar="Egypt ICT Hub" data-en="Egypt ICT Hub">Egypt ICT Hub</div>
         <h1 class="hero-title"
           data-ar="منهج <span dir='ltr'>ICT</span>... <span class='grad'>يتفهم مش يتحفظ<svg viewBox='0 0 200 12' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 8 Q 30 2, 55 7 T 105 6 T 155 8 T 198 5' fill='none' stroke='currentColor' stroke-width='4' stroke-linecap='round'/></svg></span>"
-          data-en="ICT, <span class='grad'>Actually Understood — Not Memorized<svg viewBox='0 0 200 12' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 8 Q 30 2, 55 7 T 105 6 T 155 8 T 198 5' fill='none' stroke='currentColor' stroke-width='4' stroke-linecap='round'/></svg></span>">
+          data-en="ICT, <span class='grad'>Actually Understood <span class='grad-last'>— Not Memorized<svg viewBox='0 0 200 12' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 8 Q 30 2, 55 7 T 105 6 T 155 8 T 198 5' fill='none' stroke='currentColor' stroke-width='4' stroke-linecap='round'/></svg></span></span>">
           منهج <span dir="ltr">ICT</span>...
           <span class="grad">يتفهم مش يتحفظ<svg viewBox="0 0 200 12" preserveAspectRatio="none"
               xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
