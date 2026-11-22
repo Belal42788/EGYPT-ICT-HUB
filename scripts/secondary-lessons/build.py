@@ -30,8 +30,16 @@ for i,data in enumerate(PAGES):
  if data.get('lab') and data['lab']!='sitemap':extra='<section id="workbench">'+B(P('معمل التجربة','Practice workbench'),'h2')+'<div class="lab">'+B(data['demo']['note'],'p','class="simulation-note"')+'<div id="interactive-lab"></div></div></section>'
  if data.get('code'):extra+='<section>'+B(P('اقرأ الكود وتتبع الفكرة','Read the code and trace the idea'),'h2')+B(P('مثال تعليمي مصاغ للشرح، وليس نقلًا حرفيًا لكل أسطر الكتاب. لا يتم تنفيذه هنا.','A teaching example, not a verbatim copy of every textbook line. It does not execute here.'),'p','class="section-note"')+'<pre class="code-block" dir="ltr"><code>'+html.escape(data['code'])+'</code></pre></section>'
  if data.get('refs'):extra+='<div class="source-note">'+B(P('مراجع التصحيحات التقنية','Technical correction references'),'h3')+''.join('<p><a href="'+html.escape(u,quote=True)+'" rel="noopener noreferrer" target="_blank">'+html.escape(t)+'</a></p>' for t,u in data['refs'])+'</div>'
- other=PAGES[(i+1)%len(PAGES)];relative=os.path.relpath(OUT/other['path']/(other['slug']+'.html'),folder)
- navbottom='<div class="lesson-nav">'+link(P('العودة للمرحلة الثانوية','Back to Secondary'),'../../../../secondary.html','btn')+link(other['title'],relative,'btn primary')+'</div>'
+ manifest_path=ASSETS/'release-index-manifest.json'
+ siblings=[item for item in json.loads(manifest_path.read_text()) if item['year']==data['year']] if manifest_path.exists() else []
+ current=next((n for n,item in enumerate(siblings) if item['code']==data['id']),None)
+ year_index=f"../../../../secondary-year{data['year']}.html"
+ if current is not None and current+1<len(siblings):
+  following=siblings[current+1]
+  next_link=link(P(following['ar'],following['en']),os.path.relpath(ROOT/following['path'],folder),'btn primary')
+ else:
+  next_link=link(P('كل دروس السنة','All lessons for this year'),year_index,'btn primary')
+ navbottom='<div class="lesson-nav">'+link(P('العودة لدروس السنة','Back to year lessons'),year_index,'btn')+next_link+'</div>'
  notice=''
  if data['year']==3: notice=B(P('ملاحظة ترجمة: النسخة المرفقة من الوحدة الأولى عربية فقط؛ النص الإنجليزي ترجمة تعليمية مسودة للمراجعة.' if data['unit']==1 else 'ملاحظة ترجمة: النسخة المرفقة من الوحدة الثانية إنجليزية فقط؛ النص العربي ترجمة تعليمية مسودة للمراجعة.','Translation note: only the Arabic Unit 1 book was supplied; this English teaching translation is a draft for review.' if data['unit']==1 else 'Translation note: only the English Unit 2 book was supplied; the Arabic teaching translation is a draft for review.'),'p','class="translation-note"')
  if data.get('legacy'):notice+=B(P('تنبيه عن المصدر: فهرس الكتاب المرفق يصف هذا الموضوع بأنه إثرائي للعام 2015–2016، رغم أن الغلاف يحمل 2026–2027. نعرضه مع هذا التنبيه، دون اعتباره حكمًا على المنهج الحالي.','Source note: the supplied contents labels this PHP topic as 2015–2016 enrichment, although the cover says 2026–2027. It is included with that caveat, not as a claim about current requirements.'),'p','class="translation-note"')
