@@ -2174,12 +2174,14 @@
     /* ---------- nav ---------- */
     var nav = document.getElementById('topnav');
     var scrollBtn = document.getElementById('scrollTop');
-    if (!scrollBtn) return; /* 'scrollTop' removed by design - skip safely */
+    /* 'scrollTop' is absent on this page by design - guard instead of a top-level return (which is a SyntaxError that kills the whole script) */
     window.addEventListener('scroll', function () {
       if (window.scrollY > 60) nav.classList.add('show');
       else nav.classList.remove('show');
-      if (window.scrollY > 500) scrollBtn.classList.add('show');
-      else scrollBtn.classList.remove('show');
+      if (scrollBtn) {
+        if (window.scrollY > 500) scrollBtn.classList.add('show');
+        else scrollBtn.classList.remove('show');
+      }
     }, { passive: true });
     if (scrollBtn) scrollBtn.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -2330,6 +2332,7 @@ var FLOWS = {
       var card = document.querySelector('.flow-card[data-id="' + id + '"]');
       if (!card) return;
       var svg = card.querySelector('.svg-main');
+      if (!svg) return; /* SVG stage removed by design on this page - static flow boxes are used instead */
       var ns = 'http://www.w3.org/2000/svg';
       function mk(tag, attrs) {
         var e = document.createElementNS(ns, tag);
@@ -2506,6 +2509,19 @@ var FLOWS = {
           card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('correct', 'wrong', 'picked'); });
           var s = card.querySelector('.ex-score');
           if (s) s.remove();
+        });
+      });
+      /* ex-opts exercise blocks: immediate feedback on pick (these pages use ex-opts markup, not ex-item) */
+      document.querySelectorAll('.ex-opts').forEach(function (group) {
+        group.querySelectorAll('.ex-opt').forEach(function (opt) {
+          opt.addEventListener('click', function () {
+            if (group.classList.contains('locked')) return;
+            group.classList.add('locked');
+            group.querySelectorAll('.ex-opt').forEach(function (o) {
+              if (o.hasAttribute('data-ok')) o.classList.add('correct');
+            });
+            if (!opt.hasAttribute('data-ok')) opt.classList.add('wrong');
+          });
         });
       });
     }
