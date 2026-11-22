@@ -2,6 +2,8 @@
 
 Prepared22 November2026. Local review only. No push, merge or publication.
 
+Snapshot: cd084eb. Any later12-1 audit changes are documented separately in YEAR1-TEXTBOOK-AUDIT.md.
+
 ## Scope
 
 Three lesson HTML files only, based on main commit1183c14. This batch does not include pending batch1, Unit11 or preparatory work.
