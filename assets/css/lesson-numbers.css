@@ -1,0 +1,24 @@
+/* Shared lesson number system. Change the tab here, not in individual lessons.
+   Answer letters, counters, section navigation and content values are separate. */
+:root { --lesson-number-bg:#3b5bff; --lesson-number-ink:#fff; --lesson-number-width:23px; --lesson-number-height:34px; }
+.q-num,.ex-item .q-num,.algo-step .q-num,.mcq-num,.jn-num,.chip-num,.lesson-number,.order-position,.flow-node > strong {
+ display:inline-flex;align-items:center;justify-content:center;flex:0 0 var(--lesson-number-width);
+ width:var(--lesson-number-width);min-width:var(--lesson-number-width);height:var(--lesson-number-height);
+ padding:0;margin:0;margin-inline-end:10px;border:0;border-radius:4px 4px 12px 4px;
+ background:var(--lesson-number-bg);color:var(--lesson-number-ink);font:inherit;font-size:15px;font-weight:700;line-height:1;
+ vertical-align:middle;direction:ltr;opacity:1;box-shadow:none;transform:none;
+}
+.rq-q,.fill-label,.mcq-q-head,.lesson-number-heading {display:flex;align-items:flex-start;gap:0;}
+.rq-q > .q-num,.fill-label > .q-num,.mcq-q-head > .mcq-num,.lesson-number-heading > .lesson-number {flex-shrink:0;}
+.lesson-number-text {min-width:0;flex:1;}
+.atm-step {display:flex;align-items:center;border-inline-start:3px solid var(--lesson-number-bg);}
+.atm-step .lesson-number {flex-shrink:0;}
+.flow-node > strong {display:flex;margin-inline:auto;margin-bottom:8px;font-size:13px;}
+.order-position {flex-shrink:0;}
+.step-tag {display:inline-flex;align-items:center;background:var(--lesson-number-bg);color:#fff;border:0;border-radius:4px 4px 12px 4px;padding:5px 9px;font-size:12px;line-height:1.5;}
+@media(max-width:480px){
+ .q-num,.ex-item .q-num,.algo-step .q-num,.mcq-num,.jn-num,.chip-num,.lesson-number,.order-position,.flow-node > strong {font-size:14px;}
+}
+/* Number glyphs stay LTR, while spacing follows the page's reading direction. */
+.q-num,.ex-item .q-num,.algo-step .q-num,.mcq-num,.jn-num,.chip-num,.lesson-number,.order-position {margin-left:10px;margin-right:0;}
+html[dir="ltr"] .q-num,html[dir="ltr"] .mcq-num,html[dir="ltr"] .jn-num,html[dir="ltr"] .chip-num,html[dir="ltr"] .lesson-number,html[dir="ltr"] .order-position {margin-left:0;margin-right:10px;}
