@@ -888,6 +888,197 @@
     [style*="linear-gradient"] {
       background: var(--primary) !important;
     }
+
+    /* book-verbatim source cards */
+    .book-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-inline-start: 4px solid var(--s2, #b45309);
+      border-radius: 18px;
+      padding: 20px 22px;
+      margin: 18px 0
+    }
+    .book-card.try {
+      border-inline-start-color: var(--s5, #0e7490)
+    }
+    .book-card.try h3 {
+      color: var(--s5, #0e7490)
+    }
+    .book-card h3 {
+      margin: 0 0 10px;
+      color: var(--s2, #b45309)
+    }
+    .book-card ol, .book-card ul {
+      margin: 8px 0;
+      padding-inline-start: 22px
+    }
+    .book-card li {
+      margin-bottom: 6px
+    }
+    .book-src {
+      display: block;
+      margin-top: 12px;
+      font-size: .82rem;
+      opacity: .65
+    }
+    .book-diff {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(245, 158, 11, .08);
+      border: 1px solid rgba(245, 158, 11, .3);
+      font-size: .9rem
+    }
+    .book-card p, .book-card .book-diff, .book-card h3 {
+      overflow-wrap: anywhere
+    }
+    /* ---------- encryption flow diagrams (redrawn book figures) ---------- */
+    .enc-diagram {
+      margin: 14px 0 6px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .08)
+    }
+
+    .enc-diagram .dg-caption {
+      font-size: .85rem;
+      color: var(--dim);
+      margin: 0 0 12px
+    }
+
+    .enc-diagram .dg-scroll {
+      overflow-x: auto;
+      padding-bottom: 6px
+    }
+
+    .enc-diagram .dg-canvas {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 660px
+    }
+
+    .enc-diagram .dg-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1
+    }
+
+    .enc-diagram .dg-person {
+      font-weight: 700;
+      font-size: .9rem
+    }
+
+    .enc-diagram .dg-row {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .enc-diagram .dg-box {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 12px;
+      padding: 8px 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+      min-width: 86px
+    }
+
+    .enc-diagram .dg-cipher {
+      font-family: monospace;
+      font-size: .85rem;
+      direction: ltr
+    }
+
+    .enc-diagram .dg-blank {
+      display: inline-block;
+      border: 1px dashed var(--accent);
+      color: var(--accent);
+      border-radius: 8px;
+      padding: 0 8px;
+      font-size: .82rem;
+      background: rgba(0, 212, 170, .06);
+      direction: ltr;
+      white-space: nowrap
+    }
+
+    .enc-diagram .dg-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      min-width: 96px
+    }
+
+    .enc-diagram .dg-arrow {
+      position: relative;
+      width: 60px;
+      height: 2px;
+      background: var(--dim);
+      margin: 4px 0
+    }
+
+    .enc-diagram .dg-arrow::after {
+      content: "";
+      position: absolute;
+      inset-inline-end: -2px;
+      top: -4px;
+      border: 5px solid transparent;
+      border-inline-start-color: var(--dim)
+    }
+
+    .enc-diagram .dg-keyicon {
+      font-size: 1.1rem
+    }
+
+    .enc-diagram .dg-keylabel {
+      font-size: .8rem;
+      color: var(--dim);
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .enc-diagram .dg-send {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-weight: 700;
+      font-size: .9rem;
+      min-width: 70px
+    }
+
+    .enc-diagram .dg-send .dg-arrow {
+      width: 46px;
+      background: var(--accent)
+    }
+
+    .enc-diagram .dg-send .dg-arrow::after {
+      border-inline-start-color: var(--accent)
+    }
+
+    .enc-diagram .dg-swipe {
+      display: none;
+      font-size: .75rem;
+      color: var(--dim);
+      margin-top: 6px
+    }
+
+    @media (max-width:820px) {
+      .enc-diagram .dg-swipe {
+        display: block
+      }
+    }
+
 </style>
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
@@ -926,6 +1117,29 @@
 
   <main>
     <!-- ============ 01 INTRO ============ -->
+    <div class="section-inner">
+        <!-- TEXTBOOK-CARD-BEGIN id="book-point" -->
+        <div class="book-card">
+          <h3 data-ar="من الكتاب: النقاط الرئيسية — التشفير وأنواعه" data-en="From the book: Point box - Encryption and Types of encryption">من الكتاب: النقاط الرئيسية — التشفير وأنواعه</h3>
+          <p data-ar="أ. التشفير (Encryption)" data-en="1 Encryption">أ. التشفير (Encryption)</p>
+          <p data-ar="(1) التشفير (Encryption): طريقة تُستخدم عند إرسال المعلومات لمنع اعتراضها من قبل أي شخص آخر غير المستلم المقصود. يُطلق على النص المشفر اسم النص المشفّر (ciphertext)، ويُطلق على النص الأصلي غير المشفر اسم النص العادي (plaintext)." data-en="(1) (¹Encryption) : A method used when sending information to prevent it from being intercepted by anyone other than the intended recipient. The encrypted text is called (²ciphertext), and the original, unencrypted text is called (³plaintext).">(1) التشفير (Encryption): طريقة تُستخدم عند إرسال المعلومات لمنع اعتراضها من قبل أي شخص آخر غير المستلم المقصود. يُطلق على النص المشفر اسم النص المشفّر (ciphertext)، ويُطلق على النص الأصلي غير المشفر اسم النص العادي (plaintext).</p>
+          <p data-ar="(2) فك التشفير (Decryption): عملية تحويل النص المشفر مرة أخرى إلى شكله الأصلي كنص عادي." data-en="(2) (⁴Decryption) : The process of converting ciphertext back into its original plaintext form.">(2) فك التشفير (Decryption): عملية تحويل النص المشفر مرة أخرى إلى شكله الأصلي كنص عادي.</p>
+          <p data-ar="(3) المفتاح (Key): الإجراء أو البيانات المحددة المستخدمة للتشفير وفك التشفير." data-en="(3) (⁵Key) : The specific procedure or data used for encryption and decryption.">(3) المفتاح (Key): الإجراء أو البيانات المحددة المستخدمة للتشفير وفك التشفير.</p>
+          <p data-ar="ب. أنواع التشفير" data-en="2 Types of encryption">ب. أنواع التشفير</p>
+          <p data-ar="(1) التشفير بالمفتاح المتناظر (Symmetric key encryption): طريقة تشفير حيث يتم استخدام نفس المفتاح المشترك (shared key) لكل من التشفير وفك التشفير. يتم تشفير الرسالة باستخدام مفتاح المرسل المشترك وفك تشفيرها باستخدام مفتاح المرسل المشترك الذي تم إرساله مسبقًا من قبل المرسل." data-en="(1) (⁶Symmetric key encryption) : An encryption method where the same (⁷shared key) is used for both encryption and decryption. The message is encrypted using the (⁸sender’s shared key) and decrypted using the (⁹sender’s shared key) that was sent in advance by the sender.">(1) التشفير بالمفتاح المتناظر (Symmetric key encryption): طريقة تشفير حيث يتم استخدام نفس المفتاح المشترك (shared key) لكل من التشفير وفك التشفير. يتم تشفير الرسالة باستخدام مفتاح المرسل المشترك وفك تشفيرها باستخدام مفتاح المرسل المشترك الذي تم إرساله مسبقًا من قبل المرسل.</p>
+          <p data-ar="شكل الكتاب (المفتاح المتماثل): المرسل — مرحبًا / نص عادي —(تشفير، مفتاح المشترك للمرسل)→ &amp;SA+F¥Cs+A / نص مشفّر —(إرسال)→ نص مشفّر —(فك التشفير، مفتاح المشترك للمرسل)→ مرحبًا / نص عادي — المستلم." data-en="Book figure (symmetric): Sender — Hello / Plaintext —(Encryption, Sender’s shared key)→ &amp;SA+F¥Cs+A / Ciphertext —(Send)→ ciphertext —(Decryption, Sender’s shared key)→ Hello / Plaintext — Receiver.">شكل الكتاب (المفتاح المتماثل): المرسل — مرحبًا / نص عادي —(تشفير، مفتاح المشترك للمرسل)→ &SA+F¥Cs+A / نص مشفّر —(إرسال)→ نص مشفّر —(فك التشفير، مفتاح المشترك للمرسل)→ مرحبًا / نص عادي — المستلم.</p>
+          <p data-ar="(2) التشفير بالمفتاح العام (Public key encryption): طريقة تشفير تستخدم مفتاح تشفير مشترك بشكل علني المفتاح العام (public key) ومفتاح تشفير خاص المفتاح الخاص (private key). يتم تشفير الرسالة باستخدام المفتاح العام للمستلم، الذي تم إرساله مسبقًا، وفك تشفيرها باستخدام المفتاح الخاص للمستلم، الذي يمتلكه المستلم فقط." data-en="(2) (¹⁰Public key encryption) : An encryption method that uses a publicly shared encryption key (¹¹public key) and a private encryption key (¹²private key). The message is encrypted using the (¹³recipient’s public key), which was sent in advance, and decrypted using the (¹⁴recipient’s private key), which only the recipient possesses.">(2) التشفير بالمفتاح العام (Public key encryption): طريقة تشفير تستخدم مفتاح تشفير مشترك بشكل علني المفتاح العام (public key) ومفتاح تشفير خاص المفتاح الخاص (private key). يتم تشفير الرسالة باستخدام المفتاح العام للمستلم، الذي تم إرساله مسبقًا، وفك تشفيرها باستخدام المفتاح الخاص للمستلم، الذي يمتلكه المستلم فقط.</p>
+          <p data-ar="شكل الكتاب (المفتاح العام): المرسل — مرحبًا / نص عادي —(التشفير، المفتاح العام للمستلم)→ &amp;SA+F¥Cs+A / نص مشفر —(إرسال)→ نص مشفّر —(فك التشفير، المفتاح الخاص للمستلم)→ مرحبًا / نص عادي — المستلم." data-en="Book figure (public key): Sender — Hello / Plaintext —(Encryption, Recipient’s public key)→ &amp;SA+F¥Cs+A / Ciphertext —(Send)→ Ciphertext —(Decryption, Recipient’s private key)→ Hello / Plaintext — Receiver.">شكل الكتاب (المفتاح العام): المرسل — مرحبًا / نص عادي —(التشفير، المفتاح العام للمستلم)→ &SA+F¥Cs+A / نص مشفر —(إرسال)→ نص مشفّر —(فك التشفير، المفتاح الخاص للمستلم)→ مرحبًا / نص عادي — المستلم.</p>
+          <p data-ar="(3) خصائص التشفير بالمفتاح المتماثل والتشفير بالمفتاح العام — جدول الكتاب:" data-en="(3) Characteristics of Symmetric Key Encryption and Public Key Encryption — book table:">(3) خصائص التشفير بالمفتاح المتماثل والتشفير بالمفتاح العام — جدول الكتاب:</p>
+          <p data-ar="المزايا | التشفير بالمفتاح المتماثل: (السرعة) معالجة التشفير وفك التشفير أسرع مقارنةً بتشفير المفتاح العام. | التشفير بالمفتاح العام: نظرًا لأن أي شخص لديه المفتاح يمكنه فك تشفير البيانات، فإن كل مرسل يحتاج إلى مفتاح مشترك مختلف." data-en="Merit | Symmetric Key Encryption: Compared to public-key encryption, encryption and decryption processing speed is (¹⁵faster). | Public Key Encryption: Since data can be decrypted by anyone with the key, a different shared key is needed for each sender.">المزايا | التشفير بالمفتاح المتماثل: (السرعة) معالجة التشفير وفك التشفير أسرع مقارنةً بتشفير المفتاح العام. | التشفير بالمفتاح العام: نظرًا لأن أي شخص لديه المفتاح يمكنه فك تشفير البيانات، فإن كل مرسل يحتاج إلى مفتاح مشترك مختلف.</p>
+          <p data-ar="العيب | التشفير بالمفتاح المتماثل: نظرًا لأن المفتاح العام يمكن مشاركته بحرية، فإن إدارة المفاتيح أسهل. | التشفير بالمفتاح العام: سرعة معالجة تشفير وفك تشفير أبطأ مقارنةً بالتشفير المتماثل." data-en="Demerit | Symmetric Key Encryption: Because the public key can be shared freely, key management is easier. | Public Key Encryption: Compared to symmetric-key encryption, encryption and decryption processing speed is (¹⁶slower).">العيب | التشفير بالمفتاح المتماثل: نظرًا لأن المفتاح العام يمكن مشاركته بحرية، فإن إدارة المفاتيح أسهل. | التشفير بالمفتاح العام: سرعة معالجة تشفير وفك تشفير أبطأ مقارنةً بالتشفير المتماثل.</p>
+          <p data-ar="(4) طريقة المفتاح المؤقت (Session key method): طريقة تشفير تجمع بين التشفير بالمفتاح المتماثل والتشفير بالمفتاح العام." data-en="(4) (¹⁷Session key method) : An encryption method that combines symmetric key encryption and public key encryption.">(4) طريقة المفتاح المؤقت (Session key method): طريقة تشفير تجمع بين التشفير بالمفتاح المتماثل والتشفير بالمفتاح العام.</p>
+          <p data-ar="وتضيف العربية بعد (4): التشفير بالمفتاح المتماثل هو طريقة يتشارك فيها الطرفان ويستخدمان نفس &quot;المفتاح السري&quot; لتبادل المعلومات. أما التشفير بالمفتاح العام (Public-key cryptography)، فهو يشبه استخدام قفل تم توزيعه على الجميع؛ إذ يمكن لأي شخص استخدام القفل لإغلاق الصندوق، ولكن وحده المستلم يمتلك المفتاح الفريد لفتحه." data-en="The Arabic adds after (4): &quot;Symmetric key encryption is a method in which the two parties share and use the same secret key to exchange information. Public-key cryptography is like using a lock distributed to everyone: anyone can use the lock to close the box, but only the recipient has the unique key to open it.&quot; (Not printed in the English edition.)">وتضيف العربية بعد (4): التشفير بالمفتاح المتماثل هو طريقة يتشارك فيها الطرفان ويستخدمان نفس "المفتاح السري" لتبادل المعلومات. أما التشفير بالمفتاح العام (Public-key cryptography)، فهو يشبه استخدام قفل تم توزيعه على الجميع؛ إذ يمكن لأي شخص استخدام القفل لإغلاق الصندوق، ولكن وحده المستلم يمتلك المفتاح الفريد لفتحه.</p>
+          <div class="book-diff" data-ar="مقارنة النسختين: عنوان الدرس EN &quot;3-4 Information Technology for Safety [1]&quot; وAR «4-3 تقنيات المعلومات للسلامة 4». تفتح العربية النقاط بسطر هدف «فهم مبادئ وأساليب التشفير، وتصوّر الحالات التي يُستخدم فيها.» غير موجود في الإنجليزية. عناوين الأقسام EN «1/2» وAR «أ/ب»؛ مصطلحات EN مرقمة بأرقام علوية (¹-¹⁷) وAR بدون ترقيم. في البند ب(1) تطبع العربية المصطلح «التشفير بالمفتاح المتناظر» بينما تطبع «التشفير بالمفتاح المتماثل» في عنوان (3) وبقية الدرس. الجدول في النسختين بنفس محتوى الخانات كما هو مطبوع. الأشكال: EN بعناوين &quot;Sender’s shared key&quot; و&quot;Recipient’s public key&quot; وAR «مفتاح المشترك للمرسل» و«المفتاح العام للمستلم»؛ &quot;Hello&quot; وAR «مرحبًا»؛ النص المشفر في النسختين &amp;SA+F¥Cs+A؛ وفي شكل المفتاح المتماثل EN يطبع مربع فك التشفير &quot;ciphertext&quot; بحرف صغير. فقرة تشبيه القفل مطبوعة في العربية فقط. النصان المطبوعان منقولان كما هما." data-en="Edition comparison: lesson title EN &quot;3-4 Information Technology for Safety [1]&quot; vs AR «4-3 تقنيات المعلومات للسلامة 4». The Arabic Point opens with an objective line «فهم مبادئ وأساليب التشفير، وتصوّر الحالات التي يُستخدم فيها.» not printed in English. Section heads EN &quot;1/2&quot; vs AR «أ/ب»; English terms carry superscript numbers (1-17), the Arabic none. In item ب(1) the Arabic prints the term «التشفير بالمفتاح المتناظر» while printing «التشفير بالمفتاح المتماثل» in heading (3) and the rest of the lesson. The table prints the same cell contents in both editions. Figures: EN &quot;Sender’s shared key&quot; / &quot;Recipient’s public key&quot; vs AR «مفتاح المشترك للمرسل» / «المفتاح العام للمستلم»; &quot;Hello&quot; vs AR «مرحبًا»; ciphertext &amp;SA+F¥Cs+A in both; the EN symmetric figure prints the decryption-side box as lowercase &quot;ciphertext&quot;. The lock-analogy paragraph is printed in the Arabic only. Both printings are quoted as-is.">مقارنة النسختين: عنوان الدرس EN "3-4 Information Technology for Safety [1]" وAR «4-3 تقنيات المعلومات للسلامة 4». تفتح العربية النقاط بسطر هدف «فهم مبادئ وأساليب التشفير، وتصوّر الحالات التي يُستخدم فيها.» غير موجود في الإنجليزية. عناوين الأقسام EN «1/2» وAR «أ/ب»؛ مصطلحات EN مرقمة بأرقام علوية (¹-¹⁷) وAR بدون ترقيم. في البند ب(1) تطبع العربية المصطلح «التشفير بالمفتاح المتناظر» بينما تطبع «التشفير بالمفتاح المتماثل» في عنوان (3) وبقية الدرس. الجدول في النسختين بنفس محتوى الخانات كما هو مطبوع. الأشكال: EN بعناوين "Sender’s shared key" و"Recipient’s public key" وAR «مفتاح المشترك للمرسل» و«المفتاح العام للمستلم»؛ "Hello" وAR «مرحبًا»؛ النص المشفر في النسختين &SA+F¥Cs+A؛ وفي شكل المفتاح المتماثل EN يطبع مربع فك التشفير "ciphertext" بحرف صغير. فقرة تشبيه القفل مطبوعة في العربية فقط. النصان المطبوعان منقولان كما هما.</div>
+          <span class="book-src" data-ar="EN PDF 35 (المطبوع 35)؛ AR 41-42" data-en="EN PDF 35 (printed 35); AR 41-42">EN PDF 35 (المطبوع 35)؛ AR 41-42</span>
+        </div>
+        <!-- TEXTBOOK-CARD-END id="book-point" -->
+    </div>
     <section id="intro">
       <div class="section-inner">
         <div class="section-header">
@@ -1086,9 +1300,54 @@
         </div>
       </div>
 
+      <div class="section-inner card">
+        <!-- TEXTBOOK-CARD-BEGIN id="book-warm" -->
+        <div class="book-card">
+          <h3 data-ar="من الكتاب: تحدى معلوماتك (Warm Up) والحل" data-en="From the book: Warm Up and Explanation">من الكتاب: تحدى معلوماتك (Warm Up) والحل</h3>
+          <p data-ar="تحدى معلوماتك — أجب عن الأسئلة التالية." data-en="Warm Up - Answer the following questions.">تحدى معلوماتك — أجب عن الأسئلة التالية.</p>
+          <p data-ar="(1) املأ الفراغات [1] إلى [4] في الجمل بالمصطلحات المناسبة. عند إرسال المعلومات، فإن التكنولوجيا المستخدمة لمنع تسريبها أو العبث بها من قبل أي شخص آخر غير المستلم المقصود تسمى ( [1] ). البيانات الأصلية قبل التشفير تسمى ( [2] )، وفعل تحويل النص المشفر مرة أخرى إلى نص عادي يسمى ( [3] ). أيضًا، خلال كل من ( [1]) و( [3] )، يتم استخدام شيء يسمى ( [4] )." data-en="(1) Complete the following sentences by filling in the blanks [1] to [4] with the appropriate terms. When sending information, the technology used to prevent it from being leaked or tampered with by anyone other than the intended recipient is called ( [1] ). The original data before encryption is called ( [2] ), and the act of converting the ciphertext back into plaintext is called ( [3] ). Also, during both ([1]) and ([3]), something called a ( [4] ) is used.">(1) املأ الفراغات [1] إلى [4] في الجمل بالمصطلحات المناسبة. عند إرسال المعلومات، فإن التكنولوجيا المستخدمة لمنع تسريبها أو العبث بها من قبل أي شخص آخر غير المستلم المقصود تسمى ( [1] ). البيانات الأصلية قبل التشفير تسمى ( [2] )، وفعل تحويل النص المشفر مرة أخرى إلى نص عادي يسمى ( [3] ). أيضًا، خلال كل من ( [1]) و( [3] )، يتم استخدام شيء يسمى ( [4] ).</p>
+          <p data-ar="(2) لكل من العناصر من أ إلى ث، اكتب &quot;A&quot; إذا كانت العبارة تشير إلى التشفير بالمفتاح المتماثل ، أو &quot;B&quot; إذا كانت تشير إلى التشفير بالمفتاح العام." data-en="(2) For each of the following items A to D, write “S” if the statement refers to symmetric key encryption, or “P” if it refers to public key encryption.">(2) لكل من العناصر من أ إلى ث، اكتب "A" إذا كانت العبارة تشير إلى التشفير بالمفتاح المتماثل ، أو "B" إذا كانت تشير إلى التشفير بالمفتاح العام.</p>
+          <p data-ar="(أ) يتم جعل مفتاح التشفير عامًا، ويتم التشفير باستخدام المفتاح العام بينما يتم فك التشفير بالمفتاح الخاص." data-en="A  The encryption key is made public, and encryption is done using the public key while decryption is done with the private key.">(أ) يتم جعل مفتاح التشفير عامًا، ويتم التشفير باستخدام المفتاح العام بينما يتم فك التشفير بالمفتاح الخاص.</p>
+          <p data-ar="(ب) يستخدم التشفير مفاتيح منفصلة يحتفظ بها المستلم - واحد للتشفير وواحد لفك التشفير." data-en="B  Encryption uses separate keys held by the recipient — one for encryption and one for decryption.">(ب) يستخدم التشفير مفاتيح منفصلة يحتفظ بها المستلم - واحد للتشفير وواحد لفك التشفير.</p>
+          <p data-ar="(ت) مقارنةً بالطريقة الأخرى، فإن سرعة معالجة التشفير وفك التشفير أسرع." data-en="C  Compared to the other method, the encryption and decryption processing speed is faster.">(ت) مقارنةً بالطريقة الأخرى، فإن سرعة معالجة التشفير وفك التشفير أسرع.</p>
+          <p data-ar="(ث) مقارنةً بالطريقة الأخرى، فإن تبادل المفتاح أكثر صعوبة." data-en="D  Compared to the other method, exchanging the key is more difficult.">(ث) مقارنةً بالطريقة الأخرى، فإن تبادل المفتاح أكثر صعوبة.</p>
+          <p data-ar="(3) ما هو اسم طريقة التشفير المختلطة التي تجمع بين التشفير بالمفتاح المتماثل والتشفير بالمفتاح العام؟" data-en="(3) What is the name of the hybrid encryption method that combines symmetric key encryption and public key encryption?">(3) ما هو اسم طريقة التشفير المختلطة التي تجمع بين التشفير بالمفتاح المتماثل والتشفير بالمفتاح العام؟</p>
+          <p data-ar="الحل (مطبوع): (1) [1] التشفير [2] النص العادي [3] فك التشفير [4] المفتاح" data-en="Explanation (printed): (1) [1] encryption [2] plaintext [3] decryption [4] key">الحل (مطبوع): (1) [1] التشفير [2] النص العادي [3] فك التشفير [4] المفتاح</p>
+          <p data-ar="الحل (مطبوع): (2) (أ) و (ب): الطريقة التي يتم فيها إجراء التشفير باستخدام المفتاح العام للمستلم وفك التشفير باستخدام المفتاح الخاص للمستلم تسمى التشفير بالمفتاح العام. (ت) و (ث): التشفير بالمفتاح المتماثل أسرع من التشفير بالمفتاح العام، ولكن نظرًا لأنه يستخدم نفس المفتاح لكل من التشفير وفك التشفير، توجد مشكلة كيفية مشاركة المفتاح بشكل آمن مع المستلم. لذا، (أ) (ب)، (ب) (ب)، (ت) (أ)، (ث) (أ)" data-en="Explanation (printed): (2) A and B: The method in which encryption is performed with the recipient’s public key and decryption with the recipient’s private key is public key encryption. C and D: Symmetric key encryption is faster than public key encryption, but since it uses the same key for both encryption and decryption, there is the issue of how to securely share the key with the recipient. Therefore, A: P, B: P, C: S, D: S">الحل (مطبوع): (2) (أ) و (ب): الطريقة التي يتم فيها إجراء التشفير باستخدام المفتاح العام للمستلم وفك التشفير باستخدام المفتاح الخاص للمستلم تسمى التشفير بالمفتاح العام. (ت) و (ث): التشفير بالمفتاح المتماثل أسرع من التشفير بالمفتاح العام، ولكن نظرًا لأنه يستخدم نفس المفتاح لكل من التشفير وفك التشفير، توجد مشكلة كيفية مشاركة المفتاح بشكل آمن مع المستلم. لذا، (أ) (ب)، (ب) (ب)، (ت) (أ)، (ث) (أ)</p>
+          <p data-ar="الحل (مطبوع): (3) طريقة المفتاح المؤقتس" data-en="Explanation (printed): (3) Session key method">الحل (مطبوع): (3) طريقة المفتاح المؤقتس</p>
+          <div class="book-diff" data-ar="مقارنة النسختين: عنوان القسم EN &quot;Warm Up&quot; وAR «تحدى معلوماتك»؛ عنوان الإجابات EN &quot;Explanation&quot; وAR «الحل». تعليمات (2): EN تطلب كتابة &quot;S&quot; للمتماثل و&quot;P&quot; للعام، وAR تطلب كتابة &quot;A&quot; و&quot;B&quot; بحروف لاتينية، بينما يطبع الحل العربي الإجابات بحروف عربية «لذا، (أ) (ب)، (ب) (ب)، (ت) (أ)، (ث) (أ)». الإجابات متفقة: A:P وB:P وC:S وD:S. ويطبع الحل العربي في (3) «طريقة المفتاح المؤقتس» بينما يطبع بند النقاط (4) «طريقة المفتاح المؤقت» والإنجليزية &quot;Session key method&quot;. النصان المطبوعان منقولان كما هما." data-en="Edition comparison: the section heading is &quot;Warm Up&quot; in English and «تحدى معلوماتك» in Arabic; the answers heading is &quot;Explanation&quot; in English and «الحل» in Arabic. In (2) the English asks to write &quot;S&quot; for symmetric and &quot;P&quot; for public, while the Arabic instruction prints Latin &quot;A&quot; and &quot;B&quot;, yet the printed Arabic answer line uses Arabic letters «لذا، (أ) (ب)، (ب) (ب)، (ت) (أ)، (ث) (أ)». The answers agree: A:P, B:P, C:S, D:S. The Arabic answer (3) prints «طريقة المفتاح المؤقتس» while Point (4) prints «طريقة المفتاح المؤقت» and English prints &quot;Session key method&quot;. Both printings are quoted as-is.">مقارنة النسختين: عنوان القسم EN "Warm Up" وAR «تحدى معلوماتك»؛ عنوان الإجابات EN "Explanation" وAR «الحل». تعليمات (2): EN تطلب كتابة "S" للمتماثل و"P" للعام، وAR تطلب كتابة "A" و"B" بحروف لاتينية، بينما يطبع الحل العربي الإجابات بحروف عربية «لذا، (أ) (ب)، (ب) (ب)، (ت) (أ)، (ث) (أ)». الإجابات متفقة: A:P وB:P وC:S وD:S. ويطبع الحل العربي في (3) «طريقة المفتاح المؤقتس» بينما يطبع بند النقاط (4) «طريقة المفتاح المؤقت» والإنجليزية "Session key method". النصان المطبوعان منقولان كما هما.</div>
+          <span class="book-src" data-ar="EN PDF 36 (المطبوع 36)؛ AR 42" data-en="EN PDF 36 (printed 36); AR 42">EN PDF 36 (المطبوع 36)؛ AR 42</span>
+        </div>
+        <!-- TEXTBOOK-CARD-END id="book-warm" -->
+        <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
+        <div class="book-card try">
+          <h3 data-ar="من الكتاب: جرب بنفسك (Try)" data-en="From the book: Try">من الكتاب: جرب بنفسك (Try)</h3>
+          <p data-ar="جرب بنفسك 1 — أجب عن السؤال التالي." data-en="Try 1 - Answer the following question.">جرب بنفسك 1 — أجب عن السؤال التالي.</p>
+          <p data-ar="(1) يوضح الرسم البياني سير عملية التشفير بالمفتاح العام. بالنسبة للفراغات من [1] إلى [10]، اختر المصطلحات المناسبة من الخيارات من أ إلى ر. لاحظ أنه يمكن استخدام نفس الخيار أكثر من مرة." data-en="(1) The diagram illustrates the process flow of public key encryption. For blanks [1] to [10], choose the appropriate terms from options A to J below. Note that the same option may be used more than once.">(1) يوضح الرسم البياني سير عملية التشفير بالمفتاح العام. بالنسبة للفراغات من [1] إلى [10]، اختر المصطلحات المناسبة من الخيارات من أ إلى ر. لاحظ أنه يمكن استخدام نفس الخيار أكثر من مرة.</p>
+          <p data-ar="الخيارات: (أ) نص عادي  (ب) نص مشفر  (ت) فك التشفير  (ث) تشفير  (ج) ترميز  (ح) مفتاح مشترك  (خ) مفتاح عام  (د) مفتاح خاص  (ذ) المرسل  (ر) المستلم" data-en="Options: A Plaintext  B Ciphertext  C Decryption  D Encryption  E Encoding  F Shared key  G Public key  H Private key  I Sender  J Recipient">الخيارات: (أ) نص عادي  (ب) نص مشفر  (ت) فك التشفير  (ث) تشفير  (ج) ترميز  (ح) مفتاح مشترك  (خ) مفتاح عام  (د) مفتاح خاص  (ذ) المرسل  (ر) المستلم</p>
+          <p data-ar="(2) من بين الخيارات 1 إلى 4، اختر العبارة التي تصف بشكل أفضل إحدى خصائص التشفير بالمفتاح المتماثل (symmetric key encryption) عند مقارنته بـ التشفير بالمفتاح العام (public key encryption). 1. يجب إعداد مفتاح منفصل لكل مرسل. 2. يتم استخدام نفس المفتاح من قبل المرسل لكل من التشفير وفك التشفير. 3. التشفير وفك التشفير أبطأ مقارنةً بالطريقة الأخرى. 4. تبادل المفتاح أسهل مقارنةً بالطريقة الأخرى." data-en="(2) For each of the following items A to D, write “S” if the statement refers to symmetric key encryption, or “P” if it refers to public key encryption. A  A separate key must be prepared for each sender. B  The same key is used by the sender for both encryption and decryption. C  Encryption and decryption are slower compared to the other method. D  Exchanging the key is easier compared to the other method.">(2) من بين الخيارات 1 إلى 4، اختر العبارة التي تصف بشكل أفضل إحدى خصائص التشفير بالمفتاح المتماثل (symmetric key encryption) عند مقارنته بـ التشفير بالمفتاح العام (public key encryption). 1. يجب إعداد مفتاح منفصل لكل مرسل. 2. يتم استخدام نفس المفتاح من قبل المرسل لكل من التشفير وفك التشفير. 3. التشفير وفك التشفير أبطأ مقارنةً بالطريقة الأخرى. 4. تبادل المفتاح أسهل مقارنةً بالطريقة الأخرى.</p>
+          <p data-ar="الإجابات المستنتجة (غير مطبوعة في الكتاب): (1) [1] أ (نص عادي)، [2] ث (تشفير)، [3] خ (مفتاح عام)، [4] ر (المستلم)، [5] ب (نص مشفر)، [6] ب (نص مشفر)، [7] ت (فك التشفير)، [8] د (مفتاح خاص)، [9] ر (المستلم)، [10] أ (نص عادي) — أي EN: A, D, G, J, B, B, C, H, J, A بالترتيب. (2) العبارتان 1 و 2 تصفان التشفير بالمفتاح المتماثل (= EN A:S و B:S)، والعبارتان 3 و 4 تصفان التشفير بالمفتاح العام (= EN C:P و D:P)." data-en="Derived answers (not printed in the book): (1) [1] A (Plaintext), [2] D (Encryption), [3] G (Public key), [4] J (Recipient), [5] B (Ciphertext), [6] B (Ciphertext), [7] C (Decryption), [8] H (Private key), [9] J (Recipient), [10] A (Plaintext) - i.e. AR أ, ث, خ, ر, ب, ب, ت, د, ر, أ in order. (2) Statements A and B describe symmetric key encryption (AR 1 and 2), and statements C and D describe public key encryption (AR 3 and 4).">الإجابات المستنتجة (غير مطبوعة في الكتاب): (1) [1] أ (نص عادي)، [2] ث (تشفير)، [3] خ (مفتاح عام)، [4] ر (المستلم)، [5] ب (نص مشفر)، [6] ب (نص مشفر)، [7] ت (فك التشفير)، [8] د (مفتاح خاص)، [9] ر (المستلم)، [10] أ (نص عادي) — أي EN: A, D, G, J, B, B, C, H, J, A بالترتيب. (2) العبارتان 1 و 2 تصفان التشفير بالمفتاح المتماثل (= EN A:S و B:S)، والعبارتان 3 و 4 تصفان التشفير بالمفتاح العام (= EN C:P و D:P).</p>
+          <div class="book-diff" data-ar="مقارنة النسختين: خيارات الرسم EN A-J وAR أ-ر بنفس الترتيب، وكلتاهما تنص على إمكانية استخدام الخيار نفسه أكثر من مرة. صيغة السؤال (2) مختلفة: EN تطلب تصنيف كل عبارة &quot;S&quot;/&quot;P&quot;، بينما تطلب العربية بصيغة المفرد «اختر العبارة التي تصف بشكل أفضل إحدى خصائص التشفير بالمفتاح المتماثل» مع ترقيم العبارات 1-4. تطبع العربية «من أ إلى ر» والإنجليزية &quot;A to J&quot;. النصان المطبوعان منقولان كما هما." data-en="Edition comparison: diagram options EN A-J vs AR أ-ر in the same order, and both state that the same option may be used more than once. Question (2) differs in format: English asks to classify each statement &quot;S&quot;/&quot;P&quot;, while the Arabic asks in the singular for «العبارة التي تصف بشكل أفضل إحدى خصائص التشفير بالمفتاح المتماثل» (the statement that best describes one characteristic of symmetric key encryption) with the statements numbered 1-4. The Arabic prints «من أ إلى ر» where English prints &quot;A to J&quot;. Both printings are quoted as-is.">مقارنة النسختين: خيارات الرسم EN A-J وAR أ-ر بنفس الترتيب، وكلتاهما تنص على إمكانية استخدام الخيار نفسه أكثر من مرة. صيغة السؤال (2) مختلفة: EN تطلب تصنيف كل عبارة "S"/"P"، بينما تطلب العربية بصيغة المفرد «اختر العبارة التي تصف بشكل أفضل إحدى خصائص التشفير بالمفتاح المتماثل» مع ترقيم العبارات 1-4. تطبع العربية «من أ إلى ر» والإنجليزية "A to J". النصان المطبوعان منقولان كما هما.</div>
+          <span class="book-src" data-ar="EN PDF 37 (المطبوع 37)؛ AR 43" data-en="EN PDF 37 (printed 37); AR 43">EN PDF 37 (المطبوع 37)؛ AR 43</span>
+        </div>
+        <!-- TEXTBOOK-CARD-END id="book-try" -->
+        <!-- TEXTBOOK-CARD-BEGIN id="book-exercise" -->
+        <div class="book-card try">
+          <h3 data-ar="من الكتاب: تمرين (Exercise)" data-en="From the book: Exercise">من الكتاب: تمرين (Exercise)</h3>
+          <p data-ar="تمرين 1 — أجب على الأسئلة التالية." data-en="Exercise 1 - Answer the following question.">تمرين 1 — أجب على الأسئلة التالية.</p>
+          <p data-ar="(1) يوضح الرسم البياني سير عملية التشفير بالمفتاح العام. بالنسبة للفراغات من [1] إلى [10]، اختر المصطلحات المناسبة من الخيارات من أ إلى ر. لاحظ أنه يمكن استخدام نفس الخيار أكثر من مرة." data-en="(1) The diagram shows the process flow of symmetric key encryption. For blanks [1] to [10], choose the appropriate terms from the options A to J below. The same option may be used more than once.">(1) يوضح الرسم البياني سير عملية التشفير بالمفتاح العام. بالنسبة للفراغات من [1] إلى [10]، اختر المصطلحات المناسبة من الخيارات من أ إلى ر. لاحظ أنه يمكن استخدام نفس الخيار أكثر من مرة.</p>
+          <p data-ar="الخيارات: (أ) نص عادي  (ب) نص مشفر  (ت) فك التشفير  (ث) تشفير  (ج) ترميز  (ح) مفتاح مشترك  (خ) مفتاح عام  (د) مفتاح خاص  (ذ) المرسل  (ر) المستلم" data-en="Options: A Plaintext  B Ciphertext  C Decryption  D Encryption  E Encoding  F Shared key  G Public key  H Private key  I Sender  J Recipient">الخيارات: (أ) نص عادي  (ب) نص مشفر  (ت) فك التشفير  (ث) تشفير  (ج) ترميز  (ح) مفتاح مشترك  (خ) مفتاح عام  (د) مفتاح خاص  (ذ) المرسل  (ر) المستلم</p>
+          <p data-ar="(2) من بين الخيارات 1 إلى 3، اختر العبارة التي تصف بشكل أفضل إحدى خصائص التشفير بالمفتاح المتماثل (symmetric key encryption) عند مقارنته بـ التشفير بالمفتاح العام (public key encryption). يستخدم مفاتيح مختلفة للتشفير وفك التشفير. 1. يسمح بالتشفير وفك التشفير بسرعة. 2. يتيح توزيع المفاتيح بشكل أكثر أمانًا. 3. يجعل إدارة المفاتيح أسهل حتى عند التواصل مع العديد من الأطراف المختلفة." data-en="(2) Among the options A to D below, choose the one that best describes a characteristic of symmetric key encryption when compared to public key encryption. Answer using the corresponding letter. A  Uses different keys for encryption and decryption. B  Allows fast encryption and decryption. C  Enables safer distribution of keys. D  Makes key management easier even when communicating with many different parties.">(2) من بين الخيارات 1 إلى 3، اختر العبارة التي تصف بشكل أفضل إحدى خصائص التشفير بالمفتاح المتماثل (symmetric key encryption) عند مقارنته بـ التشفير بالمفتاح العام (public key encryption). يستخدم مفاتيح مختلفة للتشفير وفك التشفير. 1. يسمح بالتشفير وفك التشفير بسرعة. 2. يتيح توزيع المفاتيح بشكل أكثر أمانًا. 3. يجعل إدارة المفاتيح أسهل حتى عند التواصل مع العديد من الأطراف المختلفة.</p>
+          <p data-ar="الإجابات المستنتجة (غير مطبوعة في الكتاب): (1) [1] أ (نص عادي)، [2] ث (تشفير)، [3] ح (مفتاح مشترك)، [4] ذ (المرسل)، [5] ب (نص مشفر)، [6] ب (نص مشفر)، [7] ت (فك التشفير)، [8] ح (مفتاح مشترك)، [9] ذ (المرسل)، [10] أ (نص عادي) — أي EN: A, D, F, I, B, B, C, F, I, A بالترتيب. (2) عبارة «يسمح بالتشفير وفك التشفير بسرعة» = EN B (المعالجة أسرع في التشفير المتماثل؛ أما استخدام مفاتيح مختلفة وتوزيع المفاتيح بأمان وإدارتها مع أطراف كثيرة فهي خصائص المفتاح العام)." data-en="Derived answers (not printed in the book): (1) [1] A (Plaintext), [2] D (Encryption), [3] F (Shared key), [4] I (Sender), [5] B (Ciphertext), [6] B (Ciphertext), [7] C (Decryption), [8] F (Shared key), [9] I (Sender), [10] A (Plaintext) - i.e. AR أ, ث, ح, ذ, ب, ب, ت, ح, ذ, أ in order. (2) &quot;Allows fast encryption and decryption&quot; = B (symmetric processing is faster; using different keys, safer key distribution, and easier management with many parties are public-key characteristics).">الإجابات المستنتجة (غير مطبوعة في الكتاب): (1) [1] أ (نص عادي)، [2] ث (تشفير)، [3] ح (مفتاح مشترك)، [4] ذ (المرسل)، [5] ب (نص مشفر)، [6] ب (نص مشفر)، [7] ت (فك التشفير)، [8] ح (مفتاح مشترك)، [9] ذ (المرسل)، [10] أ (نص عادي) — أي EN: A, D, F, I, B, B, C, F, I, A بالترتيب. (2) عبارة «يسمح بالتشفير وفك التشفير بسرعة» = EN B (المعالجة أسرع في التشفير المتماثل؛ أما استخدام مفاتيح مختلفة وتوزيع المفاتيح بأمان وإدارتها مع أطراف كثيرة فهي خصائص المفتاح العام).</p>
+          <div class="book-diff" data-ar="مقارنة النسختين: في تمرين (1) تطبع العربية «يوضح الرسم البياني سير عملية التشفير بالمفتاح العام» بينما تطبع الإنجليزية &quot;The diagram shows the process flow of symmetric key encryption&quot;، والفراغات والخيارات متطابقة في النسختين. مقدمة التمرين EN &quot;Answer the following question.&quot; وAR «أجب على الأسئلة التالية.». في (2) تطبع العربية المقدمة «من بين الخيارات 1 إلى 3» ثم أربع عبارات، ثلاث منها فقط مرقمة 1-3 والأولى «يستخدم مفاتيح مختلفة للتشفير وفك التشفير.» بدون رقم، بينما تطبق الإنجليزية أربعة خيارات A-D؛ الإجابة متفقة (السرعة = B / «يسمح بالتشفير وفك التشفير بسرعة»). النصان المطبوعان منقولان كما هما." data-en="Edition comparison: in Exercise (1) the Arabic prints «يوضح الرسم البياني سير عملية التشفير بالمفتاح العام» while English prints &quot;The diagram shows the process flow of symmetric key encryption&quot;; the blanks and options are identical in both. The lead line is EN &quot;Answer the following question.&quot; vs AR «أجب على الأسئلة التالية.». In (2) the Arabic intro prints «من بين الخيارات 1 إلى 3» followed by four statements, only three of them numbered 1-3, with the first «يستخدم مفاتيح مختلفة للتشفير وفك التشفير.» unnumbered, while English prints four options A-D; the answer agrees (fast = B / «يسمح بالتشفير وفك التشفير بسرعة»). Both printings are quoted as-is.">مقارنة النسختين: في تمرين (1) تطبع العربية «يوضح الرسم البياني سير عملية التشفير بالمفتاح العام» بينما تطبع الإنجليزية "The diagram shows the process flow of symmetric key encryption"، والفراغات والخيارات متطابقة في النسختين. مقدمة التمرين EN "Answer the following question." وAR «أجب على الأسئلة التالية.». في (2) تطبع العربية المقدمة «من بين الخيارات 1 إلى 3» ثم أربع عبارات، ثلاث منها فقط مرقمة 1-3 والأولى «يستخدم مفاتيح مختلفة للتشفير وفك التشفير.» بدون رقم، بينما تطبق الإنجليزية أربعة خيارات A-D؛ الإجابة متفقة (السرعة = B / «يسمح بالتشفير وفك التشفير بسرعة»). النصان المطبوعان منقولان كما هما.</div>
+          <span class="book-src" data-ar="EN PDF 37 (المطبوع 37)؛ AR 43" data-en="EN PDF 37 (printed 37); AR 43">EN PDF 37 (المطبوع 37)؛ AR 43</span>
+        </div>
+        <!-- TEXTBOOK-CARD-END id="book-exercise" -->
+      </div>
+
       <!-- Warm Up -->
       <div class="section-inner card">
-        <h3 style="color:var(--s1)" data-ar="🔥 التمهيدي — صفحة 36" data-en="🔥 Warm Up — Page 36">🔥 التمهيدي — صفحة 36</h3>
+        <h3 style="color:var(--s1)" data-ar="🔥 التمهيدي — EN PDF 36 (المطبوع 36)؛ AR 42" data-en="🔥 Warm Up — EN PDF 36 (printed 36); AR 42">🔥 التمهيدي — EN PDF 36 (المطبوع 36)؛ AR 42</h3>
         <p style="font-size:.92rem" class="hint-line" data-ar="جرّب بنفسك الأول، بعدين افتح الحل." data-en="Try by yourself first, then open the solution.">جرّب بنفسك الأول، بعدين افتح الحل.</p>
         <div style="margin-top:12px">
           <div class="ex-item">
@@ -1190,8 +1449,44 @@
 
       <!-- Try -->
       <div class="section-inner card" style="margin-top:24px">
-        <h3 style="color:var(--s2)" data-ar="🎯 جرّب — صفحة 37" data-en="🎯 Try — Page 37">🎯 جرّب — صفحة 37</h3>
+        <h3 style="color:var(--s2)" data-ar="🎯 جرّب — EN PDF 37 (المطبوع 37)؛ AR 43" data-en="🎯 Try — EN PDF 37 (printed 37); AR 43">🎯 جرّب — EN PDF 37 (المطبوع 37)؛ AR 43</h3>
         <p style="font-size:.92rem" class="hint-line" data-ar="شوف رسم تشفير (Encryption) المفتاح العام وحل بنفسك الأول." data-en="Look at the public key encryption diagram and solve by yourself first.">شوف رسم تشفير (Encryption) المفتاح العام وحل بنفسك الأول.</p>
+        <figure class="enc-diagram">
+                <figcaption class="dg-caption" data-ar="الشكل (إعادة رسم بتنسيقنا من شكل الكتاب): سير عملية التشفير بالمفتاح العام — الفراغات [1] إلى [10]. المصدر: EN PDF 37 (المطبوع 37)؛ AR 43" data-en="Figure (redrawn in our formatting from the book's diagram): public key encryption process flow - blanks [1] to [10]. Source: EN PDF 37 (printed 37); AR 43">الشكل (إعادة رسم بتنسيقنا من شكل الكتاب): سير عملية التشفير بالمفتاح العام — الفراغات [1] إلى [10]. المصدر: EN PDF 37 (المطبوع 37)؛ AR 43</figcaption>
+                <div class="dg-scroll">
+                  <div class="dg-canvas">
+                    <div class="dg-group">
+                      <div class="dg-person"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px" aria-hidden="true"><circle cx="12" cy="7" r="4.5" fill="currentColor"/><path d="M3 21c0-4.4 4.5-7 9-7s9 2.6 9 7z" fill="currentColor"/></svg> <span data-ar="المرسل" data-en="Sender">المرسل</span></div>
+                      <div class="dg-row">
+                        <div class="dg-box"><span data-ar="مرحباً" data-en="Hello">مرحباً</span><span class="dg-blank">( [1] )</span></div>
+                        <div class="dg-step">
+                          <span class="dg-blank">( [2] )</span>
+                          <span class="dg-arrow"></span>
+                          <span class="dg-keyicon"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="7" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><line x1="11" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2.2"/><line x1="17" y1="12" x2="17" y2="15.5" stroke="currentColor" stroke-width="2.2"/><line x1="21" y1="12" x2="21" y2="15.5" stroke="currentColor" stroke-width="2.2"/></svg></span>
+                          <span class="dg-keylabel"><span class="dg-blank">( [3] )</span> <span data-ar="من" data-en="of">من</span> <span class="dg-blank">( [4] )</span></span>
+                        </div>
+                        <div class="dg-box"><span class="dg-cipher">&amp;SA+F¥Cs+A</span><span class="dg-blank">( [5] )</span></div>
+                      </div>
+                    </div>
+                    <div class="dg-send"><span data-ar="أرسل" data-en="Send">أرسل</span><span class="dg-arrow"></span></div>
+                    <div class="dg-group">
+                      <div class="dg-person"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px" aria-hidden="true"><circle cx="12" cy="7" r="4.5" fill="currentColor"/><path d="M3 21c0-4.4 4.5-7 9-7s9 2.6 9 7z" fill="currentColor"/></svg> <span data-ar="المستلم" data-en="Receiver">المستلم</span></div>
+                      <div class="dg-row">
+                        <div class="dg-box"><span class="dg-cipher">&amp;SA+F¥Cs+A</span><span class="dg-blank">( [6] )</span></div>
+                        <div class="dg-step">
+                          <span class="dg-blank">( [7] )</span>
+                          <span class="dg-arrow"></span>
+                          <span class="dg-keyicon"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="7" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><line x1="11" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2.2"/><line x1="17" y1="12" x2="17" y2="15.5" stroke="currentColor" stroke-width="2.2"/><line x1="21" y1="12" x2="21" y2="15.5" stroke="currentColor" stroke-width="2.2"/></svg></span>
+                          <span class="dg-keylabel"><span class="dg-blank">( [8] )</span> <span data-ar="من" data-en="of">من</span> <span class="dg-blank">( [9] )</span></span>
+                        </div>
+                        <div class="dg-box"><span data-ar="مرحباً" data-en="Hello">مرحباً</span><span class="dg-blank">( [10] )</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dg-swipe" data-ar="‹ اسحب لرؤية باقي الشكل ›" data-en="‹ swipe to see the rest of the diagram ›">‹ اسحب لرؤية باقي الشكل ›</div>
+              </figure>
+
         <div style="margin-top:12px">
           <div class="ex-item">
             <div class="q"><span class="q-num">1</span> <span data-ar="في رسم تشفير (Encryption) المفتاح العام عند المرسل — النص قبل التشفير (Blank [1]) بيتسمى إيه؟" data-en="In the public key encryption diagram at the sender — the text before encryption (blank [1]) is called what?">في رسم تشفير (Encryption) المفتاح العام عند المرسل — النص قبل التشفير (Blank [1]) بيتسمى إيه؟</span></div>
@@ -1227,7 +1522,17 @@
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">4</span> <span data-ar="في تشفير (Encryption) المفتاح العام، النص بعد التشفير (Blank [5]) بيتسمى إيه؟" data-en="In public key encryption, the text after encryption (blank [5]) is called what?">في تشفير (Encryption) المفتاح العام، النص بعد التشفير (Blank [5]) بيتسمى إيه؟</span></div>
+            <div class="q"><span class="q-num">4</span> <span data-ar="في تشفير (Encryption) المفتاح العام، التشفير بيستخدم المفتاح العام بتاع (   [4]   ) — مين صاحب المفتاح ده؟" data-en="In public key encryption, encryption uses the public key of (   [4]   ) — whose key is it?">في تشفير (Encryption) المفتاح العام، التشفير بيستخدم المفتاح العام بتاع (   [4]   ) — مين صاحب المفتاح ده؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;المستلم" data-en="A&nbsp;&nbsp;The recipient">A&nbsp;&nbsp;المستلم</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;المرسل" data-en="B&nbsp;&nbsp;The sender">B&nbsp;&nbsp;المرسل</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;مزوّد الخدمة" data-en="C&nbsp;&nbsp;The service provider">C&nbsp;&nbsp;مزوّد الخدمة</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;أي حد على الشبكة" data-en="D&nbsp;&nbsp;Anyone on the network">D&nbsp;&nbsp;أي حد على الشبكة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [4] = المستلم (Recipient) — الرسالة بتتشفّر بالمفتاح العام بتاع المستلم اللي اتبعت مسبقًا." data-en="✅ Answer: [4] = the recipient — the message is encrypted with the recipient’s public key, which was sent in advance.">✅ الإجابة: <b>[4] = المستلم (Recipient)</b> — التشفير بيتم بالمفتاح العام بتاع المستلم.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="في تشفير (Encryption) المفتاح العام، النص بعد التشفير (Blank [5]) بيتسمى إيه؟" data-en="In public key encryption, the text after encryption (blank [5]) is called what?">في تشفير (Encryption) المفتاح العام، النص بعد التشفير (Blank [5]) بيتسمى إيه؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;نص مشفّر (Ciphertext)" data-en="A&nbsp;&nbsp;Ciphertext">A&nbsp;&nbsp;نص مشفّر (Ciphertext)</div>
               <div class="ex-opt" data-ar="B&nbsp;&nbsp;نص صريح (Plaintext)" data-en="B&nbsp;&nbsp;Plaintext">B&nbsp;&nbsp;نص صريح (Plaintext)</div>
@@ -1238,7 +1543,17 @@
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">5</span> <span data-ar="عند المستلم، العملية بترجّع النص المشفّر (Ciphertext) لصورته الأصلية (Blank [7]) بتتسمى إيه؟" data-en="At the recipient, the process of returning the ciphertext to its original form (blank [7]) is called what?">عند المستلم، العملية بترجّع النص المشفّر (Ciphertext) لصورته الأصلية (Blank [7]) بتتسمى إيه؟</span></div>
+            <div class="q"><span class="q-num">6</span> <span data-ar="النص اللي بيوصل للمستلم قبل فك التشفير (Blank [6]) بيتسمى إيه؟" data-en="The text that reaches the recipient before decryption (blank [6]) is called what?">النص اللي بيوصل للمستلم قبل فك التشفير (Blank [6]) بيتسمى إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;نص مشفّر (Ciphertext)" data-en="A&nbsp;&nbsp;Ciphertext">A&nbsp;&nbsp;نص مشفّر (Ciphertext)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;نص صريح (Plaintext)" data-en="B&nbsp;&nbsp;Plaintext">B&nbsp;&nbsp;نص صريح (Plaintext)</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;مفتاح خاص (Private key)" data-en="C&nbsp;&nbsp;Private key">C&nbsp;&nbsp;مفتاح خاص (Private key)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;ترميز (Encoding)" data-en="D&nbsp;&nbsp;Encoding">D&nbsp;&nbsp;ترميز (Encoding)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [6] = نص مشفّر (Ciphertext) — نفس النص المشفّر اللي اتبعت من المرسل بيوصل للمستلم زي ما هو." data-en="✅ Answer: [6] = Ciphertext — the same ciphertext sent by the sender reaches the recipient as-is.">✅ الإجابة: <b>[6] = Ciphertext</b> — النص المشفّر بيوصل زي ما هو من غير ما يتفك.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="عند المستلم، العملية بترجّع النص المشفّر (Ciphertext) لصورته الأصلية (Blank [7]) بتتسمى إيه؟" data-en="At the recipient, the process of returning the ciphertext to its original form (blank [7]) is called what?">عند المستلم، العملية بترجّع النص المشفّر (Ciphertext) لصورته الأصلية (Blank [7]) بتتسمى إيه؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ar="A&nbsp;&nbsp;تشفير (Encryption)" data-en="A&nbsp;&nbsp;Encryption">A&nbsp;&nbsp;تشفير (Encryption)</div>
               <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;فك تشفير (Decryption)" data-en="B&nbsp;&nbsp;Decryption">B&nbsp;&nbsp;فك تشفير (Decryption)</div>
@@ -1260,7 +1575,27 @@
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">7</span> <span data-ar="التصريح A: لازم يتجهّز مفتاح منفصل لكل مرسل — ده S ولا P؟" data-en="Statement A: a separate key must be prepared for each sender — is it S or P?">التصريح A: لازم يتجهّز مفتاح منفصل لكل مرسل — ده S ولا P؟</span></div>
+            <div class="q"><span class="q-num">9</span> <span data-ar="وفك التشفير بيستخدم المفتاح الخاص بتاع (   [9]   ) — مين صاحب المفتاح ده؟" data-en="And decryption uses the private key of (   [9]   ) — whose key is it?">وفك التشفير بيستخدم المفتاح الخاص بتاع (   [9]   ) — مين صاحب المفتاح ده؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;المستلم" data-en="A&nbsp;&nbsp;The recipient">A&nbsp;&nbsp;المستلم</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;المرسل" data-en="B&nbsp;&nbsp;The sender">B&nbsp;&nbsp;المرسل</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;مزوّد الخدمة" data-en="C&nbsp;&nbsp;The service provider">C&nbsp;&nbsp;مزوّد الخدمة</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;أي حد على الشبكة" data-en="D&nbsp;&nbsp;Anyone on the network">D&nbsp;&nbsp;أي حد على الشبكة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [9] = المستلم (Recipient) — المفتاح الخاص ده المستلم بس اللي بيملكه." data-en="✅ Answer: [9] = the recipient — the private key is possessed only by the recipient.">✅ الإجابة: <b>[9] = المستلم (Recipient)</b> — المفتاح الخاص ملك للمستلم بس.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">10</span> <span data-ar="النص بعد فك التشفير عند المستلم (Blank [10]) بيتسمى إيه؟" data-en="The text after decryption at the recipient (blank [10]) is called what?">النص بعد فك التشفير عند المستلم (Blank [10]) بيتسمى إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;نص صريح (Plaintext)" data-en="A&nbsp;&nbsp;Plaintext">A&nbsp;&nbsp;نص صريح (Plaintext)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;نص مشفّر (Ciphertext)" data-en="B&nbsp;&nbsp;Ciphertext">B&nbsp;&nbsp;نص مشفّر (Ciphertext)</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;مفتاح (Key)" data-en="C&nbsp;&nbsp;Key">C&nbsp;&nbsp;مفتاح (Key)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;تشفير (Encryption)" data-en="D&nbsp;&nbsp;Encryption">D&nbsp;&nbsp;تشفير (Encryption)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [10] = نص صريح (Plaintext) — النص بيرجع لصورته الأصلية &quot;Hello&quot; زي ما اتبعت." data-en="✅ Answer: [10] = Plaintext — the text returns to its original &quot;Hello&quot; form as sent.">✅ الإجابة: <b>[10] = Plaintext</b> — النص بيرجع "Hello" زي ما كان.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">11</span> <span data-ar="التصريح A: لازم يتجهّز مفتاح منفصل لكل مرسل — ده S ولا P؟" data-en="Statement A: a separate key must be prepared for each sender — is it S or P?">التصريح A: لازم يتجهّز مفتاح منفصل لكل مرسل — ده S ولا P؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ok="1" data-ar="S&nbsp;&nbsp;متماثل" data-en="S&nbsp;&nbsp;Symmetric">S&nbsp;&nbsp;متماثل</div>
               <div class="ex-opt" data-ar="P&nbsp;&nbsp;عام" data-en="P&nbsp;&nbsp;Public">P&nbsp;&nbsp;عام</div>
@@ -1269,7 +1604,7 @@
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">8</span> <span data-ar="التصريح B: نفس المفتاح بيستخدمه المرسل في التشفير (Encryption) وفك التشفير (Decryption) — ده S ولا P؟" data-en="Statement B: the same key is used by the sender for both encryption and decryption — is it S or P?">التصريح B: نفس المفتاح بيستخدمه المرسل في التشفير (Encryption) وفك التشفير (Decryption) — ده S ولا P؟</span></div>
+            <div class="q"><span class="q-num">12</span> <span data-ar="التصريح B: نفس المفتاح بيستخدمه المرسل في التشفير (Encryption) وفك التشفير (Decryption) — ده S ولا P؟" data-en="Statement B: the same key is used by the sender for both encryption and decryption — is it S or P?">التصريح B: نفس المفتاح بيستخدمه المرسل في التشفير (Encryption) وفك التشفير (Decryption) — ده S ولا P؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ok="1" data-ar="S&nbsp;&nbsp;متماثل" data-en="S&nbsp;&nbsp;Symmetric">S&nbsp;&nbsp;متماثل</div>
               <div class="ex-opt" data-ar="P&nbsp;&nbsp;عام" data-en="P&nbsp;&nbsp;Public">P&nbsp;&nbsp;عام</div>
@@ -1278,7 +1613,7 @@
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">9</span> <span data-ar="التصريح C: التشفير (Encryption) وفك التشفير (Decryption) أبطأ مقارنة بالطريقة التانية — ده S ولا P؟" data-en="Statement C: encryption and decryption are slower compared to the other method — is it S or P?">التصريح C: التشفير (Encryption) وفك التشفير (Decryption) أبطأ مقارنة بالطريقة التانية — ده S ولا P؟</span></div>
+            <div class="q"><span class="q-num">13</span> <span data-ar="التصريح C: التشفير (Encryption) وفك التشفير (Decryption) أبطأ مقارنة بالطريقة التانية — ده S ولا P؟" data-en="Statement C: encryption and decryption are slower compared to the other method — is it S or P?">التصريح C: التشفير (Encryption) وفك التشفير (Decryption) أبطأ مقارنة بالطريقة التانية — ده S ولا P؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ar="S&nbsp;&nbsp;متماثل" data-en="S&nbsp;&nbsp;Symmetric">S&nbsp;&nbsp;متماثل</div>
               <div class="ex-opt" data-ok="1" data-ar="P&nbsp;&nbsp;عام" data-en="P&nbsp;&nbsp;Public">P&nbsp;&nbsp;عام</div>
@@ -1287,7 +1622,7 @@
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">10</span> <span data-ar="التصريح D: تبادل المفتاح أسهل مقارنة بالطريقة التانية — ده S ولا P؟" data-en="Statement D: exchanging the key is easier compared to the other method — is it S or P?">التصريح D: تبادل المفتاح أسهل مقارنة بالطريقة التانية — ده S ولا P؟</span></div>
+            <div class="q"><span class="q-num">14</span> <span data-ar="التصريح D: تبادل المفتاح أسهل مقارنة بالطريقة التانية — ده S ولا P؟" data-en="Statement D: exchanging the key is easier compared to the other method — is it S or P?">التصريح D: تبادل المفتاح أسهل مقارنة بالطريقة التانية — ده S ولا P؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ar="S&nbsp;&nbsp;متماثل" data-en="S&nbsp;&nbsp;Symmetric">S&nbsp;&nbsp;متماثل</div>
               <div class="ex-opt" data-ok="1" data-ar="P&nbsp;&nbsp;عام" data-en="P&nbsp;&nbsp;Public">P&nbsp;&nbsp;عام</div>
@@ -1303,8 +1638,44 @@
 
       <!-- Exercise -->
       <div class="section-inner card" style="margin-top:24px">
-        <h3 style="color:var(--s3)" data-ar="💪 تدريب — صفحة 37" data-en="💪 Exercise — Page 37">💪 تدريب — صفحة 37</h3>
+        <h3 style="color:var(--s3)" data-ar="💪 تدريب — EN PDF 37 (المطبوع 37)؛ AR 43" data-en="💪 Exercise — EN PDF 37 (printed 37); AR 43">💪 تدريب — EN PDF 37 (المطبوع 37)؛ AR 43</h3>
         <p style="font-size:.92rem" class="hint-line" data-ar="شوف رسم تشفير (Encryption) المفتاح المتماثل — التحدي النهائي!" data-en="Look at the symmetric key encryption diagram — final challenge!">شوف رسم تشفير (Encryption) المفتاح المتماثل — التحدي النهائي!</p>
+        <figure class="enc-diagram">
+                <figcaption class="dg-caption" data-ar="الشكل (إعادة رسم بتنسيقنا من شكل الكتاب): سير عملية التشفير بالمفتاح المتماثل — الفراغات [1] إلى [10]. المصدر: EN PDF 37 (المطبوع 37)؛ AR 43" data-en="Figure (redrawn in our formatting from the book's diagram): symmetric key encryption process flow - blanks [1] to [10]. Source: EN PDF 37 (printed 37); AR 43">الشكل (إعادة رسم بتنسيقنا من شكل الكتاب): سير عملية التشفير بالمفتاح المتماثل — الفراغات [1] إلى [10]. المصدر: EN PDF 37 (المطبوع 37)؛ AR 43</figcaption>
+                <div class="dg-scroll">
+                  <div class="dg-canvas">
+                    <div class="dg-group">
+                      <div class="dg-person"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px" aria-hidden="true"><circle cx="12" cy="7" r="4.5" fill="currentColor"/><path d="M3 21c0-4.4 4.5-7 9-7s9 2.6 9 7z" fill="currentColor"/></svg> <span data-ar="المرسل" data-en="Sender">المرسل</span></div>
+                      <div class="dg-row">
+                        <div class="dg-box"><span data-ar="مرحباً" data-en="Hello">مرحباً</span><span class="dg-blank">( [1] )</span></div>
+                        <div class="dg-step">
+                          <span class="dg-blank">( [2] )</span>
+                          <span class="dg-arrow"></span>
+                          <span class="dg-keyicon"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="7" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><line x1="11" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2.2"/><line x1="17" y1="12" x2="17" y2="15.5" stroke="currentColor" stroke-width="2.2"/><line x1="21" y1="12" x2="21" y2="15.5" stroke="currentColor" stroke-width="2.2"/></svg></span>
+                          <span class="dg-keylabel"><span class="dg-blank">( [3] )</span> <span data-ar="من" data-en="of">من</span> <span class="dg-blank">( [4] )</span></span>
+                        </div>
+                        <div class="dg-box"><span class="dg-cipher">&amp;SA+F¥Cs+A</span><span class="dg-blank">( [5] )</span></div>
+                      </div>
+                    </div>
+                    <div class="dg-send"><span data-ar="أرسل" data-en="Send">أرسل</span><span class="dg-arrow"></span></div>
+                    <div class="dg-group">
+                      <div class="dg-person"><svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px" aria-hidden="true"><circle cx="12" cy="7" r="4.5" fill="currentColor"/><path d="M3 21c0-4.4 4.5-7 9-7s9 2.6 9 7z" fill="currentColor"/></svg> <span data-ar="المستلم" data-en="Receiver">المستلم</span></div>
+                      <div class="dg-row">
+                        <div class="dg-box"><span class="dg-cipher">&amp;SA+F¥Cs+A</span><span class="dg-blank">( [6] )</span></div>
+                        <div class="dg-step">
+                          <span class="dg-blank">( [7] )</span>
+                          <span class="dg-arrow"></span>
+                          <span class="dg-keyicon"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="7" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/><line x1="11" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2.2"/><line x1="17" y1="12" x2="17" y2="15.5" stroke="currentColor" stroke-width="2.2"/><line x1="21" y1="12" x2="21" y2="15.5" stroke="currentColor" stroke-width="2.2"/></svg></span>
+                          <span class="dg-keylabel"><span class="dg-blank">( [8] )</span> <span data-ar="من" data-en="of">من</span> <span class="dg-blank">( [9] )</span></span>
+                        </div>
+                        <div class="dg-box"><span data-ar="مرحباً" data-en="Hello">مرحباً</span><span class="dg-blank">( [10] )</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dg-swipe" data-ar="‹ اسحب لرؤية باقي الشكل ›" data-en="‹ swipe to see the rest of the diagram ›">‹ اسحب لرؤية باقي الشكل ›</div>
+              </figure>
+
         <div style="margin-top:12px">
           <div class="ex-item">
             <div class="q"><span class="q-num">1</span> <span data-ar="في رسم تشفير (Encryption) المفتاح المتماثل عند المرسل — النص قبل التشفير (Blank [1]) بيتسمى إيه؟" data-en="In the symmetric key encryption diagram at the sender — the text before encryption (blank [1]) is called what?">في رسم تشفير (Encryption) المفتاح المتماثل عند المرسل — النص قبل التشفير (Blank [1]) بيتسمى إيه؟</span></div>
@@ -1340,7 +1711,17 @@
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">4</span> <span data-ar="في تشفير (Encryption) المتماثل، النص بعد التشفير (Blank [5]) بيتسمى إيه؟" data-en="In symmetric encryption, the text after encryption (blank [5]) is called what?">في تشفير (Encryption) المتماثل، النص بعد التشفير (Blank [5]) بيتسمى إيه؟</span></div>
+            <div class="q"><span class="q-num">4</span> <span data-ar="في التشفير المتماثل، التشفير بيستخدم المفتاح المشترك بتاع (   [4]   ) — مين صاحب المفتاح ده؟" data-en="In symmetric encryption, encryption uses the shared key of (   [4]   ) — whose key is it?">في التشفير المتماثل، التشفير بيستخدم المفتاح المشترك بتاع (   [4]   ) — مين صاحب المفتاح ده؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;المرسل" data-en="A&nbsp;&nbsp;The sender">A&nbsp;&nbsp;المرسل</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;المستلم" data-en="B&nbsp;&nbsp;The recipient">B&nbsp;&nbsp;المستلم</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;مزوّد الخدمة" data-en="C&nbsp;&nbsp;The service provider">C&nbsp;&nbsp;مزوّد الخدمة</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;أي حد على الشبكة" data-en="D&nbsp;&nbsp;Anyone on the network">D&nbsp;&nbsp;أي حد على الشبكة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [4] = المرسل (Sender) — الرسالة بتتشفّر بمفتاح المرسل المشترك." data-en="✅ Answer: [4] = the sender — the message is encrypted using the sender’s shared key.">✅ الإجابة: <b>[4] = المرسل (Sender)</b> — التشفير بيتم بمفتاح المرسل المشترك.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">5</span> <span data-ar="في تشفير (Encryption) المتماثل، النص بعد التشفير (Blank [5]) بيتسمى إيه؟" data-en="In symmetric encryption, the text after encryption (blank [5]) is called what?">في تشفير (Encryption) المتماثل، النص بعد التشفير (Blank [5]) بيتسمى إيه؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ar="A&nbsp;&nbsp;نص صريح (Plaintext)" data-en="A&nbsp;&nbsp;Plaintext">A&nbsp;&nbsp;نص صريح (Plaintext)</div>
               <div class="ex-opt" data-ar="B&nbsp;&nbsp;تشفير (Encryption)" data-en="B&nbsp;&nbsp;Encryption">B&nbsp;&nbsp;تشفير (Encryption)</div>
@@ -1351,7 +1732,17 @@
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">5</span> <span data-ar="عند المستلم، العملية بترجّع النص المشفّر (Ciphertext) لصورته الأصلية (Blank [7]) بتتسمى إيه؟" data-en="At the recipient, the process of returning the ciphertext to its original form (blank [7]) is called what?">عند المستلم، العملية بترجّع النص المشفّر (Ciphertext) لصورته الأصلية (Blank [7]) بتتسمى إيه؟</span></div>
+            <div class="q"><span class="q-num">6</span> <span data-ar="النص اللي بيوصل للمستلم قبل فك التشفير (Blank [6]) بيتسمى إيه؟" data-en="The text that reaches the recipient before decryption (blank [6]) is called what?">النص اللي بيوصل للمستلم قبل فك التشفير (Blank [6]) بيتسمى إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;نص مشفّر (Ciphertext)" data-en="A&nbsp;&nbsp;Ciphertext">A&nbsp;&nbsp;نص مشفّر (Ciphertext)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;نص صريح (Plaintext)" data-en="B&nbsp;&nbsp;Plaintext">B&nbsp;&nbsp;نص صريح (Plaintext)</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;مفتاح خاص (Private key)" data-en="C&nbsp;&nbsp;Private key">C&nbsp;&nbsp;مفتاح خاص (Private key)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;ترميز (Encoding)" data-en="D&nbsp;&nbsp;Encoding">D&nbsp;&nbsp;ترميز (Encoding)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [6] = نص مشفّر (Ciphertext) — نفس النص المشفّر اللي اتبعت من المرسل بيوصل للمستلم زي ما هو." data-en="✅ Answer: [6] = Ciphertext — the same ciphertext sent by the sender reaches the recipient as-is.">✅ الإجابة: <b>[6] = Ciphertext</b> — النص المشفّر بيوصل زي ما هو من غير ما يتفك.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">7</span> <span data-ar="عند المستلم، العملية بترجّع النص المشفّر (Ciphertext) لصورته الأصلية (Blank [7]) بتتسمى إيه؟" data-en="At the recipient, the process of returning the ciphertext to its original form (blank [7]) is called what?">عند المستلم، العملية بترجّع النص المشفّر (Ciphertext) لصورته الأصلية (Blank [7]) بتتسمى إيه؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ar="A&nbsp;&nbsp;تشفير (Encryption)" data-en="A&nbsp;&nbsp;Encryption">A&nbsp;&nbsp;تشفير (Encryption)</div>
               <div class="ex-opt" data-ar="B&nbsp;&nbsp;ترميز (Encoding)" data-en="B&nbsp;&nbsp;Encoding">B&nbsp;&nbsp;ترميز (Encoding)</div>
@@ -1373,7 +1764,27 @@
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">7</span> <span data-ar="من الخيارات A لـ D، اختار اللي بيوصف أحسن خاصية لتشفير (Encryption) المفتاح المتماثل مقارنة بتشفير (Encryption) المفتاح العام:" data-en="Among options A to D, choose the one that best describes a characteristic of symmetric key encryption when compared to public key encryption:">من الخيارات A لـ D، اختار اللي بيوصف أحسن خاصية لتشفير (Encryption) المفتاح المتماثل مقارنة بتشفير (Encryption) المفتاح العام:</span></div>
+            <div class="q"><span class="q-num">9</span> <span data-ar="وفك التشفير بيستخدم المفتاح المشترك بتاع (   [9]   ) — مين صاحب المفتاح ده؟" data-en="And decryption uses the shared key of (   [9]   ) — whose key is it?">وفك التشفير بيستخدم المفتاح المشترك بتاع (   [9]   ) — مين صاحب المفتاح ده؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;المرسل" data-en="A&nbsp;&nbsp;The sender">A&nbsp;&nbsp;المرسل</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;المستلم" data-en="B&nbsp;&nbsp;The recipient">B&nbsp;&nbsp;المستلم</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;مزوّد الخدمة" data-en="C&nbsp;&nbsp;The service provider">C&nbsp;&nbsp;مزوّد الخدمة</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;أي حد على الشبكة" data-en="D&nbsp;&nbsp;Anyone on the network">D&nbsp;&nbsp;أي حد على الشبكة</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [9] = المرسل (Sender) — فك التشفير بيتم بمفتاح المرسل المشترك اللي اتبعت مسبقًا من المرسل." data-en="✅ Answer: [9] = the sender — decryption uses the sender’s shared key that was sent in advance by the sender.">✅ الإجابة: <b>[9] = المرسل (Sender)</b> — فك التشفير بيتم بمفتاح المرسل المشترك.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">10</span> <span data-ar="النص بعد فك التشفير عند المستلم (Blank [10]) بيتسمى إيه؟" data-en="The text after decryption at the recipient (blank [10]) is called what?">النص بعد فك التشفير عند المستلم (Blank [10]) بيتسمى إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;نص صريح (Plaintext)" data-en="A&nbsp;&nbsp;Plaintext">A&nbsp;&nbsp;نص صريح (Plaintext)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;نص مشفّر (Ciphertext)" data-en="B&nbsp;&nbsp;Ciphertext">B&nbsp;&nbsp;نص مشفّر (Ciphertext)</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;مفتاح (Key)" data-en="C&nbsp;&nbsp;Key">C&nbsp;&nbsp;مفتاح (Key)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;تشفير (Encryption)" data-en="D&nbsp;&nbsp;Encryption">D&nbsp;&nbsp;تشفير (Encryption)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: [10] = نص صريح (Plaintext) — النص بيرجع لصورته الأصلية &quot;Hello&quot; زي ما اتبعت." data-en="✅ Answer: [10] = Plaintext — the text returns to its original &quot;Hello&quot; form as sent.">✅ الإجابة: <b>[10] = Plaintext</b> — النص بيرجع "Hello" زي ما كان.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">11</span> <span data-ar="من الخيارات A لـ D، اختار اللي بيوصف أحسن خاصية لتشفير (Encryption) المفتاح المتماثل مقارنة بتشفير (Encryption) المفتاح العام:" data-en="Among options A to D, choose the one that best describes a characteristic of symmetric key encryption when compared to public key encryption:">من الخيارات A لـ D، اختار اللي بيوصف أحسن خاصية لتشفير (Encryption) المفتاح المتماثل مقارنة بتشفير (Encryption) المفتاح العام:</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;بيسمح بتشفير (Encryption) وفك تشفير (Decryption) سريع" data-en="A&nbsp;&nbsp;Allows fast encryption and decryption">A&nbsp;&nbsp;بيسمح بتشفير (Encryption) وفك تشفير (Decryption) سريع</div>
               <div class="ex-opt" data-ar="B&nbsp;&nbsp;بيستخدم مفاتيح مختلفة للتشفير (Encryption) وفك التشفير (Decryption)" data-en="B&nbsp;&nbsp;Uses different keys for encryption and decryption">B&nbsp;&nbsp;بيستخدم مفاتيح مختلفة للتشفير (Encryption) وفك التشفير (Decryption)</div>

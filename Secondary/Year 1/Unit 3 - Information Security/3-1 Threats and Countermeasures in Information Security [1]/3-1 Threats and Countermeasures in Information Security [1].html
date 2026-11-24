@@ -888,6 +888,50 @@
     [style*="linear-gradient"] {
       background: var(--primary) !important;
     }
+
+    /* book-verbatim source cards */
+    .book-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-inline-start: 4px solid var(--s2, #b45309);
+      border-radius: 18px;
+      padding: 20px 22px;
+      margin: 18px 0
+    }
+    .book-card.try {
+      border-inline-start-color: var(--s5, #0e7490)
+    }
+    .book-card.try h3 {
+      color: var(--s5, #0e7490)
+    }
+    .book-card h3 {
+      margin: 0 0 10px;
+      color: var(--s2, #b45309)
+    }
+    .book-card ol, .book-card ul {
+      margin: 8px 0;
+      padding-inline-start: 22px
+    }
+    .book-card li {
+      margin-bottom: 6px
+    }
+    .book-src {
+      display: block;
+      margin-top: 12px;
+      font-size: .82rem;
+      opacity: .65
+    }
+    .book-diff {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(245, 158, 11, .08);
+      border: 1px solid rgba(245, 158, 11, .3);
+      font-size: .9rem
+    }
+    .book-card p, .book-card .book-diff, .book-card h3 {
+      overflow-wrap: anywhere
+    }
 </style>
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
@@ -927,6 +971,36 @@
 
   <main>
     <!-- ============ 01 INTRO ============ -->
+    <div class="section-inner">
+        <!-- TEXTBOOK-CARD-BEGIN id="book-point" -->
+        <div class="book-card">
+          <h3 data-ar="من الكتاب: النقاط الرئيسية — أمن المعلومات والتهديدات" data-en="From the book: Point box - Information Security and threats">من الكتاب: النقاط الرئيسية — أمن المعلومات والتهديدات</h3>
+          <p data-ar="أ. أمن المعلومات" data-en="1 Information Security">أ. أمن المعلومات</p>
+          <p data-ar="(1) أمن المعلومات (Information security): هو عملية إدارة المعلومات بشكل صحيح والحفاظ عليها آمنة." data-en="(1) (¹Information security): The act of properly managing information and keeping it safe.">(1) أمن المعلومات (Information security): هو عملية إدارة المعلومات بشكل صحيح والحفاظ عليها آمنة.</p>
+          <p data-ar="(2) العناصر الأساسية الثلاثة لأمن المعلومات هي:" data-en="(2) The three essential elements of information security">(2) العناصر الأساسية الثلاثة لأمن المعلومات هي:</p>
+          <p data-ar="[1] السرية (Confidentiality): هي الحالة التي يمكن فيها فقط للأفراد المصرّح لهم الوصول إلى المعلومات." data-en="[1] (²Confidentiality): A state in which only authorized individuals can access the information.">[1] السرية (Confidentiality): هي الحالة التي يمكن فيها فقط للأفراد المصرّح لهم الوصول إلى المعلومات.</p>
+          <p data-ar="[2] السلامة (Integrity): هي الحالة التي لم يتم فيها تدمير المعلومات أو العبث بها أو محوها." data-en="[2] (³Integrity): A state in which the information is not destroyed, tampered with, or erased.">[2] السلامة (Integrity): هي الحالة التي لم يتم فيها تدمير المعلومات أو العبث بها أو محوها.</p>
+          <p data-ar="[3] التوافرية (Availability): هي الحالة التي يمكن فيها الوصول إلى المعلومات في أي وقت عند الحاجة." data-en="[3] (⁴Availability): A state in which information can be accessed at any time when needed.">[3] التوافرية (Availability): هي الحالة التي يمكن فيها الوصول إلى المعلومات في أي وقت عند الحاجة.</p>
+          <p data-ar="ب. تهديدات متنوعة لأمن المعلومات" data-en="2 Various threats to information security">ب. تهديدات متنوعة لأمن المعلومات</p>
+          <p data-ar="(1) الوصول غير المصرّح به (Unauthorized access): هو الوصول إلى نظام بشكل غير قانوني للتلاعب بالبيانات أو محوها أو سرقتها." data-en="(1) (⁵Unauthorized access): When someone without permission gains access to a computer system.">(1) الوصول غير المصرّح به (Unauthorized access): هو الوصول إلى نظام بشكل غير قانوني للتلاعب بالبيانات أو محوها أو سرقتها.</p>
+          <p data-ar="(2) الاختراق (Cracking): هو الوصول إلى نظام بشكل غير قانوني للتلاعب بالبيانات أو محوها أو سرقتها. ويُطلق على الشخص الذي يرتكب هذه الأفعال اسم المخترق (cracker)." data-en="(2) (⁶Cracking): The act of unlawfully accessing a system to tamper with, erase, or steal data. A person who commits such acts is called a (⁷cracker).">(2) الاختراق (Cracking): هو الوصول إلى نظام بشكل غير قانوني للتلاعب بالبيانات أو محوها أو سرقتها. ويُطلق على الشخص الذي يرتكب هذه الأفعال اسم المخترق (cracker).</p>
+          <p data-ar="(3) البرمجيات الخبيثة (Malware): مصطلح عام للبرامج الضارة المصممة لإلحاق الضرر بأجهزة الكمبيوتر. يمكن أن تحدث الإصابة عبر مواقع الويب، أو مرفقات البريد الإلكتروني، أو محركات أقراص USB، أو الشبكات." data-en="(3) (⁸Malware): A general term for malicious programs designed to harm computers. Infection can occur through websites, email attachments, USB drives, or networks.">(3) البرمجيات الخبيثة (Malware): مصطلح عام للبرامج الضارة المصممة لإلحاق الضرر بأجهزة الكمبيوتر. يمكن أن تحدث الإصابة عبر مواقع الويب، أو مرفقات البريد الإلكتروني، أو محركات أقراص USB، أو الشبكات.</p>
+          <p data-ar="[1] فيروس الكمبيوتر (Computer virus): برنامج مصمم لإحداث ضرر بشكل مُتعمد، مثل تدمير البيانات أو البرامج." data-en="[1] (⁹Computer virus): A program designed to intentionally cause harm, such as destroying data or programs.">[1] فيروس الكمبيوتر (Computer virus): برنامج مصمم لإحداث ضرر بشكل مُتعمد، مثل تدمير البيانات أو البرامج.</p>
+          <p data-ar="[2] حصان طروادة (Trojan horse): برنامج متنكر على أنه برنامج شرعي، يتسلل إلى النظام ويبدأ الهجمات بهدوء." data-en="[2] (¹⁰Trojan horse): A program disguised as a legitimate one that infiltrates a system and quietly initiates attacks.">[2] حصان طروادة (Trojan horse): برنامج متنكر على أنه برنامج شرعي، يتسلل إلى النظام ويبدأ الهجمات بهدوء.</p>
+          <p data-ar="[3] الدودة (Worm): برنامج ينسخ نفسه وينتشر عبر الإنترنت مثل الدودة، مما يؤدي إلى توسيع نطاق الإصابة." data-en="[3] (¹¹Worm): A program that replicates itself and spreads across the internet like a worm, expanding the infection.">[3] الدودة (Worm): برنامج ينسخ نفسه وينتشر عبر الإنترنت مثل الدودة، مما يؤدي إلى توسيع نطاق الإصابة.</p>
+          <p data-ar="[4] برنامج التجسس (Spyware): برنامج يجمع المعلومات الشخصية دون علم المستخدم ويرسلها إلى أطراف ثالثة." data-en="[4] (¹²Spyware): A program that collects personal information without the user’s knowledge and sends it to third parties.">[4] برنامج التجسس (Spyware): برنامج يجمع المعلومات الشخصية دون علم المستخدم ويرسلها إلى أطراف ثالثة.</p>
+          <p data-ar="• مسجل لوحة المفاتيح (Keylogger): برنامج يراقب ويسجل ضغطات المفاتيح." data-en="• (¹³Keylogger): Software that monitors and records keystrokes.">• مسجل لوحة المفاتيح (Keylogger): برنامج يراقب ويسجل ضغطات المفاتيح.</p>
+          <p data-ar="• برنامج الإعلانات (Adware): برنامج يعرض إعلانات غير مرغوب فيها دون موافقة المستخدم." data-en="• (¹⁴Adware): A program that displays unwanted advertisements without the user’s consent.">• برنامج الإعلانات (Adware): برنامج يعرض إعلانات غير مرغوب فيها دون موافقة المستخدم.</p>
+          <p data-ar="[5] برنامج الفدية (Ransomware): برنامج يجعل البيانات غير قابلة للوصول ويطالب بفدية لاستعادة الوصول للبيانات." data-en="[5] (¹⁵Ransomware): A program that renders data inaccessible and demands a ransom to restore access.">[5] برنامج الفدية (Ransomware): برنامج يجعل البيانات غير قابلة للوصول ويطالب بفدية لاستعادة الوصول للبيانات.</p>
+          <p data-ar="(4) الجريمة الإلكترونية (Cybercrime): أفعال إجرامية تُرتكب عبر شبكات الكمبيوتر." data-en="(4) (¹⁶Cybercrime): Criminal acts committed over computer networks.">(4) الجريمة الإلكترونية (Cybercrime): أفعال إجرامية تُرتكب عبر شبكات الكمبيوتر.</p>
+          <p data-ar="[1] انتهاك قانون الوصول غير المصرّح به للكمبيوتر: الوصول غير القانوني إلى كمبيوتر باستخدام هوية مستخدم أو كلمة مرور الخاصة بشخص آخر." data-en="[1] (¹⁷Violation of the Unauthorized Computer Access Law): Illegally accessing a computer using someone else’s user ID or password.">[1] انتهاك قانون الوصول غير المصرّح به للكمبيوتر: الوصول غير القانوني إلى كمبيوتر باستخدام هوية مستخدم أو كلمة مرور الخاصة بشخص آخر.</p>
+          <p data-ar="[2] جرائم تتضمن الكمبيوتر أو السجلات الإلكترونية: جرائم تتضمن العبث بالبيانات المخزنة أو التلاعب غير المصرّح به بالأجهزة." data-en="[2] Crimes involving computer or electronic records: Crimes involving tampering with stored data or unauthorized manipulation of devices.">[2] جرائم تتضمن الكمبيوتر أو السجلات الإلكترونية: جرائم تتضمن العبث بالبيانات المخزنة أو التلاعب غير المصرّح به بالأجهزة.</p>
+          <p data-ar="[3] جرائم قائمة على الشبكة: جرائم تُرتكب باستخدام الشبكات، مثل الاحتيال أو التشهير أو انتهاك حقوق المؤلف." data-en="[3] Network-based crimes: Crimes committed using networks, such as fraud, defamation, or copyright infringement.">[3] جرائم قائمة على الشبكة: جرائم تُرتكب باستخدام الشبكات، مثل الاحتيال أو التشهير أو انتهاك حقوق المؤلف.</p>
+          <div class="book-diff" data-ar="مقارنة النسختين: النسخة الإنجليزية ترقّم المصطلحات بأرقام علوية (¹-¹⁷) والعربية بدون ترقيم. عناوين القسمين: EN «1 Information Security / 2 Various threats to information security»، AR «أ. أمن المعلومات / ب. تهديدات متنوعة لأمن المعلومات». البند (1) «الوصول غير المصرّح به» في النسخة العربية مطبوع بنفس نص تعريف البند (2) «الاختراق» حرفيًا، بينما الإنجليزية تطبع للبند (1) تعريفًا مختلفًا («When someone without permission gains access to a computer system»). النصان المطبوعان منقولان كما هما." data-en="Edition comparison: the English edition numbers terms with superscripts (1-17); the Arabic has none. Section heads: EN &quot;1 Information Security / 2 Various threats to information security&quot;, AR «أ. أمن المعلومات / ب. تهديدات متنوعة لأمن المعلومات». The Arabic print gives item (1) «الوصول غير المصرّح به» the identical wording of item (2) «الاختراق», while English prints a different definition for item (1). Both printings are quoted as-is.">مقارنة النسختين: النسخة الإنجليزية ترقّم المصطلحات بأرقام علوية (¹-¹⁷) والعربية بدون ترقيم. عناوين القسمين: EN «1 Information Security / 2 Various threats to information security»، AR «أ. أمن المعلومات / ب. تهديدات متنوعة لأمن المعلومات». البند (1) «الوصول غير المصرّح به» في النسخة العربية مطبوع بنفس نص تعريف البند (2) «الاختراق» حرفيًا، بينما الإنجليزية تطبع للبند (1) تعريفًا مختلفًا («When someone without permission gains access to a computer system»). النصان المطبوعان منقولان كما هما.</div>
+          <span class="book-src" data-ar="EN PDF 24 (المطبوع 24)؛ AR 30" data-en="EN PDF 24 (printed 24); AR 30">EN PDF 24 (المطبوع 24)؛ AR 30</span>
+        </div>
+        <!-- TEXTBOOK-CARD-END id="book-point" -->
+    </div>
     <section id="intro">
       <div class="section-inner">
         <div class="section-header">
@@ -998,7 +1072,7 @@
       <div class="section-inner card" style="margin-top:24px">
         <h3 data-ar="امتحن نفسك: إيه العنصر اللي اتأثر؟" data-en="Test yourself: which element is affected?" style="color:var(--s2)">امتحن نفسك: إيه العنصر اللي اتأثر؟</h3>
         <div class="cards-grid" id="elementCards">
-          <div class="card-item" data-correct="0">
+          <div class="card-item" data-correct="1">
             <div class="card-icon">💥</div>
             <div class="card-title" data-ar="هجوم سيبراني خلّى الموقع يقع" data-en="A cyberattack caused a website to go down">هجوم سيبراني خلّى الموقع يقع</div>
             <div class="card-body" data-ar="المعلومات (Information) مابقتش متاحة — العنصر المتأثر هو التوافر (Availability)" data-en="Information became unavailable — the affected element is Availability">المعلومات (Information) مابقتش متاحة — العنصر المتأثر هو التوافر (Availability)</div>
@@ -1010,7 +1084,7 @@
             <div class="card-body" data-ar="المعلومات (Information) بقت غلط — العنصر المتأثر هو السلامة (Integrity)" data-en="Information became inaccurate — the affected element is Integrity">المعلومات (Information) بقت غلط — العنصر المتأثر هو السلامة (Integrity)</div>
             <div class="card-feedback" data-ar="✅ صح — السلامة (Integrity) اتخلّت" data-en="✅ Correct — Integrity was compromised">✅ صح — السلامة (Integrity) اتخلّت</div>
           </div>
-          <div class="card-item" data-correct="0">
+          <div class="card-item" data-correct="1">
             <div class="card-icon">🦠</div>
             <div class="card-title" data-ar="المعلومات (Information) الشخصية تسربت بسبب إصابة بـ malware" data-en="Personal information leaked due to a malware infection">المعلومات (Information) الشخصية تسربت بسبب إصابة بـ malware</div>
             <div class="card-body" data-ar="ناس مش مصرّح ليها شافوا المعلومات (Information) — العنصر المتأثر هو السرية (Confidentiality)" data-en="Unauthorized people saw the info — the affected element is Confidentiality">ناس مش مصرّح ليها شافوا المعلومات (Information) — العنصر المتأثر هو السرية (Confidentiality)</div>
@@ -1136,19 +1210,72 @@
         </div>
       </div>
 
+      <div class="section-inner card">
+        <!-- TEXTBOOK-CARD-BEGIN id="book-warm" -->
+        <div class="book-card">
+          <h3 data-ar="من الكتاب: تحدى معلوماتك (Warm Up) والشرح" data-en="From the book: Warm Up and Explanation">من الكتاب: تحدى معلوماتك (Warm Up) والشرح</h3>
+          <p data-ar="تحدى معلوماتك — أجب عن الأسئلة التالية." data-en="Warm Up - Answer the following questions.">تحدى معلوماتك — أجب عن الأسئلة التالية.</p>
+          <p data-ar="(1) من بين الخيارات من أ إلى ت، اختر الخيار الذي تكون فيه التوافرية (Availability) معرضة للخطر من حيث أمن المعلومات." data-en="(1) Choose the one in which availability is compromised in terms of information security from the options A to C below.">(1) من بين الخيارات من أ إلى ت، اختر الخيار الذي تكون فيه التوافرية (Availability) معرضة للخطر من حيث أمن المعلومات.</p>
+          <p data-ar="(أ) تسبب هجوم إلكتروني في تعطيل موقع ويب." data-en="A  A cyberattack caused a website to go down.">(أ) تسبب هجوم إلكتروني في تعطيل موقع ويب.</p>
+          <p data-ar="(ب) تم إدخال بيانات غير صحيحة بسبب خطأ في الكتابة." data-en="B  Incorrect data was entered due to a keyboard typing error.">(ب) تم إدخال بيانات غير صحيحة بسبب خطأ في الكتابة.</p>
+          <p data-ar="(ت) تم تسريب معلومات شخصية بسبب إصابة ببرنامج خبيث على الكمبيوتر." data-en="C  Personal information was leaked due to a malware infection on the computer.">(ت) تم تسريب معلومات شخصية بسبب إصابة ببرنامج خبيث على الكمبيوتر.</p>
+          <p data-ar="(2) من الخيارات أ إلى ث أدناه، اختر جميع الإجراءات التي تشكل انتهاكًا لقانون الوصول غير المصرح به إلى الكمبيوتر." data-en="(2) Choose all actions that constitute a violation of the Unauthorized Computer Access Law from the options A to D below.">(2) من الخيارات أ إلى ث أدناه، اختر جميع الإجراءات التي تشكل انتهاكًا لقانون الوصول غير المصرح به إلى الكمبيوتر.</p>
+          <p data-ar="(أ) استخدام هوية مستخدم وكلمة مرور شخص آخر بشكل غير قانوني للوصول إلى كمبيوتر." data-en="A  Illegally used another person’s user ID and password to access a computer.">(أ) استخدام هوية مستخدم وكلمة مرور شخص آخر بشكل غير قانوني للوصول إلى كمبيوتر.</p>
+          <p data-ar="(ب) تخزين كلمة مرور تم الحصول عليها بشكل غير قانوني على كمبيوتر." data-en="B  Stored a password that was obtained illegally on a computer.">(ب) تخزين كلمة مرور تم الحصول عليها بشكل غير قانوني على كمبيوتر.</p>
+          <p data-ar="(ت) مشاركة هوية مستخدم وكلمة مرور صديق مع شخص آخر دون إذن الصديق." data-en="C  Shared a friend’s user ID and password with someone else without the friend’s permission.">(ت) مشاركة هوية مستخدم وكلمة مرور صديق مع شخص آخر دون إذن الصديق.</p>
+          <p data-ar="(ث) نشر موقع ويب يبيع أدوية شبه قانونية أو يحتوي على محتوى غير قانوني وغير لائق." data-en="D  Published a website selling quasi-legal drugs or containing unlawful and inappropriate content.">(ث) نشر موقع ويب يبيع أدوية شبه قانونية أو يحتوي على محتوى غير قانوني وغير لائق.</p>
+          <p data-ar="الشرح (مطبوع): (1) يتكون أمن المعلومات من ثلاثة عناصر: السلامة والسرية والتوافر. 1. عندما تصبح المعلومات غير متوفرة، يتعرض التوافر للخطر. 2. عندما لم تعد المعلومات دقيقة، تتعرض السلامة للخطر. 3. عندما يتمكن أفراد غير مصرح لهم من عرض المعلومات، تتعرض السلامة للخطر. لذلك، الإجابة الصحيحة هي أ." data-en="Explanation (printed): (1) Information security consists of three elements: integrity, confidentiality, and availability. A When information becomes unavailable, availability is compromised. B When information is no longer accurate, integrity is compromised. C When unauthorized individuals can view the information, confidentiality is compromised. Therefore, the correct answer is A.">الشرح (مطبوع): (1) يتكون أمن المعلومات من ثلاثة عناصر: السلامة والسرية والتوافر. 1. عندما تصبح المعلومات غير متوفرة، يتعرض التوافر للخطر. 2. عندما لم تعد المعلومات دقيقة، تتعرض السلامة للخطر. 3. عندما يتمكن أفراد غير مصرح لهم من عرض المعلومات، تتعرض السلامة للخطر. لذلك، الإجابة الصحيحة هي أ.</p>
+          <p data-ar="الشرح (مطبوع): (2) 1. استخدام جهاز كمبيوتر دون الحصول على حقوق وصول يشكل وصولاً غير مصرح به وهو محظور بموجب قانون الوصول غير المصرح به إلى الكمبيوتر. 2. تخزين كلمة مرور تم الحصول عليها بشكل غير قانوني لغرض الوصول غير المصرح به محظور بموجب قانون الوصول غير المصرح به إلى الكمبيوتر. 3. مشاركة كلمة مرور شخص آخر مع طرف ثالث دون سبب وجيه أو إذن يروج للوصول غير المصرح به وهو محظور أيضًا بموجب القانون. 4. قد يندرج نشر المحتوى غير القانوني تحت فئة الجرائم المتعلقة بالشبكة. لذلك، الإجابات الصحيحة هي أ، ب، وت." data-en="Explanation (printed): (2) A Using a computer without having access rights constitutes unauthorized access and is prohibited under the Unauthorized Computer Access Law. B Storing a password obtained illegally for the purpose of unauthorized access is prohibited under the Unauthorized Computer Access Law. C Sharing someone else’s password with a third party without valid reason or permission promotes unauthorized access and is also prohibited by law. D Publishing illegal content may fall under network-related crimes. Therefore, the correct answers are A, B, and C.">الشرح (مطبوع): (2) 1. استخدام جهاز كمبيوتر دون الحصول على حقوق وصول يشكل وصولاً غير مصرح به وهو محظور بموجب قانون الوصول غير المصرح به إلى الكمبيوتر. 2. تخزين كلمة مرور تم الحصول عليها بشكل غير قانوني لغرض الوصول غير المصرح به محظور بموجب قانون الوصول غير المصرح به إلى الكمبيوتر. 3. مشاركة كلمة مرور شخص آخر مع طرف ثالث دون سبب وجيه أو إذن يروج للوصول غير المصرح به وهو محظور أيضًا بموجب القانون. 4. قد يندرج نشر المحتوى غير القانوني تحت فئة الجرائم المتعلقة بالشبكة. لذلك، الإجابات الصحيحة هي أ، ب، وت.</p>
+          <p data-ar="الإجابات المطبوعة: (1) أ = A. (2) أ، ب، ت = A, B, C." data-en="Printed answers: (1) A = أ. (2) A, B, C = أ، ب، ت.">الإجابات المطبوعة: (1) أ = A. (2) أ، ب، ت = A, B, C.</p>
+          <div class="book-diff" data-ar="مقارنة النسختين: خيارات الإنجليزية بالحروف A-D والعربية بالحروف أ-ث، والإجابات متفقة: (1) A = أ؛ (2) A,B,C = أ،ب،ت. في بند الشرح 3 للسؤال (1) تطبع العربية «تتعرض السلامة للخطر» لموقف عرض غير المصرح لهم للمعلومات، بينما تطبع الإنجليزية «confidentiality is compromised» للموقف نفسه؛ وترتيب العناصر في مقدمة الشرح العربي «السلامة والسرية والتوافر» بينما في النقاط «السرية والسلامة والتوافرية». النصان المطبوعان منقولان كما هما." data-en="Edition comparison: English options use letters A-D, Arabic uses أ-ث; the answers agree: (1) A = أ; (2) A,B,C = أ،ب،ت. In explanation item 3 of question (1) the Arabic prints «تتعرض السلامة للخطر» for the unauthorized-viewing scenario, while English prints &quot;confidentiality is compromised&quot; for the same scenario; the Arabic explanation intro orders the elements «السلامة والسرية والتوافر» while the Point box prints «السرية والسلامة والتوافرية». Both printings are quoted as-is.">مقارنة النسختين: خيارات الإنجليزية بالحروف A-D والعربية بالحروف أ-ث، والإجابات متفقة: (1) A = أ؛ (2) A,B,C = أ،ب،ت. في بند الشرح 3 للسؤال (1) تطبع العربية «تتعرض السلامة للخطر» لموقف عرض غير المصرح لهم للمعلومات، بينما تطبع الإنجليزية «confidentiality is compromised» للموقف نفسه؛ وترتيب العناصر في مقدمة الشرح العربي «السلامة والسرية والتوافر» بينما في النقاط «السرية والسلامة والتوافرية». النصان المطبوعان منقولان كما هما.</div>
+          <span class="book-src" data-ar="EN PDF 25 (المطبوع 25)؛ AR 31" data-en="EN PDF 25 (printed 25); AR 31">EN PDF 25 (المطبوع 25)؛ AR 31</span>
+        </div>
+        <!-- TEXTBOOK-CARD-END id="book-warm" -->
+        <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
+        <div class="book-card try">
+          <h3 data-ar="من الكتاب: جرب بنفسك (Try)" data-en="From the book: Try">من الكتاب: جرب بنفسك (Try)</h3>
+          <p data-ar="جرب بنفسك 1: هناك ثلاثة عناصر لأمن المعلومات: السلامة (Integrity)، والسرية (Confidentiality) والتوفر (Availability). لكل من هذه العناصر، اختر الإجراء الأنسب من الخيارات التالية 1 إلى 3." data-en="Try 1: There are three elements of information security: Integrity, Confidentiality, and Availability. For each of these elements, choose the one most appropriate measure from the following options A to E.">جرب بنفسك 1: هناك ثلاثة عناصر لأمن المعلومات: السلامة (Integrity)، والسرية (Confidentiality) والتوفر (Availability). لكل من هذه العناصر، اختر الإجراء الأنسب من الخيارات التالية 1 إلى 3.</p>
+          <p data-ar="العناصر كما طُبعت: 1. السرية  2. السلامة  3. التوفر" data-en="Elements as printed: (1) Integrity  (2) Confidentiality  (3) Availability">العناصر كما طُبعت: 1. السرية  2. السلامة  3. التوفر</p>
+          <p data-ar="الإجراءات كما طُبعت: 1. أبلغ مسؤول الشبكة بوصولك إلى العمل. 2. تعامل مع البيانات الخاصة مثل أرقام الهوية الشخصية في غرفة يُسمح بدخولها فقط للموظفين المصرح لهم. 3. احتفظ بسجلات الوصول إلى البيانات والتعديلات التي تتم عليها لتمكين إمكانية التتبع. 4. قم بتركيب إمدادات طاقة احتياطية لجميع الأجهزة المتعلقة بأنظمة المعلومات الحيوية استعدادًا لانقطاع التيار الكهربائي. 5. قم بتشغيل برامج ضارة لتتمكن دائمًا من الوصول إلى المعلومات الهامة." data-en="Measures as printed: A Report your arrival at work to the network administrator. B Handle special data such as personal ID numbers in a room where only authorized personnel are allowed to enter. C Keep logs of data access and modifications to enable traceability. D Install backup power supplies for all devices related to critical information systems in preparation for power outages. E Run malware in order to always have access to important information.">الإجراءات كما طُبعت: 1. أبلغ مسؤول الشبكة بوصولك إلى العمل. 2. تعامل مع البيانات الخاصة مثل أرقام الهوية الشخصية في غرفة يُسمح بدخولها فقط للموظفين المصرح لهم. 3. احتفظ بسجلات الوصول إلى البيانات والتعديلات التي تتم عليها لتمكين إمكانية التتبع. 4. قم بتركيب إمدادات طاقة احتياطية لجميع الأجهزة المتعلقة بأنظمة المعلومات الحيوية استعدادًا لانقطاع التيار الكهربائي. 5. قم بتشغيل برامج ضارة لتتمكن دائمًا من الوصول إلى المعلومات الهامة.</p>
+          <p data-ar="جرب بنفسك 2: عندما يستخدم طرف ثالث ليس لديه حقوق وصول إلى الشبكة هوية (ID) وكلمة مرور شخص آخر للدخول بشكل غير قانوني إلى نظام كمبيوتر، يسمى ذلك [(1)...........]. وقعت حوادث قام فيها أفراد يُعرفون بالمتسللين (hackers) أو [(2)...........] بتدمير الأنظمة. البرامج التي تدمر البيانات الداخلية للكمبيوتر أو تسبب عمليات غير طبيعية تسمى [(3)...........]. ومن بين هذه البرامج يوجد [(4)...........]، التي تتنكر كبرامج شرعية وتتسرب بصمت إلى الأنظمة لتنفيذ الهجمات، و [(5)...........]، التي تنسخ نفسها وتنتشر عبر الإنترنت مثل الديدان لزيادة الإصابات." data-en="Try 2: When a third party without network access rights uses someone else’s ID and password to illegally enter a computer system, it is called ( [1] ). Incidents have occurred in which individuals known as hackers or ( [2] ) have destroyed systems. Programs that destroy internal computer data or cause abnormal operations are called ( [3] ). Among these are ( [4] ), which disguise themselves as legitimate programs and silently infiltrate systems to carry out attacks, and ( [5] ), which replicate themselves and spread across the internet like worms to increase infections.">جرب بنفسك 2: عندما يستخدم طرف ثالث ليس لديه حقوق وصول إلى الشبكة هوية (ID) وكلمة مرور شخص آخر للدخول بشكل غير قانوني إلى نظام كمبيوتر، يسمى ذلك [(1)...........]. وقعت حوادث قام فيها أفراد يُعرفون بالمتسللين (hackers) أو [(2)...........] بتدمير الأنظمة. البرامج التي تدمر البيانات الداخلية للكمبيوتر أو تسبب عمليات غير طبيعية تسمى [(3)...........]. ومن بين هذه البرامج يوجد [(4)...........]، التي تتنكر كبرامج شرعية وتتسرب بصمت إلى الأنظمة لتنفيذ الهجمات، و [(5)...........]، التي تنسخ نفسها وتنتشر عبر الإنترنت مثل الديدان لزيادة الإصابات.</p>
+          <p data-ar="اختر المصطلحات الصحيحة من الخيارات التالية من أ إلى د لملء الفراغات من [1] إلى [5]: (أ) دودة  (ب) مخترق  (ت) الوصول غير المصرح به  (ث) حصان طروادة  (ج) فيروس الكمبيوتر  (ح) برامج الإعلانات المتسللة  (خ) مسجل لوحة المفاتيح  (د) انتحال شخصية" data-en="Choose the terms that best fit into the blanks [1] to [5] from the options A to H: A Worm  B Cracker  C Unauthorized access  D Trojan horse  E Computer virus  F Adware  G Keylogger  H Impersonation">اختر المصطلحات الصحيحة من الخيارات التالية من أ إلى د لملء الفراغات من [1] إلى [5]: (أ) دودة  (ب) مخترق  (ت) الوصول غير المصرح به  (ث) حصان طروادة  (ج) فيروس الكمبيوتر  (ح) برامج الإعلانات المتسللة  (خ) مسجل لوحة المفاتيح  (د) انتحال شخصية</p>
+          <p data-ar="جرب بنفسك 3 — أجب عن الأسئلة التالية. (1) اختر جميع العناصر من 1 إلى 4 التالية والتي تمثل خطرًا من الإصابة بفيروسات الكمبيوتر: 1. مرفق بريد إلكتروني مُرسل من جهاز كمبيوتر مصاب بفيروس. 2. الاتصال بشبكة مصابة بفيروس. 3. ذاكرة فلاش (USB) تم استخدامها على جهاز كمبيوتر مصاب بفيروس. 4. قرص DVD لفيلم تم تشغيله على جهاز كمبيوتر مصاب بفيروس." data-en="Try 3 - Answer the following questions. (1) Choose all items from A to D that present a risk of computer virus infection: A An email attachment sent from a computer infected with a virus. B Connecting to a network infected with a virus. C A USB memory stick that was used on a computer infected with a virus. D A movie DVD played on a computer infected with a virus.">جرب بنفسك 3 — أجب عن الأسئلة التالية. (1) اختر جميع العناصر من 1 إلى 4 التالية والتي تمثل خطرًا من الإصابة بفيروسات الكمبيوتر: 1. مرفق بريد إلكتروني مُرسل من جهاز كمبيوتر مصاب بفيروس. 2. الاتصال بشبكة مصابة بفيروس. 3. ذاكرة فلاش (USB) تم استخدامها على جهاز كمبيوتر مصاب بفيروس. 4. قرص DVD لفيلم تم تشغيله على جهاز كمبيوتر مصاب بفيروس.</p>
+          <p data-ar="(2) جملة أو فعلًا واحدًا من 1 إلى 4 من التالي ويشكل انتهاكًا لقانون الوصول غير المصرح به للكمبيوتر: 1. تقديم معلومات شخصية لطرف ثالث دون موافقة الفرد. 2. التقاط صورة لصفحة مجلة بهاتف ذكي وتحميلها على وسائل التواصل الاجتماعي. 3. الحصول على فيروس كمبيوتر قادر على التسلل التلقائي إلى الشبكات. 4. استخدام هوية مستخدم (ID) وكلمة مرور شخص آخر دون إذن لشراء منتجات عبر التسوق عبر الإنترنت." data-en="(2) Choose one act from A to D that constitutes a violation of the Unauthorized Computer Access Law: A Provided personal information to a third party without the individual’s consent. B Took a photo of a magazine page with a smartphone and uploaded it to social media. C Acquired a computer virus capable of automatically infiltrating networks. D Used another person’s user ID and password without permission to purchase products through online shopping.">(2) جملة أو فعلًا واحدًا من 1 إلى 4 من التالي ويشكل انتهاكًا لقانون الوصول غير المصرح به للكمبيوتر: 1. تقديم معلومات شخصية لطرف ثالث دون موافقة الفرد. 2. التقاط صورة لصفحة مجلة بهاتف ذكي وتحميلها على وسائل التواصل الاجتماعي. 3. الحصول على فيروس كمبيوتر قادر على التسلل التلقائي إلى الشبكات. 4. استخدام هوية مستخدم (ID) وكلمة مرور شخص آخر دون إذن لشراء منتجات عبر التسوق عبر الإنترنت.</p>
+          <p data-ar="الإجابات المستنتجة (غير مطبوعة في الكتاب): جرب 1: السرية ← الإجراء 2، السلامة ← الإجراء 3، التوفر ← الإجراء 4 (سجلات التتبع تحمي السلامة، وتقييد الوصول يحمي السرية، والطاقة الاحتياطية تحمي التوفر). جرب 2: [1] ت (الوصول غير المصرح به)، [2] ب (مخترق)، [3] ج (فيروس الكمبيوتر)، [4] ث (حصان طروادة)، [5] أ (دودة). جرب 3: (1) 1 و2 و3 (قرص DVD للأفلام وسيط قراءة فقط فلا ينقل العدوى). (2) 4." data-en="Derived answers (not printed in the book): Try 1: Confidentiality ← B, Integrity ← C, Availability ← D (traceability logs protect integrity, restricted access protects confidentiality, backup power protects availability). Try 2: [1] C (Unauthorized access), [2] B (Cracker), [3] E (Computer virus), [4] D (Trojan horse), [5] A (Worm). Try 3: (1) A, B, C (a movie DVD is read-only media). (2) D.">الإجابات المستنتجة (غير مطبوعة في الكتاب): جرب 1: السرية ← الإجراء 2، السلامة ← الإجراء 3، التوفر ← الإجراء 4 (سجلات التتبع تحمي السلامة، وتقييد الوصول يحمي السرية، والطاقة الاحتياطية تحمي التوفر). جرب 2: [1] ت (الوصول غير المصرح به)، [2] ب (مخترق)، [3] ج (فيروس الكمبيوتر)، [4] ث (حصان طروادة)، [5] أ (دودة). جرب 3: (1) 1 و2 و3 (قرص DVD للأفلام وسيط قراءة فقط فلا ينقل العدوى). (2) 4.</p>
+          <div class="book-diff" data-ar="مقارنة النسختين: خيارات جرب 1 في العربية مرقمة 1-5 والعناصر مطبوعة بترتيب «1. السرية 2. السلامة 3. التوفر» مع صيغة «الخيارات التالية 1 إلى 3»، بينما الإنجليزية تطبع العناصر بترتيب (1) Integrity (2) Confidentiality (3) Availability وخيارات A-E. خيارات جرب 2 بالعربية أ-ح بنفس ترتيب الإنجليزية A-H. خيارات جرب 3 بالعربية مرقمة 1-4 مقابل A-D إنجليزيًا، ومقدمة سؤال (2) العربية مطبوعة «جملة أو فعلًا واحدًا» مقابل &quot;Choose one act&quot;. النصان المطبوعان منقولان كما هما." data-en="Edition comparison: Try 1 Arabic options are numbered 1-5 with elements printed in the order «1. السرية 2. السلامة 3. التوفر» and the phrase «الخيارات التالية 1 إلى 3», while English prints elements (1) Integrity (2) Confidentiality (3) Availability with options A-E. Try 2 Arabic options أ-ح follow the English A-H order. Try 3 Arabic options are numbered 1-4 versus A-D in English, and the Arabic question (2) intro reads «جملة أو فعلًا واحدًا» versus &quot;Choose one act&quot;. Both printings are quoted as-is.">مقارنة النسختين: خيارات جرب 1 في العربية مرقمة 1-5 والعناصر مطبوعة بترتيب «1. السرية 2. السلامة 3. التوفر» مع صيغة «الخيارات التالية 1 إلى 3»، بينما الإنجليزية تطبع العناصر بترتيب (1) Integrity (2) Confidentiality (3) Availability وخيارات A-E. خيارات جرب 2 بالعربية أ-ح بنفس ترتيب الإنجليزية A-H. خيارات جرب 3 بالعربية مرقمة 1-4 مقابل A-D إنجليزيًا، ومقدمة سؤال (2) العربية مطبوعة «جملة أو فعلًا واحدًا» مقابل "Choose one act". النصان المطبوعان منقولان كما هما.</div>
+          <span class="book-src" data-ar="EN PDF 26 (المطبوع 26)؛ AR 31–32" data-en="EN PDF 26 (printed 26); AR 31-32">EN PDF 26 (المطبوع 26)؛ AR 31–32</span>
+        </div>
+        <!-- TEXTBOOK-CARD-END id="book-try" -->
+        <!-- TEXTBOOK-CARD-BEGIN id="book-exercise" -->
+        <div class="book-card try">
+          <h3 data-ar="من الكتاب: تمرين (Exercise)" data-en="From the book: Exercise">من الكتاب: تمرين (Exercise)</h3>
+          <p data-ar="تمرين 1 — أجب على الأسئلة التالية: (1) لكل عنصر من عناصر أمن المعلومات الثلاثة، حدد: • الوصف الأنسب من &lt;مجموعة أ> من (1 - 3) لكل عنصر. • الأضرار المحتملة القابلة للتطبيق من &lt;مجموعة ب> من (أ - ح) التي قد تحدث إذا لم يتم تأمين هذا العنصر." data-en="Exercise 1: For each of the three elements of information security, select: • The most appropriate description from Group A (A–C), one per element • All applicable potential damages from Group B (a–f) that may occur if that element is not ensured.">تمرين 1 — أجب على الأسئلة التالية: (1) لكل عنصر من عناصر أمن المعلومات الثلاثة، حدد: • الوصف الأنسب من <مجموعة أ> من (1 - 3) لكل عنصر. • الأضرار المحتملة القابلة للتطبيق من <مجموعة ب> من (أ - ح) التي قد تحدث إذا لم يتم تأمين هذا العنصر.</p>
+          <p data-ar="العناصر كما طُبعت: 1. السرية  2. التكامل  3. التوفر" data-en="Elements as printed: (1) Confidentiality  (2) Integrity  (3) Availability">العناصر كما طُبعت: 1. السرية  2. التكامل  3. التوفر</p>
+          <p data-ar="&lt;مجموعة أ>: 1. ضمان الوصول غير المنقطع إلى المعلومات عند الحاجة. 2. ضمان أن الأفراد المصرح لهم فقط يمكنهم الوصول إلى المعلومات. 3. ضمان أن المعلومات لم يتم تدميرها، أو التلاعب بها، أو حذفها." data-en="&lt;Group A>: A Ensuring uninterrupted access to information when needed. B Ensuring that only authorized individuals can access the information. C Ensuring that information has not been destroyed, tampered with, or deleted."><مجموعة أ>: 1. ضمان الوصول غير المنقطع إلى المعلومات عند الحاجة. 2. ضمان أن الأفراد المصرح لهم فقط يمكنهم الوصول إلى المعلومات. 3. ضمان أن المعلومات لم يتم تدميرها، أو التلاعب بها، أو حذفها.</p>
+          <p data-ar="&lt;مجموعة ب>: (أ) التنصت على الشبكة  (ب) انقطاع الخدمة مثل توقف النظام  (ت) تسرب كلمة المرور  (ث) التلاعب بالمعلومات أو تدميرها  (ج) تسرب المعلومات  (ح) الاستخدام غير المصرح به لأجهزة الكمبيوتر أو الشبكات" data-en="&lt;Group B>: a Eavesdropping on the network  b Service interruptions such as system downtime  c Password leakage  d Tampering with or destruction of information  e Information leakage  f Unauthorized use of computers or networks"><مجموعة ب>: (أ) التنصت على الشبكة  (ب) انقطاع الخدمة مثل توقف النظام  (ت) تسرب كلمة المرور  (ث) التلاعب بالمعلومات أو تدميرها  (ج) تسرب المعلومات  (ح) الاستخدام غير المصرح به لأجهزة الكمبيوتر أو الشبكات</p>
+          <p data-ar="تمرين 2 — أجب عن الأسئلة التالية: (1) اختر المصطلح الصحيح من الخيارات أ إلى خ لملء كل فراغ. أجب باستخدام الحرف المقابل. [1] الفيروس الذي يعرض إعلانات لم يقصد المستخدم رؤيتها يسمى ( ). [2] فعل التسلل غير القانوني إلى جهاز كمبيوتر للتلاعب بالبيانات أو محوها أو سرقتها يسمى ( ). [3] البرنامج الذي يسرب البيانات المخزنة على جهاز الكمبيوتر إلى الخارج يسمى ( ). [4] البرامج الضارة التي تشمل فيروسات الكمبيوتر وحصان طروادة يشار إليها مجتمعة باسم ( )." data-en="Exercise 2 - Answer the following questions: (1) Choose the most suitable option for the blank from the options A to G below, and answer using the letters. [1] A virus that displays advertisements the user did not intend to see is called ( ). [2] The act of illegally infiltrating a computer to tamper with, erase, or steal data is called ( ). [3] Software that leaks data stored on a computer to the outside is called ( ). [4] Malicious software including computer viruses and Trojan horses is collectively referred to as ( ).">تمرين 2 — أجب عن الأسئلة التالية: (1) اختر المصطلح الصحيح من الخيارات أ إلى خ لملء كل فراغ. أجب باستخدام الحرف المقابل. [1] الفيروس الذي يعرض إعلانات لم يقصد المستخدم رؤيتها يسمى ( ). [2] فعل التسلل غير القانوني إلى جهاز كمبيوتر للتلاعب بالبيانات أو محوها أو سرقتها يسمى ( ). [3] البرنامج الذي يسرب البيانات المخزنة على جهاز الكمبيوتر إلى الخارج يسمى ( ). [4] البرامج الضارة التي تشمل فيروسات الكمبيوتر وحصان طروادة يشار إليها مجتمعة باسم ( ).</p>
+          <p data-ar="الخيارات: (أ) برامج ضارة  (ب) مسجل لوحة المفاتيح  (ت) برامج الإعلانات  (ث) قرصنة (Cracking)  (ج) اختراق (Hacking)  (ح) تصيد (Phishing)  (خ) برامج تجسس (Spyware)" data-en="Options: A Malware  B Keylogger  C Adware  D Cracking  E Hacking  F Phishing  G Spyware">الخيارات: (أ) برامج ضارة  (ب) مسجل لوحة المفاتيح  (ت) برامج الإعلانات  (ث) قرصنة (Cracking)  (ج) اختراق (Hacking)  (ح) تصيد (Phishing)  (خ) برامج تجسس (Spyware)</p>
+          <p data-ar="(2) اختر عبارة واحدة صحيحة من 1 إلى 4 الخاصة بإصابة الفيروسات الكمبيوتر. 1. طالما أن الكمبيوتر متصل بالشبكة، فهناك دائمًا خطر الإصابة بفيروس كمبيوتر. 2. إذا لم تتصل بجهاز كمبيوتر أو شبكة وقمت فقط بنقل البيانات باستخدام ذاكرة فلاش (USB)، فلن تحدث الإصابة. 3. إذا تجنبت الدخول إلى المواقع الضارة أو غير القانونية، فلن تصاب بالفيروس. 4. طالما أنك لا تفتح رسائل البريد الإلكتروني، فأنت في أمان من الإصابة، لذا فإن توخي الحذر مع رسائل البريد الإلكتروني يكفي." data-en="(2) Choose the one correct statement from A to D regarding computer virus infection. A As long as the computer is connected to a network, there is always a risk of infection by a computer virus. B If you do not connect to a computer or network and only transfer data using a USB memory stick, infection will not occur. C If you avoid accessing harmful or illegal websites, you will not get infected. D As long as you do not open emails, you are safe from infection, so being cautious with emails is sufficient.">(2) اختر عبارة واحدة صحيحة من 1 إلى 4 الخاصة بإصابة الفيروسات الكمبيوتر. 1. طالما أن الكمبيوتر متصل بالشبكة، فهناك دائمًا خطر الإصابة بفيروس كمبيوتر. 2. إذا لم تتصل بجهاز كمبيوتر أو شبكة وقمت فقط بنقل البيانات باستخدام ذاكرة فلاش (USB)، فلن تحدث الإصابة. 3. إذا تجنبت الدخول إلى المواقع الضارة أو غير القانونية، فلن تصاب بالفيروس. 4. طالما أنك لا تفتح رسائل البريد الإلكتروني، فأنت في أمان من الإصابة، لذا فإن توخي الحذر مع رسائل البريد الإلكتروني يكفي.</p>
+          <p data-ar="الإجابات المستنتجة (غير مطبوعة في الكتاب): تمرين 1: السرية ← مجموعة أ: 2، ومجموعة ب: أ، ت، ج، ح. التكامل ← مجموعة أ: 3، ومجموعة ب: ث. التوفر ← مجموعة أ: 1، ومجموعة ب: ب. (التنصت وتسرب كلمة المرور وتسرب المعلومات والاستخدام غير المصرح به كلها كشفٌ للمعلومات لغير المصرح لهم؛ والتلاعب أو التدمير يخص سلامة البيانات؛ وانقطاع الخدمة يمنع الوصول.) تمرين 2: (1) [1] ت (برامج الإعلانات)، [2] ث (قرصنة)، [3] خ (برامج تجسس)، [4] أ (برامج ضارة). (2) 1." data-en="Derived answers (not printed in the book): Exercise 1: Confidentiality ← Group A: B, Group B: a, c, e, f. Integrity ← Group A: C, Group B: d. Availability ← Group A: A, Group B: b. (Eavesdropping, password leakage, information leakage and unauthorized use all expose information to unauthorized parties; tampering or destruction concerns integrity; service interruption prevents access.) Exercise 2: (1) [1] C (Adware), [2] D (Cracking), [3] G (Spyware), [4] A (Malware). (2) A.">الإجابات المستنتجة (غير مطبوعة في الكتاب): تمرين 1: السرية ← مجموعة أ: 2، ومجموعة ب: أ، ت، ج، ح. التكامل ← مجموعة أ: 3، ومجموعة ب: ث. التوفر ← مجموعة أ: 1، ومجموعة ب: ب. (التنصت وتسرب كلمة المرور وتسرب المعلومات والاستخدام غير المصرح به كلها كشفٌ للمعلومات لغير المصرح لهم؛ والتلاعب أو التدمير يخص سلامة البيانات؛ وانقطاع الخدمة يمنع الوصول.) تمرين 2: (1) [1] ت (برامج الإعلانات)، [2] ث (قرصنة)، [3] خ (برامج تجسس)، [4] أ (برامج ضارة). (2) 1.</p>
+          <div class="book-diff" data-ar="مقارنة النسختين: عناصر تمرين 1 في العربية مطبوعة «1. السرية 2. التكامل 3. التوفر» بينما يطبع الدرس نفسه في النقاط وجرب «السلامة (Integrity)»، والإنجليزية تطبع (1) Confidentiality (2) Integrity (3) Availability. أوصاف &lt;مجموعة أ> بالعربية مرقمة 1-3 مقابل A-C إنجليزيًا، و&lt;مجموعة ب> بالحروف أ-ح بنفس ترتيب a-f. خيارات تمرين 2(1) أ-خ بنفس ترتيب A-G، وخيارات (2) مرقمة 1-4 مقابل A-D. النصان المطبوعان منقولان كما هما." data-en="Edition comparison: Exercise 1 elements are printed in Arabic as «1. السرية 2. التكامل 3. التوفر» while the same lesson prints «السلامة (Integrity)» in the Point box and Try; English prints (1) Confidentiality (2) Integrity (3) Availability. &lt;Group A> descriptions are numbered 1-3 in Arabic versus A-C in English, and &lt;Group B> uses أ-ح in the same order as a-f. Exercise 2(1) options أ-خ follow the A-G order, and (2) options are numbered 1-4 versus A-D. Both printings are quoted as-is.">مقارنة النسختين: عناصر تمرين 1 في العربية مطبوعة «1. السرية 2. التكامل 3. التوفر» بينما يطبع الدرس نفسه في النقاط وجرب «السلامة (Integrity)»، والإنجليزية تطبع (1) Confidentiality (2) Integrity (3) Availability. أوصاف <مجموعة أ> بالعربية مرقمة 1-3 مقابل A-C إنجليزيًا، و<مجموعة ب> بالحروف أ-ح بنفس ترتيب a-f. خيارات تمرين 2(1) أ-خ بنفس ترتيب A-G، وخيارات (2) مرقمة 1-4 مقابل A-D. النصان المطبوعان منقولان كما هما.</div>
+          <span class="book-src" data-ar="EN PDF 27 (المطبوع 27)؛ AR 32–33" data-en="EN PDF 27 (printed 27); AR 32-33">EN PDF 27 (المطبوع 27)؛ AR 32–33</span>
+        </div>
+        <!-- TEXTBOOK-CARD-END id="book-exercise" -->
+      </div>
+
       <!-- Warm Up -->
       <div class="section-inner card">
-        <h3 style="color:var(--s1)" data-ar="🔥 التمهيدي — صفحة 25" data-en="🔥 Warm Up — Page 25">🔥 التمهيدي — صفحة 25</h3>
+        <h3 style="color:var(--s1)" data-ar="🔥 التمهيدي — EN PDF 25 (المطبوع 25)؛ AR 31" data-en="🔥 Warm Up — EN PDF 25 (printed 25); AR 31">🔥 التمهيدي — EN PDF 25 (المطبوع 25)؛ AR 31</h3>
         <p style="font-size:.92rem" class="hint-line" data-ar="جرّب بنفسك الأول، بعدين افتح الحل." data-en="Try by yourself first, then open the solution.">جرّب بنفسك الأول، بعدين افتح الحل.</p>
         <div style="margin-top:12px">
           <div class="ex-item">
             <div class="q"><span class="q-num">1</span> <span data-ar="اختار الحالة اللي بيتخلّ فيها التوافر (Availability) من ناحية الأمن المعلوماتي من A لـ C:" data-en="Choose the one in which availability is compromised in terms of information security from A to C:">اختار الحالة اللي بيتخلّ فيها التوافر (Availability) من ناحية الأمن المعلوماتي من A لـ C:</span></div>
             <div class="ex-options">
-              <div class="ex-opt" data-ar="A&nbsp;&nbsp;داتا (Data) غلط اتدخلت بسبب غلطة كتابة على الكيبورد" data-en="A&nbsp;&nbsp;Incorrect data was entered due to a keyboard typing error">A&nbsp;&nbsp;داتا (Data) غلط اتدخلت بسبب غلطة كتابة على الكيبورد</div>
-              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;هجوم سيبراني خلّى الموقع يقع" data-en="B&nbsp;&nbsp;A cyberattack caused a website to go down">B&nbsp;&nbsp;هجوم سيبراني خلّى الموقع يقع</div>
+              <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;هجوم سيبراني خلّى الموقع يقع" data-en="A&nbsp;&nbsp;A cyberattack caused a website to go down">A&nbsp;&nbsp;هجوم سيبراني خلّى الموقع يقع</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;داتا (Data) غلط اتدخلت بسبب غلطة كتابة على الكيبورد" data-en="B&nbsp;&nbsp;Incorrect data was entered due to a keyboard typing error">B&nbsp;&nbsp;داتا (Data) غلط اتدخلت بسبب غلطة كتابة على الكيبورد</div>
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;المعلومات (Information) الشخصية تسربت بسبب إصابة بالمالوير (malware) على الكمبيوتر" data-en="C&nbsp;&nbsp;Personal information was leaked due to a malware infection on the computer">C&nbsp;&nbsp;المعلومات (Information) الشخصية تسربت بسبب إصابة بالمالوير (malware) على الكمبيوتر</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة: B — لما المعلومات (Information) مابقتش متاحة، التوافر (Availability) بيتخلّ. B بيهدّد السلامة (Integrity) وC بيهدّد السرية (Confidentiality)." data-en="✅ Answer: B — when information becomes unavailable, availability is compromised. B threatens integrity and C threatens confidentiality.">✅ الإجابة: <b>B</b> — لما المعلومة تبقى مش متاحة، التوفر بيهدد. B بتهدد النزاهة وC بتهدد السرية.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — لما المعلومات (Information) مابقتش متاحة، التوافر (Availability) بيتخلّ. B بيهدّد السلامة (Integrity) وC بيهدّد السرية (Confidentiality)." data-en="✅ Answer: A — when information becomes unavailable, availability is compromised. B threatens integrity and C threatens confidentiality.">✅ الإجابة: <b>A</b> — لما المعلومة تبقى مش متاحة، التوفر بيهدد. B بتهدد النزاهة وC بتهدد السرية.</div>
           </div>
 
           <div class="ex-item">
@@ -1195,7 +1322,7 @@
 
       <!-- Try -->
       <div class="section-inner card" style="margin-top:24px">
-        <h3 style="color:var(--s2)" data-ar="🎯 جرّب — صفحة 26" data-en="🎯 Try — Page 26">🎯 جرّب — صفحة 26</h3>
+        <h3 style="color:var(--s2)" data-ar="🎯 جرّب — EN PDF 26 (المطبوع 26)؛ AR 31–32" data-en="🎯 Try — EN PDF 26 (printed 26); AR 31-32">🎯 جرّب — EN PDF 26 (المطبوع 26)؛ AR 31–32</h3>
         <p style="font-size:.92rem" class="hint-line" data-ar="حط حلك بنفسك الأول، بعدين افتح الحل." data-en="Put your solution by yourself first, then open the solution.">حط حلك بنفسك الأول، بعدين افتح الحل.</p>
         <div style="margin-top:12px">
           <div class="ex-item">
@@ -1286,6 +1413,54 @@
             <div class="ex-answer" data-ar="✅ الإجابة: A — الدودة (Worm) بتستنسخ نفسها وبتنتشر على الإنترنت زي الدودة. (طروادة بتتخفى كشرعي، الفيروس محتاج ملف مضيف، والإعلانات (Adware) بتعرض إعلانات — ولا واحد بينتشر لوحده على الشبكات.)" data-en="✅ Answer: A — a worm replicates itself and spreads across the internet like a worm. (A Trojan hides as legitimate, a virus needs a host file, and adware displays ads — none self-spread over networks.)">✅ الإجابة: <b>A</b> — الدودة (<span dir='ltr'>Worm</span>) بتكرر نفسها وتنتشر على الإنترنت زي الدودة.</div>
           </div>
         </div>
+          <p style="font-size:.92rem" class="hint-line" data-ar="الأسئلة 9-13 بتغطي جرب 3 من الكتاب (EN PDF 26؛ AR 32)." data-en="Questions 9-13 cover book Try 3 (EN PDF 26; AR 32).">الأسئلة 9-13 بتغطي جرب 3 من الكتاب (EN PDF 26؛ AR 32).</p>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">9</span>
+              <span data-ar="مرفق إيميل مُرسل من كمبيوتر مصاب بفيروس — بيمثّل خطر إصابة؟" data-en="An email attachment sent from a computer infected with a virus - is it an infection risk?">مرفق إيميل مُرسل من كمبيوتر مصاب بفيروس — بيمثّل خطر إصابة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&amp;nbsp;&amp;nbsp;أيوة خطر" data-en="○&amp;nbsp;&amp;nbsp;Yes, a risk">○&nbsp;&nbsp;أيوة خطر</div>
+              <div class="ex-opt" data-ar="×&amp;nbsp;&amp;nbsp;مش خطر" data-en="×&amp;nbsp;&amp;nbsp;Not a risk">×&nbsp;&nbsp;مش خطر</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — مرفقات الإيميل من أشهر مصادر العدوى." data-en="✅ Answer: ○ — email attachments are a classic infection source.">✅ الإجابة: ○ — مرفقات الإيميل من أشهر مصادر العدوى.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">10</span>
+              <span data-ar="الاتصال بشبكة مصابة بفيروس — بيمثّل خطر إصابة؟" data-en="Connecting to a network infected with a virus - is it an infection risk?">الاتصال بشبكة مصابة بفيروس — بيمثّل خطر إصابة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&amp;nbsp;&amp;nbsp;أيوة خطر" data-en="○&amp;nbsp;&amp;nbsp;Yes, a risk">○&nbsp;&nbsp;أيوة خطر</div>
+              <div class="ex-opt" data-ar="×&amp;nbsp;&amp;nbsp;مش خطر" data-en="×&amp;nbsp;&amp;nbsp;Not a risk">×&nbsp;&nbsp;مش خطر</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — الشبكات المصابة مصدر مؤكد للعدوى." data-en="✅ Answer: ○ — infected networks are a confirmed infection source.">✅ الإجابة: ○ — الشبكات المصابة مصدر مؤكد للعدوى.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">11</span>
+              <span data-ar="فلاشة USB اتستخدمت على كمبيوتر مصاب — بتمثّل خطر إصابة؟" data-en="A USB memory stick that was used on an infected computer - is it an infection risk?">فلاشة USB اتستخدمت على كمبيوتر مصاب — بتمثّل خطر إصابة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="○&amp;nbsp;&amp;nbsp;أيوة خطر" data-en="○&amp;nbsp;&amp;nbsp;Yes, a risk">○&nbsp;&nbsp;أيوة خطر</div>
+              <div class="ex-opt" data-ar="×&amp;nbsp;&amp;nbsp;مش خطر" data-en="×&amp;nbsp;&amp;nbsp;Not a risk">×&nbsp;&nbsp;مش خطر</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: ○ — الفلاشة اللي اتوصلت بجهاز مصاب ممكن تنقل العدوى." data-en="✅ Answer: ○ — a USB stick used on an infected computer can carry the infection.">✅ الإجابة: ○ — الفلاشة اللي اتوصلت بجهاز مصاب ممكن تنقل العدوى.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">12</span>
+              <span data-ar="قرص DVD فيلم اتشغّل على كمبيوتر مصاب — بيمثّل خطر إصابة؟" data-en="A movie DVD played on an infected computer - is it an infection risk?">قرص DVD فيلم اتشغّل على كمبيوتر مصاب — بيمثّل خطر إصابة؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="○&amp;nbsp;&amp;nbsp;أيوة خطر" data-en="○&amp;nbsp;&amp;nbsp;Yes, a risk">○&nbsp;&nbsp;أيوة خطر</div>
+              <div class="ex-opt" data-ok="1" data-ar="×&amp;nbsp;&amp;nbsp;مش خطر" data-en="×&amp;nbsp;&amp;nbsp;Not a risk">×&nbsp;&nbsp;مش خطر</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: × — قرص DVD للأفلام للقراءة بس ومش بيتكتب عليه، فمش بينقل العدوى." data-en="✅ Answer: × — a movie DVD is read-only media, so it does not carry the infection.">✅ الإجابة: × — قرص DVD للأفلام للقراءة بس ومش بيتكتب عليه، فمش بينقل العدوى.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">13</span>
+              <span data-ar="اختار الفعل اللي بيمثّل انتهاك لقانون الوصول غير المصرّح به للكمبيوتر:" data-en="Choose the act that constitutes a violation of the Unauthorized Computer Access Law:">اختار الفعل اللي بيمثّل انتهاك لقانون الوصول غير المصرّح به للكمبيوتر:</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&amp;nbsp;&amp;nbsp;تقديم معلومات شخصية لطرف ثالث من غير موافقة الفرد" data-en="A&amp;nbsp;&amp;nbsp;Providing personal information to a third party without consent">A&nbsp;&nbsp;تقديم معلومات شخصية لطرف ثالث من غير موافقة الفرد</div>
+              <div class="ex-opt" data-ar="B&amp;nbsp;&amp;nbsp;تصوير صفحة مجلة بموبايل ورفعها على السوشيال ميديا" data-en="B&amp;nbsp;&amp;nbsp;Photographing a magazine page and uploading it to social media">B&nbsp;&nbsp;تصوير صفحة مجلة بموبايل ورفعها على السوشيال ميديا</div>
+              <div class="ex-opt" data-ar="C&amp;nbsp;&amp;nbsp;الحصول على فيروس كمبيوتر قادر على التسلل التلقائي للشبكات" data-en="C&amp;nbsp;&amp;nbsp;Acquiring a computer virus capable of automatically infiltrating networks">C&nbsp;&nbsp;الحصول على فيروس كمبيوتر قادر على التسلل التلقائي للشبكات</div>
+              <div class="ex-opt" data-ok="1" data-ar="D&amp;nbsp;&amp;nbsp;استخدام ID وپاسورد حد تاني من غير إذن لشراء منتجات أونلاين" data-en="D&amp;nbsp;&amp;nbsp;Using another person’s ID and password without permission for online shopping">D&nbsp;&nbsp;استخدام ID وپاسورد حد تاني من غير إذن لشراء منتجات أونلاين</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: D — استخدام هوية وكلمة مرور شخص آخر من غير إذن انتهاك مباشر للقانون." data-en="✅ Answer: D — using another person’s ID and password without permission is a direct violation of the law.">✅ الإجابة: D — استخدام هوية وكلمة مرور شخص آخر من غير إذن انتهاك مباشر للقانون.</div>
+          </div>
         <div class="btn-row" style="margin-top:16px">
           <button class="btn" data-reveal="try" data-ar="إظهار كل الإجابات" data-en="Show All Answers">إظهار كل الإجابات</button>
           <button class="mini-btn" data-hide="try" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
@@ -1294,7 +1469,7 @@
 
       <!-- Exercise -->
       <div class="section-inner card" style="margin-top:24px">
-        <h3 style="color:var(--s3)" data-ar="💪 تدريب — صفحة 27" data-en="💪 Exercise — Page 27">💪 تدريب — صفحة 27</h3>
+        <h3 style="color:var(--s3)" data-ar="💪 تدريب — EN PDF 27 (المطبوع 27)؛ AR 32–33" data-en="💪 Exercise — EN PDF 27 (printed 27); AR 32-33">💪 تدريب — EN PDF 27 (المطبوع 27)؛ AR 32–33</h3>
         <p style="font-size:.92rem" class="hint-line" data-ar="التحدي النهائي — حضّر الإجابة بنفسك وبعدين تشيك." data-en="Final challenge — build the answer by yourself then check.">التحدي النهائي — حضّر الإجابة بنفسك وبعدين تشيك.</p>
         <div style="margin-top:12px">
           <div class="ex-item">
@@ -1396,6 +1571,78 @@
             <div class="ex-answer" data-ar="✅ الإجابة: × — تجنّب الإيميلات بس مش كفاية؛ فيه مصادر عدوى تانية زي الشبكات والمواقع وفلاشات USB." data-en="✅ Answer: × — avoiding emails alone isn't enough; other infection sources exist like networks, websites, and USB drives.">✅ الإجابة: <b>×</b> — تجنب الإيميلات وحده مش كفاية، في مصادر تانية للعدوى زي الشبكات والمواقع والفلاشة.</div>
           </div>
         </div>
+          <p style="font-size:.92rem" class="hint-line" data-ar="الأسئلة 11-17 بتكمل تمرين الكتاب: الفراغ [2] من تمرين 2(1) وأضرار <مجموعة ب> من تمرين 1 (EN PDF 27؛ AR 32-33)." data-en="Questions 11-17 complete the book Exercise: blank [2] of Exercise 2(1) and the Group B damages of Exercise 1 (EN PDF 27; AR 32-33).">الأسئلة 11-17 بتكمل تمرين الكتاب: الفراغ [2] من تمرين 2(1) وأضرار &lt;مجموعة ب&gt; من تمرين 1 (EN PDF 27؛ AR 32-33).</p>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">11</span>
+              <span data-ar="فعل التسلل غير القانوني لجهاز كمبيوتر للتلاعب بالبيانات أو محوها أو سرقتها بيتسمى إيه؟" data-en="The act of illegally infiltrating a computer to tamper with, erase, or steal data is called what?">فعل التسلل غير القانوني لجهاز كمبيوتر للتلاعب بالبيانات أو محوها أو سرقتها بيتسمى إيه؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&amp;nbsp;&amp;nbsp;تصيّد (Phishing)" data-en="A&amp;nbsp;&amp;nbsp;Phishing">A&nbsp;&nbsp;تصيّد (Phishing)</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&amp;nbsp;&amp;nbsp;كسر (Cracking)" data-en="B&amp;nbsp;&amp;nbsp;Cracking">B&nbsp;&nbsp;كسر (Cracking)</div>
+              <div class="ex-opt" data-ar="C&amp;nbsp;&amp;nbsp;هاكينج (Hacking)" data-en="C&amp;nbsp;&amp;nbsp;Hacking">C&nbsp;&nbsp;هاكينج (Hacking)</div>
+              <div class="ex-opt" data-ar="D&amp;nbsp;&amp;nbsp;إعلانات مزعجة (Adware)" data-en="D&amp;nbsp;&amp;nbsp;Adware">D&nbsp;&nbsp;إعلانات مزعجة (Adware)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — ده تعريف الكسر (Cracking)، واللي بيعمله بيتسمى كراكر (Cracker)." data-en="✅ Answer: B — that is the definition of Cracking; the person who does it is a cracker.">✅ الإجابة: B — ده تعريف الكسر (Cracking)، واللي بيعمله بيتسمى كراكر (Cracker).</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">12</span>
+              <span data-ar="التنصت على الشبكة — ضرر محتمل لو أنهي عنصر مش متأمّن؟" data-en="Eavesdropping on the network - a potential damage if which element is not ensured?">التنصت على الشبكة — ضرر محتمل لو أنهي عنصر مش متأمّن؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&amp;nbsp;&amp;nbsp;السرية (Confidentiality)" data-en="A&amp;nbsp;&amp;nbsp;Confidentiality">A&nbsp;&nbsp;السرية (Confidentiality)</div>
+              <div class="ex-opt" data-ar="B&amp;nbsp;&amp;nbsp;السلامة (Integrity)" data-en="B&amp;nbsp;&amp;nbsp;Integrity">B&nbsp;&nbsp;السلامة (Integrity)</div>
+              <div class="ex-opt" data-ar="C&amp;nbsp;&amp;nbsp;التوافر (Availability)" data-en="C&amp;nbsp;&amp;nbsp;Availability">C&nbsp;&nbsp;التوافر (Availability)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — التنصت بيكشف المعلومات لغير المصرّح لهم = السرية." data-en="✅ Answer: A — eavesdropping exposes information to unauthorized parties = Confidentiality.">✅ الإجابة: A — التنصت بيكشف المعلومات لغير المصرّح لهم = السرية.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">13</span>
+              <span data-ar="انقطاع الخدمة زي توقف النظام — ضرر محتمل لو أنهي عنصر مش متأمّن؟" data-en="Service interruptions such as system downtime - a potential damage if which element is not ensured?">انقطاع الخدمة زي توقف النظام — ضرر محتمل لو أنهي عنصر مش متأمّن؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&amp;nbsp;&amp;nbsp;السرية (Confidentiality)" data-en="A&amp;nbsp;&amp;nbsp;Confidentiality">A&nbsp;&nbsp;السرية (Confidentiality)</div>
+              <div class="ex-opt" data-ar="B&amp;nbsp;&amp;nbsp;السلامة (Integrity)" data-en="B&amp;nbsp;&amp;nbsp;Integrity">B&nbsp;&nbsp;السلامة (Integrity)</div>
+              <div class="ex-opt" data-ok="1" data-ar="C&amp;nbsp;&amp;nbsp;التوافر (Availability)" data-en="C&amp;nbsp;&amp;nbsp;Availability">C&nbsp;&nbsp;التوافر (Availability)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: C — توقف الخدمة بيمنع الوصول للمعلومات وقت الحاجة = التوافر." data-en="✅ Answer: C — downtime prevents access to information when needed = Availability.">✅ الإجابة: C — توقف الخدمة بيمنع الوصول للمعلومات وقت الحاجة = التوافر.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">14</span>
+              <span data-ar="تسرب كلمة المرور — ضرر محتمل لو أنهي عنصر مش متأمّن؟" data-en="Password leakage - a potential damage if which element is not ensured?">تسرب كلمة المرور — ضرر محتمل لو أنهي عنصر مش متأمّن؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&amp;nbsp;&amp;nbsp;السرية (Confidentiality)" data-en="A&amp;nbsp;&amp;nbsp;Confidentiality">A&nbsp;&nbsp;السرية (Confidentiality)</div>
+              <div class="ex-opt" data-ar="B&amp;nbsp;&amp;nbsp;السلامة (Integrity)" data-en="B&amp;nbsp;&amp;nbsp;Integrity">B&nbsp;&nbsp;السلامة (Integrity)</div>
+              <div class="ex-opt" data-ar="C&amp;nbsp;&amp;nbsp;التوافر (Availability)" data-en="C&amp;nbsp;&amp;nbsp;Availability">C&nbsp;&nbsp;التوافر (Availability)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — تسرب الباسورد بيدي وصول لغير المصرّح لهم = السرية." data-en="✅ Answer: A — password leakage grants access to unauthorized parties = Confidentiality.">✅ الإجابة: A — تسرب الباسورد بيدي وصول لغير المصرّح لهم = السرية.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">15</span>
+              <span data-ar="التلاعب بالمعلومات أو تدميرها — ضرر محتمل لو أنهي عنصر مش متأمّن؟" data-en="Tampering with or destruction of information - a potential damage if which element is not ensured?">التلاعب بالمعلومات أو تدميرها — ضرر محتمل لو أنهي عنصر مش متأمّن؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ar="A&amp;nbsp;&amp;nbsp;السرية (Confidentiality)" data-en="A&amp;nbsp;&amp;nbsp;Confidentiality">A&nbsp;&nbsp;السرية (Confidentiality)</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&amp;nbsp;&amp;nbsp;السلامة (Integrity)" data-en="B&amp;nbsp;&amp;nbsp;Integrity">B&nbsp;&nbsp;السلامة (Integrity)</div>
+              <div class="ex-opt" data-ar="C&amp;nbsp;&amp;nbsp;التوافر (Availability)" data-en="C&amp;nbsp;&amp;nbsp;Availability">C&nbsp;&nbsp;التوافر (Availability)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: B — التعديل أو التدمير بيهدد صحة البيانات = السلامة." data-en="✅ Answer: B — tampering or destruction threatens data accuracy = Integrity.">✅ الإجابة: B — التعديل أو التدمير بيهدد صحة البيانات = السلامة.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">16</span>
+              <span data-ar="تسرب المعلومات — ضرر محتمل لو أنهي عنصر مش متأمّن؟" data-en="Information leakage - a potential damage if which element is not ensured?">تسرب المعلومات — ضرر محتمل لو أنهي عنصر مش متأمّن؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&amp;nbsp;&amp;nbsp;السرية (Confidentiality)" data-en="A&amp;nbsp;&amp;nbsp;Confidentiality">A&nbsp;&nbsp;السرية (Confidentiality)</div>
+              <div class="ex-opt" data-ar="B&amp;nbsp;&amp;nbsp;السلامة (Integrity)" data-en="B&amp;nbsp;&amp;nbsp;Integrity">B&nbsp;&nbsp;السلامة (Integrity)</div>
+              <div class="ex-opt" data-ar="C&amp;nbsp;&amp;nbsp;التوافر (Availability)" data-en="C&amp;nbsp;&amp;nbsp;Availability">C&nbsp;&nbsp;التوافر (Availability)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — تسرب المعلومات كشف لغير المصرّح لهم = السرية." data-en="✅ Answer: A — information leakage is disclosure to unauthorized parties = Confidentiality.">✅ الإجابة: A — تسرب المعلومات كشف لغير المصرّح لهم = السرية.</div>
+          </div>
+          <div class="ex-item">
+            <div class="q"><span class="q-num">17</span>
+              <span data-ar="الاستخدام غير المصرّح به لأجهزة الكمبيوتر أو الشبكات — ضرر محتمل لو أنهي عنصر مش متأمّن؟" data-en="Unauthorized use of computers or networks - a potential damage if which element is not ensured?">الاستخدام غير المصرّح به لأجهزة الكمبيوتر أو الشبكات — ضرر محتمل لو أنهي عنصر مش متأمّن؟</span></div>
+            <div class="ex-options">
+              <div class="ex-opt" data-ok="1" data-ar="A&amp;nbsp;&amp;nbsp;السرية (Confidentiality)" data-en="A&amp;nbsp;&amp;nbsp;Confidentiality">A&nbsp;&nbsp;السرية (Confidentiality)</div>
+              <div class="ex-opt" data-ar="B&amp;nbsp;&amp;nbsp;السلامة (Integrity)" data-en="B&amp;nbsp;&amp;nbsp;Integrity">B&nbsp;&nbsp;السلامة (Integrity)</div>
+              <div class="ex-opt" data-ar="C&amp;nbsp;&amp;nbsp;التوافر (Availability)" data-en="C&amp;nbsp;&amp;nbsp;Availability">C&nbsp;&nbsp;التوافر (Availability)</div>
+            </div>
+            <div class="ex-answer" data-ar="✅ الإجابة: A — الاستخدام غير المصرّح ناتج عن وصول غير مصرّح = السرية." data-en="✅ Answer: A — unauthorized use stems from unauthorized access = Confidentiality.">✅ الإجابة: A — الاستخدام غير المصرّح ناتج عن وصول غير مصرّح = السرية.</div>
+          </div>
         <div class="btn-row" style="margin-top:16px">
           <button class="btn" data-reveal="exercise" data-ar="إظهار كل الإجابات" data-en="Show All Answers">إظهار كل الإجابات</button>
           <button class="mini-btn" data-hide="exercise" data-ar="↺ إخفاء" data-en="↺ Hide">↺ إخفاء</button>
@@ -1548,6 +1795,14 @@
           <div class="gl-term" data-cat="malware">
             <h4 data-ar="تجسّس (Spyware)" data-en="Spyware">تجسّس (Spyware)</h4>
             <p data-ar="برنامج بيجمع معلومات (Information) شخصية من الكمبيوتر بتاعك سراً وبيبعتها لطرف تالت." data-en="A program that secretly collects personal information from your computer and sends it to third parties.">برنامج بيجمع معلومات (Information) شخصية من الكمبيوتر بتاعك سراً وبيبعتها لطرف تالت.</p>
+          </div>
+          <div class="gl-term" data-cat="malware">
+            <h4 data-ar="كي لوجر (Keylogger)" data-en="Keylogger">كي لوجر (Keylogger)</h4>
+            <p data-ar="برنامج بيراقب ويسجّل ضغطات المفاتيح." data-en="Software that monitors and records keystrokes.">برنامج بيراقب ويسجّل ضغطات المفاتيح.</p>
+          </div>
+          <div class="gl-term" data-cat="malware">
+            <h4 data-ar="إعلانات مزعجة (Adware)" data-en="Adware">إعلانات مزعجة (Adware)</h4>
+            <p data-ar="برنامج بيعرض إعلانات غير مرغوب فيها من غير موافقة المستخدم." data-en="A program that displays unwanted advertisements without the user's consent.">برنامج بيعرض إعلانات غير مرغوب فيها من غير موافقة المستخدم.</p>
           </div>
           <div class="gl-term" data-cat="malware">
             <h4 data-ar="فدية (Ransomware)" data-en="Ransomware">فدية (Ransomware)</h4>

@@ -1813,7 +1813,23 @@
     [style*="linear-gradient"] {
       background: var(--primary) !important;
     }
-</style>
+/* Local textbook reconciliation: preserve shell and pan physical code lines. */
+.section-inner,.card,.ex-item,.code-panel {min-width:0;max-width:100%;}
+.textbook-code {display:block;direction:ltr;text-align:left;unicode-bidi:isolate;white-space:pre;overflow-x:auto;max-width:100%;padding:14px;border:1px solid #34416b;border-radius:10px;background:#090f25;color:#e0e7ff;font:14px/1.75 Consolas,monospace;margin:10px 0;}
+.source-note {padding:12px;border-inline-start:3px solid var(--accent);background:#10243a;border-radius:8px;margin:12px 0;line-height:1.8;}
+.blank-grid,.game-controls {display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:12px 0;}
+.blank-label,.game-controls label {display:flex;flex-direction:column;gap:5px;max-width:100%;}
+.blank-grid .blank-label {flex:1 1 90px;}
+.blank-label input,.game-controls input {min-width:0;width:100%;max-width:220px;padding:9px;background:#080e24;color:#fff;border:1px solid #425b8a;border-radius:8px;font:16px Consolas,monospace;}
+.game-controls label {width:110px;}.self-check {margin-top:10px;}
+.ex-answer[hidden] {display:none!important;}.ex-answer.show {min-width:0;}
+.py-edit {overflow-x:auto;overflow-y:hidden;white-space:pre;}.py-ctl {flex-wrap:wrap;}.py-ctl .btn {flex-shrink:0;width:auto;min-width:78px;}.py-ctl .hint {flex:1 1 140px;}
+.list-rows {direction:ltr;}.lrow {grid-template-columns:64px repeat(5,minmax(40px,1fr));}.twod-grid {direction:ltr;}
+#grid-cells {display:grid;grid-template-columns:repeat(3,minmax(40px,1fr));gap:8px;max-width:360px;}#grid-cells button {padding:14px;color:#fff;background:#112856;border:1px solid #4969a0;border-radius:10px;font:700 18px Consolas,monospace;cursor:pointer;}#grid-cells button:focus-visible {outline:3px solid var(--accent);}.lesson-game {margin-bottom:18px;}.lesson-game [aria-live] {min-height:2.5em;}
+.gl-term a {display:inline-block;color:var(--accent);margin-top:8px;}.gl-term.hidden {display:none;}.pan-cue {font-size:12px;color:#a8bada;display:none;margin:4px 0;}.pan-cue.visible {display:block;}
+.game-controls select {background:#080e24;color:#fff;border:1px solid #425b8a;border-radius:8px;padding:9px;max-width:100%;font:14px/1.5 inherit;}.game-controls:has(#trace-mode) label {width:160px;}.btn:disabled{opacity:.5;cursor:default;}
+.fn-route{direction:ltr;text-align:left;white-space:normal;overflow-wrap:anywhere;color:var(--accent);font:14px/1.8 Consolas,monospace;}.game-controls label{width:180px;}.game-controls select{max-width:100%;background:#080e24;color:white;padding:10px;border:1px solid #425b8a;border-radius:8px;} .source-options{padding-inline-start:22px;}.source-options li{padding:4px 0;}.table-pan{max-width:100%;overflow-x:auto;}.table th,.table td{text-align:start;}.btn:disabled{opacity:.5;cursor:default;}
+.table-pan{direction:ltr}.table-pan .table{min-width:340px}.table-pan td code{white-space:nowrap;display:block;direction:ltr}.table-pan .table th,.table-pan .table td{text-align:start}</style>
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
 </head>
@@ -1854,7 +1870,7 @@
 
     <main>
     <!-- ============ 01 INTRO ============ -->
-    <section id="intro" class="section">
+    <section class="section" id="intro">
       <div class="section-inner">
         <div class="section-head">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s1),var(--s2))">1</div>
@@ -1886,34 +1902,21 @@
           <div class="err-head"><span>⚠️</span><b data-ar="أخطاء شائعة" data-en="Common mistakes">أخطاء شائعة</b></div>
           <ul>
             <li data-ar="لازم تعرّف الدالّة بـ def قبل ما تستدعيها." data-en="You must define the function with def before you call it.">لازم تعرّف الدالة بـ <span dir="ltr">def</span> الأول قبل ما تناديها.</li>
-            <li data-ar="لو نسيت return الدالّة مش هترجّع قيمة (ترجّع None)." data-en="If you forget return the function won't return a value (it returns None).">لو نسيت <span dir="ltr">return</span> الدالة مش هترجّع قيمة (هترجّع <span dir="ltr">None</span>).</li>
+            <li data-ar="لو الدالة وصلت للنهاية من غير return بقيمة، بترجع None." data-en="If a function reaches its end without a valued return, it returns None.">لو الدالة وصلت للنهاية بدون return بقيمة، بترجع None.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- ============ 02 FUNCTION ============ -->
-    <section id="func" class="section">
+    <section class="section" id="func">
       <div class="section-inner">
         <div class="section-head">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),var(--s4))">2</div>
           <h2 data-ar="مفهوم الدالّة (Function)" data-en="The Function concept">مفهوم <span dir="ltr">Function</span></h2>
         </div>
-        <div class="diagram-wrap" data-id="funcVis">
-          <div class="diagram-top"></div>
-          <div class="diagram-body">
-            <div class="fn-flow" data-id="fnFlow">
-              <div class="fn-node in">Argument<br><span>5</span></div>
-              <div class="fn-arrow">→</div>
-              <div class="fn-node box">Function<br><span>y = 2x</span></div>
-              <div class="fn-arrow">→</div>
-              <div class="fn-node out">Return value<br><span>10</span></div>
-            </div>
-            <div class="legend">
-              <span data-ar="الدالّة بتاخد مُعامل (Argument)، بتشغّل عمليات، وترجّع قيمة إرجاع (Return value) للي استدعاها." data-en="A function takes an Argument, runs operations, and returns a Return value to the caller.">الدالة بتاخد <b>Argument</b> وتنفّذ عمليات وترجّع <b>Return value</b> للمنادي.</span>
-            </div>
-          </div>
-        </div>
+        <p data-ar="مصطلحات الكتاب: Argument للمتغير داخل التعريف وللقيمة المرسلة. الأدق: parameter هو اسم الاستقبال، وargument هي قيمة الاستدعاء. الدالة ممكن ما تاخدش مدخلات، ولو مفيش return بقيمة بترجع None. print بتعرض نص، وreturn بترجع قيمة للمنادي." data-en="The book uses Argument for the definition variable and the supplied value. More precisely, a parameter is the receiving name and an argument is a call value. Functions may take no arguments; without a valued return they return None. print displays output; return passes a value to the caller." class="source-note">مصطلحات الكتاب: Argument للمتغير داخل التعريف وللقيمة المرسلة. الأدق: parameter هو اسم الاستقبال، وargument هي قيمة الاستدعاء. الدالة ممكن ما تاخدش مدخلات، ولو مفيش return بقيمة بترجع None. print بتعرض نص، وreturn بترجع قيمة للمنادي.</p><div class="diagram-wrap"><div class="diagram-top"></div><div class="diagram-body"><div class="lesson-game" id="function-lab"><h3 data-ar="معمل التعريف والاستدعاء" data-en="Definition and call lab" >معمل التعريف والاستدعاء</h3><p data-ar="غيّر القيمة، وتوقّع القيمة الراجعة، وبعدين امشِ خطوة بخطوة. تعريف الدالة لوحده مش بينفّذ جسمها." data-en="Change the value, predict the return value, then step through. Defining a function does not execute its body." >غيّر القيمة، وتوقّع القيمة الراجعة، وبعدين امشِ خطوة بخطوة. تعريف الدالة لوحده مش بينفّذ جسمها.</p><div class="game-controls"><label><span data-ar="قيمة الاستدعاء" data-en="Call argument" >قيمة الاستدعاء</span><input id="fn-arg" dir="ltr" type="number" step="1" value="5"></label><label><span data-ar="جسم الدالة" data-en="Function body" >جسم الدالة</span><select id="fn-mode" dir="ltr"><option value="return">return y</option><option value="print">print(y)</option></select></label><label><span data-ar="توقّع القيمة الراجعة" data-en="Predict return value" >توقّع القيمة الراجعة</span><input id="fn-prediction" dir="ltr" autocomplete="off" spellcheck="false"></label></div><h4 data-ar="تعريف الدالة" data-en="Function definition" >تعريف الدالة</h4><pre id="fn-definition" class="textbook-code" dir="ltr"></pre><p class="fn-route" dir="ltr">argument → parameter x → body → return value → caller</p><h4 data-ar="الاستدعاء" data-en="Function call" >الاستدعاء</h4><pre id="fn-call" class="textbook-code" dir="ltr"></pre><div class="game-controls"><button class="btn small" id="fn-next"><span data-ar="خطوة" data-en="Step" >خطوة</span></button><button class="btn small" id="fn-reset"><span data-ar="إعادة" data-en="Reset" >إعادة</span></button></div><p id="fn-stage" aria-live="polite"></p><h4 data-ar="القيمة الراجعة" data-en="Return value" >القيمة الراجعة</h4><pre id="fn-return" class="textbook-code" dir="ltr"></pre><h4 data-ar="الخرج المطبوع" data-en="Printed output" >الخرج المطبوع</h4><pre id="fn-output" class="textbook-code" dir="ltr"></pre><p id="fn-feedback" aria-live="polite"></p></div></div></div>
+
         <p
           data-ar="الدالّة (Function) هي مجموعة عمليات في وحدة واحدة. بنعرّفها بـ def؛ والمتغيّر اللي بيستقبل قيمة جوه الدالّة هو المُعامل (Argument)؛ وبـ return بنبعت النتيجة للي استدعاها كقيمة إرجاع. وعشان نستخدمها بنعمل استدعاء (call)."
           data-en="A Function is a set of operations in one unit. We define it with def; the variable that receives a value inside the function is an Argument; with return we send the result to the caller as a return value. And to use it we perform a call.">
@@ -1921,7 +1924,7 @@
           والمتغير اللي بياخد قيمة جوه الدالة اسمه <b>Argument</b>، وبأمر <span dir="ltr">return</span> بنبعت نتيجة
           العملية للمنادي كقيمة راجعة <b>(Return value)</b>. ولما نستخدم الدالة بنعمل عملية استدعاء
           <b>(Call)</b> لها.</p>
-        <div class="code-panel" data-id="funcPy">
+        <p data-ar="المحررات نموذج تعليمي محدود، مش Python كاملة. بتدعم دوال الدرس، معاملات موضعية، متغيرات محلية، return، شرط وحلقات. مفيش import أو معاملات افتراضية أو مسمّاة لدوال المستخدم. الحد20000 خطوة، و40 استدعاء متداخل، و2000 عنصر للقائمة أو range." data-en="The editors use a bounded teaching model, not full Python. They support the lesson functions, positional parameters, local variables, return, conditions and loops. Imports, default parameters and keyword arguments to user functions are unsupported. Limits:20000 steps,40 nested calls,2000 items per list or range." class="source-note">المحررات نموذج تعليمي محدود، مش Python كاملة. بتدعم دوال الدرس، معاملات موضعية، متغيرات محلية، return، شرط وحلقات. مفيش import أو معاملات افتراضية أو مسمّاة لدوال المستخدم. الحد20000 خطوة، و40 استدعاء متداخل، و2000 عنصر للقائمة أو range.</p><div class="code-panel" data-id="funcPy">
           <textarea class="py-edit" spellcheck="false">def function(x):
     y = 2 * x
     return y
@@ -1935,7 +1938,7 @@ print(function(5))</textarea>
           <div class="term"></div>
           <div class="py-err"></div>
         </div>
-        <div class="code-panel" data-id="areaPy">
+        <p data-ar="الكتاب كاتب ناتج مساحة المثلث 25. في Python3 العملية / بترجع float، فالمحرر بيطبع 25.0. القيمة العددية واحدة لكن شكل الناتج مختلف." data-en="The book prints triangle area as 25. In Python 3, / returns a float, so the editor prints 25.0. The numerical value agrees, but the displayed output differs." class="source-note">الكتاب كاتب ناتج مساحة المثلث 25. في Python3 العملية / بترجع float، فالمحرر بيطبع 25.0. القيمة العددية واحدة لكن شكل الناتج مختلف.</p><div class="code-panel" data-id="areaPy">
           <textarea class="py-edit" spellcheck="false">def area(base, height):
     S = base * height / 2
     return S
@@ -1944,7 +1947,7 @@ print(area(10, 5))</textarea>
           <div class="py-ctl">
             <button class="btn">▶ Run</button>
             <button class="mini-btn" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
-            <span class="hint" data-ar="دالّة بمُعاملين: area(10, 5) = 10 × 5 / 2 = 25." data-en="A function with two arguments: area(10, 5) = 10 × 5 / 2 = 25.">دالة بمعاملَين: <span dir="ltr">area(10, 5) = 10 × 5 / 2 = 25</span>.</span>
+            <span class="hint" data-ar="دالّة بمُعاملين: area(10, 5) = 10 × 5 / 2 = 25.0." data-en="A function with two arguments: area(10, 5) = 10 × 5 / 2 = 25.0.">دالة بمعاملَين: <span dir="ltr">area(10, 5) = 10 × 5 / 2 = 25</span>.</span>
           </div>
           <div class="term"></div>
           <div class="py-err"></div>
@@ -1975,7 +1978,7 @@ judge(40)</textarea>
           <div class="err-head"><span>⚠️</span><b data-ar="أخطاء شائعة" data-en="Common mistakes">أخطاء شائعة</b></div>
           <ul>
             <li data-ar="النسيان إن في نقطتين : بعد سطر def — من غيرهم الدالّة مش هتتعَرّف." data-en="Forgetting the colon : after the def line — without it the function won't be defined.">نسيان النقطتين <span dir="ltr">:</span> بعد سطر <span dir="ltr">def</span> — من غيرها الدالة مش هتتعرّف.</li>
-            <li data-ar="عدد المُعاملات (Arguments) لما تستدعي لازم يطابق التعريف." data-en="The number of Arguments when you call must match the definition.">عدد المُعاملات (Arguments) لما تستدعي لازم يطابق التعريف.</li>
+            <li data-ar="في أمثلة الدرس البسيطة، عدد الوسائط الموضعية لازم يطابق أسماء الاستقبال. Python بتدعم كمان معاملات اختيارية خارج النموذج ده." data-en="For these simple examples, the positional argument count must match the parameter count. Python also supports optional parameters outside this model.">في أمثلة الدرس البسيطة، عدد الوسائط الموضعية لازم يطابق أسماء الاستقبال. Python بتدعم كمان معاملات اختيارية خارج النموذج ده.</li>
             <li data-ar="الـ return لازم تكون جوه الدالّة عشان ترجّع القيمة للي استدعاها." data-en="The return must be inside the function to return the value to the caller.">الـ <span dir="ltr">return</span> لازم يبقى جوه الدالة عشان يرجّع القيمة للمنادي.</li>
           </ul>
         </div>
@@ -2006,75 +2009,111 @@ judge(40)</textarea>
     </section>
 
     <!-- ============ 03 PRACTICE ============ -->
-    <section id="practice" class="section">
-      <div class="section-inner">
-        <div class="section-head">
-          <div class="section-number" style="background:linear-gradient(135deg,var(--s4),var(--s1))">3</div>
-          <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-        </div>
-        <div class="section-inner card">
-          <h3 style="color:var(--s2)" data-ar="إحماء — صفحة 173" data-en="Warm Up — Page 173">إحماء — صفحة 173</h3>
-          <div class="ex-item">
-            <div class="q"><span class="q-num">1</span> <span data-ar="الدالّة circle بتحسب مساحة الدائرة. ادّي البرنامج للفراغات A وB، والقيمة المعروضة لما الصف [1] يشتغل." data-en="The function circle calculates the area of a circle. Give the program for blanks A and B, and the value shown when row [1] runs.">الدالة <span dir="ltr">circle</span> بتحسب مساحة الدايرة. اكتب البرنامج اللي يناسب الفراغين A و B، واكتب القيمة المعروضة عند تنفيذ السطر [1].</span></div>
-            <div class="ex-options">
-              <div class="ex-opt" data-ok="1">A&nbsp;&nbsp;def&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;return</div>
-            </div>
-            <div class="ex-answer" data-ar="الإجابة: A = def وB = return، والقيمة [1] = 78.5." data-en="Answer: A = def, B = return, and value [1] = 78.5.">الاجابة: <b>A</b> = <span dir="ltr">def</span>، <b>B</b> = <span dir="ltr">return</span>، وقيمة [1] = 78.5.</div>
-          </div>
-          <div class="ex-item">
-            <div class="q"><span class="q-num">2</span> <span data-ar="الدالّة judge بتاخد درجة وتعرض Pass لو ≥ 80 وFail لو أقل. ادّي البرنامج للفراغات A وB." data-en="The function judge takes a score and shows Pass if ≥ 80 and Fail if below. Give the program for blanks A and B.">الدالة <span dir="ltr">judge</span> بتاخد درجة وبتعرض Pass لو ≥ 80 و Fail لو أقل. اكتب البرنامج اللي يناسب الفراغين A و B.</span></div>
-            <div class="ex-options">
-              <div class="ex-opt" data-ok="1">A&nbsp;&nbsp;&gt;=&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;else</div>
-            </div>
-            <div class="ex-answer" data-ar="الإجابة: A = &gt;=، وB = else." data-en="Answer: A = &gt;=, and B = else.">الاجابة: <b>A</b> = <span dir="ltr">&gt;=</span>، و <b>B</b> = <span dir="ltr">else</span>.</div>
-          </div>
-          <div class="btn-row" style="margin-top:16px">
-            <button class="btn" data-reveal="warm" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
-            <button class="mini-btn" data-hide="warm" data-ar="اخفِ الإجابات" data-en="Hide Answers">اخفِ الإجابات</button>
-          </div>
-        </div>
-
-        <div class="section-inner card">
-          <h3 style="color:var(--s2)" data-ar="جرّب — صفحة 174" data-en="Try — Page 174">جرّب — صفحة 174</h3>
-          <div class="ex-item">
-            <div class="q"><span class="q-num">1</span> <span data-ar="اختار المصطلح اللي يناسب الفراغات [1] و[2] من الخيارات A لـ D." data-en="Choose the term that fits blanks [1] and [2] from options A to D.">اختار المصطلح اللي يناسب الفراغات [1] و[2] من الخيارات A لـ D.</span></div>
-            <div class="ex-options">
-              <div class="ex-opt" data-ok="1">[1] = A&nbsp;&nbsp;(Argument)&nbsp;&nbsp;&nbsp;&nbsp;[2] = B&nbsp;&nbsp;(Return value)</div>
-            </div>
-            <div class="ex-answer" data-ar="الإجابة: [1] = A (المُعامل) و[2] = B (قيمة الإرجاع)." data-en="Answer: [1] = A (Argument), and [2] = B (Return value).">الإجابة: [1] = A (المُعامل) و[2] = B (قيمة الإرجاع).</div>
-          </div>
-          <div class="ex-item">
-            <div class="q"><span class="q-num">2</span> <span data-ar="الدالّة area بتحسب مساحة المثلث. ادّي البرنامج للفراغات A وB، والقيم المعروضة لما الصفوف [1] و[2] تشتغل." data-en="The function area calculates the area of a triangle. Give the program for blanks A and B, and the values shown when rows [1] and [2] run.">الدالة <span dir="ltr">area</span> بتستخدم لحساب مساحة المثلث. اكتب البرنامج اللي يناسب الفراغين A و B، واكتب القيم المعروضة عند تنفيذ السطرين [1] و [2].</span></div>
-            <div class="ex-options">
-              <div class="ex-opt" data-ok="1">A&nbsp;&nbsp;base * height / 2&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;return</div>
-            </div>
-            <div class="ex-answer" data-ar="الإجابة: A = base * height / 2 وB = return والقيمة [1] = 25 والقيمة [2] = 21." data-en="Answer: A = base * height / 2, B = return, value [1] = 25 and value [2] = 21.">الاجابة: <b>A</b> = <span dir="ltr">base * height / 2</span>، <b>B</b> = <span dir="ltr">return</span>، وقيمة [1] = 25 وقيمة [2] = 21.</div>
-          </div>
-          <div class="ex-item">
-            <div class="q"><span class="q-num">3</span> <span data-ar="الدالّة celsius_to_fahrenheit بتحوّل الحرارة من سيليزيوس لفهرنهايت. ادّي البرنامج للفراغات A وB." data-en="The function celsius_to_fahrenheit converts temperature from Celsius to Fahrenheit. Give the program for blanks A and B.">الدالة <span dir="ltr">celsius_to_fahrenheit</span> بتحوّل درجة حرارة من سيليسيوس لفهرنهايت. اكتب البرنامج اللي يناسب الفراغين A و B.</span></div>
-            <div class="ex-options">
-              <div class="ex-opt" data-ok="1">A&nbsp;&nbsp;fahrenheit&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;temp_celsius</div>
-            </div>
-            <div class="ex-answer" data-ar="الإجابة: A = fahrenheit، وB = temp_celsius." data-en="Answer: A = fahrenheit, and B = temp_celsius.">الاجابة: <b>A</b> = <span dir="ltr">fahrenheit</span>، و <b>B</b> = <span dir="ltr">temp_celsius</span>.</div>
-          </div>
-          <div class="ex-item">
-            <div class="q"><span class="q-num">4</span> <span data-ar="الدالّة evaluate بتاخد درجة وتعرض تقدير من الجدول. ادّي البرنامج للفراغات A لـ C." data-en="The function evaluate takes a score and shows a grade from the table. Give the program for blanks A to C.">الدالة <span dir="ltr">evaluate</span> بتاخد درجة وبتعرض تقدير من الجدول. اكتب البرنامج اللي يناسب الفراغات A إلى C.</span></div>
-            <div class="ex-options">
-              <div class="ex-opt" data-ok="1">A&nbsp;&nbsp;&gt;=&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;elif&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&gt;=</div>
-            </div>
-            <div class="ex-answer" data-ar="الإجابة: A = &gt;= وB = elif وC = &gt;=." data-en="Answer: A = &gt;=, B = elif, C = &gt;=.">الاجابة: <b>A</b> = <span dir="ltr">&gt;=</span>، <b>B</b> = <span dir="ltr">elif</span>، <b>C</b> = <span dir="ltr">&gt;=</span>.</div>
-          </div>
-          <div class="btn-row" style="margin-top:16px">
-            <button class="btn" data-reveal="try" data-ar="اعرض كل الإجابات" data-en="Show All Answers">اعرض كل الإجابات</button>
-            <button class="mini-btn" data-hide="try" data-ar="اخفِ الإجابات" data-en="Hide Answers">اخفِ الإجابات</button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="practice"><div class="section-inner"><div class="section-head"><div class="section-number">3</div><h2 data-ar="تمارين الكتاب" data-en="Textbook exercises" >تمارين الكتاب</h2></div><p data-ar="اكتب إجاباتك الأول، وبعدين افتح الحل للمقارنة. الفراغات وإجابات الناتج مراجعة ذاتية، مش درجة آلية. تعبيرات مكافئة ممكن تكون صحيحة." data-en="Write your answers first, then reveal the solution. Blanks and outputs are self-checks, not automatic scores. Equivalent expressions may be valid." class="source-note">اكتب إجاباتك الأول، وبعدين افتح الحل للمقارنة. الفراغات وإجابات الناتج مراجعة ذاتية، مش درجة آلية. تعبيرات مكافئة ممكن تكون صحيحة.</p><div class="card source-group"><h3 data-ar="إحماء | EN173 · AR187" data-en="Warm Up | EN 173 · AR 187" >إحماء | EN173 · AR187</h3><article class="ex-item" data-source-id="warm-1" id="warm-1"><div class="q"><span class="q-num">1</span><span data-ar="كمّل دالة مساحة الدائرة، واكتب ناتج السطر [1]." data-en="Complete the circle-area function and give the output of line [1]." >كمّل دالة مساحة الدائرة، واكتب ناتج السطر [1].</span></div><pre class="textbook-code" dir="ltr" tabindex="0">[A] circle(r):
+    S = r * r * 3.14
+    [B] S
+a = circle(5)
+print(a)  # [1]</pre><div class="blank-grid"><label class="blank-label">[A]<input data-blank="A" dir="ltr" autocomplete="off" spellcheck="false" aria-label="warm 1 blank A"></label><label class="blank-label">[B]<input data-blank="B" dir="ltr" autocomplete="off" spellcheck="false" aria-label="warm 1 blank B"></label></div><div class="blank-grid"><label class="blank-label"><span data-ar="ناتج" data-en="Output" >ناتج</span> [1]<input data-output="1" dir="ltr" autocomplete="off" spellcheck="false" aria-label="warm 1 output 1"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[A] = def
+[B] = return</pre><p data-ar="البرنامج كامل:" data-en="Complete program:" >البرنامج كامل:</p><pre class="textbook-code" dir="ltr" tabindex="0">def circle(r):
+    S = r * r * 3.14
+    return S
+a = circle(5)
+print(a)  # [1]</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">78.5</pre></div></article><article class="ex-item" data-source-id="warm-2" id="warm-2"><div class="q"><span class="q-num">2</span><span data-ar="كمّل طباعة Pass للدرجة 80 أو أكبر، وFail للأقل." data-en="Complete Pass for scores of 80 or above, and Fail below 80." >كمّل طباعة Pass للدرجة 80 أو أكبر، وFail للأقل.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">def judge(score):
+    if score [A] 80:
+        print(&#x27;Pass&#x27;)
+    [B]:
+        print(&#x27;Fail&#x27;)
+judge(40)</pre><div class="blank-grid"><label class="blank-label">[A]<input data-blank="A" dir="ltr" autocomplete="off" spellcheck="false" aria-label="warm 2 blank A"></label><label class="blank-label">[B]<input data-blank="B" dir="ltr" autocomplete="off" spellcheck="false" aria-label="warm 2 blank B"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[A] = &gt;=
+[B] = else</pre><p data-ar="البرنامج كامل:" data-en="Complete program:" >البرنامج كامل:</p><pre class="textbook-code" dir="ltr" tabindex="0">def judge(score):
+    if score &gt;= 80:
+        print(&#x27;Pass&#x27;)
+    else:
+        print(&#x27;Fail&#x27;)
+judge(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">Fail</pre></div></article></div><div class="card source-group"><h3 data-ar="جرّب | EN174 · AR188" data-en="Try | EN 174 · AR 188" >جرّب | EN174 · AR188</h3><article class="ex-item" data-source-id="try-1" id="try-1"><div class="q"><span class="q-num">1</span><span data-ar="اختار الحرف المناسب للفراغين [1] و[2] من الخيارات الأربعة." data-en="Choose the suitable option letter for blanks [1] and [2]." >اختار الحرف المناسب للفراغين [1] و[2] من الخيارات الأربعة.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">def function_name([1]):
+    [Process]
+    return [2]</pre><ul class="source-options"><li><b dir="ltr">A / أ</b> <span data-ar="وسيطة" data-en="Argument" >وسيطة</span></li><li><b dir="ltr">B / ب</b> <span data-ar="قيمة الإرجاع" data-en="Return value" >قيمة الإرجاع</span></li><li><b dir="ltr">C / جـ</b> <span data-ar="مكمل" data-en="Complement" >مكمل</span></li><li><b dir="ltr">D / د</b> <span data-ar="رقم عشوائي" data-en="Random number" >رقم عشوائي</span></li></ul><p data-ar="ده قالب توضيحي، مش برنامج جاهز للتشغيل. أسماء المتغيرات في التعريف اسمها الأدق parameters، والقيم في الاستدعاء arguments؛ الكتاب بيستخدم Argument للاتنين." data-en="This is a template, not a runnable program. Variables in a definition are more precisely parameters; values supplied in a call are arguments. The book uses Argument for both." class="source-note">ده قالب توضيحي، مش برنامج جاهز للتشغيل. أسماء المتغيرات في التعريف اسمها الأدق parameters، والقيم في الاستدعاء arguments؛ الكتاب بيستخدم Argument للاتنين.</p><div class="blank-grid"><label class="blank-label">[1]<input data-blank="1" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 1 blank 1"></label><label class="blank-label">[2]<input data-blank="2" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 1 blank 2"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[1] = A
+[2] = B</pre></div></article><article class="ex-item" data-source-id="try-2" id="try-2"><div class="q"><span class="q-num">2</span><span data-ar="كمّل مساحة المثلث واكتب ناتج السطرين [1] و[2]." data-en="Complete triangle area and give the outputs of lines [1] and [2]." >كمّل مساحة المثلث واكتب ناتج السطرين [1] و[2].</span></div><pre class="textbook-code" dir="ltr" tabindex="0">def area(base, height):
+    S = [A]
+    [B] S
+a = area(10, 5)
+b = area(6, 7)
+print(a)  # [1]
+print(b)  # [2]</pre><p data-ar="الكتاب بيعرض 25 و21 بدون العلامة العشرية. في Python3 القسمة / بترجّع float، فالطباعة الفعلية 25.0 و21.0." data-en="The book displays 25 and 21 without decimal points. In Python 3, / produces a float, so the actual output is 25.0 and 21.0." class="source-note">الكتاب بيعرض 25 و21 بدون العلامة العشرية. في Python3 القسمة / بترجّع float، فالطباعة الفعلية 25.0 و21.0.</p><div class="blank-grid"><label class="blank-label">[A]<input data-blank="A" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 2 blank A"></label><label class="blank-label">[B]<input data-blank="B" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 2 blank B"></label></div><div class="blank-grid"><label class="blank-label"><span data-ar="ناتج" data-en="Output" >ناتج</span> [1]<input data-output="1" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 2 output 1"></label><label class="blank-label"><span data-ar="ناتج" data-en="Output" >ناتج</span> [2]<input data-output="2" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 2 output 2"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[A] = base * height / 2
+[B] = return</pre><p data-ar="البرنامج كامل:" data-en="Complete program:" >البرنامج كامل:</p><pre class="textbook-code" dir="ltr" tabindex="0">def area(base, height):
+    S = base * height / 2
+    return S
+a = area(10, 5)
+b = area(6, 7)
+print(a)  # [1]
+print(b)  # [2]</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">25.0
+21.0</pre></div></article><article class="ex-item" data-source-id="try-3" id="try-3"><div class="q"><span class="q-num">3</span><span data-ar="كمّل التحويل من المئوية إلى فهرنهايت." data-en="Complete the Celsius-to-Fahrenheit conversion." >كمّل التحويل من المئوية إلى فهرنهايت.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">def celsius_to_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return [A]
+temp_celsius = 25
+result = celsius_to_fahrenheit([B])
+print(result)</pre><div class="blank-grid"><label class="blank-label">[A]<input data-blank="A" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 3 blank A"></label><label class="blank-label">[B]<input data-blank="B" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 3 blank B"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[A] = fahrenheit
+[B] = temp_celsius</pre><p data-ar="البرنامج كامل:" data-en="Complete program:" >البرنامج كامل:</p><pre class="textbook-code" dir="ltr" tabindex="0">def celsius_to_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return fahrenheit
+temp_celsius = 25
+result = celsius_to_fahrenheit(temp_celsius)
+print(result)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">77.0</pre></div></article><article class="ex-item" data-source-id="try-4" id="try-4"><div class="q"><span class="q-num">4</span><span data-ar="كمّل الدالة حسب الجدول: A من80، وB من50 لأقل من80، وC للأقل من50." data-en="Complete the function using the table: A from 80, B from 50 to below 80, C below 50." >كمّل الدالة حسب الجدول: A من80، وB من50 لأقل من80، وC للأقل من50.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">def evaluate(score):
+    if score [A] 80:
+        print(&#x27;A&#x27;)
+    [B] score [C] 50:
+        print(&#x27;B&#x27;)
+    else:
+        print(&#x27;C&#x27;)
+evaluate(40)</pre><div class="table-pan" tabindex="0"><table class="table" dir="ltr"><thead><tr><th><span data-ar="الشرط" data-en="Condition" >الشرط</span></th><th><span data-ar="التصنيف" data-en="Category" >التصنيف</span></th></tr></thead><tbody><tr><td><code>score &gt;= 80</code></td><td>A</td></tr><tr><td><code>50 &lt;= score &lt; 80</code></td><td>B</td></tr><tr><td><code>score &lt; 50</code></td><td>C</td></tr></tbody></table></div><div class="blank-grid"><label class="blank-label">[A]<input data-blank="A" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 4 blank A"></label><label class="blank-label">[B]<input data-blank="B" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 4 blank B"></label><label class="blank-label">[C]<input data-blank="C" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 4 blank C"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[A] = &gt;=
+[B] = elif
+[C] = &gt;=</pre><p data-ar="البرنامج كامل:" data-en="Complete program:" >البرنامج كامل:</p><pre class="textbook-code" dir="ltr" tabindex="0">def evaluate(score):
+    if score &gt;= 80:
+        print(&#x27;A&#x27;)
+    elif score &gt;= 50:
+        print(&#x27;B&#x27;)
+    else:
+        print(&#x27;C&#x27;)
+evaluate(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">C</pre></div></article></div><div class="card source-group"><h3 data-ar="تمرين إضافي من النسخة العربية | AR189" data-en="Additional Arabic-edition exercises | AR 189" >تمرين إضافي من النسخة العربية | AR189</h3><p data-ar="الأربع أسئلة دول موجودين في الكتاب العربي فقط ص189، ومش موجودين في النسخة الإنجليزية المرفقة. النص الإنجليزي هنا ترجمة مساعدة للعرض." data-en="These four questions appear only in the supplied Arabic book, p 189, not in the supplied English edition. Their English display text here is a supplementary translation." class="source-note">الأربع أسئلة دول موجودين في الكتاب العربي فقط ص189، ومش موجودين في النسخة الإنجليزية المرفقة. النص الإنجليزي هنا ترجمة مساعدة للعرض.</p><article class="ex-item" data-source-id="exercise-1" id="exercise-1"><div class="q"><span class="q-num">1</span><span data-ar="كمّل دالة جمع رقمين." data-en="Complete the two-number addition function." >كمّل دالة جمع رقمين.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">[A] add_numbers(a, b):
+    return [B]
+result = add_numbers(3, 5)
+print(result)</pre><div class="blank-grid"><label class="blank-label">[A]<input data-blank="A" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 1 blank A"></label><label class="blank-label">[B]<input data-blank="B" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 1 blank B"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[A] = def
+[B] = a + b</pre><p data-ar="البرنامج كامل:" data-en="Complete program:" >البرنامج كامل:</p><pre class="textbook-code" dir="ltr" tabindex="0">def add_numbers(a, b):
+    return a + b
+result = add_numbers(3, 5)
+print(result)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">8</pre></div></article><article class="ex-item" data-source-id="exercise-2" id="exercise-2"><div class="q"><span class="q-num">2</span><span data-ar="كمّل مساحة المستطيل واكتب ناتج السطرين [1] و[2]." data-en="Complete rectangle area and give the outputs of lines [1] and [2]." >كمّل مساحة المستطيل واكتب ناتج السطرين [1] و[2].</span></div><pre class="textbook-code" dir="ltr" tabindex="0">def area(width, height):
+    S = [A]
+    [B] S
+a = area(10, 6)
+b = area(7, 5)
+print(a)  # [1]
+print(b)  # [2]</pre><div class="blank-grid"><label class="blank-label">[A]<input data-blank="A" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 2 blank A"></label><label class="blank-label">[B]<input data-blank="B" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 2 blank B"></label></div><div class="blank-grid"><label class="blank-label"><span data-ar="ناتج" data-en="Output" >ناتج</span> [1]<input data-output="1" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 2 output 1"></label><label class="blank-label"><span data-ar="ناتج" data-en="Output" >ناتج</span> [2]<input data-output="2" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 2 output 2"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[A] = width * height
+[B] = return</pre><p data-ar="البرنامج كامل:" data-en="Complete program:" >البرنامج كامل:</p><pre class="textbook-code" dir="ltr" tabindex="0">def area(width, height):
+    S = width * height
+    return S
+a = area(10, 6)
+b = area(7, 5)
+print(a)  # [1]
+print(b)  # [2]</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">60
+35</pre></div></article><article class="ex-item" data-source-id="exercise-3" id="exercise-3"><div class="q"><span class="q-num">3</span><span data-ar="كمّل تصنيف وزن البيضة: S لأقل من45g، وM من45 لأقل من55g، وL من55g." data-en="Complete egg sizing: S below 45 g, M from 45 g to below 55 g, L from 55 g." >كمّل تصنيف وزن البيضة: S لأقل من45g، وM من45 لأقل من55g، وL من55g.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">def check_size(weight):
+    if weight &lt; 45:
+        print(&#x27;S&#x27;)
+    elif weight [A] 55:
+        print(&#x27;M&#x27;)
+    [B]:
+        print(&#x27;L&#x27;)
+check_size(40)</pre><div class="table-pan" tabindex="0"><table class="table" dir="ltr"><thead><tr><th><span data-ar="الشرط" data-en="Condition" >الشرط</span></th><th><span data-ar="التصنيف" data-en="Category" >التصنيف</span></th></tr></thead><tbody><tr><td><code>weight &lt; 45 g</code></td><td>S</td></tr><tr><td><code>45 g &lt;= weight &lt; 55 g</code></td><td>M</td></tr><tr><td><code>weight &gt;= 55 g</code></td><td>L</td></tr></tbody></table></div><div class="blank-grid"><label class="blank-label">[A]<input data-blank="A" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 3 blank A"></label><label class="blank-label">[B]<input data-blank="B" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 3 blank B"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[A] = &lt;
+[B] = else</pre><p data-ar="البرنامج كامل:" data-en="Complete program:" >البرنامج كامل:</p><pre class="textbook-code" dir="ltr" tabindex="0">def check_size(weight):
+    if weight &lt; 45:
+        print(&#x27;S&#x27;)
+    elif weight &lt; 55:
+        print(&#x27;M&#x27;)
+    else:
+        print(&#x27;L&#x27;)
+check_size(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">S</pre></div></article><article class="ex-item" data-source-id="exercise-4" id="exercise-4"><div class="q"><span class="q-num">4</span><span data-ar="إيه اسم نوع الدالة الجاهزة اللي اللغة بتوفرها، زي print()؟" data-en="What is the term for a function supplied by the language, such as print()?" >إيه اسم نوع الدالة الجاهزة اللي اللغة بتوفرها، زي print()؟</span></div><div class="blank-grid"><label class="blank-label">[A]<input data-blank="A" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 4 blank A"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[A] = Built-in function / دالة مدمجة</pre></div></article></div></div></section>
 
     <!-- ============ 04 RECAP ============ -->
-    <section id="recap" class="section">
-      <div class="section-inner">
+    <section class="section" id="recap">
+      <div class="section-inner"><div class="card lesson-game" id="kind-lab"><h3 data-ar="جاهزة ولا معرّفة هنا؟" data-en="Built-in or defined here?" >جاهزة ولا معرّفة هنا؟</h3><pre id="kind-target" class="textbook-code" dir="ltr"></pre><div class="game-controls"><button class="btn small" data-kind="builtin"><span data-ar="مدمجة" data-en="Built-in" >مدمجة</span></button><button class="btn small" data-kind="user"><span data-ar="معرّفة من المستخدم" data-en="User-defined" >معرّفة من المستخدم</span></button><button class="btn small" id="kind-next"><span data-ar="التالي" data-en="Next" >التالي</span></button></div><p id="kind-feedback" aria-live="polite"></p></div>
         <div class="section-head">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s5),var(--s3))">4</div>
           <h2 data-ar="المراجعة" data-en="Recap">المراجعة</h2>
@@ -2109,7 +2148,7 @@ judge(40)</textarea>
             <button class="mini-btn rq-skip" data-id="recapRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="recapRq3">
-            <div class="rq-q"><span class="q-num">3</span> <span data-ar="لو الدالّة معرّفة كـ def area(base, height): وprint(area(10, 5)) بتدي 25، إيه اللي بيرجّع الـ 25؟" data-en="If a function is defined as def area(base, height): and print(area(10, 5)) gives 25, what returns the 25?">لو الدالة اتعرفت بـ <span dir="ltr">def area(base, height):</span> وعملت <span dir="ltr">print(area(10, 5))</span> والنتيجة 25، إيه اللي بيرجّع الـ 25؟</span></div>
+            <div class="rq-q"><span class="q-num">3</span> <span data-ar="لو الدالّة معرّفة كـ def area(base, height): وprint(area(10, 5)) بتدي 25.0، إيه اللي بيرجّع الـ 25.0؟" data-en="If a function is defined as def area(base, height): and print(area(10, 5)) gives 25.0, what returns the 25.0?">لو الدالة اتعرفت بـ <span dir="ltr">def area(base, height):</span> وعملت <span dir="ltr">print(area(10, 5))</span> والنتيجة 25.0، إيه اللي بيرجّع الـ 25.0؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq3o2" data-key="A" data-fb-ar="لأ، def بيعرّف الدالة مش بيرجّع قيمة." data-fb-en="No, def defines the function, it doesn't return a value."><span class="rq-key">A</span><span class="rq-body" data-ar="كلمة def المفتاحية" data-en="The def keyword">كلمة def المفتاحية</span></div>
               <div class="rq-opt" data-id="recapRq3o3" data-key="B" data-fb-ar="لأ، print هو اللي بيعرض الناتج، بس الـ return هو اللي بيبعتو." data-fb-en="No, print displays the result, but return is what sends it."><span class="rq-key">B</span><span class="rq-body" data-ar="دالّة print" data-en="The print function">دالّة print</span></div>
@@ -2123,22 +2162,7 @@ judge(40)</textarea>
     </section>
 
     <!-- ============ 05 GLOSSARY ============ -->
-    <section id="glossary" class="section">
-      <div class="section-inner">
-        <div class="section-head">
-          <div class="section-number" style="background:linear-gradient(135deg,var(--s6),var(--s4))">5</div>
-          <h2 data-ar="قاموس المصطلحات (Glossary)" data-en="Glossary">قاموس المصطلحات (Glossary)</h2>
-        </div>
-        <div class="glossary">
-          <div class="gl-item"><span class="gl-term">Function</span><p data-ar="مجموعة عمليات في وحدة واحدة مسمّاة نقدر نستدعيها." data-en="A set of operations in one named unit we can call.">مجموعة عمليات في وحدة واحدة مسمّاة نقدر نستدعيها.</p></div>
-          <div class="gl-item"><span class="gl-term">Argument</span><p data-ar="المتغيّر اللي بيستقبل قيمة جوه الدالّة لما نستدعيها." data-en="The variable that receives a value inside the function when we call it.">المتغيّر اللي بيستقبل قيمة جوه الدالّة لما نستدعيها.</p></div>
-          <div class="gl-item"><span class="gl-term">Return value</span><p data-ar="النتيجة اللي الدالّة بتبعتها للي استدعاها عن طريق return." data-en="The result the function sends to the caller via return.">النتيجة اللي الدالة بتبعتا للمنادي عن طريق <span dir="ltr">return</span>.</p></div>
-          <div class="gl-item"><span class="gl-term">Call</span><p data-ar="فعل استدعاء الدالّة بكتابة اسمها مع المُعاملات (Arguments)." data-en="The action of calling the function by writing its name with the Arguments.">فعل استدعاء الدالّة بكتابة اسمها مع المُعاملات (Arguments).</p></div>
-          <div class="gl-item"><span class="gl-term">def</span><p data-ar="الكلمة المفتاحية اللي بنستخدمها عشان نعرّف دالّة بننشئها." data-en="The keyword we use to define a function we create.">الكلمة المفتاحية اللي بنستخدمها عشان نعرّف دالّة بننشئها.</p></div>
-          <div class="gl-item"><span class="gl-term">Built-in function</span><p data-ar="دالّة جاهزة بنستخدمها من غير ما نعرّفها، زي print وlen." data-en="A ready function we use without defining, like print and len.">دالة جاهزة نستخدمها من غير تعريف زي <span dir="ltr">print</span> و <span dir="ltr">len</span>.</p></div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="glossary"><div class="section-inner"><div class="section-head"><div class="section-number">5</div><h2 data-ar="قاموس وتجارب" data-en="Glossary and experiments" >قاموس وتجارب</h2></div><label data-ar="ابحث بالعربي أو الإنجليزي" data-en="Search in Arabic or English" for="glossarySearch">ابحث بالعربي أو الإنجليزي</label><input id="glossarySearch" class="glossary-search" type="search"><div class="glossary-list"><article class="gl-term" data-search="Function / الدالة وحدة عمليات قابلة للاستدعاء. التعريف مش تنفيذ الجسم. A callable unit of operations. Definition does not execute its body."><h4>Function / الدالة</h4><p data-ar="وحدة عمليات قابلة للاستدعاء. التعريف مش تنفيذ الجسم." data-en="A callable unit of operations. Definition does not execute its body." >وحدة عمليات قابلة للاستدعاء. التعريف مش تنفيذ الجسم.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Parameter / معامل شكلي اسم المتغير في تعريف الدالة، زي x. الكتاب بيسميه Argument. The receiving variable in a definition, such as x. The book calls it Argument."><h4>Parameter / معامل شكلي</h4><p data-ar="اسم المتغير في تعريف الدالة، زي x. الكتاب بيسميه Argument." data-en="The receiving variable in a definition, such as x. The book calls it Argument." >اسم المتغير في تعريف الدالة، زي x. الكتاب بيسميه Argument.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Argument / وسيطة القيمة المرسلة وقت الاستدعاء، زي 5. A value supplied in a call, such as5."><h4>Argument / وسيطة</h4><p data-ar="القيمة المرسلة وقت الاستدعاء، زي 5." data-en="A value supplied in a call, such as 5." >القيمة المرسلة وقت الاستدعاء، زي 5.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="def / تعريف كلمة بتبدأ تعريف دالة، وبعد التوقيع نقطتين وجسم بمسافة بادئة. Starts a definition, followed by a colon and indented body."><h4>def / تعريف</h4><p data-ar="كلمة بتبدأ تعريف دالة، وبعد التوقيع نقطتين وجسم بمسافة بادئة." data-en="Starts a definition, followed by a colon and indented body." >كلمة بتبدأ تعريف دالة، وبعد التوقيع نقطتين وجسم بمسافة بادئة.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Call / استدعاء طلب تنفيذ الدالة باسمها وأقواس الاستدعاء. Asks a function to run, using its name and call parentheses."><h4>Call / استدعاء</h4><p data-ar="طلب تنفيذ الدالة باسمها وأقواس الاستدعاء." data-en="Asks a function to run, using its name and call parentheses." >طلب تنفيذ الدالة باسمها وأقواس الاستدعاء.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="return / إرجاع ينهي استدعاء الدالة الحالي ويرجع قيمة للمنادي. Ends the current function call and passes a value to its caller."><h4>return / إرجاع</h4><p data-ar="ينهي استدعاء الدالة الحالي ويرجع قيمة للمنادي." data-en="Ends the current function call and passes a value to its caller." >ينهي استدعاء الدالة الحالي ويرجع قيمة للمنادي.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Return value / قيمة إرجاع القيمة اللي المنادي بيستقبلها. مختلفة عن النص المطبوع. The value received by the caller, distinct from printed output."><h4>Return value / قيمة إرجاع</h4><p data-ar="القيمة اللي المنادي بيستقبلها. مختلفة عن النص المطبوع." data-en="The value received by the caller, distinct from printed output." >القيمة اللي المنادي بيستقبلها. مختلفة عن النص المطبوع.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="None / لا قيمة محددة قيمة الإرجاع لو مفيش return بقيمة؛ print بترجعها برضه. The return value without a valued return; print returns it too."><h4>None / لا قيمة محددة</h4><p data-ar="قيمة الإرجاع لو مفيش return بقيمة؛ print بترجعها برضه." data-en="The return value without a valued return; print returns it too." >قيمة الإرجاع لو مفيش return بقيمة؛ print بترجعها برضه.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Built-in function / دالة مدمجة جاهزة بدون تعريف منك، زي print وlen. Available without your own definition, such as print and len."><h4>Built-in function / دالة مدمجة</h4><p data-ar="جاهزة بدون تعريف منك، زي print وlen." data-en="Available without your own definition, such as print and len." >جاهزة بدون تعريف منك، زي print وlen.</p><a href="#kind-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="User-defined function / دالة معرفة من قبل المستخدم دالة انت بتعرّفها بـ def. A function you define with def."><h4>User-defined function / دالة معرفة من قبل المستخدم</h4><p data-ar="دالة انت بتعرّفها بـ def." data-en="A function you define with def." >دالة انت بتعرّفها بـ def.</p><a href="#kind-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article></div></div></section>
 
   </main>
 
@@ -2151,7 +2175,7 @@ judge(40)</textarea>
         data-ar="عظيم! كمّل سطر ورا التاني — إنت بتتبني نفسك في البرمجة 🚀"
         data-en="Great! Keep going line after line — you're building yourself in programming 🚀">عظيم! كمّل سطر ورا التاني — إنت بتتبني نفسك في البرمجة 🚀</span>
     </div>
-    <div class="footer-tag" data-ar="الدرس 12-5 — تطبيق البرمجة [2] (بايثون (Python)) — صفحات 172–174 · الدوال (functions)" data-en="Lesson 12-5 — Application of Programming [2] (Python) — pages 172–174 · functions">الدرس 12-5 — تطبيق البرمجة [2] (بايثون (Python)) — صفحات 172–174 · الدوال (functions)</div>
+    <div class="footer-tag" data-ar="الدرس 12-5 — تطبيق البرمجة [2] (بايثون (Python)) — EN172–174 / AR186–189 · الدوال (functions)" data-en="Lesson 12-5 — Application of Programming [2] (Python) — EN 172–174 / AR 186–189 · functions">الدرس 12-5 — تطبيق البرمجة [2] (بايثون (Python)) — EN172–174 / AR186–189 · الدوال (functions)</div>
   </footer>
   <script>
     /* ============================================================
@@ -2197,7 +2221,7 @@ judge(40)</textarea>
       var els = document.querySelectorAll('.section-inner');
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-      }, { threshold: 0.05 });
+      }, { threshold: 0.005 });
       els.forEach(function (el) { io.observe(el); });
     }
 
@@ -2384,51 +2408,9 @@ judge(40)</textarea>
       });
     }
     function wireRevealBtns() {
-      normalizeExLabels();
-      document.querySelectorAll('.ex-opt').forEach(function (opt) {
-        opt.addEventListener('click', function () {
-          var item = opt.closest('.ex-item'); if (!item) return;
-          item.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked'); });
-          opt.classList.add('picked');
-        });
-      });
-      document.querySelectorAll('[data-reveal]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var card = btn.closest('.card'); if (!card) return;
-          card.querySelectorAll('.ex-item').forEach(function (item) {
-            item.querySelectorAll('.ex-opt').forEach(function (o) {
-              o.classList.remove('correct', 'wrong');
-              if (o.classList.contains('picked') && o.getAttribute('data-ok')) o.classList.add(o.getAttribute('data-ok') === '1' ? 'correct' : 'wrong');
-            });
-          });
-          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.add('show'); });
-          var scored = 0, right = 0, noAns = 0;
-          card.querySelectorAll('.ex-item').forEach(function (item) {
-            if (!item.querySelector('.ex-opt[data-ok="1"]')) return;
-            scored++;
-            var picked = item.querySelector('.ex-opt.picked');
-            if (!picked) { noAns++; return; }
-            if (picked.getAttribute('data-ok') === '1') right++;
-          });
-          var s = card.querySelector('.ex-score');
-          if (!s) { s = document.createElement('div'); s.className = 'ex-score'; card.appendChild(s); }
-          var n = window.currentLang === 'en';
-          s.innerHTML = n
-            ? '✅ Your correct answers: <b>' + right + '</b> out of ' + scored
-            + (noAns ? ' — <span style="color:var(--dim);font-weight:400">with ' + noAns + ' question(s) you still haven\'t answered</span>' : '')
-            : '✅ إجاباتك الصحيحة: <b>' + right + '</b> من ' + scored
-            + (noAns ? ' — <span style="color:var(--dim);font-weight:400">مع ' + noAns + ' سؤال لسه ما جاوبت عليه</span>' : '');
-        });
-      });
-      document.querySelectorAll('[data-hide]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var card = btn.closest('.card'); if (!card) return;
-          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.remove('show'); });
-          card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('correct', 'wrong'); });
-          var s = card.querySelector('.ex-score'); if (s) s.remove();
-        });
-      });
+      document.querySelectorAll('[data-self-check]').forEach(function(button){button.addEventListener('click',function(){var answer=button.nextElementSibling,open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));answer.hidden=!open;answer.classList.toggle('show',open);paintSelfChecks();});});
     }
+    function paintSelfChecks(){document.querySelectorAll('[data-self-check]').forEach(function(b){var open=b.getAttribute('aria-expanded')==='true';b.textContent=tr(open?'اخفِ الحل':'اعرض الحل',open?'Hide solution':'Show solution');});}
 
     /* ---------- recall quiz ---------- */
     function tr(ar, en) {
@@ -2471,16 +2453,17 @@ judge(40)</textarea>
             if (skip) skip.style.display = 'none';
           }
           function showFb(ok, text, correctKey) {
-            fb.classList.add('show');
+            q._feedback={ok:ok,text:text,key:correctKey};fb.classList.add('show');
             fb.classList.toggle('ok', ok);
             fb.classList.toggle('no', !ok);
             fb.textContent = (ok ? '✅ ' : '❌ ') +
               (correctKey ? (window.currentLang === 'en' ? 'The correct answer is ' + correctKey + '. ' : 'الإجابة الصحيحة ' + correctKey + '. ') : '') + text;
           }
           opts.forEach(function (o) {
+            o.tabIndex=0;o.setAttribute('role','button');o.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();o.click();}});
             o.addEventListener('click', function () {
               if (q.classList.contains('done')) return;
-              var ok = o.getAttribute('data-ok') === '1';
+              q._selected=o;var ok = o.getAttribute('data-ok') === '1';
               opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
               if (ok) o.classList.add('correct');
               else {
@@ -2498,7 +2481,7 @@ judge(40)</textarea>
             opts.forEach(function (x) { x.classList.remove('correct', 'wrong'); });
             if (co) co.classList.add('correct');
             lock(q);
-            showFb(true, rqFb(co), co.getAttribute('data-key'));
+            q._selected=co;showFb(true, rqFb(co), co.getAttribute('data-key'));
           });
         });
       });
@@ -2519,7 +2502,7 @@ judge(40)</textarea>
     /* ---------- keyboard navigation ---------- */
     var SECTIONS = ['intro', 'func', 'practice', 'recap'];
     window.addEventListener('keydown', function (e) {
-      if (e.target.matches('input,textarea')) return;
+      if (e.target.matches('input,textarea,select,button,[role=button]')) return;
       if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
       var cur = -1;
       for (var i = 0; i < SECTIONS.length; i++) {
@@ -2533,395 +2516,143 @@ judge(40)</textarea>
     /* ============================================================
        MINI PYTHON INTERPRETER + EDITOR WIRING (verbatim reference)
        ============================================================ */
-    var PNone = { t: 'none' };
-    function PNum(v, f) { return { t: f ? 'float' : 'int', v: v }; }
-    function PStr(v) { return { t: 'str', v: String(v) }; }
-    function PBool(v) { return { t: 'bool', v: !!v }; }
-    function PType(n) { return { t: 'type', name: n }; }
-    function isNum(x) { return x.t === 'int' || x.t === 'float'; }
-    function pstr(x) {
-      if (x.t === 'int') return String(x.v);
-      if (x.t === 'float') { return Number.isInteger(x.v) ? x.v + '.0' : String(x.v); }
-      if (x.t === 'str') return x.v;
-      if (x.t === 'bool') return x.v ? 'True' : 'False';
-      if (x.t === 'none') return 'None';
-      if (x.t === 'type') return "<class '" + x.name + "'>";
-      if (x.t === 'list') return '[' + x.v.map(function (e) { return e.t === 'str' ? "'" + e.v + "'" : pstr(e); }).join(', ') + ']';
-      return '';
+function pyRun(src, inputs, seeds) {
+  var callDepth=0, UNBOUND={}, lineNo=1, budget=20000, env=Object.create(null), output='', queue=(inputs||[]).slice();
+  function fail(kind,message){var e=new Error(message);e.kind=kind;throw e;}
+  function tick(){if(--budget<0)fail('RuntimeError','Teaching limit: 20,000 execution steps. Reduce the loop size.');}
+  function V(t,v){if(t==='list'&&v.length>2000)fail('RuntimeError','Teaching limit: at most 2,000 list items.');if((t==='int'&&!Number.isSafeInteger(v))||(t==='float'&&!Number.isFinite(v)))fail('ValueError','Teaching limit: use small finite numbers.');if(t==='str'&&v.length>10000)fail('ValueError','Teaching limit: text is too long.');return {t:t,v:v};}
+  function number(v,f){return V(f?'float':'int',v);}
+  var none=V('none',null);
+  function numeric(x){return x.t==='int'||x.t==='float'||x.t==='bool';}
+  function asNumber(x){if(!numeric(x))fail('TypeError','A number is required.');return Number(x.v);}
+  function truth(x){return x.t==='none'?false:x.t==='range'?x.v.items.length>0:x.t==='list'?x.v.length>0:!!x.v;}
+  function reprString(value){
+    var q=value.indexOf("'")!==-1&&value.indexOf('"')===-1?'"':"'";
+    return q+Array.from(value).map(function(c){
+      if(c==='\\')return '\\\\';
+      if(c===q)return '\\'+q;
+      if(c==='\n')return '\\n';
+      if(c==='\r')return '\\r';
+      if(c==='\t')return '\\t';
+      var code=c.charCodeAt(0);
+      if(code<32||code===127)return '\\x'+code.toString(16).padStart(2,'0');
+      return c;
+    }).join('')+q;
+  }
+  function text(x){tick();if(x.t==='function')fail('TypeError','Teaching model: printing function objects is not supported.');if(x.t==='none')return 'None';if(x.t==='bool')return x.v?'True':'False';if(x.t==='float')return Object.is(x.v,-0)?'-0.0':Number.isInteger(x.v)?x.v+'.0':String(x.v);if(x.t==='range')return x.v.repr;if(x.t==='list')return '['+x.v.map(function(v){return v.t==='str'?reprString(v.v):text(v);}).join(', ')+']';return String(x.v);}
+  function lex(s){
+    var ts=[],i=0;
+    while(i<s.length){var c=s[i];if(/\s/.test(c)){i++;continue;}if(c==='#')break;
+      var m=/^(?:\d+\.\d*|\.\d+|\d+)(?:[eE][+-]?\d+)?/.exec(s.slice(i));
+      if(m){ts.push({k:'lit',v:number(Number(m[0]),/[.eE]/.test(m[0]))});i+=m[0].length;continue;}
+      if(c==='"'||c==="'"){var q=c,a='';i++;var closed=false;while(i<s.length){c=s[i++];if(c===q){closed=true;break;}if(c==='\\'){if(i>=s.length)break;var ec=s[i++],escapes={n:'\n',t:'\t',r:'\r',a:'\x07',b:'\b',f:'\f',v:'\v'};if(Object.prototype.hasOwnProperty.call(escapes,ec))a+=escapes[ec];else if(ec==='\\'||ec==='"'||ec==="'")a+=ec;else if(ec==='x'||ec==='u'||ec==='U'){var count=ec==='x'?2:ec==='u'?4:8,digits=s.slice(i,i+count);if(digits.length!==count||!/^[0-9a-fA-F]+$/.test(digits)||parseInt(digits,16)>0x10ffff)fail('SyntaxError','Invalid character escape.');a+=String.fromCodePoint(parseInt(digits,16));i+=count;}else if(/[0-7]/.test(ec)){var oct=ec;while(oct.length<3&&/[0-7]/.test(s[i]||'!'))oct+=s[i++];a+=String.fromCharCode(parseInt(oct,8));}else a+='\\'+ec;}else a+=c;}if(!closed)fail('SyntaxError','Unterminated string literal.');ts.push({k:'lit',v:V('str',a)});continue;}
+      m=/^[A-Za-z_]\w*/.exec(s.slice(i));if(m){ts.push({k:'id',v:m[0]});i+=m[0].length;continue;}
+      m=/^(?:==|!=|<=|>=|\/\/|\*\*|[+\-*\/%<>=(),:;\[\].])/.exec(s.slice(i));if(!m)fail('SyntaxError','Unexpected character: '+c);ts.push({k:'op',v:m[0]});i+=m[0].length;
+    }ts.push({k:'eof',v:''});return ts;
+  }
+  function expression(ts){
+    var pos=0;function peek(){return ts[pos]||{k:'eof',v:''};}function take(){return ts[pos++];}function need(v){if(peek().v!==v)fail('SyntaxError','Expected '+v);take();}
+    var prec={'or':1,'and':2,'==':4,'!=':4,'<':4,'>':4,'<=':4,'>=':4,'+':5,'-':5,'*':6,'/':6,'//':6,'%':6,'**':8};
+    function parse(min){tick();var t=take(),n;if(!t)fail('SyntaxError','Expression is incomplete.');
+      if(t.k==='lit')n={k:'lit',v:t.v};
+      else if(t.v==='+'||t.v==='-'||t.v==='not')n={k:'unary',op:t.v,a:parse(t.v==='not'?3:7)};
+      else if(t.v==='('){n=parse(0);need(')');}
+      else if(t.v==='['){var vals=[];if(peek().v!==']'){while(true){vals.push(parse(0));if(peek().v!==',')break;take();if(peek().v===']')break;}}need(']');n={k:'list',a:vals};}
+      else if(t.k==='id')n={k:'name',v:t.v};else fail('SyntaxError','Expression is incomplete or invalid.');
+      while(true){
+        if(peek().v==='('){take();var args=[],kwargs=[],sawKeyword=false;if(peek().v!==')'){while(true){if(peek().k==='id'&&ts[pos+1]&&ts[pos+1].v==='='){var key=take().v;take();kwargs.push({name:key,node:parse(0)});sawKeyword=true;}else{if(sawKeyword)fail('SyntaxError','Positional argument after keyword argument.');args.push(parse(0));}if(peek().v!==',')break;take();if(peek().v===')')break;}}need(')');n={k:'call',fn:n,a:args,kw:kwargs};continue;}
+        if(peek().v==='.') {take();var member=take();if(member.k!=='id')fail('SyntaxError','Expected a method name.');n={k:'member',a:n,name:member.v};continue;}
+        if(peek().v==='['){take();var lo=null,hi=null,slice=false;if(peek().v!==':')lo=parse(0);if(peek().v===':'){slice=true;take();if(peek().v!==']')hi=parse(0);}need(']');n={k:'index',a:n,lo:lo,hi:hi,slice:slice};continue;}
+        var op=peek().v,p=prec[op];if(p===undefined||p<min)break;take();var right=parse(op==='**'?p:p+1);
+        if(p===4){var ops=[op],rights=[right];while(prec[peek().v]===4){ops.push(take().v);rights.push(parse(5));}n={k:'compare',a:n,ops:ops,rights:rights};}
+        else n={k:'binary',op:op,a:n,b:right};
+      }return n;
     }
-    function ptype(x) { return x.t === 'int' ? 'int' : x.t === 'float' ? 'float' : x.t === 'str' ? 'str' : x.t === 'bool' ? 'bool' : x.t === 'none' ? 'NoneType' : x.t === 'list' ? 'list' : 'object'; }
-    function truthy(x) { if (x.t === 'bool') return x.v; if (isNum(x)) return x.v !== 0; if (x.t === 'str') return x.v.length > 0; if (x.t === 'list') return x.v.length > 0; return false; }
-    function pErr(msg) { var e = new Error(msg); e.msg = msg; return e; }
-
-    function pyEscape(ch) { if (ch === 'n') return '\n'; if (ch === 't') return '\t'; if (ch === '\\') return '\\'; return ch; }
-    function pyTokenize(code) {
-      var toks = [], i = 0, n = code.length;
-      while (i < n) {
-        var c = code[i];
-        if (/\s/.test(c)) { i++; continue; }
-        if (/[0-9]/.test(c) || (c === '.' && /[0-9]/.test(code[i + 1] || ''))) {
-          var m = /^(?:\d+\.\d*|\.\d+|\d+)(?:[eE][+-]?\d+)?/.exec(code.slice(i));
-          var num = parseFloat(m[0]);
-          toks.push({ k: 'num', v: num, f: /[.eE]/.test(m[0]) }); i += m[0].length; continue;
-        }
-        if (c === 'f' && (code[i + 1] === '"' || code[i + 1] === "'")) {
-          var q2 = code[i + 1], k = i + 2, s2 = '';
-          while (k < n && code[k] !== q2) { if (code[k] === '\\' && k + 1 < n) { s2 += pyEscape(code[k + 1]); k += 2; } else { s2 += code[k]; k++; } }
-          toks.push({ k: 'fstr', v: s2 }); i = k + 1; continue;
-        }
-        if (c === '"' || c === "'") {
-          var q = c, j = i + 1, s = '';
-          while (j < n && code[j] !== q) { if (code[j] === '\\' && j + 1 < n) { s += pyEscape(code[j + 1]); j += 2; } else { s += code[j]; j++; } }
-          toks.push({ k: 'str', v: s }); i = j + 1; continue;
-        }
-        if (/[A-Za-z_]/.test(c)) {
-          var m2 = /^[A-Za-z_][A-Za-z0-9_]*/.exec(code.slice(i));
-          toks.push({ k: 'id', v: m2[0] }); i += m2[0].length; continue;
-        }
-        var two = code.slice(i, i + 2);
-        if (two === '//' || two === '**' || two === '>=' || two === '<=' || two === '==') { toks.push({ k: 'op', v: two }); i += 2; continue; }
-        if (c === '!') { toks.push({ k: 'op', v: '!=' }); i += 2; continue; }
-        if ('+-*/%()[].,:<>='.indexOf(c) >= 0) { toks.push({ k: 'op', v: c }); i++; continue; }
-        toks.push({ k: 'op', v: c }); i++;
-      }
-      toks.push({ k: 'eof', v: '' }); return toks;
+    var result=parse(0);if(peek().k!=='eof')fail('SyntaxError','Unexpected text after expression.');return result;
+  }
+  function equal(a,b){tick();if(numeric(a)&&numeric(b))return Number(a.v)===Number(b.v);if(a.t!==b.t)return false;if(a.t==='list')return a.v.length===b.v.length&&a.v.every(function(x,i){return equal(x,b.v[i]);});return a.v===b.v;}
+  function compare(op,a,b){if(op==='==')return equal(a,b);if(op==='!=')return !equal(a,b);if(!(numeric(a)&&numeric(b))&&!(a.t==='str'&&b.t==='str'))fail('TypeError','These values cannot be ordered.');return op==='<'?a.v<b.v:op==='>'?a.v>b.v:op==='<='?a.v<=b.v:a.v>=b.v;}
+  function calc(op,a,b){
+    if(op==='+'&&a.t==='list'&&b.t==='list')return V('list',a.v.concat(b.v));
+    if(op==='+'&&a.t==='str'&&b.t==='str')return V('str',a.v+b.v);
+    if(op==='*'&&((a.t==='str'&&b.t==='int')||(b.t==='str'&&a.t==='int'))){var s=a.t==='str'?a:b,n=a.t==='int'?a:b;if(n.v*s.v.length>10000)fail('ValueError','Teaching limit: text is too long.');return V('str',s.v.repeat(Math.max(0,n.v)));}
+    var x=asNumber(a),y=asNumber(b),f=a.t==='float'||b.t==='float';
+    if((op==='/'||op==='//'||op==='%')&&y===0)fail('ZeroDivisionError','Cannot divide by zero.');
+    if(op==='+')return number(x+y,f);if(op==='-')return number(x-y,f);if(op==='*')return number(x*y,f);if(op==='/')return number(x/y,true);if(op==='//')return number(Math.floor(x/y),f);
+    if(op==='%'){var r=x%y;if(r===0)r=y<0?-0:0;else if((r<0)!==(y<0))r+=y;return number(r,f);}
+    if(op==='**'){if(x<0&&!Number.isInteger(y))fail('ValueError','Complex numbers are outside this teaching model.');if(x===0&&y<0)fail('ZeroDivisionError','Zero cannot have a negative power.');return number(Math.pow(x,y),f||y<0);}fail('SyntaxError','Unsupported operator.');
+  }
+  function call(name,args,kw){
+    tick();
+    if(name==='print'){var sep=' ',end='\n',seen=Object.create(null);kw.forEach(function(k){if(seen[k.name])fail('SyntaxError','Repeated keyword argument.');seen[k.name]=true;if(k.name!=='sep'&&k.name!=='end')fail('TypeError','Unknown print keyword.');if(k.value.t!=='str'&&k.value.t!=='none')fail('TypeError','print separators must be strings.');if(k.name==='sep')sep=k.value.t==='none'?' ':k.value.v;else end=k.value.t==='none'?'\n':k.value.v;});output+=args.map(text).join(sep)+end;if(output.length>100000)fail('RuntimeError','Teaching limit: output is too long.');return none;}
+    if(kw.length)fail('TypeError','Keyword arguments are not supported for this function in the model.');
+    if(name==='range'){
+      if(args.length<1||args.length>3)fail('TypeError','range() needs one to three integer arguments.');
+      args.forEach(function(a){if(a.t!=='int'&&a.t!=='bool')fail('TypeError','range() arguments must be integers.');});
+      var a=args.length===1?0:Number(args[0].v),b=Number(args[args.length===1?0:1].v),step=args.length===3?Number(args[2].v):1;
+      if(step===0)fail('ValueError','range() step must not be zero.');if(!Number.isSafeInteger(b-a))fail('ValueError','Teaching limit: range span is too large.');var count=Math.max(0,Math.ceil((b-a)/step));if(count>2000)fail('RuntimeError','Teaching limit: at most 2,000 values per range.');
+      var values=[];for(var j=0;j<count;j++)values.push(number(a+j*step,false));
+      return V('range',{items:values,repr:'range('+a+', '+b+(step===1?'':', '+step)+')'});
     }
-
-    function pyParse(code, env, out) {
-      var toks = pyTokenize(code), i = 0;
-      function peek() { return toks[i]; }
-      function next() { return toks[i++]; }
-      function binPrec(t) {
-        if (t.k === 'id') { if (t.v === 'or') return 1; if (t.v === 'and') return 2; return null; }
-        if (t.k === 'op') { var m = { '==': 4, '!=': 4, '<': 4, '>': 4, '<=': 4, '>=': 4, '+': 5, '-': 5, '*': 6, '/': 6, '//': 6, '%': 6, '**': 7 }; return m[t.v] !== undefined ? m[t.v] : null; }
-        return null;
-      }
-      function parseFStr(raw) {
-        var s = '', depth = 0, sub = '';
-        for (var j = 0; j < raw.length; j++) {
-          var c = raw[j];
-          if (c === '{' && depth === 0) { depth = 1; sub = ''; continue; }
-          if (depth > 0) {
-            if (c === '{') depth++;
-            else if (c === '}') { depth--; if (depth === 0) { var v = pyParse(sub, env, out).parseAll(); s += pstr(v); continue; } }
-            sub += c; continue;
-          }
-          s += c;
-        }
-        return PStr(s);
-      }
-      function call(fn, args) {
-        if (fn.k === 'fn') {
-          var name = fn.name;
-          if (name in __funcs) {
-            var fdef = __funcs[name];
-            var local = {};
-            for (var p = 0; p < fdef.params.length; p++) local[fdef.params[p]] = args[p] !== undefined ? args[p] : PNone;
-            var rr2 = __execStatements(fdef.body, local, out);
-            return rr2.__isReturn ? rr2.value : PNone;
-          }
-          if (name === 'print') {
-            var sep = ' ', end = '\n', vals = [];
-            for (var a = 0; a < args.length; a++) {
-              if (args[a].k === 'kw') { if (args[a].n === 'sep') sep = pstr(args[a].v); else if (args[a].n === 'end') end = pstr(args[a].v); }
-              else vals.push(args[a]);
-            }
-            out.buf += vals.map(pstr).join(sep) + end; return PNone;
-          }
-          if (name === 'input') { var iv = out.inQ.length ? out.inQ.shift() : ''; return PStr(iv); }
-          if (name === 'int') {
-            var x = args[0];
-            if (x.t === 'int') return x;
-            if (x.t === 'float') return PNum(Math.trunc(x.v));
-            if (x.t === 'bool') return PNum(x.v ? 1 : 0);
-            if (x.t === 'str') { var s = x.v.trim(); if (/^[+-]?\d+$/.test(s)) return PNum(parseInt(s, 10)); if (/^[+-]?(\d+\.\d*|\.\d+|\d+)([eE][+-]?\d+)?$/.test(s)) return PNum(parseInt(parseFloat(s), 10)); throw pErr("ValueError: invalid literal"); }
-            throw pErr("TypeError: int() argument must be a string or a number");
-          }
-          if (name === 'float') {
-            var y = args[0];
-            if (y.t === 'float') return y;
-            if (y.t === 'int') return PNum(y.v, true);
-            if (y.t === 'bool') return PNum(y.v ? 1 : 0, true);
-            if (y.t === 'str') { var s2 = y.v.trim(); if (/^[+-]?(\d+\.\d*|\.\d+|\d+)([eE][+-]?\d+)?$/.test(s2)) return PNum(parseFloat(s2), true); throw pErr("ValueError: could not convert string to float: '" + y.v + "'"); }
-            throw pErr("TypeError: float() argument must be a string or a number");
-          }
-          if (name === 'str') return PStr(pstr(args[0]));
-          if (name === 'bool') return PBool(truthy(args[0]));
-          if (name === 'len') { if (args[0].t === 'str') return PNum(args[0].v.length); if (args[0].t === 'list') return PNum(args[0].v.length); throw pErr("TypeError: object of type '" + ptype(args[0]) + "' has no len()"); }
-          if (name === 'round') { var rv = args[0].v, nd = args.length > 1 ? args[1].v : null; var r = nd === null ? Math.round(rv) : Math.round(rv * Math.pow(10, nd)) / Math.pow(10, nd); return PNum(r, nd !== null); }
-          if (name === 'type') return PType(ptype(args[0]));
-          if (name === 'range') {
-            var r0, r1, r2;
-            if (args.length === 1) { r0 = 0; r1 = args[0].v; r2 = 1; }
-            else { r0 = args[0].v; r1 = args[1].v; r2 = args.length > 2 ? args[2].v : 1; }
-            if (r2 === 0) throw pErr("ValueError: range() arg 3 must not be zero");
-            var items = [];
-            if (r2 > 0) { for (var vv = r0; vv < r1; vv += r2) items.push(PNum(vv)); }
-            else { for (var ww = r0; ww > r1; ww += r2) items.push(PNum(ww)); }
-            return { t: 'list', v: items };
-          }
-          throw pErr("NameError: name '" + name + "' is not defined");
-        }
-        throw pErr("TypeError: '" + ptype(fn) + "' object is not callable");
-      }
-      function normIdx(v, len) { var i = v.v; return i < 0 ? i + len : i; }
-      function index(x, a, b, hasColon) {
-        if (x.t !== 'str' && x.t !== 'list') throw pErr("TypeError: '" + ptype(x) + "' object is not subscriptable");
-        var s = x.v;
-        if (hasColon) {
-          if (x.t === 'list') throw pErr("TypeError: list indices must be integers or slices, not 'slice'");
-          var st = a === null ? 0 : normIdx(a, s.length), en = b === null ? s.length : normIdx(b, s.length);
-          st = Math.max(0, Math.min(st, s.length)); en = Math.max(0, Math.min(en, s.length));
-          return PStr(s.slice(st, en));
-        }
-        var idx = normIdx(a, s.length);
-        if (idx < 0 || idx >= s.length) throw pErr("IndexError: list index out of range");
-        return x.t === 'list' ? s[idx] : PStr(s[idx]);
-      }
-      function method(x, m, args) {
-        if (x.t === 'list') {
-          if (m === 'append') { if (!args.length) throw pErr("TypeError: append() takes exactly one argument (0 given)"); x.v.push(args[0]); return PNone; }
-          if (m === 'pop') { var pi = args.length ? args[0].v : x.v.length - 1; if (pi < 0 || pi >= x.v.length) throw pErr("IndexError: pop index out of range"); return x.v.splice(pi, 1)[0]; }
-          throw pErr("AttributeError: 'list' object has no attribute '" + m + "'");
-        }
-        if (x.t !== 'str') throw pErr("AttributeError: '" + ptype(x) + "' object has no attribute '" + m + "'");
-        if (m === 'upper') return PStr(x.v.toUpperCase());
-        if (m === 'lower') return PStr(x.v.toLowerCase());
-        if (m === 'count') { var sub = args.length ? pstr(args[0]) : ''; return PNum(x.v.split(sub).length - 1); }
-        throw pErr("AttributeError: 'str' object has no attribute '" + m + "'");
-      }
-      function parseList() {
-        var items = [];
-        if (peek().v !== ']') {
-          for (;;) { items.push(parseExpr2(0)); if (peek().v !== ',') break; next(); }
-        }
-        if (peek().v === ']') next();
-        return { t: 'list', v: items };
-      }
-      function parsePrimary() {
-        var t = next();
-        if (t.k === 'num') return PNum(t.v, t.f);
-        if (t.k === 'str') return PStr(t.v);
-        if (t.k === 'fstr') return parseFStr(t.v);
-        if (t.k === 'id') {
-          if (t.v === 'True') return PBool(true);
-          if (t.v === 'False') return PBool(false);
-          if (t.v === 'None') return PNone;
-          if (t.v in env) return env[t.v];
-          var nt = peek();
-          if (nt.k === 'op' && nt.v === '(') return { k: 'fn', name: t.v };
-          throw pErr("NameError: name '" + t.v + "' is not defined");
-        }
-        if (t.k === 'op' && t.v === '(') { var e = parseExpr2(0); if (peek().v === ')') next(); return e; }
-        if (t.k === 'op' && t.v === '[') return parseList();
-        var tk = (t.k === 'op' ? t.v : t.v);
-        throw pErr("SyntaxError: unexpected token" + (tk ? (" '" + tk + "'") : " in the expression"));
-      }
-      function parsePostfix(x) {
-        for (; ;) {
-          var t = peek();
-          if (t.k === 'op' && t.v === '(') {
-            next(); var args = [];
-            while (peek().v !== ')') {
-              if (peek().k === 'id' && toks[i + 1] && toks[i + 1].k === 'op' && toks[i + 1].v === '=') { var kn = next().v; next(); args.push({ k: 'kw', n: kn, v: parseExpr2(0) }); }
-              else args.push(parseExpr2(0));
-              if (peek().v === ',') next();
-            }
-            if (peek().v === ')') next();
-            return call(x, args);
-          }
-          if (t.k === 'op' && t.v === '[') {
-            next(); var a = null, b = null, hasColon = false;
-            if (peek().v === ':') { next(); hasColon = true; if (peek().v !== ']') b = parseExpr2(0); }
-            else { a = parseExpr2(0); if (peek().v === ':') { next(); hasColon = true; if (peek().v !== ']') b = parseExpr2(0); } }
-            if (peek().v === ']') next();
-            x = index(x, a, b, hasColon); continue;
-          }
-          if (t.k === 'op' && t.v === '.') {
-            next(); var m = next();
-            var args2 = [];
-            if (peek().v === '(') {
-              next();
-              while (peek().v !== ')') {
-                if (peek().k === 'id' && toks[i + 1] && toks[i + 1].k === 'op' && toks[i + 1].v === '=') { var kn2 = next().v; next(); args2.push({ k: 'kw', n: kn2, v: parseExpr2(0) }); }
-                else args2.push(parseExpr2(0));
-                if (peek().v === ',') next();
-              }
-              if (peek().v === ')') next();
-            }
-            return parsePostfix(method(x, m.v, args2));
-          }
-          break;
-        }
-        return x;
-      }
-      function parsePrefix() {
-        var t = peek();
-        if (t.k === 'id' && t.v === 'not') { next(); return PBool(!truthy(parseExpr2(3))); }
-        if (t.k === 'op' && t.v === '-') {
-          next(); var v = parseExpr2(7);
-          if (isNum(v)) return PNum(-v.v, v.t === 'float');
-          if (v.t === 'bool') return PNum(v.v ? 1 : 0);
-          throw pErr("TypeError: bad operand type for unary -: '" + ptype(v) + "'");
-        }
-        return parsePostfix(parsePrimary());
-      }
-      function binOp(t, a, b) {
-        var op = t.k === 'id' ? t.v : t.v;
-        if (op === 'and') return truthy(a) ? b : a;
-        if (op === 'or') return truthy(a) ? a : b;
-        if (op === '==' || op === '!=') {
-          var eq = false;
-          if (isNum(a) && isNum(b)) eq = a.v === b.v;
-          else if (a.t === 'str' && b.t === 'str') eq = a.v === b.v;
-          else if (a.t === 'bool' && b.t === 'bool') eq = a.v === b.v;
-          else if (a.t === 'none' && b.t === 'none') eq = true;
-          return PBool(op === '==' ? eq : !eq);
-        }
-        if (op === '<' || op === '>' || op === '<=' || op === '>=') { var r = op === '<' ? a.v < b.v : op === '>' ? a.v > b.v : op === '<=' ? a.v <= b.v : a.v >= b.v; return PBool(r); }
-        if (op === '+') {
-          if (a.t === 'str' && b.t === 'str') return PStr(a.v + b.v);
-          if (a.t === 'str' || b.t === 'str') throw pErr("TypeError: can only concatenate str (not '" + ptype(isNum(a) ? b : a) + "') to str");
-          return PNum(a.v + b.v, a.t === 'float' || b.t === 'float');
-        }
-        if (op === '*' && a.t === 'str' && b.t === 'int') return PStr(a.v.repeat(b.v));
-        if (op === '*' && a.t === 'int' && b.t === 'str') return PStr(b.v.repeat(a.v));
-        if (!isNum(a) || !isNum(b)) throw pErr("TypeError: unsupported operand type(s) for " + op + ": '" + ptype(a) + "' and '" + ptype(b) + "'");
-        var x = a.v, y = b.v, fl = a.t === 'float' || b.t === 'float';
-        if (op === '-') return PNum(x - y, fl);
-        if (op === '*') return PNum(x * y, fl);
-        if (op === '/') { if (y === 0) throw pErr("ZeroDivisionError: division by zero"); return PNum(x / y, true); }
-        if (op === '//') { if (y === 0) throw pErr("ZeroDivisionError: integer division or modulo by zero"); return PNum(Math.floor(x / y), fl); }
-        if (op === '%') { if (y === 0) throw pErr("ZeroDivisionError: integer division or modulo by zero"); return PNum(x % y, fl); }
-        if (op === '**') return PNum(Math.pow(x, y), fl);
-        throw pErr("SyntaxError: unknown operator " + op);
-      }
-      function parseExpr2(minPrec) {
-        var left = parsePrefix();
-        for (; ;) {
-          var t = peek();
-          var prec = binPrec(t);
-          if (prec === null || prec < minPrec) break;
-          next();
-          var right = parseExprRight(prec, t);
-          left = binOp(t, left, right);
-        }
-        return left;
-      }
-      function parseExprRight(prec, t) {
-        var isPow = (t.k === 'op' && t.v === '**');
-        return parseExpr2(isPow ? prec : prec + 1);
-      }
-      function parseExpr() { return { parseAll: function () { var v = parseExpr2(0); if (peek().k !== 'eof') throw pErr("SyntaxError: trailing tokens in expression"); return v; }, parseResult: function () { var v = parseExpr2(0); if (peek().k !== 'eof') throw pErr("SyntaxError: trailing tokens in expression"); return v; } }; }
-      return parseExpr();
+    if(name==='input'){if(args.length>1)fail('TypeError','input() takes at most one argument.');return V('str',queue.length?String(queue.shift()):'');}
+    if(name==='len'){if(args.length!==1)fail('TypeError','len() needs one argument.');var l=args[0];if(l.t==='str'||l.t==='list')return number(l.v.length,false);if(l.t==='range')return number(l.v.items.length,false);fail('TypeError','This value has no length.');}
+    if(name==='type'){if(args.length!==1)fail('TypeError','type() needs one argument.');return V('type',"<class '"+(args[0].t==='none'?'NoneType':args[0].t)+"'>");}
+    if(name==='str'||name==='bool'||name==='int'||name==='float'){
+      if(args.length>1)fail('TypeError','This model accepts one argument.');var v=args[0]||none;
+      if(name==='str')return V('str',args.length?text(v):'');if(name==='bool')return V('bool',truth(v));if(!args.length)return number(0,name==='float');
+      if(numeric(v))return number(name==='int'?Math.trunc(Number(v.v)):Number(v.v),name==='float');
+      if(v.t!=='str')fail('TypeError','A string or number is required.');var z=v.v.trim();if(name==='int'?!/^[+-]?\d+$/.test(z):!/^[-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?$/.test(z))fail('ValueError','Invalid numeric string.');return number(Number(z),name==='float');
     }
-
-    function pyStripComment(line) { var inStr = null; for (var i = 0; i < line.length; i++) { var c = line[i]; if (inStr) { if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; continue; } if (c === '#') return line.slice(0, i); } return line; }
-    function pyTopColon(s) { var depth = 0, inStr = null; for (var i = 0; i < s.length; i++) { var c = s[i]; if (inStr) { if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; continue; } if (c === '(' || c === '[') depth++; if (c === ')' || c === ']') depth--; if (c === ':' && depth === 0) return i; } return -1; }
-    function pyTopEq(s) { var depth = 0, inStr = null; for (var i = 0; i < s.length; i++) { var c = s[i]; if (inStr) { if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; continue; } if (c === '(' || c === '[') depth++; if (c === ')' || c === ']') depth--; if (c === '=' && depth === 0) { var pr = s[i - 1], nx = s[i + 1]; if (pr === '=' || pr === '>' || pr === '<' || pr === '!' || nx === '=') continue; return i; } } return -1; }
-    function pySplitStmts(code) { var out = [], depth = 0, inStr = null, cur = ''; for (var i = 0; i < code.length; i++) { var c = code[i]; if (inStr) { cur += c; if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; cur += c; continue; } if (c === '(' || c === '[') { depth++; cur += c; continue; } if (c === ')' || c === ']') { depth--; cur += c; continue; } if (c === ';' && depth === 0) { out.push(cur); cur = ''; continue; } cur += c; } if (cur.trim() !== '') out.push(cur); return out; }
-
-    var __funcs = {}, __curLine = 0;
-    function __execStatements(arr, env, out) {
-      var ret = { __isReturn: false, value: null };
-      var i = 0;
-      while (i < arr.length) {
-        var ln = arr[i];
-        __curLine = ln.line;
-        if (/^(if|elif|else)\b/.test(ln.code)) {
-          var bi = ln.indent, clauses = [];
-          while (i < arr.length) {
-            var cur = arr[i];
-            var cm = /^(if|elif|else)\b/.exec(cur.code);
-            if (!cm || cur.indent !== bi) break;
-            var colonIdx = pyTopColon(cur.code);
-            var condSrc = cm[1] === 'else' ? '' : cur.code.slice(cm[0].length, colonIdx).trim();
-            var tail = colonIdx >= 0 ? cur.code.slice(colonIdx + 1).trim() : '';
-            var body = [];
-            if (tail) body.push({ indent: bi + 1, code: tail, line: cur.line });
-            var j = i + 1;
-            while (j < arr.length && arr[j].indent > bi) { body.push(arr[j]); j++; }
-            clauses.push({ kw: cm[1], cond: condSrc, body: body });
-            i = j;
-            var nl = arr[i];
-            if (!(nl && /^(elif|else)\b/.test(nl.code) && nl.indent === bi)) break;
+    fail('NameError','Function is not available in this lesson model: '+name);
+  }
+  function binding(name){var frame=env;while(frame!==null){if(Object.prototype.hasOwnProperty.call(frame,name)){if(frame[name]===UNBOUND)fail('UnboundLocalError','Local variable has no value yet: '+name);return {found:true,value:frame[name]};}frame=Object.getPrototypeOf(frame);}return {found:false};}
+  function userCall(fn,args,kw){if(kw.length)fail('TypeError','Teaching model: user functions accept positional arguments only.');if(args.length!==fn.v.params.length)fail('TypeError','Function needs '+fn.v.params.length+' argument(s), got '+args.length+'.');if(callDepth>=40)fail('RecursionError','Teaching limit: at most 40 nested calls.');var saved=env;env=Object.create(fn.v.closure);fn.v.locals.forEach(function(name){env[name]=UNBOUND;});fn.v.params.forEach(function(name,i){env[name]=args[i];});callDepth++;try{run(fn.v.body);return none;}catch(r){if(r&&r.isReturn)return r.value;throw r;}finally{callDepth--;env=saved;}}
+  function evaluate(n){tick();
+    if(n.k==='lit')return n.v;if(n.k==='list')return V('list',n.a.map(evaluate));
+    if(n.k==='name'){if(n.v==='True')return V('bool',true);if(n.v==='False')return V('bool',false);if(n.v==='None')return none;var bound=binding(n.v);if(bound.found)return bound.value;fail('NameError','Name is not defined: '+n.v);}
+    if(n.k==='unary'){var v=evaluate(n.a);return n.op==='not'?V('bool',!truth(v)):number((n.op==='-'?-1:1)*asNumber(v),v.t==='float');}
+    if(n.k==='binary'){var a=evaluate(n.a);if(n.op==='and')return truth(a)?evaluate(n.b):a;if(n.op==='or')return truth(a)?a:evaluate(n.b);return calc(n.op,a,evaluate(n.b));}
+    if(n.k==='compare'){var a=evaluate(n.a);for(var j=0;j<n.ops.length;j++){var b=evaluate(n.rights[j]);if(!compare(n.ops[j],a,b))return V('bool',false);a=b;}return V('bool',true);}
+    if(n.k==='call'){var args=n.a.map(evaluate),kw=n.kw.map(function(k){return {name:k.name,value:evaluate(k.node)};});if(n.fn.k==='name'){var bound=binding(n.fn.v);if(bound.found){if(bound.value.t!=='function')fail('TypeError','This value is not callable.');return userCall(bound.value,args,kw);}return call(n.fn.v,args,kw);}if(n.fn.k==='member'){var obj=evaluate(n.fn.a),method=n.fn.name;if(obj.t==='list'){if(method!=='append')fail('AttributeError','Only append is supported for lists in this lesson model.');if(kw.length||args.length!==1)fail('TypeError','append() needs exactly one positional argument.');if(obj.v.length>=2000)fail('RuntimeError','Teaching limit: at most 2,000 list items.');function contains(v,target,depth){tick();if(depth>40)fail('RuntimeError','Teaching limit: list nesting is too deep.');return v===target||(v.t==='list'&&v.v.some(function(x){return contains(x,target,depth+1);}));}if(contains(args[0],obj,0))fail('RuntimeError','Teaching limit: recursive lists are not supported.');obj.v.push(args[0]);return none;}if(obj.t!=='str')fail('AttributeError','This value has no supported methods.');if(kw.length)fail('TypeError','No keyword arguments here.');if(method==='upper'&&args.length===0)return V('str',obj.v.toUpperCase());if(method==='lower'&&args.length===0)return V('str',obj.v.toLowerCase());if(method==='count'&&args.length===1&&args[0].t==='str'){var sub=args[0].v;return number(sub===''?obj.v.length+1:obj.v.split(sub).length-1,false);}fail('AttributeError','Method is not available in this model.');}fail('TypeError','This value is not callable.');}
+    if(n.k==='index'){var a=evaluate(n.a),values=a.t==='range'?a.v.items:a.v;if(a.t!=='str'&&a.t!=='list'&&a.t!=='range')fail('TypeError','This value cannot be indexed.');function idx(z,def){if(z===null)return def;var v=evaluate(z);if(v.t!=='int'&&v.t!=='bool')fail('TypeError','Index must be an integer.');var k=Number(v.v);return k<0?k+values.length:k;}var lo=idx(n.lo,0);if(n.slice){var hi=idx(n.hi,values.length);return V(a.t==='str'?'str':'list',values.slice(Math.max(0,lo),Math.max(0,hi)));}if(lo<0||lo>=values.length)fail('IndexError','Index is out of range.');return a.t==='str'?V('str',values[lo]):values[lo];}
+    fail('SyntaxError','Unsupported expression in this model.');
+  }
+  try{
+    src=String(src);if(src.length>50000)fail('RuntimeError','Teaching limit: source is too long.');Object.keys(seeds||{}).forEach(function(k){env[k]=V('str',String(seeds[k]));});
+    var lines=[],pending=null,brackets=[];src.split('\n').forEach(function(raw,i){lineNo=i+1;raw=raw.replace(/\r$/,'');var prefix=/^[ \t]*/.exec(raw)[0],indent=0;for(var k=0;k<prefix.length;k++)indent=prefix[k]==='\t'?indent+8-indent%8:indent+1;var ts=lex(raw.slice(prefix.length)).slice(0,-1);if(!ts.length)return;if(!pending)pending={indent:indent,ts:[],line:i+1};ts.forEach(function(t){if(t.v==='('||t.v==='[')brackets.push(t.v);if(t.v===')'||t.v===']'){var open=brackets.pop();if(open!==(t.v===')'?'(':'['))fail('SyntaxError','Mismatched brackets.');}pending.ts.push(t);});if(!brackets.length){pending.ts.push({k:'eof',v:''});lines.push(pending);pending=null;}});if(pending)fail('SyntaxError','Unclosed bracket.');if(lines.length>1000)fail('RuntimeError','Teaching limit: too many source lines.');
+    var cursor=0;
+    function eof(ts){return ts.concat([{k:'eof',v:''}]);}
+    function block(indent,depth,inFunction){if(depth>40)fail('RuntimeError','Teaching limit: nesting is too deep.');var nodes=[];
+      while(cursor<lines.length){var ln=lines[cursor];if(ln.indent<indent)break;lineNo=ln.line;if(ln.indent>indent)fail('IndentationError','Unexpected indentation.');var ts=ln.ts.slice(0,-1),word=ts[0].v;
+        if(word==='elif'||word==='else')break;
+        if(word==='def'){
+          if(ts.length<5||ts[1].k!=='id'||['True','False','None'].indexOf(ts[1].v)!==-1||ts[2].v!=='('||ts[ts.length-2].v!==')'||ts[ts.length-1].v!==':')fail('SyntaxError','Use def name(parameters): on its own line.');
+          var params=[],at=3,close=ts.length-2;while(at<close){if(ts[at].k!=='id'||['True','False','None'].indexOf(ts[at].v)!==-1||params.indexOf(ts[at].v)!==-1)fail('SyntaxError','Use distinct parameter names.');params.push(ts[at++].v);if(at<close){if(ts[at++].v!==',')fail('SyntaxError','This model supports simple positional parameters only.');}}
+          cursor++;if(cursor>=lines.length||lines[cursor].indent<=indent)fail('IndentationError','Expected an indented function body.');var fnBody=block(lines[cursor].indent,depth+1,true),locals=[];
+          function collect(nodes){nodes.forEach(function(n){if(n.k==='assign'||n.k==='for'||n.k==='def'){var localName=n.name;if(locals.indexOf(localName)===-1)locals.push(localName);}if(n.k==='for')collect(n.body);if(n.k==='if'){n.clauses.forEach(function(c){collect(c.body);});if(n.otherwise)collect(n.otherwise);}});}
+          collect(fnBody);nodes.push({k:'def',name:ts[1].v,params:params,body:fnBody,locals:locals,line:ln.line});
+        }else if(word==='return'){
+          if(!inFunction)fail('SyntaxError','return must be inside a function.');nodes.push({k:'return',value:ts.length===1?null:expression(eof(ts.slice(1))),line:ln.line});cursor++;
+        }else if(word==='if'||word==='for'){
+          function branchBody(header){lineNo=header.line;cursor++;if(cursor>=lines.length||lines[cursor].indent<=indent)fail('IndentationError','Expected an indented block after the colon.');return block(lines[cursor].indent,depth+1,inFunction);}
+          function headerExpr(t,start){if(t[t.length-1].v!==':')fail('SyntaxError','Expected a colon and a new indented line.');return expression(eof(t.slice(start,-1)));}
+          if(word==='for'){if(ts.length<5||ts[1].k!=='id'||['True','False','None'].indexOf(ts[1].v)!==-1||ts[2].v!=='in')fail('SyntaxError','Use for variable in range(...):');var iter=headerExpr(ts,3),name=ts[1].v,body=branchBody(ln);nodes.push({k:'for',name:name,iter:iter,body:body,line:ln.line});}
+          else{var clauses=[{test:headerExpr(ts,1),body:branchBody(ln),line:ln.line}],otherwise=null;
+            while(cursor<lines.length&&lines[cursor].indent===indent){var next=lines[cursor],t=next.ts.slice(0,-1);lineNo=next.line;if(t[0].v==='elif'){var cond=headerExpr(t,1);clauses.push({test:cond,body:branchBody(next),line:next.line});}else if(t[0].v==='else'){if(t.length!==2||t[1].v!==':')fail('SyntaxError','Use else: without a condition.');otherwise=branchBody(next);break;}else break;}
+            nodes.push({k:'if',clauses:clauses,otherwise:otherwise,line:ln.line});
           }
-          var matched = false;
-          for (var c = 0; c < clauses.length; c++) {
-            var cl = clauses[c];
-            var runIt;
-            if (cl.kw === 'else') runIt = !matched;
-            else { runIt = !matched && truthy(pyParse(cl.cond, env, out).parseResult()); if (runIt) matched = true; }
-            if (runIt) { var rr = __execStatements(cl.body, env, out); if (rr.__isReturn) return rr; }
-          }
-        } else if (/^for\b/.test(ln.code)) {
-          var fm = /^for\s+([A-Za-z_][A-Za-z0-9_]*)\s+in\s+(.+)$/.exec(ln.code.replace(/\s*:\s*$/, ''));
-          var body2 = [];
-          var j2 = i + 1;
-          while (j2 < arr.length && arr[j2].indent > ln.indent) { body2.push(arr[j2]); j2++; }
-          var iter = pyParse(fm[2], env, out).parseResult();
-          var vals2;
-          if (iter.t === 'list') vals2 = iter.v;
-          else if (iter.t === 'str') vals2 = iter.v.split('');
-          else throw pErr("TypeError: '" + ptype(iter) + "' object is not iterable");
-          for (var k = 0; k < vals2.length; k++) { env[fm[1]] = vals2[k]; var r2 = __execStatements(body2, env, out); if (r2.__isReturn) return r2; }
-          i = j2;
-        } else if (/^def\b/.test(ln.code)) {
-          var dm = /^def\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(([^)]*)\)\s*:/.exec(ln.code);
-          var params = (dm[2] || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
-          var fbody = [];
-          var j3 = i + 1;
-          while (j3 < arr.length && arr[j3].indent > ln.indent) { fbody.push(arr[j3]); j3++; }
-          __funcs[dm[1]] = { params: params, body: fbody };
-          i = j3;
-        } else if (/^return\b/.test(ln.code)) {
-          var rv = ln.code.replace(/^return\b/, '').trim();
-          return { __isReturn: true, value: rv === '' ? PNone : pyParse(rv, env, out).parseResult() };
-        } else {
-          pySplitStmts(ln.code).forEach(function (st) {
-            var eq = pyTopEq(st);
-            if (eq > 0) {
-              var name = st.slice(0, eq).trim();
-              var rhs = st.slice(eq + 1).trim();
-              if (/^[A-Za-z_][A-Za-z0-9_]*$/.test(name)) { env[name] = pyParse(rhs, env, out).parseResult(); return; }
-            }
-            pyParse(st, env, out).parseResult();
-          });
-          i++;
+        }else{
+          var parts=[],part=[],depthCount=0;ts.forEach(function(t){if(t.v==='('||t.v==='[')depthCount++;if(t.v===')'||t.v===']')depthCount--;if(t.v===';'&&depthCount===0){parts.push(part);part=[];}else part.push(t);});if(part.length)parts.push(part);
+          parts.forEach(function(t){lineNo=ln.line;if(t.length===0)fail('SyntaxError','Empty statement.');var eq=-1,assignDepth=0;t.forEach(function(x,j){if(x.v==='('||x.v==='[')assignDepth++;if(x.v===')'||x.v===']')assignDepth--;if(x.v==='='&&assignDepth===0&&eq===-1)eq=j;});if(eq!==-1){if(eq!==1||t[0].k!=='id'||['True','False','None'].indexOf(t[0].v)!==-1)fail('SyntaxError','Use a single variable on the left of =.');nodes.push({k:'assign',name:t[0].v,value:expression(eof(t.slice(2))),line:ln.line});}else nodes.push({k:'expr',value:expression(eof(t)),line:ln.line});});cursor++;
         }
-      }
-      return ret;
+      }return nodes;
     }
-    function pyRun(src, inputs, seeds) {
-      var env = {}, curLine = 0;
-      for (var s in seeds) env[s] = PStr(seeds[s]);
-      var out = { buf: '', inQ: (inputs || []).slice() };
-      __curLine = 0;
-      __funcs = {};
-      try {
-        var raw = src.split('\n'), lines = [], pending = '';
-        for (var r = 0; r < raw.length; r++) {
-          var line = raw[r].replace(/\r$/, '');
-          var stripped = pyStripComment(line);
-          var indentMatch = /^[ \t]*/.exec(line)[0];
-          var indent = indentMatch.replace(/\t/g, '    ').length;
-          if (/\\\s*$/.test(stripped)) { pending += stripped.replace(/\\\s*$/, '').replace(/^[ \t]*/, '') + ' '; continue; }
-          var code = (pending + stripped).trim(); pending = '';
-          if (code === '') continue;
-          lines.push({ indent: indent, code: code, line: r + 1 });
-        }
-        if (pending.trim() !== '') lines.push({ indent: 0, code: pending.trim(), line: raw.length });
-        __execStatements(lines, env, out);
-        var text = out.buf;
-        if (text.slice(-1) === '\n') text = text.slice(0, -1);
-        return { out: (text === '' ? [] : text.split('\n')), err: null };
-      } catch (e) {
-        var msg = e && e.msg ? e.msg : String(e && e.message || e);
-        return { out: [], err: { line: __curLine, msg: msg } };
-      }
-    }
-    window.pyRun = pyRun;
-
+    var tree=block(0,0,false);if(cursor!==lines.length){lineNo=lines[cursor].line;fail('SyntaxError','elif or else has no matching if, or is out of order.');}
+    function run(nodes){nodes.forEach(function(n){tick();lineNo=n.line;if(n.k==='def')env[n.name]=V('function',{params:n.params,body:n.body,locals:n.locals,closure:env});else if(n.k==='return')throw {isReturn:true,value:n.value?evaluate(n.value):none};else if(n.k==='assign')env[n.name]=evaluate(n.value);else if(n.k==='expr')evaluate(n.value);else if(n.k==='if'){var matched=false;for(var j=0;j<n.clauses.length;j++){lineNo=n.clauses[j].line;if(truth(evaluate(n.clauses[j].test))){run(n.clauses[j].body);matched=true;break;}}if(!matched&&n.otherwise)run(n.otherwise);}else if(n.k==='for'){var v=evaluate(n.iter),items;if(v.t==='range')items=v.v.items;else if(v.t==='list')items=v.v;else if(v.t==='str')items=v.v.split('').map(function(x){return V('str',x);});else fail('TypeError','This value is not iterable.');for(var loopIndex=0;loopIndex<items.length;loopIndex++){tick();env[n.name]=items[loopIndex];run(n.body);}}});}
+    run(tree);if(output.endsWith('\n'))output=output.slice(0,-1);return {out:output===''?[]:output.split('\n'),err:null};
+  }catch(e){return {out:[],err:{line:lineNo,msg:(e.kind||'SyntaxError')+': '+e.message}};}
+}
+window.pyRun=pyRun;
     /* ---------- editor wiring ---------- */
     function wireEditors() {
       function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -2951,7 +2682,7 @@ judge(40)</textarea>
             });
             term.innerHTML = ''; errBox.innerHTML = ''; term.style.display = 'none'; errBox.style.display = 'none';
             var res = window.pyRun ? pyRun(code, inputs, seeds) : null;
-            if (res && res.err) { errBox.appendChild(friendlyErr(res.err, code)); errBox.style.display = 'block'; }
+            panel._lastError=res&&res.err?{error:res.err,code:code}:null;if (res && res.err) { errBox.appendChild(friendlyErr(res.err, code)); errBox.style.display = 'block'; }
             else if (res && res.out && res.out.length) {
               res.out.forEach(function (l) { var d = document.createElement('div'); d.className = 'out-line'; d.textContent = l; term.appendChild(d); });
               term.style.display = 'block';
@@ -2965,6 +2696,7 @@ judge(40)</textarea>
         }
         grow();
       });
+      document.addEventListener('langChange',function(){document.querySelectorAll('.code-panel').forEach(function(panel){if(panel._lastError){var box=panel.querySelector('.py-err');box.textContent='';box.appendChild(friendlyErr(panel._lastError.error,panel._lastError.code));}});});
       function friendlyErr(er, codeSrc) {
         var lineN = er && er.line ? er.line : 1;
         function lineSrc(n) { if (n < 1) return ''; var l = (codeSrc || '').split('\n'); return (n - 1 < l.length) ? l[n - 1].trim() : ''; }
@@ -2976,7 +2708,11 @@ judge(40)</textarea>
           TypeError: 'نوع القيمة مش صح للعملية دي — مثلاً مينفعش تجمع نص مع رقم',
           ValueError: 'القيمة مش قابلة للتحويل للنوع المطلوب',
           ZeroDivisionError: 'مينفعش تقسم على صفر',
-          IndexError: 'المؤشر برّه حدود النص — الترقيم بيبدأ من صفر',
+          IndexError: 'الفهرس خارج حدود القائمة أو النص. أول فهرس 0، والسالب يبدأ من الآخر.',
+          IndentationError: 'راجع المسافات البادئة: جسم الحلقة أو الشرط لازم يكون داخل الكتلة.',
+          UnboundLocalError: 'المتغير المحلي اتقري قبل ما ياخد قيمة.',
+          RecursionError: 'وصلت لحد عمق الاستدعاءات في النموذج.',
+          RuntimeError: 'وصلت لحد النموذج التعليمي. صغّر حجم المثال أو عدد الخطوات.',
           AttributeError: 'الخاصية أو الميثود دي مش موجودة على القيمة',
           SyntaxError: 'فيه غلطة في الصياغة — راجع الأقواس أو علامات التنصيص'
         };
@@ -2985,7 +2721,11 @@ judge(40)</textarea>
           TypeError: 'The type of the value is wrong for this operation — e.g. you can\'t add text and a number',
           ValueError: 'The value cannot be converted to the required type',
           ZeroDivisionError: 'You cannot divide by zero',
-          IndexError: 'The index is out of range — the numbering starts from zero',
+          IndexError: 'The index is outside the list or string. The first index is 0; negative indices count from the end.',
+          IndentationError: 'Check indentation: the loop or condition body must be indented.',
+          UnboundLocalError: 'A local variable was read before receiving a value.',
+          RecursionError: 'Teaching-model call-depth limit reached.',
+          RuntimeError: 'Teaching-model limit reached. Reduce the example size or number of steps.',
           AttributeError: 'This property or method doesn\'t exist on the value',
           SyntaxError: 'There is a syntax error — check the parentheses or the quotation marks'
         };
@@ -2995,7 +2735,7 @@ judge(40)</textarea>
         var tag = document.createElement('div'); tag.className = 'errtag';
         var badge = document.createElement('span'); badge.className = 'errbadge'; badge.textContent = kind;
         tag.appendChild(badge); frag.appendChild(tag);
-        var main = document.createElement('div'); main.className = 'errmain'; main.textContent = hints[kind] || detail || msgTxt; frag.appendChild(main);
+        var main = document.createElement('div'); main.className = 'errmain'; main.textContent = /Teaching limit:/.test(detail)?(window.currentLang==='en'?'Teaching-model limit reached. Reduce the example size.':'وصلت لحد النموذج التعليمي. صغّر المثال.'):(hints[kind] || detail || msgTxt); frag.appendChild(main);
         var ctx = document.createElement('div'); ctx.className = 'errctx'; ctx.textContent = locTxt + lineN; frag.appendChild(ctx);
         var srcTxt = lineSrc(lineN);
         if (srcTxt) { var lr = document.createElement('div'); lr.className = 'errline'; var spn = document.createElement('span'); spn.className = 'ln'; spn.textContent = lineN; lr.appendChild(spn); lr.appendChild(document.createTextNode(srcTxt)); frag.appendChild(lr); }
@@ -3080,39 +2820,29 @@ judge(40)</textarea>
     }
     document.addEventListener('langChange', decorateOpts);
   
-    /* ---------- glossary ---------- */
-    (function () {
-      var search = document.getElementById('glossarySearch');
-      if (!search) return; /* 'glossarySearch' removed by design - skip safely */
-      if (!search) return;
-      var filters = document.querySelectorAll('.gl-filter');
-      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
-      var activeFilter = 'all';
-
-      function applyFilters() {
-        var q = search.value.trim().toLowerCase();
-        terms.forEach(function (t) {
-          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
-          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
-          t.classList.toggle('hidden', !(catOk && textOk));
-        });
-      }
-
-      filters.forEach(function (f) {
-        f.addEventListener('click', function () {
-          filters.forEach(function (x) { x.classList.remove('active'); });
-          f.classList.add('active');
-          activeFilter = f.getAttribute('data-filter');
-          applyFilters();
-        });
-      });
-
-      search.addEventListener('input', applyFilters);
-
-      document.addEventListener('langChange', function () {
-        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
-      });
-    })();
+    document.addEventListener('DOMContentLoaded',function(){
+      function el(id){return document.getElementById(id);}
+      var stage=0,invalid=false,k=0,pick=null;
+      var phases=[
+        ['0 / 5: لسه التعريف متنفّذش. مفيش خرج.','0 / 5: Definition not executed yet. No output.'],
+        ['1 / 5: def سجّل تعريف الدالة. الجسم لسه متنفّذش.','1 / 5: def registers the function. Its body has not run.'],
+        ['2 / 5: الاستدعاء بيبعت قيمة الوسيطة لاسم الاستقبال x.','2 / 5: The call passes its argument to parameter x.'],
+        ['3 / 5: جسم الدالة حسب y = 2 * x.','3 / 5: The function body computes y = 2 * x.'],
+        ['4 / 5: الدالة خلصت ورجّعت قيمة للمنادي.','4 / 5: The function has finished and returned to its caller.'],
+        ['5 / 5: print الخارجية عرضت القيمة الراجعة.','5 / 5: The outer print displays the returned value.']
+      ];
+      var kinds=[['print(5)','builtin'],['len([1, 2])','builtin'],['int("5")','builtin'],['def circle(r):\n    return r * r * 3.14\n\ncircle(5)','user'],['def area(base, height):\n    return base * height / 2\n\narea(10, 5)','user']];
+      function arg(){var raw=el('fn-arg').value,n=Number(raw);return raw.trim()!==''&&Number.isSafeInteger(n)&&Math.abs(n)<=1000000?n:null;}
+      function pan(){document.querySelectorAll('.textbook-code,.py-edit,.table-pan').forEach(function(c){var cue=c.previousElementSibling;if(!cue||!cue.classList.contains('pan-cue')){cue=document.createElement('p');cue.className='pan-cue';c.before(cue);}cue.textContent=c.classList.contains('table-pan')?tr('اسحب الجدول أفقيًا لقراءة الشرط كامل.','Pan the table horizontally to read each full condition.'):tr('اسحب الكود أفقيًا لقراءة السطر كامل.','Pan code horizontally to read the full line.');cue.classList.toggle('visible',c.scrollWidth>c.clientWidth+2);});}
+      function paint(){paintSelfChecks();var a=arg(),mode=el('fn-mode').value,y=a===null?'?':a*2,ret=mode==='return'?String(y):'None';el('fn-definition').textContent='def function(x):\n    y = 2 * x\n    '+(mode==='return'?'return y':'print(y)');el('fn-call').textContent='print(function('+(a===null?'?':a)+'))'+(stage>=2?'\n# argument '+a+' → parameter x':'')+(stage>=3?'\n# local y = '+y:'');var stageBox=el('fn-stage');stageBox.textContent='';if(invalid)stageBox.textContent=tr('استخدم عددًا صحيحًا من -1000000 إلى1000000.','Use an integer from -1000000 to1000000.');else{var counter=document.createElement('bdi');counter.dir='ltr';counter.textContent=stage+' / 5';stageBox.appendChild(counter);stageBox.appendChild(document.createTextNode(': '+tr(phases[stage][0],phases[stage][1]).replace(/^\d+\s*\/\s*5:\s*/,'')));}el('fn-return').dir=stage>=4?'ltr':(window.currentLang==='ar'?'rtl':'ltr');el('fn-return').textContent=stage>=4?ret:tr('لسه مفيش قيمة راجعة.','No returned value yet.');var lines=[];if(mode==='print'&&stage>=4)lines.push(String(y));if(stage>=5)lines.push(ret);el('fn-output').dir=lines.length?'ltr':(window.currentLang==='ar'?'rtl':'ltr');el('fn-output').textContent=lines.length?lines.join('\n'):tr('مفيش خرج مطبوع.','No printed output.');el('fn-next').disabled=stage>=5;
+        var prediction=el('fn-prediction').value.trim(),fb=el('fn-feedback');fb.textContent=stage<5?'':prediction===''?tr('قارن القيمة الراجعة بالخرج. print(y) ترجع None بعد طباعة y.','Compare the returned value with output. print(y) returns None after displaying y.'):(prediction===ret?tr('صح! القيمة الراجعة مطابقة.','Correct! The return value matches.'):tr('راجع قيمة الإرجاع، مش بس النص المطبوع.','Check the return value, not only the printed text.'));
+        el('kind-target').textContent=kinds[k][0];el('kind-feedback').textContent=pick===null?'':pick===kinds[k][1]?tr('صح! راجع وجود def لتعريف دالة المستخدم.','Correct! Look for def defining a user function.'):tr('راجع التعريف: print وlen وint مدمجة، وcircle وarea متعرفة بـ def هنا.','Check the definition: print, len and int are built-in; circle and area are defined with def here.');pan();}
+      el('fn-next').addEventListener('click',function(){if(arg()===null){invalid=true;paint();return;}invalid=false;if(stage<5)stage++;paint();});
+      ['fn-arg','fn-mode'].forEach(function(id){el(id).addEventListener(id==='fn-mode'?'change':'input',function(){stage=0;invalid=false;paint();});});el('fn-prediction').addEventListener('input',paint);el('fn-reset').addEventListener('click',function(){stage=0;invalid=false;el('fn-arg').value='5';el('fn-mode').value='return';el('fn-prediction').value='';paint();});
+      document.querySelectorAll('[data-kind]').forEach(function(b){b.addEventListener('click',function(){pick=b.dataset.kind;paint();});});el('kind-next').addEventListener('click',function(){k=(k+1)%kinds.length;pick=null;paint();});
+      el('glossarySearch').addEventListener('input',function(){var q=this.value.trim().toLocaleLowerCase();document.querySelectorAll('.gl-term[data-search]').forEach(function(t){t.classList.toggle('hidden',!t.dataset.search.toLocaleLowerCase().includes(q));});});
+      document.querySelectorAll('.py-edit').forEach(function(t){t.setAttribute('wrap','off');t.addEventListener('input',pan);});document.querySelectorAll('[data-self-check],.py-ctl button').forEach(function(b){b.addEventListener('click',function(){setTimeout(pan,0);});});document.addEventListener('langChange',function(){paint();document.querySelectorAll('.rq.done .rq-fb.show').forEach(function(f){var q=f.closest('.rq'),picked=q._selected,state=q._feedback;if(picked&&state)f.textContent=(state.ok?'✅ ':'❌ ')+(state.key?tr('الإجابة الصحيحة ','The correct answer is ')+state.key+'. ':'')+rqFb(picked);});});window.addEventListener('resize',pan);paint();setTimeout(pan,100);
+    });
   </script>
 </body>
 
