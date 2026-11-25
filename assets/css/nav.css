@@ -1,0 +1,115 @@
+/* Shared site header (slide-in nav, links, language toggle). One source for every page. */
+/* ---------- nav ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 39, .95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(25, 60, 255, .3);
+      transform: translateY(-100%);
+      transition: transform .35s ease
+    }
+
+    nav.show {
+      transform: translateY(0)
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 24px
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+      flex-shrink: 0
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+      flex: 1;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none
+    }
+
+    .nav-links a {
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid transparent;
+      border-radius: 25px;
+      padding: 6px 16px;
+      font-size: .82rem;
+      font-weight: 600;
+      transition: .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(25, 60, 255, .2);
+      border-color: var(--primary)
+    }
+
+    .lang-toggle {
+      background: rgba(25, 60, 255, .15);
+      border: 1px solid rgba(25, 60, 255, .35);
+      color: var(--text);
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .lang-toggle:hover {
+      background: rgba(25, 60, 255, .25);
+      border-color: var(--primary);
+    }
+
+    .nav-links a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 25px
+    }
+
+    button.lang-toggle { font-family: inherit; line-height: inherit; }
+    .lang-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    /* Keep the logo and language switch fixed while mobile links swipe. */
+    @media (max-width: 640px) {
+      .nav-inner { gap: 8px; padding: 10px 12px; }
+      .nav-inner > a, .lang-toggle { flex-shrink: 0; }
+      .nav-links {
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(130, 150, 210, .55) transparent;
+        padding-bottom: 5px;
+      }
+      .nav-links::-webkit-scrollbar { display: block; height: 3px; }
+      .nav-links::-webkit-scrollbar-thumb {
+        background: rgba(130, 150, 210, .55);
+        border-radius: 3px;
+      }
+      .nav-links a { padding: 6px 12px; }
+    }

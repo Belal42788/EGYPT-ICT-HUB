@@ -1,0 +1,43 @@
+/* Preparatory year pages: lesson cards. Variant is chosen by a body class. */
+.prep-year .lesson-link { align-items: center; }
+.prep-year .lesson-link .lt { min-width: 0; }
+/* Variant A (user idea): two cards per row, equal height */
+.prep-year.v-two .lesson-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.prep-year.v-two .lesson-link { min-height: 88px; }
+@media (max-width: 640px) { .prep-year.v-two .lesson-list { grid-template-columns: minmax(0, 1fr); } }
+/* Variant B (proposal): one full-width row per lesson, Arabic title and English title on one line */
+.prep-year.v-rows .lesson-list { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.prep-year.v-rows .lesson-link { min-height: 56px; }
+.prep-year.v-rows .lesson-link .lt { flex: 1; display: flex; flex-direction: row; align-items: baseline; justify-content: space-between; gap: 20px; }
+.prep-year.v-rows .lesson-link .lt-main { text-align: right; }
+.prep-year.v-rows .lesson-link .lt-sub { text-align: left; direction: ltr; color: var(--dim); font-size: .8rem; }
+@media (max-width: 700px) { .prep-year.v-rows .lesson-link .lt { flex-direction: column; align-items: flex-start; gap: 0; } .prep-year.v-rows .lesson-link .lt-sub { direction: ltr; text-align: right; align-self: stretch; } }
+/* Arabic-only titles (English shows only after switching language) */
+.prep-year .lt-sub { display: none !important; }
+.prep-year .lesson-link .lt-main { text-align: start; }
+/* Variant C: three cards per row, code on top, title centered */
+.prep-year.v-three .lesson-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.prep-year.v-three .lesson-link { flex-direction: column; justify-content: center; text-align: center; gap: 8px; min-height: 104px; padding: 16px 12px; }
+.prep-year.v-three .lesson-link .lt-main { text-align: center; }
+@media (max-width: 900px) { .prep-year.v-three .lesson-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .prep-year.v-three .lesson-list { grid-template-columns: minmax(0, 1fr); } .prep-year.v-three .lesson-link { flex-direction: row; text-align: start; min-height: 56px; } .prep-year.v-three .lesson-link .lt-main { text-align: start; } }
+/* rows: arrow at the far end instead of English */
+.prep-year.v-rows .lesson-link { justify-content: flex-start; }
+.prep-year.v-rows .lesson-link::after { content: "\2039"; margin-inline-start: auto; color: var(--primary); font-size: 1.6rem; line-height: 1; }
+/* More two-per-row variants (A stays as is) */
+/* A2: A + arrow at the far end */
+.prep-year.v-two-arrow .lesson-list, .prep-year.v-two-center .lesson-list, .prep-year.v-two-open .lesson-list, .prep-year.v-two-bar .lesson-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.prep-year.v-two-arrow .lesson-link { min-height: 72px; }
+.prep-year.v-two-arrow .lesson-link::after { content: "\2039"; margin-inline-start: auto; color: var(--primary); font-size: 1.6rem; line-height: 1; }
+/* A3: A + "open lesson" label like the original */
+.prep-year.v-two-open .lesson-link { min-height: 72px; }
+.prep-year.v-two-open .lesson-link::after { content: "افتح الدرس \2039"; margin-inline-start: auto; color: var(--primary); font-size: .8rem; font-weight: 700; white-space: nowrap; }
+html[lang="en"] .prep-year.v-two-open .lesson-link::after { content: "Open lesson \203A"; }
+/* A4: centered, taller cards, code above title */
+.prep-year.v-two-center .lesson-link { flex-direction: column; justify-content: center; text-align: center; gap: 8px; min-height: 96px; padding: 16px 14px; }
+.prep-year.v-two-center .lesson-link .lt-main { text-align: center; }
+/* A5: blue accent bar on the start side, bigger title, arrow */
+.prep-year.v-two-bar .lesson-link { min-height: 80px; border-inline-start: 4px solid var(--primary); }
+.prep-year.v-two-bar .lesson-link .lt-main { font-size: 1.05rem; }
+.prep-year.v-two-bar .lesson-link::after { content: "\2039"; margin-inline-start: auto; color: var(--primary); font-size: 1.6rem; line-height: 1; }
+@media (max-width: 640px) { .prep-year.v-two-arrow .lesson-list, .prep-year.v-two-center .lesson-list, .prep-year.v-two-open .lesson-list, .prep-year.v-two-bar .lesson-list { grid-template-columns: minmax(0, 1fr); } .prep-year.v-two-center .lesson-link { flex-direction: row; text-align: start; min-height: 60px; } .prep-year.v-two-center .lesson-link .lt-main { text-align: start; } }
