@@ -11,938 +11,937 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 8-3 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
   <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1: #1838f8;
-      --s2: #9a6a00;
-      --s3: #1838f8;
-      --s4: #10B981;
-      --s5: #1838f8;
-      --s6: #d7263d}*{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
+      --s1:#1838f8;
+      --s2:#9a6a00;
+      --s3:#1838f8;
+      --s4:#10B981;
+      --s5:#1838f8;
+      --s6:#d7263d}*{
+      margin:0;
+      padding:0;
+      box-sizing:border-box
     }html{
-      scroll-behavior: smooth
+      scroll-behavior:smooth
     }body{
-      font-family: 'Cairo', 'Cairo', sans-serif;
-      background: var(--bg);
-      color: var(--dim);
-      line-height: 1.9;
-      overflow-x: hidden
+      font-family:'Cairo', 'Cairo', sans-serif;
+      background:var(--bg);
+      color:var(--dim);
+      line-height:1.9;
+      overflow-x:hidden
     }.bg-gradient{
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      background:radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
         radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
-      animation: bgDrift 18s ease-in-out infinite;
+      animation:bgDrift 18s ease-in-out infinite;
     }@keyframes bgDrift{
 
       0%,
       100% {
-        transform: translate(0, 0) scale(1)
+        transform:translate(0, 0) scale(1)
       }
 
       50% {
-        transform: translate(-30px, 20px) scale(1.08)
+        transform:translate(-30px, 20px) scale(1.08)
       }
     }.particles{
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none
     }.particles i{
-      position: absolute;
-      bottom: -10px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--primary);
-      opacity: .3;
-      animation: floatUp 14s linear infinite
+      position:absolute;
+      bottom:-10px;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:var(--primary);
+      opacity:.3;
+      animation:floatUp 14s linear infinite
     }@keyframes floatUp{
       0% {
-        transform: translateY(0);
-        opacity: 0
+        transform:translateY(0);
+        opacity:0
       }
 
       10% {
-        opacity: .3
+        opacity:.3
       }
 
       100% {
-        transform: translateY(-110vh);
-        opacity: 0
+        transform:translateY(-110vh);
+        opacity:0
       }
     }@keyframes heroFloat{
 
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
 
       50% {
-        transform: translateY(-26px)
+        transform:translateY(-26px)
       }
     }@keyframes fadeUp{
       from {
-        opacity: 0;
-        transform: translateY(40px)
+        opacity:0;
+        transform:translateY(40px)
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity:1;
+        transform:translateY(0)
       }
     }main{
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 0 24px
+      max-width:1060px;
+      margin:0 auto;
+      padding:0 24px
     }section{
-      padding: 38px 0
+      padding:38px 0
     }.section-header{
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 16px
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:16px
     }.section-number{
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 18px;
-      color: var(--bg);
-      animation: glow 3s ease-in-out infinite
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:18px;
+      color:var(--bg);
+      animation:glow 3s ease-in-out infinite
     }@keyframes glow{
 
       0%,
       100% {
-        box-shadow: 0 0 20px rgba(25, 60, 255, .25)
+        box-shadow:0 0 20px rgba(25, 60, 255, .25)
       }
 
       50% {
-        box-shadow: 0 0 42px rgba(25, 60, 255, .6)
+        box-shadow:0 0 42px rgba(25, 60, 255, .6)
       }
     }.section-header h2{
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.3
+      font-size:clamp(22px, 4vw, 34px);
+      font-weight:800;
+      color:var(--text);
+      line-height:1.3
     }.section-header .tag{
-      font-size: .9rem
+      font-size:.9rem
     }.section-inner{
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all .6s cubic-bezier(.4, 0, .2, 1)
+      opacity:0;
+      transform:translateY(30px);
+      transition:all .6s cubic-bezier(.4, 0, .2, 1)
     }.section-inner.visible{
-      opacity: 1;
-      transform: translateY(0)
-    }@keyframes autoReveal{ from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }.section-inner{ animation: autoReveal .7s ease-out both; }.section-inner.visible{ animation: none; opacity: 1; transform: translateY(0); }.section-inner+.section-inner{
-      margin-top: 16px
+      opacity:1;
+      transform:translateY(0)
+    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
+      margin-top:16px
     }.card{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 24px;
-      padding: 18px;
-      transition: .3s
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      border-radius:24px;
+      padding:18px;
+      transition:.3s
     }.card:hover{
       background: var(--card-hover);
-      transform: translateY(-5px);
-      border-color: rgba(25, 60, 255, .3)
+      transform:translateY(-5px);
+      border-color:rgba(25, 60, 255, .3)
     }.diagram-wrap{
-      position: relative;
-      border-radius: 24px;
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      overflow: hidden
+      position:relative;
+      border-radius:24px;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      overflow:hidden
     }.diagram-wrap .topbar{
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent))
+      height:3px;
+      background:linear-gradient(90deg, var(--primary), var(--accent))
     }.diagram-wrap .inner{
-      padding: 16px
+      padding:16px
     }h3{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      line-height: 1.4
+      color:var(--text);
+      font-weight:800;
+      font-size:1.25rem;
+      margin-bottom:12px;
+      line-height:1.4
     }p{
-      margin-bottom: 12px
+      margin-bottom:12px
     }b,
     strong{
-      color: var(--text)
+      color:var(--text)
     }.note{
-      background: rgba(255, 215, 0, .06);
-      border: 1px solid rgba(255, 215, 0, .25);
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-top: 14px;
-      font-size: .95rem
+      background:rgba(255, 215, 0, .06);
+      border:1px solid rgba(255, 215, 0, .25);
+      border-radius:12px;
+      padding:14px 16px;
+      margin-top:14px;
+      font-size:.95rem
     }.note b{
-      color: var(--warn)
+      color:var(--warn)
     }.glossary-search{
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: var(--card);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 15px;
-      color-scheme: dark;
-      margin: 14px 0;
+      width:100%;
+      padding:12px 18px;
+      border-radius:50px;
+      border:1px solid rgba(255, 255, 255, 0.15);
+      background:var(--card);
+      color:var(--text);
+      font-family:inherit;
+      font-size:15px;
+      color-scheme:dark;
+      margin:14px 0;
     }.glossary-search:focus{
       outline: none;
-      border-color: var(--primary);
+      border-color:var(--primary);
     }.glossary-filters{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
     }.gl-filter{
-      padding: 6px 16px;
+      padding:6px 16px;
     }.gl-filter.active{
-      background: rgba(6, 182, 212 , 0.2);
-      border-color: var(--s3);
-      color: var(--text);
+      background:rgba(6, 182, 212 , 0.2);
+      border-color:var(--s3);
+      color:var(--text);
     }.glossary-list{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }@media (max-width: 860px){.glossary-list{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }@media (max-width:860px){.glossary-list{
         grid-template-columns: 1fr;
       }
     }.gl-term{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 16px;
-      transition: all 0.3s ease;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, 0.08);
+      border-radius:16px;
+      padding:16px;
+      transition:all 0.3s ease;
     }.gl-term:hover{
       background: var(--card-hover);
-      border-color: var(--s3);
+      border-color:var(--s3);
     }.gl-term h4{
-      font-size: 15px;
-      margin-bottom: 6px;
-      color: var(--s3);
+      font-size:15px;
+      margin-bottom:6px;
+      color:var(--s3);
     }.gl-term p{
-      font-size: 13px;
-      margin-bottom: 0;
+      font-size:13px;
+      margin-bottom:0;
     }.gl-term.hidden{
-      display: none;
+      display:none;
     }.error-box{
-      border: 1px solid rgba(255, 71, 87, .2);
-      background: rgba(255, 71, 87, .05);
-      border-radius: 12px;
-      padding: 16px;
-      margin-top: 6px
+      border:1px solid rgba(255, 71, 87, .2);
+      background:rgba(255, 71, 87, .05);
+      border-radius:12px;
+      padding:16px;
+      margin-top:6px
     }.error-box h4,
     .error-box h3{
-      color: var(--danger);
-      font-weight: 800;
-      margin-bottom: 10px;
-      font-size: 1rem
+      color:var(--danger);
+      font-weight:800;
+      margin-bottom:10px;
+      font-size:1rem
     }.error-box ul{
-      list-style: none
+      list-style:none
     }.error-box li{
-      padding: 4px 0;
-      position: relative;
-      padding-right: 26px
+      padding:4px 0;
+      position:relative;
+      padding-right:26px
     }.error-box li::before{
       content: "⚠️";
-      position: absolute;
-      right: 0;
-      top: 2px;
-      font-size: .95rem
+      position:absolute;
+      right:0;
+      top:2px;
+      font-size:.95rem
     }.error-box li b{
-      color: var(--danger)
+      color:var(--danger)
     }.legend{
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 14px;
-      font-size: .85rem
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:14px;
+      font-size:.85rem
     }.legend span{
-      display: inline-flex;
-      align-items: center;
-      gap: 7px
+      display:inline-flex;
+      align-items:center;
+      gap:7px
     }.legend i{
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-      display: inline-block
+      width:14px;
+      height:14px;
+      border-radius:4px;
+      display:inline-block
     }.concept-block{
-      border-top: 3px solid var(--c);
-      padding-top: 30px;
-      margin-top: 14px
+      border-top:3px solid var(--c);
+      padding-top:30px;
+      margin-top:14px
     }.concept-block:first-of-type{
       margin-top: 0
     }.concept-head{
-      display: flex;
-      align-items: center;
-      gap: 14px
+      display:flex;
+      align-items:center;
+      gap:14px
     }.concept-title{
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.4
+      font-size:1.35rem;
+      font-weight:800;
+      color:var(--text);
+      line-height:1.4
     }.concept-head .tag{
-      font-size: .88rem
+      font-size:.88rem
     }.activity-grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px
     }@media(max-width:860px){.activity-grid{
         grid-template-columns: 1fr
       }
     }.activity-grid .demo-panel{
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 20px;
-      background: rgba(255, 255, 255, .03);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, .06)
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      padding:20px;
+      background:rgba(255, 255, 255, .03);
+      border-radius:16px;
+      border:1px solid rgba(255, 255, 255, .06)
     }.demo-label{
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--dim);
-      margin-bottom: 6px;
-      display: block
+      font-size:.82rem;
+      font-weight:700;
+      color:var(--dim);
+      margin-bottom:6px;
+      display:block
     }.todo-item{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 12px 16px;
-      margin-bottom: 10px
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:12px 16px;
+      margin-bottom:10px
     }.todo-item b{
-      color: var(--text)
+      color:var(--text)
     }.btn{
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border: none;
-      color: #fff;
-      font-family: inherit;
-      font-weight: 800;
-      padding: 12px 28px;
-      border-radius: 40px;
-      cursor: pointer;
-      font-size: .95rem;
-      transition: .2s;
-      box-shadow: 0 6px 24px rgba(25, 60, 255, .3)
+      background:linear-gradient(90deg, var(--primary), var(--accent));
+      border:none;
+      color:#fff;
+      font-family:inherit;
+      font-weight:800;
+      padding:12px 28px;
+      border-radius:40px;
+      cursor:pointer;
+      font-size:.95rem;
+      transition:.2s;
+      box-shadow:0 6px 24px rgba(25, 60, 255, .3)
     }.btn:hover{
       transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(0, 212, 170, .3)
+      box-shadow:0 10px 32px rgba(0, 212, 170, .3)
     }.mini-btn{
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      color: var(--text);
-      font-family: inherit;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: .85rem
+      background:rgba(255, 255, 255, .06);
+      border:1px solid rgba(255, 255, 255, .12);
+      color:var(--text);
+      font-family:inherit;
+      font-weight:600;
+      padding:8px 18px;
+      border-radius:30px;
+      cursor:pointer;
+      font-size:.85rem
     }.mini-btn:hover{
       background: rgba(255, 255, 255, .12)
     }.btn-row{
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap
     }.kbd{
-      display: inline-block;
-      background: #e9edfe;
-      border: 1px solid rgba(255, 255, 255, .15);
-      border-radius: 6px;
-      padding: 2px 10px;
-      font-size: .85rem;
-      color: var(--text);
-      font-family: 'Consolas', monospace
+      display:inline-block;
+      background:#e9edfe;
+      border:1px solid rgba(255, 255, 255, .15);
+      border-radius:6px;
+      padding:2px 10px;
+      font-size:.85rem;
+      color:var(--text);
+      font-family:'Consolas', monospace
     }.hint-line{
-      font-size: .85rem;
-      color: var(--dim);
-      margin-top: 8px
+      font-size:.85rem;
+      color:var(--dim);
+      margin-top:8px
     }.tl-card{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 24px;
-      padding: 24px
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      border-radius:24px;
+      padding:24px
     }.tl-steps{
-      min-height: 120px;
-      display: flex;
-      align-items: center
+      min-height:120px;
+      display:flex;
+      align-items:center
     }.tl-step{
-      display: none;
-      text-align: center;
-      width: 100%
+      display:none;
+      text-align:center;
+      width:100%
     }.tl-step.active{
-      display: block;
-      animation: tlIn .4s ease
+      display:block;
+      animation:tlIn .4s ease
     }@keyframes tlIn{
       from {
-        opacity: 0;
-        transform: translateY(12px)
+        opacity:0;
+        transform:translateY(12px)
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity:1;
+        transform:translateY(0)
       }
     }.tl-icon{
-      font-size: 2.1rem;
-      margin-bottom: 6px;
-      display: inline-block
+      font-size:2.1rem;
+      margin-bottom:6px;
+      display:inline-block
     }.tl-year-badge{
-      display: inline-block;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      border-radius: 20px;
-      padding: 3px 16px;
-      font-size: .85rem;
-      color: var(--accent);
-      font-weight: 700
+      display:inline-block;
+      background:rgba(255, 255, 255, .06);
+      border:1px solid rgba(255, 255, 255, .12);
+      border-radius:20px;
+      padding:3px 16px;
+      font-size:.85rem;
+      color:var(--accent);
+      font-weight:700
     }.tl-title{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.2rem;
-      margin: 8px 0 6px
+      color:var(--text);
+      font-weight:800;
+      font-size:1.2rem;
+      margin:8px 0 6px
     }.tl-desc{
-      color: var(--dim);
-      font-size: .98rem;
-      max-width: 660px;
-      margin: 0 auto
+      color:var(--dim);
+      font-size:.98rem;
+      max-width:660px;
+      margin:0 auto
     }.tl-nav{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px
     }.svg-stage{
-      position: relative;
-      max-width: 760px;
-      margin: 10px auto 0
+      position:relative;
+      max-width:760px;
+      margin:10px auto 0
     }.svg-stage .svg-main{
-      width: 100%;
-      height: auto;
-      display: block
+      width:100%;
+      height:auto;
+      display:block
     }.svg-label{
-      position: absolute;
-      transform: translate(-50%, -50%);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(10, 14, 39, .88);
-      border: 1px solid rgba(255, 255, 255, .16);
-      border-radius: 12px;
-      padding: 5px 12px;
-      font-size: .9rem;
-      font-weight: 700;
-      color: var(--text);
-      white-space: nowrap;
-      z-index: 3;
-      pointer-events: none;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, .45)
+      position:absolute;
+      transform:translate(-50%, -50%);
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:rgba(10, 14, 39, .88);
+      border:1px solid rgba(255, 255, 255, .16);
+      border-radius:12px;
+      padding:5px 12px;
+      font-size:.9rem;
+      font-weight:700;
+      color:var(--text);
+      white-space:nowrap;
+      z-index:3;
+      pointer-events:none;
+      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
     }.svg-box{
-      fill: url(#bxG);
-      stroke: rgba(255, 255, 255, .14);
-      stroke-width: 2;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
+      fill:url(#bxG);
+      stroke:rgba(255, 255, 255, .14);
+      stroke-width:2;
+      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
     }.flow-box{
-      fill: url(#bxG);
-      stroke: rgba(255, 255, 255, .14);
-      stroke-width: 2;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition: stroke .3s, filter .3s
+      fill:url(#bxG);
+      stroke:rgba(255, 255, 255, .14);
+      stroke-width:2;
+      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
+      transition:stroke .3s, filter .3s
     }.flow-box.on{
-      stroke: var(--accent);
-      filter: drop-shadow(0 0 18px rgba(0, 212, 170, .5))
+      stroke:var(--accent);
+      filter:drop-shadow(0 0 18px rgba(0, 212, 170, .5))
     }.flow-wire{
-      stroke: #dfe5fb;
-      stroke-width: 3;
-      fill: none;
-      transition: stroke .3s
+      stroke:#dfe5fb;
+      stroke-width:3;
+      fill:none;
+      transition:stroke .3s
     }.flow-wire.on{
-      stroke: var(--accent);
-      stroke-width: 3.5;
-      stroke-dasharray: 6 12;
-      stroke-linecap: round;
-      animation: flow 1.1s linear infinite;
-      filter: drop-shadow(0 0 6px rgba(0, 212, 170, .6))
+      stroke:var(--accent);
+      stroke-width:3.5;
+      stroke-dasharray:6 12;
+      stroke-linecap:round;
+      animation:flow 1.1s linear infinite;
+      filter:drop-shadow(0 0 6px rgba(0, 212, 170, .6))
     }@keyframes flow{
       to {
-        stroke-dashoffset: -36
+        stroke-dashoffset:-36
       }
     }.wire-arrow{
-      fill: var(--accent);
-      opacity: 0;
-      transition: opacity .3s;
-      filter: drop-shadow(0 0 4px rgba(0, 212, 170, .6))
+      fill:var(--accent);
+      opacity:0;
+      transition:opacity .3s;
+      filter:drop-shadow(0 0 4px rgba(0, 212, 170, .6))
     }.wire-arrow.on{
-      opacity: 1
+      opacity:1
     }.flow-port{
-      fill: #dfe5fb;
-      stroke: var(--bg);
-      stroke-width: 2;
-      transition: fill .3s
+      fill:#dfe5fb;
+      stroke:var(--bg);
+      stroke-width:2;
+      transition:fill .3s
     }.flow-port.on{
-      fill: var(--accent);
-      filter: drop-shadow(0 0 8px rgba(0, 212, 170, .8))
+      fill:var(--accent);
+      filter:drop-shadow(0 0 8px rgba(0, 212, 170, .8))
     }.bcast-wave{
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 2;
-      opacity: 0;
-      transform-box: fill-box;
-      transform-origin: center
+      fill:none;
+      stroke:var(--accent);
+      stroke-width:2;
+      opacity:0;
+      transform-box:fill-box;
+      transform-origin:center
     }.bcast-wave.run{
-      animation: wave 1.8s ease-out infinite
+      animation:wave 1.8s ease-out infinite
     }.bcast-wave.run:nth-of-type(2){
       animation-delay: .5s
     }@keyframes wave{
       0% {
-        opacity: .8;
-        transform: scale(.4)
+        opacity:.8;
+        transform:scale(.4)
       }
 
       100% {
-        opacity: 0;
-        transform: scale(1.5)
+        opacity:0;
+        transform:scale(1.5)
       }
     }.flow-arrow{
-      color: var(--accent);
-      overflow: visible
+      color:var(--accent);
+      overflow:visible
     }.flow-arrow use{
-      transform-box: fill-box;
-      transform-origin: center
+      transform-box:fill-box;
+      transform-origin:center
     }.flow-arrow use.flip{
-      transform: scaleX(-1)
+      transform:scaleX(-1)
     }.mx-grid{
-      display: grid;
-      grid-template-columns: 140px 1fr 1fr;
-      gap: 10px;
-      margin-top: 8px
+      display:grid;
+      grid-template-columns:140px 1fr 1fr;
+      gap:10px;
+      margin-top:8px
     }.mx-grid>div{
-      border-radius: 14px;
-      padding: 14px
+      border-radius:14px;
+      padding:14px
     }.mx-head{
-      background: rgba(25, 60, 255, .12);
-      border: 1px solid rgba(25, 60, 255, .35);
-      font-weight: 800;
-      color: var(--text);
-      text-align: center
+      background:rgba(25, 60, 255, .12);
+      border:1px solid rgba(25, 60, 255, .35);
+      font-weight:800;
+      color:var(--text);
+      text-align:center
     }.mx-row{
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .1);
-      font-weight: 800;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center
+      background:rgba(255, 255, 255, .04);
+      border:1px solid rgba(255, 255, 255, .1);
+      font-weight:800;
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center
     }.mx-cell{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .07);
-      min-height: 70px
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .07);
+      min-height:70px
     }.mx-cell b{
-      display: block;
-      color: var(--text);
-      font-size: .9rem;
-      margin-bottom: 4px
+      display:block;
+      color:var(--text);
+      font-size:.9rem;
+      margin-bottom:4px
     }.mx-chip{
-      display: inline-block;
-      background: rgba(0, 212, 170, .1);
-      border: 1px solid rgba(0, 212, 170, .35);
-      color: var(--accent);
-      border-radius: 20px;
-      padding: 3px 12px;
-      font-size: .85rem;
-      margin: 4px
+      display:inline-block;
+      background:rgba(0, 212, 170, .1);
+      border:1px solid rgba(0, 212, 170, .35);
+      color:var(--accent);
+      border-radius:20px;
+      padding:3px 12px;
+      font-size:.85rem;
+      margin:4px
     }.mx-empty{
-      color: var(--dim);
-      font-size: .9rem;
-      text-align: center;
-      padding: 8px
+      color:var(--dim);
+      font-size:.9rem;
+      text-align:center;
+      padding:8px
     }@media(max-width:700px){.mx-grid{
         grid-template-columns: 1fr 1fr
       }.mx-row{
-        grid-column: span 2
+        grid-column:span 2
       }
     }.ex-item{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:14px
     }.ex-item .q{
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px
     }.ex-options{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px
     }@media(max-width:640px){.ex-options{
         grid-template-columns: 1fr
       }
     }.ex-opt{
-      direction: rtl;
-      text-align: right;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: .9rem;
-      color: #c7d2fe;
-      white-space: pre-wrap;
-      cursor: pointer;
-      transition: .15s;
-      user-select: none
+      direction:rtl;
+      text-align:right;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .09);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:.9rem;
+      color:#c7d2fe;
+      white-space:pre-wrap;
+      cursor:pointer;
+      transition:.15s;
+      user-select:none
     }.ex-opt:hover{
       border-color: rgba(0, 212, 170, .5);
-      background: rgba(0, 212, 170, .08)
+      background:rgba(0, 212, 170, .08)
     }.ex-opt.picked{
-      border-color: var(--primary);
-      background: rgba(25, 60, 255, .18);
-      color: #fff;
-      box-shadow: 0 0 0 1px var(--primary)
+      border-color:var(--primary);
+      background:rgba(25, 60, 255, .18);
+      color:#fff;
+      box-shadow:0 0 0 1px var(--primary)
     }.ex-opt.correct{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .12);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .12);
+      color:var(--success)
     }.ex-opt.wrong{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .12);
-      color: #f8d7da
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .12);
+      color:#2f2e3c
     }.ex-key{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      background: rgba(6, 182, 212 , .18);
-      border: 1px solid rgba(6, 182, 212 , .55);
-      color: var(--s3);
-      font-weight: 800;
-      font-size: .78rem;
-      margin-right: 10px;
-      vertical-align: middle;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      background:rgba(6, 182, 212 , .18);
+      border:1px solid rgba(6, 182, 212 , .55);
+      color:var(--s3);
+      font-weight:800;
+      font-size:.78rem;
+      margin-right:10px;
+      vertical-align:middle;
+      flex-shrink:0
     }.ex-body{
-      vertical-align: middle;
-      display: inline-block;
-      white-space: normal
+      vertical-align:middle;
+      display:inline-block;
+      white-space:normal
     }.ex-answer{
-      display: none;
-      margin-top: 10px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: .92rem
+      display:none;
+      margin-top:10px;
+      padding:10px 14px;
+      border-radius:10px;
+      font-size:.92rem
     }.ex-answer.show{
-      display: block;
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: rgba(0, 255, 136, .07);
-      color: var(--success)
+      display:block;
+      border:1px solid rgba(0, 255, 136, .35);
+      background:rgba(0, 255, 136, .07);
+      color:var(--success)
     }.ex-answer.show b{
-      color: var(--success);
-      margin: 0 6px
+      color:var(--success);
+      margin:0 6px
     }.ex-score{
-      margin-top: 14px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: rgba(0, 255, 136, .08);
-      border: 1px solid rgba(0, 255, 136, .35);
-      color: var(--success);
-      font-size: .95rem
+      margin-top:14px;
+      padding:12px 16px;
+      border-radius:12px;
+      background:rgba(0, 255, 136, .08);
+      border:1px solid rgba(0, 255, 136, .35);
+      color:var(--success);
+      font-size:.95rem
     }.group-label{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.05rem;
-      margin: 22px 0 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px
+      color:var(--text);
+      font-weight:800;
+      font-size:1.05rem;
+      margin:22px 0 12px;
+      display:flex;
+      align-items:center;
+      gap:8px
     }.group-label::before{
       content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 3px;
-      background: var(--s3);
-      flex-shrink: 0
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      background:var(--s3);
+      flex-shrink:0
     }.recall{
-      display: none;
-      margin-top: 16px
+      display:none;
+      margin-top:16px
     }.recall.show{
-      display: block
+      display:block
     }.rq{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:14px
     }.rq-q{
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px
     }.rq-opts{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px
     }@media(max-width:640px){.rq-opts{
         grid-template-columns: 1fr
       }
     }.rq-opt{
-      direction: rtl;
-      text-align: right;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: .9rem;
-      color: #c7d2fe;
-      cursor: pointer;
-      transition: .15s;
-      user-select: none
+      direction:rtl;
+      text-align:right;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .09);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:.9rem;
+      color:#c7d2fe;
+      cursor:pointer;
+      transition:.15s;
+      user-select:none
     }.rq-opt:hover{
       border-color: rgba(0, 212, 170, .5);
-      background: rgba(0, 212, 170, .08)
+      background:rgba(0, 212, 170, .08)
     }.rq-opt.disabled{
-      pointer-events: none;
-      opacity: .65
+      pointer-events:none;
+      opacity:.65
     }.rq-opt.correct{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .12);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .12);
+      color:var(--success)
     }.rq-opt.wrong{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .12);
-      color: #f8d7da
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .12);
+      color:#2f2e3c
     }.rq-key{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 26px;
-      height: 26px;
-      border-radius: 6px;
-      background: rgba(25, 60, 255, .14);
-      border: 1px solid rgba(25, 60, 255, .5);
-      color: #c7d2fe;
-      font-weight: 800;
-      font-size: .82rem;
-      margin-right: 10px;
-      vertical-align: middle;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:26px;
+      height:26px;
+      border-radius:6px;
+      background:rgba(25, 60, 255, .14);
+      border:1px solid rgba(25, 60, 255, .5);
+      color:#c7d2fe;
+      font-weight:800;
+      font-size:.82rem;
+      margin-right:10px;
+      vertical-align:middle;
+      flex-shrink:0
     }.rq-fb{
-      margin-top: 10px;
-      display: none;
-      font-size: .92rem;
-      padding: 10px 14px;
-      border-radius: 10px
+      margin-top:10px;
+      display:none;
+      font-size:.92rem;
+      padding:10px 14px;
+      border-radius:10px
     }.rq-fb.show{
-      display: block
+      display:block
     }.rq-fb.ok{
-      background: rgba(0, 255, 136, .07);
-      border: 1px solid rgba(0, 255, 136, .35);
-      color: var(--success)
+      background:rgba(0, 255, 136, .07);
+      border:1px solid rgba(0, 255, 136, .35);
+      color:var(--success)
     }.rq-fb.no{
-      background: rgba(255, 71, 87, .07);
-      border: 1px solid rgba(255, 71, 87, .35);
-      color: #f8d7da
+      background:rgba(255, 71, 87, .07);
+      border:1px solid rgba(255, 71, 87, .35);
+      color:#2f2e3c
     }.journey{
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding-right: 26px
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      padding-right:26px
     }.journey::before{
       content: "";
-      position: absolute;
-      right: 9px;
-      top: 14px;
-      bottom: 14px;
-      width: 3px;
-      border-radius: 3px;
-      background: linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
+      position:absolute;
+      right:9px;
+      top:14px;
+      bottom:14px;
+      width:3px;
+      border-radius:3px;
+      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
     }.j-node{
-      position: relative;
-      display: grid;
-      grid-template-columns: 20px 1fr;
-      gap: 16px;
-      padding: 14px 0
+      position:relative;
+      display:grid;
+      grid-template-columns:20px 1fr;
+      gap:16px;
+      padding:14px 0
     }.j-dot{
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 3px;
-      z-index: 2
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      flex-shrink:0;
+      margin-top:3px;
+      z-index:2
     }.j-body .t{
-      color: var(--text);
-      font-weight: 700
+      color:var(--text);
+      font-weight:700
     }.j-body .d{
-      font-size: .93rem
+      font-size:.93rem
     }.journey-item{
-      position: relative;
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 14px;
-      padding: 12px 0
+      position:relative;
+      display:grid;
+      grid-template-columns:44px 1fr;
+      gap:14px;
+      padding:12px 0
     }.journey-item h4{
-      color: var(--text);
-      font-size: 1rem;
-      margin: 0 0 4px
+      color:var(--text);
+      font-size:1rem;
+      margin:0 0 4px
     }.journey-item p{
-      margin: 0;
-      font-size: .92rem
+      margin:0;
+      font-size:.92rem
     }.pill{
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin-bottom: 10px;
-      font-size: .92rem;
-      line-height: 1.7
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      border-radius:14px;
+      padding:12px 14px;
+      margin-bottom:10px;
+      font-size:.92rem;
+      line-height:1.7
     }.pill-dot{
-      flex-shrink: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-top: 7px
+      flex-shrink:0;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      margin-top:7px
     }.mx-wrap{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 16px;
-      padding: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:16px;
+      padding:14px
     }.ex-btn-row{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 16px;
-      flex-wrap: wrap
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:16px;
+      flex-wrap:wrap
     }.congrats{
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
+      border:1px solid rgba(0, 255, 136, .35);
+      background:linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
     }#scrollTop{
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 60;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      border: 1px solid rgba(0, 212, 170, .4);
-      background: rgba(10, 14, 39, .9);
-      color: var(--accent);
-      font-size: 1.15rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      transition: .2s;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .35)
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      z-index:60;
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      border:1px solid rgba(0, 212, 170, .4);
+      background:rgba(10, 14, 39, .9);
+      color:var(--accent);
+      font-size:1.15rem;
+      font-weight:800;
+      cursor:pointer;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      transition:.2s;
+      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
     }#scrollTop.show{
-      display: flex
+      display:flex
     }#scrollTop:hover{
       background: rgba(0, 212, 170, .15)
     }.emoji-float{
-      display: inline-block;
-      animation: ef 3s ease-in-out infinite
+      display:inline-block;
+      animation:ef 3s ease-in-out infinite
     }@keyframes ef{
 
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
 
       50% {
-        transform: translateY(-5px)
+        transform:translateY(-5px)
       }
     }.emoji-pulse{
-      display: inline-block;
-      animation: ep 2s ease-in-out infinite
+      display:inline-block;
+      animation:ep 2s ease-in-out infinite
     }@keyframes ep{
 
       0%,
       100% {
-        transform: scale(1)
+        transform:scale(1)
       }
 
       50% {
-        transform: scale(1.12)
+        transform:scale(1.12)
       }
     }.bg-gradient,.particles,.bg-animation,.particle{
-      display: none !important;
+      display:none !important;
     }.gradient-text{
-      background: none !important;
-      -webkit-text-fill-color: var(--primary) !important;
-      color: var(--primary) !important;
+      background:none !important;
+      -webkit-text-fill-color:var(--primary) !important;
+      color:var(--primary) !important;
     }.lesson-section::before,
     .lesson-section[data-accent]::before{
       background: var(--primary) !important;
     }.section-number,
     .lesson-section[data-accent] .section-number{
-      background: var(--primary) !important;
-      color: #fff !important;
-      box-shadow: none !important;
-      animation: none !important;
+      background:var(--primary) !important;
+      color:#fff !important;
+      box-shadow:none !important;
+      animation:none !important;
     }[class*="-bar-fill"]{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }[class*="-bar-fill"].good{
-      background: var(--success) !important;
+      background:var(--success) !important;
     }[class*="-bar-fill"].mid{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }[class*="-bar-fill"].bad{
-      background: var(--danger) !important;
+      background:var(--danger) !important;
     }.unit-num, .unit-card{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }.cta-btn,.btn{
-      background: var(--primary) !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .25) !important;
+      background:var(--primary) !important;
+      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
     }.cta-btn:hover,.btn:hover{
       box-shadow: 0 10px 26px rgba(0, 0, 0, .3) !important;
     }[style*="linear-gradient"]{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }.book-card{
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-inline-start: 4px solid var(--s2, #9a6a00);
-      border-radius: 18px;
-      padding: 20px 22px;
-      margin: 18px 0
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-inline-start:4px solid var(--s2, #9a6a00);
+      border-radius:18px;
+      padding:20px 22px;
+      margin:18px 0
     }.book-card.try{
-      border-inline-start-color: var(--s5, #1440c9)
+      border-inline-start-color:var(--s5, #1440c9)
     }.book-card.try h3{
-      color: var(--s5, #1440c9)
+      color:var(--s5, #1440c9)
     }.book-card h3{
-      margin: 0 0 10px;
-      color: var(--s2, #9a6a00)
+      margin:0 0 10px;
+      color:var(--s2, #9a6a00)
     }.book-card ol, .book-card ul{
-      margin: 8px 0;
-      padding-inline-start: 22px
+      margin:8px 0;
+      padding-inline-start:22px
     }.book-card li{
-      margin-bottom: 6px
+      margin-bottom:6px
     }.book-src{
-      display: block;
-      margin-top: 12px;
-      font-size: .82rem;
-      opacity: .65
+      display:block;
+      margin-top:12px;
+      font-size:.82rem;
+      opacity:.65
     }.book-diff{
-      margin-top: 12px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: rgba(245, 158, 11, .08);
-      border: 1px solid rgba(245, 158, 11, .3);
-      font-size: .9rem
+      margin-top:12px;
+      padding:10px 14px;
+      border-radius:10px;
+      background:rgba(245, 158, 11, .08);
+      border:1px solid rgba(245, 158, 11, .3);
+      font-size:.9rem
     }
 
 </style>
@@ -996,7 +995,7 @@
     <section id="intro">
       <div class="section-inner">
         <div class="section-header">
-          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#1440c9)">01</div>
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#ecf0fb)">01</div>
           <div>
             <h2 data-ar="إيه اللي هنتعلّمه النهارده؟" data-en="What will we learn today?">إيه اللي هنتعلّمه النهارده؟</h2>
             <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — بروتوكول الاتصال"
@@ -1064,10 +1063,10 @@
         <div class="book-card">
           <h3 data-ar="من الكتاب: النقاط الرئيسية — بروتوكول الاتصال، وآلية الاتصال في TCP/IP" data-en="From the book: Point box — Communication Protocol, and the Mechanism of Communication in TCP/IP">من الكتاب: النقاط الرئيسية — بروتوكول الاتصال، وآلية الاتصال في TCP/IP</h3>
           <p data-ar="«أ. بروتوكول الاتصال (1) الحزمة (Packet): الوحدة المستخدمة عند تقسيم البيانات إلى أجزاء صغيرة ليتم إرسالها عبر الشبكة. يتم إرسالها مع (header) يتضمن معلومات الوجهة. (2) بروتوكول الاتصال (Communication protocol (protocol)): اتفاقية مشتركة في شبكات المعلومات والاتصالات. [1] (TCP): بروتوكول يقسم البيانات المراد إرسالها إلى حزم، ويرتب الحزم المستلمة بالترتيب، ويطلب إعادة إرسال أي حزم مفقودة أثناء الاتصال. [2] (UDP): بروتوكول يؤكد على إرسال البيانات في الوقت الفعلي. يُستخدم للمكالمات الصوتية وبث الفيديو. [3] (IP): البروتوكول الذي يعين عناوين IP لتسليم الحزم إلى الوجهة الصحيحة.»" data-en="&quot;1 Communication Protocol (1) (Packet): The unit used when data is divided into small chunks to be transmitted over a network. Sent with a (header) that includes the destination information. (2) (Communication protocol (protocol)): A common agreement in information and communication networks. [1] (TCP): A protocol that divides the data to be sent into packets, arranges the received packets in order, and requests the retransmission of any packets that were lost during communication. [2] (UDP): A protocol that emphasizes sending data in real time. Used for voice calls and streaming video. [3] (IP): The protocol that assigns IP addresses to deliver packets to the correct destination.&quot;">«أ. بروتوكول الاتصال (1) الحزمة (Packet): الوحدة المستخدمة عند تقسيم البيانات إلى أجزاء صغيرة ليتم إرسالها عبر الشبكة. يتم إرسالها مع (header) يتضمن معلومات الوجهة. (2) بروتوكول الاتصال (Communication protocol (protocol)): اتفاقية مشتركة في شبكات المعلومات والاتصالات. [1] (TCP): بروتوكول يقسم البيانات المراد إرسالها إلى حزم، ويرتب الحزم المستلمة بالترتيب، ويطلب إعادة إرسال أي حزم مفقودة أثناء الاتصال. [2] (UDP): بروتوكول يؤكد على إرسال البيانات في الوقت الفعلي. يُستخدم للمكالمات الصوتية وبث الفيديو. [3] (IP): البروتوكول الذي يعين عناوين IP لتسليم الحزم إلى الوجهة الصحيحة.»</p>
-          <p data-ar="«ب. آلية الاتصال في TCP/IP (1) (TCP/IP): مجموعة من البروتوكولات المستخدمة على الإنترنت. يتم التحكم في إرسال واستقبال البيانات عبر أربع طبقات. نموذج الطبقات الأربع لـ TCP/IP» الجدول المطبوع «<نموذج الطبقات الأربعة لـ TCP/IP>»: الطبقة الرابعة: طبقة التطبيق (Application layer) — الاتصال بين التطبيقات — HTTP, SMTP، إلخ.؛ الطبقة الثالثة: طبقة النقل (Transport layer) — التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات — TCP, UDP، إلخ.؛ الطبقة الثانية: طبقة الإنترنت (Internet layer) — تخصيص عنوان IP وتحديد المسار — IP، إلخ.؛ الطبقة الأولى: طبقة واجهة الشبكة Network (interface layer) — الاتصال المادي، التفاعل بين الأجهزة — Ethernet، إلخ." data-en="&quot;2 The Mechanism of Communication in TCP/IP (1) (TCP/IP): A set of protocols used on the internet. The sending and receiving of data is controlled across four layers.&quot; The printed table &quot;The 4-Layer Model of TCP/IP&quot;: Four layers: (Application layer) — Communication between applications — HTTP, SMTP, etc.; Three layers: (Transport layer) — Communication control, error detection, and data retransmission — TCP, UDP, etc.; Two layers: (Internet layer) — IP address allocation and routing decision — IP, etc.; One layer: (Network interface layer) — Physical connection, interaction between devices — Ethernet, etc.">«ب. آلية الاتصال في TCP/IP (1) (TCP/IP): مجموعة من البروتوكولات المستخدمة على الإنترنت. يتم التحكم في إرسال واستقبال البيانات عبر أربع طبقات. نموذج الطبقات الأربع لـ TCP/IP» الجدول المطبوع «<نموذج الطبقات الأربعة لـ TCP/IP>»: الطبقة الرابعة: طبقة التطبيق (Application layer) — الاتصال بين التطبيقات — HTTP, SMTP، إلخ.؛ الطبقة الثالثة: طبقة النقل (Transport layer) — التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات — TCP, UDP، إلخ.؛ الطبقة الثانية: طبقة الإنترنت (Internet layer) — تخصيص عنوان IP وتحديد المسار — IP، إلخ.؛ الطبقة الأولى: طبقة واجهة الشبكة Network (interface layer) — الاتصال المادي، التفاعل بين الأجهزة — Ethernet، إلخ.</p>
+          <p data-ar="«ب. آلية الاتصال في TCP/IP (1) (TCP/IP): مجموعة من البروتوكولات المستخدمة على الإنترنت. يتم التحكم في إرسال واستقبال البيانات عبر أربع طبقات. نموذج الطبقات الأربع لـ TCP/IP» الجدول المطبوع «<نموذج الطبقات الأربعة لـ TCP/IP>»: الطبقة الرابعة:طبقة التطبيق (Application layer) — الاتصال بين التطبيقات — HTTP, SMTP، إلخ.؛ الطبقة الثالثة: طبقة النقل (Transport layer) — التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات — TCP, UDP، إلخ.؛ الطبقة الثانية: طبقة الإنترنت (Internet layer) — تخصيص عنوان IP وتحديد المسار — IP، إلخ.؛ الطبقة الأولى: طبقة واجهة الشبكة Network (interface layer) — الاتصال المادي، التفاعل بين الأجهزة — Ethernet، إلخ." data-en="&quot;2 The Mechanism of Communication in TCP/IP (1) (TCP/IP): A set of protocols used on the internet. The sending and receiving of data is controlled across four layers.&quot; The printed table &quot;The 4-Layer Model of TCP/IP&quot;: Four layers:(Application layer) — Communication between applications — HTTP, SMTP, etc.; Three layers:(Transport layer) — Communication control, error detection, and data retransmission — TCP, UDP, etc.; Two layers:(Internet layer) — IP address allocation and routing decision — IP, etc.; One layer:(Network interface layer) — Physical connection, interaction between devices — Ethernet, etc.">«ب. آلية الاتصال في TCP/IP (1) (TCP/IP): مجموعة من البروتوكولات المستخدمة على الإنترنت. يتم التحكم في إرسال واستقبال البيانات عبر أربع طبقات. نموذج الطبقات الأربع لـ TCP/IP» الجدول المطبوع «<نموذج الطبقات الأربعة لـ TCP/IP>»: الطبقة الرابعة: طبقة التطبيق (Application layer) — الاتصال بين التطبيقات — HTTP, SMTP، إلخ.؛ الطبقة الثالثة: طبقة النقل (Transport layer) — التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات — TCP, UDP، إلخ.؛ الطبقة الثانية: طبقة الإنترنت (Internet layer) — تخصيص عنوان IP وتحديد المسار — IP، إلخ.؛ الطبقة الأولى: طبقة واجهة الشبكة Network (interface layer) — الاتصال المادي، التفاعل بين الأجهزة — Ethernet، إلخ.</p>
           <p data-ar="«(2) آلية الاتصال بالبيانات على الإنترنت 1 اقسّم البيانات التي تريد إرسالها إلى حزم (packets). 2 أرفق عناوين (IP addresses) للمرسل أو المستلم إلى header كل حزمة(packet). . 3 حدّد مسار الاتصال الأمثل لكل حزمة (هذا يسمى routing- التوجيه)) وقم بتسليمها إلى الوجهة. 4 إذا كانت هناك أي حزم مفقودة عند الاستلام، يتم طلب إعادة الإرسال. ثم إعادة ترتيب الحزم بالترتيب لإكمال البيانات بالكامل.»" data-en="&quot;(2) Mechanism of Data Communication on the internet 1) Divide the data you want to send into (packets). 2) Attach the sender or recipient (IP addresses) to the header of each packet. 3) Select the optimal communication route for each packet (this is called (routing)) and deliver it to the destination. 4) If there any packets are missing upon receipt, a retransmission is requested. The packets are then rearranged in order to complete the data in its entirety.&quot;">«(2) آلية الاتصال بالبيانات على الإنترنت 1 اقسّم البيانات التي تريد إرسالها إلى حزم (packets). 2 أرفق عناوين (IP addresses) للمرسل أو المستلم إلى header كل حزمة(packet). . 3 حدّد مسار الاتصال الأمثل لكل حزمة (هذا يسمى routing- التوجيه)) وقم بتسليمها إلى الوجهة. 4 إذا كانت هناك أي حزم مفقودة عند الاستلام، يتم طلب إعادة الإرسال. ثم إعادة ترتيب الحزم بالترتيب لإكمال البيانات بالكامل.»</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العناوين الفرعية: العربية «أ.» «ب.»؛ الإنجليزية 1، 2. الجملة الختامية للبند ب(1) العربية تضيف عبارة منفصلة «نموذج الطبقات الأربع لـ TCP/IP» قبل تسمية الجدول «<نموذج الطبقات الأربعة لـ TCP/IP>» («الأربع» ثم «الأربعة»)؛ الإنجليزية تطبع التسمية &quot;The 4-Layer Model of TCP/IP&quot; مرة واحدة. خطوة 2 العربية تلحق الشرح مباشرة «حزمة(packet)» وتنتهي بنقطتين «. .»؛ الإنجليزية &quot;the header of each packet.&quot; بنقطة واحدة. خطوة 3 العربية تطبع «(هذا يسمى routing- التوجيه))» بقوسين ختاميين وشرح مسبوق بشرطة؛ الإنجليزية &quot;(this is called (routing))&quot;. خطوة 4 العربية «ثم إعادة ترتيب الحزم بالترتيب لإكمال البيانات بالكامل» بتكرار «الترتيب»؛ الإنجليزية &quot;then rearranged in order to complete the data&quot;. الإنجليزية نفسها تطبع &quot;If there any packets are missing&quot; (كما طُبعت) في النقاط والتمرين معًا. صفوف الجدول: العربية «الطبقة الرابعة... الأولى» والإنجليزية &quot;Four layers... One layer&quot;؛ أسماء الطبقات ووظائفها وأمثلتها متطابقة." data-en="Edition comparison (confirmed from the printed page images): sub-headings: Arabic «أ.» «ب.»; English 1, 2. Arabic item ب(1) adds a standalone fragment «نموذج الطبقات الأربع لـ TCP/IP» before the table caption «<نموذج الطبقات الأربعة لـ TCP/IP>»; English prints the caption &quot;The 4-Layer Model of TCP/IP&quot; once. Arabic step 2 attaches the gloss «حزمة(packet)» and ends with two periods «. .»; English prints one. Arabic step 3 prints «(هذا يسمى routing- التوجيه))» with doubled closing parentheses and a hyphenated gloss; English &quot;(this is called (routing))&quot;. Arabic step 4 reads «ثم إعادة ترتيب الحزم بالترتيب» repeating &quot;order&quot;; English &quot;then rearranged in order to complete the data&quot;. English itself prints &quot;If there any packets are missing&quot; (as printed) in both the Point and the Exercise. Table rows: Arabic «الطبقة الرابعة... الأولى» and English &quot;Four layers... One layer&quot;; layer names, functions and examples match.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العناوين الفرعية: العربية «أ.» «ب.»؛ الإنجليزية 1، 2. الجملة الختامية للبند ب(1) العربية تضيف عبارة منفصلة «نموذج الطبقات الأربع لـ TCP/IP» قبل تسمية الجدول «<نموذج الطبقات الأربعة لـ TCP/IP>» («الأربع» ثم «الأربعة»)؛ الإنجليزية تطبع التسمية &quot;The 4-Layer Model of TCP/IP&quot; مرة واحدة. خطوة 2 العربية تلحق الشرح مباشرة «حزمة(packet)» وتنتهي بنقطتين «. .»؛ الإنجليزية &quot;the header of each packet.&quot; بنقطة واحدة. خطوة 3 العربية تطبع «(هذا يسمى routing- التوجيه))» بقوسين ختاميين وشرح مسبوق بشرطة؛ الإنجليزية &quot;(this is called (routing))&quot;. خطوة 4 العربية «ثم إعادة ترتيب الحزم بالترتيب لإكمال البيانات بالكامل» بتكرار «الترتيب»؛ الإنجليزية &quot;then rearranged in order to complete the data&quot;. الإنجليزية نفسها تطبع &quot;If there any packets are missing&quot; (كما طُبعت) في النقاط والتمرين معًا. صفوف الجدول: العربية «الطبقة الرابعة... الأولى» والإنجليزية &quot;Four layers... One layer&quot;؛ أسماء الطبقات ووظائفها وأمثلتها متطابقة.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 101 (المطبوع 101)؛ AR 114." data-en="The text above is from the book. Full source: English PDF 101 (printed 101); Arabic 114.">النص السابق من الكتاب. المصدر الكامل: EN PDF 101 (المطبوع 101)؛ AR 114.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العناوين الفرعية:العربية «أ.» «ب.»؛ الإنجليزية 1، 2. الجملة الختامية للبند ب(1) العربية تضيف عبارة منفصلة «نموذج الطبقات الأربع لـ TCP/IP» قبل تسمية الجدول «<نموذج الطبقات الأربعة لـ TCP/IP>» («الأربع» ثم «الأربعة»)؛ الإنجليزية تطبع التسمية &quot;The 4-Layer Model of TCP/IP&quot; مرة واحدة. خطوة 2 العربية تلحق الشرح مباشرة «حزمة(packet)» وتنتهي بنقطتين «. .»؛ الإنجليزية &quot;the header of each packet.&quot; بنقطة واحدة. خطوة 3 العربية تطبع «(هذا يسمى routing- التوجيه))» بقوسين ختاميين وشرح مسبوق بشرطة؛ الإنجليزية &quot;(this is called (routing))&quot;. خطوة 4 العربية «ثم إعادة ترتيب الحزم بالترتيب لإكمال البيانات بالكامل» بتكرار «الترتيب»؛ الإنجليزية &quot;then rearranged in order to complete the data&quot;. الإنجليزية نفسها تطبع &quot;If there any packets are missing&quot; (كما طُبعت) في النقاط والتمرين معًا. صفوف الجدول:العربية «الطبقة الرابعة... الأولى» والإنجليزية &quot;Four layers... One layer&quot;؛ أسماء الطبقات ووظائفها وأمثلتها متطابقة." data-en="Edition comparison (confirmed from the printed page images): sub-headings:Arabic «أ.» «ب.»; English 1, 2. Arabic item ب(1) adds a standalone fragment «نموذج الطبقات الأربع لـ TCP/IP» before the table caption «<نموذج الطبقات الأربعة لـ TCP/IP>»; English prints the caption &quot;The 4-Layer Model of TCP/IP&quot; once. Arabic step 2 attaches the gloss «حزمة(packet)» and ends with two periods «. .»; English prints one. Arabic step 3 prints «(هذا يسمى routing- التوجيه))» with doubled closing parentheses and a hyphenated gloss; English &quot;(this is called (routing))&quot;. Arabic step 4 reads «ثم إعادة ترتيب الحزم بالترتيب» repeating &quot;order&quot;; English &quot;then rearranged in order to complete the data&quot;. English itself prints &quot;If there any packets are missing&quot; (as printed) in both the Point and the Exercise. Table rows:Arabic «الطبقة الرابعة... الأولى» and English &quot;Four layers... One layer&quot;; layer names, functions and examples match.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العناوين الفرعية:العربية «أ.» «ب.»؛ الإنجليزية 1، 2. الجملة الختامية للبند ب(1) العربية تضيف عبارة منفصلة «نموذج الطبقات الأربع لـ TCP/IP» قبل تسمية الجدول «<نموذج الطبقات الأربعة لـ TCP/IP>» («الأربع» ثم «الأربعة»)؛ الإنجليزية تطبع التسمية &quot;The 4-Layer Model of TCP/IP&quot; مرة واحدة. خطوة 2 العربية تلحق الشرح مباشرة «حزمة(packet)» وتنتهي بنقطتين «. .»؛ الإنجليزية &quot;the header of each packet.&quot; بنقطة واحدة. خطوة 3 العربية تطبع «(هذا يسمى routing- التوجيه))» بقوسين ختاميين وشرح مسبوق بشرطة؛ الإنجليزية &quot;(this is called (routing))&quot;. خطوة 4 العربية «ثم إعادة ترتيب الحزم بالترتيب لإكمال البيانات بالكامل» بتكرار «الترتيب»؛ الإنجليزية &quot;then rearranged in order to complete the data&quot;. الإنجليزية نفسها تطبع &quot;If there any packets are missing&quot; (كما طُبعت) في النقاط والتمرين معًا. صفوف الجدول:العربية «الطبقة الرابعة... الأولى» والإنجليزية &quot;Four layers... One layer&quot;؛ أسماء الطبقات ووظائفها وأمثلتها متطابقة.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 101 (المطبوع 101)؛ AR 114." data-en="The text above is from the book. Full source: English PDF 101 (printed 101); Arabic 114.">النص السابق من الكتاب. المصدر الكامل:EN PDF 101 (المطبوع 101)؛ AR 114.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-point" -->
     </div>
@@ -1651,7 +1650,7 @@
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
             <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 101–104 (المطبوع 101–104)؛ AR 114–117"
-              data-en="Your book: EN PDF 101–104 (printed 101–104); AR 114–117">الكتاب بتاعك: EN PDF 101–104 (المطبوع 101–104)؛ AR 114–117</div>
+              data-en="Your book: EN PDF 101–104 (printed 101–104); AR 114–117">الكتاب بتاعك:EN PDF 101–104 (المطبوع 101–104)؛ AR 114–117</div>
           </div>
         </div>
       </div>
@@ -1677,9 +1676,9 @@
           <h3 data-ar="من الكتاب: تحدي معلوماتك — الإجابات مطبوعة في «الشرح» أسفل السؤالين" data-en="From the book: Warm Up — the answers are printed in the Explanation below the questions">من الكتاب: تحدي معلوماتك — الإجابات مطبوعة في «الشرح» أسفل السؤالين</h3>
           <p data-ar="«أجب عن الأسئلة التالية. (1) بالنسبة للعبارات التالية من أ إلى ث بشأن البروتوكولات، ضع علامة &quot;✓&quot; إذا كان البيان مناسبًا، و &quot;x&quot; إذا كان غير صحيح. (1) بروتوكول الاتصال يشير إلى تعزيز الأمان بتشفير البيانات. (2) UDP هو بروتوكول يضمن اتصالاً موثوقاً من خلال ضمان سلامة البيانات وترتيبها. (3) TCP هو بروتوكول يعطي الأولوية لسرعة نقل البيانات، ويضمن سلامة البيانات وترتيبها مع تقليل التأخير إلى الحد الأدنى. (4) IP هو بروتوكول يُستخدم لتعيين عناوين IP لتسليم الحزم إلى الوجهة الصحيحة.»" data-en="&quot;Answer the following questions. (1) For the following statements A to D concerning protocols, mark &quot;○&quot; if the statement is appropriate, and &quot;×&quot; if it is incorrect. A A communication protocol refers to enhancing security by encrypting data. B UDP is a protocol that ensures reliable communication by guaranteeing data integrity and order. C TCP is a protocol that prioritizes data transfer speed, and it ensures the integrity and order of data while minimizing latency. D IP is a protocol used to assign IP addresses to deliver packets to the correct destination.&quot;">«أجب عن الأسئلة التالية. (1) بالنسبة للعبارات التالية من أ إلى ث بشأن البروتوكولات، ضع علامة &quot;✓&quot; إذا كان البيان مناسبًا، و &quot;x&quot; إذا كان غير صحيح. (1) بروتوكول الاتصال يشير إلى تعزيز الأمان بتشفير البيانات. (2) UDP هو بروتوكول يضمن اتصالاً موثوقاً من خلال ضمان سلامة البيانات وترتيبها. (3) TCP هو بروتوكول يعطي الأولوية لسرعة نقل البيانات، ويضمن سلامة البيانات وترتيبها مع تقليل التأخير إلى الحد الأدنى. (4) IP هو بروتوكول يُستخدم لتعيين عناوين IP لتسليم الحزم إلى الوجهة الصحيحة.»</p>
           <p data-ar="«(2) اتصال البيانات على الإنترنت يتم إرساله وفقًا لـ TCP/IP. أعد ترتيب الخطوات التالية من أ إلى ث في ترتيب الاتصال على الإنترنت. (أ) تعيين عنوان IP للمستلم أو المرسل. (ب) تقسيم البيانات إلى حزم. (ت) حدد الوجهة والمسار للبيانات وقم بتسليمها إلى وجهتها. (ث) أعد ترتيب الحزم في تسلسل.»" data-en="&quot;(2) Data communication on the internet is transmitted according to TCP/IP. Rearrange the following steps A to D in the order of communication on the internet. A Assign IP address of the recipient or the sender. B Split the data into packets. C Select the destination and route for the data and deliver it to its destination. D Reorder the packets in sequence.&quot;">«(2) اتصال البيانات على الإنترنت يتم إرساله وفقًا لـ TCP/IP. أعد ترتيب الخطوات التالية من أ إلى ث في ترتيب الاتصال على الإنترنت. (أ) تعيين عنوان IP للمستلم أو المرسل. (ب) تقسيم البيانات إلى حزم. (ت) حدد الوجهة والمسار للبيانات وقم بتسليمها إلى وجهتها. (ث) أعد ترتيب الحزم في تسلسل.»</p>
-          <p data-ar="«الشرح» المطبوع: «(1) (1) بروتوكول الاتصال هو اتفاق مشترك في شبكات المعلومات والاتصالات. لذلك ، × (2) UDP هو بروتوكول يؤكد على إرسال البيانات في الوقت الفعلي. لإعطاء الأولوية لسرعة نقل البيانات ، فإنه يفعل ذلك لا تضمن سلامة البيانات أو ترتيبها. لذلك ، × (3) TCP هو بروتوكول يقسم البيانات المراد إرسالها إلى حزم ويعيد إرسال أي حزم فقدت أثناء الإرسال ، مما يضمن اتصالاً موثوقًا. لذلك ، × (4) ✓ (2) (ب) ← (أ) ← (ت) ← (ث)»." data-en="The printed Explanation: &quot;(1) A A communication protocol is a common agreement in information and communication networks. Therefore, × B UDP is a protocol that emphasizes sending data in real-time. To prioritize data transfer speed, it does not guarantee the integrity or order of the data. Therefore, × C TCP is a protocol that divides the data to be sent into packets and retransmits any packets that are lost during transmission, ensuring reliable communication. Therefore, × D ○ (2) B → A → C → D&quot;.">«الشرح» المطبوع: «(1) (1) بروتوكول الاتصال هو اتفاق مشترك في شبكات المعلومات والاتصالات. لذلك ، × (2) UDP هو بروتوكول يؤكد على إرسال البيانات في الوقت الفعلي. لإعطاء الأولوية لسرعة نقل البيانات ، فإنه يفعل ذلك لا تضمن سلامة البيانات أو ترتيبها. لذلك ، × (3) TCP هو بروتوكول يقسم البيانات المراد إرسالها إلى حزم ويعيد إرسال أي حزم فقدت أثناء الإرسال ، مما يضمن اتصالاً موثوقًا. لذلك ، × (4) ✓ (2) (ب) ← (أ) ← (ت) ← (ث)».</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال (1) العربي يرقّم عباراته (1)-(4) بينما نطاق التعليمات «من أ إلى ث» — يُنقل كما طُبع دون الجزم بالنمط المقصود؛ الإنجليزية A-D. علامتا الإجابة: العربية تطلب «&quot;✓&quot;» و«&quot;x&quot;» بينما الإنجليزية &quot;○&quot; و&quot;×&quot;، و«الشرح» العربي نفسه يطبع «×» و«✓». شرح العبارة (2) في العربية يطبع «فإنه يفعل ذلك لا تضمن سلامة البيانات أو ترتيبها» بترتيب كلمات غير مستقيم؛ الإنجليزية &quot;it does not guarantee the integrity or order of the data&quot;. ترتيب الإجابة المطبوع: العربية «(ب) ← (أ) ← (ت) ← (ث)» بأسهم لليسار؛ الإنجليزية &quot;B → A → C → D&quot;. عبارات السؤال (2) معنونة (أ)-(ث) بترتيب أبجدي متسق في العربية. العنوان: العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;." data-en="Edition comparison (confirmed from the printed page images): Arabic question (1) numbers its statements (1)-(4) while its instruction range is «أ to ث» — carried as printed without asserting the intended convention; English A-D. Answer marks: Arabic asks for «✓» and «x» while English uses &quot;○&quot; and &quot;×&quot;, and the Arabic explanation itself prints «×» and «✓». The Arabic explanation of statement (2) prints «فإنه يفعل ذلك لا تضمن سلامة البيانات» with jumbled word order; English &quot;it does not guarantee the integrity or order of the data&quot;. Printed ordering answer: Arabic «(ب) ← (أ) ← (ت) ← (ث)» with leftward arrows; English &quot;B → A → C → D&quot;. Question (2) steps are lettered (أ)-(ث), consistent abjad, in Arabic. Heading: Arabic «تحدي معلوماتك»; English &quot;Warm Up&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال (1) العربي يرقّم عباراته (1)-(4) بينما نطاق التعليمات «من أ إلى ث» — يُنقل كما طُبع دون الجزم بالنمط المقصود؛ الإنجليزية A-D. علامتا الإجابة: العربية تطلب «&quot;✓&quot;» و«&quot;x&quot;» بينما الإنجليزية &quot;○&quot; و&quot;×&quot;، و«الشرح» العربي نفسه يطبع «×» و«✓». شرح العبارة (2) في العربية يطبع «فإنه يفعل ذلك لا تضمن سلامة البيانات أو ترتيبها» بترتيب كلمات غير مستقيم؛ الإنجليزية &quot;it does not guarantee the integrity or order of the data&quot;. ترتيب الإجابة المطبوع: العربية «(ب) ← (أ) ← (ت) ← (ث)» بأسهم لليسار؛ الإنجليزية &quot;B → A → C → D&quot;. عبارات السؤال (2) معنونة (أ)-(ث) بترتيب أبجدي متسق في العربية. العنوان: العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 102 (المطبوع 102)؛ AR 115." data-en="The text above is from the book. Full source: English PDF 102 (printed 102); Arabic 115.">النص السابق من الكتاب. المصدر الكامل: EN PDF 102 (المطبوع 102)؛ AR 115.</span>
+          <p data-ar="«الشرح» المطبوع:«(1) (1) بروتوكول الاتصال هو اتفاق مشترك في شبكات المعلومات والاتصالات. لذلك ، × (2) UDP هو بروتوكول يؤكد على إرسال البيانات في الوقت الفعلي. لإعطاء الأولوية لسرعة نقل البيانات ، فإنه يفعل ذلك لا تضمن سلامة البيانات أو ترتيبها. لذلك ، × (3) TCP هو بروتوكول يقسم البيانات المراد إرسالها إلى حزم ويعيد إرسال أي حزم فقدت أثناء الإرسال ، مما يضمن اتصالاً موثوقًا. لذلك ، × (4) ✓ (2) (ب) ← (أ) ← (ت) ← (ث)»." data-en="The printed Explanation: &quot;(1) A A communication protocol is a common agreement in information and communication networks. Therefore, × B UDP is a protocol that emphasizes sending data in real-time. To prioritize data transfer speed, it does not guarantee the integrity or order of the data. Therefore, × C TCP is a protocol that divides the data to be sent into packets and retransmits any packets that are lost during transmission, ensuring reliable communication. Therefore, × D ○ (2) B → A → C → D&quot;.">«الشرح» المطبوع:«(1) (1) بروتوكول الاتصال هو اتفاق مشترك في شبكات المعلومات والاتصالات. لذلك ، × (2) UDP هو بروتوكول يؤكد على إرسال البيانات في الوقت الفعلي. لإعطاء الأولوية لسرعة نقل البيانات ، فإنه يفعل ذلك لا تضمن سلامة البيانات أو ترتيبها. لذلك ، × (3) TCP هو بروتوكول يقسم البيانات المراد إرسالها إلى حزم ويعيد إرسال أي حزم فقدت أثناء الإرسال ، مما يضمن اتصالاً موثوقًا. لذلك ، × (4) ✓ (2) (ب) ← (أ) ← (ت) ← (ث)».</p>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال (1) العربي يرقّم عباراته (1)-(4) بينما نطاق التعليمات «من أ إلى ث» — يُنقل كما طُبع دون الجزم بالنمط المقصود؛ الإنجليزية A-D. علامتا الإجابة: العربية تطلب «&quot;✓&quot;» و«&quot;x&quot;» بينما الإنجليزية &quot;○&quot; و&quot;×&quot;، و«الشرح» العربي نفسه يطبع «×» و«✓». شرح العبارة (2) في العربية يطبع «فإنه يفعل ذلك لا تضمن سلامة البيانات أو ترتيبها» بترتيب كلمات غير مستقيم؛ الإنجليزية &quot;it does not guarantee the integrity or order of the data&quot;. ترتيب الإجابة المطبوع:العربية «(ب) ← (أ) ← (ت) ← (ث)» بأسهم لليسار؛ الإنجليزية &quot;B → A → C → D&quot;. عبارات السؤال (2) معنونة (أ)-(ث) بترتيب أبجدي متسق في العربية. العنوان:العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;." data-en="Edition comparison (confirmed from the printed page images): Arabic question (1) numbers its statements (1)-(4) while its instruction range is «أ to ث» — carried as printed without asserting the intended convention; English A-D. Answer marks:Arabic asks for «✓» and «x» while English uses &quot;○&quot; and &quot;×&quot;, and the Arabic explanation itself prints «×» and «✓». The Arabic explanation of statement (2) prints «فإنه يفعل ذلك لا تضمن سلامة البيانات» with jumbled word order; English &quot;it does not guarantee the integrity or order of the data&quot;. Printed ordering answer:Arabic «(ب) ← (أ) ← (ت) ← (ث)» with leftward arrows; English &quot;B → A → C → D&quot;. Question (2) steps are lettered (أ)-(ث), consistent abjad, in Arabic. Heading:Arabic «تحدي معلوماتك»; English &quot;Warm Up&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال (1) العربي يرقّم عباراته (1)-(4) بينما نطاق التعليمات «من أ إلى ث» — يُنقل كما طُبع دون الجزم بالنمط المقصود؛ الإنجليزية A-D. علامتا الإجابة:العربية تطلب «&quot;✓&quot;» و«&quot;x&quot;» بينما الإنجليزية &quot;○&quot; و&quot;×&quot;، و«الشرح» العربي نفسه يطبع «×» و«✓». شرح العبارة (2) في العربية يطبع «فإنه يفعل ذلك لا تضمن سلامة البيانات أو ترتيبها» بترتيب كلمات غير مستقيم؛ الإنجليزية &quot;it does not guarantee the integrity or order of the data&quot;. ترتيب الإجابة المطبوع:العربية «(ب) ← (أ) ← (ت) ← (ث)» بأسهم لليسار؛ الإنجليزية &quot;B → A → C → D&quot;. عبارات السؤال (2) معنونة (أ)-(ث) بترتيب أبجدي متسق في العربية. العنوان:العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 102 (المطبوع 102)؛ AR 115." data-en="The text above is from the book. Full source: English PDF 102 (printed 102); Arabic 115.">النص السابق من الكتاب. المصدر الكامل:EN PDF 102 (المطبوع 102)؛ AR 115.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
@@ -1687,11 +1686,11 @@
           <h3 data-ar="من الكتاب: جرب بنفسك — والإجابات التالية غير مطبوعة" data-en="From the book: Try — the answers below are not printed">من الكتاب: جرب بنفسك — والإجابات التالية غير مطبوعة</h3>
           <p data-ar="«1 اختر الشرح الأنسب لبروتوكول الاتصال من الخيارات من 1 إلى 4 ، وأجب باستخدام الرقم. (أ) (HUB) يُستخدم لتوصيل الأجهزة مثل الكمبيوتر والطابعات بشبكة LAN (ب) وصف لموقع المعلومات المحدد في متصفح الويب وكيفية استردادها (ج) الرقم المستخدم لتعريف جهاز كمبيوتر في الاتصال بالإنترنت (د) البروتوكولات الخاصة بالاتصال عبر الشبكة»" data-en="&quot;1 Choose the most appropriate explanation of a communication protocol from the options A to D below, and answer using the letter. A Cable hub used for connecting devices such as computers and printers to a LAN B Description of the location of information specified in a web browser and how to retrieve it C The number used to identify a computer in internet communication D Protocols for communication over a network&quot;">«1 اختر الشرح الأنسب لبروتوكول الاتصال من الخيارات من 1 إلى 4 ، وأجب باستخدام الرقم. (أ) (HUB) يُستخدم لتوصيل الأجهزة مثل الكمبيوتر والطابعات بشبكة LAN (ب) وصف لموقع المعلومات المحدد في متصفح الويب وكيفية استردادها (ج) الرقم المستخدم لتعريف جهاز كمبيوتر في الاتصال بالإنترنت (د) البروتوكولات الخاصة بالاتصال عبر الشبكة»</p>
           <p data-ar="«2 أجب عن الأسئلة التالية. (1) اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [7] في الجمل التالية من الخيارات من أ إلى ح. تسمى القواعد والإجراءات الخاصة بالاتصال عبر شبكة المعلومات والاتصالات بـ ( [1] ). على الإنترنت، يُستخدم ( [2] ) بشكل أساسي. من بينها، ( [3] ) مسؤول عن تقسيم البيانات المراد إرسالها إلى ( [4] )، وإعادة ترتيب الحزم المستلمة ([4]) بالترتيب، وإعادة إرسال أي بيانات قد تكون مفقودة أثناء الاتصال. من ناحية أخرى، ( [5] ) مسؤول عن إرفاق ( [6] )، وهو عنوان الوجهة، بـ ([4]) وإرسالها إلى الوجهة. في هذا الوقت، يتم نقل ([4]) عبر الإنترنت، للبحث عن المسار الأكثر كفاءة لجهاز الكمبيوتر المستلم. يُشار إلى هذا باسم ( [7] ). (أ) TCP/IP (ب) IP (ج) TCP (د) الحزم - Packets (هـ) عنوان IP (و) عنوان MAC (ز) التوجيه (routing) (ح) بروتوكول الاتصال»" data-en="&quot;2 Answer the following questions. (1) Choose the term that best fits into the blanks [1] to [7] in the following sentences from the options A to H below, and answer using the letters. The rules and procedures for communication over an information and communication network are called ( [1] ). On the internet, ( [2] ) is primarily used. Among them, ( [3] ) is responsible for dividing the data to be sent into ( [4] ), rearranging the received ([4]) in order, and retransmitting any data that may be missing during communication. On the other hand, ( [5] ) is responsible for attaching the ( [6] ), which is the destination address, to ([4]) and sending them to the destination. At this time, ([4]) are transmitted via the internet, searching for the most efficient route to the recipient computer. This is referred to as ( [7] ). A TCP/IP B IP C TCP D Packets E IP address F MAC address G Routing H Communication protocol&quot;">«2 أجب عن الأسئلة التالية. (1) اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [7] في الجمل التالية من الخيارات من أ إلى ح. تسمى القواعد والإجراءات الخاصة بالاتصال عبر شبكة المعلومات والاتصالات بـ ( [1] ). على الإنترنت، يُستخدم ( [2] ) بشكل أساسي. من بينها، ( [3] ) مسؤول عن تقسيم البيانات المراد إرسالها إلى ( [4] )، وإعادة ترتيب الحزم المستلمة ([4]) بالترتيب، وإعادة إرسال أي بيانات قد تكون مفقودة أثناء الاتصال. من ناحية أخرى، ( [5] ) مسؤول عن إرفاق ( [6] )، وهو عنوان الوجهة، بـ ([4]) وإرسالها إلى الوجهة. في هذا الوقت، يتم نقل ([4]) عبر الإنترنت، للبحث عن المسار الأكثر كفاءة لجهاز الكمبيوتر المستلم. يُشار إلى هذا باسم ( [7] ). (أ) TCP/IP (ب) IP (ج) TCP (د) الحزم - Packets (هـ) عنوان IP (و) عنوان MAC (ز) التوجيه (routing) (ح) بروتوكول الاتصال»</p>
-          <p data-ar="«(2) الطبقات في TCP/IP للاتصال بالبيانات عبر الإنترنت ملخصة في الجدول التالي. اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [4] من الخيارات من أ إلى ث.» الجدول المطبوع: الطبقة الرابعة ( [1] ) — الاتصال بين التطبيقات؛ الطبقة الثالثة ( [2] ) — التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات؛ الطبقة الثانية ( [3] ) — تخصيص عنوان IP، قرار التوجيه؛ الطبقة الأولى ( [4] ) — الاتصال المادي، التفاعل بين الأجهزة. «(1) Transport layer - طبقة النقل (2) Network interface layer - طبقة واجهة الشبكة (3) Internet layer - طبقة الإنترنت (4) Application layer - طبقة التطبيق»" data-en="&quot;(2) The layers in TCP/IP for data communication over the internet are summarized in the following table. Choose the term that best fits into the blanks [1] to [4] from the options A to D below, and answer using the letters.&quot; Printed table: Four layers ( [1] ) — Communication between applications; Three layers ( [2] ) — Communication control, error detection, and data retransmission; Two layers ( [3] ) — IP address allocation, routing decision; One layer ( [4] ) — Physical connection, interaction between devices. &quot;A Transport layer B Network interface layer C Internet layer D Application layer&quot;">«(2) الطبقات في TCP/IP للاتصال بالبيانات عبر الإنترنت ملخصة في الجدول التالي. اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [4] من الخيارات من أ إلى ث.» الجدول المطبوع: الطبقة الرابعة ( [1] ) — الاتصال بين التطبيقات؛ الطبقة الثالثة ( [2] ) — التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات؛ الطبقة الثانية ( [3] ) — تخصيص عنوان IP، قرار التوجيه؛ الطبقة الأولى ( [4] ) — الاتصال المادي، التفاعل بين الأجهزة. «(1) Transport layer - طبقة النقل (2) Network interface layer - طبقة واجهة الشبكة (3) Internet layer - طبقة الإنترنت (4) Application layer - طبقة التطبيق»</p>
+          <p data-ar="«(2) الطبقات في TCP/IP للاتصال بالبيانات عبر الإنترنت ملخصة في الجدول التالي. اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [4] من الخيارات من أ إلى ث.» الجدول المطبوع:الطبقة الرابعة ( [1] ) — الاتصال بين التطبيقات؛ الطبقة الثالثة ( [2] ) — التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات؛ الطبقة الثانية ( [3] ) — تخصيص عنوان IP، قرار التوجيه؛ الطبقة الأولى ( [4] ) — الاتصال المادي، التفاعل بين الأجهزة. «(1) Transport layer - طبقة النقل (2) Network interface layer - طبقة واجهة الشبكة (3) Internet layer - طبقة الإنترنت (4) Application layer - طبقة التطبيق»" data-en="&quot;(2) The layers in TCP/IP for data communication over the internet are summarized in the following table. Choose the term that best fits into the blanks [1] to [4] from the options A to D below, and answer using the letters.&quot; Printed table:Four layers ( [1] ) — Communication between applications; Three layers ( [2] ) — Communication control, error detection, and data retransmission; Two layers ( [3] ) — IP address allocation, routing decision; One layer ( [4] ) — Physical connection, interaction between devices. &quot;A Transport layer B Network interface layer C Internet layer D Application layer&quot;">«(2) الطبقات في TCP/IP للاتصال بالبيانات عبر الإنترنت ملخصة في الجدول التالي. اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [4] من الخيارات من أ إلى ث.» الجدول المطبوع:الطبقة الرابعة ( [1] ) — الاتصال بين التطبيقات؛ الطبقة الثالثة ( [2] ) — التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات؛ الطبقة الثانية ( [3] ) — تخصيص عنوان IP، قرار التوجيه؛ الطبقة الأولى ( [4] ) — الاتصال المادي، التفاعل بين الأجهزة. «(1) Transport layer - طبقة النقل (2) Network interface layer - طبقة واجهة الشبكة (3) Internet layer - طبقة الإنترنت (4) Application layer - طبقة التطبيق»</p>
           <p data-ar="«(3) اختر المثال المناسب لكل بروتوكول من البروتوكولات [1] إلى [4] من الخيارات من أ إلى ث . [1] Transport layer - طبقة النقل [2] Network interface layer - طبقة واجهة الشبكة [3] Internet layer - طبقة الإنترنت [4] Application layer - طبقة التطبيق (أ) UDP (ب) IP (ج) SMTP (د) Ethernet»" data-en="&quot;(3) Choose the appropriate example for each of the protocols [1] to [4] from the options A to D below, and answer using the letters. [1] Transport layer [2] Network interface layer [3] Internet layer [4] Application layer A UDP B IP C SMTP D Ethernet&quot;">«(3) اختر المثال المناسب لكل بروتوكول من البروتوكولات [1] إلى [4] من الخيارات من أ إلى ث . [1] Transport layer - طبقة النقل [2] Network interface layer - طبقة واجهة الشبكة [3] Internet layer - طبقة الإنترنت [4] Application layer - طبقة التطبيق (أ) UDP (ب) IP (ج) SMTP (د) Ethernet»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1 = (د). 2(1): [1] (ح) بروتوكول الاتصال [2] (أ) TCP/IP [3] (ج) TCP [4] (د) الحزم [5] (ب) IP [6] (هـ) عنوان IP [7] (ز) التوجيه. 2(2): [1] (4) [2] (1) [3] (3) [4] (2). 2(3): [1] (أ) UDP [2] (د) Ethernet [3] (ب) IP [4] (ج) SMTP." data-en="Answers not printed in the book (teacher-prepared): 1 = D. 2(1): [1] H Communication protocol [2] A TCP/IP [3] C TCP [4] D Packets [5] B IP [6] E IP address [7] G Routing. 2(2): [1] D [2] A [3] C [4] B. 2(3): [1] A UDP [2] D Ethernet [3] B IP [4] C SMTP.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1 = (د). 2(1): [1] (ح) بروتوكول الاتصال [2] (أ) TCP/IP [3] (ج) TCP [4] (د) الحزم [5] (ب) IP [6] (هـ) عنوان IP [7] (ز) التوجيه. 2(2): [1] (4) [2] (1) [3] (3) [4] (2). 2(3): [1] (أ) UDP [2] (د) Ethernet [3] (ب) IP [4] (ج) SMTP.</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): أنماط التسمية العربية تختلف بين الأسئلة وتُنقل كما طُبعت دون الجزم بالنمط المقصود: السؤال 1 يقول «من 1 إلى 4 ، وأجب باستخدام الرقم» بينما خياراته معنونة (أ)(ب)(ج)(د)؛ والسؤال 2(2) يقول «من أ إلى ث» بينما خياراته مرقمة (1)-(4)؛ والسؤال 2(3) يقول «من أ إلى ث» وخياراته (أ)(ب)(ج)(د)؛ أما 2(1) فيقول «من أ إلى ح» وخياراته الثمانية (أ)(ب)(ج)(د)(هـ)(و)(ز)(ح) بترتيب أبجدي حديث (لا أبجدي تقليدي) متسق مع المدى. الإنجليزية تستخدم الحروف A-D وA-H في كل الأسئلة. خيارات 2(2) و2(3) العربية تطبع المصطلح اللاتيني أولًا ثم العربي «Transport layer - طبقة النقل». الخيار (أ) في السؤال 1 يطبع «(HUB)» بأحرف كبيرة؛ الإنجليزية &quot;Cable hub&quot;. جملة 2(1) تكرر «الترتيب» («وإعادة ترتيب الحزم المستلمة ([4]) بالترتيب») في العربية فقط. العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic labeling patterns differ per question and are carried as printed without asserting the intended convention: question 1 says «options 1 to 4, answer using the number» while its options are lettered (أ)(ب)(ج)(د); question 2(2) says «أ to ث» while its options are numbered (1)-(4); question 2(3) says «أ to ث» with lettered (أ)(ب)(ج)(د) options; and 2(1) says «أ to ح» with eight options (أ)(ب)(ج)(د)(هـ)(و)(ز)(ح) in modern alphabetical (not traditional abjad) order, consistent with the stated range. English uses letters A-D and A-H throughout. Arabic 2(2) and 2(3) options print the Latin term first, then Arabic («Transport layer - طبقة النقل»). Question 1 option (أ) prints «(HUB)» in capitals; English &quot;Cable hub&quot;. The 2(1) sentence repeats &quot;order&quot; («وإعادة ترتيب الحزم المستلمة ([4]) بالترتيب») in Arabic only. Heading: Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): أنماط التسمية العربية تختلف بين الأسئلة وتُنقل كما طُبعت دون الجزم بالنمط المقصود: السؤال 1 يقول «من 1 إلى 4 ، وأجب باستخدام الرقم» بينما خياراته معنونة (أ)(ب)(ج)(د)؛ والسؤال 2(2) يقول «من أ إلى ث» بينما خياراته مرقمة (1)-(4)؛ والسؤال 2(3) يقول «من أ إلى ث» وخياراته (أ)(ب)(ج)(د)؛ أما 2(1) فيقول «من أ إلى ح» وخياراته الثمانية (أ)(ب)(ج)(د)(هـ)(و)(ز)(ح) بترتيب أبجدي حديث (لا أبجدي تقليدي) متسق مع المدى. الإنجليزية تستخدم الحروف A-D وA-H في كل الأسئلة. خيارات 2(2) و2(3) العربية تطبع المصطلح اللاتيني أولًا ثم العربي «Transport layer - طبقة النقل». الخيار (أ) في السؤال 1 يطبع «(HUB)» بأحرف كبيرة؛ الإنجليزية &quot;Cable hub&quot;. جملة 2(1) تكرر «الترتيب» («وإعادة ترتيب الحزم المستلمة ([4]) بالترتيب») في العربية فقط. العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 103 (المطبوع 103)؛ AR 115–116." data-en="The text above is from the book. Full source: English PDF 103 (printed 103); Arabic 115–116.">النص السابق من الكتاب. المصدر الكامل: EN PDF 103 (المطبوع 103)؛ AR 115–116.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): أنماط التسمية العربية تختلف بين الأسئلة وتُنقل كما طُبعت دون الجزم بالنمط المقصود:السؤال 1 يقول «من 1 إلى 4 ، وأجب باستخدام الرقم» بينما خياراته معنونة (أ)(ب)(ج)(د)؛ والسؤال 2(2) يقول «من أ إلى ث» بينما خياراته مرقمة (1)-(4)؛ والسؤال 2(3) يقول «من أ إلى ث» وخياراته (أ)(ب)(ج)(د)؛ أما 2(1) فيقول «من أ إلى ح» وخياراته الثمانية (أ)(ب)(ج)(د)(هـ)(و)(ز)(ح) بترتيب أبجدي حديث (لا أبجدي تقليدي) متسق مع المدى. الإنجليزية تستخدم الحروف A-D وA-H في كل الأسئلة. خيارات 2(2) و2(3) العربية تطبع المصطلح اللاتيني أولًا ثم العربي «Transport layer - طبقة النقل». الخيار (أ) في السؤال 1 يطبع «(HUB)» بأحرف كبيرة؛ الإنجليزية &quot;Cable hub&quot;. جملة 2(1) تكرر «الترتيب» («وإعادة ترتيب الحزم المستلمة ([4]) بالترتيب») في العربية فقط. العنوان:العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic labeling patterns differ per question and are carried as printed without asserting the intended convention:question 1 says «options 1 to 4, answer using the number» while its options are lettered (أ)(ب)(ج)(د); question 2(2) says «أ to ث» while its options are numbered (1)-(4); question 2(3) says «أ to ث» with lettered (أ)(ب)(ج)(د) options; and 2(1) says «أ to ح» with eight options (أ)(ب)(ج)(د)(هـ)(و)(ز)(ح) in modern alphabetical (not traditional abjad) order, consistent with the stated range. English uses letters A-D and A-H throughout. Arabic 2(2) and 2(3) options print the Latin term first, then Arabic («Transport layer - طبقة النقل»). Question 1 option (أ) prints «(HUB)» in capitals; English &quot;Cable hub&quot;. The 2(1) sentence repeats &quot;order&quot; («وإعادة ترتيب الحزم المستلمة ([4]) بالترتيب») in Arabic only. Heading:Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): أنماط التسمية العربية تختلف بين الأسئلة وتُنقل كما طُبعت دون الجزم بالنمط المقصود:السؤال 1 يقول «من 1 إلى 4 ، وأجب باستخدام الرقم» بينما خياراته معنونة (أ)(ب)(ج)(د)؛ والسؤال 2(2) يقول «من أ إلى ث» بينما خياراته مرقمة (1)-(4)؛ والسؤال 2(3) يقول «من أ إلى ث» وخياراته (أ)(ب)(ج)(د)؛ أما 2(1) فيقول «من أ إلى ح» وخياراته الثمانية (أ)(ب)(ج)(د)(هـ)(و)(ز)(ح) بترتيب أبجدي حديث (لا أبجدي تقليدي) متسق مع المدى. الإنجليزية تستخدم الحروف A-D وA-H في كل الأسئلة. خيارات 2(2) و2(3) العربية تطبع المصطلح اللاتيني أولًا ثم العربي «Transport layer - طبقة النقل». الخيار (أ) في السؤال 1 يطبع «(HUB)» بأحرف كبيرة؛ الإنجليزية &quot;Cable hub&quot;. جملة 2(1) تكرر «الترتيب» («وإعادة ترتيب الحزم المستلمة ([4]) بالترتيب») في العربية فقط. العنوان:العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 103 (المطبوع 103)؛ AR 115–116." data-en="The text above is from the book. Full source: English PDF 103 (printed 103); Arabic 115–116.">النص السابق من الكتاب. المصدر الكامل:EN PDF 103 (المطبوع 103)؛ AR 115–116.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
@@ -1699,11 +1698,11 @@
           <h3 data-ar="من الكتاب: تمرين — والإجابات التالية غير مطبوعة" data-en="From the book: Exercise — the answers below are not printed">من الكتاب: تمرين — والإجابات التالية غير مطبوعة</h3>
           <p data-ar="«1 اختر المصطلح الأنسب الذي يملأ الفراغات في الجمل التالية من أ إلى ث . (1) يُشار إلى رقم تعريف فريد يعادل عنوانًا يتم تعيينه للأجهزة على شبكة المعلومات والاتصالات باسم ( ). (2) يُشار إلى مجموعة من القواعد المشتركة داخل شبكة المعلومات والاتصالات باسم ( ). (أ) IP address (ب) TCP/IP (ت) Protocol (ث) Route»" data-en="&quot;1 Choose the term that best fits into the blanks in the following sentences from the options A to D below, and answer using the letters. (1) A unique identification number equivalent to an address assigned to devices on an information and communication network is referred to as an ( ). (2) A common set of rules within an information and communication network is referred to as a ( ). A IP address B TCP/IP C Protocol D Route&quot;">«1 اختر المصطلح الأنسب الذي يملأ الفراغات في الجمل التالية من أ إلى ث . (1) يُشار إلى رقم تعريف فريد يعادل عنوانًا يتم تعيينه للأجهزة على شبكة المعلومات والاتصالات باسم ( ). (2) يُشار إلى مجموعة من القواعد المشتركة داخل شبكة المعلومات والاتصالات باسم ( ). (أ) IP address (ب) TCP/IP (ت) Protocol (ث) Route»</p>
           <p data-ar="«3 أجب عن الأسئلة التالية. (1) اختر الخيارات الأكثر صلة بالجمل التالية من 1 إلى 4 من الخيارات من أ إلى ث. [1] بروتوكول يركز على إرسال البيانات في الوقت الفعلي. يُستخدم للمكالمات الصوتية وتدفق الفيديو. [2] بيانات يتم تقسيمها عند الاتصال عبر الشبكة. [3] بروتوكولات تُستخدم على الإنترنت. مقسمة إلى أربع طبقات. [4] بروتوكول يقسم البيانات المراد إرسالها إلى حزم ويعيد إرسال أي حزم مفقودة أثناء الإرسال. (أ) TCP/IP (ب) TCP (ج) Packet (د) UDP» — الكتلة مرقّمة «3» في العربية كما طُبعت؛ انظر المقارنة بالأسفل." data-en="&quot;2 Answer the following questions. (1) Choose the most closely related options for the following sentences from the options A to D below, and answer using the letters. [1] A protocol that emphasizes sending data in real time. Used for voice calls and streaming video. [2] Data that is divided when communicating over a network. [3] Protocols used on the internet. Divided into four layers. [4] A protocol that divides the data to be sent into packets and retransmits any packets that are lost during transmission. A TCP/IP B TCP C Packet D UDP&quot; — the block is numbered «3» in Arabic as printed; see the comparison below.">«3 أجب عن الأسئلة التالية. (1) اختر الخيارات الأكثر صلة بالجمل التالية من 1 إلى 4 من الخيارات من أ إلى ث. [1] بروتوكول يركز على إرسال البيانات في الوقت الفعلي. يُستخدم للمكالمات الصوتية وتدفق الفيديو. [2] بيانات يتم تقسيمها عند الاتصال عبر الشبكة. [3] بروتوكولات تُستخدم على الإنترنت. مقسمة إلى أربع طبقات. [4] بروتوكول يقسم البيانات المراد إرسالها إلى حزم ويعيد إرسال أي حزم مفقودة أثناء الإرسال. (أ) TCP/IP (ب) TCP (ج) Packet (د) UDP» — الكتلة مرقّمة «3» في العربية كما طُبعت؛ انظر المقارنة بالأسفل.</p>
-          <p data-ar="«(2) الطبقات في TCP/IP للاتصال بالبيانات عبر الإنترنت ملخصة في الجدول التالي. اختر الوظيفة الأنسب التي تملأ الفراغات [1] إلى [4] من الخيارات من أ إلى ث ، وأجب باستخدام الحروف.» الجدول المطبوع: الطبقة الرابعة طبقة التطبيق ( [1] ) — HTTP، SMTP إلخ.؛ الطبقة الثالثة طبقة النقل ( [2] ) — TCP، UDP إلخ.؛ الطبقة الثانية طبقة الإنترنت ( [3] ) — IP إلخ.؛ الطبقة الأولى طبقة واجهة الشبكة ( [4] ) — Ethernet إلخ. «(1) الاتصال المادي، التفاعل بين الأجهزة (2) الاتصال بين التطبيقات (3) تخصيص عنوان IP، قرار التوجيه (4) التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات»" data-en="&quot;(2) The layers in TCP/IP for data communication over the internet are summarized in the following table. Choose the function that best fits into the blanks [1] to [4] from the options A to D below, and answer using the letters.&quot; Printed table: Four layers Application layer ( [1] ) — HTTP, SMTP, etc.; Three layers Transport layer ( [2] ) — TCP, UDP, etc.; Two layers Internet layer ( [3] ) — IP, etc.; One layer Network interface layer ( [4] ) — Ethernet, etc. &quot;A Physical connection, interaction between devices B Communication between applications C IP address allocation, routing decision D Communication control, error detection, and data retransmission&quot;">«(2) الطبقات في TCP/IP للاتصال بالبيانات عبر الإنترنت ملخصة في الجدول التالي. اختر الوظيفة الأنسب التي تملأ الفراغات [1] إلى [4] من الخيارات من أ إلى ث ، وأجب باستخدام الحروف.» الجدول المطبوع: الطبقة الرابعة طبقة التطبيق ( [1] ) — HTTP، SMTP إلخ.؛ الطبقة الثالثة طبقة النقل ( [2] ) — TCP، UDP إلخ.؛ الطبقة الثانية طبقة الإنترنت ( [3] ) — IP إلخ.؛ الطبقة الأولى طبقة واجهة الشبكة ( [4] ) — Ethernet إلخ. «(1) الاتصال المادي، التفاعل بين الأجهزة (2) الاتصال بين التطبيقات (3) تخصيص عنوان IP، قرار التوجيه (4) التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات»</p>
+          <p data-ar="«(2) الطبقات في TCP/IP للاتصال بالبيانات عبر الإنترنت ملخصة في الجدول التالي. اختر الوظيفة الأنسب التي تملأ الفراغات [1] إلى [4] من الخيارات من أ إلى ث ، وأجب باستخدام الحروف.» الجدول المطبوع:الطبقة الرابعة طبقة التطبيق ( [1] ) — HTTP، SMTP إلخ.؛ الطبقة الثالثة طبقة النقل ( [2] ) — TCP، UDP إلخ.؛ الطبقة الثانية طبقة الإنترنت ( [3] ) — IP إلخ.؛ الطبقة الأولى طبقة واجهة الشبكة ( [4] ) — Ethernet إلخ. «(1) الاتصال المادي، التفاعل بين الأجهزة (2) الاتصال بين التطبيقات (3) تخصيص عنوان IP، قرار التوجيه (4) التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات»" data-en="&quot;(2) The layers in TCP/IP for data communication over the internet are summarized in the following table. Choose the function that best fits into the blanks [1] to [4] from the options A to D below, and answer using the letters.&quot; Printed table:Four layers Application layer ( [1] ) — HTTP, SMTP, etc.; Three layers Transport layer ( [2] ) — TCP, UDP, etc.; Two layers Internet layer ( [3] ) — IP, etc.; One layer Network interface layer ( [4] ) — Ethernet, etc. &quot;A Physical connection, interaction between devices B Communication between applications C IP address allocation, routing decision D Communication control, error detection, and data retransmission&quot;">«(2) الطبقات في TCP/IP للاتصال بالبيانات عبر الإنترنت ملخصة في الجدول التالي. اختر الوظيفة الأنسب التي تملأ الفراغات [1] إلى [4] من الخيارات من أ إلى ث ، وأجب باستخدام الحروف.» الجدول المطبوع:الطبقة الرابعة طبقة التطبيق ( [1] ) — HTTP، SMTP إلخ.؛ الطبقة الثالثة طبقة النقل ( [2] ) — TCP، UDP إلخ.؛ الطبقة الثانية طبقة الإنترنت ( [3] ) — IP إلخ.؛ الطبقة الأولى طبقة واجهة الشبكة ( [4] ) — Ethernet إلخ. «(1) الاتصال المادي، التفاعل بين الأجهزة (2) الاتصال بين التطبيقات (3) تخصيص عنوان IP، قرار التوجيه (4) التحكم في الاتصال، كشف الأخطاء، وإعادة إرسال البيانات»</p>
           <p data-ar="«(3) تصف العبارات التالية آلية الاتصال بالبيانات على الإنترنت. أجب عن الأسئلة التالية. 1 قسّم البيانات التي تريد إرسالها إلى ( أ ). 2 قم بتعيين ( ب ) للمرسل أو المستلم إلى رأس كل حزمة. 3 اختر مسار الاتصال الأمثل لكل حزمة وقم بتسليمها إلى وجهتها. 4 إذا كانت هناك أي حزم مفقودة عند الاستلام، يتم طلب إعادة إرسالها. ثم يتم إعادة ترتيب الحزم بالترتيب لإكمال البيانات بأكملها. [1] أكمل الجمل عن طريق ملء الفراغات (أ) و (ب) بالمصطلحات المناسبة. [2] أجب بالمصطلح المناسب للقسم الذي تحته خط.»" data-en="&quot;(3) The following statements describe the mechanism of data communication on the internet. Answer the following questions. 1) Divide the data you want to send into ( A ). 2) Assign the ( B ) of the sender or recipient to the header of each packet. 3) Select the optimal communication route for each packet and deliver it to its destination. 4) If there any packets are missing upon receipt, a retransmission is requested. The packets are then rearranged in order to complete the data in its entirety. [1] Complete the sentences by filling in the blanks A and B with the appropriate terms. [2] Answer with the appropriate term for the underlined section.&quot;">«(3) تصف العبارات التالية آلية الاتصال بالبيانات على الإنترنت. أجب عن الأسئلة التالية. 1 قسّم البيانات التي تريد إرسالها إلى ( أ ). 2 قم بتعيين ( ب ) للمرسل أو المستلم إلى رأس كل حزمة. 3 اختر مسار الاتصال الأمثل لكل حزمة وقم بتسليمها إلى وجهتها. 4 إذا كانت هناك أي حزم مفقودة عند الاستلام، يتم طلب إعادة إرسالها. ثم يتم إعادة ترتيب الحزم بالترتيب لإكمال البيانات بأكملها. [1] أكمل الجمل عن طريق ملء الفراغات (أ) و (ب) بالمصطلحات المناسبة. [2] أجب بالمصطلح المناسب للقسم الذي تحته خط.»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (أ) IP address. 1(2) = (ت) Protocol. 3(1): [1] (د) UDP [2] (ج) Packet [3] (أ) TCP/IP [4] (ب) TCP. 3(2): [1] (2) [2] (4) [3] (3) [4] (1). 3(3)[1]: (أ) الحزم (packets) (ب) عناوين IP. 3(3)[2] = التوجيه (routing)." data-en="Answers not printed in the book (teacher-prepared): 1(1) = A IP address. 1(2) = C Protocol. 2(1): [1] D UDP [2] C Packet [3] A TCP/IP [4] B TCP. 2(2): [1] B [2] D [3] C [4] A. 2(3)[1]: A packets B IP addresses. 2(3)[2] = routing.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (أ) IP address. 1(2) = (ت) Protocol. 3(1): [1] (د) UDP [2] (ج) Packet [3] (أ) TCP/IP [4] (ب) TCP. 3(2): [1] (2) [2] (4) [3] (3) [4] (1). 3(3)[1]: (أ) الحزم (packets) (ب) عناوين IP. 3(3)[2] = التوجيه (routing).</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot; — نفس نمط درس 8-1. التسميات تُنقل كما طُبعت: التمرين 1 خياراته (أ)(ب)(ت)(ث) بترتيب أبجدي متسق يقابل A-D؛ التمرين 3(1) خياراته (أ)(ب)(ج)(د) مع المدى «من أ إلى ث»؛ التمرين 3(2) يطلب الإجابة «باستخدام الحروف» ومداه «من أ إلى ث» بينما خياراته مرقمة (1)-(4)؛ الإنجليزية A-D في الكل. فراغات 3(3) العربية معنونة ( أ ) و ( ب ) بحرفين عربيين مقابل &quot;A&quot; و&quot;B&quot; الإنجليزية، وخطوتها 2 تطبع «إلى رأس كل حزمة» بلفظ «رأس» بينما بند النقاط العربي نفسه يطبع &quot;header&quot;؛ الإنجليزية &quot;header&quot; في الموضعين. الإنجليزية تطبع &quot;If there any packets are missing&quot; (كما طُبعت) هنا وفي النقاط. العنوان: العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): the second Exercise block is numbered «3» in Arabic though it is Exercise 2; English numbers it &quot;2&quot; — the same pattern as lesson 8-1. Labels are carried as printed: Exercise 1 options (أ)(ب)(ت)(ث) are consistent abjad matching A-D; Exercise 3(1) options (أ)(ب)(ج)(د) against the stated range «أ to ث»; Exercise 3(2) asks to answer «using the letters» with range «أ to ث» while its options are numbered (1)-(4); English uses A-D throughout. Arabic 3(3) blanks are lettered ( أ ) and ( ب ) versus English &quot;A&quot; and &quot;B&quot;, and its step 2 prints «إلى رأس كل حزمة» with the Arabic word «رأس» while the Arabic Point itself prints &quot;header&quot;; English prints &quot;header&quot; in both places. English prints &quot;If there any packets are missing&quot; (as printed) here and in the Point. Heading: Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot; — نفس نمط درس 8-1. التسميات تُنقل كما طُبعت: التمرين 1 خياراته (أ)(ب)(ت)(ث) بترتيب أبجدي متسق يقابل A-D؛ التمرين 3(1) خياراته (أ)(ب)(ج)(د) مع المدى «من أ إلى ث»؛ التمرين 3(2) يطلب الإجابة «باستخدام الحروف» ومداه «من أ إلى ث» بينما خياراته مرقمة (1)-(4)؛ الإنجليزية A-D في الكل. فراغات 3(3) العربية معنونة ( أ ) و ( ب ) بحرفين عربيين مقابل &quot;A&quot; و&quot;B&quot; الإنجليزية، وخطوتها 2 تطبع «إلى رأس كل حزمة» بلفظ «رأس» بينما بند النقاط العربي نفسه يطبع &quot;header&quot;؛ الإنجليزية &quot;header&quot; في الموضعين. الإنجليزية تطبع &quot;If there any packets are missing&quot; (كما طُبعت) هنا وفي النقاط. العنوان: العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 104 (المطبوع 104)؛ AR 116–117." data-en="The text above is from the book. Full source: English PDF 104 (printed 104); Arabic 116–117.">النص السابق من الكتاب. المصدر الكامل: EN PDF 104 (المطبوع 104)؛ AR 116–117.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot; — نفس نمط درس 8-1. التسميات تُنقل كما طُبعت:التمرين 1 خياراته (أ)(ب)(ت)(ث) بترتيب أبجدي متسق يقابل A-D؛ التمرين 3(1) خياراته (أ)(ب)(ج)(د) مع المدى «من أ إلى ث»؛ التمرين 3(2) يطلب الإجابة «باستخدام الحروف» ومداه «من أ إلى ث» بينما خياراته مرقمة (1)-(4)؛ الإنجليزية A-D في الكل. فراغات 3(3) العربية معنونة ( أ ) و ( ب ) بحرفين عربيين مقابل &quot;A&quot; و&quot;B&quot; الإنجليزية، وخطوتها 2 تطبع «إلى رأس كل حزمة» بلفظ «رأس» بينما بند النقاط العربي نفسه يطبع &quot;header&quot;؛ الإنجليزية &quot;header&quot; في الموضعين. الإنجليزية تطبع &quot;If there any packets are missing&quot; (كما طُبعت) هنا وفي النقاط. العنوان:العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): the second Exercise block is numbered «3» in Arabic though it is Exercise 2; English numbers it &quot;2&quot; — the same pattern as lesson 8-1. Labels are carried as printed:Exercise 1 options (أ)(ب)(ت)(ث) are consistent abjad matching A-D; Exercise 3(1) options (أ)(ب)(ج)(د) against the stated range «أ to ث»; Exercise 3(2) asks to answer «using the letters» with range «أ to ث» while its options are numbered (1)-(4); English uses A-D throughout. Arabic 3(3) blanks are lettered ( أ ) and ( ب ) versus English &quot;A&quot; and &quot;B&quot;, and its step 2 prints «إلى رأس كل حزمة» with the Arabic word «رأس» while the Arabic Point itself prints &quot;header&quot;; English prints &quot;header&quot; in both places. English prints &quot;If there any packets are missing&quot; (as printed) here and in the Point. Heading:Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot; — نفس نمط درس 8-1. التسميات تُنقل كما طُبعت:التمرين 1 خياراته (أ)(ب)(ت)(ث) بترتيب أبجدي متسق يقابل A-D؛ التمرين 3(1) خياراته (أ)(ب)(ج)(د) مع المدى «من أ إلى ث»؛ التمرين 3(2) يطلب الإجابة «باستخدام الحروف» ومداه «من أ إلى ث» بينما خياراته مرقمة (1)-(4)؛ الإنجليزية A-D في الكل. فراغات 3(3) العربية معنونة ( أ ) و ( ب ) بحرفين عربيين مقابل &quot;A&quot; و&quot;B&quot; الإنجليزية، وخطوتها 2 تطبع «إلى رأس كل حزمة» بلفظ «رأس» بينما بند النقاط العربي نفسه يطبع &quot;header&quot;؛ الإنجليزية &quot;header&quot; في الموضعين. الإنجليزية تطبع &quot;If there any packets are missing&quot; (كما طُبعت) هنا وفي النقاط. العنوان:العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 104 (المطبوع 104)؛ AR 116–117." data-en="The text above is from the book. Full source: English PDF 104 (printed 104); Arabic 116–117.">النص السابق من الكتاب. المصدر الكامل:EN PDF 104 (المطبوع 104)؛ AR 116–117.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: البروتوكولات — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 1: Protocols - not printed in the book">✍️ تدريب تفاعلي إضافي 1: البروتوكولات — غير مطبوعة في الكتاب</h3>
@@ -2021,7 +2020,7 @@
     }
 
     function tr(ar, en) {
-      return currentLang === 'en' ? en : ar;
+      return currentLang === 'en' ? en:ar;
     }
 
     function byId(id) {
@@ -2050,12 +2049,12 @@
     var nav = document.getElementById('topnav');
     var scrollBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', function () {
-      /* header slide-in: assets/js/nav.js */
+      /* header slide-in:assets/js/nav.js */
       if (window.scrollY > 500) scrollBtn.classList.add('show');
       else scrollBtn.classList.remove('show');
-    }, { passive: true });
+    }, { passive:true });
     if (scrollBtn) scrollBtn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top:0, behavior: 'smooth' });
     });
 
     function wireNav() {
@@ -2071,7 +2070,7 @@
             });
           }
         });
-      }, { rootMargin: '-45% 0px -50% 0px' });
+      }, { rootMargin:'-45% 0px -50% 0px' });
       secs.forEach(function (id) {
         var el = document.getElementById(id);
         if (el) io.observe(el);
@@ -2086,7 +2085,7 @@
         entries.forEach(function (en) {
           if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
         });
-      }, { threshold: .08 });
+      }, { threshold:.08 });
       els.forEach(function (e) { io.observe(e); });
     }
 
@@ -2100,102 +2099,102 @@
         var el = document.getElementById(SECTIONS[i]);
         if (el && el.getBoundingClientRect().top <= window.innerHeight * .5) cur = i;
       }
-      var n = cur + (e.key === 'ArrowLeft' ? -1 : 1);
+      var n = cur + (e.key === 'ArrowLeft' ? -1:1);
       if (n >= 0 && n < SECTIONS.length) {
-        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior:'smooth' });
       }
     });
 
     /* ================= FLOW ENGINE (sender→receiver diagrams) ================= */
 var FLOWS = {
-      packet: {
+      packet:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'pchunk', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'pdef', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'phead', x: 660, y: 140, w: 180, h: 120 }
+          { k:'pdef', x: 360, y: 140, w: 180, h: 120 },
+          { k:'phead', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. تقسيم البيانات', enT: '1. Dividing the Data', arD: 'البيانات بتتقسّم لقطع صغيرة عشان تتنتقل على الشبكة.', enD: 'The data is divided into small chunks to be transmitted over the network.', icon: '✂️', boxes: ['pchunk'], nodes: ['a'], wires: [] },
-          { arT: '2. كل قطعة اسمها Packet', enT: '2. Each Chunk Is a Packet', arD: 'الوحدة المستخدمة في التقسيم اسمها Packet.', enD: 'The unit used in dividing is called a Packet.', icon: '📦', boxes: ['pdef'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. الـ header والوجهة', enT: '3. The Header and Destination', arD: 'كل Packet بيتبعت ومعاه header فيه معلومات الوجهة.', enD: 'Each Packet is sent with a header containing the destination information.', icon: '🏷️', boxes: ['phead'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. كل قطعة اسمها Packet', enT: '2. Each Chunk Is a Packet', arD: 'الوحدة المستخدمة في التقسيم اسمها Packet.', enD: 'The unit used in dividing is called a Packet.', icon: '📦', boxes: ['pdef'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. الـ header والوجهة', enT: '3. The Header and Destination', arD: 'كل Packet بيتبعت ومعاه header فيه معلومات الوجهة.', enD: 'Each Packet is sent with a header containing the destination information.', icon: '🏷️', boxes: ['phead'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      protocol: {
+      protocol:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'prdef', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'prtcp', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'prudp', x: 660, y: 140, w: 180, h: 120 }
+          { k:'prtcp', x: 360, y: 140, w: 180, h: 120 },
+          { k:'prudp', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. الاتفاق المشترك', enT: '1. The Common Agreement', arD: 'البروتوكول هو اتفاق مشترك في شبكات المعلومات والاتصالات.', enD: 'A protocol is a common agreement in information and communication networks.', icon: '🤝', boxes: ['prdef'], nodes: ['a'], wires: [] },
-          { arT: '2. الـ TCP', enT: '2. The TCP', arD: 'بيقسّم البيانات لـ packets، بيرتّبهم، ويطلب إعادة إرسال المفقود.', enD: 'Divides data into packets, arranges them, and requests retransmission of the lost.', icon: '📋', boxes: ['prtcp'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. الـ UDP', enT: '3. The UDP', arD: 'بيركّز على الإرسال في الوقت الحقيقي — للمكالمات وبث الفيديو.', enD: 'Emphasizes real-time transmission — for voice calls and video streaming.', icon: '⚡', boxes: ['prudp'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. الـ TCP', enT: '2. The TCP', arD: 'بيقسّم البيانات لـ packets، بيرتّبهم، ويطلب إعادة إرسال المفقود.', enD: 'Divides data into packets, arranges them, and requests retransmission of the lost.', icon: '📋', boxes: ['prtcp'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. الـ UDP', enT: '3. The UDP', arD: 'بيركّز على الإرسال في الوقت الحقيقي — للمكالمات وبث الفيديو.', enD: 'Emphasizes real-time transmission — for voice calls and video streaming.', icon: '⚡', boxes: ['prudp'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      ip: {
+      ip:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'ipasg', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'ipdel', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'ipnet', x: 660, y: 140, w: 180, h: 120 }
+          { k:'ipdel', x: 360, y: 140, w: 180, h: 120 },
+          { k:'ipnet', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. إسناد العناوين', enT: '1. Assigning Addresses', arD: 'الـ IP بيسند عناوين IP للأجهزة.', enD: 'IP assigns IP addresses to devices.', icon: '🏷️', boxes: ['ipasg'], nodes: ['a'], wires: [] },
-          { arT: '2. توصيل الـ packets', enT: '2. Delivering Packets', arD: 'بيوصل الـ packets للوجهة الصحيحة.', enD: 'Delivers packets to the correct destination.', icon: '🚚', boxes: ['ipdel'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. جزء من TCP/IP', enT: '3. Part of TCP/IP', arD: 'بيشتغل ضمن TCP/IP اللي بيستخدم على الإنترنت.', enD: 'Works within TCP/IP used on the Internet.', icon: '🌐', boxes: ['ipnet'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. توصيل الـ packets', enT: '2. Delivering Packets', arD: 'بيوصل الـ packets للوجهة الصحيحة.', enD: 'Delivers packets to the correct destination.', icon: '🚚', boxes: ['ipdel'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. جزء من TCP/IP', enT: '3. Part of TCP/IP', arD: 'بيشتغل ضمن TCP/IP اللي بيستخدم على الإنترنت.', enD: 'Works within TCP/IP used on the Internet.', icon: '🌐', boxes: ['ipnet'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      layers: {
+      layers:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'lapp', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'ltrans', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'linet', x: 660, y: 140, w: 180, h: 120 }
+          { k:'ltrans', x: 360, y: 140, w: 180, h: 120 },
+          { k:'linet', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. طبقة Application', enT: '1. The Application Layer', arD: 'التواصل بين التطبيقات — HTTP وSMTP.', enD: 'Communication between applications — HTTP and SMTP.', icon: '💬', boxes: ['lapp'], nodes: ['a'], wires: [] },
-          { arT: '2. طبقة Transport', enT: '2. The Transport Layer', arD: 'التحكم في الاتصال وكشف الأخطاء وإعادة الإرسال — TCP وUDP.', enD: 'Communication control, error detection, retransmission — TCP and UDP.', icon: '🛡️', boxes: ['ltrans'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. طبقتا الإنترنت والاتصال', enT: '3. Internet and Interface Layers', arD: 'توزيع العناوين والتوجيه — IP، والاتصال الفيزيقي بين الأجهزة — Ethernet.', enD: 'Address allocation and routing — IP, and the physical connection between devices — Ethernet.', icon: '🧱', boxes: ['linet'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. طبقة Transport', enT: '2. The Transport Layer', arD: 'التحكم في الاتصال وكشف الأخطاء وإعادة الإرسال — TCP وUDP.', enD: 'Communication control, error detection, retransmission — TCP and UDP.', icon: '🛡️', boxes: ['ltrans'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. طبقتا الإنترنت والاتصال', enT: '3. Internet and Interface Layers', arD: 'توزيع العناوين والتوجيه — IP، والاتصال الفيزيقي بين الأجهزة — Ethernet.', enD: 'Address allocation and routing — IP, and the physical connection between devices — Ethernet.', icon: '🧱', boxes: ['linet'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      mechanism: {
+      mechanism:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'mpack', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'mip', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'mroute', x: 660, y: 140, w: 180, h: 120 }
+          { k:'mip', x: 360, y: 140, w: 180, h: 120 },
+          { k:'mroute', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. التقسيم لـ packets', enT: '1. Dividing into Packets', arD: 'قسّم البيانات اللي هتتبعت لـ packets.', enD: 'Divide the data to be sent into packets.', icon: '✂️', boxes: ['mpack'], nodes: ['a'], wires: [] },
-          { arT: '2. عناوين الـ header', enT: '2. The Header Addresses', arD: 'حط عنوان IP للمرسل أو المستقبل في الـ header لكل packet.', enD: 'Attach the sender or recipient IP address to the header of each packet.', icon: '🏷️', boxes: ['mip'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. المسار الأمثل والترتيب', enT: '3. Optimal Route and Order', arD: 'اختار المسار الأمثل لكل packet (routing)، واعيد إرسال المفقود وارتّب في التسلسل.', enD: 'Select the optimal route for each packet (routing), retransmit the lost, and reorder in sequence.', icon: '🗺️', boxes: ['mroute'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. عناوين الـ header', enT: '2. The Header Addresses', arD: 'حط عنوان IP للمرسل أو المستقبل في الـ header لكل packet.', enD: 'Attach the sender or recipient IP address to the header of each packet.', icon: '🏷️', boxes: ['mip'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. المسار الأمثل والترتيب', enT: '3. Optimal Route and Order', arD: 'اختار المسار الأمثل لكل packet (routing)، واعيد إرسال المفقود وارتّب في التسلسل.', enD: 'Select the optimal route for each packet (routing), retransmit the lost, and reorder in sequence.', icon: '🗺️', boxes: ['mroute'], nodes: ['d'], wires: ['w2'] }
         ]
       }
     };
@@ -2209,10 +2208,10 @@ var FLOWS = {
       for (var i = 0; i < cfg.boxes.length; i++) {
         if (cfg.boxes[i].k === k) {
           var b = cfg.boxes[i];
-          return { x: b.x + b.w / 2, y: b.y + b.h / 2 };
+          return { x:b.x + b.w / 2, y: b.y + b.h / 2 };
         }
       }
-      return { x: 450, y: 200 };
+      return { x:450, y: 200 };
     }
 
     function buildFlow(id) {
@@ -2231,12 +2230,12 @@ var FLOWS = {
       var gWires = mk('g', {}), gArrows = mk('g', {}), gBoxes = mk('g', {}), gPorts = mk('g', {});
       cfg.wires.forEach(function (w) {
         var a = cfg.nodes[w.from], b = cfg.nodes[w.to];
-        gWires.appendChild(mk('line', { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
+        gWires.appendChild(mk('line', { x1:a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
         var ang = Math.atan2(b.y - a.y, b.x - a.x);
         function arrow(tip) {
           var bx = tip.x - 12 * Math.cos(ang), by = tip.y - 12 * Math.sin(ang);
           return mk('polygon', {
-            points: [tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
+            points:[tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
             class: 'wire-arrow', 'data-w': w.k
           });
         }
@@ -2244,10 +2243,10 @@ var FLOWS = {
         if (w.both) gArrows.appendChild(arrow(a));
       });
       cfg.boxes.forEach(function (b) {
-        gBoxes.appendChild(mk('rect', { x: b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
+        gBoxes.appendChild(mk('rect', { x:b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
       });
       Object.keys(cfg.nodes).forEach(function (k) {
-        gPorts.appendChild(mk('circle', { cx: cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
+        gPorts.appendChild(mk('circle', { cx:cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
       });
       svg.appendChild(gWires);
       svg.appendChild(gArrows);
@@ -2273,7 +2272,7 @@ var FLOWS = {
           '<div class="tl-desc">' + st[L() + 'D'] + '</div>';
         stepsBox.appendChild(s);
       });
-      FLOW_STATE[id] = FLOW_STATE[id] || { cur: 0 };
+      FLOW_STATE[id] = FLOW_STATE[id] || { cur:0 };
       showFlowStep(id, FLOW_STATE[id].cur);
     }
 
@@ -2382,8 +2381,8 @@ var FLOWS = {
             s.className = 'ex-score';
             card.appendChild(s);
           }
-          var rawAr = '✅ إجاباتك الصحيحة: ' + right + ' من ' + scored;
-          var rawEn = '✅ Your correct answers: ' + right + ' of ' + scored;
+          var rawAr = '✅ إجاباتك الصحيحة:' + right + ' من ' + scored;
+          var rawEn = '✅ Your correct answers:' + right + ' of ' + scored;
           s.dataset.rawAr = rawAr;
           s.dataset.rawEn = rawEn;
           s.textContent = tr(rawAr, rawEn);
@@ -2456,7 +2455,7 @@ var FLOWS = {
                 if (co) co.classList.add('correct');
               }
               lock(q);
-              showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+              showFb(ok, rqFb(o), ok ? null:(q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
             });
           });
           if (skip) skip.addEventListener('click', function () {

@@ -11,938 +11,937 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 8-1 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
   <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1: #1838f8;
-      --s2: #9a6a00;
-      --s3: #1838f8;
-      --s4: #10B981;
-      --s5: #1838f8;
-      --s6: #d7263d}*{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
+      --s1:#1838f8;
+      --s2:#9a6a00;
+      --s3:#1838f8;
+      --s4:#10B981;
+      --s5:#1838f8;
+      --s6:#d7263d}*{
+      margin:0;
+      padding:0;
+      box-sizing:border-box
     }html{
-      scroll-behavior: smooth
+      scroll-behavior:smooth
     }body{
-      font-family: 'Cairo', 'Cairo', sans-serif;
-      background: var(--bg);
-      color: var(--dim);
-      line-height: 1.9;
-      overflow-x: hidden
+      font-family:'Cairo', 'Cairo', sans-serif;
+      background:var(--bg);
+      color:var(--dim);
+      line-height:1.9;
+      overflow-x:hidden
     }.bg-gradient{
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      background:radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
         radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
-      animation: bgDrift 18s ease-in-out infinite;
+      animation:bgDrift 18s ease-in-out infinite;
     }@keyframes bgDrift{
 
       0%,
       100% {
-        transform: translate(0, 0) scale(1)
+        transform:translate(0, 0) scale(1)
       }
 
       50% {
-        transform: translate(-30px, 20px) scale(1.08)
+        transform:translate(-30px, 20px) scale(1.08)
       }
     }.particles{
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none
     }.particles i{
-      position: absolute;
-      bottom: -10px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--primary);
-      opacity: .3;
-      animation: floatUp 14s linear infinite
+      position:absolute;
+      bottom:-10px;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:var(--primary);
+      opacity:.3;
+      animation:floatUp 14s linear infinite
     }@keyframes floatUp{
       0% {
-        transform: translateY(0);
-        opacity: 0
+        transform:translateY(0);
+        opacity:0
       }
 
       10% {
-        opacity: .3
+        opacity:.3
       }
 
       100% {
-        transform: translateY(-110vh);
-        opacity: 0
+        transform:translateY(-110vh);
+        opacity:0
       }
     }@keyframes heroFloat{
 
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
 
       50% {
-        transform: translateY(-26px)
+        transform:translateY(-26px)
       }
     }@keyframes fadeUp{
       from {
-        opacity: 0;
-        transform: translateY(40px)
+        opacity:0;
+        transform:translateY(40px)
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity:1;
+        transform:translateY(0)
       }
     }main{
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 0 24px
+      max-width:1060px;
+      margin:0 auto;
+      padding:0 24px
     }section{
-      padding: 38px 0
+      padding:38px 0
     }.section-header{
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 16px
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:16px
     }.section-number{
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 18px;
-      color: var(--bg);
-      animation: glow 3s ease-in-out infinite
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:18px;
+      color:var(--bg);
+      animation:glow 3s ease-in-out infinite
     }@keyframes glow{
 
       0%,
       100% {
-        box-shadow: 0 0 20px rgba(25, 60, 255, .25)
+        box-shadow:0 0 20px rgba(25, 60, 255, .25)
       }
 
       50% {
-        box-shadow: 0 0 42px rgba(25, 60, 255, .6)
+        box-shadow:0 0 42px rgba(25, 60, 255, .6)
       }
     }.section-header h2{
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.3
+      font-size:clamp(22px, 4vw, 34px);
+      font-weight:800;
+      color:var(--text);
+      line-height:1.3
     }.section-header .tag{
-      font-size: .9rem
+      font-size:.9rem
     }.section-inner{
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all .6s cubic-bezier(.4, 0, .2, 1)
+      opacity:0;
+      transform:translateY(30px);
+      transition:all .6s cubic-bezier(.4, 0, .2, 1)
     }.section-inner.visible{
-      opacity: 1;
-      transform: translateY(0)
-    }@keyframes autoReveal{ from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }.section-inner{ animation: autoReveal .7s ease-out both; }.section-inner.visible{ animation: none; opacity: 1; transform: translateY(0); }.section-inner+.section-inner{
-      margin-top: 16px
+      opacity:1;
+      transform:translateY(0)
+    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
+      margin-top:16px
     }.card{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 24px;
-      padding: 18px;
-      transition: .3s
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      border-radius:24px;
+      padding:18px;
+      transition:.3s
     }.card:hover{
       background: var(--card-hover);
-      transform: translateY(-5px);
-      border-color: rgba(25, 60, 255, .3)
+      transform:translateY(-5px);
+      border-color:rgba(25, 60, 255, .3)
     }.diagram-wrap{
-      position: relative;
-      border-radius: 24px;
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      overflow: hidden
+      position:relative;
+      border-radius:24px;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      overflow:hidden
     }.diagram-wrap .topbar{
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent))
+      height:3px;
+      background:linear-gradient(90deg, var(--primary), var(--accent))
     }.diagram-wrap .inner{
-      padding: 16px
+      padding:16px
     }h3{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      line-height: 1.4
+      color:var(--text);
+      font-weight:800;
+      font-size:1.25rem;
+      margin-bottom:12px;
+      line-height:1.4
     }p{
-      margin-bottom: 12px
+      margin-bottom:12px
     }b,
     strong{
-      color: var(--text)
+      color:var(--text)
     }.note{
-      background: rgba(255, 215, 0, .06);
-      border: 1px solid rgba(255, 215, 0, .25);
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-top: 14px;
-      font-size: .95rem
+      background:rgba(255, 215, 0, .06);
+      border:1px solid rgba(255, 215, 0, .25);
+      border-radius:12px;
+      padding:14px 16px;
+      margin-top:14px;
+      font-size:.95rem
     }.note b{
-      color: var(--warn)
+      color:var(--warn)
     }.glossary-search{
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: var(--card);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 15px;
-      color-scheme: dark;
-      margin: 14px 0;
+      width:100%;
+      padding:12px 18px;
+      border-radius:50px;
+      border:1px solid rgba(255, 255, 255, 0.15);
+      background:var(--card);
+      color:var(--text);
+      font-family:inherit;
+      font-size:15px;
+      color-scheme:dark;
+      margin:14px 0;
     }.glossary-search:focus{
       outline: none;
-      border-color: var(--primary);
+      border-color:var(--primary);
     }.glossary-filters{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
     }.gl-filter{
-      padding: 6px 16px;
+      padding:6px 16px;
     }.gl-filter.active{
-      background: rgba(6, 182, 212 , 0.2);
-      border-color: var(--s3);
-      color: var(--text);
+      background:rgba(6, 182, 212 , 0.2);
+      border-color:var(--s3);
+      color:var(--text);
     }.glossary-list{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }@media (max-width: 860px){.glossary-list{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }@media (max-width:860px){.glossary-list{
         grid-template-columns: 1fr;
       }
     }.gl-term{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 16px;
-      transition: all 0.3s ease;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, 0.08);
+      border-radius:16px;
+      padding:16px;
+      transition:all 0.3s ease;
     }.gl-term:hover{
       background: var(--card-hover);
-      border-color: var(--s3);
+      border-color:var(--s3);
     }.gl-term h4{
-      font-size: 15px;
-      margin-bottom: 6px;
-      color: var(--s3);
+      font-size:15px;
+      margin-bottom:6px;
+      color:var(--s3);
     }.gl-term p{
-      font-size: 13px;
-      margin-bottom: 0;
+      font-size:13px;
+      margin-bottom:0;
     }.gl-term.hidden{
-      display: none;
+      display:none;
     }.error-box{
-      border: 1px solid rgba(255, 71, 87, .2);
-      background: rgba(255, 71, 87, .05);
-      border-radius: 12px;
-      padding: 16px;
-      margin-top: 6px
+      border:1px solid rgba(255, 71, 87, .2);
+      background:rgba(255, 71, 87, .05);
+      border-radius:12px;
+      padding:16px;
+      margin-top:6px
     }.error-box h4,
     .error-box h3{
-      color: var(--danger);
-      font-weight: 800;
-      margin-bottom: 10px;
-      font-size: 1rem
+      color:var(--danger);
+      font-weight:800;
+      margin-bottom:10px;
+      font-size:1rem
     }.error-box ul{
-      list-style: none
+      list-style:none
     }.error-box li{
-      padding: 4px 0;
-      position: relative;
-      padding-right: 26px
+      padding:4px 0;
+      position:relative;
+      padding-right:26px
     }.error-box li::before{
       content: "⚠️";
-      position: absolute;
-      right: 0;
-      top: 2px;
-      font-size: .95rem
+      position:absolute;
+      right:0;
+      top:2px;
+      font-size:.95rem
     }.error-box li b{
-      color: var(--danger)
+      color:var(--danger)
     }.legend{
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 14px;
-      font-size: .85rem
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:14px;
+      font-size:.85rem
     }.legend span{
-      display: inline-flex;
-      align-items: center;
-      gap: 7px
+      display:inline-flex;
+      align-items:center;
+      gap:7px
     }.legend i{
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-      display: inline-block
+      width:14px;
+      height:14px;
+      border-radius:4px;
+      display:inline-block
     }.concept-block{
-      border-top: 3px solid var(--c);
-      padding-top: 30px;
-      margin-top: 14px
+      border-top:3px solid var(--c);
+      padding-top:30px;
+      margin-top:14px
     }.concept-block:first-of-type{
       margin-top: 0
     }.concept-head{
-      display: flex;
-      align-items: center;
-      gap: 14px
+      display:flex;
+      align-items:center;
+      gap:14px
     }.concept-title{
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.4
+      font-size:1.35rem;
+      font-weight:800;
+      color:var(--text);
+      line-height:1.4
     }.concept-head .tag{
-      font-size: .88rem
+      font-size:.88rem
     }.activity-grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px
     }@media(max-width:860px){.activity-grid{
         grid-template-columns: 1fr
       }
     }.activity-grid .demo-panel{
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 20px;
-      background: rgba(255, 255, 255, .03);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, .06)
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      padding:20px;
+      background:rgba(255, 255, 255, .03);
+      border-radius:16px;
+      border:1px solid rgba(255, 255, 255, .06)
     }.demo-label{
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--dim);
-      margin-bottom: 6px;
-      display: block
+      font-size:.82rem;
+      font-weight:700;
+      color:var(--dim);
+      margin-bottom:6px;
+      display:block
     }.todo-item{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 12px 16px;
-      margin-bottom: 10px
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:12px 16px;
+      margin-bottom:10px
     }.todo-item b{
-      color: var(--text)
+      color:var(--text)
     }.btn{
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border: none;
-      color: #fff;
-      font-family: inherit;
-      font-weight: 800;
-      padding: 12px 28px;
-      border-radius: 40px;
-      cursor: pointer;
-      font-size: .95rem;
-      transition: .2s;
-      box-shadow: 0 6px 24px rgba(25, 60, 255, .3)
+      background:linear-gradient(90deg, var(--primary), var(--accent));
+      border:none;
+      color:#fff;
+      font-family:inherit;
+      font-weight:800;
+      padding:12px 28px;
+      border-radius:40px;
+      cursor:pointer;
+      font-size:.95rem;
+      transition:.2s;
+      box-shadow:0 6px 24px rgba(25, 60, 255, .3)
     }.btn:hover{
       transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(0, 212, 170, .3)
+      box-shadow:0 10px 32px rgba(0, 212, 170, .3)
     }.mini-btn{
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      color: var(--text);
-      font-family: inherit;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: .85rem
+      background:rgba(255, 255, 255, .06);
+      border:1px solid rgba(255, 255, 255, .12);
+      color:var(--text);
+      font-family:inherit;
+      font-weight:600;
+      padding:8px 18px;
+      border-radius:30px;
+      cursor:pointer;
+      font-size:.85rem
     }.mini-btn:hover{
       background: rgba(255, 255, 255, .12)
     }.btn-row{
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap
     }.kbd{
-      display: inline-block;
-      background: #e9edfe;
-      border: 1px solid rgba(255, 255, 255, .15);
-      border-radius: 6px;
-      padding: 2px 10px;
-      font-size: .85rem;
-      color: var(--text);
-      font-family: 'Consolas', monospace
+      display:inline-block;
+      background:#e9edfe;
+      border:1px solid rgba(255, 255, 255, .15);
+      border-radius:6px;
+      padding:2px 10px;
+      font-size:.85rem;
+      color:var(--text);
+      font-family:'Consolas', monospace
     }.hint-line{
-      font-size: .85rem;
-      color: var(--dim);
-      margin-top: 8px
+      font-size:.85rem;
+      color:var(--dim);
+      margin-top:8px
     }.tl-card{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 24px;
-      padding: 24px
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      border-radius:24px;
+      padding:24px
     }.tl-steps{
-      min-height: 120px;
-      display: flex;
-      align-items: center
+      min-height:120px;
+      display:flex;
+      align-items:center
     }.tl-step{
-      display: none;
-      text-align: center;
-      width: 100%
+      display:none;
+      text-align:center;
+      width:100%
     }.tl-step.active{
-      display: block;
-      animation: tlIn .4s ease
+      display:block;
+      animation:tlIn .4s ease
     }@keyframes tlIn{
       from {
-        opacity: 0;
-        transform: translateY(12px)
+        opacity:0;
+        transform:translateY(12px)
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity:1;
+        transform:translateY(0)
       }
     }.tl-icon{
-      font-size: 2.1rem;
-      margin-bottom: 6px;
-      display: inline-block
+      font-size:2.1rem;
+      margin-bottom:6px;
+      display:inline-block
     }.tl-year-badge{
-      display: inline-block;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      border-radius: 20px;
-      padding: 3px 16px;
-      font-size: .85rem;
-      color: var(--accent);
-      font-weight: 700
+      display:inline-block;
+      background:rgba(255, 255, 255, .06);
+      border:1px solid rgba(255, 255, 255, .12);
+      border-radius:20px;
+      padding:3px 16px;
+      font-size:.85rem;
+      color:var(--accent);
+      font-weight:700
     }.tl-title{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.2rem;
-      margin: 8px 0 6px
+      color:var(--text);
+      font-weight:800;
+      font-size:1.2rem;
+      margin:8px 0 6px
     }.tl-desc{
-      color: var(--dim);
-      font-size: .98rem;
-      max-width: 660px;
-      margin: 0 auto
+      color:var(--dim);
+      font-size:.98rem;
+      max-width:660px;
+      margin:0 auto
     }.tl-nav{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px
     }.svg-stage{
-      position: relative;
-      max-width: 760px;
-      margin: 10px auto 0
+      position:relative;
+      max-width:760px;
+      margin:10px auto 0
     }.svg-stage .svg-main{
-      width: 100%;
-      height: auto;
-      display: block
+      width:100%;
+      height:auto;
+      display:block
     }.svg-label{
-      position: absolute;
-      transform: translate(-50%, -50%);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(10, 14, 39, .88);
-      border: 1px solid rgba(255, 255, 255, .16);
-      border-radius: 12px;
-      padding: 5px 12px;
-      font-size: .9rem;
-      font-weight: 700;
-      color: var(--text);
-      white-space: nowrap;
-      z-index: 3;
-      pointer-events: none;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, .45)
+      position:absolute;
+      transform:translate(-50%, -50%);
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:rgba(10, 14, 39, .88);
+      border:1px solid rgba(255, 255, 255, .16);
+      border-radius:12px;
+      padding:5px 12px;
+      font-size:.9rem;
+      font-weight:700;
+      color:var(--text);
+      white-space:nowrap;
+      z-index:3;
+      pointer-events:none;
+      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
     }.svg-box{
-      fill: url(#bxG);
-      stroke: rgba(255, 255, 255, .14);
-      stroke-width: 2;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
+      fill:url(#bxG);
+      stroke:rgba(255, 255, 255, .14);
+      stroke-width:2;
+      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
     }.flow-box{
-      fill: url(#bxG);
-      stroke: rgba(255, 255, 255, .14);
-      stroke-width: 2;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition: stroke .3s, filter .3s
+      fill:url(#bxG);
+      stroke:rgba(255, 255, 255, .14);
+      stroke-width:2;
+      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
+      transition:stroke .3s, filter .3s
     }.flow-box.on{
-      stroke: var(--accent);
-      filter: drop-shadow(0 0 18px rgba(0, 212, 170, .5))
+      stroke:var(--accent);
+      filter:drop-shadow(0 0 18px rgba(0, 212, 170, .5))
     }.flow-wire{
-      stroke: #dfe5fb;
-      stroke-width: 3;
-      fill: none;
-      transition: stroke .3s
+      stroke:#dfe5fb;
+      stroke-width:3;
+      fill:none;
+      transition:stroke .3s
     }.flow-wire.on{
-      stroke: var(--accent);
-      stroke-width: 3.5;
-      stroke-dasharray: 6 12;
-      stroke-linecap: round;
-      animation: flow 1.1s linear infinite;
-      filter: drop-shadow(0 0 6px rgba(0, 212, 170, .6))
+      stroke:var(--accent);
+      stroke-width:3.5;
+      stroke-dasharray:6 12;
+      stroke-linecap:round;
+      animation:flow 1.1s linear infinite;
+      filter:drop-shadow(0 0 6px rgba(0, 212, 170, .6))
     }@keyframes flow{
       to {
-        stroke-dashoffset: -36
+        stroke-dashoffset:-36
       }
     }.wire-arrow{
-      fill: var(--accent);
-      opacity: 0;
-      transition: opacity .3s;
-      filter: drop-shadow(0 0 4px rgba(0, 212, 170, .6))
+      fill:var(--accent);
+      opacity:0;
+      transition:opacity .3s;
+      filter:drop-shadow(0 0 4px rgba(0, 212, 170, .6))
     }.wire-arrow.on{
-      opacity: 1
+      opacity:1
     }.flow-port{
-      fill: #dfe5fb;
-      stroke: var(--bg);
-      stroke-width: 2;
-      transition: fill .3s
+      fill:#dfe5fb;
+      stroke:var(--bg);
+      stroke-width:2;
+      transition:fill .3s
     }.flow-port.on{
-      fill: var(--accent);
-      filter: drop-shadow(0 0 8px rgba(0, 212, 170, .8))
+      fill:var(--accent);
+      filter:drop-shadow(0 0 8px rgba(0, 212, 170, .8))
     }.bcast-wave{
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 2;
-      opacity: 0;
-      transform-box: fill-box;
-      transform-origin: center
+      fill:none;
+      stroke:var(--accent);
+      stroke-width:2;
+      opacity:0;
+      transform-box:fill-box;
+      transform-origin:center
     }.bcast-wave.run{
-      animation: wave 1.8s ease-out infinite
+      animation:wave 1.8s ease-out infinite
     }.bcast-wave.run:nth-of-type(2){
       animation-delay: .5s
     }@keyframes wave{
       0% {
-        opacity: .8;
-        transform: scale(.4)
+        opacity:.8;
+        transform:scale(.4)
       }
 
       100% {
-        opacity: 0;
-        transform: scale(1.5)
+        opacity:0;
+        transform:scale(1.5)
       }
     }.flow-arrow{
-      color: var(--accent);
-      overflow: visible
+      color:var(--accent);
+      overflow:visible
     }.flow-arrow use{
-      transform-box: fill-box;
-      transform-origin: center
+      transform-box:fill-box;
+      transform-origin:center
     }.flow-arrow use.flip{
-      transform: scaleX(-1)
+      transform:scaleX(-1)
     }.mx-grid{
-      display: grid;
-      grid-template-columns: 140px 1fr 1fr;
-      gap: 10px;
-      margin-top: 8px
+      display:grid;
+      grid-template-columns:140px 1fr 1fr;
+      gap:10px;
+      margin-top:8px
     }.mx-grid>div{
-      border-radius: 14px;
-      padding: 14px
+      border-radius:14px;
+      padding:14px
     }.mx-head{
-      background: rgba(25, 60, 255, .12);
-      border: 1px solid rgba(25, 60, 255, .35);
-      font-weight: 800;
-      color: var(--text);
-      text-align: center
+      background:rgba(25, 60, 255, .12);
+      border:1px solid rgba(25, 60, 255, .35);
+      font-weight:800;
+      color:var(--text);
+      text-align:center
     }.mx-row{
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .1);
-      font-weight: 800;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center
+      background:rgba(255, 255, 255, .04);
+      border:1px solid rgba(255, 255, 255, .1);
+      font-weight:800;
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center
     }.mx-cell{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .07);
-      min-height: 70px
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .07);
+      min-height:70px
     }.mx-cell b{
-      display: block;
-      color: var(--text);
-      font-size: .9rem;
-      margin-bottom: 4px
+      display:block;
+      color:var(--text);
+      font-size:.9rem;
+      margin-bottom:4px
     }.mx-chip{
-      display: inline-block;
-      background: rgba(0, 212, 170, .1);
-      border: 1px solid rgba(0, 212, 170, .35);
-      color: var(--accent);
-      border-radius: 20px;
-      padding: 3px 12px;
-      font-size: .85rem;
-      margin: 4px
+      display:inline-block;
+      background:rgba(0, 212, 170, .1);
+      border:1px solid rgba(0, 212, 170, .35);
+      color:var(--accent);
+      border-radius:20px;
+      padding:3px 12px;
+      font-size:.85rem;
+      margin:4px
     }.mx-empty{
-      color: var(--dim);
-      font-size: .9rem;
-      text-align: center;
-      padding: 8px
+      color:var(--dim);
+      font-size:.9rem;
+      text-align:center;
+      padding:8px
     }@media(max-width:700px){.mx-grid{
         grid-template-columns: 1fr 1fr
       }.mx-row{
-        grid-column: span 2
+        grid-column:span 2
       }
     }.ex-item{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:14px
     }.ex-item .q{
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px
     }.ex-options{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px
     }@media(max-width:640px){.ex-options{
         grid-template-columns: 1fr
       }
     }.ex-opt{
-      direction: rtl;
-      text-align: right;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: .9rem;
-      color: #c7d2fe;
-      white-space: pre-wrap;
-      cursor: pointer;
-      transition: .15s;
-      user-select: none
+      direction:rtl;
+      text-align:right;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .09);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:.9rem;
+      color:#c7d2fe;
+      white-space:pre-wrap;
+      cursor:pointer;
+      transition:.15s;
+      user-select:none
     }.ex-opt:hover{
       border-color: rgba(0, 212, 170, .5);
-      background: rgba(0, 212, 170, .08)
+      background:rgba(0, 212, 170, .08)
     }.ex-opt.picked{
-      border-color: var(--primary);
-      background: rgba(25, 60, 255, .18);
-      color: #fff;
-      box-shadow: 0 0 0 1px var(--primary)
+      border-color:var(--primary);
+      background:rgba(25, 60, 255, .18);
+      color:#fff;
+      box-shadow:0 0 0 1px var(--primary)
     }.ex-opt.correct{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .12);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .12);
+      color:var(--success)
     }.ex-opt.wrong{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .12);
-      color: #f8d7da
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .12);
+      color:#2f2e3c
     }.ex-key{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      background: rgba(6, 182, 212 , .18);
-      border: 1px solid rgba(6, 182, 212 , .55);
-      color: var(--s3);
-      font-weight: 800;
-      font-size: .78rem;
-      margin-right: 10px;
-      vertical-align: middle;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      background:rgba(6, 182, 212 , .18);
+      border:1px solid rgba(6, 182, 212 , .55);
+      color:var(--s3);
+      font-weight:800;
+      font-size:.78rem;
+      margin-right:10px;
+      vertical-align:middle;
+      flex-shrink:0
     }.ex-body{
-      vertical-align: middle;
-      display: inline-block;
-      white-space: normal
+      vertical-align:middle;
+      display:inline-block;
+      white-space:normal
     }.ex-answer{
-      display: none;
-      margin-top: 10px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: .92rem
+      display:none;
+      margin-top:10px;
+      padding:10px 14px;
+      border-radius:10px;
+      font-size:.92rem
     }.ex-answer.show{
-      display: block;
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: rgba(0, 255, 136, .07);
-      color: var(--success)
+      display:block;
+      border:1px solid rgba(0, 255, 136, .35);
+      background:rgba(0, 255, 136, .07);
+      color:var(--success)
     }.ex-answer.show b{
-      color: var(--success);
-      margin: 0 6px
+      color:var(--success);
+      margin:0 6px
     }.ex-score{
-      margin-top: 14px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: rgba(0, 255, 136, .08);
-      border: 1px solid rgba(0, 255, 136, .35);
-      color: var(--success);
-      font-size: .95rem
+      margin-top:14px;
+      padding:12px 16px;
+      border-radius:12px;
+      background:rgba(0, 255, 136, .08);
+      border:1px solid rgba(0, 255, 136, .35);
+      color:var(--success);
+      font-size:.95rem
     }.group-label{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.05rem;
-      margin: 22px 0 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px
+      color:var(--text);
+      font-weight:800;
+      font-size:1.05rem;
+      margin:22px 0 12px;
+      display:flex;
+      align-items:center;
+      gap:8px
     }.group-label::before{
       content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 3px;
-      background: var(--s3);
-      flex-shrink: 0
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      background:var(--s3);
+      flex-shrink:0
     }.recall{
-      display: none;
-      margin-top: 16px
+      display:none;
+      margin-top:16px
     }.recall.show{
-      display: block
+      display:block
     }.rq{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:14px
     }.rq-q{
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px
     }.rq-opts{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px
     }@media(max-width:640px){.rq-opts{
         grid-template-columns: 1fr
       }
     }.rq-opt{
-      direction: rtl;
-      text-align: right;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: .9rem;
-      color: #c7d2fe;
-      cursor: pointer;
-      transition: .15s;
-      user-select: none
+      direction:rtl;
+      text-align:right;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .09);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:.9rem;
+      color:#c7d2fe;
+      cursor:pointer;
+      transition:.15s;
+      user-select:none
     }.rq-opt:hover{
       border-color: rgba(0, 212, 170, .5);
-      background: rgba(0, 212, 170, .08)
+      background:rgba(0, 212, 170, .08)
     }.rq-opt.disabled{
-      pointer-events: none;
-      opacity: .65
+      pointer-events:none;
+      opacity:.65
     }.rq-opt.correct{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .12);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .12);
+      color:var(--success)
     }.rq-opt.wrong{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .12);
-      color: #f8d7da
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .12);
+      color:#2f2e3c
     }.rq-key{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 26px;
-      height: 26px;
-      border-radius: 6px;
-      background: rgba(25, 60, 255, .14);
-      border: 1px solid rgba(25, 60, 255, .5);
-      color: #c7d2fe;
-      font-weight: 800;
-      font-size: .82rem;
-      margin-right: 10px;
-      vertical-align: middle;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:26px;
+      height:26px;
+      border-radius:6px;
+      background:rgba(25, 60, 255, .14);
+      border:1px solid rgba(25, 60, 255, .5);
+      color:#c7d2fe;
+      font-weight:800;
+      font-size:.82rem;
+      margin-right:10px;
+      vertical-align:middle;
+      flex-shrink:0
     }.rq-fb{
-      margin-top: 10px;
-      display: none;
-      font-size: .92rem;
-      padding: 10px 14px;
-      border-radius: 10px
+      margin-top:10px;
+      display:none;
+      font-size:.92rem;
+      padding:10px 14px;
+      border-radius:10px
     }.rq-fb.show{
-      display: block
+      display:block
     }.rq-fb.ok{
-      background: rgba(0, 255, 136, .07);
-      border: 1px solid rgba(0, 255, 136, .35);
-      color: var(--success)
+      background:rgba(0, 255, 136, .07);
+      border:1px solid rgba(0, 255, 136, .35);
+      color:var(--success)
     }.rq-fb.no{
-      background: rgba(255, 71, 87, .07);
-      border: 1px solid rgba(255, 71, 87, .35);
-      color: #f8d7da
+      background:rgba(255, 71, 87, .07);
+      border:1px solid rgba(255, 71, 87, .35);
+      color:#2f2e3c
     }.journey{
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding-right: 26px
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      padding-right:26px
     }.journey::before{
       content: "";
-      position: absolute;
-      right: 9px;
-      top: 14px;
-      bottom: 14px;
-      width: 3px;
-      border-radius: 3px;
-      background: linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
+      position:absolute;
+      right:9px;
+      top:14px;
+      bottom:14px;
+      width:3px;
+      border-radius:3px;
+      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
     }.j-node{
-      position: relative;
-      display: grid;
-      grid-template-columns: 20px 1fr;
-      gap: 16px;
-      padding: 14px 0
+      position:relative;
+      display:grid;
+      grid-template-columns:20px 1fr;
+      gap:16px;
+      padding:14px 0
     }.j-dot{
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 3px;
-      z-index: 2
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      flex-shrink:0;
+      margin-top:3px;
+      z-index:2
     }.j-body .t{
-      color: var(--text);
-      font-weight: 700
+      color:var(--text);
+      font-weight:700
     }.j-body .d{
-      font-size: .93rem
+      font-size:.93rem
     }.journey-item{
-      position: relative;
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 14px;
-      padding: 12px 0
+      position:relative;
+      display:grid;
+      grid-template-columns:44px 1fr;
+      gap:14px;
+      padding:12px 0
     }.journey-item h4{
-      color: var(--text);
-      font-size: 1rem;
-      margin: 0 0 4px
+      color:var(--text);
+      font-size:1rem;
+      margin:0 0 4px
     }.journey-item p{
-      margin: 0;
-      font-size: .92rem
+      margin:0;
+      font-size:.92rem
     }.pill{
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin-bottom: 10px;
-      font-size: .92rem;
-      line-height: 1.7
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      border-radius:14px;
+      padding:12px 14px;
+      margin-bottom:10px;
+      font-size:.92rem;
+      line-height:1.7
     }.pill-dot{
-      flex-shrink: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-top: 7px
+      flex-shrink:0;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      margin-top:7px
     }.mx-wrap{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 16px;
-      padding: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:16px;
+      padding:14px
     }.ex-btn-row{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 16px;
-      flex-wrap: wrap
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:16px;
+      flex-wrap:wrap
     }.congrats{
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
+      border:1px solid rgba(0, 255, 136, .35);
+      background:linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
     }#scrollTop{
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 60;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      border: 1px solid rgba(0, 212, 170, .4);
-      background: rgba(10, 14, 39, .9);
-      color: var(--accent);
-      font-size: 1.15rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      transition: .2s;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .35)
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      z-index:60;
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      border:1px solid rgba(0, 212, 170, .4);
+      background:rgba(10, 14, 39, .9);
+      color:var(--accent);
+      font-size:1.15rem;
+      font-weight:800;
+      cursor:pointer;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      transition:.2s;
+      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
     }#scrollTop.show{
-      display: flex
+      display:flex
     }#scrollTop:hover{
       background: rgba(0, 212, 170, .15)
     }.emoji-float{
-      display: inline-block;
-      animation: ef 3s ease-in-out infinite
+      display:inline-block;
+      animation:ef 3s ease-in-out infinite
     }@keyframes ef{
 
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
 
       50% {
-        transform: translateY(-5px)
+        transform:translateY(-5px)
       }
     }.emoji-pulse{
-      display: inline-block;
-      animation: ep 2s ease-in-out infinite
+      display:inline-block;
+      animation:ep 2s ease-in-out infinite
     }@keyframes ep{
 
       0%,
       100% {
-        transform: scale(1)
+        transform:scale(1)
       }
 
       50% {
-        transform: scale(1.12)
+        transform:scale(1.12)
       }
     }.bg-gradient,.particles,.bg-animation,.particle{
-      display: none !important;
+      display:none !important;
     }.gradient-text{
-      background: none !important;
-      -webkit-text-fill-color: var(--primary) !important;
-      color: var(--primary) !important;
+      background:none !important;
+      -webkit-text-fill-color:var(--primary) !important;
+      color:var(--primary) !important;
     }.lesson-section::before,
     .lesson-section[data-accent]::before{
       background: var(--primary) !important;
     }.section-number,
     .lesson-section[data-accent] .section-number{
-      background: var(--primary) !important;
-      color: #fff !important;
-      box-shadow: none !important;
-      animation: none !important;
+      background:var(--primary) !important;
+      color:#fff !important;
+      box-shadow:none !important;
+      animation:none !important;
     }[class*="-bar-fill"]{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }[class*="-bar-fill"].good{
-      background: var(--success) !important;
+      background:var(--success) !important;
     }[class*="-bar-fill"].mid{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }[class*="-bar-fill"].bad{
-      background: var(--danger) !important;
+      background:var(--danger) !important;
     }.unit-num, .unit-card{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }.cta-btn,.btn{
-      background: var(--primary) !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .25) !important;
+      background:var(--primary) !important;
+      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
     }.cta-btn:hover,.btn:hover{
       box-shadow: 0 10px 26px rgba(0, 0, 0, .3) !important;
     }[style*="linear-gradient"]{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }.book-card{
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-inline-start: 4px solid var(--s2, #9a6a00);
-      border-radius: 18px;
-      padding: 20px 22px;
-      margin: 18px 0
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-inline-start:4px solid var(--s2, #9a6a00);
+      border-radius:18px;
+      padding:20px 22px;
+      margin:18px 0
     }.book-card.try{
-      border-inline-start-color: var(--s5, #1440c9)
+      border-inline-start-color:var(--s5, #1440c9)
     }.book-card.try h3{
-      color: var(--s5, #1440c9)
+      color:var(--s5, #1440c9)
     }.book-card h3{
-      margin: 0 0 10px;
-      color: var(--s2, #9a6a00)
+      margin:0 0 10px;
+      color:var(--s2, #9a6a00)
     }.book-card ol, .book-card ul{
-      margin: 8px 0;
-      padding-inline-start: 22px
+      margin:8px 0;
+      padding-inline-start:22px
     }.book-card li{
-      margin-bottom: 6px
+      margin-bottom:6px
     }.book-src{
-      display: block;
-      margin-top: 12px;
-      font-size: .82rem;
-      opacity: .65
+      display:block;
+      margin-top:12px;
+      font-size:.82rem;
+      opacity:.65
     }.book-diff{
-      margin-top: 12px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: rgba(245, 158, 11, .08);
-      border: 1px solid rgba(245, 158, 11, .3);
-      font-size: .9rem
+      margin-top:12px;
+      padding:10px 14px;
+      border-radius:10px;
+      background:rgba(245, 158, 11, .08);
+      border:1px solid rgba(245, 158, 11, .3);
+      font-size:.9rem
     }
 
 </style>
@@ -998,7 +997,7 @@
     <section id="intro">
       <div class="section-inner">
         <div class="section-header">
-          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#1440c9)">01</div>
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#ecf0fb)">01</div>
           <div>
             <h2 data-ar="إيه اللي هنتعلّمه النهارده؟" data-en="What will we learn today?">إيه اللي هنتعلّمه النهارده؟</h2>
             <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — شبكات الكمبيوتر"
@@ -1064,11 +1063,11 @@
     <div class="section-inner">
         <div class="book-card">
           <h3 data-ar="من الكتاب: النقاط الرئيسية — شبكات المعلومات والاتصالات، أنماط استخدام الشبكة، طرق الاتصال" data-en="From the book: Point box — Information and Communication Networks, Network Usage Patterns, Communication Methods">من الكتاب: النقاط الرئيسية — شبكات المعلومات والاتصالات، أنماط استخدام الشبكة، طرق الاتصال</h3>
-          <p data-ar="«أ. شبكات المعلومات والاتصالات (1) شبكة المعلومات والاتصالات (Information and communication network): شبكة تشبه الشبكة العنكبوتية تستخدم خطوط الاتصال لنقل المعلومات. (2) شبكة الكمبيوتر (Computer network): نظام اتصال يربط أجهزة الاتصالات المعلوماتية مثل الكمبيوتر والهواتف الذكية، مما يتيح لها تبادل البيانات فيما بينها. (3) أنواع الشبكات [1] شبكة المنطقة المحلية (LAN): شبكة تربط الأجهزة ضمن منطقة محدودة، مثل مدرسة أو منزل. • شبكة المنطقة المحلية السلكية (Wired LAN): طريقة لتبادل البيانات بالاتصال المباشر بالكابلات. • شبكة المنطقة المحلية اللاسلكية (Wireless LAN): طريقة لتبادل البيانات عبر موجات الراديو اللاسلكية بدلاً من الكابلات. [2] شبكة المنطقة الواسعة (WAN): شبكة تربط منطقة أوسع. (4) الإنترنت (Internet): شبكة تربط شبكات LAN و WAN على نطاق عالمي. (5) الاتصال بالإنترنت [1] موفر خدمة الإنترنت (ISP (provider)): شركة تسهل الاتصال بالإنترنت. من الضروري توقيع عقد للاتصال بالإنترنت. [2] جهاز التوجيه (Router): جهاز يرحّل ويُعيد توجيه البيانات بين شبكات مختلفة. [3] المحول (Hub): جهاز مركزي يقوم بتوصيل عدة كابلات.»" data-en="&quot;1 Information and Communication Networks (1) Information and communication network: A network resembling a web that utilizes communication lines to transmit information. (2) Computer network: A communication system that connects information communication devices like computers and smartphones, enabling them to exchange data with one another. (3) Types of Networks [1] LAN: A network that connects devices within a limited area, such as within a school or home. • Wired LAN: A method of exchanging data by directly connecting to cables. • Wireless LAN: A method of exchanging data via wireless radio waves instead of cables. [2] WAN: A network that connects a broader area. (4) Internet: A network that connects LANs and WANs on a global scale. (5) Connecting to the Internet [1] ISP (provider): A company that facilitates connection to the internet. It is necessary to sign a contract to connect to the internet. [2] Router: A device that relays and forwards data between different networks. [3] Hub: A central device that connects multiple cables.&quot;">«أ. شبكات المعلومات والاتصالات (1) شبكة المعلومات والاتصالات (Information and communication network): شبكة تشبه الشبكة العنكبوتية تستخدم خطوط الاتصال لنقل المعلومات. (2) شبكة الكمبيوتر (Computer network): نظام اتصال يربط أجهزة الاتصالات المعلوماتية مثل الكمبيوتر والهواتف الذكية، مما يتيح لها تبادل البيانات فيما بينها. (3) أنواع الشبكات [1] شبكة المنطقة المحلية (LAN): شبكة تربط الأجهزة ضمن منطقة محدودة، مثل مدرسة أو منزل. • شبكة المنطقة المحلية السلكية (Wired LAN): طريقة لتبادل البيانات بالاتصال المباشر بالكابلات. • شبكة المنطقة المحلية اللاسلكية (Wireless LAN): طريقة لتبادل البيانات عبر موجات الراديو اللاسلكية بدلاً من الكابلات. [2] شبكة المنطقة الواسعة (WAN): شبكة تربط منطقة أوسع. (4) الإنترنت (Internet): شبكة تربط شبكات LAN و WAN على نطاق عالمي. (5) الاتصال بالإنترنت [1] موفر خدمة الإنترنت (ISP (provider)): شركة تسهل الاتصال بالإنترنت. من الضروري توقيع عقد للاتصال بالإنترنت. [2] جهاز التوجيه (Router): جهاز يرحّل ويُعيد توجيه البيانات بين شبكات مختلفة. [3] المحول (Hub): جهاز مركزي يقوم بتوصيل عدة كابلات.»</p>
-          <p data-ar="«ب. أنماط استخدام الشبكة (1) الخادم والعميل [1] الخادم (Server): حاسوب يقدم خدمات متنوعة. • خادم الملفات (File server): خادم يدير الملفات. • خادم الطباعة (Printer server): خادم يتعامل مع معالجة الطباعة. • خادم البريد (Mail server): خادم يتعامل مع إرسال واستقبال رسائل البريد الإلكتروني. • الخادم الوكيل (Proxy server): خادم يعمل كوسيط للوصول إلى الإنترنت. [2] العميل (Client): حاسوب يطلب خدمات متنوعة من خادم. (2) أنماط استخدام الشبكة [1] نظام العميل-الخادم (Client-server system): طريقة يتم فيها توفير الخدمات واستلامها بين خادم وعميل. [2] نظام ند إلى ند (Peer-to-peer system): طريقة تكون فيها أجهزة الكمبيوتر في علاقة متساوية، حيث تقدم وتتلقى الخدمات لبعضها البعض.»" data-en="&quot;2 Network Usage Patterns (1) Server and Client [1] Server: A computer that provides various services. • File server: A server that manages files. • Printer server: A server that handles print processing. • Mail server: A server that handles the sending and receiving of emails. • Proxy server: A server that acts as an intermediary for accessing the internet. [2] Client: A computer that requests various services from a server. (2) Network Usage Patterns [1] Client-server system: A method where services are provided and received between a server and a client. [2] Peer-to-peer system: A method where computers are in an equal relationship, providing and receiving services to and from each other.&quot;">«ب. أنماط استخدام الشبكة (1) الخادم والعميل [1] الخادم (Server): حاسوب يقدم خدمات متنوعة. • خادم الملفات (File server): خادم يدير الملفات. • خادم الطباعة (Printer server): خادم يتعامل مع معالجة الطباعة. • خادم البريد (Mail server): خادم يتعامل مع إرسال واستقبال رسائل البريد الإلكتروني. • الخادم الوكيل (Proxy server): خادم يعمل كوسيط للوصول إلى الإنترنت. [2] العميل (Client): حاسوب يطلب خدمات متنوعة من خادم. (2) أنماط استخدام الشبكة [1] نظام العميل-الخادم (Client-server system): طريقة يتم فيها توفير الخدمات واستلامها بين خادم وعميل. [2] نظام ند إلى ند (Peer-to-peer system): طريقة تكون فيها أجهزة الكمبيوتر في علاقة متساوية، حيث تقدم وتتلقى الخدمات لبعضها البعض.»</p>
-          <p data-ar="«ت. طرق الاتصال (1) طريقة تبديل الدوائر (Circuit switching method): طريقة اتصال يتم فيها إنشاء مسار اتصال بين المرسل والمستلم قبل بدء الإرسال لتبادل المعلومات. (2) الحزمة (Packet): وحدة لتقسيم البيانات إلى أجزاء صغيرة عند نقل البيانات عبر شبكة. (3) طريقة تبديل الحزم (Packet switching method): طريقة اتصال تتضمن تقسيم البيانات المراد إرسالها إلى حزم لتبادلها. (4) مزايا وعيوب طرق الاتصال — المزايا: تبديل الدوائر: بمجرد إنشاء مسار اتصال، يمكن تحقيق اتصال مستقر. تبديل الحزم: حتى إذا كانت الشبكة مزدحمة، يمكن إرسال البيانات تدريجيًا، لذا فإن احتمالية عدم القدرة على الاتصال تمامًا منخفضة. العيوب: تبديل الدوائر: مسار الاتصال مشغول من قبل المستخدم، لذا ليس من الممكن استخدام الخط في نفس الوقت مع الآخرين. تبديل الحزم: قد تُفقد الحزم (Packets) أحيانًا أثناء الطريق أو تتأثر بازدحام الشبكة (Network Congestion).»" data-en="&quot;3 Communication Methods (1) Circuit switching method: A communication method where a communication path is established between the sender and the recipient before starting the transmission to exchange information. (2) Packet: A unit for dividing data into small chunks when transmitting data over a network. (3) Packet switching method: A communication method that involves dividing the data being transmitted into packets for exchange. (4) Advantages and Disadvantages of Communication Methods — Advantages: Circuit switching: Once a communication path is established, stable communication can be achieved. Packet switching: Even if the network is congested, data can be sent gradually, so the possibility of being completely unable to communicate is low. Disadvantages: Circuit switching: The communication path is occupied by the user, so it is not possible to use the line simultaneously with others. Packet switching: Packets can sometimes be lost along the way or be affected by network congestion.&quot;">«ت. طرق الاتصال (1) طريقة تبديل الدوائر (Circuit switching method): طريقة اتصال يتم فيها إنشاء مسار اتصال بين المرسل والمستلم قبل بدء الإرسال لتبادل المعلومات. (2) الحزمة (Packet): وحدة لتقسيم البيانات إلى أجزاء صغيرة عند نقل البيانات عبر شبكة. (3) طريقة تبديل الحزم (Packet switching method): طريقة اتصال تتضمن تقسيم البيانات المراد إرسالها إلى حزم لتبادلها. (4) مزايا وعيوب طرق الاتصال — المزايا: تبديل الدوائر: بمجرد إنشاء مسار اتصال، يمكن تحقيق اتصال مستقر. تبديل الحزم: حتى إذا كانت الشبكة مزدحمة، يمكن إرسال البيانات تدريجيًا، لذا فإن احتمالية عدم القدرة على الاتصال تمامًا منخفضة. العيوب: تبديل الدوائر: مسار الاتصال مشغول من قبل المستخدم، لذا ليس من الممكن استخدام الخط في نفس الوقت مع الآخرين. تبديل الحزم: قد تُفقد الحزم (Packets) أحيانًا أثناء الطريق أو تتأثر بازدحام الشبكة (Network Congestion).»</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العربية تطبع رمزًا زخرفيًا (دائرة سوداء بداخلها علامة) بعد بنود مثل (2) شبكة الكمبيوتر و[3] المحول و[2] نظام ند إلى ند وبعد جدول المزايا والعيوب — نفس الرمز الذي ظهر في درس 9-3 بعد تعريف EIS؛ لا مقابل له في الإنجليزية وهو زخرفة متكررة في الطبعة العربية. العناوين الفرعية: العربية بالحروف «أ.» «ب.» «ت.»؛ الإنجليزية بالأرقام 1، 2، 3. العنوان: العربية «النقاط الرئيسية»؛ الإنجليزية &quot;Point!&quot;." data-en="Edition comparison (confirmed from the printed page images): Arabic prints a decorative glyph (a black circle with a mark inside) after items such as (2) Computer network, [3] Hub, [2] Peer-to-peer system, and after the advantages/disadvantages table — the same glyph seen in lesson 9-3 after the EIS definition; it has no English counterpart and is a recurring decoration in the Arabic edition. Sub-headings: Arabic lettered «أ.» «ب.» «ت.»; English numbered 1, 2, 3. Heading: Arabic «النقاط الرئيسية»; English &quot;Point!&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العربية تطبع رمزًا زخرفيًا (دائرة سوداء بداخلها علامة) بعد بنود مثل (2) شبكة الكمبيوتر و[3] المحول و[2] نظام ند إلى ند وبعد جدول المزايا والعيوب — نفس الرمز الذي ظهر في درس 9-3 بعد تعريف EIS؛ لا مقابل له في الإنجليزية وهو زخرفة متكررة في الطبعة العربية. العناوين الفرعية: العربية بالحروف «أ.» «ب.» «ت.»؛ الإنجليزية بالأرقام 1، 2، 3. العنوان: العربية «النقاط الرئيسية»؛ الإنجليزية "Point!".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 95–96 (المطبوع 95–96)؛ AR 108–109." data-en="The text above is from the book. Full source: English PDF 95–96 (printed 95–96); Arabic 108–109.">النص السابق من الكتاب. المصدر الكامل: EN PDF 95–96 (المطبوع 95–96)؛ AR 108–109.</span>
+          <p data-ar="«أ. شبكات المعلومات والاتصالات (1) شبكة المعلومات والاتصالات (Information and communication network): شبكة تشبه الشبكة العنكبوتية تستخدم خطوط الاتصال لنقل المعلومات. (2) شبكة الكمبيوتر (Computer network): نظام اتصال يربط أجهزة الاتصالات المعلوماتية مثل الكمبيوتر والهواتف الذكية، مما يتيح لها تبادل البيانات فيما بينها. (3) أنواع الشبكات [1] شبكة المنطقة المحلية (LAN): شبكة تربط الأجهزة ضمن منطقة محدودة، مثل مدرسة أو منزل. • شبكة المنطقة المحلية السلكية (Wired LAN): طريقة لتبادل البيانات بالاتصال المباشر بالكابلات. • شبكة المنطقة المحلية اللاسلكية (Wireless LAN): طريقة لتبادل البيانات عبر موجات الراديو اللاسلكية بدلاً من الكابلات. [2] شبكة المنطقة الواسعة (WAN): شبكة تربط منطقة أوسع. (4) الإنترنت (Internet): شبكة تربط شبكات LAN و WAN على نطاق عالمي. (5) الاتصال بالإنترنت [1] موفر خدمة الإنترنت (ISP (provider)): شركة تسهل الاتصال بالإنترنت. من الضروري توقيع عقد للاتصال بالإنترنت. [2] جهاز التوجيه (Router): جهاز يرحّل ويُعيد توجيه البيانات بين شبكات مختلفة. [3] المحول (Hub): جهاز مركزي يقوم بتوصيل عدة كابلات.»" data-en="&quot;1 Information and Communication Networks (1) Information and communication network:A network resembling a web that utilizes communication lines to transmit information. (2) Computer network: A communication system that connects information communication devices like computers and smartphones, enabling them to exchange data with one another. (3) Types of Networks [1] LAN: A network that connects devices within a limited area, such as within a school or home. • Wired LAN: A method of exchanging data by directly connecting to cables. • Wireless LAN: A method of exchanging data via wireless radio waves instead of cables. [2] WAN: A network that connects a broader area. (4) Internet: A network that connects LANs and WANs on a global scale. (5) Connecting to the Internet [1] ISP (provider): A company that facilitates connection to the internet. It is necessary to sign a contract to connect to the internet. [2] Router: A device that relays and forwards data between different networks. [3] Hub: A central device that connects multiple cables.&quot;">«أ. شبكات المعلومات والاتصالات (1) شبكة المعلومات والاتصالات (Information and communication network): شبكة تشبه الشبكة العنكبوتية تستخدم خطوط الاتصال لنقل المعلومات. (2) شبكة الكمبيوتر (Computer network): نظام اتصال يربط أجهزة الاتصالات المعلوماتية مثل الكمبيوتر والهواتف الذكية، مما يتيح لها تبادل البيانات فيما بينها. (3) أنواع الشبكات [1] شبكة المنطقة المحلية (LAN): شبكة تربط الأجهزة ضمن منطقة محدودة، مثل مدرسة أو منزل. • شبكة المنطقة المحلية السلكية (Wired LAN): طريقة لتبادل البيانات بالاتصال المباشر بالكابلات. • شبكة المنطقة المحلية اللاسلكية (Wireless LAN): طريقة لتبادل البيانات عبر موجات الراديو اللاسلكية بدلاً من الكابلات. [2] شبكة المنطقة الواسعة (WAN): شبكة تربط منطقة أوسع. (4) الإنترنت (Internet): شبكة تربط شبكات LAN و WAN على نطاق عالمي. (5) الاتصال بالإنترنت [1] موفر خدمة الإنترنت (ISP (provider)): شركة تسهل الاتصال بالإنترنت. من الضروري توقيع عقد للاتصال بالإنترنت. [2] جهاز التوجيه (Router): جهاز يرحّل ويُعيد توجيه البيانات بين شبكات مختلفة. [3] المحول (Hub): جهاز مركزي يقوم بتوصيل عدة كابلات.»</p>
+          <p data-ar="«ب. أنماط استخدام الشبكة (1) الخادم والعميل [1] الخادم (Server): حاسوب يقدم خدمات متنوعة. • خادم الملفات (File server): خادم يدير الملفات. • خادم الطباعة (Printer server): خادم يتعامل مع معالجة الطباعة. • خادم البريد (Mail server): خادم يتعامل مع إرسال واستقبال رسائل البريد الإلكتروني. • الخادم الوكيل (Proxy server): خادم يعمل كوسيط للوصول إلى الإنترنت. [2] العميل (Client): حاسوب يطلب خدمات متنوعة من خادم. (2) أنماط استخدام الشبكة [1] نظام العميل-الخادم (Client-server system): طريقة يتم فيها توفير الخدمات واستلامها بين خادم وعميل. [2] نظام ند إلى ند (Peer-to-peer system): طريقة تكون فيها أجهزة الكمبيوتر في علاقة متساوية، حيث تقدم وتتلقى الخدمات لبعضها البعض.»" data-en="&quot;2 Network Usage Patterns (1) Server and Client [1] Server:A computer that provides various services. • File server: A server that manages files. • Printer server: A server that handles print processing. • Mail server: A server that handles the sending and receiving of emails. • Proxy server: A server that acts as an intermediary for accessing the internet. [2] Client: A computer that requests various services from a server. (2) Network Usage Patterns [1] Client-server system: A method where services are provided and received between a server and a client. [2] Peer-to-peer system: A method where computers are in an equal relationship, providing and receiving services to and from each other.&quot;">«ب. أنماط استخدام الشبكة (1) الخادم والعميل [1] الخادم (Server): حاسوب يقدم خدمات متنوعة. • خادم الملفات (File server): خادم يدير الملفات. • خادم الطباعة (Printer server): خادم يتعامل مع معالجة الطباعة. • خادم البريد (Mail server): خادم يتعامل مع إرسال واستقبال رسائل البريد الإلكتروني. • الخادم الوكيل (Proxy server): خادم يعمل كوسيط للوصول إلى الإنترنت. [2] العميل (Client): حاسوب يطلب خدمات متنوعة من خادم. (2) أنماط استخدام الشبكة [1] نظام العميل-الخادم (Client-server system): طريقة يتم فيها توفير الخدمات واستلامها بين خادم وعميل. [2] نظام ند إلى ند (Peer-to-peer system): طريقة تكون فيها أجهزة الكمبيوتر في علاقة متساوية، حيث تقدم وتتلقى الخدمات لبعضها البعض.»</p>
+          <p data-ar="«ت. طرق الاتصال (1) طريقة تبديل الدوائر (Circuit switching method): طريقة اتصال يتم فيها إنشاء مسار اتصال بين المرسل والمستلم قبل بدء الإرسال لتبادل المعلومات. (2) الحزمة (Packet): وحدة لتقسيم البيانات إلى أجزاء صغيرة عند نقل البيانات عبر شبكة. (3) طريقة تبديل الحزم (Packet switching method): طريقة اتصال تتضمن تقسيم البيانات المراد إرسالها إلى حزم لتبادلها. (4) مزايا وعيوب طرق الاتصال — المزايا:تبديل الدوائر: بمجرد إنشاء مسار اتصال، يمكن تحقيق اتصال مستقر. تبديل الحزم: حتى إذا كانت الشبكة مزدحمة، يمكن إرسال البيانات تدريجيًا، لذا فإن احتمالية عدم القدرة على الاتصال تمامًا منخفضة. العيوب: تبديل الدوائر: مسار الاتصال مشغول من قبل المستخدم، لذا ليس من الممكن استخدام الخط في نفس الوقت مع الآخرين. تبديل الحزم: قد تُفقد الحزم (Packets) أحيانًا أثناء الطريق أو تتأثر بازدحام الشبكة (Network Congestion).»" data-en="&quot;3 Communication Methods (1) Circuit switching method:A communication method where a communication path is established between the sender and the recipient before starting the transmission to exchange information. (2) Packet: A unit for dividing data into small chunks when transmitting data over a network. (3) Packet switching method: A communication method that involves dividing the data being transmitted into packets for exchange. (4) Advantages and Disadvantages of Communication Methods — Advantages: Circuit switching: Once a communication path is established, stable communication can be achieved. Packet switching: Even if the network is congested, data can be sent gradually, so the possibility of being completely unable to communicate is low. Disadvantages: Circuit switching: The communication path is occupied by the user, so it is not possible to use the line simultaneously with others. Packet switching: Packets can sometimes be lost along the way or be affected by network congestion.&quot;">«ت. طرق الاتصال (1) طريقة تبديل الدوائر (Circuit switching method): طريقة اتصال يتم فيها إنشاء مسار اتصال بين المرسل والمستلم قبل بدء الإرسال لتبادل المعلومات. (2) الحزمة (Packet): وحدة لتقسيم البيانات إلى أجزاء صغيرة عند نقل البيانات عبر شبكة. (3) طريقة تبديل الحزم (Packet switching method): طريقة اتصال تتضمن تقسيم البيانات المراد إرسالها إلى حزم لتبادلها. (4) مزايا وعيوب طرق الاتصال — المزايا:تبديل الدوائر: بمجرد إنشاء مسار اتصال، يمكن تحقيق اتصال مستقر. تبديل الحزم: حتى إذا كانت الشبكة مزدحمة، يمكن إرسال البيانات تدريجيًا، لذا فإن احتمالية عدم القدرة على الاتصال تمامًا منخفضة. العيوب: تبديل الدوائر: مسار الاتصال مشغول من قبل المستخدم، لذا ليس من الممكن استخدام الخط في نفس الوقت مع الآخرين. تبديل الحزم: قد تُفقد الحزم (Packets) أحيانًا أثناء الطريق أو تتأثر بازدحام الشبكة (Network Congestion).»</p>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العربية تطبع رمزًا زخرفيًا (دائرة سوداء بداخلها علامة) بعد بنود مثل (2) شبكة الكمبيوتر و[3] المحول و[2] نظام ند إلى ند وبعد جدول المزايا والعيوب — نفس الرمز الذي ظهر في درس 9-3 بعد تعريف EIS؛ لا مقابل له في الإنجليزية وهو زخرفة متكررة في الطبعة العربية. العناوين الفرعية: العربية بالحروف «أ.» «ب.» «ت.»؛ الإنجليزية بالأرقام 1، 2، 3. العنوان: العربية «النقاط الرئيسية»؛ الإنجليزية &quot;Point!&quot;." data-en="Edition comparison (confirmed from the printed page images): Arabic prints a decorative glyph (a black circle with a mark inside) after items such as (2) Computer network, [3] Hub, [2] Peer-to-peer system, and after the advantages/disadvantages table — the same glyph seen in lesson 9-3 after the EIS definition; it has no English counterpart and is a recurring decoration in the Arabic edition. Sub-headings:Arabic lettered «أ.» «ب.» «ت.»; English numbered 1, 2, 3. Heading:Arabic «النقاط الرئيسية»; English &quot;Point!&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العربية تطبع رمزًا زخرفيًا (دائرة سوداء بداخلها علامة) بعد بنود مثل (2) شبكة الكمبيوتر و[3] المحول و[2] نظام ند إلى ند وبعد جدول المزايا والعيوب — نفس الرمز الذي ظهر في درس 9-3 بعد تعريف EIS؛ لا مقابل له في الإنجليزية وهو زخرفة متكررة في الطبعة العربية. العناوين الفرعية:العربية بالحروف «أ.» «ب.» «ت.»؛ الإنجليزية بالأرقام 1، 2، 3. العنوان: العربية «النقاط الرئيسية»؛ الإنجليزية "Point!".</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 95–96 (المطبوع 95–96)؛ AR 108–109." data-en="The text above is from the book. Full source: English PDF 95–96 (printed 95–96); Arabic 108–109.">النص السابق من الكتاب. المصدر الكامل:EN PDF 95–96 (المطبوع 95–96)؛ AR 108–109.</span>
         </div>
     </div>
 
@@ -1661,7 +1660,7 @@
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
             <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 95–98 (المطبوع 95–98)؛ AR 108–111"
-              data-en="Your book: EN PDF 95–98 (printed 95–98); AR 108–111">الكتاب بتاعك: EN PDF 95–98 (المطبوع 95–98)؛ AR 108–111</div>
+              data-en="Your book: EN PDF 95–98 (printed 95–98); AR 108–111">الكتاب بتاعك:EN PDF 95–98 (المطبوع 95–98)؛ AR 108–111</div>
           </div>
         </div>
       </div>
@@ -1685,10 +1684,10 @@
                 <div class="book-card">
           <h3 data-ar="من الكتاب: تحدى معلوماتك — الإجابة في الشرح أسفل السؤال" data-en="From the book: Warm Up — the answer is printed in the Explanation below the question">من الكتاب: تحدى معلوماتك — الإجابة في الشرح أسفل السؤال</h3>
           <p data-ar="«أجب عن الأسئلة التالية. (1) اختر عبارة واحدة غير صحيحة بخصوص أجهزة بناء الشبكة من الخيارات من أ إلى ث. (أ) المنظمات أو الشركات التي تسهل الاتصالات بالإنترنت يشار إليها باسم موفري الخدمة (ISP Providers). (ب) شبكة محدودة إلى مناطق مثل مدرسة أو منزل يشار إليها باسم WAN. (ت) جهاز يجمع ويصل كابلات متعددة يشار إليه باسم المحول (Hub). (ث) جهاز يرحّل وينقل بين شبكات مختلفة يشار إليه باسم جهاز التوجيه (Router).»" data-en="&quot;Answer the following questions. (1) Choose one statement that is incorrect regarding network construction devices from the options A to D below, and answer using the letter. A Organizations or companies that facilitate connections to the internet are referred to as providers. B A network limited to areas such as within a school or a home is referred to as a WAN. C A device that gathers and connects multiple cables is referred to as a hub. D A device that relays and transfers between different networks is referred to as a router.&quot;">«أجب عن الأسئلة التالية. (1) اختر عبارة واحدة غير صحيحة بخصوص أجهزة بناء الشبكة من الخيارات من أ إلى ث. (أ) المنظمات أو الشركات التي تسهل الاتصالات بالإنترنت يشار إليها باسم موفري الخدمة (ISP Providers). (ب) شبكة محدودة إلى مناطق مثل مدرسة أو منزل يشار إليها باسم WAN. (ت) جهاز يجمع ويصل كابلات متعددة يشار إليه باسم المحول (Hub). (ث) جهاز يرحّل وينقل بين شبكات مختلفة يشار إليه باسم جهاز التوجيه (Router).»</p>
-          <p data-ar="«(2) اختر العبارة التي تناسب الفراغات [1] إلى [4] في الجدول التالي من الخيارات من أ إلى ث.» الجدول المطبوع: طريقة تبديل الدوائر: المزايا [1]، العيوب [2]؛ طريقة تبديل الحزم: المزايا [3]، العيوب [4]. «(أ) الخط مشغول، مما يضمن اتصالاً مستقرًا. (ب) قد يكون هناك تأخير أو فقدان للبيانات أثناء الإرسال. (ت) يستخدم فقط عدد الخطوط اللازمة للاتصال المطلوب. (ث) من الممكن التعامل مع العديد من الاتصالات في نفس الوقت.»" data-en="&quot;(2) Choose the statement that best fits into the blanks [1] to [4] in the following table from the options A to D below, and answer using the letters.&quot; Printed table: Circuit switching method: Advantages [1], Disadvantages [2]; Packet switching method: Advantages [3], Disadvantages [4]. &quot;A The line is occupied, which ensures stable communication. B There may be delays or loss of data during transmission. C Only the number of lines necessary for communication is required. D It is possible to handle many communications simultaneously.&quot;">«(2) اختر العبارة التي تناسب الفراغات [1] إلى [4] في الجدول التالي من الخيارات من أ إلى ث.» الجدول المطبوع: طريقة تبديل الدوائر: المزايا [1]، العيوب [2]؛ طريقة تبديل الحزم: المزايا [3]، العيوب [4]. «(أ) الخط مشغول، مما يضمن اتصالاً مستقرًا. (ب) قد يكون هناك تأخير أو فقدان للبيانات أثناء الإرسال. (ت) يستخدم فقط عدد الخطوط اللازمة للاتصال المطلوب. (ث) من الممكن التعامل مع العديد من الاتصالات في نفس الوقت.»</p>
+          <p data-ar="«(2) اختر العبارة التي تناسب الفراغات [1] إلى [4] في الجدول التالي من الخيارات من أ إلى ث.» الجدول المطبوع:طريقة تبديل الدوائر: المزايا [1]، العيوب [2]؛ طريقة تبديل الحزم: المزايا [3]، العيوب [4]. «(أ) الخط مشغول، مما يضمن اتصالاً مستقرًا. (ب) قد يكون هناك تأخير أو فقدان للبيانات أثناء الإرسال. (ت) يستخدم فقط عدد الخطوط اللازمة للاتصال المطلوب. (ث) من الممكن التعامل مع العديد من الاتصالات في نفس الوقت.»" data-en="&quot;(2) Choose the statement that best fits into the blanks [1] to [4] in the following table from the options A to D below, and answer using the letters.&quot; Printed table:Circuit switching method: Advantages [1], Disadvantages [2]; Packet switching method:Advantages [3], Disadvantages [4]. &quot;A The line is occupied, which ensures stable communication. B There may be delays or loss of data during transmission. C Only the number of lines necessary for communication is required. D It is possible to handle many communications simultaneously.&quot;">«(2) اختر العبارة التي تناسب الفراغات [1] إلى [4] في الجدول التالي من الخيارات من أ إلى ث.» الجدول المطبوع:طريقة تبديل الدوائر: المزايا [1]، العيوب [2]؛ طريقة تبديل الحزم: المزايا [3]، العيوب [4]. «(أ) الخط مشغول، مما يضمن اتصالاً مستقرًا. (ب) قد يكون هناك تأخير أو فقدان للبيانات أثناء الإرسال. (ت) يستخدم فقط عدد الخطوط اللازمة للاتصال المطلوب. (ث) من الممكن التعامل مع العديد من الاتصالات في نفس الوقت.»</p>
           <p data-ar="إجابات الكتاب المطبوعة في «الشرح»: (1) يشار إلى الشبكة التي تقتصر على مناطق مثل المدرسة أو المنزل باسم شبكة LAN. لذلك ، ب. (2) [1] (أ) [2] (ت) [3] (ث) [4] (ب)." data-en="The book's printed answers in the &quot;Explanation&quot;: (1) A network limited to areas such as within a school or a home is referred to as a LAN. Therefore, B. (2) [1] A [2] C [3] D [4] B.">إجابات الكتاب المطبوعة في «الشرح»: (1) يشار إلى الشبكة التي تقتصر على مناطق مثل المدرسة أو المنزل باسم شبكة LAN. لذلك ، ب. (2) [1] (أ) [2] (ت) [3] (ث) [4] (ب).</p>
-          <div class="book-diff" data-ar="مقارنة النسختين: المدى العربي «من أ إلى ث» بأربعة خيارات صحيح بحروف الأبجد (أ ب ت ث) ويقابل &quot;A to D&quot;. مفتاح الإجابة المطبوع متطابق في الطبعتين (ب = B ؛ أ/ت/ث/ب = A/C/D/B). الخيار (أ) العربي يطبع الشرح «(ISP Providers)» بترتيب معكوس مقابل &quot;providers&quot; الإنجليزية. العنوان: العربية «تحدى معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;. صندوق الإجابة: العربية «الشرح»؛ الإنجليزية &quot;Explanation&quot;." data-en="Edition comparison: the Arabic range «من أ إلى ث» with four options is correct abjad lettering (أ ب ت ث) matching &quot;A to D&quot;. The printed key matches in both editions (ب = B; أ/ت/ث/ب = A/C/D/B). Arabic option (أ) prints the gloss «(ISP Providers)» in reversed order versus English &quot;providers&quot;. Heading: Arabic «تحدى معلوماتك»; English &quot;Warm Up&quot;. Answer box: Arabic «الشرح»; English &quot;Explanation&quot;.">مقارنة النسختين: المدى العربي «من أ إلى ث» بأربعة خيارات صحيح بحروف الأبجد (أ ب ت ث) ويقابل "A to D". مفتاح الإجابة المطبوع متطابق في الطبعتين (ب = B ؛ أ/ت/ث/ب = A/C/D/B). الخيار (أ) العربي يطبع الشرح «(ISP Providers)» بترتيب معكوس مقابل "providers" الإنجليزية. العنوان: العربية «تحدى معلوماتك»؛ الإنجليزية "Warm Up". صندوق الإجابة: العربية «الشرح»؛ الإنجليزية "Explanation".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 96 (المطبوع 96)؛ AR 109–110." data-en="The text above is from the book. Full source: English PDF 96 (printed 96); Arabic 109–110.">النص السابق من الكتاب. المصدر الكامل: EN PDF 96 (المطبوع 96)؛ AR 109–110.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين:المدى العربي «من أ إلى ث» بأربعة خيارات صحيح بحروف الأبجد (أ ب ت ث) ويقابل &quot;A to D&quot;. مفتاح الإجابة المطبوع متطابق في الطبعتين (ب = B ؛ أ/ت/ث/ب = A/C/D/B). الخيار (أ) العربي يطبع الشرح «(ISP Providers)» بترتيب معكوس مقابل &quot;providers&quot; الإنجليزية. العنوان:العربية «تحدى معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;. صندوق الإجابة:العربية «الشرح»؛ الإنجليزية &quot;Explanation&quot;." data-en="Edition comparison:the Arabic range «من أ إلى ث» with four options is correct abjad lettering (أ ب ت ث) matching &quot;A to D&quot;. The printed key matches in both editions (ب = B; أ/ت/ث/ب = A/C/D/B). Arabic option (أ) prints the gloss «(ISP Providers)» in reversed order versus English &quot;providers&quot;. Heading:Arabic «تحدى معلوماتك»; English &quot;Warm Up&quot;. Answer box:Arabic «الشرح»; English &quot;Explanation&quot;.">مقارنة النسختين:المدى العربي «من أ إلى ث» بأربعة خيارات صحيح بحروف الأبجد (أ ب ت ث) ويقابل "A to D". مفتاح الإجابة المطبوع متطابق في الطبعتين (ب = B ؛ أ/ت/ث/ب = A/C/D/B). الخيار (أ) العربي يطبع الشرح «(ISP Providers)» بترتيب معكوس مقابل "providers" الإنجليزية. العنوان: العربية «تحدى معلوماتك»؛ الإنجليزية "Warm Up". صندوق الإجابة: العربية «الشرح»؛ الإنجليزية "Explanation".</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 96 (المطبوع 96)؛ AR 109–110." data-en="The text above is from the book. Full source: English PDF 96 (printed 96); Arabic 109–110.">النص السابق من الكتاب. المصدر الكامل:EN PDF 96 (المطبوع 96)؛ AR 109–110.</span>
         </div>
         <div class="book-card try">
           <h3 data-ar="من الكتاب: جرب بنفسك" data-en="From the book: Try">من الكتاب: جرب بنفسك</h3>
@@ -1698,8 +1697,8 @@
           <p data-ar="«3 أجب عن الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغين [1] و [2] بالمصطلحين المناسبين. يوجد طرق ( [1] ) وطرق ( [2] ) في أنظمة الاتصالات. طريقة ( [1] ) هي طريقة اتصال يتم فيها إنشاء مسار اتصال بين المرسل والمستقبل قبل بدء الاتصال لتبادل المعلومات. طريقة ( [2] ) هي طريقة اتصال يتم فيها تقسيم البيانات المراد إرسالها إلى وحدات صغيرة تسمى الحزم للتبادل.»" data-en="&quot;3 Answer the following questions. (1) Complete the following sentences by filling in the blanks [1] and [2] with the appropriate terms. There are ( [1] ) methods and ( [2] ) methods in communication systems. The ([1]) method is a communication method where a communication path is established between the sender and the recipient before starting communication to exchange information. The ([2]) method is a communication method where the data to be sent is divided into small units called packets for exchange.&quot;">«3 أجب عن الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغين [1] و [2] بالمصطلحين المناسبين. يوجد طرق ( [1] ) وطرق ( [2] ) في أنظمة الاتصالات. طريقة ( [1] ) هي طريقة اتصال يتم فيها إنشاء مسار اتصال بين المرسل والمستقبل قبل بدء الاتصال لتبادل المعلومات. طريقة ( [2] ) هي طريقة اتصال يتم فيها تقسيم البيانات المراد إرسالها إلى وحدات صغيرة تسمى الحزم للتبادل.»</p>
           <p data-ar="«(2) اختر جميع العبارات المناسبة التي تصف طريقة تبديل الدوائر وطريقة تبديل الحزم من الخيارات من 1 إلى 4. (أ) تسمح طريقة تبديل الدوائر بسرعات اتصال عالية لأن مسار الاتصال يتم مشاركته مع مستخدمين آخرين. (ب) في طريقة تبديل الدوائر، بمجرد إنشاء الاتصال، يصبح التواصل مستقرًا لأن مسار الاتصال يكون مشغولاً. (ت) تتضمن طريقة تبديل الحزم مشاركة مسار الاتصال، مما قد يؤدي إلى انخفاض سرعات الاتصال. (د) تتميز طريقة تبديل الحزم باحتمالية منخفضة لفشل الاتصال الكامل، حتى عندما تكون الشبكة مزدحمة.»" data-en="&quot;(2) Choose all appropriate statements that describe circuit switching method and packet switching method from the options A to D below, and answer using the letters. A Circuit switching method allows for high communication speeds because the communication path is shared with other users. B In circuit switching method, once a connection is established, stable communication is possible because the communication path is occupied. C Packet switching method involves sharing the communication path, which can result in lower communication speeds. D Packet switching method has a low likelihood of complete communication failure, even when the network is congested.&quot;">«(2) اختر جميع العبارات المناسبة التي تصف طريقة تبديل الدوائر وطريقة تبديل الحزم من الخيارات من 1 إلى 4. (أ) تسمح طريقة تبديل الدوائر بسرعات اتصال عالية لأن مسار الاتصال يتم مشاركته مع مستخدمين آخرين. (ب) في طريقة تبديل الدوائر، بمجرد إنشاء الاتصال، يصبح التواصل مستقرًا لأن مسار الاتصال يكون مشغولاً. (ت) تتضمن طريقة تبديل الحزم مشاركة مسار الاتصال، مما قد يؤدي إلى انخفاض سرعات الاتصال. (د) تتميز طريقة تبديل الحزم باحتمالية منخفضة لفشل الاتصال الكامل، حتى عندما تكون الشبكة مزدحمة.»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (أ) LAN [2] (ب) WAN [3] (خ) Internet [4] (د) ISP [5] (ث) Hub [6] (ح) Router. 2(1) = (أ) نظام العميل-الخادم. 2(2): [أ] الخادم الوكيل (Proxy server) [ب] خادم الملفات (File server) [ت] العميل (Client). 3(1): [1] تبديل الدوائر [2] تبديل الحزم. 3(2) = (ب) و(د)." data-en="Answers not printed in the book (teacher-prepared): 1(1): [1] A LAN [2] B WAN [3] G Internet [4] H ISP [5] D Hub [6] F Router. 2(1) = A Client-server system. 2(2): [1] Proxy server [2] File server [3] Client. 3(1): [1] circuit switching [2] packet switching. 3(2) = B and D.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (أ) LAN [2] (ب) WAN [3] (خ) Internet [4] (د) ISP [5] (ث) Hub [6] (ح) Router. 2(1) = (أ) نظام العميل-الخادم. 2(2): [أ] الخادم الوكيل (Proxy server) [ب] خادم الملفات (File server) [ت] العميل (Client). 3(1): [1] تبديل الدوائر [2] تبديل الحزم. 3(2) = (ب) و(د).</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): جملة سؤال 1(1) العربية تطبع نقطة بين «باسم» والفراغات [2] [3] [4] («باسم. ([2])») بينما الفراغ [1] بلا نقطة («باسم ([1])،») — ترقيم غير متسق داخل الجملة الواحدة. تعليمة سؤال 2(1) العربية تطلب «يملأ الفراغ من 1 إلى 4» بالأرقام بينما الخيارات معنونة بالحروف (أ)-(ث)؛ الإنجليزية &quot;the blank ... options A to D&quot;. خيارات سؤال 2(1) العربية تطبع الشروح الإنجليزية مزاحة موضعًا واحدًا: (ب) نظام النظير إلى النظير بلا شرح، و&quot;Peer-to-peer system&quot; بعد (ت) شبكة المنطقة المحلية، و&quot;(LAN)&quot; بعد (ث) شبكة المنطقة الواسعة، ولا يظهر شرح WAN. فراغات سؤال 2(2) العربية معنونة [أ] [ب] [ت] بينما الإنجليزية ترقّمها [1] [2] [3]. تعليمة سؤال 3(2) العربية تقول «من الخيارات من 1 إلى 4» بينما الخيارات معنونة (أ)-(د)؛ الإنجليزية &quot;options A to D&quot; متسقة. المدى «من أ إلى د» في سؤال 1(1) ثمانية أحرف أبجد صحيحة (أ ب ت ث ج ح خ د) تقابل &quot;A to H&quot;. العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic 1(1) sentence prints a period between «باسم» and blanks [2] [3] [4] («باسم. ([2])») while blank [1] has none («باسم ([1])،») — inconsistent punctuation within one sentence. The Arabic 2(1) instruction says «يملأ الفراغ من 1 إلى 4» (blanks 1 to 4) while the options are lettered (أ)-(ث); English reads &quot;the blank ... options A to D&quot;. Arabic 2(1) options print the English glosses shifted one slot: (ب) نظام النظير إلى النظير has no gloss, &quot;Peer-to-peer system&quot; follows (ت) شبكة المنطقة المحلية, &quot;(LAN)&quot; follows (ث) شبكة المنطقة الواسعة, and no WAN gloss appears. Arabic 2(2) blanks are lettered [أ] [ب] [ت] while English numbers them [1] [2] [3]. The Arabic 3(2) instruction says «من الخيارات من 1 إلى 4» while its options are lettered (أ)-(د); English &quot;options A to D&quot; is consistent. The 1(1) range «من أ إلى د» is eight correct abjad letters (أ ب ت ث ج ح خ د) matching &quot;A to H&quot;. Heading: Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): جملة سؤال 1(1) العربية تطبع نقطة بين «باسم» والفراغات [2] [3] [4] («باسم. ([2])») بينما الفراغ [1] بلا نقطة («باسم ([1])،») — ترقيم غير متسق داخل الجملة الواحدة. تعليمة سؤال 2(1) العربية تطلب «يملأ الفراغ من 1 إلى 4» بالأرقام بينما الخيارات معنونة بالحروف (أ)-(ث)؛ الإنجليزية "the blank ... options A to D". خيارات سؤال 2(1) العربية تطبع الشروح الإنجليزية مزاحة موضعًا واحدًا: (ب) نظام النظير إلى النظير بلا شرح، و"Peer-to-peer system" بعد (ت) شبكة المنطقة المحلية، و"(LAN)" بعد (ث) شبكة المنطقة الواسعة، ولا يظهر شرح WAN. فراغات سؤال 2(2) العربية معنونة [أ] [ب] [ت] بينما الإنجليزية ترقّمها [1] [2] [3]. تعليمة سؤال 3(2) العربية تقول «من الخيارات من 1 إلى 4» بينما الخيارات معنونة (أ)-(د)؛ الإنجليزية "options A to D" متسقة. المدى «من أ إلى د» في سؤال 1(1) ثمانية أحرف أبجد صحيحة (أ ب ت ث ج ح خ د) تقابل "A to H". العنوان: العربية «جرب بنفسك»؛ الإنجليزية "Try".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 97 (المطبوع 97)؛ AR 110–111." data-en="The text above is from the book. Full source: English PDF 97 (printed 97); Arabic 110–111.">النص السابق من الكتاب. المصدر الكامل: EN PDF 97 (المطبوع 97)؛ AR 110–111.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): جملة سؤال 1(1) العربية تطبع نقطة بين «باسم» والفراغات [2] [3] [4] («باسم. ([2])») بينما الفراغ [1] بلا نقطة («باسم ([1])،») — ترقيم غير متسق داخل الجملة الواحدة. تعليمة سؤال 2(1) العربية تطلب «يملأ الفراغ من 1 إلى 4» بالأرقام بينما الخيارات معنونة بالحروف (أ)-(ث)؛ الإنجليزية &quot;the blank ... options A to D&quot;. خيارات سؤال 2(1) العربية تطبع الشروح الإنجليزية مزاحة موضعًا واحدًا:(ب) نظام النظير إلى النظير بلا شرح، و&quot;Peer-to-peer system&quot; بعد (ت) شبكة المنطقة المحلية، و&quot;(LAN)&quot; بعد (ث) شبكة المنطقة الواسعة، ولا يظهر شرح WAN. فراغات سؤال 2(2) العربية معنونة [أ] [ب] [ت] بينما الإنجليزية ترقّمها [1] [2] [3]. تعليمة سؤال 3(2) العربية تقول «من الخيارات من 1 إلى 4» بينما الخيارات معنونة (أ)-(د)؛ الإنجليزية &quot;options A to D&quot; متسقة. المدى «من أ إلى د» في سؤال 1(1) ثمانية أحرف أبجد صحيحة (أ ب ت ث ج ح خ د) تقابل &quot;A to H&quot;. العنوان:العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic 1(1) sentence prints a period between «باسم» and blanks [2] [3] [4] («باسم. ([2])») while blank [1] has none («باسم ([1])،») — inconsistent punctuation within one sentence. The Arabic 2(1) instruction says «يملأ الفراغ من 1 إلى 4» (blanks 1 to 4) while the options are lettered (أ)-(ث); English reads &quot;the blank ... options A to D&quot;. Arabic 2(1) options print the English glosses shifted one slot:(ب) نظام النظير إلى النظير has no gloss, &quot;Peer-to-peer system&quot; follows (ت) شبكة المنطقة المحلية, &quot;(LAN)&quot; follows (ث) شبكة المنطقة الواسعة, and no WAN gloss appears. Arabic 2(2) blanks are lettered [أ] [ب] [ت] while English numbers them [1] [2] [3]. The Arabic 3(2) instruction says «من الخيارات من 1 إلى 4» while its options are lettered (أ)-(د); English &quot;options A to D&quot; is consistent. The 1(1) range «من أ إلى د» is eight correct abjad letters (أ ب ت ث ج ح خ د) matching &quot;A to H&quot;. Heading:Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): جملة سؤال 1(1) العربية تطبع نقطة بين «باسم» والفراغات [2] [3] [4] («باسم. ([2])») بينما الفراغ [1] بلا نقطة («باسم ([1])،») — ترقيم غير متسق داخل الجملة الواحدة. تعليمة سؤال 2(1) العربية تطلب «يملأ الفراغ من 1 إلى 4» بالأرقام بينما الخيارات معنونة بالحروف (أ)-(ث)؛ الإنجليزية "the blank ... options A to D". خيارات سؤال 2(1) العربية تطبع الشروح الإنجليزية مزاحة موضعًا واحدًا:(ب) نظام النظير إلى النظير بلا شرح، و"Peer-to-peer system" بعد (ت) شبكة المنطقة المحلية، و"(LAN)" بعد (ث) شبكة المنطقة الواسعة، ولا يظهر شرح WAN. فراغات سؤال 2(2) العربية معنونة [أ] [ب] [ت] بينما الإنجليزية ترقّمها [1] [2] [3]. تعليمة سؤال 3(2) العربية تقول «من الخيارات من 1 إلى 4» بينما الخيارات معنونة (أ)-(د)؛ الإنجليزية "options A to D" متسقة. المدى «من أ إلى د» في سؤال 1(1) ثمانية أحرف أبجد صحيحة (أ ب ت ث ج ح خ د) تقابل "A to H". العنوان: العربية «جرب بنفسك»؛ الإنجليزية "Try".</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 97 (المطبوع 97)؛ AR 110–111." data-en="The text above is from the book. Full source: English PDF 97 (printed 97); Arabic 110–111.">النص السابق من الكتاب. المصدر الكامل:EN PDF 97 (المطبوع 97)؛ AR 110–111.</span>
         </div>
         <div class="book-card try">
           <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
@@ -1709,8 +1708,8 @@
           <p data-ar="«(2) اختر المصطلح الأنسب الذي يملأ الفراغات في الجمل التالية من الخيارات من أ إلى ث. [1]يُشار إلى الخادم الذي يتعامل مع عمليات الطباعة مثل النسخ والطباعة باسم ( [1] ). [2]يُشار إلى الخادم الذي يسهل إرسال واستقبال رسائل البريد الإلكتروني بين أجهزة الكمبيوتر باسم ( [2] ). [3]يُشار إلى نمط الاستخدام الذي يتصل فيه الخادم والعميل عبر شبكة ويتبادلان الخدمات باسم ( [3] ). (أ) Client-server system (ب) Mail server (ت) Internet (ث) Printer server»" data-en="&quot;(2) Choose the term that best fits into the blanks [1] to [3] in the following sentences from the options A to D below, and answer using the letters. A server that handles printing processes such as copying and printing is referred to as a ( [1] ). A server that facilitates the sending and receiving of emails between computers is referred to as a ( [2] ). The usage pattern where a server and a client connect over a network and exchange services is referred to as ( [3] ). A Client-server system B Mail server C Internet D Printer server&quot;">«(2) اختر المصطلح الأنسب الذي يملأ الفراغات في الجمل التالية من الخيارات من أ إلى ث. [1]يُشار إلى الخادم الذي يتعامل مع عمليات الطباعة مثل النسخ والطباعة باسم ( [1] ). [2]يُشار إلى الخادم الذي يسهل إرسال واستقبال رسائل البريد الإلكتروني بين أجهزة الكمبيوتر باسم ( [2] ). [3]يُشار إلى نمط الاستخدام الذي يتصل فيه الخادم والعميل عبر شبكة ويتبادلان الخدمات باسم ( [3] ). (أ) Client-server system (ب) Mail server (ت) Internet (ث) Printer server»</p>
           <p data-ar="«(3) إذا كانت العبارات التالية [1] إلى [4] تتعلق بطريقة تبديل الدوائر، أجب بـ &amp;quot;أ&amp;quot; إذا كانت العبارات تتعلق بطريقة تبديل الحزم، أجب بـ &amp;quot;ب&amp;quot;. [1] بمجرد إنشاء مسار اتصال، يمكن تحقيق اتصال مستقر. [2] نظرًا لأنه يمكنه إرسال البيانات في أجزاء صغيرة، فإن احتمالية عدم القدرة على الاتصال منخفضة، حتى لو أصبحت الشبكة مزدحمة. [3] قد يحدث تأخير أو فقدان أثناء نقل البيانات. [4] نظرًا لأنه لا يمكنك استخدام الخط في نفس الوقت مع الآخرين، هناك حاجة لعدد من الخطوط المخصصة للاتصال.»" data-en="&quot;(3) If the following statements [1] to [4] pertain to circuit switching method, answer with “A.” If the statements pertain to packet switching method, answer with “B.” [1] Once a communication path is established, stable communication can be achieved. [2] Since it can send data in small portions, the possibility of being unable to communicate is low, even if the network gets congested. [3] Delays, tampering, or loss may occur during data transmission. [4] Since you cannot use the line simultaneously with others, there is a need for a number of lines dedicated to communication.&quot;">«(3) إذا كانت العبارات التالية [1] إلى [4] تتعلق بطريقة تبديل الدوائر، أجب بـ "أ" إذا كانت العبارات تتعلق بطريقة تبديل الحزم، أجب بـ "ب". [1] بمجرد إنشاء مسار اتصال، يمكن تحقيق اتصال مستقر. [2] نظرًا لأنه يمكنه إرسال البيانات في أجزاء صغيرة، فإن احتمالية عدم القدرة على الاتصال منخفضة، حتى لو أصبحت الشبكة مزدحمة. [3] قد يحدث تأخير أو فقدان أثناء نقل البيانات. [4] نظرًا لأنه لا يمكنك استخدام الخط في نفس الوقت مع الآخرين، هناك حاجة لعدد من الخطوط المخصصة للاتصال.»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (2). 1(2): [1] (أ) Wired LAN [2] (ث) Wireless LAN [3] (ب) Router. 3(1) = (2). 3(2): [1] (ث) Printer server [2] (ب) Mail server [3] (أ) Client-server system. 3(3): [1] أ [2] ب [3] ب [4] أ." data-en="Answers not printed in the book (teacher-prepared): 1(1) = B. 1(2): [1] A Wired LAN [2] D Wireless LAN [3] B Router. 2(1) = B. 2(2): [1] D Printer server [2] B Mail server [3] A Client-server system. 2(3): [1] A [2] B [3] B [4] A.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (2). 1(2): [1] (أ) Wired LAN [2] (ث) Wireless LAN [3] (ب) Router. 3(1) = (2). 3(2): [1] (ث) Printer server [2] (ب) Mail server [3] (أ) Client-server system. 3(3): [1] أ [2] ب [3] ب [4] أ.</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot;. العبارة [3] من سؤال (3) الإنجليزية تذكر &quot;Delays, tampering, or loss&quot; بينما العربية تحذف التلاعب: «قد يحدث تأخير أو فقدان أثناء نقل البيانات.». الخيار (4) من سؤال 3(1) العربي يطبع «باسم نظام الند للند .(peer-to-peer system).» بترتيب أقواس ونقطة معكوس حول الشرح. خيارات الأسئلة (1) و3(1) العربية مرقمة (1)-(4) والإنجليزية A-D؛ والمدى «من أ إلى ث» في (2) و3(2) أربعة أحرف أبجد صحيحة تقابل A-D. العنوان: العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): the second Exercise block is numbered «3» in Arabic though it is Exercise 2; English numbers it &quot;2&quot;. English statement [3] of question (3) reads &quot;Delays, tampering, or loss&quot; while Arabic omits the tampering: «قد يحدث تأخير أو فقدان أثناء نقل البيانات.». Arabic option (4) of question 3(1) prints «باسم نظام الند للند .(peer-to-peer system).» with the parenthesis and period order flipped around the gloss. Arabic questions (1) and 3(1) number their options (1)-(4) versus English A-D; the «من أ إلى ث» ranges in (2) and 3(2) are four correct abjad letters matching A-D. Heading: Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها "2". العبارة [3] من سؤال (3) الإنجليزية تذكر "Delays, tampering, or loss" بينما العربية تحذف التلاعب: «قد يحدث تأخير أو فقدان أثناء نقل البيانات.». الخيار (4) من سؤال 3(1) العربي يطبع «باسم نظام الند للند .(peer-to-peer system).» بترتيب أقواس ونقطة معكوس حول الشرح. خيارات الأسئلة (1) و3(1) العربية مرقمة (1)-(4) والإنجليزية A-D؛ والمدى «من أ إلى ث» في (2) و3(2) أربعة أحرف أبجد صحيحة تقابل A-D. العنوان: العربية «تمرين»؛ الإنجليزية "Exercise".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 98 (المطبوع 98)؛ AR 111." data-en="The text above is from the book. Full source: English PDF 98 (printed 98); Arabic 111.">النص السابق من الكتاب. المصدر الكامل: EN PDF 98 (المطبوع 98)؛ AR 111.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot;. العبارة [3] من سؤال (3) الإنجليزية تذكر &quot;Delays, tampering, or loss&quot; بينما العربية تحذف التلاعب:«قد يحدث تأخير أو فقدان أثناء نقل البيانات.». الخيار (4) من سؤال 3(1) العربي يطبع «باسم نظام الند للند .(peer-to-peer system).» بترتيب أقواس ونقطة معكوس حول الشرح. خيارات الأسئلة (1) و3(1) العربية مرقمة (1)-(4) والإنجليزية A-D؛ والمدى «من أ إلى ث» في (2) و3(2) أربعة أحرف أبجد صحيحة تقابل A-D. العنوان: العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): the second Exercise block is numbered «3» in Arabic though it is Exercise 2; English numbers it &quot;2&quot;. English statement [3] of question (3) reads &quot;Delays, tampering, or loss&quot; while Arabic omits the tampering:«قد يحدث تأخير أو فقدان أثناء نقل البيانات.». Arabic option (4) of question 3(1) prints «باسم نظام الند للند .(peer-to-peer system).» with the parenthesis and period order flipped around the gloss. Arabic questions (1) and 3(1) number their options (1)-(4) versus English A-D; the «من أ إلى ث» ranges in (2) and 3(2) are four correct abjad letters matching A-D. Heading:Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها "2". العبارة [3] من سؤال (3) الإنجليزية تذكر "Delays, tampering, or loss" بينما العربية تحذف التلاعب:«قد يحدث تأخير أو فقدان أثناء نقل البيانات.». الخيار (4) من سؤال 3(1) العربي يطبع «باسم نظام الند للند .(peer-to-peer system).» بترتيب أقواس ونقطة معكوس حول الشرح. خيارات الأسئلة (1) و3(1) العربية مرقمة (1)-(4) والإنجليزية A-D؛ والمدى «من أ إلى ث» في (2) و3(2) أربعة أحرف أبجد صحيحة تقابل A-D. العنوان: العربية «تمرين»؛ الإنجليزية "Exercise".</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 98 (المطبوع 98)؛ AR 111." data-en="The text above is from the book. Full source: English PDF 98 (printed 98); Arabic 111.">النص السابق من الكتاب. المصدر الكامل:EN PDF 98 (المطبوع 98)؛ AR 111.</span>
         </div>
 <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: أنواع الشبكات والأجهزة" data-en="✍️ Additional interactive drill 1: network types and devices">✍️ تدريب 1: أنواع الشبكات والأجهزة</h3>
         <div class="ex-item">
@@ -2027,7 +2026,7 @@
     }
 
     function tr(ar, en) {
-      return currentLang === 'en' ? en : ar;
+      return currentLang === 'en' ? en:ar;
     }
 
     function byId(id) {
@@ -2056,12 +2055,12 @@
     var nav = document.getElementById('topnav');
     var scrollBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', function () {
-      /* header slide-in: assets/js/nav.js */
+      /* header slide-in:assets/js/nav.js */
       if (window.scrollY > 500) scrollBtn.classList.add('show');
       else scrollBtn.classList.remove('show');
-    }, { passive: true });
+    }, { passive:true });
     if (scrollBtn) scrollBtn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top:0, behavior: 'smooth' });
     });
 
     function wireNav() {
@@ -2077,7 +2076,7 @@
             });
           }
         });
-      }, { rootMargin: '-45% 0px -50% 0px' });
+      }, { rootMargin:'-45% 0px -50% 0px' });
       secs.forEach(function (id) {
         var el = document.getElementById(id);
         if (el) io.observe(el);
@@ -2092,7 +2091,7 @@
         entries.forEach(function (en) {
           if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
         });
-      }, { threshold: .08 });
+      }, { threshold:.08 });
       els.forEach(function (e) { io.observe(e); });
     }
 
@@ -2106,102 +2105,102 @@
         var el = document.getElementById(SECTIONS[i]);
         if (el && el.getBoundingClientRect().top <= window.innerHeight * .5) cur = i;
       }
-      var n = cur + (e.key === 'ArrowLeft' ? -1 : 1);
+      var n = cur + (e.key === 'ArrowLeft' ? -1:1);
       if (n >= 0 && n < SECTIONS.length) {
-        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior:'smooth' });
       }
     });
 
     /* ================= FLOW ENGINE (sender→receiver diagrams) ================= */
 var FLOWS = {
-      network: {
+      network:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'ninfo', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'nlines', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'ncomp', x: 660, y: 140, w: 180, h: 120 }
+          { k:'nlines', x: 360, y: 140, w: 180, h: 120 },
+          { k:'ncomp', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. شبكة المعلومات والاتصالات', enT: '1. The Information and Communication Network', arD: 'هي شبكة زي العنكبوتية بتستخدم خطوط الاتصالات لنقل المعلومات.', enD: 'It is a network resembling a web that uses communication lines to transmit information.', icon: '🕸️', boxes: ['ninfo'], nodes: ['a'], wires: [] },
-          { arT: '2. خطوط الاتصال', enT: '2. The Communication Lines', arD: 'هي اللي بينتقل عليها المعلومات من مكان لمكان.', enD: 'They are what carry information from one place to another.', icon: '📡', boxes: ['nlines'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. الشبكة Computer network', enT: '3. The Computer Network', arD: 'بتربط الكمبيوترات والموبايلات عشان يتبادلوا البيانات.', enD: 'It connects computers and smartphones so they can exchange data.', icon: '💻', boxes: ['ncomp'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. خطوط الاتصال', enT: '2. The Communication Lines', arD: 'هي اللي بينتقل عليها المعلومات من مكان لمكان.', enD: 'They are what carry information from one place to another.', icon: '📡', boxes: ['nlines'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. الشبكة Computer network', enT: '3. The Computer Network', arD: 'بتربط الكمبيوترات والموبايلات عشان يتبادلوا البيانات.', enD: 'It connects computers and smartphones so they can exchange data.', icon: '💻', boxes: ['ncomp'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      types: {
+      types:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'tlan', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'twan', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'tint', x: 660, y: 140, w: 180, h: 120 }
+          { k:'twan', x: 360, y: 140, w: 180, h: 120 },
+          { k:'tint', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. الشبكة المحلية LAN', enT: '1. The Local Area Network LAN', arD: 'بتوصل الأجهزة في منطقة محدودة زي المدرسة أو البيت — بالكابلات أو لاسلكية.', enD: 'It connects devices in a limited area like a school or home — wired or wireless.', icon: '🏠', boxes: ['tlan'], nodes: ['a'], wires: [] },
-          { arT: '2. الشبكة الواسعة WAN', enT: '2. The Wide Area Network WAN', arD: 'بتوصل منطقة أوسع من الـ LAN.', enD: 'It connects a broader area than the LAN.', icon: '🗺️', boxes: ['twan'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. الإنترنت', enT: '3. The Internet', arD: 'هي شبكة بتوصل الـ LAN والـ WAN على نطاق عالمي.', enD: 'It is a network connecting LANs and WANs on a global scale.', icon: '🌍', boxes: ['tint'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. الشبكة الواسعة WAN', enT: '2. The Wide Area Network WAN', arD: 'بتوصل منطقة أوسع من الـ LAN.', enD: 'It connects a broader area than the LAN.', icon: '🗺️', boxes: ['twan'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. الإنترنت', enT: '3. The Internet', arD: 'هي شبكة بتوصل الـ LAN والـ WAN على نطاق عالمي.', enD: 'It is a network connecting LANs and WANs on a global scale.', icon: '🌍', boxes: ['tint'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      connect: {
+      connect:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'cisp', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'crout', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'chub', x: 660, y: 140, w: 180, h: 120 }
+          { k:'crout', x: 360, y: 140, w: 180, h: 120 },
+          { k:'chub', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. الـ ISP', enT: '1. The ISP', arD: 'هي شركة بتسهّل الاتصال بالإنترنت وبنوقع معاها عقد.', enD: 'It is a company that facilitates the Internet connection and we sign a contract with it.', icon: '🤝', boxes: ['cisp'], nodes: ['a'], wires: [] },
-          { arT: '2. الراوتر Router', enT: '2. The Router', arD: 'هو جهاز بيرحّل البيانات بين الشبكات المختلفة.', enD: 'It is a device that relays data between different networks.', icon: '🔀', boxes: ['crout'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. الهب Hub', enT: '3. The Hub', arD: 'هو جهاز مركزي بيربط كابلات كتير.', enD: 'It is a central device that connects many cables.', icon: '🔌', boxes: ['chub'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. الراوتر Router', enT: '2. The Router', arD: 'هو جهاز بيرحّل البيانات بين الشبكات المختلفة.', enD: 'It is a device that relays data between different networks.', icon: '🔀', boxes: ['crout'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. الهب Hub', enT: '3. The Hub', arD: 'هو جهاز مركزي بيربط كابلات كتير.', enD: 'It is a central device that connects many cables.', icon: '🔌', boxes: ['chub'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      usage: {
+      usage:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'usrv', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'ucli', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'usys', x: 660, y: 140, w: 180, h: 120 }
+          { k:'ucli', x: 360, y: 140, w: 180, h: 120 },
+          { k:'usys', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. الـ Server', enT: '1. The Server', arD: 'هو كمبيوتر بيوفّر خدمات زي الملفات والطباعة والبريد.', enD: 'It is a computer that provides services like files, printing, and mail.', icon: '🖥️', boxes: ['usrv'], nodes: ['a'], wires: [] },
-          { arT: '2. الـ Client', enT: '2. The Client', arD: 'هو كمبيوتر بيطلب خدمات مختلفة من الـ Server.', enD: 'It is a computer that requests various services from the server.', icon: '🙋', boxes: ['ucli'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. أنماط الاستخدام', enT: '3. The Usage Patterns', arD: 'نظام Client-server حيث بيتقدموا الخدمات، أو Peer-to-peer حيث الكل متساوي.', enD: 'A Client-server system where services are provided, or Peer-to-peer where everyone is equal.', icon: '⚖️', boxes: ['usys'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. الـ Client', enT: '2. The Client', arD: 'هو كمبيوتر بيطلب خدمات مختلفة من الـ Server.', enD: 'It is a computer that requests various services from the server.', icon: '🙋', boxes: ['ucli'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. أنماط الاستخدام', enT: '3. The Usage Patterns', arD: 'نظام Client-server حيث بيتقدموا الخدمات، أو Peer-to-peer حيث الكل متساوي.', enD: 'A Client-server system where services are provided, or Peer-to-peer where everyone is equal.', icon: '⚖️', boxes: ['usys'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      methods: {
+      methods:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'mcir', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'mpkt', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'msw', x: 660, y: 140, w: 180, h: 120 }
+          { k:'mpkt', x: 360, y: 140, w: 180, h: 120 },
+          { k:'msw', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. تبديل الدائرة', enT: '1. Circuit Switching', arD: 'هي طريقة بينشئ فيها مسار اتصال بين المرسل والمستقبل قبل الإرسال.', enD: 'It is a method where a path is established between sender and recipient before transmission.', icon: '🎧', boxes: ['mcir'], nodes: ['a'], wires: [] },
-          { arT: '2. الـ Packet', enT: '2. The Packet', arD: 'هو وحدة بتقسّم البيانات لقطع صغيرة عند النقل عبر الشبكة.', enD: 'It is a unit for dividing data into small chunks when transmitting over a network.', icon: '📦', boxes: ['mpkt'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. تبديل الحزم', enT: '3. Packet Switching', arD: 'هي طريقة بيتم فيها تقسيم البيانات لـ Packets للتبادل.', enD: 'It is a method where data is divided into packets for exchange.', icon: '📨', boxes: ['msw'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. الـ Packet', enT: '2. The Packet', arD: 'هو وحدة بتقسّم البيانات لقطع صغيرة عند النقل عبر الشبكة.', enD: 'It is a unit for dividing data into small chunks when transmitting over a network.', icon: '📦', boxes: ['mpkt'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. تبديل الحزم', enT: '3. Packet Switching', arD: 'هي طريقة بيتم فيها تقسيم البيانات لـ Packets للتبادل.', enD: 'It is a method where data is divided into packets for exchange.', icon: '📨', boxes: ['msw'], nodes: ['d'], wires: ['w2'] }
         ]
       }
     };
@@ -2215,10 +2214,10 @@ var FLOWS = {
       for (var i = 0; i < cfg.boxes.length; i++) {
         if (cfg.boxes[i].k === k) {
           var b = cfg.boxes[i];
-          return { x: b.x + b.w / 2, y: b.y + b.h / 2 };
+          return { x:b.x + b.w / 2, y: b.y + b.h / 2 };
         }
       }
-      return { x: 450, y: 200 };
+      return { x:450, y: 200 };
     }
 
     function buildFlow(id) {
@@ -2237,12 +2236,12 @@ var FLOWS = {
       var gWires = mk('g', {}), gArrows = mk('g', {}), gBoxes = mk('g', {}), gPorts = mk('g', {});
       cfg.wires.forEach(function (w) {
         var a = cfg.nodes[w.from], b = cfg.nodes[w.to];
-        gWires.appendChild(mk('line', { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
+        gWires.appendChild(mk('line', { x1:a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
         var ang = Math.atan2(b.y - a.y, b.x - a.x);
         function arrow(tip) {
           var bx = tip.x - 12 * Math.cos(ang), by = tip.y - 12 * Math.sin(ang);
           return mk('polygon', {
-            points: [tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
+            points:[tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
             class: 'wire-arrow', 'data-w': w.k
           });
         }
@@ -2250,10 +2249,10 @@ var FLOWS = {
         if (w.both) gArrows.appendChild(arrow(a));
       });
       cfg.boxes.forEach(function (b) {
-        gBoxes.appendChild(mk('rect', { x: b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
+        gBoxes.appendChild(mk('rect', { x:b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
       });
       Object.keys(cfg.nodes).forEach(function (k) {
-        gPorts.appendChild(mk('circle', { cx: cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
+        gPorts.appendChild(mk('circle', { cx:cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
       });
       svg.appendChild(gWires);
       svg.appendChild(gArrows);
@@ -2279,7 +2278,7 @@ var FLOWS = {
           '<div class="tl-desc">' + st[L() + 'D'] + '</div>';
         stepsBox.appendChild(s);
       });
-      FLOW_STATE[id] = FLOW_STATE[id] || { cur: 0 };
+      FLOW_STATE[id] = FLOW_STATE[id] || { cur:0 };
       showFlowStep(id, FLOW_STATE[id].cur);
     }
 
@@ -2388,8 +2387,8 @@ var FLOWS = {
             s.className = 'ex-score';
             card.appendChild(s);
           }
-          var rawAr = '✅ إجاباتك الصحيحة: ' + right + ' من ' + scored;
-          var rawEn = '✅ Your correct answers: ' + right + ' of ' + scored;
+          var rawAr = '✅ إجاباتك الصحيحة:' + right + ' من ' + scored;
+          var rawEn = '✅ Your correct answers:' + right + ' of ' + scored;
           s.dataset.rawAr = rawAr;
           s.dataset.rawEn = rawEn;
           s.textContent = tr(rawAr, rawEn);
@@ -2462,7 +2461,7 @@ var FLOWS = {
                 if (co) co.classList.add('correct');
               }
               lock(q);
-              showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+              showFb(ok, rqFb(o), ok ? null:(q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
             });
           });
           if (skip) skip.addEventListener('click', function () {

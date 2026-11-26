@@ -11,944 +11,943 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح Development of Communication Methods — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
   <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1: #1838f8;
-      --s2: #9a6a00;
-      --s3: #1838f8;
-      --s4: #10B981;
-      --s5: #1838f8;
-      --s6: #d7263d}*{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
+      --s1:#1838f8;
+      --s2:#9a6a00;
+      --s3:#1838f8;
+      --s4:#10B981;
+      --s5:#1838f8;
+      --s6:#d7263d}*{
+      margin:0;
+      padding:0;
+      box-sizing:border-box
     }html{
-      scroll-behavior: smooth
+      scroll-behavior:smooth
     }body{
-      font-family: 'Cairo', 'Cairo', sans-serif;
-      background: var(--bg);
-      color: var(--dim);
-      line-height: 1.9;
-      overflow-x: hidden
+      font-family:'Cairo', 'Cairo', sans-serif;
+      background:var(--bg);
+      color:var(--dim);
+      line-height:1.9;
+      overflow-x:hidden
     }.bg-gradient{
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      background:radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
         radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
-      animation: bgDrift 20s ease-in-out infinite;
+      animation:bgDrift 20s ease-in-out infinite;
     }@keyframes bgDrift{
 
       0%,
       100% {
-        transform: translate(0, 0) scale(1)
+        transform:translate(0, 0) scale(1)
       }
 
       50% {
-        transform: translate(-30px, 20px) scale(1.08)
+        transform:translate(-30px, 20px) scale(1.08)
       }
     }.particles{
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none
     }.particles i{
-      position: absolute;
-      bottom: -10px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--primary);
-      opacity: .3;
-      animation: floatUp 15s linear infinite
+      position:absolute;
+      bottom:-10px;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:var(--primary);
+      opacity:.3;
+      animation:floatUp 15s linear infinite
     }@keyframes floatUp{
       0% {
-        transform: translateY(0);
-        opacity: 0
+        transform:translateY(0);
+        opacity:0
       }
 
       10% {
-        opacity: .3
+        opacity:.3
       }
 
       100% {
-        transform: translateY(-110vh);
-        opacity: 0
+        transform:translateY(-110vh);
+        opacity:0
       }
     }@keyframes heroFloat{
 
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
 
       50% {
-        transform: translateY(-26px)
+        transform:translateY(-26px)
       }
     }@keyframes fadeUp{
       from {
-        opacity: 0;
-        transform: translateY(40px)
+        opacity:0;
+        transform:translateY(40px)
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity:1;
+        transform:translateY(0)
       }
     }main{
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 0 24px
+      max-width:1060px;
+      margin:0 auto;
+      padding:0 24px
     }section{
-      padding: 70px 0
+      padding:70px 0
     }.section-header{
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 30px
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:30px
     }.section-number{
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 18px;
-      color: var(--bg);
-      animation: glow 3s ease-in-out infinite
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:18px;
+      color:var(--bg);
+      animation:glow 3s ease-in-out infinite
     }@keyframes glow{
 
       0%,
       100% {
-        box-shadow: 0 0 20px rgba(25, 60, 255, .25)
+        box-shadow:0 0 20px rgba(25, 60, 255, .25)
       }
 
       50% {
-        box-shadow: 0 0 42px rgba(25, 60, 255, .6)
+        box-shadow:0 0 42px rgba(25, 60, 255, .6)
       }
     }.section-header h2{
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.3
+      font-size:clamp(22px, 4vw, 34px);
+      font-weight:800;
+      color:var(--text);
+      line-height:1.3
     }.section-header .tag{
-      font-size: .9rem
+      font-size:.9rem
     }.section-inner{
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all .6s cubic-bezier(.4, 0, .2, 1)
+      opacity:0;
+      transform:translateY(30px);
+      transition:all .6s cubic-bezier(.4, 0, .2, 1)
     }.section-inner.visible{
-      opacity: 1;
-      transform: translateY(0)
-    }@keyframes autoReveal{ from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }.section-inner{ animation: autoReveal .7s ease-out both; }.section-inner.visible{ animation: none; opacity: 1; transform: translateY(0); }.section-inner+.section-inner{
-      margin-top: 24px
+      opacity:1;
+      transform:translateY(0)
+    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
+      margin-top:24px
     }.card{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 24px;
-      padding: 26px;
-      transition: .3s
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      border-radius:24px;
+      padding:26px;
+      transition:.3s
     }.card:hover{
       background: var(--card-hover);
-      transform: translateY(-5px);
-      border-color: rgba(25, 60, 255, .3)
+      transform:translateY(-5px);
+      border-color:rgba(25, 60, 255, .3)
     }.diagram-wrap{
-      position: relative;
-      border-radius: 24px;
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      overflow: hidden
+      position:relative;
+      border-radius:24px;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      overflow:hidden
     }.diagram-wrap .topbar{
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent))
+      height:3px;
+      background:linear-gradient(90deg, var(--primary), var(--accent))
     }.diagram-wrap .inner{
-      padding: 26px
+      padding:26px
     }h3{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      line-height: 1.4
+      color:var(--text);
+      font-weight:800;
+      font-size:1.25rem;
+      margin-bottom:12px;
+      line-height:1.4
     }p{
-      margin-bottom: 12px
+      margin-bottom:12px
     }b,
     strong{
-      color: var(--text)
+      color:var(--text)
     }code.inline{
-      background: rgba(25, 60, 255, .15);
-      border: 1px solid rgba(25, 60, 255, .3);
-      color: #c7d2fe;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-size: .85em;
-      font-family: 'Consolas', 'Courier New', monospace
+      background:rgba(25, 60, 255, .15);
+      border:1px solid rgba(25, 60, 255, .3);
+      color:#c7d2fe;
+      padding:2px 8px;
+      border-radius:6px;
+      font-size:.85em;
+      font-family:'Consolas', 'Courier New', monospace
     }.note{
-      background: rgba(255, 215, 0, .06);
-      border: 1px solid rgba(255, 215, 0, .25);
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-top: 14px;
-      font-size: .95rem
+      background:rgba(255, 215, 0, .06);
+      border:1px solid rgba(255, 215, 0, .25);
+      border-radius:12px;
+      padding:14px 16px;
+      margin-top:14px;
+      font-size:.95rem
     }.note b{
-      color: var(--warn)
+      color:var(--warn)
     }.error-box{
-      border: 1px solid rgba(255, 71, 87, .2);
-      background: rgba(255, 71, 87, .05);
-      border-radius: 12px;
-      padding: 16px;
-      margin-top: 26px
+      border:1px solid rgba(255, 71, 87, .2);
+      background:rgba(255, 71, 87, .05);
+      border-radius:12px;
+      padding:16px;
+      margin-top:26px
     }.error-box h4,
     .error-box h3{
-      color: var(--danger);
-      font-weight: 800;
-      margin-bottom: 10px;
-      font-size: 1rem
+      color:var(--danger);
+      font-weight:800;
+      margin-bottom:10px;
+      font-size:1rem
     }.error-box ul{
-      list-style: none
+      list-style:none
     }.error-box li{
-      padding: 4px 0;
-      position: relative;
-      padding-right: 26px
+      padding:4px 0;
+      position:relative;
+      padding-right:26px
     }.error-box li::before{
       content: "⚠️";
-      position: absolute;
-      right: 0;
-      top: 2px;
-      font-size: .95rem
+      position:absolute;
+      right:0;
+      top:2px;
+      font-size:.95rem
     }.error-box li b{
-      color: var(--danger)
+      color:var(--danger)
     }.legend{
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 14px;
-      font-size: .85rem
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:14px;
+      font-size:.85rem
     }.legend span{
-      display: inline-flex;
-      align-items: center;
-      gap: 7px
+      display:inline-flex;
+      align-items:center;
+      gap:7px
     }.legend i{
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-      display: inline-block
+      width:14px;
+      height:14px;
+      border-radius:4px;
+      display:inline-block
     }.btn{
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border: none;
-      color: #fff;
-      font-family: inherit;
-      font-weight: 800;
-      padding: 12px 28px;
-      border-radius: 40px;
-      cursor: pointer;
-      font-size: .95rem;
-      transition: .2s;
-      box-shadow: 0 6px 24px rgba(25, 60, 255, .3)
+      background:linear-gradient(90deg, var(--primary), var(--accent));
+      border:none;
+      color:#fff;
+      font-family:inherit;
+      font-weight:800;
+      padding:12px 28px;
+      border-radius:40px;
+      cursor:pointer;
+      font-size:.95rem;
+      transition:.2s;
+      box-shadow:0 6px 24px rgba(25, 60, 255, .3)
     }.btn:hover{
       transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(0, 212, 170, .3)
+      box-shadow:0 10px 32px rgba(0, 212, 170, .3)
     }.mini-btn{
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      color: var(--text);
-      font-family: inherit;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: .85rem
+      background:rgba(255, 255, 255, .06);
+      border:1px solid rgba(255, 255, 255, .12);
+      color:var(--text);
+      font-family:inherit;
+      font-weight:600;
+      padding:8px 18px;
+      border-radius:30px;
+      cursor:pointer;
+      font-size:.85rem
     }.mini-btn:hover{
       background: rgba(255, 255, 255, .12)
     }.btn-row{
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap
     }.activity-grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px
     }@media(max-width:860px){.activity-grid{
         grid-template-columns: 1fr
       }
     }.demo-panel{
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 20px;
-      background: rgba(255, 255, 255, .03);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, .06)
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      padding:20px;
+      background:rgba(255, 255, 255, .03);
+      border-radius:16px;
+      border:1px solid rgba(255, 255, 255, .06)
     }.demo-label{
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--dim);
-      margin-bottom: 6px;
-      display: block
+      font-size:.82rem;
+      font-weight:700;
+      color:var(--dim);
+      margin-bottom:6px;
+      display:block
     }.todo-item{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 12px 16px;
-      margin-bottom: 10px
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:12px 16px;
+      margin-bottom:10px
     }.todo-item b{
-      color: var(--text)
+      color:var(--text)
     }.tl{
-      position: relative
+      position:relative
     }.tl-track{
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 22px;
-      position: relative
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:22px;
+      position:relative
     }.tl-track::before{
       content: "";
-      position: absolute;
-      top: 10px;
-      right: 12px;
-      left: 12px;
-      height: 3px;
-      background: rgba(255, 255, 255, .08);
-      border-radius: 3px
+      position:absolute;
+      top:10px;
+      right:12px;
+      left:12px;
+      height:3px;
+      background:rgba(255, 255, 255, .08);
+      border-radius:3px
     }.tl-dot{
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--card);
-      border: 2px solid rgba(255, 255, 255, .15);
-      position: relative;
-      z-index: 2;
-      transition: .25s
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      background:var(--card);
+      border:2px solid rgba(255, 255, 255, .15);
+      position:relative;
+      z-index:2;
+      transition:.25s
     }.tl-dot.done{
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-color: transparent;
-      box-shadow: 0 0 14px rgba(0, 212, 170, .5)
+      background:linear-gradient(135deg, var(--primary), var(--accent));
+      border-color:transparent;
+      box-shadow:0 0 14px rgba(0, 212, 170, .5)
     }.tl-view{
-      position: relative;
-      min-height: 210px
+      position:relative;
+      min-height:210px
     }.tl-step{
-      display: none;
-      animation: fadeIn .35s ease
+      display:none;
+      animation:fadeIn .35s ease
     }.tl-step.active{
-      display: block
+      display:block
     }@keyframes fadeIn{
       from {
-        opacity: 0;
-        transform: translateY(12px)
+        opacity:0;
+        transform:translateY(12px)
       }
 
       to {
-        opacity: 1;
-        transform: none
+        opacity:1;
+        transform:none
       }
     }.tl-step .prop{
-      font-size: 2.6rem;
-      text-align: center;
-      margin-bottom: 10px
+      font-size:2.6rem;
+      text-align:center;
+      margin-bottom:10px
     }.tl-year{
-      display: inline-block;
-      font-weight: 800;
-      color: var(--bg);
-      background: linear-gradient(135deg, var(--s2), #9a6a00);
-      border-radius: 10px;
-      padding: 2px 14px;
-      font-size: .9rem;
-      margin-bottom: 8px
+      display:inline-block;
+      font-weight:800;
+      color:var(--bg);
+      background:linear-gradient(135deg, var(--s2), #f7f3eb);
+      border-radius:10px;
+      padding:2px 14px;
+      font-size:.9rem;
+      margin-bottom:8px
     }.tl-title{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.1rem;
-      margin-bottom: 6px
+      color:var(--text);
+      font-weight:800;
+      font-size:1.1rem;
+      margin-bottom:6px
     }.tl-desc{
-      font-size: .95rem
+      font-size:.95rem
     }.tl-ctl{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 18px;
-      flex-wrap: wrap
+      display:flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
+      margin-top:18px;
+      flex-wrap:wrap
     }.tl-count{
-      font-family: 'Consolas', monospace;
-      color: var(--dim);
-      font-weight: 700;
-      min-width: 60px;
-      text-align: center
+      font-family:'Consolas', monospace;
+      color:var(--dim);
+      font-weight:700;
+      min-width:60px;
+      text-align:center
     }.flow-row{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 10px
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:10px
     }.flow-node{
-      text-align: center;
-      background: rgba(25, 60, 255, .08);
-      border: 1px solid rgba(25, 60, 255, .35);
-      border-radius: 16px;
-      padding: 14px 18px;
-      min-width: 130px
+      text-align:center;
+      background:rgba(25, 60, 255, .08);
+      border:1px solid rgba(25, 60, 255, .35);
+      border-radius:16px;
+      padding:14px 18px;
+      min-width:130px
     }.flow-node.mini{
-      min-width: 96px;
-      padding: 10px 12px
+      min-width:96px;
+      padding:10px 12px
     }.flow-emoji{
-      font-size: 2rem;
-      margin-bottom: 6px
+      font-size:2rem;
+      margin-bottom:6px
     }.flow-sub{
-      display: block;
-      font-size: .78rem;
-      color: var(--dim)
+      display:block;
+      font-size:.78rem;
+      color:var(--dim)
     }.flow-fan{
-      display: flex;
-      flex-direction: column;
-      gap: 8px
+      display:flex;
+      flex-direction:column;
+      gap:8px
     }.arrow-flip{
-      display: inline-flex;
-      color: var(--accent);
-      transform: scaleX(-1);
-      flex-shrink: 0
+      display:inline-flex;
+      color:var(--accent);
+      transform:scaleX(-1);
+      flex-shrink:0
     }.sig-cells{
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 14px
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:14px
     }.sig-cell{
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: rgba(255, 255, 255, .04);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .85rem;
-      color: var(--dim);
-      font-weight: 700;
-      transition: .2s
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255, 255, 255, .12);
+      background:rgba(255, 255, 255, .04);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:.85rem;
+      color:var(--dim);
+      font-weight:700;
+      transition:.2s
     }.sig-cell.long{
-      width: 68px
+      width:68px
     }.sig-cell.lit{
-      background: rgba(0, 212, 170, .2);
-      border-color: var(--accent);
-      color: var(--accent);
-      box-shadow: 0 0 18px rgba(0, 212, 170, .35)
+      background:rgba(0, 212, 170, .2);
+      border-color:var(--accent);
+      color:var(--accent);
+      box-shadow:0 0 18px rgba(0, 212, 170, .35)
     }.sig-out{
-      min-height: 40px;
-      margin-top: 12px;
-      text-align: center;
-      color: var(--accent);
-      font-weight: 800;
-      font-size: 1.05rem
+      min-height:40px;
+      margin-top:12px;
+      text-align:center;
+      color:var(--accent);
+      font-weight:800;
+      font-size:1.05rem
     }.net-wrap{
-      position: relative;
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 30px 0 10px
+      position:relative;
+      max-width:640px;
+      margin:0 auto;
+      padding:30px 0 10px
     }.net-svg{
-      width: 100%;
-      height: auto;
-      display: block
+      width:100%;
+      height:auto;
+      display:block
     }.net-node{
-      position: absolute;
-      transform: translate(-50%, -50%);
-      width: 120px;
-      text-align: center;
-      font-weight: 700;
-      font-size: .82rem;
-      color: var(--text)
+      position:absolute;
+      transform:translate(-50%, -50%);
+      width:120px;
+      text-align:center;
+      font-weight:700;
+      font-size:.82rem;
+      color:var(--text)
     }.net-node .dot{
-      display: block;
-      width: 16px;
-      height: 16px;
-      margin: 0 auto 6px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: 0 0 14px rgba(25, 60, 255, .6);
-      transition: .3s
+      display:block;
+      width:16px;
+      height:16px;
+      margin:0 auto 6px;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow:0 0 14px rgba(25, 60, 255, .6);
+      transition:.3s
     }.net-node.lit .dot{
-      background: var(--accent);
-      box-shadow: 0 0 22px rgba(0, 212, 170, .9)
+      background:var(--accent);
+      box-shadow:0 0 22px rgba(0, 212, 170, .9)
     }.net-node .lab{
-      display: block
+      display:block
     }.quiz-idle .quiz-q{
-      display: none
+      display:none
     }.quiz-q{
-      animation: fadeIn .4s ease
+      animation:fadeIn .4s ease
     }.quiz-q+.quiz-q{
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px dashed rgba(255, 255, 255, .1)
+      margin-top:20px;
+      padding-top:20px;
+      border-top:1px dashed rgba(255, 255, 255, .1)
     }.quiz-q .q{
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 10px
+      font-weight:800;
+      color:var(--text);
+      margin-bottom:10px
     }.quiz-options{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px
     }@media(max-width:640px){.quiz-options{
         grid-template-columns: 1fr
       }
     }.quiz-opt{
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .1);
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-family: inherit;
-      font-size: .92rem;
-      color: var(--text);
-      cursor: pointer;
-      text-align: right;
-      transition: .15s
+      background:rgba(255, 255, 255, .04);
+      border:1px solid rgba(255, 255, 255, .1);
+      border-radius:10px;
+      padding:10px 14px;
+      font-family:inherit;
+      font-size:.92rem;
+      color:var(--text);
+      cursor:pointer;
+      text-align:right;
+      transition:.15s
     }.quiz-opt:hover{
       border-color: rgba(0, 212, 170, .5);
-      background: rgba(0, 212, 170, .08)
+      background:rgba(0, 212, 170, .08)
     }.quiz-opt.right{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .12);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .12);
+      color:var(--success)
     }.quiz-opt.wrong{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .12);
-      color: #f8d7da
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .12);
+      color:#2f2e3c
     }.quiz-why{
-      display: none;
-      margin-top: 10px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: .92rem;
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: rgba(0, 255, 136, .07);
-      color: var(--success)
+      display:none;
+      margin-top:10px;
+      padding:10px 14px;
+      border-radius:10px;
+      font-size:.92rem;
+      border:1px solid rgba(0, 255, 136, .35);
+      background:rgba(0, 255, 136, .07);
+      color:var(--success)
     }.quiz-why.show{
-      display: block
+      display:block
     }.ex-item{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:14px
     }.ex-item .q{
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px
     }.ex-options{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px
     }@media(max-width:640px){.ex-options{
         grid-template-columns: 1fr
       }
     }.ex-opt{
-      font-family: 'Consolas', monospace;
-      direction: ltr;
-      text-align: left;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: .85rem;
-      color: #c7d2fe;
-      white-space: pre-wrap;
-      cursor: pointer;
-      transition: .15s;
-      user-select: none
+      font-family:'Consolas', monospace;
+      direction:ltr;
+      text-align:left;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .09);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:.85rem;
+      color:#c7d2fe;
+      white-space:pre-wrap;
+      cursor:pointer;
+      transition:.15s;
+      user-select:none
     }.ex-key{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      background: rgba(6, 182, 212 , .18);
-      border: 1px solid rgba(6, 182, 212 , .55);
-      color: var(--s3);
-      font-weight: 800;
-      font-size: .78rem;
-      margin-right: 14px;
-      vertical-align: middle;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      background:rgba(6, 182, 212 , .18);
+      border:1px solid rgba(6, 182, 212 , .55);
+      color:var(--s3);
+      font-weight:800;
+      font-size:.78rem;
+      margin-right:14px;
+      vertical-align:middle;
+      flex-shrink:0
     }.ex-body{
-      vertical-align: middle;
-      display: inline-block
+      vertical-align:middle;
+      display:inline-block
     }.ex-opt:hover{
       border-color: rgba(0, 212, 170, .5);
-      background: rgba(0, 212, 170, .08)
+      background:rgba(0, 212, 170, .08)
     }.ex-opt.picked{
-      border-color: var(--primary);
-      background: rgba(25, 60, 255, .18);
-      color: #fff;
-      box-shadow: 0 0 0 1px var(--primary)
+      border-color:var(--primary);
+      background:rgba(25, 60, 255, .18);
+      color:#fff;
+      box-shadow:0 0 0 1px var(--primary)
     }.ex-opt.correct{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .12);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .12);
+      color:var(--success)
     }.ex-opt.wrong{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .12);
-      color: #f8d7da
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .12);
+      color:#2f2e3c
     }.ex-opt.correct .ex-key{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .15);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .15);
+      color:var(--success)
     }.ex-opt.wrong .ex-key{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .15);
-      color: var(--danger)
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .15);
+      color:var(--danger)
     }.ex-score{
-      margin-top: 14px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: rgba(0, 255, 136, .08);
-      border: 1px solid rgba(0, 255, 136, .35);
-      color: var(--success);
-      font-size: .95rem
+      margin-top:14px;
+      padding:12px 16px;
+      border-radius:12px;
+      background:rgba(0, 255, 136, .08);
+      border:1px solid rgba(0, 255, 136, .35);
+      color:var(--success);
+      font-size:.95rem
     }.ex-answer{
-      display: none;
-      margin-top: 10px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: .92rem
+      display:none;
+      margin-top:10px;
+      padding:10px 14px;
+      border-radius:10px;
+      font-size:.92rem
     }.ex-answer.show{
-      display: block;
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: rgba(0, 255, 136, .07);
-      color: var(--success)
+      display:block;
+      border:1px solid rgba(0, 255, 136, .35);
+      background:rgba(0, 255, 136, .07);
+      color:var(--success)
     }.ex-answer.show b{
-      color: var(--success);
-      margin: 0 6px
+      color:var(--success);
+      margin:0 6px
     }.opt-key{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 26px;
-      height: 26px;
-      padding: 0 7px;
-      border-radius: 6px;
-      background: rgba(25, 60, 255, .14);
-      border: 1px solid rgba(25, 60, 255, .5);
-      color: var(--primary);
-      font-weight: 800;
-      font-size: .82rem;
-      margin-inline-end: 8px;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:26px;
+      height:26px;
+      padding:0 7px;
+      border-radius:6px;
+      background:rgba(25, 60, 255, .14);
+      border:1px solid rgba(25, 60, 255, .5);
+      color:var(--primary);
+      font-weight:800;
+      font-size:.82rem;
+      margin-inline-end:8px;
+      flex-shrink:0
     }.journey{
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding-right: 26px
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      padding-right:26px
     }.journey::before{
       content: "";
-      position: absolute;
-      right: 9px;
-      top: 14px;
-      bottom: 14px;
-      width: 3px;
-      border-radius: 3px;
-      background: linear-gradient(180deg, var(--s1), var(--s2), var(--s3), var(--s4))
+      position:absolute;
+      right:9px;
+      top:14px;
+      bottom:14px;
+      width:3px;
+      border-radius:3px;
+      background:linear-gradient(180deg, var(--s1), var(--s2), var(--s3), var(--s4))
     }.j-node{
-      position: relative;
-      display: grid;
-      grid-template-columns: 20px 1fr;
-      gap: 16px;
-      padding: 14px 0
+      position:relative;
+      display:grid;
+      grid-template-columns:20px 1fr;
+      gap:16px;
+      padding:14px 0
     }.j-dot{
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 3px;
-      z-index: 2
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      flex-shrink:0;
+      margin-top:3px;
+      z-index:2
     }.j-body .t{
-      color: var(--text);
-      font-weight: 700
+      color:var(--text);
+      font-weight:700
     }.j-body .d{
-      font-size: .93rem
+      font-size:.93rem
     }.hint-line{
-      font-size: .85rem;
-      color: var(--dim);
-      margin-top: 8px
+      font-size:.85rem;
+      color:var(--dim);
+      margin-top:8px
     }.kbd{
-      display: inline-block;
-      background: #e9edfe;
-      border: 1px solid rgba(255, 255, 255, .15);
-      border-radius: 6px;
-      padding: 0 8px;
-      font-size: .78rem;
-      color: var(--text);
-      font-family: 'Consolas', monospace
+      display:inline-block;
+      background:#e9edfe;
+      border:1px solid rgba(255, 255, 255, .15);
+      border-radius:6px;
+      padding:0 8px;
+      font-size:.78rem;
+      color:var(--text);
+      font-family:'Consolas', monospace
     }.table{
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px
     }.table th,
     .table td{
-      text-align: right;
-      padding: 10px 14px;
-      font-size: .95rem;
-      border: 1px solid rgba(255, 255, 255, .06)
+      text-align:right;
+      padding:10px 14px;
+      font-size:.95rem;
+      border:1px solid rgba(255, 255, 255, .06)
     }.table th{
-      color: var(--text);
-      font-weight: 700;
-      background: rgba(6, 182, 212 , .12)
+      color:var(--text);
+      font-weight:700;
+      background:rgba(6, 182, 212 , .12)
     }.table td{
-      color: var(--dim)
+      color:var(--dim)
     }.emoji-float{
-      display: inline-block;
-      animation: ef 3s ease-in-out infinite
+      display:inline-block;
+      animation:ef 3s ease-in-out infinite
     }@keyframes ef{
 
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
 
       50% {
-        transform: translateY(-5px)
+        transform:translateY(-5px)
       }
     }.emoji-pulse{
-      display: inline-block;
-      animation: ep 2s ease-in-out infinite
+      display:inline-block;
+      animation:ep 2s ease-in-out infinite
     }@keyframes ep{
 
       0%,
       100% {
-        transform: scale(1)
+        transform:scale(1)
       }
 
       50% {
-        transform: scale(1.12)
+        transform:scale(1.12)
       }
     }.emoji-walk{
-      display: inline-block;
-      animation: ew 4s ease-in-out infinite
+      display:inline-block;
+      animation:ew 4s ease-in-out infinite
     }@keyframes ew{
       0% {
-        transform: translateX(0)
+        transform:translateX(0)
       }
 
       50% {
-        transform: translateX(-12px)
+        transform:translateX(-12px)
       }
 
       100% {
-        transform: translateX(0)
+        transform:translateX(0)
       }
     }.glossary-search{
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: var(--card);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 15px;
-      color-scheme: dark;
-      margin: 14px 0;
+      width:100%;
+      padding:12px 18px;
+      border-radius:50px;
+      border:1px solid rgba(255, 255, 255, 0.15);
+      background:var(--card);
+      color:var(--text);
+      font-family:inherit;
+      font-size:15px;
+      color-scheme:dark;
+      margin:14px 0;
     }.glossary-search:focus{
       outline: none;
-      border-color: var(--primary);
+      border-color:var(--primary);
     }.glossary-filters{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
     }.gl-filter{
-      padding: 6px 16px;
+      padding:6px 16px;
     }.gl-filter.active{
-      background: rgba(6, 182, 212 , 0.2);
-      border-color: var(--s3);
-      color: var(--text);
+      background:rgba(6, 182, 212 , 0.2);
+      border-color:var(--s3);
+      color:var(--text);
     }.glossary-list{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }@media (max-width: 860px){.glossary-list{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }@media (max-width:860px){.glossary-list{
         grid-template-columns: 1fr;
       }
     }.gl-term{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 16px;
-      transition: all 0.3s ease;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, 0.08);
+      border-radius:16px;
+      padding:16px;
+      transition:all 0.3s ease;
     }.gl-term:hover{
       background: var(--card-hover);
-      border-color: var(--s3);
+      border-color:var(--s3);
     }.gl-term h4{
-      font-size: 15px;
-      margin-bottom: 6px;
-      color: var(--s3);
+      font-size:15px;
+      margin-bottom:6px;
+      color:var(--s3);
     }.gl-term p{
-      font-size: 13px;
-      margin-bottom: 0;
+      font-size:13px;
+      margin-bottom:0;
     }.gl-term.hidden{
-      display: none;
+      display:none;
     }.fill{
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 16px;
-      transition: all 0.3s ease;
+      background:rgba(255, 255, 255, 0.03);
+      border:1px solid rgba(255, 255, 255, 0.08);
+      border-radius:16px;
+      padding:16px;
+      margin-bottom:16px;
+      transition:all 0.3s ease;
     }.fill-label{
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--s6);
+      font-size:15px;
+      font-weight:700;
+      margin-bottom:12px;
+      color:var(--s6);
     }.fill-passage{
-      font-size: 0.93rem;
-      line-height: 2.1;
-      color: var(--text);
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 12px;
-      padding: 14px;
+      font-size:0.93rem;
+      line-height:2.1;
+      color:var(--text);
+      background:rgba(0, 0, 0, 0.25);
+      border-radius:12px;
+      padding:14px;
     }.slot{
-      display: inline-block;
-      min-width: 34px;
-      padding: 2px 10px;
-      margin: 0 4px;
-      border: 2px dashed var(--s6);
-      border-radius: 8px;
-      text-align: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-      cursor: pointer;
-      color: var(--dim);
-      background: rgba(255, 255, 255, 0.05);
-      transition: all 0.25s ease;
-      vertical-align: middle;
-      line-height: 1.6;
+      display:inline-block;
+      min-width:34px;
+      padding:2px 10px;
+      margin:0 4px;
+      border:2px dashed var(--s6);
+      border-radius:8px;
+      text-align:center;
+      font-weight:700;
+      font-size:0.9rem;
+      cursor:pointer;
+      color:var(--dim);
+      background:rgba(255, 255, 255, 0.05);
+      transition:all 0.25s ease;
+      vertical-align:middle;
+      line-height:1.6;
     }.slot:hover{
       border-color: var(--s6);
-      background: rgba(239, 68, 68, 0.15);
+      background:rgba(239, 68, 68, 0.15);
     }.slot.sel{
-      border-style: solid;
-      border-color: var(--s6);
-      background: rgba(239, 68, 68, 0.25);
-      color: var(--text);
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+      border-style:solid;
+      border-color:var(--s6);
+      background:rgba(239, 68, 68, 0.25);
+      color:var(--text);
+      box-shadow:0 0 0 3px rgba(239, 68, 68, 0.15);
     }.slot.filled{
-      border-style: solid;
-      border-color: var(--s3);
-      color: var(--text);
-      background: rgba(6, 182, 212 , 0.15);
-      cursor: default;
+      border-style:solid;
+      border-color:var(--s3);
+      color:var(--text);
+      background:rgba(6, 182, 212 , 0.15);
+      cursor:default;
     }.slot.correct{
-      border-color: var(--s4);
-      color: var(--s4);
-      background: rgba(16, 185, 129, 0.15);
+      border-color:var(--s4);
+      color:var(--s4);
+      background:rgba(16, 185, 129, 0.15);
     }.slot.wrong{
-      border-color: var(--s6);
-      color: var(--s6);
-      background: rgba(239, 68, 68, 0.15);
+      border-color:var(--s6);
+      color:var(--s6);
+      background:rgba(239, 68, 68, 0.15);
     }.fill-bank{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
     }.fill-opt{
-      padding: 8px 14px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: var(--card);
-      color: var(--text);
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.25s ease;
+      padding:8px 14px;
+      border-radius:10px;
+      border:1px solid rgba(255, 255, 255, 0.12);
+      background:var(--card);
+      color:var(--text);
+      font-size:0.85rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:all 0.25s ease;
     }.fill-opt:hover{
       border-color: var(--s3);
-      background: var(--card-hover);
+      background:var(--card-hover);
     }.fill-opt:disabled{
       opacity: 0.45;
-      cursor: not-allowed;
+      cursor:not-allowed;
     }.fill-opt.used{
-      display: none;
+      display:none;
     }.fill-score{
-      margin-top: 10px;
-      padding: 8px 12px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 700;
+      margin-top:10px;
+      padding:8px 12px;
+      border-radius:10px;
+      font-size:0.85rem;
+      font-weight:700;
     }.fill-score.all{
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--s4);
-      border: 1px solid rgba(16, 185, 129, 0.35);
+      background:rgba(16, 185, 129, 0.15);
+      color:var(--s4);
+      border:1px solid rgba(16, 185, 129, 0.35);
     }.fill-score.partial{
-      background: rgba(245, 158, 11, 0.12);
-      color: var(--s2);
-      border: 1px solid rgba(245, 158, 11, 0.35);
+      background:rgba(245, 158, 11, 0.12);
+      color:var(--s2);
+      border:1px solid rgba(245, 158, 11, 0.35);
     }.bg-gradient,.particles,.bg-animation,.particle{
-      display: none !important;
+      display:none !important;
     }.gradient-text{
-      background: none !important;
-      -webkit-text-fill-color: var(--primary) !important;
-      color: var(--primary) !important;
+      background:none !important;
+      -webkit-text-fill-color:var(--primary) !important;
+      color:var(--primary) !important;
     }.lesson-section::before,
     .lesson-section[data-accent]::before{
       background: var(--primary) !important;
     }.section-number,
     .lesson-section[data-accent] .section-number{
-      background: var(--primary) !important;
-      color: #fff !important;
-      box-shadow: none !important;
-      animation: none !important;
+      background:var(--primary) !important;
+      color:#fff !important;
+      box-shadow:none !important;
+      animation:none !important;
     }[class*="-bar-fill"]{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }[class*="-bar-fill"].good{
-      background: var(--success) !important;
+      background:var(--success) !important;
     }[class*="-bar-fill"].mid{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }[class*="-bar-fill"].bad{
-      background: var(--danger) !important;
+      background:var(--danger) !important;
     }.unit-num, .unit-card{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }.cta-btn,.btn{
-      background: var(--primary) !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .25) !important;
+      background:var(--primary) !important;
+      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
     }.cta-btn:hover,.btn:hover{
       box-shadow: 0 10px 26px rgba(0, 0, 0, .3) !important;
     }[style*="linear-gradient"]{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }.book-card{
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-inline-start: 4px solid var(--s2, #9a6a00);
-      border-radius: 18px;
-      padding: 20px 22px;
-      margin: 18px 0
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-inline-start:4px solid var(--s2, #9a6a00);
+      border-radius:18px;
+      padding:20px 22px;
+      margin:18px 0
     }.book-card.try{
-      border-inline-start-color: var(--s5, #1440c9)
+      border-inline-start-color:var(--s5, #1440c9)
     }.book-card.try h3{
-      color: var(--s5, #1440c9)
+      color:var(--s5, #1440c9)
     }.book-card h3{
-      margin: 0 0 10px;
-      color: var(--s2, #9a6a00)
+      margin:0 0 10px;
+      color:var(--s2, #9a6a00)
     }.book-card ol, .book-card ul{
-      margin: 8px 0;
-      padding-inline-start: 22px
+      margin:8px 0;
+      padding-inline-start:22px
     }.book-card li{
-      margin-bottom: 6px
+      margin-bottom:6px
     }.book-src{
-      display: block;
-      margin-top: 12px;
-      font-size: .82rem;
-      opacity: .65
+      display:block;
+      margin-top:12px;
+      font-size:.82rem;
+      opacity:.65
     }.book-diff{
-      margin-top: 12px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: rgba(245, 158, 11, .08);
-      border: 1px solid rgba(245, 158, 11, .3);
-      font-size: .9rem
+      margin-top:12px;
+      padding:10px 14px;
+      border-radius:10px;
+      background:rgba(245, 158, 11, .08);
+      border:1px solid rgba(245, 158, 11, .3);
+      font-size:.9rem
     }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap: anywhere
+      overflow-wrap:anywhere
     }
 </style>
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
@@ -993,14 +992,14 @@
     <div class="section-inner">
         <!-- TEXTBOOK-CARD-BEGIN id="book-point" -->
         <div class="book-card">
-          <h3 data-ar="من الكتاب: النقاط الرئيسية — تطوير وسائل الاتصال" data-en="From the book: Point box - Development of Communication Methods">من الكتاب: النقاط الرئيسية — تطوير وسائل الاتصال</h3>
+          <h3 data-ar="من الكتاب:النقاط الرئيسية — تطوير وسائل الاتصال" data-en="From the book: Point box - Development of Communication Methods">من الكتاب: النقاط الرئيسية — تطوير وسائل الاتصال</h3>
           <p data-ar="(1) الاتصال وتطوره — [1] وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية: • في العصور القديمة، تم نقل المعلومات الأساسية بإشعال نيران الإشارة (signal fires) أو ضرب الطبول. • بعد تطوير الكتابة، كُتبت الرسائل على الورق (paper) وتم تسليمها باستخدام الرسل أو الحمام الزاجل. • تم إنشاء نظام البريد الحديث (modern postal system) في عام 1840." data-en="(1) Communication and Its Development - [1] Communication Before Telecommunications: • In ancient times, basic information was conveyed by lighting (¹signal fires) or beating drums. • After the development of writing, messages were written on (²paper) and delivered using messengers or carrier pigeons. • The (³modern postal system) was established in 1840.">(1) الاتصال وتطوره — [1] وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية: • في العصور القديمة، تم نقل المعلومات الأساسية بإشعال نيران الإشارة (signal fires) أو ضرب الطبول. • بعد تطوير الكتابة، كُتبت الرسائل على الورق (paper) وتم تسليمها باستخدام الرسل أو الحمام الزاجل. • تم إنشاء نظام البريد الحديث (modern postal system) في عام 1840.</p>
           <p data-ar="[2] بداية الاتصالات السلكية واللاسلكية: • في عام 1837، اخترع أمريكي يدعى مورس (Morse) تلغراف مورس ((Morse telegraph) لإرسال واستقبال الرموز عبر الاتصالات السلكية واللاسلكية). • في عام 1876، اخترع أمريكي يدعى Bill الهاتف (telephone). • في عام 1895، اخترع إيطالي يدعى Marcony التلغراف اللاسلكي (Wireless telegraph). • في عام 1946، بدأ استخدام خدمة الهاتف المحمول (الهواتف الخلوية - cellular phones) في الولايات المتحدة." data-en="[2] The Beginning of Telecommunications: • In 1837, an American named (⁴Morse) invented the (⁵Morse telegraph) (for the transmission and reception of codes via telecommunication). • In 1876, an American named Bell invented the (⁶telephone). • In 1895, an Italian named Marconi invented the (⁷wireless telegraph). • In 1946, mobile phone service (⁸cellular phones) began to be used in the United States.">[2] بداية الاتصالات السلكية واللاسلكية: • في عام 1837، اخترع أمريكي يدعى مورس (Morse) تلغراف مورس ((Morse telegraph) لإرسال واستقبال الرموز عبر الاتصالات السلكية واللاسلكية). • في عام 1876، اخترع أمريكي يدعى Bill الهاتف (telephone). • في عام 1895، اخترع إيطالي يدعى Marcony التلغراف اللاسلكي (Wireless telegraph). • في عام 1946، بدأ استخدام خدمة الهاتف المحمول (الهواتف الخلوية - cellular phones) في الولايات المتحدة.</p>
           <p data-ar="(2) الاتصال الجماهيري (وسائل الاتصال الجماهيري) ((Mass communication (Mass media))) : وسيلة لإرسال المعلومات إلى عدد كبير من الناس في وقت واحد. &lt;أمثلة> الصحف والمجلات، البث الإذاعي والتلفزيوني، إلخ." data-en="(2) (⁹Mass communication (Mass media)) : A means of sending information to a large number of people at once. &lt;Examples> Newspapers and magazines, radio and television broadcasts, etc.">(2) الاتصال الجماهيري (وسائل الاتصال الجماهيري) ((Mass communication (Mass media))) : وسيلة لإرسال المعلومات إلى عدد كبير من الناس في وقت واحد. &lt;أمثلة&gt; الصحف والمجلات، البث الإذاعي والتلفزيوني، إلخ.</p>
-          <p data-ar="(3) تطور الاتصال الجماهيري: • في منتصف القرن الخامس عشر، اخترع ألماني يدعى غوتنبرغ (Gutenberg) طابعة الحروف المتحركة (Movable-type printing press). • في عام 1906، تم إجراء أول بث تجريبي لـ الراديو (radio) في الولايات المتحدة. • في عام 1928، تم إجراء أول بث تجريبي لـ التلفزيون (Television) في الولايات المتحدة." data-en="(3) The Development of Mass Communication: • In the mid-15th century, a German named (¹⁰Gutenberg) invented the (¹¹movable-type printing press). • In 1906, the first experimental broadcast of (¹²radio) was conducted in the United States. • In 1928, the first experimental broadcast of (¹³television) was conducted in the United States.">(3) تطور الاتصال الجماهيري: • في منتصف القرن الخامس عشر، اخترع ألماني يدعى غوتنبرغ (Gutenberg) طابعة الحروف المتحركة (Movable-type printing press). • في عام 1906، تم إجراء أول بث تجريبي لـ الراديو (radio) في الولايات المتحدة. • في عام 1928، تم إجراء أول بث تجريبي لـ التلفزيون (Television) في الولايات المتحدة.</p>
+          <p data-ar="(3) تطور الاتصال الجماهيري:• في منتصف القرن الخامس عشر، اخترع ألماني يدعى غوتنبرغ (Gutenberg) طابعة الحروف المتحركة (Movable-type printing press). • في عام 1906، تم إجراء أول بث تجريبي لـ الراديو (radio) في الولايات المتحدة. • في عام 1928، تم إجراء أول بث تجريبي لـ التلفزيون (Television) في الولايات المتحدة." data-en="(3) The Development of Mass Communication: • In the mid-15th century, a German named (¹⁰Gutenberg) invented the (¹¹movable-type printing press). • In 1906, the first experimental broadcast of (¹²radio) was conducted in the United States. • In 1928, the first experimental broadcast of (¹³television) was conducted in the United States.">(3) تطور الاتصال الجماهيري: • في منتصف القرن الخامس عشر، اخترع ألماني يدعى غوتنبرغ (Gutenberg) طابعة الحروف المتحركة (Movable-type printing press). • في عام 1906، تم إجراء أول بث تجريبي لـ الراديو (radio) في الولايات المتحدة. • في عام 1928، تم إجراء أول بث تجريبي لـ التلفزيون (Television) في الولايات المتحدة.</p>
           <p data-ar="(4) تطور الإنترنت: • في عام 1969، بدعم من وزارة الدفاع الأمريكية، تم إجراء تجربة على شبكة كمبيوتر تسمى أربانت (ARPANET). في البداية، تم استخدامها بشكل رئيسي من قبل مؤسسات البحث (Research institutions). ومع ذلك، أصبحت في النهاية معروفة باسم الإنترنت (Internet) وبدأت في الانتشار بين عامة الناس." data-en="(4) The Development of the Internet: • In 1969, with the support of the United States Department of Defense, an experiment was conducted on a computer network called (¹⁴ARPANET). Initially, it was mainly used by (¹⁵research institutions). However, it eventually became known as the (¹⁶internet) and began to spread among the general public.">(4) تطور الإنترنت: • في عام 1969، بدعم من وزارة الدفاع الأمريكية، تم إجراء تجربة على شبكة كمبيوتر تسمى أربانت (ARPANET). في البداية، تم استخدامها بشكل رئيسي من قبل مؤسسات البحث (Research institutions). ومع ذلك، أصبحت في النهاية معروفة باسم الإنترنت (Internet) وبدأت في الانتشار بين عامة الناس.</p>
-          <div class="book-diff" data-ar="مقارنة النسختين: (1) عنوان صندوق النقاط: الإنجليزية &quot;Media and Its Evolution&quot; مقابل العربية «تطوير وسائل الاتصال». (2) عنوانا [1] و[2]: العربية تفصّل «الاتصالات» إلى «الاتصالات السلكية واللاسلكية» («وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية» و«بداية الاتصالات السلكية واللاسلكية») بينما الإنجليزية تطبع &quot;Communication Before Telecommunications&quot; و&quot;The Beginning of Telecommunications&quot;. (3) نبذة 1876: العربية تطبع «يدعى Bill» بينما الإنجليزية &quot;named Bell&quot;. (4) نبذة 1895: العربية تطبع «Marcony» و«(Wireless telegraph)» بحرف W كبير، بينما الإنجليزية &quot;Marconi&quot; و&quot;(⁷wireless telegraph)&quot;. (5) نبذة 1946: قوس العربية «(الهواتف الخلوية - cellular phones)» بشرطة بينما الإنجليزية &quot;(⁸cellular phones)&quot; فقط. (6) تعريف (2): العربية بأقواس مضاعفة «((Mass communication (Mass media)))» وعنوان الأمثلة «&lt;أمثلة>» بينما الإنجليزية &quot;&lt;Examples>&quot;. (7) العربية تطبع «(Television)» و«(Internet)» و«(Research institutions)» بحروف أولى كبيرة بينما الإنجليزية &quot;(¹³television)&quot; و&quot;(¹⁶internet)&quot; و&quot;(¹⁵research institutions)&quot;. (8) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁶ بينما العربية تكتفي بالتظليل الأحمر. (9) الإنجليزية بها أيقونتا سماعة (بعد نبذة cellular phones وفي نهاية الفقرة (4)) بينما صفحة العربية بلا أيقونات." data-en="Edition comparison: (1) The Point box heading: English &quot;Media and Its Evolution&quot; vs Arabic «تطوير وسائل الاتصال». (2) Headings [1] and [2]: Arabic expands telecommunications into «الاتصالات السلكية واللاسلكية» (&quot;wired and wireless communications&quot;) while English prints &quot;Communication Before Telecommunications&quot; and &quot;The Beginning of Telecommunications&quot;. (3) The 1876 bullet: Arabic prints «يدعى Bill» while English prints &quot;named Bell&quot;. (4) The 1895 bullet: Arabic prints «Marcony» and «(Wireless telegraph)» with a capital W, while English prints &quot;Marconi&quot; and &quot;(⁷wireless telegraph)&quot;. (5) The 1946 bullet: the Arabic bracket «(الهواتف الخلوية - cellular phones)» carries a hyphen, while English prints only &quot;(⁸cellular phones)&quot;. (6) Definition (2): Arabic prints doubled parentheses «((Mass communication (Mass media)))» and the examples heading «&lt;أمثلة>» where English prints &quot;&lt;Examples>&quot;. (7) Arabic prints «(Television)», «(Internet)» and «(Research institutions)» with initial capitals where English prints &quot;(¹³television)&quot;, &quot;(¹⁶internet)&quot; and &quot;(¹⁵research institutions)&quot;. (8) English marks terms with superscripts ¹-¹⁶ while Arabic uses only the red highlight. (9) English has two speaker icons (after the cellular phones bullet and at the end of paragraph (4)); the Arabic page has none.">مقارنة النسختين: (1) عنوان صندوق النقاط: الإنجليزية "Media and Its Evolution" مقابل العربية «تطوير وسائل الاتصال». (2) عنوانا [1] و[2]: العربية تفصّل «الاتصالات» إلى «الاتصالات السلكية واللاسلكية» («وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية» و«بداية الاتصالات السلكية واللاسلكية») بينما الإنجليزية تطبع "Communication Before Telecommunications" و"The Beginning of Telecommunications". (3) نبذة 1876: العربية تطبع «يدعى Bill» بينما الإنجليزية "named Bell". (4) نبذة 1895: العربية تطبع «Marcony» و«(Wireless telegraph)» بحرف W كبير، بينما الإنجليزية "Marconi" و"(⁷wireless telegraph)". (5) نبذة 1946: قوس العربية «(الهواتف الخلوية - cellular phones)» بشرطة بينما الإنجليزية "(⁸cellular phones)" فقط. (6) تعريف (2): العربية بأقواس مضاعفة «((Mass communication (Mass media)))» وعنوان الأمثلة «&lt;أمثلة&gt;» بينما الإنجليزية "&lt;Examples&gt;". (7) العربية تطبع «(Television)» و«(Internet)» و«(Research institutions)» بحروف أولى كبيرة بينما الإنجليزية "(¹³television)" و"(¹⁶internet)" و"(¹⁵research institutions)". (8) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁶ بينما العربية تكتفي بالتظليل الأحمر. (9) الإنجليزية بها أيقونتا سماعة (بعد نبذة cellular phones وفي نهاية الفقرة (4)) بينما صفحة العربية بلا أيقونات.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 46 (المطبوع 46)؛ AR 54." data-en="The above is from the textbook. Full source: English PDF 46 (printed 46); Arabic 54.">النص السابق من الكتاب. المصدر الكامل: EN PDF 46 (المطبوع 46)؛ AR 54.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين: (1) عنوان صندوق النقاط: الإنجليزية &quot;Media and Its Evolution&quot; مقابل العربية «تطوير وسائل الاتصال». (2) عنوانا [1] و[2]: العربية تفصّل «الاتصالات» إلى «الاتصالات السلكية واللاسلكية» («وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية» و«بداية الاتصالات السلكية واللاسلكية») بينما الإنجليزية تطبع &quot;Communication Before Telecommunications&quot; و&quot;The Beginning of Telecommunications&quot;. (3) نبذة 1876:العربية تطبع «يدعى Bill» بينما الإنجليزية &quot;named Bell&quot;. (4) نبذة 1895:العربية تطبع «Marcony» و«(Wireless telegraph)» بحرف W كبير، بينما الإنجليزية &quot;Marconi&quot; و&quot;(⁷wireless telegraph)&quot;. (5) نبذة 1946:قوس العربية «(الهواتف الخلوية - cellular phones)» بشرطة بينما الإنجليزية &quot;(⁸cellular phones)&quot; فقط. (6) تعريف (2): العربية بأقواس مضاعفة «((Mass communication (Mass media)))» وعنوان الأمثلة «&lt;أمثلة>» بينما الإنجليزية &quot;&lt;Examples>&quot;. (7) العربية تطبع «(Television)» و«(Internet)» و«(Research institutions)» بحروف أولى كبيرة بينما الإنجليزية &quot;(¹³television)&quot; و&quot;(¹⁶internet)&quot; و&quot;(¹⁵research institutions)&quot;. (8) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁶ بينما العربية تكتفي بالتظليل الأحمر. (9) الإنجليزية بها أيقونتا سماعة (بعد نبذة cellular phones وفي نهاية الفقرة (4)) بينما صفحة العربية بلا أيقونات." data-en="Edition comparison:(1) The Point box heading: English &quot;Media and Its Evolution&quot; vs Arabic «تطوير وسائل الاتصال». (2) Headings [1] and [2]: Arabic expands telecommunications into «الاتصالات السلكية واللاسلكية» (&quot;wired and wireless communications&quot;) while English prints &quot;Communication Before Telecommunications&quot; and &quot;The Beginning of Telecommunications&quot;. (3) The 1876 bullet:Arabic prints «يدعى Bill» while English prints &quot;named Bell&quot;. (4) The 1895 bullet:Arabic prints «Marcony» and «(Wireless telegraph)» with a capital W, while English prints &quot;Marconi&quot; and &quot;(⁷wireless telegraph)&quot;. (5) The 1946 bullet:the Arabic bracket «(الهواتف الخلوية - cellular phones)» carries a hyphen, while English prints only &quot;(⁸cellular phones)&quot;. (6) Definition (2): Arabic prints doubled parentheses «((Mass communication (Mass media)))» and the examples heading «&lt;أمثلة>» where English prints &quot;&lt;Examples>&quot;. (7) Arabic prints «(Television)», «(Internet)» and «(Research institutions)» with initial capitals where English prints &quot;(¹³television)&quot;, &quot;(¹⁶internet)&quot; and &quot;(¹⁵research institutions)&quot;. (8) English marks terms with superscripts ¹-¹⁶ while Arabic uses only the red highlight. (9) English has two speaker icons (after the cellular phones bullet and at the end of paragraph (4)); the Arabic page has none.">مقارنة النسختين:(1) عنوان صندوق النقاط: الإنجليزية "Media and Its Evolution" مقابل العربية «تطوير وسائل الاتصال». (2) عنوانا [1] و[2]: العربية تفصّل «الاتصالات» إلى «الاتصالات السلكية واللاسلكية» («وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية» و«بداية الاتصالات السلكية واللاسلكية») بينما الإنجليزية تطبع "Communication Before Telecommunications" و"The Beginning of Telecommunications". (3) نبذة 1876: العربية تطبع «يدعى Bill» بينما الإنجليزية "named Bell". (4) نبذة 1895: العربية تطبع «Marcony» و«(Wireless telegraph)» بحرف W كبير، بينما الإنجليزية "Marconi" و"(⁷wireless telegraph)". (5) نبذة 1946: قوس العربية «(الهواتف الخلوية - cellular phones)» بشرطة بينما الإنجليزية "(⁸cellular phones)" فقط. (6) تعريف (2): العربية بأقواس مضاعفة «((Mass communication (Mass media)))» وعنوان الأمثلة «&lt;أمثلة&gt;» بينما الإنجليزية "&lt;Examples&gt;". (7) العربية تطبع «(Television)» و«(Internet)» و«(Research institutions)» بحروف أولى كبيرة بينما الإنجليزية "(¹³television)" و"(¹⁶internet)" و"(¹⁵research institutions)". (8) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁶ بينما العربية تكتفي بالتظليل الأحمر. (9) الإنجليزية بها أيقونتا سماعة (بعد نبذة cellular phones وفي نهاية الفقرة (4)) بينما صفحة العربية بلا أيقونات.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 46 (المطبوع 46)؛ AR 54." data-en="The above is from the textbook. Full source: English PDF 46 (printed 46); Arabic 54.">النص السابق من الكتاب. المصدر الكامل:EN PDF 46 (المطبوع 46)؛ AR 54.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-point" -->
     </div>
@@ -1524,7 +1523,7 @@
           <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#b91c1c)">06</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s6)" data-ar="الكتاب بتاعك: EN PDF 46 – 47 (المطبوع 46 – 47)؛ AR 54 – 55" data-en="Your book: English PDF 46 - 47 (printed 46 - 47); Arabic 54 - 55">الكتاب بتاعك: EN PDF 46 – 47 (المطبوع 46 – 47)؛ AR 54 – 55</div>
+            <div class="tag" style="color:var(--s6)" data-ar="الكتاب بتاعك: EN PDF 46 – 47 (المطبوع 46 – 47)؛ AR 54 – 55" data-en="Your book: English PDF 46 - 47 (printed 46 - 47); Arabic 54 - 55">الكتاب بتاعك:EN PDF 46 – 47 (المطبوع 46 – 47)؛ AR 54 – 55</div>
           </div>
         </div>
       </div>
@@ -1536,7 +1535,7 @@
           <p data-ar="تحدى معلوماتك — اختر المصطلحات التي تناسب الفراغات [1] إلى [4] من الخيارات أ إلى ث. [1] في منتصف القرن الخامس عشر، اخترع Gutenberg.. [2] في عام 1837، اخترع مورس.. [3] في عام 1876، اخترع بيل Bill.. [4] في عام 1895، اخترع.. — المصطلحات: (أ) التلغراف اللاسلكي (ب) التلغراف المورسي (ت) طابعة الحروف المتحركة (ث) الهاتف." data-en="Warm Up - Choose the terms that best fit into the blanks [1] to [4] from the options A to D. • In the mid-15th century, Gutenberg invented the ( [1] ). • In 1837, Morse invented the ( [2] ). • In 1876, Bell invented the ( [3] ). • In 1895, Marconi invented the ( [4] ). A Wireless telegraph, B Morse telegraph, C Movable-type printing press, D Telephone.">تحدى معلوماتك — اختر المصطلحات التي تناسب الفراغات [1] إلى [4] من الخيارات أ إلى ث. [1] في منتصف القرن الخامس عشر، اخترع Gutenberg.. [2] في عام 1837، اخترع مورس.. [3] في عام 1876، اخترع بيل Bill.. [4] في عام 1895، اخترع.. — المصطلحات: (أ) التلغراف اللاسلكي (ب) التلغراف المورسي (ت) طابعة الحروف المتحركة (ث) الهاتف.</p>
           <p data-ar="الشرح المطبوع — [1] ت [2] ب [3] ث [4] أ." data-en="Printed Explanation - [1] C [2] B [3] D [4] A.">الشرح المطبوع — [1] ت [2] ب [3] ث [4] أ.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) الفراغات في العربية نقاط «..» بينما الإنجليزية تطبع «( [1] )» وما شابه. (2) الجملة [1] في العربية تطبع الاسم ثم الفراغ «اخترع Gutenberg..» بينما الإنجليزية &quot;Gutenberg invented the ( [1] )&quot;. (3) الجملة [4] في العربية «في عام 1895، اخترع..» دون ذكر اسم المخترع بينما الإنجليزية &quot;In 1895, Marconi invented the ( [4] )&quot;. (4) الجملة [3] في العربية «اخترع بيل Bill..» تطبع «Bill» بينما الإنجليزية &quot;Bell&quot;. (5) خيارات العربية تحت عنوان «المصطلحات:» ولا يوجد مقابل لها في الإنجليزية، والخيار (ب) يطبع «التلغراف المورسي» بينما تطبع النقاط الرئيسية «تلغراف مورس» و«جرب بنفسك» «تليغراف مورس». (6) الشرح مطبوع في النسختين ومتفق على نفس الترتيب المعنوي: [1] طابعة الحروف المتحركة، [2] التلغراف المورسي، [3] الهاتف، [4] التلغراف اللاسلكي." data-en="Edition comparison: (1) The Arabic blanks print as dots «..» where English prints &quot;( [1] )&quot; and so on. (2) Sentence [1] in Arabic prints the name then the blank («اخترع Gutenberg..») where English prints &quot;Gutenberg invented the ( [1] )&quot;. (3) Sentence [4] in Arabic («في عام 1895، اخترع..») names no inventor, where English prints &quot;In 1895, Marconi invented the ( [4] )&quot;. (4) Sentence [3] in Arabic («اخترع بيل Bill..») prints «Bill» where English prints &quot;Bell&quot;. (5) The Arabic options sit under a «المصطلحات:» heading with no English counterpart, and option (ب) prints «التلغراف المورسي» while the Point box prints «تلغراف مورس» and the Try section prints «تليغراف مورس». (6) The Explanation is printed in both editions and agrees on the same mapping: [1] movable-type printing press, [2] Morse telegraph, [3] telephone, [4] wireless telegraph.">مقارنة النسختين: (1) الفراغات في العربية نقاط «..» بينما الإنجليزية تطبع «( [1] )» وما شابه. (2) الجملة [1] في العربية تطبع الاسم ثم الفراغ «اخترع Gutenberg..» بينما الإنجليزية "Gutenberg invented the ( [1] )". (3) الجملة [4] في العربية «في عام 1895، اخترع..» دون ذكر اسم المخترع بينما الإنجليزية "In 1895, Marconi invented the ( [4] )". (4) الجملة [3] في العربية «اخترع بيل Bill..» تطبع «Bill» بينما الإنجليزية "Bell". (5) خيارات العربية تحت عنوان «المصطلحات:» ولا يوجد مقابل لها في الإنجليزية، والخيار (ب) يطبع «التلغراف المورسي» بينما تطبع النقاط الرئيسية «تلغراف مورس» و«جرب بنفسك» «تليغراف مورس». (6) الشرح مطبوع في النسختين ومتفق على نفس الترتيب المعنوي: [1] طابعة الحروف المتحركة، [2] التلغراف المورسي، [3] الهاتف، [4] التلغراف اللاسلكي.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 46 (المطبوع 46)؛ AR 54." data-en="The above is from the textbook. Full source: English PDF 46 (printed 46); Arabic 54.">النص السابق من الكتاب. المصدر الكامل: EN PDF 46 (المطبوع 46)؛ AR 54.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 46 (المطبوع 46)؛ AR 54." data-en="The above is from the textbook. Full source: English PDF 46 (printed 46); Arabic 54.">النص السابق من الكتاب. المصدر الكامل:EN PDF 46 (المطبوع 46)؛ AR 54.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
@@ -1546,8 +1545,8 @@
           <p data-ar="الخيارات المطبوعة: (أ) طابعة الحروف المتحركة (ب) التلفزيون (ت) نيران الإشارة (ث) الورق (ج) تليغراف مورس (ح) التلغراف اللاسلكي (خ) الهاتف (د) فونوجراف (ذ) غوتنبرج (ر) أديسون (ز) مورس (س) واطسون." data-en="Printed options: A Movable-type printing press, B Television, C Signal fires, D Paper, E Morse telegraph, F Wireless telegraph, G Telephone, H Phonograph, I Gutenberg, J Edison, K Morse, L Watson.">الخيارات المطبوعة: (أ) طابعة الحروف المتحركة (ب) التلفزيون (ت) نيران الإشارة (ث) الورق (ج) تليغراف مورس (ح) التلغراف اللاسلكي (خ) الهاتف (د) فونوجراف (ذ) غوتنبرج (ر) أديسون (ز) مورس (س) واطسون.</p>
           <p data-ar="(2) أكمل الجمل التالية بملء الفراغات [1] و [2] بالمصطلحات المناسبة. تطور الإنترنت من [1] التي تم إنشاؤها بواسطة وزارة الدفاع الأمريكية في عام 1969، إلى شبكة كمبيوتر عالمية. في البداية، تم استخدامها بشكل رئيسي بواسطة [2]، ولكن بحلول التسعينيات، بدأت في الانتشار على نطاق واسع بين عامة الناس." data-en="(2) Complete the following sentences by filling in the blanks [1] and [2] with the appropriate terms. The internet developed from ( [1] ), which was created by the United States Department of Defense in 1969, into a global computer network. Initially, it was mainly used by ( [2] ), but by the 1990s, it began to spread widely among the general public.">(2) أكمل الجمل التالية بملء الفراغات [1] و [2] بالمصطلحات المناسبة. تطور الإنترنت من [1] التي تم إنشاؤها بواسطة وزارة الدفاع الأمريكية في عام 1969، إلى شبكة كمبيوتر عالمية. في البداية، تم استخدامها بشكل رئيسي بواسطة [2]، ولكن بحلول التسعينيات، بدأت في الانتشار على نطاق واسع بين عامة الناس.</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ت: نيران الإشارة [2] ث: الورق [3] ذ: غوتنبرج [4] أ: طابعة الحروف المتحركة [5] ز: مورس [6] ج: تليغراف مورس [7] خ: الهاتف [8] ح: التلغراف اللاسلكي [9] ب: التلفزيون. (2) [1] أربانت (ARPANET) [2] مؤسسات البحث (Research institutions)." data-en="Answers not printed in the book (teacher-prepared): (1) [1] C signal fires [2] D paper [3] I Gutenberg [4] A movable-type printing press [5] K Morse [6] E Morse telegraph [7] G telephone [8] F wireless telegraph [9] B television. (2) [1] ARPANET [2] research institutions.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ت: نيران الإشارة [2] ث: الورق [3] ذ: غوتنبرج [4] أ: طابعة الحروف المتحركة [5] ز: مورس [6] ج: تليغراف مورس [7] خ: الهاتف [8] ح: التلغراف اللاسلكي [9] ب: التلفزيون. (2) [1] أربانت (ARPANET) [2] مؤسسات البحث (Research institutions).</p>
-          <div class="book-diff" data-ar="مقارنة النسختين: (1) العربية ترقّم التعليمة «(أ) أجب على الأسئلة التالية.» بينما الإنجليزية &quot;Answer the following questions.&quot; بلا ترقيم. (2) خيارات العربية أ إلى س (12 خيارًا) مقابل A إلى L في الإنجليزية بنفس الترتيب المعنوي. (3) الخيار (ج) يطبع «تليغراف مورس» والخيار (ذ) «غوتنبرج» بينما تطبع النقاط الرئيسية «تلغراف مورس» و«غوتنبرغ». (4) إجابات الجرب بنفسك غير مطبوعة في أي من النسختين." data-en="Edition comparison: (1) Arabic numbers the instruction «(أ) أجب على الأسئلة التالية.» where English prints &quot;Answer the following questions.&quot; unnumbered. (2) The Arabic options run أ to س (12 options) vs A to L in English, in the same semantic order. (3) Option (ج) prints «تليغراف مورس» and option (ذ) «غوتنبرج» where the Point box prints «تلغراف مورس» and «غوتنبرغ». (4) The Try answers are not printed in either edition.">مقارنة النسختين: (1) العربية ترقّم التعليمة «(أ) أجب على الأسئلة التالية.» بينما الإنجليزية "Answer the following questions." بلا ترقيم. (2) خيارات العربية أ إلى س (12 خيارًا) مقابل A إلى L في الإنجليزية بنفس الترتيب المعنوي. (3) الخيار (ج) يطبع «تليغراف مورس» والخيار (ذ) «غوتنبرج» بينما تطبع النقاط الرئيسية «تلغراف مورس» و«غوتنبرغ». (4) إجابات الجرب بنفسك غير مطبوعة في أي من النسختين.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 47 (المطبوع 47)؛ AR 55." data-en="The above is from the textbook. Full source: English PDF 47 (printed 47); Arabic 55.">النص السابق من الكتاب. المصدر الكامل: EN PDF 47 (المطبوع 47)؛ AR 55.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين: (1) العربية ترقّم التعليمة «(أ) أجب على الأسئلة التالية.» بينما الإنجليزية &quot;Answer the following questions.&quot; بلا ترقيم. (2) خيارات العربية أ إلى س (12 خيارًا) مقابل A إلى L في الإنجليزية بنفس الترتيب المعنوي. (3) الخيار (ج) يطبع «تليغراف مورس» والخيار (ذ) «غوتنبرج» بينما تطبع النقاط الرئيسية «تلغراف مورس» و«غوتنبرغ». (4) إجابات الجرب بنفسك غير مطبوعة في أي من النسختين." data-en="Edition comparison:(1) Arabic numbers the instruction «(أ) أجب على الأسئلة التالية.» where English prints &quot;Answer the following questions.&quot; unnumbered. (2) The Arabic options run أ to س (12 options) vs A to L in English, in the same semantic order. (3) Option (ج) prints «تليغراف مورس» and option (ذ) «غوتنبرج» where the Point box prints «تلغراف مورس» and «غوتنبرغ». (4) The Try answers are not printed in either edition.">مقارنة النسختين:(1) العربية ترقّم التعليمة «(أ) أجب على الأسئلة التالية.» بينما الإنجليزية "Answer the following questions." بلا ترقيم. (2) خيارات العربية أ إلى س (12 خيارًا) مقابل A إلى L في الإنجليزية بنفس الترتيب المعنوي. (3) الخيار (ج) يطبع «تليغراف مورس» والخيار (ذ) «غوتنبرج» بينما تطبع النقاط الرئيسية «تلغراف مورس» و«غوتنبرغ». (4) إجابات الجرب بنفسك غير مطبوعة في أي من النسختين.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 47 (المطبوع 47)؛ AR 55." data-en="The above is from the textbook. Full source: English PDF 47 (printed 47); Arabic 55.">النص السابق من الكتاب. المصدر الكامل:EN PDF 47 (المطبوع 47)؛ AR 55.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
@@ -1556,8 +1555,8 @@
           <p data-ar="تمرين — 1 أجب عن الأسئلة التالية. (1) اختر المصطلحات التي تناسب الفراغات [1] إلى [6] من الخيارات أ إلى ح: يطلق على تبادل المعلومات اسم [1]. من بين هذه الوسائل فإن وسيلة إرسال المعلومات إلى عدد كبير من الناس في وقت واحد يشار إليها باسم [2]. على غرار [3] و[4]، فإن [2] تسهل بشكل رئيسي نقل المعلومات في اتجاه واحد من المرسل إلى المستقبل. في المقابل، فإن [5] و[6] هما طريقتا اتصال معلوماتي تمكنان تبادل المعلومات في اتجاهين. — الخيارات المطبوعة: (أ) الاتصال (ب) وسائل الاتصال الجماهيري (ت) الصحف (ج) الهاتف (ج) الإنترنت (ح) التلفزيون." data-en="Exercise - 1 Answer the following questions. (1) Choose the terms that best fit into the blanks [1] to [6] from the options A to F. The act of exchanging information is called ( [1] ). Among these, the means of sending information to a large number of people at once is referred to as ( [2] ). Similar to ( [3] ) and ( [4] ), ([2]) primarily facilitates one-way information transmission from sender to receiver. In contrast, ( [5] ) and ( [6] ) are information communication methods that enable two-way information exchange. A Communication, B Mass communication, C Newspapers, D Telephone, E The internet, F Television.">تمرين — 1 أجب عن الأسئلة التالية. (1) اختر المصطلحات التي تناسب الفراغات [1] إلى [6] من الخيارات أ إلى ح: يطلق على تبادل المعلومات اسم [1]. من بين هذه الوسائل فإن وسيلة إرسال المعلومات إلى عدد كبير من الناس في وقت واحد يشار إليها باسم [2]. على غرار [3] و[4]، فإن [2] تسهل بشكل رئيسي نقل المعلومات في اتجاه واحد من المرسل إلى المستقبل. في المقابل، فإن [5] و[6] هما طريقتا اتصال معلوماتي تمكنان تبادل المعلومات في اتجاهين. — الخيارات المطبوعة: (أ) الاتصال (ب) وسائل الاتصال الجماهيري (ت) الصحف (ج) الهاتف (ج) الإنترنت (ح) التلفزيون.</p>
           <p data-ar="(2) في الخيارات التالية من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف. (أ) تم اختراع الهاتف. (ب) تم إنشاء نظام البريد الحديث. (ت) تم نقل المعلومات بإشعال نيران الإشارة أو ضرب الطبول. (ث) أصبحت الهواتف الخلوية، التي هي نوع من خدمة الاتصال المتنقلة، منتشرة." data-en="(2) A to D describe events regarding communication. Place these events in chronological order, and answer using the letters. A The telephone was invented. B The modern postal system was established. C Information was conveyed by lighting signal fires or beating drums. D Cellular phones, which are a type of mobile communication service, have become widespread.">(2) في الخيارات التالية من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف. (أ) تم اختراع الهاتف. (ب) تم إنشاء نظام البريد الحديث. (ت) تم نقل المعلومات بإشعال نيران الإشارة أو ضرب الطبول. (ث) أصبحت الهواتف الخلوية، التي هي نوع من خدمة الاتصال المتنقلة، منتشرة.</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] أ: الاتصال [2] ب: وسائل الاتصال الجماهيري [3] ت: الصحف [4] ح: التلفزيون [5] الهاتف [6] الإنترنت. (2) الترتيب الزمني: ت ثم ب ثم أ ثم ث." data-en="Answers not printed in the book (teacher-prepared): (1) [1] A communication [2] B mass communication [3] C newspapers [4] F television [5] D telephone [6] E the internet. (2) Chronological order: C, B, A, D.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] أ: الاتصال [2] ب: وسائل الاتصال الجماهيري [3] ت: الصحف [4] ح: التلفزيون [5] الهاتف [6] الإنترنت. (2) الترتيب الزمني: ت ثم ب ثم أ ثم ث.</p>
-          <div class="book-diff" data-ar="مقارنة النسختين: (1) خيارات التمرين (1) في العربية مطبوعة بتكرار الحرف (ج) على خيارين: «(ج) الهاتف» و«(ج) الإنترنت»، مع «(ت) الصحف» و«(ح) التلفزيون» — والترتيب الأبجدي كان سيتوقع «(ث) الهاتف» — بينما الإنجليزية تطبع A إلى F دون تكرار. (2) تعليمة (2) في العربية «من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف.» (بمسافة قبل النقطتين) بينما الإنجليزية &quot;A to D describe events regarding communication. Place these events in chronological order, and answer using the letters.&quot; (3) الإجابات غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما." data-en="Edition comparison: (1) The Arabic Exercise (1) options print the letter (ج) twice - «(ج) الهاتف» and «(ج) الإنترنت» - with «(ت) الصحف» and «(ح) التلفزيون», where the abjad sequence would expect «(ث) الهاتف»; English prints A to F with no duplication. (2) Instruction (2) in Arabic: «من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف.» (with a space before the colon) vs English &quot;A to D describe events regarding communication. Place these events in chronological order, and answer using the letters.&quot; (3) The answers are not printed in either edition, and the derived results agree across both.">مقارنة النسختين: (1) خيارات التمرين (1) في العربية مطبوعة بتكرار الحرف (ج) على خيارين: «(ج) الهاتف» و«(ج) الإنترنت»، مع «(ت) الصحف» و«(ح) التلفزيون» — والترتيب الأبجدي كان سيتوقع «(ث) الهاتف» — بينما الإنجليزية تطبع A إلى F دون تكرار. (2) تعليمة (2) في العربية «من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف.» (بمسافة قبل النقطتين) بينما الإنجليزية "A to D describe events regarding communication. Place these events in chronological order, and answer using the letters." (3) الإجابات غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 47 (المطبوع 47)؛ AR 55." data-en="The above is from the textbook. Full source: English PDF 47 (printed 47); Arabic 55.">النص السابق من الكتاب. المصدر الكامل: EN PDF 47 (المطبوع 47)؛ AR 55.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين: (1) خيارات التمرين (1) في العربية مطبوعة بتكرار الحرف (ج) على خيارين: «(ج) الهاتف» و«(ج) الإنترنت»، مع «(ت) الصحف» و«(ح) التلفزيون» — والترتيب الأبجدي كان سيتوقع «(ث) الهاتف» — بينما الإنجليزية تطبع A إلى F دون تكرار. (2) تعليمة (2) في العربية «من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف.» (بمسافة قبل النقطتين) بينما الإنجليزية &quot;A to D describe events regarding communication. Place these events in chronological order, and answer using the letters.&quot; (3) الإجابات غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما." data-en="Edition comparison:(1) The Arabic Exercise (1) options print the letter (ج) twice - «(ج) الهاتف» and «(ج) الإنترنت» - with «(ت) الصحف» and «(ح) التلفزيون», where the abjad sequence would expect «(ث) الهاتف»; English prints A to F with no duplication. (2) Instruction (2) in Arabic:«من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف.» (with a space before the colon) vs English &quot;A to D describe events regarding communication. Place these events in chronological order, and answer using the letters.&quot; (3) The answers are not printed in either edition, and the derived results agree across both.">مقارنة النسختين:(1) خيارات التمرين (1) في العربية مطبوعة بتكرار الحرف (ج) على خيارين: «(ج) الهاتف» و«(ج) الإنترنت»، مع «(ت) الصحف» و«(ح) التلفزيون» — والترتيب الأبجدي كان سيتوقع «(ث) الهاتف» — بينما الإنجليزية تطبع A إلى F دون تكرار. (2) تعليمة (2) في العربية «من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف.» (بمسافة قبل النقطتين) بينما الإنجليزية "A to D describe events regarding communication. Place these events in chronological order, and answer using the letters." (3) الإجابات غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 47 (المطبوع 47)؛ AR 55." data-en="The above is from the textbook. Full source: English PDF 47 (printed 47); Arabic 55.">النص السابق من الكتاب. المصدر الكامل:EN PDF 47 (المطبوع 47)؛ AR 55.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
       </div>
@@ -1571,7 +1570,7 @@
           <div class="fill" data-id="fill1" data-key="C B D A">
             <div class="fill-label"><span class="q-num">1</span> <span
                 data-ar="اختار الكلمة الصح لكل اختراع — من الكتاب: EN PDF 46 (المطبوع 46)؛ AR 54."
-                data-en="Choose the right word for each invention - from the book: English PDF 46 (printed 46); Arabic 54.">اختار الكلمة الصح لكل اختراع — من الكتاب: EN PDF 46 (المطبوع 46)؛ AR 54.</span></div>
+                data-en="Choose the right word for each invention - from the book: English PDF 46 (printed 46); Arabic 54.">اختار الكلمة الصح لكل اختراع — من الكتاب:EN PDF 46 (المطبوع 46)؛ AR 54.</span></div>
             <div class="fill-passage">
               <span data-ar="جوتنبرج اخترع ( " data-en="Gutenberg invented ( ">جوتنبرج اخترع ( </span><span class="slot" data-n="1">[1]</span><span data-ar=" ) في منتصف القرن الـ 15." data-en=" ) in the mid-15th century."> ) في منتصف القرن الـ 15.</span><br>
               <span data-ar="مورس اخترع ( " data-en="Morse invented ( ">مورس اخترع ( </span><span class="slot" data-n="2">[2]</span><span data-ar=" ) في 1837." data-en=" ) in 1837."> ) في 1837.</span><br>
@@ -1945,7 +1944,7 @@
 
     /* ---------- nav ---------- */
     var nav = document.getElementById('topnav');
-    /* header slide-in: assets/js/nav.js */
+    /* header slide-in:assets/js/nav.js */
 
     function wireNav() {
       var links = document.querySelectorAll('#navLinks a');
@@ -1956,7 +1955,7 @@
             links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
           }
         });
-      }, { rootMargin: '-45% 0px -45% 0px' });
+      }, { rootMargin:'-45% 0px -45% 0px' });
       document.querySelectorAll('section[id]').forEach(function (s) { ies.observe(s); });
     }
 
@@ -1965,7 +1964,7 @@
       var els = document.querySelectorAll('.section-inner');
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-      }, { threshold: 0.05 });
+      }, { threshold:0.05 });
       els.forEach(function (el) { io.observe(el); });
     }
 
@@ -2021,11 +2020,11 @@
         t = setInterval(function () {
           if (i >= cells.length) {
             clearInterval(t);
-            if (out) out.textContent = (window.currentLang === 'en') ? 'Received: SOS' : 'استقبلنا: SOS';
+            if (out) out.textContent = (window.currentLang === 'en') ? 'Received:SOS' : 'استقبلنا: SOS';
             return;
           }
           cells[i].classList.add('lit');
-          beep(cells[i].classList.contains('long') ? 260 : 120);
+          beep(cells[i].classList.contains('long') ? 260:120);
           i++;
         }, 300);
       });
@@ -2100,7 +2099,7 @@
           if (!s) { s = document.createElement('div'); s.className = 'ex-score'; card.appendChild(s); }
           var n = window.currentLang === 'en';
           s.innerHTML = n
-            ? '✅ Your correct answers: <b>' + right + '</b> out of ' + scored
+            ? '✅ Your correct answers:<b>' + right + '</b> out of ' + scored
             + (noAns ? ' — <span style="color:var(--dim);font-weight:400">with ' + noAns + ' question(s) you still haven\'t answered</span>' : '')
             : '✅ إجاباتك الصحيحة: <b>' + right + '</b> من ' + scored
             + (noAns ? ' — <span style="color:var(--dim);font-weight:400">مع ' + noAns + ' سؤال لسه ما جاوبت عليه</span>' : '');
@@ -2209,9 +2208,9 @@
         var right = fillScore(fill);
         box.className = 'fill-score ' + (right === total ? 'all' : 'partial');
         if (window.currentLang === 'en') {
-          box.textContent = 'Score: ' + right + ' / ' + total;
+          box.textContent = 'Score:' + right + ' / ' + total;
         } else {
-          box.textContent = 'نتيجتك: ' + right + ' / ' + total;
+          box.textContent = 'نتيجتك:' + right + ' / ' + total;
         }
       }
 
@@ -2349,13 +2348,13 @@
         var el = document.getElementById(SECTIONS[i]);
         if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.5) cur = i;
       }
-      var n = cur + ((e.key === 'ArrowLeft') ? -1 : 1);
-      if (n >= 0 && n < SECTIONS.length) document.getElementById(SECTIONS[n]).scrollIntoView({ behavior: 'smooth' });
+      var n = cur + ((e.key === 'ArrowLeft') ? -1:1);
+      if (n >= 0 && n < SECTIONS.length) document.getElementById(SECTIONS[n]).scrollIntoView({ behavior:'smooth' });
     });
 
     /* ---------- boot ---------- */
     document.addEventListener('DOMContentLoaded', function () {
-      /* ===== Recall quiz scaffold (contract: tr/recallStart/wireRecall) ===== */
+      /* ===== Recall quiz scaffold (contract:tr/recallStart/wireRecall) ===== */
       function tr(ar, en) {
         return (window.currentLang === 'en') ? en : ar;
       }
@@ -2394,7 +2393,7 @@
                 if (ok) o.classList.add('correct');
                 else { o.classList.add('wrong'); var co=q.querySelector('.rq-opt[data-ok="1"]'); if(co) co.classList.add('correct'); }
                 lock(q);
-                showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+                showFb(ok, rqFb(o), ok ? null:(q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
               });
             });
             if (skip) skip.addEventListener('click', function () {
@@ -2431,7 +2430,7 @@
           var val = (lang === 'ar') ? el.getAttribute('data-ar') : el.getAttribute('data-en');
           if (val !== null) { el.innerHTML = val; el.setAttribute('data-lang', lang); }
         });
-        document.dispatchEvent(new CustomEvent('langChange', { detail: { lang: lang } }));
+        document.dispatchEvent(new CustomEvent('langChange', { detail:{ lang: lang } }));
         localStorage.setItem('langPreference', lang);
       }
       var storedLang = localStorage.getItem('langPreference');

@@ -12,138 +12,137 @@
   <meta name="description" content="شرح الأخلاقيات المعلوماتية — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
   <style>
     :root {
-      --primary: #1838f8;
-      --accent: #1838f8;
-      --bg: #ffffff;
-      --card: #f6f8ff;
-      --card-hover: #e9edfe;
-      --text: #fff;
-      --dim: #8892b0;
-      --success: #00ff88;
-      --danger: #ff4757;
-      --warn: #ffd700;
-      --s1: #1838f8;
-      --s2: #9a6a00;
-      --s3: #1838f8;
-      --s4: #10B981;
-      --s5: #1838f8;
-      --s6: #d7263d;
+      --primary:#1838f8;
+      --accent:#1838f8;
+      --bg:#ffffff;
+      --card:#f6f8ff;
+      --card-hover:#e9edfe;
+      --text:#fff;
+      --dim:#8892b0;
+      --success:#00ff88;
+      --danger:#ff4757;
+      --warn:#ffd700;
+      --s1:#1838f8;
+      --s2:#9a6a00;
+      --s3:#1838f8;
+      --s4:#10B981;
+      --s5:#1838f8;
+      --s6:#d7263d;
     }
 
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
+      margin:0;
+      padding:0;
+      box-sizing:border-box
     }
 
     html {
-      scroll-behavior: smooth
+      scroll-behavior:smooth
     }
 
     body {
-      font-family: 'Cairo', 'Cairo', sans-serif;
-      background: var(--bg);
-      color: var(--dim);
-      line-height: 1.9;
-      overflow-x: hidden
+      font-family:'Cairo', 'Cairo', sans-serif;
+      background:var(--bg);
+      color:var(--dim);
+      line-height:1.9;
+      overflow-x:hidden
     }
 
     .bg-gradient {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      background:radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
         radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
-      animation: bgDrift 20s ease-in-out infinite;
+      animation:bgDrift 20s ease-in-out infinite;
     }
 
     @keyframes bgDrift {
       0%,
       100% {
-        transform: translate(0, 0) scale(1)
+        transform:translate(0, 0) scale(1)
       }
       50% {
-        transform: translate(-30px, 20px) scale(1.08)
+        transform:translate(-30px, 20px) scale(1.08)
       }
     }
 
     .particles {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none
     }
 
     .particles i {
-      position: absolute;
-      bottom: -10px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--primary);
-      opacity: .3;
-      animation: floatUp 15s linear infinite
+      position:absolute;
+      bottom:-10px;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:var(--primary);
+      opacity:.3;
+      animation:floatUp 15s linear infinite
     }
 
     @keyframes floatUp {
       0% {
-        transform: translateY(0);
-        opacity: 0
+        transform:translateY(0);
+        opacity:0
       }
       10% {
-        opacity: .3
+        opacity:.3
       }
       100% {
-        transform: translateY(-110vh);
-        opacity: 0
+        transform:translateY(-110vh);
+        opacity:0
       }
     }
 
     /* ---------- nav ---------- */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(10, 14, 39, .95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(25, 60, 255, .3);
-      transform: translateY(-100%);
-      transition: transform .35s ease
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:100;
+      background:rgba(10, 14, 39, .95);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(25, 60, 255, .3);
+      transform:translateY(-100%);
+      transition:transform .35s ease
     }
 
     nav.show {
-      transform: translateY(0)
+      transform:translateY(0)
     }
 
     .nav-inner {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 10px 24px
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:10px 24px
     }
 
     .nav-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      object-fit: contain;
-      flex-shrink: 0;
-      background: var(--primary)
+      width:36px;
+      height:36px;
+      border-radius:10px;
+      object-fit:contain;
+      flex-shrink:0;
+      background:var(--primary)
     }
 
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      scrollbar-width: none;
-      padding: 4px 2px;
-      flex: 1
+      display:flex;
+      align-items:center;
+      gap:8px;
+      overflow-x:auto;
+      flex-wrap:nowrap;
+      scrollbar-width:none;
+      padding:4px 2px;
+      flex:1
     }
 
     .nav-links::-webkit-scrollbar {
@@ -151,413 +150,413 @@
     }
 
     .nav-links a {
-      flex-shrink: 0;
-      white-space: nowrap;
-      text-decoration: none;
-      color: var(--dim);
-      border: 1px solid transparent;
-      border-radius: 25px;
-      padding: 8px 18px;
-      font-size: .82rem;
-      font-weight: 700;
-      transition: .2s
+      flex-shrink:0;
+      white-space:nowrap;
+      text-decoration:none;
+      color:var(--dim);
+      border:1px solid transparent;
+      border-radius:25px;
+      padding:8px 18px;
+      font-size:.82rem;
+      font-weight:700;
+      transition:.2s
     }
 
     .nav-links a:hover,
     .nav-links a.active {
       color: var(--text);
-      background: rgba(25, 60, 255, .2);
-      border-color: var(--primary)
+      background:rgba(25, 60, 255, .2);
+      border-color:var(--primary)
     }
 
     .lang-toggle {
-      flex-shrink: 0;
-      padding: 8px 16px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, .2);
-      background: transparent;
-      color: var(--text);
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all .3s ease
+      flex-shrink:0;
+      padding:8px 16px;
+      border-radius:50px;
+      border:1px solid rgba(255, 255, 255, .2);
+      background:transparent;
+      color:var(--text);
+      font-family:inherit;
+      font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+      transition:all .3s ease
     }
 
     .lang-toggle:hover {
       border-color: var(--accent);
-      background: rgba(0, 212, 170, .1)
+      background:rgba(0, 212, 170, .1)
     }
 
     /* ---------- hero ---------- */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      padding: 60px 24px
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      padding:60px 24px
     }
 
     .hero-circles span {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(40px);
-      opacity: .16;
-      z-index: 0;
-      animation: heroFloat 6s ease-in-out infinite
+      position:absolute;
+      border-radius:50%;
+      filter:blur(40px);
+      opacity:.16;
+      z-index:0;
+      animation:heroFloat 6s ease-in-out infinite
     }
 
     .hero-circles span:nth-child(1) {
       width: 280px;
-      height: 280px;
-      background: var(--primary);
-      top: 12%;
-      left: 10%;
-      animation-delay: 0s
+      height:280px;
+      background:var(--primary);
+      top:12%;
+      left:10%;
+      animation-delay:0s
     }
 
     .hero-circles span:nth-child(2) {
       width: 220px;
-      height: 220px;
-      background: var(--accent);
-      bottom: 15%;
-      right: 12%;
-      animation-delay: 2s
+      height:220px;
+      background:var(--accent);
+      bottom:15%;
+      right:12%;
+      animation-delay:2s
     }
 
     .hero-circles span:nth-child(3) {
       width: 180px;
-      height: 180px;
-      background: #1838f8;
-      top: 55%;
-      left: 22%;
-      animation-delay: 4s
+      height:180px;
+      background:#edeffe;
+      top:55%;
+      left:22%;
+      animation-delay:4s
     }
 
     @keyframes heroFloat {
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
       50% {
-        transform: translateY(-26px)
+        transform:translateY(-26px)
       }
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px
+      position:relative;
+      z-index:2;
+      max-width:900px
     }
 
     .hero-badge {
-      display: inline-block;
-      padding: 8px 22px;
-      border-radius: 25px;
-      font-size: .85rem;
-      font-weight: 700;
-      background: rgba(25, 60, 255, .15);
-      border: 1px solid rgba(25, 60, 255, .4);
-      color: var(--accent);
-      margin-bottom: 26px;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp .8s ease-out .2s forwards
+      display:inline-block;
+      padding:8px 22px;
+      border-radius:25px;
+      font-size:.85rem;
+      font-weight:700;
+      background:rgba(25, 60, 255, .15);
+      border:1px solid rgba(25, 60, 255, .4);
+      color:var(--accent);
+      margin-bottom:26px;
+      opacity:0;
+      transform:translateY(40px);
+      animation:fadeUp .8s ease-out .2s forwards
     }
 
     .hero-title {
-      font-size: clamp(36px, 8vw, 80px);
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.2;
-      margin-bottom: 18px;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp .8s ease-out .4s forwards
+      font-size:clamp(36px, 8vw, 80px);
+      font-weight:800;
+      color:var(--text);
+      line-height:1.2;
+      margin-bottom:18px;
+      opacity:0;
+      transform:translateY(40px);
+      animation:fadeUp .8s ease-out .4s forwards
     }
 
     .hero-title .grad {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text
+      background:linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text
     }
 
     .hero-sub {
-      font-size: 1.15rem;
-      color: var(--dim);
-      max-width: 640px;
-      margin: 0 auto 36px;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp .8s ease-out .6s forwards
+      font-size:1.15rem;
+      color:var(--dim);
+      max-width:640px;
+      margin:0 auto 36px;
+      opacity:0;
+      transform:translateY(40px);
+      animation:fadeUp .8s ease-out .6s forwards
     }
 
     .hero-btn {
-      display: inline-block;
-      padding: 14px 36px;
-      border-radius: 50px;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: all .3s ease;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp .8s ease-out .8s forwards
+      display:inline-block;
+      padding:14px 36px;
+      border-radius:50px;
+      background:var(--primary);
+      color:#fff;
+      font-weight:700;
+      font-size:1rem;
+      text-decoration:none;
+      transition:all .3s ease;
+      opacity:0;
+      transform:translateY(40px);
+      animation:fadeUp .8s ease-out .8s forwards
     }
 
     .hero-btn:hover {
       background: var(--accent);
-      transform: translateY(-2px)
+      transform:translateY(-2px)
     }
 
     @keyframes fadeUp {
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity:1;
+        transform:translateY(0)
       }
     }
 
     /* ---------- main ---------- */
     main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 24px 80px
+      max-width:960px;
+      margin:0 auto;
+      padding:0 24px 80px
     }
 
     .section-inner {
-      margin-top: 48px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all .6s cubic-bezier(0.4, 0, 0.2, 1)
+      margin-top:48px;
+      opacity:0;
+      transform:translateY(30px);
+      transition:all .6s cubic-bezier(0.4, 0, 0.2, 1)
     }
 
     .section-inner.visible {
-      opacity: 1;
-      transform: translateY(0)
+      opacity:1;
+      transform:translateY(0)
     }
 
-    /* safety: never hide content if scroll-reveal fails */
-    @keyframes autoReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .section-inner { animation: autoReveal .7s ease-out both; }
-    .section-inner.visible { animation: none; opacity: 1; transform: translateY(0); }
+    /* safety:never hide content if scroll-reveal fails */
+    @keyframes autoReveal { from { opacity: 0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    .section-inner { animation:autoReveal .7s ease-out both; }
+    .section-inner.visible { animation:none; opacity:1; transform:translateY(0); }
 
 
     .section-inner.card {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 24px;
-      padding: 28px 32px
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      border-radius:24px;
+      padding:28px 32px
     }
 
     .section-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 18px
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px
     }
 
     .section-number {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 18px;
-      color: var(--bg);
-      flex-shrink: 0;
-      animation: glow 3s infinite
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:18px;
+      color:var(--bg);
+      flex-shrink:0;
+      animation:glow 3s infinite
     }
 
     @keyframes glow {
       0%,
       100% {
-        box-shadow: 0 0 20px rgba(25, 60, 255, .3)
+        box-shadow:0 0 20px rgba(25, 60, 255, .3)
       }
       50% {
-        box-shadow: 0 0 40px rgba(25, 60, 255, .6)
+        box-shadow:0 0 40px rgba(25, 60, 255, .6)
       }
     }
 
     h2 {
-      font-size: clamp(22px, 4vw, 32px);
-      font-weight: 800;
-      color: var(--text)
+      font-size:clamp(22px, 4vw, 32px);
+      font-weight:800;
+      color:var(--text)
     }
 
     .tag {
-      display: inline-block;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: .8rem;
-      font-weight: 700;
-      margin-top: 8px
+      display:inline-block;
+      padding:6px 16px;
+      border-radius:20px;
+      font-size:.8rem;
+      font-weight:700;
+      margin-top:8px
     }
 
     .demo-label {
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 12px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:12px
     }
 
     .note {
-      background: rgba(255, 215, 0, .06);
-      border: 1px solid rgba(255, 215, 0, .2);
-      border-radius: 12px;
-      padding: 14px 18px;
-      margin-top: 14px
+      background:rgba(255, 215, 0, .06);
+      border:1px solid rgba(255, 215, 0, .2);
+      border-radius:12px;
+      padding:14px 18px;
+      margin-top:14px
     }
 
     .error-box {
-      background: rgba(255, 71, 87, .05);
-      border: 1px solid rgba(255, 71, 87, .2);
-      border-radius: 12px;
-      padding: 18px 22px;
-      margin-top: 32px
+      background:rgba(255, 71, 87, .05);
+      border:1px solid rgba(255, 71, 87, .2);
+      border-radius:12px;
+      padding:18px 22px;
+      margin-top:32px
     }
 
     .error-box h4 {
-      color: var(--danger);
-      margin-bottom: 12px;
-      font-size: 1.1rem
+      color:var(--danger);
+      margin-bottom:12px;
+      font-size:1.1rem
     }
 
     .error-box ul {
-      padding-right: 20px
+      padding-right:20px
     }
 
     .error-box li {
-      margin-bottom: 8px
+      margin-bottom:8px
     }
 
     /* ---------- exercises ---------- */
     .ex-item {
-      margin-bottom: 22px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid rgba(255, 255, 255, .05)
+      margin-bottom:22px;
+      padding-bottom:18px;
+      border-bottom:1px solid rgba(255, 255, 255, .05)
     }
 
     .ex-item .q {
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px;
+      display:flex;
+      align-items:flex-start;
+      gap:8px
     }
 
     .q-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: rgba(245, 158, 11, .15);
-      border: 1px solid rgba(245, 158, 11, .5);
-      color: var(--warn);
-      font-weight: 800;
-      font-size: .8rem;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      background:rgba(245, 158, 11, .15);
+      border:1px solid rgba(245, 158, 11, .5);
+      color:var(--warn);
+      font-weight:800;
+      font-size:.8rem;
+      flex-shrink:0
     }
 
 
     .opt-key {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 26px;
-      height: 26px;
-      padding: 0 7px;
-      border-radius: 6px;
-      background: rgba(25, 60, 255, .14);
-      border: 1px solid rgba(25, 60, 255, .5);
-      color: var(--primary);
-      font-weight: 800;
-      font-size: .82rem;
-      margin-inline-end: 8px;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:26px;
+      height:26px;
+      padding:0 7px;
+      border-radius:6px;
+      background:rgba(25, 60, 255, .14);
+      border:1px solid rgba(25, 60, 255, .5);
+      color:var(--primary);
+      font-weight:800;
+      font-size:.82rem;
+      margin-inline-end:8px;
+      flex-shrink:0
     }
     .ex-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px
     }
 
     .ex-opt {
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 12px;
-      padding: 12px 14px;
-      cursor: pointer;
-      transition: all .2s;
-      font-size: .92rem;
-      white-space: pre-line
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .06);
+      border-radius:12px;
+      padding:12px 14px;
+      cursor:pointer;
+      transition:all .2s;
+      font-size:.92rem;
+      white-space:pre-line
     }
 
     .ex-opt:hover {
       background: var(--card-hover);
-      border-color: rgba(25, 60, 255, .3)
+      border-color:rgba(25, 60, 255, .3)
     }
 
     .ex-opt.picked {
-      border-color: var(--primary);
-      background: rgba(25, 60, 255, .1)
+      border-color:var(--primary);
+      background:rgba(25, 60, 255, .1)
     }
 
     .ex-opt.correct {
-      border-color: var(--success) !important;
-      background: rgba(0, 255, 136, .08) !important
+      border-color:var(--success) !important;
+      background:rgba(0, 255, 136, .08) !important
     }
 
     .ex-opt.wrong {
-      border-color: var(--danger) !important;
-      background: rgba(255, 71, 87, .08) !important
+      border-color:var(--danger) !important;
+      background:rgba(255, 71, 87, .08) !important
     }
 
     .ex-answer {
-      display: none;
-      margin-top: 10px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: .92rem
+      display:none;
+      margin-top:10px;
+      padding:10px 14px;
+      border-radius:10px;
+      font-size:.92rem
     }
 
     .ex-answer.show {
-      display: block;
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: rgba(0, 255, 136, .07);
-      color: var(--success)
+      display:block;
+      border:1px solid rgba(0, 255, 136, .35);
+      background:rgba(0, 255, 136, .07);
+      color:var(--success)
     }
 
     .ex-answer.show b {
-      color: var(--success);
-      margin: 0 6px
+      color:var(--success);
+      margin:0 6px
     }
 
     .btn-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px
+      display:flex;
+      gap:10px;
+      margin-top:16px
     }
 
     .btn {
-      padding: 10px 22px;
-      border-radius: 50px;
-      border: none;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-      transition: all .2s
+      padding:10px 22px;
+      border-radius:50px;
+      border:none;
+      background:var(--primary);
+      color:#fff;
+      font-weight:700;
+      font-family:inherit;
+      cursor:pointer;
+      transition:all .2s
     }
 
     .btn:hover {
@@ -565,294 +564,294 @@
     }
 
     .mini-btn {
-      padding: 10px 18px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, .2);
-      background: transparent;
-      color: var(--text);
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-      transition: all .2s
+      padding:10px 18px;
+      border-radius:50px;
+      border:1px solid rgba(255, 255, 255, .2);
+      background:transparent;
+      color:var(--text);
+      font-weight:700;
+      font-family:inherit;
+      cursor:pointer;
+      transition:all .2s
     }
 
     .mini-btn:hover {
       border-color: var(--accent);
-      background: rgba(0, 212, 170, .1)
+      background:rgba(0, 212, 170, .1)
     }
 
     .ex-score {
-      margin-top: 14px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: rgba(0, 255, 136, .06);
-      border: 1px solid rgba(0, 255, 136, .25);
-      color: var(--success);
-      font-weight: 700
+      margin-top:14px;
+      padding:12px 16px;
+      border-radius:12px;
+      background:rgba(0, 255, 136, .06);
+      border:1px solid rgba(0, 255, 136, .25);
+      color:var(--success);
+      font-weight:700
     }
 
     .hint-line {
-      font-size: .92rem;
-      color: var(--dim)
+      font-size:.92rem;
+      color:var(--dim)
     }
 
     /* ---------- interactive cards ---------- */
     .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin-top: 16px
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
+      margin-top:16px
     }
 
     .card-item {
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 16px;
-      padding: 18px;
-      cursor: pointer;
-      transition: all .25s
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .06);
+      border-radius:16px;
+      padding:18px;
+      cursor:pointer;
+      transition:all .25s
     }
 
     .card-item:hover {
       background: var(--card-hover);
-      transform: translateY(-3px)
+      transform:translateY(-3px)
     }
 
     .card-item.ok {
-      border-color: rgba(0, 255, 136, .4);
-      background: rgba(0, 255, 136, .05)
+      border-color:rgba(0, 255, 136, .4);
+      background:rgba(0, 255, 136, .05)
     }
 
     .card-item.bad {
-      border-color: rgba(255, 71, 87, .4);
-      background: rgba(255, 71, 87, .05)
+      border-color:rgba(255, 71, 87, .4);
+      background:rgba(255, 71, 87, .05)
     }
 
     .card-item .card-icon {
-      font-size: 2rem;
-      margin-bottom: 8px
+      font-size:2rem;
+      margin-bottom:8px
     }
 
     .card-item .card-title {
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:6px
     }
 
     .card-item .card-body {
-      font-size: .88rem;
-      color: var(--dim)
+      font-size:.88rem;
+      color:var(--dim)
     }
 
     .card-item .card-feedback {
-      margin-top: 10px;
-      font-weight: 700;
-      font-size: .88rem;
-      display: none
+      margin-top:10px;
+      font-weight:700;
+      font-size:.88rem;
+      display:none
     }
 
     .card-item.ok .card-feedback,
     .card-item.bad .card-feedback {
-      display: block
+      display:block
     }
 
     .card-item.ok .card-feedback {
-      color: var(--success)
+      color:var(--success)
     }
 
     .card-item.bad .card-feedback {
-      color: var(--danger)
+      color:var(--danger)
     }
 
     /* ---------- journey ---------- */
     .journey {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding-right: 26px
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      padding-right:26px
     }
 
     .journey::before {
       content: "";
-      position: absolute;
-      right: 11px;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--primary), var(--accent));
-      border-radius: 2px
+      position:absolute;
+      right:11px;
+      top:8px;
+      bottom:8px;
+      width:2px;
+      background:linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius:2px
     }
 
     .journey-item {
-      position: relative;
-      margin-bottom: 22px;
-      padding-right: 20px
+      position:relative;
+      margin-bottom:22px;
+      padding-right:20px
     }
 
     .journey-item::before {
       content: "";
-      position: absolute;
-      right: 3px;
-      top: 6px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--primary);
-      border: 3px solid var(--bg);
-      box-shadow: 0 0 0 2px var(--primary)
+      position:absolute;
+      right:3px;
+      top:6px;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:var(--primary);
+      border:3px solid var(--bg);
+      box-shadow:0 0 0 2px var(--primary)
     }
 
     .journey-item h4 {
-      color: var(--text);
-      font-size: 1rem;
-      margin-bottom: 4px
+      color:var(--text);
+      font-size:1rem;
+      margin-bottom:4px
     }
 
     .journey-item p {
-      font-size: .9rem
+      font-size:.9rem
     }
 
     /* ---------- footer ---------- */
     footer {
-      text-align: center;
-      padding: 40px 24px;
-      border-top: 1px solid rgba(255, 255, 255, .05);
-      margin-top: 60px
+      text-align:center;
+      padding:40px 24px;
+      border-top:1px solid rgba(255, 255, 255, .05);
+      margin-top:60px
     }
 
     .footer-logo {
-      height: 40px;
-      border-radius: 8px;
-      margin-bottom: 12px
+      height:40px;
+      border-radius:8px;
+      margin-bottom:12px
     }
 
     footer p {
-      color: var(--dim);
-      font-size: .9rem
+      color:var(--dim);
+      font-size:.9rem
     }
 
     /* ---------- responsive ---------- */
-    @media (max-width: 860px) {
+    @media (max-width:860px) {
   
     .opt-key {
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 26px;
-      height: 26px;
-      padding: 0 7px;
-      border-radius: 6px;
-      background: rgba(25, 60, 255, .14);
-      border: 1px solid rgba(25, 60, 255, .5);
-      color: var(--primary);
-      font-weight: 800;
-      font-size: .82rem;
-      margin-inline-end: 8px;
-      flex-shrink: 0
+      align-items:center;
+      justify-content:center;
+      min-width:26px;
+      height:26px;
+      padding:0 7px;
+      border-radius:6px;
+      background:rgba(25, 60, 255, .14);
+      border:1px solid rgba(25, 60, 255, .5);
+      color:var(--primary);
+      font-weight:800;
+      font-size:.82rem;
+      margin-inline-end:8px;
+      flex-shrink:0
     }
     .ex-options {
-        grid-template-columns: 1fr
+        grid-template-columns:1fr
       }
       .nav-inner {
-        padding: 10px 16px
+        padding:10px 16px
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @media (prefers-reduced-motion:reduce) {
       * {
         animation-duration: 0s !important;
-        transition-duration: 0s !important
+        transition-duration:0s !important
       }
     }
   
 
     /* ===== Glossary ===== */
     .glossary-search {
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: var(--card);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 15px;
-      color-scheme: dark;
-      margin: 14px 0;
+      width:100%;
+      padding:12px 18px;
+      border-radius:50px;
+      border:1px solid rgba(255, 255, 255, 0.15);
+      background:var(--card);
+      color:var(--text);
+      font-family:inherit;
+      font-size:15px;
+      color-scheme:dark;
+      margin:14px 0;
     }
 
     .glossary-search:focus {
       outline: none;
-      border-color: var(--primary);
+      border-color:var(--primary);
     }
 
     .glossary-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
     }
 
     .gl-filter {
-      padding: 6px 16px;
+      padding:6px 16px;
     }
 
     .gl-filter.active {
-      background: rgba(6, 182, 212 , 0.2);
-      border-color: var(--s3);
-      color: var(--text);
+      background:rgba(6, 182, 212 , 0.2);
+      border-color:var(--s3);
+      color:var(--text);
     }
 
     .glossary-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width:860px) {
       .glossary-list {
         grid-template-columns: 1fr;
       }
     }
 
     .gl-term {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 16px;
-      transition: all 0.3s ease;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, 0.08);
+      border-radius:16px;
+      padding:16px;
+      transition:all 0.3s ease;
     }
 
     .gl-term:hover {
       background: var(--card-hover);
-      border-color: var(--s3);
+      border-color:var(--s3);
     }
 
     .gl-term h4 {
-      font-size: 15px;
-      margin-bottom: 6px;
-      color: var(--s3);
+      font-size:15px;
+      margin-bottom:6px;
+      color:var(--s3);
     }
 
     .gl-term p {
-      font-size: 13px;
-      margin-bottom: 0;
+      font-size:13px;
+      margin-bottom:0;
     }
 
     .gl-term.hidden {
-      display: none;
+      display:none;
     }
   
     /* ===== Unified flat design system (auto-applied) ===== */
     .bg-gradient, .hero-circles, .particles,
     .bg-animation, .hero-blob, .particle {
-      display: none !important;
+      display:none !important;
     }
 
     .gradient-text,
     .hero-title .grad {
-      background: none !important;
-      -webkit-text-fill-color: var(--primary) !important;
-      color: var(--primary) !important;
+      background:none !important;
+      -webkit-text-fill-color:var(--primary) !important;
+      color:var(--primary) !important;
     }
 
     .lesson-section::before,
@@ -862,42 +861,42 @@
 
     .section-number,
     .lesson-section[data-accent] .section-number {
-      background: var(--primary) !important;
-      color: #fff !important;
-      box-shadow: none !important;
-      animation: none !important;
+      background:var(--primary) !important;
+      color:#fff !important;
+      box-shadow:none !important;
+      animation:none !important;
     }
 
     .step-card .step-tag,
     .step-card .step-tag[data-accent] {
-      background: rgba(25, 60, 255, .12) !important;
-      border-color: var(--primary) !important;
-      color: var(--primary) !important;
+      background:rgba(25, 60, 255, .12) !important;
+      border-color:var(--primary) !important;
+      color:var(--primary) !important;
     }
 
     [class*="-bar-fill"] {
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }
 
     [class*="-bar-fill"].good {
-      background: var(--success) !important;
+      background:var(--success) !important;
     }
 
     [class*="-bar-fill"].mid {
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }
 
     [class*="-bar-fill"].bad {
-      background: var(--danger) !important;
+      background:var(--danger) !important;
     }
 
     .unit-num, .unit-card {
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }
 
     .cta-btn, .hero-btn, .btn {
-      background: var(--primary) !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .25) !important;
+      background:var(--primary) !important;
+      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
     }
 
     .cta-btn:hover, .hero-btn:hover, .btn:hover {
@@ -905,7 +904,7 @@
     }
 
     [style*="linear-gradient"] {
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }
 </style>
 </head>
@@ -948,7 +947,7 @@
     <section id="intro">
       <div class="section-inner">
         <div class="section-header">
-          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#1440c9)">01</div>
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#ecf0fb)">01</div>
           <div>
             <h2 data-ar="What is Information Ethics?" data-en="What is Information Ethics?">إيه هي الأخلاقيات المعلوماتية؟</h2>
             <div class="tag" style="color:var(--s1)" data-ar="Core Definition" data-en="Core Definition">التعريف الأساسي</div>
@@ -1100,7 +1099,7 @@
     <section id="smartphone">
       <div class="section-inner">
         <div class="section-header">
-          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#7c3aed)">03</div>
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#f5effe)">03</div>
           <div>
             <h2 data-ar="Smartphone & Social Media Problems" data-en="Smartphone & Social Media Problems">مشاكل الهواتف والسوشيال ميديا</h2>
             <div class="tag" style="color:var(--s3)" data-ar="Digital Challenges" data-en="Digital Challenges">التحديات الرقمية</div>
@@ -1185,7 +1184,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Information Ethics" data-en="C&nbsp;&nbsp;Information Ethics">C&nbsp;&nbsp;الأخلاقيات المعلوماتية</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Privacy" data-en="D&nbsp;&nbsp;Privacy">D&nbsp;&nbsp;الخصوصية (Privacy)</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: A — Information Ethics is the official term for the foundational concepts and attitudes in the information society." data-en="✅ Answer: A — Information Ethics is the official term for the foundational concepts and attitudes in the information society.">✅ الإجابة: <b>A</b> — <span dir='ltr'>Information Ethics</span> هو التعريف الرسمي للمبادئ والقواعد الأساسية في المجتمع المعلوماتي.</div>
+            <div class="ex-answer" data-ar="✅ Answer:A — Information Ethics is the official term for the foundational concepts and attitudes in the information society." data-en="✅ Answer: A — Information Ethics is the official term for the foundational concepts and attitudes in the information society.">✅ الإجابة: <b>A</b> — <span dir='ltr'>Information Ethics</span> هو التعريف الرسمي للمبادئ والقواعد الأساسية في المجتمع المعلوماتي.</div>
           </div>
 
           <div class="ex-item">
@@ -1194,7 +1193,7 @@
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;Correct" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صح</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;Incorrect" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;غلط</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: × — social media is a convenient tool when used properly, not always dangerous." data-en="✅ Answer: × — social media is a convenient tool when used properly, not always dangerous.">✅ الإجابة: <b>×</b> — السوشيال ميديا أداة مريحة لو استخدمتها صح، مش خطيرة دائماً.</div>
+            <div class="ex-answer" data-ar="✅ Answer:× — social media is a convenient tool when used properly, not always dangerous." data-en="✅ Answer: × — social media is a convenient tool when used properly, not always dangerous.">✅ الإجابة: <b>×</b> — السوشيال ميديا أداة مريحة لو استخدمتها صح، مش خطيرة دائماً.</div>
           </div>
 
           <div class="ex-item">
@@ -1203,7 +1202,7 @@
               <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;Correct" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صح</div>
               <div class="ex-opt" data-ar="×&nbsp;&nbsp;Incorrect" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;غلط</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: ○ — geotags can reveal your home address and precise location." data-en="✅ Answer: ○ — geotags can reveal your home address and precise location.">✅ الإجابة: <b>○</b> — الجيوتاج ممكن يكشف عنوان بيتك وموقعك بدقة.</div>
+            <div class="ex-answer" data-ar="✅ Answer:○ — geotags can reveal your home address and precise location." data-en="✅ Answer: ○ — geotags can reveal your home address and precise location.">✅ الإجابة: <b>○</b> — الجيوتاج ممكن يكشف عنوان بيتك وموقعك بدقة.</div>
           </div>
 
           <div class="ex-item">
@@ -1212,7 +1211,7 @@
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;Correct" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صح</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;Incorrect" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;غلط</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: × — even if you're anonymous, you're responsible for your words and can be identified." data-en="✅ Answer: × — even if you're anonymous, you're responsible for your words and can be identified.">✅ الإجابة: <b>×</b> — حتى لو كنت مجهول، لازم تكون مسئول عن كلامك وممكن يتعرف عليك.</div>
+            <div class="ex-answer" data-ar="✅ Answer:× — even if you're anonymous, you're responsible for your words and can be identified." data-en="✅ Answer: × — even if you're anonymous, you're responsible for your words and can be identified.">✅ الإجابة: <b>×</b> — حتى لو كنت مجهول، لازم تكون مسئول عن كلامك وممكن يتعرف عليك.</div>
           </div>
 
           <div class="ex-item">
@@ -1221,7 +1220,7 @@
               <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;Correct" data-en="○&nbsp;&nbsp;Correct">○&nbsp;&nbsp;صح</div>
               <div class="ex-opt" data-ar="×&nbsp;&nbsp;Incorrect" data-en="×&nbsp;&nbsp;Incorrect">×&nbsp;&nbsp;غلط</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: ○ — we must respect people's feelings online and treat them with respect." data-en="✅ Answer: ○ — we must respect people's feelings online and treat them with respect.">✅ الإجابة: <b>○</b> — لازم نحترم مشاعر الناس على الإنترنت ونتعامل معهم باحترام.</div>
+            <div class="ex-answer" data-ar="✅ Answer:○ — we must respect people's feelings online and treat them with respect." data-en="✅ Answer: ○ — we must respect people's feelings online and treat them with respect.">✅ الإجابة: <b>○</b> — لازم نحترم مشاعر الناس على الإنترنت ونتعامل معهم باحترام.</div>
           </div>
         </div>
         <div class="btn-row" style="margin-top:16px">
@@ -1243,7 +1242,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Privacy" data-en="C&nbsp;&nbsp;Privacy">C&nbsp;&nbsp;Privacy</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Copyright" data-en="D&nbsp;&nbsp;Copyright">D&nbsp;&nbsp;Copyright</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: B — Disinformation and rumors are false information deliberately spread or baseless rumors. (A geotag is location data, privacy is a legal right, and copyright protects creative works — none define false information.)" data-en="✅ Answer: B — Disinformation and rumors are false information deliberately spread or baseless rumors. (A geotag is location data, privacy is a legal right, and copyright protects creative works — none define false information.)">✅ الإجابة: <b>B</b> — <span dir='ltr'>Disinformation and rumors</span> هي المعلومات الخاطئة المتعمدة أو الشائعات الباطلة.</div>
+            <div class="ex-answer" data-ar="✅ Answer:B — Disinformation and rumors are false information deliberately spread or baseless rumors. (A geotag is location data, privacy is a legal right, and copyright protects creative works — none define false information.)" data-en="✅ Answer: B — Disinformation and rumors are false information deliberately spread or baseless rumors. (A geotag is location data, privacy is a legal right, and copyright protects creative works — none define false information.)">✅ الإجابة: <b>B</b> — <span dir='ltr'>Disinformation and rumors</span> هي المعلومات الخاطئة المتعمدة أو الشائعات الباطلة.</div>
           </div>
 
           <div class="ex-item">
@@ -1254,7 +1253,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Trust whatever is written in big letters" data-en="C&nbsp;&nbsp;Trust whatever is written in big letters">C&nbsp;&nbsp;تثق في كل حاجة مكتوبة بخط كبير</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Pass it to 10 people before sharing" data-en="D&nbsp;&nbsp;Pass it to 10 people before sharing">D&nbsp;&nbsp;تخليها تمر على 10 ناس قبل ما تشارك</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: A — checking official sources is the only reliable way. (Sharing immediately, trusting big print, or forwarding to 10 people all spread errors — they don't verify anything.)" data-en="✅ Answer: A — checking official sources is the only reliable way. (Sharing immediately, trusting big print, or forwarding to 10 people all spread errors — they don't verify anything.)">✅ الإجابة: <b>A</b> — التحقق من المصادر الرسمية هو الطريقة الوحيدة الموثوقة.</div>
+            <div class="ex-answer" data-ar="✅ Answer:A — checking official sources is the only reliable way. (Sharing immediately, trusting big print, or forwarding to 10 people all spread errors — they don't verify anything.)" data-en="✅ Answer: A — checking official sources is the only reliable way. (Sharing immediately, trusting big print, or forwarding to 10 people all spread errors — they don't verify anything.)">✅ الإجابة: <b>A</b> — التحقق من المصادر الرسمية هو الطريقة الوحيدة الموثوقة.</div>
           </div>
 
           <div class="ex-item">
@@ -1265,7 +1264,7 @@
               <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Social networking service" data-en="C&nbsp;&nbsp;Social networking service">C&nbsp;&nbsp;Social networking service</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Social network system" data-en="D&nbsp;&nbsp;Social network system">D&nbsp;&nbsp;Social network system</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: C — Social networking service is the collective term for these services. (Social engineering is deception, social marketing is commerce, and a social network system is internal tech — not communication services.)" data-en="✅ Answer: C — Social networking service is the collective term for these services. (Social engineering is deception, social marketing is commerce, and a social network system is internal tech — not communication services.)">✅ الإجابة: <b>C</b> — <span dir='ltr'>Social networking service</span> هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت.</div>
+            <div class="ex-answer" data-ar="✅ Answer:C — Social networking service is the collective term for these services. (Social engineering is deception, social marketing is commerce, and a social network system is internal tech — not communication services.)" data-en="✅ Answer: C — Social networking service is the collective term for these services. (Social engineering is deception, social marketing is commerce, and a social network system is internal tech — not communication services.)">✅ الإجابة: <b>C</b> — <span dir='ltr'>Social networking service</span> هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت.</div>
           </div>
 
           <div class="ex-item">
@@ -1274,7 +1273,7 @@
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;Appropriate" data-en="○&nbsp;&nbsp;Appropriate">○&nbsp;&nbsp;مناسبة</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;Inappropriate" data-en="×&nbsp;&nbsp;Inappropriate">×&nbsp;&nbsp;مش مناسبة</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: × — even if you're anonymous, you're responsible for your words." data-en="✅ Answer: × — even if you're anonymous, you're responsible for your words.">✅ الإجابة: <b>×</b> — حتى لو كنت مجهول، لازم تكون مسئول عن كلامك.</div>
+            <div class="ex-answer" data-ar="✅ Answer:× — even if you're anonymous, you're responsible for your words." data-en="✅ Answer: × — even if you're anonymous, you're responsible for your words.">✅ الإجابة: <b>×</b> — حتى لو كنت مجهول، لازم تكون مسئول عن كلامك.</div>
           </div>
 
           <div class="ex-item">
@@ -1283,7 +1282,7 @@
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;Appropriate" data-en="○&nbsp;&nbsp;Appropriate">○&nbsp;&nbsp;مناسبة</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;Inappropriate" data-en="×&nbsp;&nbsp;Inappropriate">×&nbsp;&nbsp;مش مناسبة</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: × — websites are not legally required to always provide accurate info." data-en="✅ Answer: × — websites are not legally required to always provide accurate info.">✅ الإجابة: <b>×</b> — المواقع مش ملزمة قانونياً دائماً بتوفير معلومات دقيقة.</div>
+            <div class="ex-answer" data-ar="✅ Answer:× — websites are not legally required to always provide accurate info." data-en="✅ Answer: × — websites are not legally required to always provide accurate info.">✅ الإجابة: <b>×</b> — المواقع مش ملزمة قانونياً دائماً بتوفير معلومات دقيقة.</div>
           </div>
 
           <div class="ex-item">
@@ -1292,7 +1291,7 @@
               <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;Appropriate" data-en="○&nbsp;&nbsp;Appropriate">○&nbsp;&nbsp;مناسبة</div>
               <div class="ex-opt" data-ar="×&nbsp;&nbsp;Inappropriate" data-en="×&nbsp;&nbsp;Inappropriate">×&nbsp;&nbsp;مش مناسبة</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: ○ — respecting personal information is the foundation of information ethics." data-en="✅ Answer: ○ — respecting personal information is the foundation of information ethics.">✅ الإجابة: <b>○</b> — احترام المعلومات الشخصية أساس الأخلاقيات المعلوماتية.</div>
+            <div class="ex-answer" data-ar="✅ Answer:○ — respecting personal information is the foundation of information ethics." data-en="✅ Answer: ○ — respecting personal information is the foundation of information ethics.">✅ الإجابة: <b>○</b> — احترام المعلومات الشخصية أساس الأخلاقيات المعلوماتية.</div>
           </div>
 
           <div class="ex-item">
@@ -1301,7 +1300,7 @@
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;Appropriate" data-en="○&nbsp;&nbsp;Appropriate">○&nbsp;&nbsp;مناسبة</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;Inappropriate" data-en="×&nbsp;&nbsp;Inappropriate">×&nbsp;&nbsp;مش مناسبة</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: × — reaching a larger audience is not an excuse to violate privacy." data-en="✅ Answer: × — reaching a larger audience is not an excuse to violate privacy.">✅ الإجابة: <b>×</b> — الوصول لجمهور أكبر مش عذر لانتهاك الخصوصية.</div>
+            <div class="ex-answer" data-ar="✅ Answer:× — reaching a larger audience is not an excuse to violate privacy." data-en="✅ Answer: × — reaching a larger audience is not an excuse to violate privacy.">✅ الإجابة: <b>×</b> — الوصول لجمهور أكبر مش عذر لانتهاك الخصوصية.</div>
           </div>
 
           <div class="ex-item">
@@ -1312,7 +1311,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;You send your photo to a stranger you met online" data-en="C&nbsp;&nbsp;You send your photo to a stranger you met online">C&nbsp;&nbsp;تبعت صورتك لشخص غريب قابلته أونلاين</div>
               <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;You turn off the phone in places like cinemas or museums" data-en="D&nbsp;&nbsp;You turn off the phone in places like cinemas or museums">D&nbsp;&nbsp;توقف الهاتف في أماكن زي السينما أو المتاحف</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: D — turning off the phone in public places is proper etiquette." data-en="✅ Answer: D — turning off the phone in public places is proper etiquette.">✅ الإجابة: <b>D</b> — إيقاف الهاتف في الأماكن العامة هو إتيكيت صحيح.</div>
+            <div class="ex-answer" data-ar="✅ Answer:D — turning off the phone in public places is proper etiquette." data-en="✅ Answer: D — turning off the phone in public places is proper etiquette.">✅ الإجابة: <b>D</b> — إيقاف الهاتف في الأماكن العامة هو إتيكيت صحيح.</div>
           </div>
         </div>
         <div class="btn-row" style="margin-top:16px">
@@ -1334,7 +1333,7 @@
               <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Internet addiction" data-en="C&nbsp;&nbsp;Internet addiction">C&nbsp;&nbsp;Internet addiction</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Cybercrime" data-en="D&nbsp;&nbsp;Cybercrime">D&nbsp;&nbsp;Cybercrime</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: C — Internet addiction is the official definition of this state. (Information ethics is a set of principles, geotagging is location data, and cybercrime is crime — not an addiction state.)" data-en="✅ Answer: C — Internet addiction is the official definition of this state. (Information ethics is a set of principles, geotagging is location data, and cybercrime is crime — not an addiction state.)">✅ الإجابة: <b>C</b> — <span dir='ltr'>Internet addiction</span> هو التعريف الرسمي لهذه الحالة.</div>
+            <div class="ex-answer" data-ar="✅ Answer:C — Internet addiction is the official definition of this state. (Information ethics is a set of principles, geotagging is location data, and cybercrime is crime — not an addiction state.)" data-en="✅ Answer: C — Internet addiction is the official definition of this state. (Information ethics is a set of principles, geotagging is location data, and cybercrime is crime — not an addiction state.)">✅ الإجابة: <b>C</b> — <span dir='ltr'>Internet addiction</span> هو التعريف الرسمي لهذه الحالة.</div>
           </div>
 
           <div class="ex-item">
@@ -1345,7 +1344,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Cybercrime" data-en="C&nbsp;&nbsp;Cybercrime">C&nbsp;&nbsp;Cybercrime</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;Disinformation" data-en="D&nbsp;&nbsp;Disinformation">D&nbsp;&nbsp;Disinformation</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: B — Social networking service is the collective term for services that facilitate building relationships online. (Social media are content platforms, cybercrime is crime, and disinformation is falsehood — none are relationship-building services.)" data-en="✅ Answer: B — Social networking service is the collective term for services that facilitate building relationships online. (Social media are content platforms, cybercrime is crime, and disinformation is falsehood — none are relationship-building services.)">✅ الإجابة: <b>B</b> — <span dir='ltr'>Social networking service</span> هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت.</div>
+            <div class="ex-answer" data-ar="✅ Answer:B — Social networking service is the collective term for services that facilitate building relationships online. (Social media are content platforms, cybercrime is crime, and disinformation is falsehood — none are relationship-building services.)" data-en="✅ Answer: B — Social networking service is the collective term for services that facilitate building relationships online. (Social media are content platforms, cybercrime is crime, and disinformation is falsehood — none are relationship-building services.)">✅ الإجابة: <b>B</b> — <span dir='ltr'>Social networking service</span> هو المصطلح الجماعي للخدمات اللي بتسهل بناء العلاقات عبر الإنترنت.</div>
           </div>
 
           <div class="ex-item">
@@ -1356,7 +1355,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Leakage of personal information" data-en="C&nbsp;&nbsp;Leakage of personal information">C&nbsp;&nbsp;Leakage of personal information</div>
               <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;Geotag (Geotagging)" data-en="D&nbsp;&nbsp;Geotag (Geotagging)">D&nbsp;&nbsp;Geotag (Geotagging)</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: D — Geotag (Geotagging) is the term for location information embedded in media. (Privacy is a right, identity theft is impersonation, and information leakage is exposing data — none are location data.)" data-en="✅ Answer: D — Geotag (Geotagging) is the term for location information embedded in media. (Privacy is a right, identity theft is impersonation, and information leakage is exposing data — none are location data.)">✅ الإجابة: <b>D</b> — <span dir='ltr'>Geotag</span> (<span dir='ltr'>Geotagging</span>) هو مصطلح معلومات الموقع المضمنة في الوسائط.</div>
+            <div class="ex-answer" data-ar="✅ Answer:D — Geotag (Geotagging) is the term for location information embedded in media. (Privacy is a right, identity theft is impersonation, and information leakage is exposing data — none are location data.)" data-en="✅ Answer: D — Geotag (Geotagging) is the term for location information embedded in media. (Privacy is a right, identity theft is impersonation, and information leakage is exposing data — none are location data.)">✅ الإجابة: <b>D</b> — <span dir='ltr'>Geotag</span> (<span dir='ltr'>Geotagging</span>) هو مصطلح معلومات الموقع المضمنة في الوسائط.</div>
           </div>
 
           <div class="ex-item">
@@ -1365,7 +1364,7 @@
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;Appropriate" data-en="○&nbsp;&nbsp;Appropriate">○&nbsp;&nbsp;مناسبة</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;Inappropriate" data-en="×&nbsp;&nbsp;Inappropriate">×&nbsp;&nbsp;مش مناسبة</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: × — even if you're anonymous, you're responsible for your words." data-en="✅ Answer: × — even if you're anonymous, you're responsible for your words.">✅ الإجابة: <b>×</b> — حتى لو كنت مجهول، لازم تكون مسئول عن كلامك.</div>
+            <div class="ex-answer" data-ar="✅ Answer:× — even if you're anonymous, you're responsible for your words." data-en="✅ Answer: × — even if you're anonymous, you're responsible for your words.">✅ الإجابة: <b>×</b> — حتى لو كنت مجهول، لازم تكون مسئول عن كلامك.</div>
           </div>
 
           <div class="ex-item">
@@ -1374,7 +1373,7 @@
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;Appropriate" data-en="○&nbsp;&nbsp;Appropriate">○&nbsp;&nbsp;مناسبة</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;Inappropriate" data-en="×&nbsp;&nbsp;Inappropriate">×&nbsp;&nbsp;مش مناسبة</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: × — websites are not legally required to always provide accurate info." data-en="✅ Answer: × — websites are not legally required to always provide accurate info.">✅ الإجابة: <b>×</b> — المواقع مش ملزمة قانونياً دائماً بتوفير معلومات دقيقة.</div>
+            <div class="ex-answer" data-ar="✅ Answer:× — websites are not legally required to always provide accurate info." data-en="✅ Answer: × — websites are not legally required to always provide accurate info.">✅ الإجابة: <b>×</b> — المواقع مش ملزمة قانونياً دائماً بتوفير معلومات دقيقة.</div>
           </div>
 
           <div class="ex-item">
@@ -1383,7 +1382,7 @@
               <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;Appropriate" data-en="○&nbsp;&nbsp;Appropriate">○&nbsp;&nbsp;مناسبة</div>
               <div class="ex-opt" data-ar="×&nbsp;&nbsp;Inappropriate" data-en="×&nbsp;&nbsp;Inappropriate">×&nbsp;&nbsp;مش مناسبة</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: ○ — respecting personal information is the foundation of information ethics." data-en="✅ Answer: ○ — respecting personal information is the foundation of information ethics.">✅ الإجابة: <b>○</b> — احترام المعلومات الشخصية أساس الأخلاقيات المعلوماتية.</div>
+            <div class="ex-answer" data-ar="✅ Answer:○ — respecting personal information is the foundation of information ethics." data-en="✅ Answer: ○ — respecting personal information is the foundation of information ethics.">✅ الإجابة: <b>○</b> — احترام المعلومات الشخصية أساس الأخلاقيات المعلوماتية.</div>
           </div>
 
           <div class="ex-item">
@@ -1392,7 +1391,7 @@
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;Appropriate" data-en="○&nbsp;&nbsp;Appropriate">○&nbsp;&nbsp;مناسبة</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;Inappropriate" data-en="×&nbsp;&nbsp;Inappropriate">×&nbsp;&nbsp;مش مناسبة</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: × — reaching a larger audience is not an excuse to violate privacy." data-en="✅ Answer: × — reaching a larger audience is not an excuse to violate privacy.">✅ الإجابة: <b>×</b> — الوصول لجمهور أكبر مش عذر لانتهاك الخصوصية.</div>
+            <div class="ex-answer" data-ar="✅ Answer:× — reaching a larger audience is not an excuse to violate privacy." data-en="✅ Answer: × — reaching a larger audience is not an excuse to violate privacy.">✅ الإجابة: <b>×</b> — الوصول لجمهور أكبر مش عذر لانتهاك الخصوصية.</div>
           </div>
 
           <div class="ex-item">
@@ -1403,7 +1402,7 @@
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;Social media is just a dangerous tool that causes problems" data-en="C&nbsp;&nbsp;Social media is just a dangerous tool that causes problems">C&nbsp;&nbsp;السوشيال ميديا مش بأداة خطيرة بتسبب مشاكل فقط</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;If you live away from the internet, you will never be a victim of cybercrime" data-en="D&nbsp;&nbsp;If you live away from the internet, you will never be a victim of cybercrime">D&nbsp;&nbsp;لو عشت منفصل عن الإنترنت، مش هتكون ضحية cybercrime</div>
             </div>
-            <div class="ex-answer" data-ar="✅ Answer: A — when disseminating information, ensure it does not infringe on the privacy of others." data-en="✅ Answer: A — when disseminating information, ensure it does not infringe on the privacy of others.">✅ الإجابة: <b>A</b> — عند نشر المعلومات، لازم تتأكد إنها مش تنتهك خصوصية الآخرين.</div>
+            <div class="ex-answer" data-ar="✅ Answer:A — when disseminating information, ensure it does not infringe on the privacy of others." data-en="✅ Answer: A — when disseminating information, ensure it does not infringe on the privacy of others.">✅ الإجابة: <b>A</b> — عند نشر المعلومات، لازم تتأكد إنها مش تنتهك خصوصية الآخرين.</div>
           </div>
         </div>
         <div class="btn-row" style="margin-top:16px">
@@ -1574,7 +1573,7 @@
       var items = document.querySelectorAll('.section-inner');
       var obs = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
-      }, { threshold: 0.05 });
+      }, { threshold:0.05 });
       items.forEach(function (el) { obs.observe(el); });
       window.addEventListener('scroll', function () {
         items.forEach(function (el) {
@@ -1626,7 +1625,7 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
           var s = card.querySelector('.ex-score');
           if (!s) { s = document.createElement('div'); s.className = 'ex-score'; card.appendChild(s); }
           s.innerHTML = (window.currentLang === 'en')
-            ? '✅ Your correct answers: <b>' + right + '</b> out of ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">with ' + noAns + ' question(s) you still haven\'t answered</span>' : '')
+            ? '✅ Your correct answers:<b>' + right + '</b> out of ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">with ' + noAns + ' question(s) you still haven\'t answered</span>' : '')
             : '✅ إجاباتك الصحيحة: <b>' + right + '</b> من ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">مع ' + noAns + ' سؤال لسه مجاوبتش</span>' : '');
         });
       });
@@ -1649,7 +1648,7 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
 
     /* ---------- AR/EN toggle ---------- */
     document.addEventListener('DOMContentLoaded', function () {
-      /* ===== Recall quiz scaffold (contract: tr/recallStart/wireRecall) ===== */
+      /* ===== Recall quiz scaffold (contract:tr/recallStart/wireRecall) ===== */
       function tr(ar, en) {
         return (window.currentLang === 'en') ? en : ar;
       }
@@ -1688,7 +1687,7 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
                 if (ok) o.classList.add('correct');
                 else { o.classList.add('wrong'); var co=q.querySelector('.rq-opt[data-ok="1"]'); if(co) co.classList.add('correct'); }
                 lock(q);
-                showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+                showFb(ok, rqFb(o), ok ? null:(q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
               });
             });
             if (skip) skip.addEventListener('click', function () {
@@ -1713,7 +1712,7 @@ card.querySelectorAll('.ex-opt').forEach(function (o) {
           var val = (lang === 'ar') ? el.getAttribute('data-ar') : el.getAttribute('data-en');
           if (val !== null) { el.innerHTML = val; el.setAttribute('data-lang', lang); }
         });
-        document.dispatchEvent(new CustomEvent('langChange', { detail: { lang: lang } }));
+        document.dispatchEvent(new CustomEvent('langChange', { detail:{ lang: lang } }));
         localStorage.setItem('langPreference', lang);
       }
       var storedLang = localStorage.getItem('langPreference');

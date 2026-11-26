@@ -11,938 +11,937 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 8-5 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
   <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1: #1838f8;
-      --s2: #9a6a00;
-      --s3: #1838f8;
-      --s4: #10B981;
-      --s5: #1838f8;
-      --s6: #d7263d}*{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
+      --s1:#1838f8;
+      --s2:#9a6a00;
+      --s3:#1838f8;
+      --s4:#10B981;
+      --s5:#1838f8;
+      --s6:#d7263d}*{
+      margin:0;
+      padding:0;
+      box-sizing:border-box
     }html{
-      scroll-behavior: smooth
+      scroll-behavior:smooth
     }body{
-      font-family: 'Cairo', 'Cairo', sans-serif;
-      background: var(--bg);
-      color: var(--dim);
-      line-height: 1.9;
-      overflow-x: hidden
+      font-family:'Cairo', 'Cairo', sans-serif;
+      background:var(--bg);
+      color:var(--dim);
+      line-height:1.9;
+      overflow-x:hidden
     }.bg-gradient{
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      background:radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
         radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
-      animation: bgDrift 18s ease-in-out infinite;
+      animation:bgDrift 18s ease-in-out infinite;
     }@keyframes bgDrift{
 
       0%,
       100% {
-        transform: translate(0, 0) scale(1)
+        transform:translate(0, 0) scale(1)
       }
 
       50% {
-        transform: translate(-30px, 20px) scale(1.08)
+        transform:translate(-30px, 20px) scale(1.08)
       }
     }.particles{
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none
     }.particles i{
-      position: absolute;
-      bottom: -10px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--primary);
-      opacity: .3;
-      animation: floatUp 14s linear infinite
+      position:absolute;
+      bottom:-10px;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:var(--primary);
+      opacity:.3;
+      animation:floatUp 14s linear infinite
     }@keyframes floatUp{
       0% {
-        transform: translateY(0);
-        opacity: 0
+        transform:translateY(0);
+        opacity:0
       }
 
       10% {
-        opacity: .3
+        opacity:.3
       }
 
       100% {
-        transform: translateY(-110vh);
-        opacity: 0
+        transform:translateY(-110vh);
+        opacity:0
       }
     }@keyframes heroFloat{
 
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
 
       50% {
-        transform: translateY(-26px)
+        transform:translateY(-26px)
       }
     }@keyframes fadeUp{
       from {
-        opacity: 0;
-        transform: translateY(40px)
+        opacity:0;
+        transform:translateY(40px)
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity:1;
+        transform:translateY(0)
       }
     }main{
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 0 24px
+      max-width:1060px;
+      margin:0 auto;
+      padding:0 24px
     }section{
-      padding: 38px 0
+      padding:38px 0
     }.section-header{
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 16px
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:16px
     }.section-number{
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 18px;
-      color: var(--bg);
-      animation: glow 3s ease-in-out infinite
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:18px;
+      color:var(--bg);
+      animation:glow 3s ease-in-out infinite
     }@keyframes glow{
 
       0%,
       100% {
-        box-shadow: 0 0 20px rgba(25, 60, 255, .25)
+        box-shadow:0 0 20px rgba(25, 60, 255, .25)
       }
 
       50% {
-        box-shadow: 0 0 42px rgba(25, 60, 255, .6)
+        box-shadow:0 0 42px rgba(25, 60, 255, .6)
       }
     }.section-header h2{
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.3
+      font-size:clamp(22px, 4vw, 34px);
+      font-weight:800;
+      color:var(--text);
+      line-height:1.3
     }.section-header .tag{
-      font-size: .9rem
+      font-size:.9rem
     }.section-inner{
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all .6s cubic-bezier(.4, 0, .2, 1)
+      opacity:0;
+      transform:translateY(30px);
+      transition:all .6s cubic-bezier(.4, 0, .2, 1)
     }.section-inner.visible{
-      opacity: 1;
-      transform: translateY(0)
-    }@keyframes autoReveal{ from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }.section-inner{ animation: autoReveal .7s ease-out both; }.section-inner.visible{ animation: none; opacity: 1; transform: translateY(0); }.section-inner+.section-inner{
-      margin-top: 16px
+      opacity:1;
+      transform:translateY(0)
+    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
+      margin-top:16px
     }.card{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 24px;
-      padding: 18px;
-      transition: .3s
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      border-radius:24px;
+      padding:18px;
+      transition:.3s
     }.card:hover{
       background: var(--card-hover);
-      transform: translateY(-5px);
-      border-color: rgba(25, 60, 255, .3)
+      transform:translateY(-5px);
+      border-color:rgba(25, 60, 255, .3)
     }.diagram-wrap{
-      position: relative;
-      border-radius: 24px;
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      overflow: hidden
+      position:relative;
+      border-radius:24px;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      overflow:hidden
     }.diagram-wrap .topbar{
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent))
+      height:3px;
+      background:linear-gradient(90deg, var(--primary), var(--accent))
     }.diagram-wrap .inner{
-      padding: 16px
+      padding:16px
     }h3{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      line-height: 1.4
+      color:var(--text);
+      font-weight:800;
+      font-size:1.25rem;
+      margin-bottom:12px;
+      line-height:1.4
     }p{
-      margin-bottom: 12px
+      margin-bottom:12px
     }b,
     strong{
-      color: var(--text)
+      color:var(--text)
     }.note{
-      background: rgba(255, 215, 0, .06);
-      border: 1px solid rgba(255, 215, 0, .25);
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-top: 14px;
-      font-size: .95rem
+      background:rgba(255, 215, 0, .06);
+      border:1px solid rgba(255, 215, 0, .25);
+      border-radius:12px;
+      padding:14px 16px;
+      margin-top:14px;
+      font-size:.95rem
     }.note b{
-      color: var(--warn)
+      color:var(--warn)
     }.glossary-search{
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: var(--card);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 15px;
-      color-scheme: dark;
-      margin: 14px 0;
+      width:100%;
+      padding:12px 18px;
+      border-radius:50px;
+      border:1px solid rgba(255, 255, 255, 0.15);
+      background:var(--card);
+      color:var(--text);
+      font-family:inherit;
+      font-size:15px;
+      color-scheme:dark;
+      margin:14px 0;
     }.glossary-search:focus{
       outline: none;
-      border-color: var(--primary);
+      border-color:var(--primary);
     }.glossary-filters{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
     }.gl-filter{
-      padding: 6px 16px;
+      padding:6px 16px;
     }.gl-filter.active{
-      background: rgba(6, 182, 212 , 0.2);
-      border-color: var(--s3);
-      color: var(--text);
+      background:rgba(6, 182, 212 , 0.2);
+      border-color:var(--s3);
+      color:var(--text);
     }.glossary-list{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }@media (max-width: 860px){.glossary-list{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }@media (max-width:860px){.glossary-list{
         grid-template-columns: 1fr;
       }
     }.gl-term{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 16px;
-      transition: all 0.3s ease;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, 0.08);
+      border-radius:16px;
+      padding:16px;
+      transition:all 0.3s ease;
     }.gl-term:hover{
       background: var(--card-hover);
-      border-color: var(--s3);
+      border-color:var(--s3);
     }.gl-term h4{
-      font-size: 15px;
-      margin-bottom: 6px;
-      color: var(--s3);
+      font-size:15px;
+      margin-bottom:6px;
+      color:var(--s3);
     }.gl-term p{
-      font-size: 13px;
-      margin-bottom: 0;
+      font-size:13px;
+      margin-bottom:0;
     }.gl-term.hidden{
-      display: none;
+      display:none;
     }.error-box{
-      border: 1px solid rgba(255, 71, 87, .2);
-      background: rgba(255, 71, 87, .05);
-      border-radius: 12px;
-      padding: 16px;
-      margin-top: 6px
+      border:1px solid rgba(255, 71, 87, .2);
+      background:rgba(255, 71, 87, .05);
+      border-radius:12px;
+      padding:16px;
+      margin-top:6px
     }.error-box h4,
     .error-box h3{
-      color: var(--danger);
-      font-weight: 800;
-      margin-bottom: 10px;
-      font-size: 1rem
+      color:var(--danger);
+      font-weight:800;
+      margin-bottom:10px;
+      font-size:1rem
     }.error-box ul{
-      list-style: none
+      list-style:none
     }.error-box li{
-      padding: 4px 0;
-      position: relative;
-      padding-right: 26px
+      padding:4px 0;
+      position:relative;
+      padding-right:26px
     }.error-box li::before{
       content: "⚠️";
-      position: absolute;
-      right: 0;
-      top: 2px;
-      font-size: .95rem
+      position:absolute;
+      right:0;
+      top:2px;
+      font-size:.95rem
     }.error-box li b{
-      color: var(--danger)
+      color:var(--danger)
     }.legend{
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 14px;
-      font-size: .85rem
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:14px;
+      font-size:.85rem
     }.legend span{
-      display: inline-flex;
-      align-items: center;
-      gap: 7px
+      display:inline-flex;
+      align-items:center;
+      gap:7px
     }.legend i{
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-      display: inline-block
+      width:14px;
+      height:14px;
+      border-radius:4px;
+      display:inline-block
     }.concept-block{
-      border-top: 3px solid var(--c);
-      padding-top: 30px;
-      margin-top: 14px
+      border-top:3px solid var(--c);
+      padding-top:30px;
+      margin-top:14px
     }.concept-block:first-of-type{
       margin-top: 0
     }.concept-head{
-      display: flex;
-      align-items: center;
-      gap: 14px
+      display:flex;
+      align-items:center;
+      gap:14px
     }.concept-title{
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.4
+      font-size:1.35rem;
+      font-weight:800;
+      color:var(--text);
+      line-height:1.4
     }.concept-head .tag{
-      font-size: .88rem
+      font-size:.88rem
     }.activity-grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px
     }@media(max-width:860px){.activity-grid{
         grid-template-columns: 1fr
       }
     }.activity-grid .demo-panel{
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 20px;
-      background: rgba(255, 255, 255, .03);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, .06)
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      padding:20px;
+      background:rgba(255, 255, 255, .03);
+      border-radius:16px;
+      border:1px solid rgba(255, 255, 255, .06)
     }.demo-label{
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--dim);
-      margin-bottom: 6px;
-      display: block
+      font-size:.82rem;
+      font-weight:700;
+      color:var(--dim);
+      margin-bottom:6px;
+      display:block
     }.todo-item{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 12px 16px;
-      margin-bottom: 10px
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:12px 16px;
+      margin-bottom:10px
     }.todo-item b{
-      color: var(--text)
+      color:var(--text)
     }.btn{
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border: none;
-      color: #fff;
-      font-family: inherit;
-      font-weight: 800;
-      padding: 12px 28px;
-      border-radius: 40px;
-      cursor: pointer;
-      font-size: .95rem;
-      transition: .2s;
-      box-shadow: 0 6px 24px rgba(25, 60, 255, .3)
+      background:linear-gradient(90deg, var(--primary), var(--accent));
+      border:none;
+      color:#fff;
+      font-family:inherit;
+      font-weight:800;
+      padding:12px 28px;
+      border-radius:40px;
+      cursor:pointer;
+      font-size:.95rem;
+      transition:.2s;
+      box-shadow:0 6px 24px rgba(25, 60, 255, .3)
     }.btn:hover{
       transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(0, 212, 170, .3)
+      box-shadow:0 10px 32px rgba(0, 212, 170, .3)
     }.mini-btn{
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      color: var(--text);
-      font-family: inherit;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: .85rem
+      background:rgba(255, 255, 255, .06);
+      border:1px solid rgba(255, 255, 255, .12);
+      color:var(--text);
+      font-family:inherit;
+      font-weight:600;
+      padding:8px 18px;
+      border-radius:30px;
+      cursor:pointer;
+      font-size:.85rem
     }.mini-btn:hover{
       background: rgba(255, 255, 255, .12)
     }.btn-row{
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap
     }.kbd{
-      display: inline-block;
-      background: #e9edfe;
-      border: 1px solid rgba(255, 255, 255, .15);
-      border-radius: 6px;
-      padding: 2px 10px;
-      font-size: .85rem;
-      color: var(--text);
-      font-family: 'Consolas', monospace
+      display:inline-block;
+      background:#e9edfe;
+      border:1px solid rgba(255, 255, 255, .15);
+      border-radius:6px;
+      padding:2px 10px;
+      font-size:.85rem;
+      color:var(--text);
+      font-family:'Consolas', monospace
     }.hint-line{
-      font-size: .85rem;
-      color: var(--dim);
-      margin-top: 8px
+      font-size:.85rem;
+      color:var(--dim);
+      margin-top:8px
     }.tl-card{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 24px;
-      padding: 24px
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      border-radius:24px;
+      padding:24px
     }.tl-steps{
-      min-height: 120px;
-      display: flex;
-      align-items: center
+      min-height:120px;
+      display:flex;
+      align-items:center
     }.tl-step{
-      display: none;
-      text-align: center;
-      width: 100%
+      display:none;
+      text-align:center;
+      width:100%
     }.tl-step.active{
-      display: block;
-      animation: tlIn .4s ease
+      display:block;
+      animation:tlIn .4s ease
     }@keyframes tlIn{
       from {
-        opacity: 0;
-        transform: translateY(12px)
+        opacity:0;
+        transform:translateY(12px)
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity:1;
+        transform:translateY(0)
       }
     }.tl-icon{
-      font-size: 2.1rem;
-      margin-bottom: 6px;
-      display: inline-block
+      font-size:2.1rem;
+      margin-bottom:6px;
+      display:inline-block
     }.tl-year-badge{
-      display: inline-block;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      border-radius: 20px;
-      padding: 3px 16px;
-      font-size: .85rem;
-      color: var(--accent);
-      font-weight: 700
+      display:inline-block;
+      background:rgba(255, 255, 255, .06);
+      border:1px solid rgba(255, 255, 255, .12);
+      border-radius:20px;
+      padding:3px 16px;
+      font-size:.85rem;
+      color:var(--accent);
+      font-weight:700
     }.tl-title{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.2rem;
-      margin: 8px 0 6px
+      color:var(--text);
+      font-weight:800;
+      font-size:1.2rem;
+      margin:8px 0 6px
     }.tl-desc{
-      color: var(--dim);
-      font-size: .98rem;
-      max-width: 660px;
-      margin: 0 auto
+      color:var(--dim);
+      font-size:.98rem;
+      max-width:660px;
+      margin:0 auto
     }.tl-nav{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px
     }.svg-stage{
-      position: relative;
-      max-width: 760px;
-      margin: 10px auto 0
+      position:relative;
+      max-width:760px;
+      margin:10px auto 0
     }.svg-stage .svg-main{
-      width: 100%;
-      height: auto;
-      display: block
+      width:100%;
+      height:auto;
+      display:block
     }.svg-label{
-      position: absolute;
-      transform: translate(-50%, -50%);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(10, 14, 39, .88);
-      border: 1px solid rgba(255, 255, 255, .16);
-      border-radius: 12px;
-      padding: 5px 12px;
-      font-size: .9rem;
-      font-weight: 700;
-      color: var(--text);
-      white-space: nowrap;
-      z-index: 3;
-      pointer-events: none;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, .45)
+      position:absolute;
+      transform:translate(-50%, -50%);
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:rgba(10, 14, 39, .88);
+      border:1px solid rgba(255, 255, 255, .16);
+      border-radius:12px;
+      padding:5px 12px;
+      font-size:.9rem;
+      font-weight:700;
+      color:var(--text);
+      white-space:nowrap;
+      z-index:3;
+      pointer-events:none;
+      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
     }.svg-box{
-      fill: url(#bxG);
-      stroke: rgba(255, 255, 255, .14);
-      stroke-width: 2;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
+      fill:url(#bxG);
+      stroke:rgba(255, 255, 255, .14);
+      stroke-width:2;
+      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
     }.flow-box{
-      fill: url(#bxG);
-      stroke: rgba(255, 255, 255, .14);
-      stroke-width: 2;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition: stroke .3s, filter .3s
+      fill:url(#bxG);
+      stroke:rgba(255, 255, 255, .14);
+      stroke-width:2;
+      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
+      transition:stroke .3s, filter .3s
     }.flow-box.on{
-      stroke: var(--accent);
-      filter: drop-shadow(0 0 18px rgba(0, 212, 170, .5))
+      stroke:var(--accent);
+      filter:drop-shadow(0 0 18px rgba(0, 212, 170, .5))
     }.flow-wire{
-      stroke: #dfe5fb;
-      stroke-width: 3;
-      fill: none;
-      transition: stroke .3s
+      stroke:#dfe5fb;
+      stroke-width:3;
+      fill:none;
+      transition:stroke .3s
     }.flow-wire.on{
-      stroke: var(--accent);
-      stroke-width: 3.5;
-      stroke-dasharray: 6 12;
-      stroke-linecap: round;
-      animation: flow 1.1s linear infinite;
-      filter: drop-shadow(0 0 6px rgba(0, 212, 170, .6))
+      stroke:var(--accent);
+      stroke-width:3.5;
+      stroke-dasharray:6 12;
+      stroke-linecap:round;
+      animation:flow 1.1s linear infinite;
+      filter:drop-shadow(0 0 6px rgba(0, 212, 170, .6))
     }@keyframes flow{
       to {
-        stroke-dashoffset: -36
+        stroke-dashoffset:-36
       }
     }.wire-arrow{
-      fill: var(--accent);
-      opacity: 0;
-      transition: opacity .3s;
-      filter: drop-shadow(0 0 4px rgba(0, 212, 170, .6))
+      fill:var(--accent);
+      opacity:0;
+      transition:opacity .3s;
+      filter:drop-shadow(0 0 4px rgba(0, 212, 170, .6))
     }.wire-arrow.on{
-      opacity: 1
+      opacity:1
     }.flow-port{
-      fill: #dfe5fb;
-      stroke: var(--bg);
-      stroke-width: 2;
-      transition: fill .3s
+      fill:#dfe5fb;
+      stroke:var(--bg);
+      stroke-width:2;
+      transition:fill .3s
     }.flow-port.on{
-      fill: var(--accent);
-      filter: drop-shadow(0 0 8px rgba(0, 212, 170, .8))
+      fill:var(--accent);
+      filter:drop-shadow(0 0 8px rgba(0, 212, 170, .8))
     }.bcast-wave{
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 2;
-      opacity: 0;
-      transform-box: fill-box;
-      transform-origin: center
+      fill:none;
+      stroke:var(--accent);
+      stroke-width:2;
+      opacity:0;
+      transform-box:fill-box;
+      transform-origin:center
     }.bcast-wave.run{
-      animation: wave 1.8s ease-out infinite
+      animation:wave 1.8s ease-out infinite
     }.bcast-wave.run:nth-of-type(2){
       animation-delay: .5s
     }@keyframes wave{
       0% {
-        opacity: .8;
-        transform: scale(.4)
+        opacity:.8;
+        transform:scale(.4)
       }
 
       100% {
-        opacity: 0;
-        transform: scale(1.5)
+        opacity:0;
+        transform:scale(1.5)
       }
     }.flow-arrow{
-      color: var(--accent);
-      overflow: visible
+      color:var(--accent);
+      overflow:visible
     }.flow-arrow use{
-      transform-box: fill-box;
-      transform-origin: center
+      transform-box:fill-box;
+      transform-origin:center
     }.flow-arrow use.flip{
-      transform: scaleX(-1)
+      transform:scaleX(-1)
     }.mx-grid{
-      display: grid;
-      grid-template-columns: 140px 1fr 1fr;
-      gap: 10px;
-      margin-top: 8px
+      display:grid;
+      grid-template-columns:140px 1fr 1fr;
+      gap:10px;
+      margin-top:8px
     }.mx-grid>div{
-      border-radius: 14px;
-      padding: 14px
+      border-radius:14px;
+      padding:14px
     }.mx-head{
-      background: rgba(25, 60, 255, .12);
-      border: 1px solid rgba(25, 60, 255, .35);
-      font-weight: 800;
-      color: var(--text);
-      text-align: center
+      background:rgba(25, 60, 255, .12);
+      border:1px solid rgba(25, 60, 255, .35);
+      font-weight:800;
+      color:var(--text);
+      text-align:center
     }.mx-row{
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .1);
-      font-weight: 800;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center
+      background:rgba(255, 255, 255, .04);
+      border:1px solid rgba(255, 255, 255, .1);
+      font-weight:800;
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center
     }.mx-cell{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .07);
-      min-height: 70px
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .07);
+      min-height:70px
     }.mx-cell b{
-      display: block;
-      color: var(--text);
-      font-size: .9rem;
-      margin-bottom: 4px
+      display:block;
+      color:var(--text);
+      font-size:.9rem;
+      margin-bottom:4px
     }.mx-chip{
-      display: inline-block;
-      background: rgba(0, 212, 170, .1);
-      border: 1px solid rgba(0, 212, 170, .35);
-      color: var(--accent);
-      border-radius: 20px;
-      padding: 3px 12px;
-      font-size: .85rem;
-      margin: 4px
+      display:inline-block;
+      background:rgba(0, 212, 170, .1);
+      border:1px solid rgba(0, 212, 170, .35);
+      color:var(--accent);
+      border-radius:20px;
+      padding:3px 12px;
+      font-size:.85rem;
+      margin:4px
     }.mx-empty{
-      color: var(--dim);
-      font-size: .9rem;
-      text-align: center;
-      padding: 8px
+      color:var(--dim);
+      font-size:.9rem;
+      text-align:center;
+      padding:8px
     }@media(max-width:700px){.mx-grid{
         grid-template-columns: 1fr 1fr
       }.mx-row{
-        grid-column: span 2
+        grid-column:span 2
       }
     }.ex-item{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:14px
     }.ex-item .q{
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px
     }.ex-options{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px
     }@media(max-width:640px){.ex-options{
         grid-template-columns: 1fr
       }
     }.ex-opt{
-      direction: rtl;
-      text-align: right;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: .9rem;
-      color: #c7d2fe;
-      white-space: pre-wrap;
-      cursor: pointer;
-      transition: .15s;
-      user-select: none
+      direction:rtl;
+      text-align:right;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .09);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:.9rem;
+      color:#c7d2fe;
+      white-space:pre-wrap;
+      cursor:pointer;
+      transition:.15s;
+      user-select:none
     }.ex-opt:hover{
       border-color: rgba(0, 212, 170, .5);
-      background: rgba(0, 212, 170, .08)
+      background:rgba(0, 212, 170, .08)
     }.ex-opt.picked{
-      border-color: var(--primary);
-      background: rgba(25, 60, 255, .18);
-      color: #fff;
-      box-shadow: 0 0 0 1px var(--primary)
+      border-color:var(--primary);
+      background:rgba(25, 60, 255, .18);
+      color:#fff;
+      box-shadow:0 0 0 1px var(--primary)
     }.ex-opt.correct{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .12);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .12);
+      color:var(--success)
     }.ex-opt.wrong{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .12);
-      color: #f8d7da
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .12);
+      color:#2f2e3c
     }.ex-key{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      background: rgba(6, 182, 212 , .18);
-      border: 1px solid rgba(6, 182, 212 , .55);
-      color: var(--s3);
-      font-weight: 800;
-      font-size: .78rem;
-      margin-right: 10px;
-      vertical-align: middle;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      background:rgba(6, 182, 212 , .18);
+      border:1px solid rgba(6, 182, 212 , .55);
+      color:var(--s3);
+      font-weight:800;
+      font-size:.78rem;
+      margin-right:10px;
+      vertical-align:middle;
+      flex-shrink:0
     }.ex-body{
-      vertical-align: middle;
-      display: inline-block;
-      white-space: normal
+      vertical-align:middle;
+      display:inline-block;
+      white-space:normal
     }.ex-answer{
-      display: none;
-      margin-top: 10px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: .92rem
+      display:none;
+      margin-top:10px;
+      padding:10px 14px;
+      border-radius:10px;
+      font-size:.92rem
     }.ex-answer.show{
-      display: block;
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: rgba(0, 255, 136, .07);
-      color: var(--success)
+      display:block;
+      border:1px solid rgba(0, 255, 136, .35);
+      background:rgba(0, 255, 136, .07);
+      color:var(--success)
     }.ex-answer.show b{
-      color: var(--success);
-      margin: 0 6px
+      color:var(--success);
+      margin:0 6px
     }.ex-score{
-      margin-top: 14px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: rgba(0, 255, 136, .08);
-      border: 1px solid rgba(0, 255, 136, .35);
-      color: var(--success);
-      font-size: .95rem
+      margin-top:14px;
+      padding:12px 16px;
+      border-radius:12px;
+      background:rgba(0, 255, 136, .08);
+      border:1px solid rgba(0, 255, 136, .35);
+      color:var(--success);
+      font-size:.95rem
     }.group-label{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.05rem;
-      margin: 22px 0 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px
+      color:var(--text);
+      font-weight:800;
+      font-size:1.05rem;
+      margin:22px 0 12px;
+      display:flex;
+      align-items:center;
+      gap:8px
     }.group-label::before{
       content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 3px;
-      background: var(--s3);
-      flex-shrink: 0
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      background:var(--s3);
+      flex-shrink:0
     }.recall{
-      display: none;
-      margin-top: 16px
+      display:none;
+      margin-top:16px
     }.recall.show{
-      display: block
+      display:block
     }.rq{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:14px
     }.rq-q{
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px
     }.rq-opts{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px
     }@media(max-width:640px){.rq-opts{
         grid-template-columns: 1fr
       }
     }.rq-opt{
-      direction: rtl;
-      text-align: right;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: .9rem;
-      color: #c7d2fe;
-      cursor: pointer;
-      transition: .15s;
-      user-select: none
+      direction:rtl;
+      text-align:right;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .09);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:.9rem;
+      color:#c7d2fe;
+      cursor:pointer;
+      transition:.15s;
+      user-select:none
     }.rq-opt:hover{
       border-color: rgba(0, 212, 170, .5);
-      background: rgba(0, 212, 170, .08)
+      background:rgba(0, 212, 170, .08)
     }.rq-opt.disabled{
-      pointer-events: none;
-      opacity: .65
+      pointer-events:none;
+      opacity:.65
     }.rq-opt.correct{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .12);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .12);
+      color:var(--success)
     }.rq-opt.wrong{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .12);
-      color: #f8d7da
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .12);
+      color:#2f2e3c
     }.rq-key{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 26px;
-      height: 26px;
-      border-radius: 6px;
-      background: rgba(25, 60, 255, .14);
-      border: 1px solid rgba(25, 60, 255, .5);
-      color: #c7d2fe;
-      font-weight: 800;
-      font-size: .82rem;
-      margin-right: 10px;
-      vertical-align: middle;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:26px;
+      height:26px;
+      border-radius:6px;
+      background:rgba(25, 60, 255, .14);
+      border:1px solid rgba(25, 60, 255, .5);
+      color:#c7d2fe;
+      font-weight:800;
+      font-size:.82rem;
+      margin-right:10px;
+      vertical-align:middle;
+      flex-shrink:0
     }.rq-fb{
-      margin-top: 10px;
-      display: none;
-      font-size: .92rem;
-      padding: 10px 14px;
-      border-radius: 10px
+      margin-top:10px;
+      display:none;
+      font-size:.92rem;
+      padding:10px 14px;
+      border-radius:10px
     }.rq-fb.show{
-      display: block
+      display:block
     }.rq-fb.ok{
-      background: rgba(0, 255, 136, .07);
-      border: 1px solid rgba(0, 255, 136, .35);
-      color: var(--success)
+      background:rgba(0, 255, 136, .07);
+      border:1px solid rgba(0, 255, 136, .35);
+      color:var(--success)
     }.rq-fb.no{
-      background: rgba(255, 71, 87, .07);
-      border: 1px solid rgba(255, 71, 87, .35);
-      color: #f8d7da
+      background:rgba(255, 71, 87, .07);
+      border:1px solid rgba(255, 71, 87, .35);
+      color:#2f2e3c
     }.journey{
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding-right: 26px
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      padding-right:26px
     }.journey::before{
       content: "";
-      position: absolute;
-      right: 9px;
-      top: 14px;
-      bottom: 14px;
-      width: 3px;
-      border-radius: 3px;
-      background: linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
+      position:absolute;
+      right:9px;
+      top:14px;
+      bottom:14px;
+      width:3px;
+      border-radius:3px;
+      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
     }.j-node{
-      position: relative;
-      display: grid;
-      grid-template-columns: 20px 1fr;
-      gap: 16px;
-      padding: 14px 0
+      position:relative;
+      display:grid;
+      grid-template-columns:20px 1fr;
+      gap:16px;
+      padding:14px 0
     }.j-dot{
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 3px;
-      z-index: 2
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      flex-shrink:0;
+      margin-top:3px;
+      z-index:2
     }.j-body .t{
-      color: var(--text);
-      font-weight: 700
+      color:var(--text);
+      font-weight:700
     }.j-body .d{
-      font-size: .93rem
+      font-size:.93rem
     }.journey-item{
-      position: relative;
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 14px;
-      padding: 12px 0
+      position:relative;
+      display:grid;
+      grid-template-columns:44px 1fr;
+      gap:14px;
+      padding:12px 0
     }.journey-item h4{
-      color: var(--text);
-      font-size: 1rem;
-      margin: 0 0 4px
+      color:var(--text);
+      font-size:1rem;
+      margin:0 0 4px
     }.journey-item p{
-      margin: 0;
-      font-size: .92rem
+      margin:0;
+      font-size:.92rem
     }.pill{
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin-bottom: 10px;
-      font-size: .92rem;
-      line-height: 1.7
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      border-radius:14px;
+      padding:12px 14px;
+      margin-bottom:10px;
+      font-size:.92rem;
+      line-height:1.7
     }.pill-dot{
-      flex-shrink: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-top: 7px
+      flex-shrink:0;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      margin-top:7px
     }.mx-wrap{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 16px;
-      padding: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:16px;
+      padding:14px
     }.ex-btn-row{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 16px;
-      flex-wrap: wrap
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:16px;
+      flex-wrap:wrap
     }.congrats{
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
+      border:1px solid rgba(0, 255, 136, .35);
+      background:linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
     }#scrollTop{
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 60;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      border: 1px solid rgba(0, 212, 170, .4);
-      background: rgba(10, 14, 39, .9);
-      color: var(--accent);
-      font-size: 1.15rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      transition: .2s;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .35)
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      z-index:60;
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      border:1px solid rgba(0, 212, 170, .4);
+      background:rgba(10, 14, 39, .9);
+      color:var(--accent);
+      font-size:1.15rem;
+      font-weight:800;
+      cursor:pointer;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      transition:.2s;
+      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
     }#scrollTop.show{
-      display: flex
+      display:flex
     }#scrollTop:hover{
       background: rgba(0, 212, 170, .15)
     }.emoji-float{
-      display: inline-block;
-      animation: ef 3s ease-in-out infinite
+      display:inline-block;
+      animation:ef 3s ease-in-out infinite
     }@keyframes ef{
 
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
 
       50% {
-        transform: translateY(-5px)
+        transform:translateY(-5px)
       }
     }.emoji-pulse{
-      display: inline-block;
-      animation: ep 2s ease-in-out infinite
+      display:inline-block;
+      animation:ep 2s ease-in-out infinite
     }@keyframes ep{
 
       0%,
       100% {
-        transform: scale(1)
+        transform:scale(1)
       }
 
       50% {
-        transform: scale(1.12)
+        transform:scale(1.12)
       }
     }.bg-gradient,.particles,.bg-animation,.particle{
-      display: none !important;
+      display:none !important;
     }.gradient-text{
-      background: none !important;
-      -webkit-text-fill-color: var(--primary) !important;
-      color: var(--primary) !important;
+      background:none !important;
+      -webkit-text-fill-color:var(--primary) !important;
+      color:var(--primary) !important;
     }.lesson-section::before,
     .lesson-section[data-accent]::before{
       background: var(--primary) !important;
     }.section-number,
     .lesson-section[data-accent] .section-number{
-      background: var(--primary) !important;
-      color: #fff !important;
-      box-shadow: none !important;
-      animation: none !important;
+      background:var(--primary) !important;
+      color:#fff !important;
+      box-shadow:none !important;
+      animation:none !important;
     }[class*="-bar-fill"]{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }[class*="-bar-fill"].good{
-      background: var(--success) !important;
+      background:var(--success) !important;
     }[class*="-bar-fill"].mid{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }[class*="-bar-fill"].bad{
-      background: var(--danger) !important;
+      background:var(--danger) !important;
     }.unit-num, .unit-card{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }.cta-btn,.btn{
-      background: var(--primary) !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .25) !important;
+      background:var(--primary) !important;
+      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
     }.cta-btn:hover,.btn:hover{
       box-shadow: 0 10px 26px rgba(0, 0, 0, .3) !important;
     }[style*="linear-gradient"]{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }.book-card{
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-inline-start: 4px solid var(--s2, #9a6a00);
-      border-radius: 18px;
-      padding: 20px 22px;
-      margin: 18px 0
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-inline-start:4px solid var(--s2, #9a6a00);
+      border-radius:18px;
+      padding:20px 22px;
+      margin:18px 0
     }.book-card.try{
-      border-inline-start-color: var(--s5, #1440c9)
+      border-inline-start-color:var(--s5, #1440c9)
     }.book-card.try h3{
-      color: var(--s5, #1440c9)
+      color:var(--s5, #1440c9)
     }.book-card h3{
-      margin: 0 0 10px;
-      color: var(--s2, #9a6a00)
+      margin:0 0 10px;
+      color:var(--s2, #9a6a00)
     }.book-card ol, .book-card ul{
-      margin: 8px 0;
-      padding-inline-start: 22px
+      margin:8px 0;
+      padding-inline-start:22px
     }.book-card li{
-      margin-bottom: 6px
+      margin-bottom:6px
     }.book-src{
-      display: block;
-      margin-top: 12px;
-      font-size: .82rem;
-      opacity: .65
+      display:block;
+      margin-top:12px;
+      font-size:.82rem;
+      opacity:.65
     }.book-diff{
-      margin-top: 12px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: rgba(245, 158, 11, .08);
-      border: 1px solid rgba(245, 158, 11, .3);
-      font-size: .9rem
+      margin-top:12px;
+      padding:10px 14px;
+      border-radius:10px;
+      background:rgba(245, 158, 11, .08);
+      border:1px solid rgba(245, 158, 11, .3);
+      font-size:.9rem
     }
 
 </style>
@@ -1000,11 +999,11 @@
     <div class="section-inner">
         <!-- TEXTBOOK-CARD-BEGIN id="book-point" -->
         <div class="book-card">
-          <h3 data-ar="من الكتاب: النقاط الرئيسية — سرعة نقل الشبكة" data-en="From the book: Point box — Network Transfer Speed">من الكتاب: النقاط الرئيسية — سرعة نقل الشبكة</h3>
-          <p data-ar="«سرعة نقل الشبكة (1) سرعة النقل : الـ (عدد البتات) من البيانات التي يمكن نقلها في الثانية. الوحدة هي (bps). 1 كيلوبت في الثانية = (1,000bps) ، و 1ميجابت في الثانية = (1,000Kbps) (( )) 1 جيجابت في الثانية = (1,000Mbps)»" data-en="&quot;Network Transfer Speed (1) Transfer speed : The (number of bits) of data that can be transferred per second. The unit is (bps). 1 kbps = (1,000 bps), 1 Mbps = (1,000 kbps), 1 Gbps = (1,000 Mbps)&quot;">«سرعة نقل الشبكة (1) سرعة النقل : الـ (عدد البتات) من البيانات التي يمكن نقلها في الثانية. الوحدة هي (bps). 1 كيلوبت في الثانية = (1,000bps) ، و 1ميجابت في الثانية = (1,000Kbps) (( )) 1 جيجابت في الثانية = (1,000Mbps)»</p>
+          <h3 data-ar="من الكتاب:النقاط الرئيسية — سرعة نقل الشبكة" data-en="From the book: Point box — Network Transfer Speed">من الكتاب: النقاط الرئيسية — سرعة نقل الشبكة</h3>
+          <p data-ar="«سرعة نقل الشبكة (1) سرعة النقل : الـ (عدد البتات) من البيانات التي يمكن نقلها في الثانية. الوحدة هي (bps). 1 كيلوبت في الثانية = (1,000bps) ، و 1ميجابت في الثانية = (1,000Kbps) (( )) 1 جيجابت في الثانية = (1,000Mbps)»" data-en="&quot;Network Transfer Speed (1) Transfer speed:The (number of bits) of data that can be transferred per second. The unit is (bps). 1 kbps = (1,000 bps), 1 Mbps = (1,000 kbps), 1 Gbps = (1,000 Mbps)&quot;">«سرعة نقل الشبكة (1) سرعة النقل:الـ (عدد البتات) من البيانات التي يمكن نقلها في الثانية. الوحدة هي (bps). 1 كيلوبت في الثانية = (1,000bps) ، و 1ميجابت في الثانية = (1,000Kbps) (( )) 1 جيجابت في الثانية = (1,000Mbps)»</p>
           <p data-ar="«(2) العلاقة بين سرعة النقل، ووقت النقل، وحجم البيانات [1] سرعة النقل [bps] = ( حجم البيانات [بت] / وقت النقل [ثواني] ) [2] وقت النقل [ثواني] = ( حجم البيانات [بت] / سرعة نقل البيانات [bps] ) [3] حجم البيانات [بت] = (سرعة النقل [bps] × وقت النقل [ثواني]) (3) (كفاءة النقل) : النسبة التي يمكن من خلالها تحقيق سرعة اتصال معينة. سرعة النقل الفعلية = (سرعة الاتصال [bps] × كفاءة النقل)(( ))»" data-en="&quot;(2) The relationship between transfer speed, transfer time, and data volume [1] Transfer speed [bps] = ( Data volume [bits] / Transmission time [seconds] ) [2] Transfer time [seconds] = ( Data volume [bits] / Data transfer speed [bps] ) [3] Data volume [bits] = (Transfer speed [bps] × Transfer time [seconds]) (3) (Transfer efficiency) : The ratio at which a certain communication speed can be achieved. Actual transfer speed = (Communication speed [bps] × Transfer efficiency)&quot;">«(2) العلاقة بين سرعة النقل، ووقت النقل، وحجم البيانات [1] سرعة النقل [bps] = ( حجم البيانات [بت] / وقت النقل [ثواني] ) [2] وقت النقل [ثواني] = ( حجم البيانات [بت] / سرعة نقل البيانات [bps] ) [3] حجم البيانات [بت] = (سرعة النقل [bps] × وقت النقل [ثواني]) (3) (كفاءة النقل) : النسبة التي يمكن من خلالها تحقيق سرعة اتصال معينة. سرعة النقل الفعلية = (سرعة الاتصال [bps] × كفاءة النقل)(( ))»</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان الدرس: العربية «سرعة نقل البيانات على الشبكات»؛ الإنجليزية &quot;Network Transfer Speed&quot;، وداخل صندوق النقاط العربية «سرعة نقل الشبكة». وحدات القياس: العربية تطبع «(1,000bps)» و«(1,000Kbps)» بكاف كبيرة و«(1,000Mbps)» بدون مسافات؛ الإنجليزية &quot;(1,000 bps)&quot; و&quot;(1,000 kbps)&quot; و&quot;(1,000 Mbps)&quot;. الرمز الزخرفي (الدائرة السوداء) يظهر في العربية فقط: قبل سطر «1 جيجابت في الثانية» وفي نهاية معادلة السرعة الفعلية. المعادلة [1] في الإنجليزية تطبع المقام &quot;Transmission time [seconds]&quot; بينما المعادلة [2] تطبع &quot;Transfer time [seconds]&quot;؛ العربية تطبع «وقت النقل [ثواني]» في [1] و[2] معًا، وتطبع في [2] «سرعة نقل البيانات [bps]» حيث الإنجليزية &quot;Data transfer speed [bps]&quot;." data-en="Edition comparison (confirmed from the printed page images): lesson title: Arabic «سرعة نقل البيانات على الشبكات»; English &quot;Network Transfer Speed&quot;, with Arabic «سرعة نقل الشبكة» inside the Point box. Units: Arabic prints «(1,000bps)», «(1,000Kbps)» with a capital K, and «(1,000Mbps)» without spaces; English &quot;(1,000 bps)&quot;, &quot;(1,000 kbps)&quot;, &quot;(1,000 Mbps)&quot;. The decorative black-circle glyph appears in Arabic only: before the «1 جيجابت في الثانية» line and at the end of the actual-speed formula. English formula [1] prints the denominator &quot;Transmission time [seconds]&quot; while formula [2] prints &quot;Transfer time [seconds]&quot;; Arabic prints «وقت النقل [ثواني]» in both [1] and [2], and prints «سرعة نقل البيانات [bps]» in [2] where English has &quot;Data transfer speed [bps]&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان الدرس: العربية «سرعة نقل البيانات على الشبكات»؛ الإنجليزية &quot;Network Transfer Speed&quot;، وداخل صندوق النقاط العربية «سرعة نقل الشبكة». وحدات القياس: العربية تطبع «(1,000bps)» و«(1,000Kbps)» بكاف كبيرة و«(1,000Mbps)» بدون مسافات؛ الإنجليزية &quot;(1,000 bps)&quot; و&quot;(1,000 kbps)&quot; و&quot;(1,000 Mbps)&quot;. الرمز الزخرفي (الدائرة السوداء) يظهر في العربية فقط: قبل سطر «1 جيجابت في الثانية» وفي نهاية معادلة السرعة الفعلية. المعادلة [1] في الإنجليزية تطبع المقام &quot;Transmission time [seconds]&quot; بينما المعادلة [2] تطبع &quot;Transfer time [seconds]&quot;؛ العربية تطبع «وقت النقل [ثواني]» في [1] و[2] معًا، وتطبع في [2] «سرعة نقل البيانات [bps]» حيث الإنجليزية &quot;Data transfer speed [bps]&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 109 (المطبوع 109)؛ AR 122." data-en="The text above is from the book. Full source: English PDF 109 (printed 109); Arabic 122.">النص السابق من الكتاب. المصدر الكامل: EN PDF 109 (المطبوع 109)؛ AR 122.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان الدرس:العربية «سرعة نقل البيانات على الشبكات»؛ الإنجليزية &quot;Network Transfer Speed&quot;، وداخل صندوق النقاط العربية «سرعة نقل الشبكة». وحدات القياس:العربية تطبع «(1,000bps)» و«(1,000Kbps)» بكاف كبيرة و«(1,000Mbps)» بدون مسافات؛ الإنجليزية &quot;(1,000 bps)&quot; و&quot;(1,000 kbps)&quot; و&quot;(1,000 Mbps)&quot;. الرمز الزخرفي (الدائرة السوداء) يظهر في العربية فقط:قبل سطر «1 جيجابت في الثانية» وفي نهاية معادلة السرعة الفعلية. المعادلة [1] في الإنجليزية تطبع المقام &quot;Transmission time [seconds]&quot; بينما المعادلة [2] تطبع &quot;Transfer time [seconds]&quot;؛ العربية تطبع «وقت النقل [ثواني]» في [1] و[2] معًا، وتطبع في [2] «سرعة نقل البيانات [bps]» حيث الإنجليزية &quot;Data transfer speed [bps]&quot;." data-en="Edition comparison (confirmed from the printed page images): lesson title:Arabic «سرعة نقل البيانات على الشبكات»; English &quot;Network Transfer Speed&quot;, with Arabic «سرعة نقل الشبكة» inside the Point box. Units:Arabic prints «(1,000bps)», «(1,000Kbps)» with a capital K, and «(1,000Mbps)» without spaces; English &quot;(1,000 bps)&quot;, &quot;(1,000 kbps)&quot;, &quot;(1,000 Mbps)&quot;. The decorative black-circle glyph appears in Arabic only:before the «1 جيجابت في الثانية» line and at the end of the actual-speed formula. English formula [1] prints the denominator &quot;Transmission time [seconds]&quot; while formula [2] prints &quot;Transfer time [seconds]&quot;; Arabic prints «وقت النقل [ثواني]» in both [1] and [2], and prints «سرعة نقل البيانات [bps]» in [2] where English has &quot;Data transfer speed [bps]&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان الدرس:العربية «سرعة نقل البيانات على الشبكات»؛ الإنجليزية &quot;Network Transfer Speed&quot;، وداخل صندوق النقاط العربية «سرعة نقل الشبكة». وحدات القياس:العربية تطبع «(1,000bps)» و«(1,000Kbps)» بكاف كبيرة و«(1,000Mbps)» بدون مسافات؛ الإنجليزية &quot;(1,000 bps)&quot; و&quot;(1,000 kbps)&quot; و&quot;(1,000 Mbps)&quot;. الرمز الزخرفي (الدائرة السوداء) يظهر في العربية فقط:قبل سطر «1 جيجابت في الثانية» وفي نهاية معادلة السرعة الفعلية. المعادلة [1] في الإنجليزية تطبع المقام &quot;Transmission time [seconds]&quot; بينما المعادلة [2] تطبع &quot;Transfer time [seconds]&quot;؛ العربية تطبع «وقت النقل [ثواني]» في [1] و[2] معًا، وتطبع في [2] «سرعة نقل البيانات [bps]» حيث الإنجليزية &quot;Data transfer speed [bps]&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 109 (المطبوع 109)؛ AR 122." data-en="The text above is from the book. Full source: English PDF 109 (printed 109); Arabic 122.">النص السابق من الكتاب. المصدر الكامل:EN PDF 109 (المطبوع 109)؛ AR 122.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-point" -->
     </div>
@@ -1648,7 +1647,7 @@
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
             <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 109–110 (المطبوع 109–110)؛ AR 122–123"
-              data-en="Your book: EN PDF 109–110 (printed 109–110); AR 122–123">الكتاب بتاعك: EN PDF 109–110 (المطبوع 109–110)؛ AR 122–123</div>
+              data-en="Your book: EN PDF 109–110 (printed 109–110); AR 122–123">الكتاب بتاعك:EN PDF 109–110 (المطبوع 109–110)؛ AR 122–123</div>
           </div>
         </div>
       </div>
@@ -1673,9 +1672,9 @@
         <div class="book-card">
           <h3 data-ar="من الكتاب: تحدي معلوماتك — الإجابات مطبوعة في «الشرح» أسفل السؤالين" data-en="From the book: Warm Up — the answers are printed in the Explanation below the questions">من الكتاب: تحدي معلوماتك — الإجابات مطبوعة في «الشرح» أسفل السؤالين</h3>
           <p data-ar="«أجب عن الأسئلة التالية. (1) في هذه الأسئلة، افترض أن 8 bits = 1 Byte و 1 KB = 1,000 bits و 1 MB = 1,000 KB، و 1000 MB = 1 GB (1) احسب الوقت المطلوب لنقل 20 MB من البيانات بسرعة اتصال 40 Mbps. افترض أن كفاءة النقل 100% وتجاهل أي بيانات أخرى غير حجم البيانات. (2) احسب الوقت المطلوب لنقل 1 GB من البيانات بسرعة اتصال 100Mbps . افترض أن كفاءة النقل 80% وتجاهل أي بيانات أخرى غير حجم البيانات.»" data-en="&quot;Answer the following questions. In these questions, assume that 1 KB = 1,000 B, 1 MB = 1,000 KB, and 1 GB = 1,000 MB. (1) Calculate the time required to transfer 20 MB of data at a communication speed of 40 Mbps. Assume that the transfer efficiency is 100% and disregard any data other than the data volume. (2) Calculate the time required to transfer 1 GB of data with a communication speed of 100 Mbps. Assume that the transfer efficiency is 80% and disregard any data other than the data volume.&quot;">«أجب عن الأسئلة التالية. (1) في هذه الأسئلة، افترض أن 8 bits = 1 Byte و 1 KB = 1,000 bits و 1 MB = 1,000 KB، و 1000 MB = 1 GB (1) احسب الوقت المطلوب لنقل 20 MB من البيانات بسرعة اتصال 40 Mbps. افترض أن كفاءة النقل 100% وتجاهل أي بيانات أخرى غير حجم البيانات. (2) احسب الوقت المطلوب لنقل 1 GB من البيانات بسرعة اتصال 100Mbps . افترض أن كفاءة النقل 80% وتجاهل أي بيانات أخرى غير حجم البيانات.»</p>
-          <p data-ar="«الشرح» المطبوع: «(2) حجم البيانات [bps] = سرعة النقل [bits]/ زمن النقل [ثواني] افترض أن 8 bits = 1 Byte و 1 KB = 1,000 bit و 1 MB = 1,000 KB، و 1000 MB = 1 GB وبالتالي 20 [ميجابايت] = 20 × 1,000 × 1,000 × 8 [Bit] أيضًا، 40 [MB في الثانية] = 40 × 1,000 × 1,000 [bit في الثانية] وبالتالي، فإن حساب وقت النقل يكون كما يلي: - 20 × 1,000 × 1,000 × 8 [Bit] / 40 × 1,000 × 1,000 [bit في الثانية] = 4 ثواني (3) 1 [جيجابايت] = 1 × 1,000 × 1,000 × 1,000 × 8 [Bit] نظرًا لأن كفاءة النقل تبلغ 80%، فإن سرعة النقل الفعلية هي 100 [MB في الثانية] × 0.8 = 80 [MB في الثانية] 80 [MB في الثانية] = 80 × 1,000 × 1,000 [bit في الثانية]، وبالتالي يكون حساب وقت النقل كما يلي: 1 × 1,000 × 1,000 × 1,000 × 8 [Bit] / 80 × 1,000 × 1,000 [bit في الثانية] = 100 ثواني» — تُنقل العبارات كما طُبعت دون تصحيح؛ انظر المقارنة بالأسفل." data-en="The printed Explanation: &quot;(1) Transfer time [seconds] = Data volume [bits] / Transfer speed [bps]. 1 B = 8 bits, 1 KB = 1,000B, 1 MB = 1,000 KB, therefore, 20 [MB] = 20 × 1,000 × 1,000 × 8 [bits] (Convert units). Also, 40 [Mbps] = 40 × 1,000 × 1,000 [bps]. Therefore, the calculation of transfer time is as follows: 20 × 1,000 × 1,000 × 8 [bits] / 40 × 1,000 × 1,000 [bps] = 4 [seconds] — 4 seconds. (2) 1 [GB] = 1 × 1,000 × 1,000 × 1,000 × 8 [bits]. Moreover, since the transfer efficiency is 80%, the actual transfer speed is 100 [Mbps] × 0.8 = 80 [Mbps]. 80 [Mbps] = 80 × 1,000 × 1,000 [bps], therefore, the calculation of transfer time is as follows: 1 × 1,000 × 1,000 × 1,000 × 8 [bits] / 80 × 1,000 × 1,000 [bps] = 100 [seconds] — 100 seconds.&quot;">«الشرح» المطبوع: «(2) حجم البيانات [bps] = سرعة النقل [bits]/ زمن النقل [ثواني] افترض أن 8 bits = 1 Byte و 1 KB = 1,000 bit و 1 MB = 1,000 KB، و 1000 MB = 1 GB وبالتالي 20 [ميجابايت] = 20 × 1,000 × 1,000 × 8 [Bit] أيضًا، 40 [MB في الثانية] = 40 × 1,000 × 1,000 [bit في الثانية] وبالتالي، فإن حساب وقت النقل يكون كما يلي: - 20 × 1,000 × 1,000 × 8 [Bit] / 40 × 1,000 × 1,000 [bit في الثانية] = 4 ثواني (3) 1 [جيجابايت] = 1 × 1,000 × 1,000 × 1,000 × 8 [Bit] نظرًا لأن كفاءة النقل تبلغ 80%، فإن سرعة النقل الفعلية هي 100 [MB في الثانية] × 0.8 = 80 [MB في الثانية] 80 [MB في الثانية] = 80 × 1,000 × 1,000 [bit في الثانية]، وبالتالي يكون حساب وقت النقل كما يلي: 1 × 1,000 × 1,000 × 1,000 × 8 [Bit] / 80 × 1,000 × 1,000 [bit في الثانية] = 100 ثواني» — تُنقل العبارات كما طُبعت دون تصحيح؛ انظر المقارنة بالأسفل.</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة التحدي العربية تطبع «أجب عن الأسئلة التالية. (1) في هذه الأسئلة،» بعلامة «(1)» زائدة بعد النقطة. افتراض الوحدات في صندوق التحدي: العربية تضيف «8 bits = 1 Byte» وتطبع «1 KB = 1,000 bits»؛ الإنجليزية تطبع &quot;1 KB = 1,000 B&quot; ولا تذكر علاقة البتات بالبايت في المقدمة (ترد داخل الشرح الإنجليزي &quot;1 B = 8 bits&quot;). ترقيم «الشرح» العربي: الجزءان موسومان «(2)» و«(3)» بينما السؤالان (1) و(2)؛ الإنجليزية توسم الشرح (1) و(2). سطر المعادلة الافتتاحي في الشرح العربي مطبوع «حجم البيانات [bps] = سرعة النقل [bits]/ زمن النقل [ثواني]» كما هو — يختلف عن الإنجليزية &quot;Transfer time [seconds] = Data volume [bits] / Transfer speed [bps]&quot; وعن معادلة النقاط العربية نفسها [2] — يُنقل حرفيًا دون تصحيح. الشرح العربي يكتب الوحدات بالكلمات «[ميجابايت]» و«[MB في الثانية]» و«[bit في الثانية]» و«[جيجابايت]»؛ الإنجليزية [MB] و[Mbps] و[bps] و[GB]. افتراض الشرح العربي يطبع «1 KB = 1,000 bit» بدون s بينما صندوق التحدي يطبع «1,000 bits». السؤال (2) العربي يطبع «100Mbps .» بدون مسافة وبمسافة قبل النقطة. الناتجان المطبوعان متطابقان في الطبعتين: 4 ثواني / 4 seconds و100 ثواني / 100 seconds. العنوان: العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic Warm Up intro prints «أجب عن الأسئلة التالية. (1) في هذه الأسئلة،» with a stray «(1)» after the period. Unit assumption in the Warm Up box: Arabic adds «8 bits = 1 Byte» and prints «1 KB = 1,000 bits»; English prints &quot;1 KB = 1,000 B&quot; and does not state the bits-per-byte relation in the intro (it appears inside the English Explanation as &quot;1 B = 8 bits&quot;). Arabic Explanation numbering: the two parts are labeled «(2)» and «(3)» for questions (1) and (2); English labels them (1) and (2). The Arabic Explanation's opening formula line is printed «حجم البيانات [bps] = سرعة النقل [bits]/ زمن النقل [ثواني]» as is — it differs from English &quot;Transfer time [seconds] = Data volume [bits] / Transfer speed [bps]&quot; and from the Arabic Point's own formula [2] — carried verbatim without correction. The Arabic Explanation spells units out as «[ميجابايت]», «[MB في الثانية]», «[bit في الثانية]», «[جيجابايت]»; English prints [MB], [Mbps], [bps], [GB]. The Arabic Explanation assumption prints «1 KB = 1,000 bit» without s while the Warm Up box prints «1,000 bits». Arabic question (2) prints «100Mbps .» with no space and a space before the period. The two printed results match in both editions: 4 seconds and 100 seconds. Heading: Arabic «تحدي معلوماتك»; English &quot;Warm Up&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة التحدي العربية تطبع «أجب عن الأسئلة التالية. (1) في هذه الأسئلة،» بعلامة «(1)» زائدة بعد النقطة. افتراض الوحدات في صندوق التحدي: العربية تضيف «8 bits = 1 Byte» وتطبع «1 KB = 1,000 bits»؛ الإنجليزية تطبع &quot;1 KB = 1,000 B&quot; ولا تذكر علاقة البتات بالبايت في المقدمة (ترد داخل الشرح الإنجليزي &quot;1 B = 8 bits&quot;). ترقيم «الشرح» العربي: الجزءان موسومان «(2)» و«(3)» بينما السؤالان (1) و(2)؛ الإنجليزية توسم الشرح (1) و(2). سطر المعادلة الافتتاحي في الشرح العربي مطبوع «حجم البيانات [bps] = سرعة النقل [bits]/ زمن النقل [ثواني]» كما هو — يختلف عن الإنجليزية &quot;Transfer time [seconds] = Data volume [bits] / Transfer speed [bps]&quot; وعن معادلة النقاط العربية نفسها [2] — يُنقل حرفيًا دون تصحيح. الشرح العربي يكتب الوحدات بالكلمات «[ميجابايت]» و«[MB في الثانية]» و«[bit في الثانية]» و«[جيجابايت]»؛ الإنجليزية [MB] و[Mbps] و[bps] و[GB]. افتراض الشرح العربي يطبع «1 KB = 1,000 bit» بدون s بينما صندوق التحدي يطبع «1,000 bits». السؤال (2) العربي يطبع «100Mbps .» بدون مسافة وبمسافة قبل النقطة. الناتجان المطبوعان متطابقان في الطبعتين: 4 ثواني / 4 seconds و100 ثواني / 100 seconds. العنوان: العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 109 (المطبوع 109)؛ AR 122–123." data-en="The text above is from the book. Full source: English PDF 109 (printed 109); Arabic 122–123.">النص السابق من الكتاب. المصدر الكامل: EN PDF 109 (المطبوع 109)؛ AR 122–123.</span>
+          <p data-ar="«الشرح» المطبوع:«(2) حجم البيانات [bps] = سرعة النقل [bits]/ زمن النقل [ثواني] افترض أن 8 bits = 1 Byte و 1 KB = 1,000 bit و 1 MB = 1,000 KB، و 1000 MB = 1 GB وبالتالي 20 [ميجابايت] = 20 × 1,000 × 1,000 × 8 [Bit] أيضًا، 40 [MB في الثانية] = 40 × 1,000 × 1,000 [bit في الثانية] وبالتالي، فإن حساب وقت النقل يكون كما يلي: - 20 × 1,000 × 1,000 × 8 [Bit] / 40 × 1,000 × 1,000 [bit في الثانية] = 4 ثواني (3) 1 [جيجابايت] = 1 × 1,000 × 1,000 × 1,000 × 8 [Bit] نظرًا لأن كفاءة النقل تبلغ 80%، فإن سرعة النقل الفعلية هي 100 [MB في الثانية] × 0.8 = 80 [MB في الثانية] 80 [MB في الثانية] = 80 × 1,000 × 1,000 [bit في الثانية]، وبالتالي يكون حساب وقت النقل كما يلي: 1 × 1,000 × 1,000 × 1,000 × 8 [Bit] / 80 × 1,000 × 1,000 [bit في الثانية] = 100 ثواني» — تُنقل العبارات كما طُبعت دون تصحيح؛ انظر المقارنة بالأسفل." data-en="The printed Explanation: &quot;(1) Transfer time [seconds] = Data volume [bits] / Transfer speed [bps]. 1 B = 8 bits, 1 KB = 1,000B, 1 MB = 1,000 KB, therefore, 20 [MB] = 20 × 1,000 × 1,000 × 8 [bits] (Convert units). Also, 40 [Mbps] = 40 × 1,000 × 1,000 [bps]. Therefore, the calculation of transfer time is as follows:20 × 1,000 × 1,000 × 8 [bits] / 40 × 1,000 × 1,000 [bps] = 4 [seconds] — 4 seconds. (2) 1 [GB] = 1 × 1,000 × 1,000 × 1,000 × 8 [bits]. Moreover, since the transfer efficiency is 80%, the actual transfer speed is 100 [Mbps] × 0.8 = 80 [Mbps]. 80 [Mbps] = 80 × 1,000 × 1,000 [bps], therefore, the calculation of transfer time is as follows: 1 × 1,000 × 1,000 × 1,000 × 8 [bits] / 80 × 1,000 × 1,000 [bps] = 100 [seconds] — 100 seconds.&quot;">«الشرح» المطبوع:«(2) حجم البيانات [bps] = سرعة النقل [bits]/ زمن النقل [ثواني] افترض أن 8 bits = 1 Byte و 1 KB = 1,000 bit و 1 MB = 1,000 KB، و 1000 MB = 1 GB وبالتالي 20 [ميجابايت] = 20 × 1,000 × 1,000 × 8 [Bit] أيضًا، 40 [MB في الثانية] = 40 × 1,000 × 1,000 [bit في الثانية] وبالتالي، فإن حساب وقت النقل يكون كما يلي: - 20 × 1,000 × 1,000 × 8 [Bit] / 40 × 1,000 × 1,000 [bit في الثانية] = 4 ثواني (3) 1 [جيجابايت] = 1 × 1,000 × 1,000 × 1,000 × 8 [Bit] نظرًا لأن كفاءة النقل تبلغ 80%، فإن سرعة النقل الفعلية هي 100 [MB في الثانية] × 0.8 = 80 [MB في الثانية] 80 [MB في الثانية] = 80 × 1,000 × 1,000 [bit في الثانية]، وبالتالي يكون حساب وقت النقل كما يلي: 1 × 1,000 × 1,000 × 1,000 × 8 [Bit] / 80 × 1,000 × 1,000 [bit في الثانية] = 100 ثواني» — تُنقل العبارات كما طُبعت دون تصحيح؛ انظر المقارنة بالأسفل.</p>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة التحدي العربية تطبع «أجب عن الأسئلة التالية. (1) في هذه الأسئلة،» بعلامة «(1)» زائدة بعد النقطة. افتراض الوحدات في صندوق التحدي: العربية تضيف «8 bits = 1 Byte» وتطبع «1 KB = 1,000 bits»؛ الإنجليزية تطبع &quot;1 KB = 1,000 B&quot; ولا تذكر علاقة البتات بالبايت في المقدمة (ترد داخل الشرح الإنجليزي &quot;1 B = 8 bits&quot;). ترقيم «الشرح» العربي:الجزءان موسومان «(2)» و«(3)» بينما السؤالان (1) و(2)؛ الإنجليزية توسم الشرح (1) و(2). سطر المعادلة الافتتاحي في الشرح العربي مطبوع «حجم البيانات [bps] = سرعة النقل [bits]/ زمن النقل [ثواني]» كما هو — يختلف عن الإنجليزية &quot;Transfer time [seconds] = Data volume [bits] / Transfer speed [bps]&quot; وعن معادلة النقاط العربية نفسها [2] — يُنقل حرفيًا دون تصحيح. الشرح العربي يكتب الوحدات بالكلمات «[ميجابايت]» و«[MB في الثانية]» و«[bit في الثانية]» و«[جيجابايت]»؛ الإنجليزية [MB] و[Mbps] و[bps] و[GB]. افتراض الشرح العربي يطبع «1 KB = 1,000 bit» بدون s بينما صندوق التحدي يطبع «1,000 bits». السؤال (2) العربي يطبع «100Mbps .» بدون مسافة وبمسافة قبل النقطة. الناتجان المطبوعان متطابقان في الطبعتين:4 ثواني / 4 seconds و100 ثواني / 100 seconds. العنوان: العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic Warm Up intro prints «أجب عن الأسئلة التالية. (1) في هذه الأسئلة،» with a stray «(1)» after the period. Unit assumption in the Warm Up box:Arabic adds «8 bits = 1 Byte» and prints «1 KB = 1,000 bits»; English prints &quot;1 KB = 1,000 B&quot; and does not state the bits-per-byte relation in the intro (it appears inside the English Explanation as &quot;1 B = 8 bits&quot;). Arabic Explanation numbering:the two parts are labeled «(2)» and «(3)» for questions (1) and (2); English labels them (1) and (2). The Arabic Explanation's opening formula line is printed «حجم البيانات [bps] = سرعة النقل [bits]/ زمن النقل [ثواني]» as is — it differs from English &quot;Transfer time [seconds] = Data volume [bits] / Transfer speed [bps]&quot; and from the Arabic Point's own formula [2] — carried verbatim without correction. The Arabic Explanation spells units out as «[ميجابايت]», «[MB في الثانية]», «[bit في الثانية]», «[جيجابايت]»; English prints [MB], [Mbps], [bps], [GB]. The Arabic Explanation assumption prints «1 KB = 1,000 bit» without s while the Warm Up box prints «1,000 bits». Arabic question (2) prints «100Mbps .» with no space and a space before the period. The two printed results match in both editions:4 seconds and 100 seconds. Heading: Arabic «تحدي معلوماتك»; English &quot;Warm Up&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة التحدي العربية تطبع «أجب عن الأسئلة التالية. (1) في هذه الأسئلة،» بعلامة «(1)» زائدة بعد النقطة. افتراض الوحدات في صندوق التحدي:العربية تضيف «8 bits = 1 Byte» وتطبع «1 KB = 1,000 bits»؛ الإنجليزية تطبع &quot;1 KB = 1,000 B&quot; ولا تذكر علاقة البتات بالبايت في المقدمة (ترد داخل الشرح الإنجليزي &quot;1 B = 8 bits&quot;). ترقيم «الشرح» العربي:الجزءان موسومان «(2)» و«(3)» بينما السؤالان (1) و(2)؛ الإنجليزية توسم الشرح (1) و(2). سطر المعادلة الافتتاحي في الشرح العربي مطبوع «حجم البيانات [bps] = سرعة النقل [bits]/ زمن النقل [ثواني]» كما هو — يختلف عن الإنجليزية &quot;Transfer time [seconds] = Data volume [bits] / Transfer speed [bps]&quot; وعن معادلة النقاط العربية نفسها [2] — يُنقل حرفيًا دون تصحيح. الشرح العربي يكتب الوحدات بالكلمات «[ميجابايت]» و«[MB في الثانية]» و«[bit في الثانية]» و«[جيجابايت]»؛ الإنجليزية [MB] و[Mbps] و[bps] و[GB]. افتراض الشرح العربي يطبع «1 KB = 1,000 bit» بدون s بينما صندوق التحدي يطبع «1,000 bits». السؤال (2) العربي يطبع «100Mbps .» بدون مسافة وبمسافة قبل النقطة. الناتجان المطبوعان متطابقان في الطبعتين:4 ثواني / 4 seconds و100 ثواني / 100 seconds. العنوان: العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 109 (المطبوع 109)؛ AR 122–123." data-en="The text above is from the book. Full source: English PDF 109 (printed 109); Arabic 122–123.">النص السابق من الكتاب. المصدر الكامل:EN PDF 109 (المطبوع 109)؛ AR 122–123.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
@@ -1684,18 +1683,18 @@
           <p data-ar="«(أ) أجب على الأسئلة التالية. في هذه الأسئلة. افترض أن 1 KB = 1,000 bit ،و 1000 KB = 1 MB ، 1000 MB = 1 GB. (1) يُعد Bps وحدة تُستخدم لقياس سرعة نقل البيانات. اختر الشرح المناسب لـ 20 Mbps من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف. (1) قادر على نقل البيانات بمعدل 20 MB في الدقيقة. (2) قادر على نقل البيانات بمعدل 20 MB في الدقيقة. (3) قادر على نقل البيانات بمعدل 20 MB في الثانية. (4) قادر على نقل البيانات بمعدل 20 MB في الثانية.»" data-en="&quot;Answer the following questions. In these questions, assume that 1 KB = 1,000 B, 1 MB = 1,000 KB, and 1 GB = 1,000 MB. (1) Bps is a unit used to measure data communication speed. Choose the appropriate explanation for 20 Mbps from the options A to D below, and answer using the letter. A Capable of transferring data at 20 megabits per minute. B Capable of transferring data at 20 megabytes per minute. C Capable of transferring data at 20 megabits per second. D Capable of transferring data at 20 megabytes per second.&quot;">«(أ) أجب على الأسئلة التالية. في هذه الأسئلة. افترض أن 1 KB = 1,000 bit ،و 1000 KB = 1 MB ، 1000 MB = 1 GB. (1) يُعد Bps وحدة تُستخدم لقياس سرعة نقل البيانات. اختر الشرح المناسب لـ 20 Mbps من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف. (1) قادر على نقل البيانات بمعدل 20 MB في الدقيقة. (2) قادر على نقل البيانات بمعدل 20 MB في الدقيقة. (3) قادر على نقل البيانات بمعدل 20 MB في الثانية. (4) قادر على نقل البيانات بمعدل 20 MB في الثانية.»</p>
           <p data-ar="«(2) احسب أقصى حجم للبيانات، بالبايت، الذي يمكن نقله في دقيقة واحدة بسرعة اتصال 30 bps. (3) احسب أقصى حجم للبيانات، بالميجابايت، الذي يمكن نقله في خمس دقائق بسرعة اتصال 10 Mbps. (4) احسب الوقت اللازم لنقل 20 MB من البيانات بسرعة اتصال 80 Mbps. افترض أن كفاءة النقل هي 100% وتجاهل أي بيانات أخرى بخلاف حجم البيانات. (5) احسب الوقت اللازم لنقل 1 جيجابايت من البيانات بسرعة اتصال 20 Mbps. افترض أن كفاءة النقل هي 80% وتجاهل أي بيانات أخرى بخلاف حجم البيانات.»" data-en="&quot;(2) Calculate the maximum data volume, in bytes, that can be transmitted in one minute at a communication speed of 30 bps. (3) Calculate the maximum data volume, in MB, that can be transmitted in five minutes at a communication speed of 10 Mbps. (4) Calculate the time required to transfer 20 MB of data at a communication speed of 80 Mbps. Assume that the transfer efficiency is 100% and disregard any data other than the data volume. (5) Calculate the time required to transfer 1 GB of data at a communication speed of 20 Mbps. Assume that the transfer efficiency is 80% and disregard any data other than the data volume.&quot;">«(2) احسب أقصى حجم للبيانات، بالبايت، الذي يمكن نقله في دقيقة واحدة بسرعة اتصال 30 bps. (3) احسب أقصى حجم للبيانات، بالميجابايت، الذي يمكن نقله في خمس دقائق بسرعة اتصال 10 Mbps. (4) احسب الوقت اللازم لنقل 20 MB من البيانات بسرعة اتصال 80 Mbps. افترض أن كفاءة النقل هي 100% وتجاهل أي بيانات أخرى بخلاف حجم البيانات. (5) احسب الوقت اللازم لنقل 1 جيجابايت من البيانات بسرعة اتصال 20 Mbps. افترض أن كفاءة النقل هي 80% وتجاهل أي بيانات أخرى بخلاف حجم البيانات.»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = الخيار (3) «20 MB في الثانية» كما طُبع (المقصود 20 ميجابت في الثانية؛ الإنجليزية C). (2): 30 × 60 = 1,800 بت، و1,800 ÷ 8 = 225 بايت. (3): 5 دقائق = 300 ثانية، والحجم = 10 × 1,000 × 1,000 × 300 ÷ (8 × 1,000 × 1,000) = 375 ميجابايت. (4): 20 × 8 ÷ 80 = ثانيتان. (5): السرعة الفعلية = 20 × 0.8 = 16 Mbps، والوقت = 1 × 1,000 × 1,000 × 1,000 × 8 ÷ 16,000,000 = 500 ثانية." data-en="Answers not printed in the book (teacher-prepared): (1) = option (3) &quot;20 MB per second&quot; as printed (the intended meaning is 20 megabits per second; English C). (2): 30 × 60 = 1,800 bits, and 1,800 ÷ 8 = 225 bytes. (3): 5 minutes = 300 seconds, and the volume = 10 × 1,000 × 1,000 × 300 ÷ (8 × 1,000 × 1,000) = 375 MB. (4): 20 × 8 ÷ 80 = 2 seconds. (5): actual speed = 20 × 0.8 = 16 Mbps, and the time = 1 × 1,000 × 1,000 × 1,000 × 8 ÷ 16,000,000 = 500 seconds.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = الخيار (3) «20 MB في الثانية» كما طُبع (المقصود 20 ميجابت في الثانية؛ الإنجليزية C). (2): 30 × 60 = 1,800 بت، و1,800 ÷ 8 = 225 بايت. (3): 5 دقائق = 300 ثانية، والحجم = 10 × 1,000 × 1,000 × 300 ÷ (8 × 1,000 × 1,000) = 375 ميجابايت. (4): 20 × 8 ÷ 80 = ثانيتان. (5): السرعة الفعلية = 20 × 0.8 = 16 Mbps، والوقت = 1 × 1,000 × 1,000 × 1,000 × 8 ÷ 16,000,000 = 500 ثانية.</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «جرب بنفسك» العربية تبدأ بعلامة «(أ)» قبل «أجب على الأسئلة التالية.» وتنتهي بنقطة «في هذه الأسئلة.». افتراض الوحدات: العربية «1 KB = 1,000 bit»؛ الإنجليزية &quot;1 KB = 1,000 B&quot;. السؤال (1): التعليمات «من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف» والخيارات معنونة (1)(2)(3)(4) بالأرقام — التسميات تطابق المدى الرقمي وتخالف عبارة «باستخدام الحرف»؛ تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;A to D&quot; بخيارات A-D. الخيارات العربية الأربعة تطبع «20 MB» فيها جميعًا: (1) و(2) «قادر على نقل البيانات بمعدل 20 MB في الدقيقة.» متطابقتان حرفيًا، و(3) و(4) «قادر على نقل البيانات بمعدل 20 MB في الثانية.» متطابقتان حرفيًا؛ الإنجليزية تميّز megabits عن megabytes (A ميجابت/دقيقة، B ميجابايت/دقيقة، C ميجابت/ثانية، D ميجابايت/ثانية). العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic Try intro starts with a «(أ)» marker before «أجب على الأسئلة التالية.» and ends with a period, «في هذه الأسئلة.». Unit assumption: Arabic «1 KB = 1,000 bit»; English &quot;1 KB = 1,000 B&quot;. Question (1): the instruction reads «from the options 1 to 4, and answer using the letter» with options labeled (1)(2)(3)(4) in numbers — the labels match the numeric range and not the «using the letter» phrase; carried as printed without asserting the intended convention; English &quot;A to D&quot; with options A-D. All four Arabic options print «20 MB»: (1) and (2) «قادر على نقل البيانات بمعدل 20 MB في الدقيقة.» are literally identical, and (3) and (4) «قادر على نقل البيانات بمعدل 20 MB في الثانية.» are literally identical; English distinguishes megabits from megabytes (A megabits/minute, B megabytes/minute, C megabits/second, D megabytes/second). Heading: Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «جرب بنفسك» العربية تبدأ بعلامة «(أ)» قبل «أجب على الأسئلة التالية.» وتنتهي بنقطة «في هذه الأسئلة.». افتراض الوحدات: العربية «1 KB = 1,000 bit»؛ الإنجليزية &quot;1 KB = 1,000 B&quot;. السؤال (1): التعليمات «من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف» والخيارات معنونة (1)(2)(3)(4) بالأرقام — التسميات تطابق المدى الرقمي وتخالف عبارة «باستخدام الحرف»؛ تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;A to D&quot; بخيارات A-D. الخيارات العربية الأربعة تطبع «20 MB» فيها جميعًا: (1) و(2) «قادر على نقل البيانات بمعدل 20 MB في الدقيقة.» متطابقتان حرفيًا، و(3) و(4) «قادر على نقل البيانات بمعدل 20 MB في الثانية.» متطابقتان حرفيًا؛ الإنجليزية تميّز megabits عن megabytes (A ميجابت/دقيقة، B ميجابايت/دقيقة، C ميجابت/ثانية، D ميجابايت/ثانية). العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 110 (المطبوع 110)؛ AR 123." data-en="The text above is from the book. Full source: English PDF 110 (printed 110); Arabic 123.">النص السابق من الكتاب. المصدر الكامل: EN PDF 110 (المطبوع 110)؛ AR 123.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «جرب بنفسك» العربية تبدأ بعلامة «(أ)» قبل «أجب على الأسئلة التالية.» وتنتهي بنقطة «في هذه الأسئلة.». افتراض الوحدات:العربية «1 KB = 1,000 bit»؛ الإنجليزية &quot;1 KB = 1,000 B&quot;. السؤال (1): التعليمات «من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف» والخيارات معنونة (1)(2)(3)(4) بالأرقام — التسميات تطابق المدى الرقمي وتخالف عبارة «باستخدام الحرف»؛ تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;A to D&quot; بخيارات A-D. الخيارات العربية الأربعة تطبع «20 MB» فيها جميعًا:(1) و(2) «قادر على نقل البيانات بمعدل 20 MB في الدقيقة.» متطابقتان حرفيًا، و(3) و(4) «قادر على نقل البيانات بمعدل 20 MB في الثانية.» متطابقتان حرفيًا؛ الإنجليزية تميّز megabits عن megabytes (A ميجابت/دقيقة، B ميجابايت/دقيقة، C ميجابت/ثانية، D ميجابايت/ثانية). العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic Try intro starts with a «(أ)» marker before «أجب على الأسئلة التالية.» and ends with a period, «في هذه الأسئلة.». Unit assumption:Arabic «1 KB = 1,000 bit»; English &quot;1 KB = 1,000 B&quot;. Question (1): the instruction reads «from the options 1 to 4, and answer using the letter» with options labeled (1)(2)(3)(4) in numbers — the labels match the numeric range and not the «using the letter» phrase; carried as printed without asserting the intended convention; English &quot;A to D&quot; with options A-D. All four Arabic options print «20 MB»: (1) and (2) «قادر على نقل البيانات بمعدل 20 MB في الدقيقة.» are literally identical, and (3) and (4) «قادر على نقل البيانات بمعدل 20 MB في الثانية.» are literally identical; English distinguishes megabits from megabytes (A megabits/minute, B megabytes/minute, C megabits/second, D megabytes/second). Heading:Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «جرب بنفسك» العربية تبدأ بعلامة «(أ)» قبل «أجب على الأسئلة التالية.» وتنتهي بنقطة «في هذه الأسئلة.». افتراض الوحدات:العربية «1 KB = 1,000 bit»؛ الإنجليزية &quot;1 KB = 1,000 B&quot;. السؤال (1): التعليمات «من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف» والخيارات معنونة (1)(2)(3)(4) بالأرقام — التسميات تطابق المدى الرقمي وتخالف عبارة «باستخدام الحرف»؛ تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;A to D&quot; بخيارات A-D. الخيارات العربية الأربعة تطبع «20 MB» فيها جميعًا:(1) و(2) «قادر على نقل البيانات بمعدل 20 MB في الدقيقة.» متطابقتان حرفيًا، و(3) و(4) «قادر على نقل البيانات بمعدل 20 MB في الثانية.» متطابقتان حرفيًا؛ الإنجليزية تميّز megabits عن megabytes (A ميجابت/دقيقة، B ميجابايت/دقيقة، C ميجابت/ثانية، D ميجابايت/ثانية). العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 110 (المطبوع 110)؛ AR 123." data-en="The text above is from the book. Full source: English PDF 110 (printed 110); Arabic 123.">النص السابق من الكتاب. المصدر الكامل:EN PDF 110 (المطبوع 110)؛ AR 123.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
         <div class="book-card try">
           <h3 data-ar="من الكتاب: تمرين — والإجابات التالية غير مطبوعة" data-en="From the book: Exercise — the answers below are not printed">من الكتاب: تمرين — والإجابات التالية غير مطبوعة</h3>
-          <p data-ar="«تمرين 1 أجب على الأسئلة التالية. في هذه الأسئلة: افترض أن 1 KB = 1,000 bit ،و 1000 KB = 1 MB ، 1000 MB = 1 GB. (1) يُعد Bps وحدة تُستخدم لقياس سرعة نقل البيانات. اختر الشرح المناسب لـ 40 Mbps من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف. (أ) قادر على نقل البيانات بمعدل 40 MB في الثانية. (ب) قادر على نقل البيانات بمعدل 40 MB في الثانية. (ج) قادر على نقل البيانات بمعدل 40 MB في الدقيقة. (د) قادر على نقل البيانات بمعدل 40 MB في الدقيقة.»" data-en="&quot;Exercise 1 Answer the following questions. In these questions, assume that 1 KB = 1,000 B, 1 MB = 1,000 KB, and 1 GB = 1,000 MB. (1) Bps is a unit used to measure data communication speed. Choose the appropriate explanation for 40 Mbps from the options A to D below, and answer using the letter. A Capable of transferring data at 40 megabits per second. B Capable of transferring data at 40 megabytes per second. C Capable of transferring data at 40 megabits per minute. D Capable of transferring data at 40 megabytes per minute.&quot;">«تمرين 1 أجب على الأسئلة التالية. في هذه الأسئلة: افترض أن 1 KB = 1,000 bit ،و 1000 KB = 1 MB ، 1000 MB = 1 GB. (1) يُعد Bps وحدة تُستخدم لقياس سرعة نقل البيانات. اختر الشرح المناسب لـ 40 Mbps من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف. (أ) قادر على نقل البيانات بمعدل 40 MB في الثانية. (ب) قادر على نقل البيانات بمعدل 40 MB في الثانية. (ج) قادر على نقل البيانات بمعدل 40 MB في الدقيقة. (د) قادر على نقل البيانات بمعدل 40 MB في الدقيقة.»</p>
+          <p data-ar="«تمرين 1 أجب على الأسئلة التالية. في هذه الأسئلة: افترض أن 1 KB = 1,000 bit ،و 1000 KB = 1 MB ، 1000 MB = 1 GB. (1) يُعد Bps وحدة تُستخدم لقياس سرعة نقل البيانات. اختر الشرح المناسب لـ 40 Mbps من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف. (أ) قادر على نقل البيانات بمعدل 40 MB في الثانية. (ب) قادر على نقل البيانات بمعدل 40 MB في الثانية. (ج) قادر على نقل البيانات بمعدل 40 MB في الدقيقة. (د) قادر على نقل البيانات بمعدل 40 MB في الدقيقة.»" data-en="&quot;Exercise 1 Answer the following questions. In these questions, assume that 1 KB = 1,000 B, 1 MB = 1,000 KB, and 1 GB = 1,000 MB. (1) Bps is a unit used to measure data communication speed. Choose the appropriate explanation for 40 Mbps from the options A to D below, and answer using the letter. A Capable of transferring data at 40 megabits per second. B Capable of transferring data at 40 megabytes per second. C Capable of transferring data at 40 megabits per minute. D Capable of transferring data at 40 megabytes per minute.&quot;">«تمرين 1 أجب على الأسئلة التالية. في هذه الأسئلة:افترض أن 1 KB = 1,000 bit ،و 1000 KB = 1 MB ، 1000 MB = 1 GB. (1) يُعد Bps وحدة تُستخدم لقياس سرعة نقل البيانات. اختر الشرح المناسب لـ 40 Mbps من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف. (أ) قادر على نقل البيانات بمعدل 40 MB في الثانية. (ب) قادر على نقل البيانات بمعدل 40 MB في الثانية. (ج) قادر على نقل البيانات بمعدل 40 MB في الدقيقة. (د) قادر على نقل البيانات بمعدل 40 MB في الدقيقة.»</p>
           <p data-ar="«(2) احسب أقصى حجم للبيانات، بالبايت، الذي يمكن نقله في دقيقة واحدة بسرعة اتصال 120 bps؟ (3) احسب حجم البيانات، بالميجابايت، الذي يمكن نقله في ثلاث دقائق بسرعة اتصال 20 Mbps. (4) احسب الوقت اللازم لنقل 15 MB من البيانات بسرعة اتصال 60 Mbps. افترض أن كفاءة النقل هي 100% وتجاهل أي بيانات أخرى بخلاف حجم البيانات. (5) احسب الوقت اللازم لنقل 1 جيجابايت من البيانات بسرعة اتصال 25 Mbps. افترض أن كفاءة النقل هي 80% وتجاهل أي بيانات أخرى بخلاف حجم البيانات.»" data-en="&quot;(2) Calculate the maximum data volume, in bytes, that can be transmitted in one minute at a communication speed of 120 bps? (3) Calculate the data volume, in MB, that can be transmitted in three minutes at a communication speed of 20 Mbps. (4) Calculate the time required to transfer 15 MB of data at a communication speed of 60 Mbps. Assume that the transfer efficiency is 100% and disregard any data other than the data volume. (5) Calculate the time required to transfer 1 GB of data at a communication speed of 25 Mbps. Assume that the transfer efficiency is 80% and disregard any data other than the data volume.&quot;">«(2) احسب أقصى حجم للبيانات، بالبايت، الذي يمكن نقله في دقيقة واحدة بسرعة اتصال 120 bps؟ (3) احسب حجم البيانات، بالميجابايت، الذي يمكن نقله في ثلاث دقائق بسرعة اتصال 20 Mbps. (4) احسب الوقت اللازم لنقل 15 MB من البيانات بسرعة اتصال 60 Mbps. افترض أن كفاءة النقل هي 100% وتجاهل أي بيانات أخرى بخلاف حجم البيانات. (5) احسب الوقت اللازم لنقل 1 جيجابايت من البيانات بسرعة اتصال 25 Mbps. افترض أن كفاءة النقل هي 80% وتجاهل أي بيانات أخرى بخلاف حجم البيانات.»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = الخيار (أ) «40 MB في الثانية» كما طُبع (المقصود 40 ميجابت في الثانية؛ الإنجليزية A). (2): 120 × 60 = 7,200 بت، و7,200 ÷ 8 = 900 بايت. (3): 3 دقائق = 180 ثانية، والحجم = 20 × 1,000 × 1,000 × 180 ÷ (8 × 1,000 × 1,000) = 450 ميجابايت. (4): 15 × 8 ÷ 60 = ثانيتان. (5): السرعة الفعلية = 25 × 0.8 = 20 Mbps، والوقت = 1 × 1,000 × 1,000 × 1,000 × 8 ÷ 20,000,000 = 400 ثانية." data-en="Answers not printed in the book (teacher-prepared): (1) = option (أ) &quot;40 MB per second&quot; as printed (the intended meaning is 40 megabits per second; English A). (2): 120 × 60 = 7,200 bits, and 7,200 ÷ 8 = 900 bytes. (3): 3 minutes = 180 seconds, and the volume = 20 × 1,000 × 1,000 × 180 ÷ (8 × 1,000 × 1,000) = 450 MB. (4): 15 × 8 ÷ 60 = 2 seconds. (5): actual speed = 25 × 0.8 = 20 Mbps, and the time = 1 × 1,000 × 1,000 × 1,000 × 8 ÷ 20,000,000 = 400 seconds.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = الخيار (أ) «40 MB في الثانية» كما طُبع (المقصود 40 ميجابت في الثانية؛ الإنجليزية A). (2): 120 × 60 = 7,200 بت، و7,200 ÷ 8 = 900 بايت. (3): 3 دقائق = 180 ثانية، والحجم = 20 × 1,000 × 1,000 × 180 ÷ (8 × 1,000 × 1,000) = 450 ميجابايت. (4): 15 × 8 ÷ 60 = ثانيتان. (5): السرعة الفعلية = 25 × 0.8 = 20 Mbps، والوقت = 1 × 1,000 × 1,000 × 1,000 × 8 ÷ 20,000,000 = 400 ثانية.</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «تمرين» العربية تنتهي بنقطتين «في هذه الأسئلة:» بينما مقدمة «جرب بنفسك» تنتهي بنقطة. السؤال (1): التعليمات نفسها «من 1 إلى 4 ، وأجب باستخدام الحرف» لكن الخيارات هنا معنونة (أ)(ب)(ج)(د) بالحروف — تطابق عبارة «باستخدام الحرف» وتخالف المدى الرقمي؛ تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية A-D. الخيارات العربية الأربعة تطبع «40 MB» فيها جميعًا: (أ) و(ب) «40 MB في الثانية» متطابقتان حرفيًا، و(ج) و(د) «40 MB في الدقيقة» متطابقتان حرفيًا؛ الإنجليزية تميّز megabits عن megabytes. السؤال (2) ينتهي بعلامة استفهام «؟» في العربية و&quot;?&quot; في الإنجليزية معًا. السؤال (3) العربي «احسب حجم البيانات» بينما «جرب بنفسك» (3) يطبع «احسب أقصى حجم» — يطابق الإنجليزية &quot;Calculate the data volume&quot; مقابل &quot;Calculate the maximum data volume&quot;. العنوان: العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic Exercise intro ends with a colon «في هذه الأسئلة:» while the Try intro ends with a period. Question (1): the same instruction «1 to 4, and answer using the letter» but here the options are labeled (أ)(ب)(ج)(د) in letters — matching the «using the letter» phrase and not the numeric range; carried as printed without asserting the intended convention; English A-D. All four Arabic options print «40 MB»: (أ) and (ب) «40 MB في الثانية» are literally identical, and (ج) and (د) «40 MB في الدقيقة» are literally identical; English distinguishes megabits from megabytes. Question (2) ends with a question mark «؟» in Arabic and &quot;?&quot; in English alike. Arabic question (3) reads «احسب حجم البيانات» where Try (3) prints «احسب أقصى حجم» — matching English &quot;Calculate the data volume&quot; versus &quot;Calculate the maximum data volume&quot;. Heading: Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «تمرين» العربية تنتهي بنقطتين «في هذه الأسئلة:» بينما مقدمة «جرب بنفسك» تنتهي بنقطة. السؤال (1): التعليمات نفسها «من 1 إلى 4 ، وأجب باستخدام الحرف» لكن الخيارات هنا معنونة (أ)(ب)(ج)(د) بالحروف — تطابق عبارة «باستخدام الحرف» وتخالف المدى الرقمي؛ تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية A-D. الخيارات العربية الأربعة تطبع «40 MB» فيها جميعًا: (أ) و(ب) «40 MB في الثانية» متطابقتان حرفيًا، و(ج) و(د) «40 MB في الدقيقة» متطابقتان حرفيًا؛ الإنجليزية تميّز megabits عن megabytes. السؤال (2) ينتهي بعلامة استفهام «؟» في العربية و&quot;?&quot; في الإنجليزية معًا. السؤال (3) العربي «احسب حجم البيانات» بينما «جرب بنفسك» (3) يطبع «احسب أقصى حجم» — يطابق الإنجليزية &quot;Calculate the data volume&quot; مقابل &quot;Calculate the maximum data volume&quot;. العنوان: العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 110 (المطبوع 110)؛ AR 123." data-en="The text above is from the book. Full source: English PDF 110 (printed 110); Arabic 123.">النص السابق من الكتاب. المصدر الكامل: EN PDF 110 (المطبوع 110)؛ AR 123.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «تمرين» العربية تنتهي بنقطتين «في هذه الأسئلة:» بينما مقدمة «جرب بنفسك» تنتهي بنقطة. السؤال (1): التعليمات نفسها «من 1 إلى 4 ، وأجب باستخدام الحرف» لكن الخيارات هنا معنونة (أ)(ب)(ج)(د) بالحروف — تطابق عبارة «باستخدام الحرف» وتخالف المدى الرقمي؛ تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية A-D. الخيارات العربية الأربعة تطبع «40 MB» فيها جميعًا: (أ) و(ب) «40 MB في الثانية» متطابقتان حرفيًا، و(ج) و(د) «40 MB في الدقيقة» متطابقتان حرفيًا؛ الإنجليزية تميّز megabits عن megabytes. السؤال (2) ينتهي بعلامة استفهام «؟» في العربية و&quot;?&quot; في الإنجليزية معًا. السؤال (3) العربي «احسب حجم البيانات» بينما «جرب بنفسك» (3) يطبع «احسب أقصى حجم» — يطابق الإنجليزية &quot;Calculate the data volume&quot; مقابل &quot;Calculate the maximum data volume&quot;. العنوان:العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic Exercise intro ends with a colon «في هذه الأسئلة:» while the Try intro ends with a period. Question (1): the same instruction «1 to 4, and answer using the letter» but here the options are labeled (أ)(ب)(ج)(د) in letters — matching the «using the letter» phrase and not the numeric range; carried as printed without asserting the intended convention; English A-D. All four Arabic options print «40 MB»: (أ) and (ب) «40 MB في الثانية» are literally identical, and (ج) and (د) «40 MB في الدقيقة» are literally identical; English distinguishes megabits from megabytes. Question (2) ends with a question mark «؟» in Arabic and &quot;?&quot; in English alike. Arabic question (3) reads «احسب حجم البيانات» where Try (3) prints «احسب أقصى حجم» — matching English &quot;Calculate the data volume&quot; versus &quot;Calculate the maximum data volume&quot;. Heading:Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «تمرين» العربية تنتهي بنقطتين «في هذه الأسئلة:» بينما مقدمة «جرب بنفسك» تنتهي بنقطة. السؤال (1): التعليمات نفسها «من 1 إلى 4 ، وأجب باستخدام الحرف» لكن الخيارات هنا معنونة (أ)(ب)(ج)(د) بالحروف — تطابق عبارة «باستخدام الحرف» وتخالف المدى الرقمي؛ تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية A-D. الخيارات العربية الأربعة تطبع «40 MB» فيها جميعًا: (أ) و(ب) «40 MB في الثانية» متطابقتان حرفيًا، و(ج) و(د) «40 MB في الدقيقة» متطابقتان حرفيًا؛ الإنجليزية تميّز megabits عن megabytes. السؤال (2) ينتهي بعلامة استفهام «؟» في العربية و&quot;?&quot; في الإنجليزية معًا. السؤال (3) العربي «احسب حجم البيانات» بينما «جرب بنفسك» (3) يطبع «احسب أقصى حجم» — يطابق الإنجليزية &quot;Calculate the data volume&quot; مقابل &quot;Calculate the maximum data volume&quot;. العنوان:العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 110 (المطبوع 110)؛ AR 123." data-en="The text above is from the book. Full source: English PDF 110 (printed 110); Arabic 123.">النص السابق من الكتاب. المصدر الكامل:EN PDF 110 (المطبوع 110)؛ AR 123.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: معنى السرعة والوحدات — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 1: Speed Meaning and Units - not printed in the book">✍️ تدريب تفاعلي إضافي 1: معنى السرعة والوحدات — غير مطبوعة في الكتاب</h3>
@@ -2011,7 +2010,7 @@
     }
 
     function tr(ar, en) {
-      return currentLang === 'en' ? en : ar;
+      return currentLang === 'en' ? en:ar;
     }
 
     function byId(id) {
@@ -2040,12 +2039,12 @@
     var nav = document.getElementById('topnav');
     var scrollBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', function () {
-      /* header slide-in: assets/js/nav.js */
+      /* header slide-in:assets/js/nav.js */
       if (window.scrollY > 500) scrollBtn.classList.add('show');
       else scrollBtn.classList.remove('show');
-    }, { passive: true });
+    }, { passive:true });
     if (scrollBtn) scrollBtn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top:0, behavior: 'smooth' });
     });
 
     function wireNav() {
@@ -2061,7 +2060,7 @@
             });
           }
         });
-      }, { rootMargin: '-45% 0px -50% 0px' });
+      }, { rootMargin:'-45% 0px -50% 0px' });
       secs.forEach(function (id) {
         var el = document.getElementById(id);
         if (el) io.observe(el);
@@ -2076,7 +2075,7 @@
         entries.forEach(function (en) {
           if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
         });
-      }, { threshold: .08 });
+      }, { threshold:.08 });
       els.forEach(function (e) { io.observe(e); });
     }
 
@@ -2090,102 +2089,102 @@
         var el = document.getElementById(SECTIONS[i]);
         if (el && el.getBoundingClientRect().top <= window.innerHeight * .5) cur = i;
       }
-      var n = cur + (e.key === 'ArrowLeft' ? -1 : 1);
+      var n = cur + (e.key === 'ArrowLeft' ? -1:1);
       if (n >= 0 && n < SECTIONS.length) {
-        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior:'smooth' });
       }
     });
 
     /* ================= FLOW ENGINE (sender→receiver diagrams) ================= */
 var FLOWS = {
-      speed: {
+      speed:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'spdef', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'spbps', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'spuse', x: 660, y: 140, w: 180, h: 120 }
+          { k:'spbps', x: 360, y: 140, w: 180, h: 120 },
+          { k:'spuse', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. تعريف سرعة النقل', enT: '1. Defining Transfer Speed', arD: 'عدد البتات من البيانات اللي ممكن تتنقل في الثانية الواحدة.', enD: 'The number of bits of data that can be transferred per second.', icon: '⚡', boxes: ['spdef'], nodes: ['a'], wires: [] },
-          { arT: '2. الوحدة bps', enT: '2. The bps Unit', arD: 'وحدة القياس هي bps — بت في الثانية.', enD: 'The unit of measurement is bps — bits per second.', icon: '📏', boxes: ['spbps'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. استخدامها', enT: '3. Using It', arD: 'بنستخدمها في قياس سرعة نقل البيانات بين الأجهزة على الشبكة.', enD: 'We use it to measure data transfer speed between devices on the network.', icon: '🖥️', boxes: ['spuse'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. الوحدة bps', enT: '2. The bps Unit', arD: 'وحدة القياس هي bps — بت في الثانية.', enD: 'The unit of measurement is bps — bits per second.', icon: '📏', boxes: ['spbps'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. استخدامها', enT: '3. Using It', arD: 'بنستخدمها في قياس سرعة نقل البيانات بين الأجهزة على الشبكة.', enD: 'We use it to measure data transfer speed between devices on the network.', icon: '🖥️', boxes: ['spuse'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      units: {
+      units:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'ubase', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'ukbp', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'umbp', x: 660, y: 140, w: 180, h: 120 }
+          { k:'ukbp', x: 360, y: 140, w: 180, h: 120 },
+          { k:'umbp', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. الوحدة الأساسية', enT: '1. The Base Unit', arD: 'الوحدة الأساسية لسرعة النقل هي bps.', enD: 'The base unit of transfer speed is bps.', icon: '🔢', boxes: ['ubase'], nodes: ['a'], wires: [] },
-          { arT: '2. الـ kbps', enT: '2. The kbps', arD: '1 kbps = 1,000 bps.', enD: '1 kbps = 1,000 bps.', icon: '➡️', boxes: ['ukbp'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. الـ Mbps والـ Gbps', enT: '3. Mbps and Gbps', arD: '1 Mbps = 1,000 kbps، و 1 Gbps = 1,000 Mbps.', enD: '1 Mbps = 1,000 kbps, and 1 Gbps = 1,000 Mbps.', icon: '🚀', boxes: ['umbp'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. الـ kbps', enT: '2. The kbps', arD: '1 kbps = 1,000 bps.', enD: '1 kbps = 1,000 bps.', icon: '➡️', boxes: ['ukbp'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. الـ Mbps والـ Gbps', enT: '3. Mbps and Gbps', arD: '1 Mbps = 1,000 kbps، و 1 Gbps = 1,000 Mbps.', enD: '1 Mbps = 1,000 kbps, and 1 Gbps = 1,000 Mbps.', icon: '🚀', boxes: ['umbp'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      formula: {
+      formula:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'fspeed', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'ftime', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'fvol', x: 660, y: 140, w: 180, h: 120 }
+          { k:'ftime', x: 360, y: 140, w: 180, h: 120 },
+          { k:'fvol', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. حساب السرعة', enT: '1. Computing Speed', arD: 'سرعة النقل = حجم البيانات ÷ زمن النقل.', enD: 'Transfer speed = Data volume ÷ Transmission time.', icon: '🧮', boxes: ['fspeed'], nodes: ['a'], wires: [] },
-          { arT: '2. حساب الزمن', enT: '2. Computing Time', arD: 'زمن النقل = حجم البيانات ÷ سرعة النقل.', enD: 'Transmission time = Data volume ÷ Transfer speed.', icon: '⏱️', boxes: ['ftime'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. حساب حجم البيانات', enT: '3. Computing Data Volume', arD: 'حجم البيانات = سرعة النقل × زمن النقل.', enD: 'Data volume = Transfer speed × Transmission time.', icon: '🗄️', boxes: ['fvol'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. حساب الزمن', enT: '2. Computing Time', arD: 'زمن النقل = حجم البيانات ÷ سرعة النقل.', enD: 'Transmission time = Data volume ÷ Transfer speed.', icon: '⏱️', boxes: ['ftime'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. حساب حجم البيانات', enT: '3. Computing Data Volume', arD: 'حجم البيانات = سرعة النقل × زمن النقل.', enD: 'Data volume = Transfer speed × Transmission time.', icon: '🗄️', boxes: ['fvol'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      efficiency: {
+      efficiency:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'efdef', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'efact', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'efuse', x: 660, y: 140, w: 180, h: 120 }
+          { k:'efact', x: 360, y: 140, w: 180, h: 120 },
+          { k:'efuse', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. تعريف كفاءة النقل', enT: '1. Defining Transfer Efficiency', arD: 'النسبة اللي بيتم بيها تحقيق سرعة اتصال معينة.', enD: 'The ratio at which a certain communication speed is achieved.', icon: '🎯', boxes: ['efdef'], nodes: ['a'], wires: [] },
-          { arT: '2. السرعة الفعلية', enT: '2. The Actual Speed', arD: 'السرعة الفعلية = سرعة الاتصال × كفاءة النقل.', enD: 'Actual transfer speed = Communication speed × Transfer efficiency.', icon: '⚙️', boxes: ['efact'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. مثال', enT: '3. Example', arD: 'سرعة اتصال 100 Mbps بكفاءة 80% بيدي سرعة فعلية = 80 Mbps.', enD: 'A communication speed of 100 Mbps at 80% efficiency gives an actual speed of 80 Mbps.', icon: '💡', boxes: ['efuse'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. السرعة الفعلية', enT: '2. The Actual Speed', arD: 'السرعة الفعلية = سرعة الاتصال × كفاءة النقل.', enD: 'Actual transfer speed = Communication speed × Transfer efficiency.', icon: '⚙️', boxes: ['efact'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. مثال', enT: '3. Example', arD: 'سرعة اتصال 100 Mbps بكفاءة 80% بيدي سرعة فعلية = 80 Mbps.', enD: 'A communication speed of 100 Mbps at 80% efficiency gives an actual speed of 80 Mbps.', icon: '💡', boxes: ['efuse'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      calc: {
+      calc:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'cconv', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'cspeed', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'cdiv', x: 660, y: 140, w: 180, h: 120 }
+          { k:'cspeed', x: 360, y: 140, w: 180, h: 120 },
+          { k:'cdiv', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. تحويل الوحدات', enT: '1. Converting Units', arD: 'نحوّل الحجم من MB/GB لـ bits: × 1,000 × 1,000 × 8.', enD: 'Convert the volume from MB/GB to bits: × 1,000 × 1,000 × 8.', icon: '🔄', boxes: ['cconv'], nodes: ['a'], wires: [] },
-          { arT: '2. السرعة الفعلية', enT: '2. The Actual Speed', arD: 'لو الكفاءة مش 100%، نحسب السرعة الفعلية الأول.', enD: 'If the efficiency is not 100%, compute the actual speed first.', icon: '🧮', boxes: ['cspeed'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. القسمة الأخيرة', enT: '3. The Final Division', arD: 'زمن النقل = حجم البيانات ÷ السرعة الفعلية.', enD: 'Transfer time = Data volume ÷ Actual speed.', icon: '✅', boxes: ['cdiv'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. السرعة الفعلية', enT: '2. The Actual Speed', arD: 'لو الكفاءة مش 100%، نحسب السرعة الفعلية الأول.', enD: 'If the efficiency is not 100%, compute the actual speed first.', icon: '🧮', boxes: ['cspeed'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. القسمة الأخيرة', enT: '3. The Final Division', arD: 'زمن النقل = حجم البيانات ÷ السرعة الفعلية.', enD: 'Transfer time = Data volume ÷ Actual speed.', icon: '✅', boxes: ['cdiv'], nodes: ['d'], wires: ['w2'] }
         ]
       }
     };
@@ -2199,10 +2198,10 @@ var FLOWS = {
       for (var i = 0; i < cfg.boxes.length; i++) {
         if (cfg.boxes[i].k === k) {
           var b = cfg.boxes[i];
-          return { x: b.x + b.w / 2, y: b.y + b.h / 2 };
+          return { x:b.x + b.w / 2, y: b.y + b.h / 2 };
         }
       }
-      return { x: 450, y: 200 };
+      return { x:450, y: 200 };
     }
 
     function buildFlow(id) {
@@ -2221,12 +2220,12 @@ var FLOWS = {
       var gWires = mk('g', {}), gArrows = mk('g', {}), gBoxes = mk('g', {}), gPorts = mk('g', {});
       cfg.wires.forEach(function (w) {
         var a = cfg.nodes[w.from], b = cfg.nodes[w.to];
-        gWires.appendChild(mk('line', { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
+        gWires.appendChild(mk('line', { x1:a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
         var ang = Math.atan2(b.y - a.y, b.x - a.x);
         function arrow(tip) {
           var bx = tip.x - 12 * Math.cos(ang), by = tip.y - 12 * Math.sin(ang);
           return mk('polygon', {
-            points: [tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
+            points:[tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
             class: 'wire-arrow', 'data-w': w.k
           });
         }
@@ -2234,10 +2233,10 @@ var FLOWS = {
         if (w.both) gArrows.appendChild(arrow(a));
       });
       cfg.boxes.forEach(function (b) {
-        gBoxes.appendChild(mk('rect', { x: b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
+        gBoxes.appendChild(mk('rect', { x:b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
       });
       Object.keys(cfg.nodes).forEach(function (k) {
-        gPorts.appendChild(mk('circle', { cx: cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
+        gPorts.appendChild(mk('circle', { cx:cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
       });
       svg.appendChild(gWires);
       svg.appendChild(gArrows);
@@ -2263,7 +2262,7 @@ var FLOWS = {
           '<div class="tl-desc">' + st[L() + 'D'] + '</div>';
         stepsBox.appendChild(s);
       });
-      FLOW_STATE[id] = FLOW_STATE[id] || { cur: 0 };
+      FLOW_STATE[id] = FLOW_STATE[id] || { cur:0 };
       showFlowStep(id, FLOW_STATE[id].cur);
     }
 
@@ -2372,8 +2371,8 @@ var FLOWS = {
             s.className = 'ex-score';
             card.appendChild(s);
           }
-          var rawAr = '✅ إجاباتك الصحيحة: ' + right + ' من ' + scored;
-          var rawEn = '✅ Your correct answers: ' + right + ' of ' + scored;
+          var rawAr = '✅ إجاباتك الصحيحة:' + right + ' من ' + scored;
+          var rawEn = '✅ Your correct answers:' + right + ' of ' + scored;
           s.dataset.rawAr = rawAr;
           s.dataset.rawEn = rawEn;
           s.textContent = tr(rawAr, rawEn);
@@ -2446,7 +2445,7 @@ var FLOWS = {
                 if (co) co.classList.add('correct');
               }
               lock(q);
-              showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+              showFb(ok, rqFb(o), ok ? null:(q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
             });
           });
           if (skip) skip.addEventListener('click', function () {

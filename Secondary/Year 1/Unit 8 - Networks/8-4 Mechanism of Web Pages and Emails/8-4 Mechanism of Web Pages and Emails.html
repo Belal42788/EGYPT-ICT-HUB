@@ -11,938 +11,937 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 8-4 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
   <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1: #1838f8;
-      --s2: #9a6a00;
-      --s3: #1838f8;
-      --s4: #10B981;
-      --s5: #1838f8;
-      --s6: #d7263d}*{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box
+      --s1:#1838f8;
+      --s2:#9a6a00;
+      --s3:#1838f8;
+      --s4:#10B981;
+      --s5:#1838f8;
+      --s6:#d7263d}*{
+      margin:0;
+      padding:0;
+      box-sizing:border-box
     }html{
-      scroll-behavior: smooth
+      scroll-behavior:smooth
     }body{
-      font-family: 'Cairo', 'Cairo', sans-serif;
-      background: var(--bg);
-      color: var(--dim);
-      line-height: 1.9;
-      overflow-x: hidden
+      font-family:'Cairo', 'Cairo', sans-serif;
+      background:var(--bg);
+      color:var(--dim);
+      line-height:1.9;
+      overflow-x:hidden
     }.bg-gradient{
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      background:radial-gradient(600px 400px at 30% 50%, rgba(25, 60, 255, .35), transparent 70%),
         radial-gradient(600px 400px at 70% 80%, rgba(0, 212, 170, .28), transparent 70%);
-      animation: bgDrift 18s ease-in-out infinite;
+      animation:bgDrift 18s ease-in-out infinite;
     }@keyframes bgDrift{
 
       0%,
       100% {
-        transform: translate(0, 0) scale(1)
+        transform:translate(0, 0) scale(1)
       }
 
       50% {
-        transform: translate(-30px, 20px) scale(1.08)
+        transform:translate(-30px, 20px) scale(1.08)
       }
     }.particles{
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none
     }.particles i{
-      position: absolute;
-      bottom: -10px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--primary);
-      opacity: .3;
-      animation: floatUp 14s linear infinite
+      position:absolute;
+      bottom:-10px;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:var(--primary);
+      opacity:.3;
+      animation:floatUp 14s linear infinite
     }@keyframes floatUp{
       0% {
-        transform: translateY(0);
-        opacity: 0
+        transform:translateY(0);
+        opacity:0
       }
 
       10% {
-        opacity: .3
+        opacity:.3
       }
 
       100% {
-        transform: translateY(-110vh);
-        opacity: 0
+        transform:translateY(-110vh);
+        opacity:0
       }
     }@keyframes heroFloat{
 
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
 
       50% {
-        transform: translateY(-26px)
+        transform:translateY(-26px)
       }
     }@keyframes fadeUp{
       from {
-        opacity: 0;
-        transform: translateY(40px)
+        opacity:0;
+        transform:translateY(40px)
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity:1;
+        transform:translateY(0)
       }
     }main{
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 0 24px
+      max-width:1060px;
+      margin:0 auto;
+      padding:0 24px
     }section{
-      padding: 38px 0
+      padding:38px 0
     }.section-header{
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 16px
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:16px
     }.section-number{
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 18px;
-      color: var(--bg);
-      animation: glow 3s ease-in-out infinite
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:18px;
+      color:var(--bg);
+      animation:glow 3s ease-in-out infinite
     }@keyframes glow{
 
       0%,
       100% {
-        box-shadow: 0 0 20px rgba(25, 60, 255, .25)
+        box-shadow:0 0 20px rgba(25, 60, 255, .25)
       }
 
       50% {
-        box-shadow: 0 0 42px rgba(25, 60, 255, .6)
+        box-shadow:0 0 42px rgba(25, 60, 255, .6)
       }
     }.section-header h2{
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.3
+      font-size:clamp(22px, 4vw, 34px);
+      font-weight:800;
+      color:var(--text);
+      line-height:1.3
     }.section-header .tag{
-      font-size: .9rem
+      font-size:.9rem
     }.section-inner{
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all .6s cubic-bezier(.4, 0, .2, 1)
+      opacity:0;
+      transform:translateY(30px);
+      transition:all .6s cubic-bezier(.4, 0, .2, 1)
     }.section-inner.visible{
-      opacity: 1;
-      transform: translateY(0)
-    }@keyframes autoReveal{ from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }.section-inner{ animation: autoReveal .7s ease-out both; }.section-inner.visible{ animation: none; opacity: 1; transform: translateY(0); }.section-inner+.section-inner{
-      margin-top: 16px
+      opacity:1;
+      transform:translateY(0)
+    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
+      margin-top:16px
     }.card{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 24px;
-      padding: 18px;
-      transition: .3s
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      border-radius:24px;
+      padding:18px;
+      transition:.3s
     }.card:hover{
       background: var(--card-hover);
-      transform: translateY(-5px);
-      border-color: rgba(25, 60, 255, .3)
+      transform:translateY(-5px);
+      border-color:rgba(25, 60, 255, .3)
     }.diagram-wrap{
-      position: relative;
-      border-radius: 24px;
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      overflow: hidden
+      position:relative;
+      border-radius:24px;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      overflow:hidden
     }.diagram-wrap .topbar{
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent))
+      height:3px;
+      background:linear-gradient(90deg, var(--primary), var(--accent))
     }.diagram-wrap .inner{
-      padding: 16px
+      padding:16px
     }h3{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      line-height: 1.4
+      color:var(--text);
+      font-weight:800;
+      font-size:1.25rem;
+      margin-bottom:12px;
+      line-height:1.4
     }p{
-      margin-bottom: 12px
+      margin-bottom:12px
     }b,
     strong{
-      color: var(--text)
+      color:var(--text)
     }.note{
-      background: rgba(255, 215, 0, .06);
-      border: 1px solid rgba(255, 215, 0, .25);
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-top: 14px;
-      font-size: .95rem
+      background:rgba(255, 215, 0, .06);
+      border:1px solid rgba(255, 215, 0, .25);
+      border-radius:12px;
+      padding:14px 16px;
+      margin-top:14px;
+      font-size:.95rem
     }.note b{
-      color: var(--warn)
+      color:var(--warn)
     }.glossary-search{
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: var(--card);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 15px;
-      color-scheme: dark;
-      margin: 14px 0;
+      width:100%;
+      padding:12px 18px;
+      border-radius:50px;
+      border:1px solid rgba(255, 255, 255, 0.15);
+      background:var(--card);
+      color:var(--text);
+      font-family:inherit;
+      font-size:15px;
+      color-scheme:dark;
+      margin:14px 0;
     }.glossary-search:focus{
       outline: none;
-      border-color: var(--primary);
+      border-color:var(--primary);
     }.glossary-filters{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
     }.gl-filter{
-      padding: 6px 16px;
+      padding:6px 16px;
     }.gl-filter.active{
-      background: rgba(6, 182, 212 , 0.2);
-      border-color: var(--s3);
-      color: var(--text);
+      background:rgba(6, 182, 212 , 0.2);
+      border-color:var(--s3);
+      color:var(--text);
     }.glossary-list{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }@media (max-width: 860px){.glossary-list{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }@media (max-width:860px){.glossary-list{
         grid-template-columns: 1fr;
       }
     }.gl-term{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 16px;
-      transition: all 0.3s ease;
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, 0.08);
+      border-radius:16px;
+      padding:16px;
+      transition:all 0.3s ease;
     }.gl-term:hover{
       background: var(--card-hover);
-      border-color: var(--s3);
+      border-color:var(--s3);
     }.gl-term h4{
-      font-size: 15px;
-      margin-bottom: 6px;
-      color: var(--s3);
+      font-size:15px;
+      margin-bottom:6px;
+      color:var(--s3);
     }.gl-term p{
-      font-size: 13px;
-      margin-bottom: 0;
+      font-size:13px;
+      margin-bottom:0;
     }.gl-term.hidden{
-      display: none;
+      display:none;
     }.error-box{
-      border: 1px solid rgba(255, 71, 87, .2);
-      background: rgba(255, 71, 87, .05);
-      border-radius: 12px;
-      padding: 16px;
-      margin-top: 6px
+      border:1px solid rgba(255, 71, 87, .2);
+      background:rgba(255, 71, 87, .05);
+      border-radius:12px;
+      padding:16px;
+      margin-top:6px
     }.error-box h4,
     .error-box h3{
-      color: var(--danger);
-      font-weight: 800;
-      margin-bottom: 10px;
-      font-size: 1rem
+      color:var(--danger);
+      font-weight:800;
+      margin-bottom:10px;
+      font-size:1rem
     }.error-box ul{
-      list-style: none
+      list-style:none
     }.error-box li{
-      padding: 4px 0;
-      position: relative;
-      padding-right: 26px
+      padding:4px 0;
+      position:relative;
+      padding-right:26px
     }.error-box li::before{
       content: "⚠️";
-      position: absolute;
-      right: 0;
-      top: 2px;
-      font-size: .95rem
+      position:absolute;
+      right:0;
+      top:2px;
+      font-size:.95rem
     }.error-box li b{
-      color: var(--danger)
+      color:var(--danger)
     }.legend{
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 14px;
-      font-size: .85rem
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:14px;
+      font-size:.85rem
     }.legend span{
-      display: inline-flex;
-      align-items: center;
-      gap: 7px
+      display:inline-flex;
+      align-items:center;
+      gap:7px
     }.legend i{
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-      display: inline-block
+      width:14px;
+      height:14px;
+      border-radius:4px;
+      display:inline-block
     }.concept-block{
-      border-top: 3px solid var(--c);
-      padding-top: 30px;
-      margin-top: 14px
+      border-top:3px solid var(--c);
+      padding-top:30px;
+      margin-top:14px
     }.concept-block:first-of-type{
       margin-top: 0
     }.concept-head{
-      display: flex;
-      align-items: center;
-      gap: 14px
+      display:flex;
+      align-items:center;
+      gap:14px
     }.concept-title{
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.4
+      font-size:1.35rem;
+      font-weight:800;
+      color:var(--text);
+      line-height:1.4
     }.concept-head .tag{
-      font-size: .88rem
+      font-size:.88rem
     }.activity-grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px
     }@media(max-width:860px){.activity-grid{
         grid-template-columns: 1fr
       }
     }.activity-grid .demo-panel{
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 20px;
-      background: rgba(255, 255, 255, .03);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, .06)
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      padding:20px;
+      background:rgba(255, 255, 255, .03);
+      border-radius:16px;
+      border:1px solid rgba(255, 255, 255, .06)
     }.demo-label{
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--dim);
-      margin-bottom: 6px;
-      display: block
+      font-size:.82rem;
+      font-weight:700;
+      color:var(--dim);
+      margin-bottom:6px;
+      display:block
     }.todo-item{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 12px 16px;
-      margin-bottom: 10px
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:12px 16px;
+      margin-bottom:10px
     }.todo-item b{
-      color: var(--text)
+      color:var(--text)
     }.btn{
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border: none;
-      color: #fff;
-      font-family: inherit;
-      font-weight: 800;
-      padding: 12px 28px;
-      border-radius: 40px;
-      cursor: pointer;
-      font-size: .95rem;
-      transition: .2s;
-      box-shadow: 0 6px 24px rgba(25, 60, 255, .3)
+      background:linear-gradient(90deg, var(--primary), var(--accent));
+      border:none;
+      color:#fff;
+      font-family:inherit;
+      font-weight:800;
+      padding:12px 28px;
+      border-radius:40px;
+      cursor:pointer;
+      font-size:.95rem;
+      transition:.2s;
+      box-shadow:0 6px 24px rgba(25, 60, 255, .3)
     }.btn:hover{
       transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(0, 212, 170, .3)
+      box-shadow:0 10px 32px rgba(0, 212, 170, .3)
     }.mini-btn{
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      color: var(--text);
-      font-family: inherit;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: .85rem
+      background:rgba(255, 255, 255, .06);
+      border:1px solid rgba(255, 255, 255, .12);
+      color:var(--text);
+      font-family:inherit;
+      font-weight:600;
+      padding:8px 18px;
+      border-radius:30px;
+      cursor:pointer;
+      font-size:.85rem
     }.mini-btn:hover{
       background: rgba(255, 255, 255, .12)
     }.btn-row{
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap
     }.kbd{
-      display: inline-block;
-      background: #e9edfe;
-      border: 1px solid rgba(255, 255, 255, .15);
-      border-radius: 6px;
-      padding: 2px 10px;
-      font-size: .85rem;
-      color: var(--text);
-      font-family: 'Consolas', monospace
+      display:inline-block;
+      background:#e9edfe;
+      border:1px solid rgba(255, 255, 255, .15);
+      border-radius:6px;
+      padding:2px 10px;
+      font-size:.85rem;
+      color:var(--text);
+      font-family:'Consolas', monospace
     }.hint-line{
-      font-size: .85rem;
-      color: var(--dim);
-      margin-top: 8px
+      font-size:.85rem;
+      color:var(--dim);
+      margin-top:8px
     }.tl-card{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 24px;
-      padding: 24px
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .05);
+      border-radius:24px;
+      padding:24px
     }.tl-steps{
-      min-height: 120px;
-      display: flex;
-      align-items: center
+      min-height:120px;
+      display:flex;
+      align-items:center
     }.tl-step{
-      display: none;
-      text-align: center;
-      width: 100%
+      display:none;
+      text-align:center;
+      width:100%
     }.tl-step.active{
-      display: block;
-      animation: tlIn .4s ease
+      display:block;
+      animation:tlIn .4s ease
     }@keyframes tlIn{
       from {
-        opacity: 0;
-        transform: translateY(12px)
+        opacity:0;
+        transform:translateY(12px)
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity:1;
+        transform:translateY(0)
       }
     }.tl-icon{
-      font-size: 2.1rem;
-      margin-bottom: 6px;
-      display: inline-block
+      font-size:2.1rem;
+      margin-bottom:6px;
+      display:inline-block
     }.tl-year-badge{
-      display: inline-block;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .12);
-      border-radius: 20px;
-      padding: 3px 16px;
-      font-size: .85rem;
-      color: var(--accent);
-      font-weight: 700
+      display:inline-block;
+      background:rgba(255, 255, 255, .06);
+      border:1px solid rgba(255, 255, 255, .12);
+      border-radius:20px;
+      padding:3px 16px;
+      font-size:.85rem;
+      color:var(--accent);
+      font-weight:700
     }.tl-title{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.2rem;
-      margin: 8px 0 6px
+      color:var(--text);
+      font-weight:800;
+      font-size:1.2rem;
+      margin:8px 0 6px
     }.tl-desc{
-      color: var(--dim);
-      font-size: .98rem;
-      max-width: 660px;
-      margin: 0 auto
+      color:var(--dim);
+      font-size:.98rem;
+      max-width:660px;
+      margin:0 auto
     }.tl-nav{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px
     }.svg-stage{
-      position: relative;
-      max-width: 760px;
-      margin: 10px auto 0
+      position:relative;
+      max-width:760px;
+      margin:10px auto 0
     }.svg-stage .svg-main{
-      width: 100%;
-      height: auto;
-      display: block
+      width:100%;
+      height:auto;
+      display:block
     }.svg-label{
-      position: absolute;
-      transform: translate(-50%, -50%);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(10, 14, 39, .88);
-      border: 1px solid rgba(255, 255, 255, .16);
-      border-radius: 12px;
-      padding: 5px 12px;
-      font-size: .9rem;
-      font-weight: 700;
-      color: var(--text);
-      white-space: nowrap;
-      z-index: 3;
-      pointer-events: none;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, .45)
+      position:absolute;
+      transform:translate(-50%, -50%);
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:rgba(10, 14, 39, .88);
+      border:1px solid rgba(255, 255, 255, .16);
+      border-radius:12px;
+      padding:5px 12px;
+      font-size:.9rem;
+      font-weight:700;
+      color:var(--text);
+      white-space:nowrap;
+      z-index:3;
+      pointer-events:none;
+      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
     }.svg-box{
-      fill: url(#bxG);
-      stroke: rgba(255, 255, 255, .14);
-      stroke-width: 2;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
+      fill:url(#bxG);
+      stroke:rgba(255, 255, 255, .14);
+      stroke-width:2;
+      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
     }.flow-box{
-      fill: url(#bxG);
-      stroke: rgba(255, 255, 255, .14);
-      stroke-width: 2;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition: stroke .3s, filter .3s
+      fill:url(#bxG);
+      stroke:rgba(255, 255, 255, .14);
+      stroke-width:2;
+      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
+      transition:stroke .3s, filter .3s
     }.flow-box.on{
-      stroke: var(--accent);
-      filter: drop-shadow(0 0 18px rgba(0, 212, 170, .5))
+      stroke:var(--accent);
+      filter:drop-shadow(0 0 18px rgba(0, 212, 170, .5))
     }.flow-wire{
-      stroke: #dfe5fb;
-      stroke-width: 3;
-      fill: none;
-      transition: stroke .3s
+      stroke:#dfe5fb;
+      stroke-width:3;
+      fill:none;
+      transition:stroke .3s
     }.flow-wire.on{
-      stroke: var(--accent);
-      stroke-width: 3.5;
-      stroke-dasharray: 6 12;
-      stroke-linecap: round;
-      animation: flow 1.1s linear infinite;
-      filter: drop-shadow(0 0 6px rgba(0, 212, 170, .6))
+      stroke:var(--accent);
+      stroke-width:3.5;
+      stroke-dasharray:6 12;
+      stroke-linecap:round;
+      animation:flow 1.1s linear infinite;
+      filter:drop-shadow(0 0 6px rgba(0, 212, 170, .6))
     }@keyframes flow{
       to {
-        stroke-dashoffset: -36
+        stroke-dashoffset:-36
       }
     }.wire-arrow{
-      fill: var(--accent);
-      opacity: 0;
-      transition: opacity .3s;
-      filter: drop-shadow(0 0 4px rgba(0, 212, 170, .6))
+      fill:var(--accent);
+      opacity:0;
+      transition:opacity .3s;
+      filter:drop-shadow(0 0 4px rgba(0, 212, 170, .6))
     }.wire-arrow.on{
-      opacity: 1
+      opacity:1
     }.flow-port{
-      fill: #dfe5fb;
-      stroke: var(--bg);
-      stroke-width: 2;
-      transition: fill .3s
+      fill:#dfe5fb;
+      stroke:var(--bg);
+      stroke-width:2;
+      transition:fill .3s
     }.flow-port.on{
-      fill: var(--accent);
-      filter: drop-shadow(0 0 8px rgba(0, 212, 170, .8))
+      fill:var(--accent);
+      filter:drop-shadow(0 0 8px rgba(0, 212, 170, .8))
     }.bcast-wave{
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 2;
-      opacity: 0;
-      transform-box: fill-box;
-      transform-origin: center
+      fill:none;
+      stroke:var(--accent);
+      stroke-width:2;
+      opacity:0;
+      transform-box:fill-box;
+      transform-origin:center
     }.bcast-wave.run{
-      animation: wave 1.8s ease-out infinite
+      animation:wave 1.8s ease-out infinite
     }.bcast-wave.run:nth-of-type(2){
       animation-delay: .5s
     }@keyframes wave{
       0% {
-        opacity: .8;
-        transform: scale(.4)
+        opacity:.8;
+        transform:scale(.4)
       }
 
       100% {
-        opacity: 0;
-        transform: scale(1.5)
+        opacity:0;
+        transform:scale(1.5)
       }
     }.flow-arrow{
-      color: var(--accent);
-      overflow: visible
+      color:var(--accent);
+      overflow:visible
     }.flow-arrow use{
-      transform-box: fill-box;
-      transform-origin: center
+      transform-box:fill-box;
+      transform-origin:center
     }.flow-arrow use.flip{
-      transform: scaleX(-1)
+      transform:scaleX(-1)
     }.mx-grid{
-      display: grid;
-      grid-template-columns: 140px 1fr 1fr;
-      gap: 10px;
-      margin-top: 8px
+      display:grid;
+      grid-template-columns:140px 1fr 1fr;
+      gap:10px;
+      margin-top:8px
     }.mx-grid>div{
-      border-radius: 14px;
-      padding: 14px
+      border-radius:14px;
+      padding:14px
     }.mx-head{
-      background: rgba(25, 60, 255, .12);
-      border: 1px solid rgba(25, 60, 255, .35);
-      font-weight: 800;
-      color: var(--text);
-      text-align: center
+      background:rgba(25, 60, 255, .12);
+      border:1px solid rgba(25, 60, 255, .35);
+      font-weight:800;
+      color:var(--text);
+      text-align:center
     }.mx-row{
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .1);
-      font-weight: 800;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center
+      background:rgba(255, 255, 255, .04);
+      border:1px solid rgba(255, 255, 255, .1);
+      font-weight:800;
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center
     }.mx-cell{
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .07);
-      min-height: 70px
+      background:var(--card);
+      border:1px solid rgba(255, 255, 255, .07);
+      min-height:70px
     }.mx-cell b{
-      display: block;
-      color: var(--text);
-      font-size: .9rem;
-      margin-bottom: 4px
+      display:block;
+      color:var(--text);
+      font-size:.9rem;
+      margin-bottom:4px
     }.mx-chip{
-      display: inline-block;
-      background: rgba(0, 212, 170, .1);
-      border: 1px solid rgba(0, 212, 170, .35);
-      color: var(--accent);
-      border-radius: 20px;
-      padding: 3px 12px;
-      font-size: .85rem;
-      margin: 4px
+      display:inline-block;
+      background:rgba(0, 212, 170, .1);
+      border:1px solid rgba(0, 212, 170, .35);
+      color:var(--accent);
+      border-radius:20px;
+      padding:3px 12px;
+      font-size:.85rem;
+      margin:4px
     }.mx-empty{
-      color: var(--dim);
-      font-size: .9rem;
-      text-align: center;
-      padding: 8px
+      color:var(--dim);
+      font-size:.9rem;
+      text-align:center;
+      padding:8px
     }@media(max-width:700px){.mx-grid{
         grid-template-columns: 1fr 1fr
       }.mx-row{
-        grid-column: span 2
+        grid-column:span 2
       }
     }.ex-item{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:14px
     }.ex-item .q{
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px
     }.ex-options{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px
     }@media(max-width:640px){.ex-options{
         grid-template-columns: 1fr
       }
     }.ex-opt{
-      direction: rtl;
-      text-align: right;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: .9rem;
-      color: #c7d2fe;
-      white-space: pre-wrap;
-      cursor: pointer;
-      transition: .15s;
-      user-select: none
+      direction:rtl;
+      text-align:right;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .09);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:.9rem;
+      color:#c7d2fe;
+      white-space:pre-wrap;
+      cursor:pointer;
+      transition:.15s;
+      user-select:none
     }.ex-opt:hover{
       border-color: rgba(0, 212, 170, .5);
-      background: rgba(0, 212, 170, .08)
+      background:rgba(0, 212, 170, .08)
     }.ex-opt.picked{
-      border-color: var(--primary);
-      background: rgba(25, 60, 255, .18);
-      color: #fff;
-      box-shadow: 0 0 0 1px var(--primary)
+      border-color:var(--primary);
+      background:rgba(25, 60, 255, .18);
+      color:#fff;
+      box-shadow:0 0 0 1px var(--primary)
     }.ex-opt.correct{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .12);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .12);
+      color:var(--success)
     }.ex-opt.wrong{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .12);
-      color: #f8d7da
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .12);
+      color:#2f2e3c
     }.ex-key{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      background: rgba(6, 182, 212 , .18);
-      border: 1px solid rgba(6, 182, 212 , .55);
-      color: var(--s3);
-      font-weight: 800;
-      font-size: .78rem;
-      margin-right: 10px;
-      vertical-align: middle;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      background:rgba(6, 182, 212 , .18);
+      border:1px solid rgba(6, 182, 212 , .55);
+      color:var(--s3);
+      font-weight:800;
+      font-size:.78rem;
+      margin-right:10px;
+      vertical-align:middle;
+      flex-shrink:0
     }.ex-body{
-      vertical-align: middle;
-      display: inline-block;
-      white-space: normal
+      vertical-align:middle;
+      display:inline-block;
+      white-space:normal
     }.ex-answer{
-      display: none;
-      margin-top: 10px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: .92rem
+      display:none;
+      margin-top:10px;
+      padding:10px 14px;
+      border-radius:10px;
+      font-size:.92rem
     }.ex-answer.show{
-      display: block;
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: rgba(0, 255, 136, .07);
-      color: var(--success)
+      display:block;
+      border:1px solid rgba(0, 255, 136, .35);
+      background:rgba(0, 255, 136, .07);
+      color:var(--success)
     }.ex-answer.show b{
-      color: var(--success);
-      margin: 0 6px
+      color:var(--success);
+      margin:0 6px
     }.ex-score{
-      margin-top: 14px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: rgba(0, 255, 136, .08);
-      border: 1px solid rgba(0, 255, 136, .35);
-      color: var(--success);
-      font-size: .95rem
+      margin-top:14px;
+      padding:12px 16px;
+      border-radius:12px;
+      background:rgba(0, 255, 136, .08);
+      border:1px solid rgba(0, 255, 136, .35);
+      color:var(--success);
+      font-size:.95rem
     }.group-label{
-      color: var(--text);
-      font-weight: 800;
-      font-size: 1.05rem;
-      margin: 22px 0 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px
+      color:var(--text);
+      font-weight:800;
+      font-size:1.05rem;
+      margin:22px 0 12px;
+      display:flex;
+      align-items:center;
+      gap:8px
     }.group-label::before{
       content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 3px;
-      background: var(--s3);
-      flex-shrink: 0
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      background:var(--s3);
+      flex-shrink:0
     }.recall{
-      display: none;
-      margin-top: 16px
+      display:none;
+      margin-top:16px
     }.recall.show{
-      display: block
+      display:block
     }.rq{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:14px
     }.rq-q{
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:10px
     }.rq-opts{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px
     }@media(max-width:640px){.rq-opts{
         grid-template-columns: 1fr
       }
     }.rq-opt{
-      direction: rtl;
-      text-align: right;
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .09);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: .9rem;
-      color: #c7d2fe;
-      cursor: pointer;
-      transition: .15s;
-      user-select: none
+      direction:rtl;
+      text-align:right;
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .09);
+      border-radius:10px;
+      padding:8px 12px;
+      font-size:.9rem;
+      color:#c7d2fe;
+      cursor:pointer;
+      transition:.15s;
+      user-select:none
     }.rq-opt:hover{
       border-color: rgba(0, 212, 170, .5);
-      background: rgba(0, 212, 170, .08)
+      background:rgba(0, 212, 170, .08)
     }.rq-opt.disabled{
-      pointer-events: none;
-      opacity: .65
+      pointer-events:none;
+      opacity:.65
     }.rq-opt.correct{
-      border-color: var(--success);
-      background: rgba(0, 255, 136, .12);
-      color: var(--success)
+      border-color:var(--success);
+      background:rgba(0, 255, 136, .12);
+      color:var(--success)
     }.rq-opt.wrong{
-      border-color: var(--danger);
-      background: rgba(255, 71, 87, .12);
-      color: #f8d7da
+      border-color:var(--danger);
+      background:rgba(255, 71, 87, .12);
+      color:#2f2e3c
     }.rq-key{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 26px;
-      height: 26px;
-      border-radius: 6px;
-      background: rgba(25, 60, 255, .14);
-      border: 1px solid rgba(25, 60, 255, .5);
-      color: #c7d2fe;
-      font-weight: 800;
-      font-size: .82rem;
-      margin-right: 10px;
-      vertical-align: middle;
-      flex-shrink: 0
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:26px;
+      height:26px;
+      border-radius:6px;
+      background:rgba(25, 60, 255, .14);
+      border:1px solid rgba(25, 60, 255, .5);
+      color:#c7d2fe;
+      font-weight:800;
+      font-size:.82rem;
+      margin-right:10px;
+      vertical-align:middle;
+      flex-shrink:0
     }.rq-fb{
-      margin-top: 10px;
-      display: none;
-      font-size: .92rem;
-      padding: 10px 14px;
-      border-radius: 10px
+      margin-top:10px;
+      display:none;
+      font-size:.92rem;
+      padding:10px 14px;
+      border-radius:10px
     }.rq-fb.show{
-      display: block
+      display:block
     }.rq-fb.ok{
-      background: rgba(0, 255, 136, .07);
-      border: 1px solid rgba(0, 255, 136, .35);
-      color: var(--success)
+      background:rgba(0, 255, 136, .07);
+      border:1px solid rgba(0, 255, 136, .35);
+      color:var(--success)
     }.rq-fb.no{
-      background: rgba(255, 71, 87, .07);
-      border: 1px solid rgba(255, 71, 87, .35);
-      color: #f8d7da
+      background:rgba(255, 71, 87, .07);
+      border:1px solid rgba(255, 71, 87, .35);
+      color:#2f2e3c
     }.journey{
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding-right: 26px
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      padding-right:26px
     }.journey::before{
       content: "";
-      position: absolute;
-      right: 9px;
-      top: 14px;
-      bottom: 14px;
-      width: 3px;
-      border-radius: 3px;
-      background: linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
+      position:absolute;
+      right:9px;
+      top:14px;
+      bottom:14px;
+      width:3px;
+      border-radius:3px;
+      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
     }.j-node{
-      position: relative;
-      display: grid;
-      grid-template-columns: 20px 1fr;
-      gap: 16px;
-      padding: 14px 0
+      position:relative;
+      display:grid;
+      grid-template-columns:20px 1fr;
+      gap:16px;
+      padding:14px 0
     }.j-dot{
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 3px;
-      z-index: 2
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      flex-shrink:0;
+      margin-top:3px;
+      z-index:2
     }.j-body .t{
-      color: var(--text);
-      font-weight: 700
+      color:var(--text);
+      font-weight:700
     }.j-body .d{
-      font-size: .93rem
+      font-size:.93rem
     }.journey-item{
-      position: relative;
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 14px;
-      padding: 12px 0
+      position:relative;
+      display:grid;
+      grid-template-columns:44px 1fr;
+      gap:14px;
+      padding:12px 0
     }.journey-item h4{
-      color: var(--text);
-      font-size: 1rem;
-      margin: 0 0 4px
+      color:var(--text);
+      font-size:1rem;
+      margin:0 0 4px
     }.journey-item p{
-      margin: 0;
-      font-size: .92rem
+      margin:0;
+      font-size:.92rem
     }.pill{
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin-bottom: 10px;
-      font-size: .92rem;
-      line-height: 1.7
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      border-radius:14px;
+      padding:12px 14px;
+      margin-bottom:10px;
+      font-size:.92rem;
+      line-height:1.7
     }.pill-dot{
-      flex-shrink: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-top: 7px
+      flex-shrink:0;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      margin-top:7px
     }.mx-wrap{
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 16px;
-      padding: 14px
+      background:rgba(255, 255, 255, .03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-radius:16px;
+      padding:14px
     }.ex-btn-row{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 16px;
-      flex-wrap: wrap
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:16px;
+      flex-wrap:wrap
     }.congrats{
-      border: 1px solid rgba(0, 255, 136, .35);
-      background: linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
+      border:1px solid rgba(0, 255, 136, .35);
+      background:linear-gradient(180deg, rgba(0, 255, 136, .07), rgba(255, 255, 255, .03))
     }#scrollTop{
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 60;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      border: 1px solid rgba(0, 212, 170, .4);
-      background: rgba(10, 14, 39, .9);
-      color: var(--accent);
-      font-size: 1.15rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      transition: .2s;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .35)
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      z-index:60;
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      border:1px solid rgba(0, 212, 170, .4);
+      background:rgba(10, 14, 39, .9);
+      color:var(--accent);
+      font-size:1.15rem;
+      font-weight:800;
+      cursor:pointer;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      transition:.2s;
+      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
     }#scrollTop.show{
-      display: flex
+      display:flex
     }#scrollTop:hover{
       background: rgba(0, 212, 170, .15)
     }.emoji-float{
-      display: inline-block;
-      animation: ef 3s ease-in-out infinite
+      display:inline-block;
+      animation:ef 3s ease-in-out infinite
     }@keyframes ef{
 
       0%,
       100% {
-        transform: translateY(0)
+        transform:translateY(0)
       }
 
       50% {
-        transform: translateY(-5px)
+        transform:translateY(-5px)
       }
     }.emoji-pulse{
-      display: inline-block;
-      animation: ep 2s ease-in-out infinite
+      display:inline-block;
+      animation:ep 2s ease-in-out infinite
     }@keyframes ep{
 
       0%,
       100% {
-        transform: scale(1)
+        transform:scale(1)
       }
 
       50% {
-        transform: scale(1.12)
+        transform:scale(1.12)
       }
     }.bg-gradient,.particles,.bg-animation,.particle{
-      display: none !important;
+      display:none !important;
     }.gradient-text{
-      background: none !important;
-      -webkit-text-fill-color: var(--primary) !important;
-      color: var(--primary) !important;
+      background:none !important;
+      -webkit-text-fill-color:var(--primary) !important;
+      color:var(--primary) !important;
     }.lesson-section::before,
     .lesson-section[data-accent]::before{
       background: var(--primary) !important;
     }.section-number,
     .lesson-section[data-accent] .section-number{
-      background: var(--primary) !important;
-      color: #fff !important;
-      box-shadow: none !important;
-      animation: none !important;
+      background:var(--primary) !important;
+      color:#fff !important;
+      box-shadow:none !important;
+      animation:none !important;
     }[class*="-bar-fill"]{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }[class*="-bar-fill"].good{
-      background: var(--success) !important;
+      background:var(--success) !important;
     }[class*="-bar-fill"].mid{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }[class*="-bar-fill"].bad{
-      background: var(--danger) !important;
+      background:var(--danger) !important;
     }.unit-num, .unit-card{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }.cta-btn,.btn{
-      background: var(--primary) !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .25) !important;
+      background:var(--primary) !important;
+      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
     }.cta-btn:hover,.btn:hover{
       box-shadow: 0 10px 26px rgba(0, 0, 0, .3) !important;
     }[style*="linear-gradient"]{
-      background: var(--primary) !important;
+      background:var(--primary) !important;
     }.book-card{
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-inline-start: 4px solid var(--s2, #9a6a00);
-      border-radius: 18px;
-      padding: 20px 22px;
-      margin: 18px 0
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255, 255, 255, .07);
+      border-inline-start:4px solid var(--s2, #9a6a00);
+      border-radius:18px;
+      padding:20px 22px;
+      margin:18px 0
     }.book-card.try{
-      border-inline-start-color: var(--s5, #1440c9)
+      border-inline-start-color:var(--s5, #1440c9)
     }.book-card.try h3{
-      color: var(--s5, #1440c9)
+      color:var(--s5, #1440c9)
     }.book-card h3{
-      margin: 0 0 10px;
-      color: var(--s2, #9a6a00)
+      margin:0 0 10px;
+      color:var(--s2, #9a6a00)
     }.book-card ol, .book-card ul{
-      margin: 8px 0;
-      padding-inline-start: 22px
+      margin:8px 0;
+      padding-inline-start:22px
     }.book-card li{
-      margin-bottom: 6px
+      margin-bottom:6px
     }.book-src{
-      display: block;
-      margin-top: 12px;
-      font-size: .82rem;
-      opacity: .65
+      display:block;
+      margin-top:12px;
+      font-size:.82rem;
+      opacity:.65
     }.book-diff{
-      margin-top: 12px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: rgba(245, 158, 11, .08);
-      border: 1px solid rgba(245, 158, 11, .3);
-      font-size: .9rem
+      margin-top:12px;
+      padding:10px 14px;
+      border-radius:10px;
+      background:rgba(245, 158, 11, .08);
+      border:1px solid rgba(245, 158, 11, .3);
+      font-size:.9rem
     }
 
 </style>
@@ -999,7 +998,7 @@
     <section id="intro">
       <div class="section-inner">
         <div class="section-header">
-          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#1440c9)">01</div>
+          <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#ecf0fb)">01</div>
           <div>
             <h2 data-ar="إيه اللي هنتعلّمه النهارده؟" data-en="What will we learn today?">إيه اللي هنتعلّمه النهارده؟</h2>
             <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — آلية صفحات الويب والإيميل"
@@ -1068,10 +1067,10 @@
           <h3 data-ar="من الكتاب: النقاط الرئيسية — آلية الإنترنت، وآلية البريد الإلكتروني" data-en="From the book: Point box — Mechanism of the Internet, and Mechanism of Email">من الكتاب: النقاط الرئيسية — آلية الإنترنت، وآلية البريد الإلكتروني</h3>
           <p data-ar="«أ. آلية الإنترنت (1) (WWW) : هو نظام يربط عددًا لا حصر له من المحتويات على الإنترنت. يمكن للمستخدمين من خلاله تصفح صفحات الويب التي تجمع بيانات متنوعةً، ويُشار إليه عادةً بمصطلح الويب. (2) (HTML) : لغة تستخدم لإنشاء صفحات الويب. (3) (URL) : يمثل موقع صفحة الويب وطريقة التواصل.»" data-en="&quot;1 Mechanism of the Internet (1) (WWW): A system that links countless pieces of content on the internet. Users can browse web pages that compile various data. It is commonly referred to as the Web. (2) (HTML): A language used for creating web pages. (3) (URL): Represents the location of a web page and the method of communication.&quot;">«أ. آلية الإنترنت (1) (WWW) : هو نظام يربط عددًا لا حصر له من المحتويات على الإنترنت. يمكن للمستخدمين من خلاله تصفح صفحات الويب التي تجمع بيانات متنوعةً، ويُشار إليه عادةً بمصطلح الويب. (2) (HTML) : لغة تستخدم لإنشاء صفحات الويب. (3) (URL) : يمثل موقع صفحة الويب وطريقة التواصل.»</p>
           <p data-ar="الشكل المطبوع «<هيكل عنوان URL>»: https://www.mext.go.jp/index.html مع قوس «اسم النطاق»، والتسميات: (اسم المخطط) (اسم البروتوكول) Scheme name, Protocol name — (اسم السيرفر) (اسم المضيف) Hostname Servername — (اسم المؤسسة) Name of organization — (نوع المنظمة) Type of organization — (اسم الدولة) Country name — (اسم الملف) File name. الجدولان المطبوعان «<أمثلة على أنواع المنظمات>»: gov وكالة حكومية، co شركة، edu مدرسة (الابتدائية، الإعدادية، والثانوية)، ac جامعة / مؤسسة تعليمية؛ و«<أمثلة على رموز الدول>»: jp اليابان، eg مصر، kr كوريا الجنوبية، cn الصين." data-en="The printed figure &quot;<Structure of a URL>&quot;: https://www.mext.go.jp/index.html with a &quot;Domain name&quot; bracket and the labels (Scheme name / Protocol name), (Host name / Server name), (Name of organization), (Type of organization), (Country name), (File name). The printed tables &quot;<Examples of Types of Organizations>&quot;: gov Government agency, co Corporation, edu School (elementary, junior high, and high schools), ac University/educational corporation; and &quot;<Examples of Country Codes>&quot;: eg Egypt, jp Japan, hk Hong Kong, kr South Korea.">الشكل المطبوع «<هيكل عنوان URL>»: https://www.mext.go.jp/index.html مع قوس «اسم النطاق»، والتسميات: (اسم المخطط) (اسم البروتوكول) Scheme name, Protocol name — (اسم السيرفر) (اسم المضيف) Hostname Servername — (اسم المؤسسة) Name of organization — (نوع المنظمة) Type of organization — (اسم الدولة) Country name — (اسم الملف) File name. الجدولان المطبوعان «<أمثلة على أنواع المنظمات>»: gov وكالة حكومية، co شركة، edu مدرسة (الابتدائية، الإعدادية، والثانوية)، ac جامعة / مؤسسة تعليمية؛ و«<أمثلة على رموز الدول>»: jp اليابان، eg مصر، kr كوريا الجنوبية، cn الصين.</p>
-          <p data-ar="«(4) عملية تصفح صفحات الويب» الشكل المطبوع: «أنا عايز أوصل لـ www.mext.go.jp»؛ خادم DNS؛ خادم الويب؛ الخطوات: 1) يستعلم من خادم الـ DNS ‏2) بيرجع عنوان الـ IP ‏3) الوصول عن طريق عنوان الـ IP ‏4) يعرض صفحة ويب. «ب. آلية البريد الإلكتروني (1) البريد الإلكتروني : نظام لتبادل الرسائل والبيانات مع مستخدمين محددين عبر الإنترنت. عند إرسال بريد إلكتروني، تُستخدم عناوين البريد الإلكتروني (email addresses). (2) هيكل عنوان البريد الإلكتروني [1] اسم المستخدم (Username) : يحدد المستلم. [2] اسم النطاق (Domain name) : يحدد خادم البريد الذي يستخدمه المستلم.» الشكل المطبوع: hanako@example.co.jp مع قوس «(اسم النطاق)» والتسميات (اسم المستخدم) Username، (اسم المؤسسة) Name of Organization، (نوع المؤسسة) Type of Organization، (اسم الدولة) Country name." data-en="&quot;(4) Process of Browsing Web Pages&quot; printed figure: &quot;I want to access www.mext.go.jp&quot;; DNS server; Web server; steps: 1) Queries the DNS server 2) Returns the IP adress 3) Accesses via IP adress 4) Displays a web page. &quot;2 Mechanism of Email (1) Email: A system for exchanging messages and data with specific users via the internet. When sending an email, you use an (email address). (2) Structure of an Email Address [1] (Username): Identifies the recipient. [2] (Domain name): Identifies the mail server that the recipient is using.&quot; Printed figure: hanako@example.co.jp with a &quot;(Domain name)&quot; bracket and the labels (Username), (Name of organization), (Type of organization), (Country name).">«(4) عملية تصفح صفحات الويب» الشكل المطبوع: «أنا عايز أوصل لـ www.mext.go.jp»؛ خادم DNS؛ خادم الويب؛ الخطوات: 1) يستعلم من خادم الـ DNS ‏2) بيرجع عنوان الـ IP ‏3) الوصول عن طريق عنوان الـ IP ‏4) يعرض صفحة ويب. «ب. آلية البريد الإلكتروني (1) البريد الإلكتروني : نظام لتبادل الرسائل والبيانات مع مستخدمين محددين عبر الإنترنت. عند إرسال بريد إلكتروني، تُستخدم عناوين البريد الإلكتروني (email addresses). (2) هيكل عنوان البريد الإلكتروني [1] اسم المستخدم (Username) : يحدد المستلم. [2] اسم النطاق (Domain name) : يحدد خادم البريد الذي يستخدمه المستلم.» الشكل المطبوع: hanako@example.co.jp مع قوس «(اسم النطاق)» والتسميات (اسم المستخدم) Username، (اسم المؤسسة) Name of Organization، (نوع المؤسسة) Type of Organization، (اسم الدولة) Country name.</p>
-          <p data-ar="«عملية ارسال واستقبال رسائل البريد الإلكتروني [1] (SMTP) : بروتوكول لإرسال رسائل البريد الإلكتروني إلى خادم بريد. [2] (POP) : بروتوكول يُستخدم لتنزيل رسائل البريد الإلكتروني من خادم وحذفها من الخادم. [3] (IMAP) : بروتوكول للوصول إلى رسائل البريد الإلكتروني المخزنة على خادم بريد.» الشكل المطبوع: «نزّل الايميل من السيرفر وامسحه» — بوب؛ «اعرض الإيميل على السيرفر» — بروتوكول الوصول للبريد عبر الإنترنت؛ «بروتوكول إرسال / بروتوكول إرسال البريد البسيط» بين خادم البريد الصادر وخادم البريد الوارد." data-en="&quot;(2) Process of Sending and Receiving Emails [1] (SMTP): A protocol for sending emails to a mail server. [2] (POP): A protocol used to download emails from a server and delete them from a server. [3] (IMAP): A protocol for accessing emails stored on a mail server.&quot; Printed figure: &quot;Download and delete the email from the server&quot; — POP; &quot;View the email on the server&quot; — IMAP; SMTP between the outgoing and incoming mail servers.">«عملية ارسال واستقبال رسائل البريد الإلكتروني [1] (SMTP) : بروتوكول لإرسال رسائل البريد الإلكتروني إلى خادم بريد. [2] (POP) : بروتوكول يُستخدم لتنزيل رسائل البريد الإلكتروني من خادم وحذفها من الخادم. [3] (IMAP) : بروتوكول للوصول إلى رسائل البريد الإلكتروني المخزنة على خادم بريد.» الشكل المطبوع: «نزّل الايميل من السيرفر وامسحه» — بوب؛ «اعرض الإيميل على السيرفر» — بروتوكول الوصول للبريد عبر الإنترنت؛ «بروتوكول إرسال / بروتوكول إرسال البريد البسيط» بين خادم البريد الصادر وخادم البريد الوارد.</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان الدرس: العربية «آلية عمل صفحات الويب والبريد الإلكتروني»؛ الإنجليزية &quot;Mechanism of Web Pages and Emails&quot;. جدول رموز الدول: العربية jp اليابان، eg مصر، kr كوريا الجنوبية، cn الصين؛ الإنجليزية eg Egypt، jp Japan، hk Hong Kong، kr South Korea — العربية تطبع cn الصين حيث تطبع الإنجليزية hk Hong Kong. بند البريد (1): العربية بصيغة الجمع «عناوين البريد الإلكتروني (email addresses)»؛ الإنجليزية المفرد &quot;an (email address)&quot;. عنوان عملية الإرسال بلا ترقيم «(2)» في العربية؛ الإنجليزية ترقمه &quot;(2)&quot;. شكل التصفح: العربية بعامية «أنا عايز أوصل لـ» و«بيرجع عنوان الـ IP»؛ الإنجليزية تطبع &quot;Returns the IP adress&quot; و&quot;Accesses via IP adress&quot; بلفظ &quot;adress&quot; كما طُبعت (مرتين). شكل البريد: العربية تترجم أسماء البروتوكولات «بوب» و«بروتوكول إرسال البريد البسيط» و«بروتوكول الوصول للبريد عبر الإنترنت»؛ الإنجليزية POP وSMTP وIMAP. شكل العنوان: تسميتا العربية «(اسم المؤسسة)» و«(نوع المؤسسة)» بشرح إنجليزي مهجّى بأحرف كبيرة &quot;Name of Organization&quot;. الرمز الزخرفي (الدائرة السوداء) يتكرر في العربية فقط بعد الجداول وبعد شكلَي DNS والبريد." data-en="Edition comparison (confirmed from the printed page images): lesson title: Arabic «آلية عمل صفحات الويب والبريد الإلكتروني»; English &quot;Mechanism of Web Pages and Emails&quot;. Country-code table: Arabic jp اليابان, eg مصر, kr كوريا الجنوبية, cn الصين; English eg Egypt, jp Japan, hk Hong Kong, kr South Korea — Arabic prints cn الصين where English prints hk Hong Kong. Email item (1): Arabic plural «عناوين البريد الإلكتروني (email addresses)»; English singular &quot;an (email address)&quot;. The sending-process heading carries no «(2)» numbering in Arabic; English numbers it &quot;(2)&quot;. Browsing figure: Arabic colloquial «أنا عايز أوصل لـ» and «بيرجع عنوان الـ IP»; English prints &quot;Returns the IP adress&quot; and &quot;Accesses via IP adress&quot; with &quot;adress&quot; as printed (twice). Email figure: Arabic translates the protocol names «بوب», «بروتوكول إرسال البريد البسيط», «بروتوكول الوصول للبريد عبر الإنترنت»; English prints POP, SMTP, IMAP. Address figure: the Arabic labels «(اسم المؤسسة)» and «(نوع المؤسسة)» carry capitalized English glosses &quot;Name of Organization&quot;. The decorative black-circle glyph recurs in Arabic only, after the tables and after the DNS and email figures.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان الدرس: العربية «آلية عمل صفحات الويب والبريد الإلكتروني»؛ الإنجليزية &quot;Mechanism of Web Pages and Emails&quot;. جدول رموز الدول: العربية jp اليابان، eg مصر، kr كوريا الجنوبية، cn الصين؛ الإنجليزية eg Egypt، jp Japan، hk Hong Kong، kr South Korea — العربية تطبع cn الصين حيث تطبع الإنجليزية hk Hong Kong. بند البريد (1): العربية بصيغة الجمع «عناوين البريد الإلكتروني (email addresses)»؛ الإنجليزية المفرد &quot;an (email address)&quot;. عنوان عملية الإرسال بلا ترقيم «(2)» في العربية؛ الإنجليزية ترقمه &quot;(2)&quot;. شكل التصفح: العربية بعامية «أنا عايز أوصل لـ» و«بيرجع عنوان الـ IP»؛ الإنجليزية تطبع &quot;Returns the IP adress&quot; و&quot;Accesses via IP adress&quot; بلفظ &quot;adress&quot; كما طُبعت (مرتين). شكل البريد: العربية تترجم أسماء البروتوكولات «بوب» و«بروتوكول إرسال البريد البسيط» و«بروتوكول الوصول للبريد عبر الإنترنت»؛ الإنجليزية POP وSMTP وIMAP. شكل العنوان: تسميتا العربية «(اسم المؤسسة)» و«(نوع المؤسسة)» بشرح إنجليزي مهجّى بأحرف كبيرة &quot;Name of Organization&quot;. الرمز الزخرفي (الدائرة السوداء) يتكرر في العربية فقط بعد الجداول وبعد شكلَي DNS والبريد.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 105 (المطبوع 105)؛ AR 118–119." data-en="The text above is from the book. Full source: English PDF 105 (printed 105); Arabic 118–119.">النص السابق من الكتاب. المصدر الكامل: EN PDF 105 (المطبوع 105)؛ AR 118–119.</span>
+          <p data-ar="«(4) عملية تصفح صفحات الويب» الشكل المطبوع: «أنا عايز أوصل لـ www.mext.go.jp»؛ خادم DNS؛ خادم الويب؛ الخطوات: 1) يستعلم من خادم الـ DNS ‏2) بيرجع عنوان الـ IP ‏3) الوصول عن طريق عنوان الـ IP ‏4) يعرض صفحة ويب. «ب. آلية البريد الإلكتروني (1) البريد الإلكتروني : نظام لتبادل الرسائل والبيانات مع مستخدمين محددين عبر الإنترنت. عند إرسال بريد إلكتروني، تُستخدم عناوين البريد الإلكتروني (email addresses). (2) هيكل عنوان البريد الإلكتروني [1] اسم المستخدم (Username) : يحدد المستلم. [2] اسم النطاق (Domain name) : يحدد خادم البريد الذي يستخدمه المستلم.» الشكل المطبوع: hanako@example.co.jp مع قوس «(اسم النطاق)» والتسميات (اسم المستخدم) Username، (اسم المؤسسة) Name of Organization، (نوع المؤسسة) Type of Organization، (اسم الدولة) Country name." data-en="&quot;(4) Process of Browsing Web Pages&quot; printed figure:&quot;I want to access www.mext.go.jp&quot;; DNS server; Web server; steps:1) Queries the DNS server 2) Returns the IP adress 3) Accesses via IP adress 4) Displays a web page. &quot;2 Mechanism of Email (1) Email:A system for exchanging messages and data with specific users via the internet. When sending an email, you use an (email address). (2) Structure of an Email Address [1] (Username): Identifies the recipient. [2] (Domain name): Identifies the mail server that the recipient is using.&quot; Printed figure:hanako@example.co.jp with a &quot;(Domain name)&quot; bracket and the labels (Username), (Name of organization), (Type of organization), (Country name).">«(4) عملية تصفح صفحات الويب» الشكل المطبوع:«أنا عايز أوصل لـ www.mext.go.jp»؛ خادم DNS؛ خادم الويب؛ الخطوات: 1) يستعلم من خادم الـ DNS ‏2) بيرجع عنوان الـ IP ‏3) الوصول عن طريق عنوان الـ IP ‏4) يعرض صفحة ويب. «ب. آلية البريد الإلكتروني (1) البريد الإلكتروني : نظام لتبادل الرسائل والبيانات مع مستخدمين محددين عبر الإنترنت. عند إرسال بريد إلكتروني، تُستخدم عناوين البريد الإلكتروني (email addresses). (2) هيكل عنوان البريد الإلكتروني [1] اسم المستخدم (Username) : يحدد المستلم. [2] اسم النطاق (Domain name) : يحدد خادم البريد الذي يستخدمه المستلم.» الشكل المطبوع: hanako@example.co.jp مع قوس «(اسم النطاق)» والتسميات (اسم المستخدم) Username، (اسم المؤسسة) Name of Organization، (نوع المؤسسة) Type of Organization، (اسم الدولة) Country name.</p>
+          <p data-ar="«عملية ارسال واستقبال رسائل البريد الإلكتروني [1] (SMTP) : بروتوكول لإرسال رسائل البريد الإلكتروني إلى خادم بريد. [2] (POP) : بروتوكول يُستخدم لتنزيل رسائل البريد الإلكتروني من خادم وحذفها من الخادم. [3] (IMAP) : بروتوكول للوصول إلى رسائل البريد الإلكتروني المخزنة على خادم بريد.» الشكل المطبوع: «نزّل الايميل من السيرفر وامسحه» — بوب؛ «اعرض الإيميل على السيرفر» — بروتوكول الوصول للبريد عبر الإنترنت؛ «بروتوكول إرسال / بروتوكول إرسال البريد البسيط» بين خادم البريد الصادر وخادم البريد الوارد." data-en="&quot;(2) Process of Sending and Receiving Emails [1] (SMTP): A protocol for sending emails to a mail server. [2] (POP): A protocol used to download emails from a server and delete them from a server. [3] (IMAP): A protocol for accessing emails stored on a mail server.&quot; Printed figure:&quot;Download and delete the email from the server&quot; — POP; &quot;View the email on the server&quot; — IMAP; SMTP between the outgoing and incoming mail servers.">«عملية ارسال واستقبال رسائل البريد الإلكتروني [1] (SMTP) : بروتوكول لإرسال رسائل البريد الإلكتروني إلى خادم بريد. [2] (POP) : بروتوكول يُستخدم لتنزيل رسائل البريد الإلكتروني من خادم وحذفها من الخادم. [3] (IMAP) : بروتوكول للوصول إلى رسائل البريد الإلكتروني المخزنة على خادم بريد.» الشكل المطبوع:«نزّل الايميل من السيرفر وامسحه» — بوب؛ «اعرض الإيميل على السيرفر» — بروتوكول الوصول للبريد عبر الإنترنت؛ «بروتوكول إرسال / بروتوكول إرسال البريد البسيط» بين خادم البريد الصادر وخادم البريد الوارد.</p>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان الدرس: العربية «آلية عمل صفحات الويب والبريد الإلكتروني»؛ الإنجليزية &quot;Mechanism of Web Pages and Emails&quot;. جدول رموز الدول:العربية jp اليابان، eg مصر، kr كوريا الجنوبية، cn الصين؛ الإنجليزية eg Egypt، jp Japan، hk Hong Kong، kr South Korea — العربية تطبع cn الصين حيث تطبع الإنجليزية hk Hong Kong. بند البريد (1): العربية بصيغة الجمع «عناوين البريد الإلكتروني (email addresses)»؛ الإنجليزية المفرد &quot;an (email address)&quot;. عنوان عملية الإرسال بلا ترقيم «(2)» في العربية؛ الإنجليزية ترقمه &quot;(2)&quot;. شكل التصفح:العربية بعامية «أنا عايز أوصل لـ» و«بيرجع عنوان الـ IP»؛ الإنجليزية تطبع &quot;Returns the IP adress&quot; و&quot;Accesses via IP adress&quot; بلفظ &quot;adress&quot; كما طُبعت (مرتين). شكل البريد:العربية تترجم أسماء البروتوكولات «بوب» و«بروتوكول إرسال البريد البسيط» و«بروتوكول الوصول للبريد عبر الإنترنت»؛ الإنجليزية POP وSMTP وIMAP. شكل العنوان: تسميتا العربية «(اسم المؤسسة)» و«(نوع المؤسسة)» بشرح إنجليزي مهجّى بأحرف كبيرة &quot;Name of Organization&quot;. الرمز الزخرفي (الدائرة السوداء) يتكرر في العربية فقط بعد الجداول وبعد شكلَي DNS والبريد." data-en="Edition comparison (confirmed from the printed page images): lesson title:Arabic «آلية عمل صفحات الويب والبريد الإلكتروني»; English &quot;Mechanism of Web Pages and Emails&quot;. Country-code table:Arabic jp اليابان, eg مصر, kr كوريا الجنوبية, cn الصين; English eg Egypt, jp Japan, hk Hong Kong, kr South Korea — Arabic prints cn الصين where English prints hk Hong Kong. Email item (1): Arabic plural «عناوين البريد الإلكتروني (email addresses)»; English singular &quot;an (email address)&quot;. The sending-process heading carries no «(2)» numbering in Arabic; English numbers it &quot;(2)&quot;. Browsing figure:Arabic colloquial «أنا عايز أوصل لـ» and «بيرجع عنوان الـ IP»; English prints &quot;Returns the IP adress&quot; and &quot;Accesses via IP adress&quot; with &quot;adress&quot; as printed (twice). Email figure:Arabic translates the protocol names «بوب», «بروتوكول إرسال البريد البسيط», «بروتوكول الوصول للبريد عبر الإنترنت»; English prints POP, SMTP, IMAP. Address figure:the Arabic labels «(اسم المؤسسة)» and «(نوع المؤسسة)» carry capitalized English glosses &quot;Name of Organization&quot;. The decorative black-circle glyph recurs in Arabic only, after the tables and after the DNS and email figures.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان الدرس:العربية «آلية عمل صفحات الويب والبريد الإلكتروني»؛ الإنجليزية &quot;Mechanism of Web Pages and Emails&quot;. جدول رموز الدول:العربية jp اليابان، eg مصر، kr كوريا الجنوبية، cn الصين؛ الإنجليزية eg Egypt، jp Japan، hk Hong Kong، kr South Korea — العربية تطبع cn الصين حيث تطبع الإنجليزية hk Hong Kong. بند البريد (1): العربية بصيغة الجمع «عناوين البريد الإلكتروني (email addresses)»؛ الإنجليزية المفرد &quot;an (email address)&quot;. عنوان عملية الإرسال بلا ترقيم «(2)» في العربية؛ الإنجليزية ترقمه &quot;(2)&quot;. شكل التصفح:العربية بعامية «أنا عايز أوصل لـ» و«بيرجع عنوان الـ IP»؛ الإنجليزية تطبع &quot;Returns the IP adress&quot; و&quot;Accesses via IP adress&quot; بلفظ &quot;adress&quot; كما طُبعت (مرتين). شكل البريد:العربية تترجم أسماء البروتوكولات «بوب» و«بروتوكول إرسال البريد البسيط» و«بروتوكول الوصول للبريد عبر الإنترنت»؛ الإنجليزية POP وSMTP وIMAP. شكل العنوان: تسميتا العربية «(اسم المؤسسة)» و«(نوع المؤسسة)» بشرح إنجليزي مهجّى بأحرف كبيرة &quot;Name of Organization&quot;. الرمز الزخرفي (الدائرة السوداء) يتكرر في العربية فقط بعد الجداول وبعد شكلَي DNS والبريد.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 105 (المطبوع 105)؛ AR 118–119." data-en="The text above is from the book. Full source: English PDF 105 (printed 105); Arabic 118–119.">النص السابق من الكتاب. المصدر الكامل:EN PDF 105 (المطبوع 105)؛ AR 118–119.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-point" -->
     </div>
@@ -1646,7 +1645,7 @@
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
             <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 105–108 (المطبوع 105–108)؛ AR 118–121"
-              data-en="Your book: EN PDF 105–108 (printed 105–108); AR 118–121">الكتاب بتاعك: EN PDF 105–108 (المطبوع 105–108)؛ AR 118–121</div>
+              data-en="Your book: EN PDF 105–108 (printed 105–108); AR 118–121">الكتاب بتاعك:EN PDF 105–108 (المطبوع 105–108)؛ AR 118–121</div>
           </div>
         </div>
       </div>
@@ -1672,9 +1671,9 @@
           <h3 data-ar="من الكتاب: تحدي معلوماتك — الإجابات مطبوعة في «الشرح» أسفل السؤالين" data-en="From the book: Warm Up — the answers are printed in the Explanation below the questions">من الكتاب: تحدي معلوماتك — الإجابات مطبوعة في «الشرح» أسفل السؤالين</h3>
           <p data-ar="«أجب عن الأسئلة التالية. (1) أدخلت &quot;https://www.example.com.eg&quot; في متصفح الويب و عرضت صفحة الويب. أعد ترتيب الخطوات من 1 إلى 4 في ترتيب المعالجة لعرض صفحة الويب. (1) يرسل خادم الويب بيانات صفحة الويب. (2) الوصول إلى عنوان IP الذي تم إرجاعه من خادم . (3) DNS يرد خادم DNS بعنوان IP لخادم الويب المقابل لاسم النطاق. (4) استفسر من خادم DNS عن عنوان IP المقابل لاسم النطاق.»" data-en="&quot;Answer the following questions. (1) You entered “https://www.example.co.jp” in the web browser and displayed the web page. Rearrange the steps A to D in the order of processing to display the web page. A The web server sends the data of the web page. B Access the IP address returned from the DNS server. C The DNS server returns the IP address of the web server corresponding to the domain name. D Query the DNS server for the IP address corresponding to the domain name.&quot;">«أجب عن الأسئلة التالية. (1) أدخلت &quot;https://www.example.com.eg&quot; في متصفح الويب و عرضت صفحة الويب. أعد ترتيب الخطوات من 1 إلى 4 في ترتيب المعالجة لعرض صفحة الويب. (1) يرسل خادم الويب بيانات صفحة الويب. (2) الوصول إلى عنوان IP الذي تم إرجاعه من خادم . (3) DNS يرد خادم DNS بعنوان IP لخادم الويب المقابل لاسم النطاق. (4) استفسر من خادم DNS عن عنوان IP المقابل لاسم النطاق.»</p>
           <p data-ar="«(2) املأ الفراغات [1] إلى [4] في الجملة التالية بالمصطلحات المناسبة. يتكون عنوان البريد الإلكتروني من ([1] )username@، ويُستخدم البروتوكول ( [2] ) لإرسال رسائل البريد الإلكتروني، بينما يُستخدم ( [3] ) أو ( [4] ) لتلقي رسائل البريد الإلكتروني.»" data-en="&quot;(2) Fill in the blanks [1] to [4] in the following sentence with the appropriate terms. An email address is composed of “username@( [1] ),” and the protocol ( [2] ) is used for sending emails, while ( [3] ) or ( [4] ) is utilized for receiving emails.&quot;">«(2) املأ الفراغات [1] إلى [4] في الجملة التالية بالمصطلحات المناسبة. يتكون عنوان البريد الإلكتروني من ([1] )username@، ويُستخدم البروتوكول ( [2] ) لإرسال رسائل البريد الإلكتروني، بينما يُستخدم ( [3] ) أو ( [4] ) لتلقي رسائل البريد الإلكتروني.»</p>
-          <p data-ar="«الشرح» المطبوع: «(1) (ث) ← (ت) ← (ب) ← (أ) (2) [1] اسم النطاق [2] SMTP [3] POP [4] IMAP (ملاحظة: يمكن أن يكون [3] و [4] بأي ترتيب)»." data-en="The printed Explanation: &quot;(1) D → C → B → A (2) [1] Domain name [2] SMTP [3] POP [4] IMAP (note: [3] and [4] can be in any order)&quot;.">«الشرح» المطبوع: «(1) (ث) ← (ت) ← (ب) ← (أ) (2) [1] اسم النطاق [2] SMTP [3] POP [4] IMAP (ملاحظة: يمكن أن يكون [3] و [4] بأي ترتيب)».</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العنوان المُدخل في السؤال (1): العربية &quot;https://www.example.com.eg&quot;؛ الإنجليزية “https://www.example.co.jp”. خطوات (1) مرقمة (1)-(4) في العربية بينما الإنجليزية A-D، و«الشرح» العربي يجيب بالحروف «(ث) ← (ت) ← (ب) ← (أ)» بأسهم لليسار — تُنقل التسميات كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;D → C → B → A&quot; والترتيب نفسه. الخطوة (2) العربية تطبع «من خادم .» بفراغ قبل النقطة (بدون &quot;DNS&quot;)، والخطوة (3) تبدأ بكلمة «DNS» زائدة قبل «يرد خادم DNS». في السؤال (2) يأتي الفراغ ([1] ) قبل «username@» في الجملة العربية المطبوعة بينما الإنجليزية تطبعه بعدها “username@( [1] )”، وإجابة الشرح المطبوعة [1] = اسم النطاق في الطبعتين. العنوان: العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;." data-en="Edition comparison (confirmed from the printed page images): the address entered in question (1): Arabic &quot;https://www.example.com.eg&quot;; English “https://www.example.co.jp”. Steps of (1) are numbered (1)-(4) in Arabic while English uses A-D, and the Arabic explanation answers with letters «(ث) ← (ت) ← (ب) ← (أ)» with leftward arrows — labels carried as printed without asserting the intended convention; English &quot;D → C → B → A&quot;, the same order. Arabic step (2) prints «من خادم .» with a gap before the period (no &quot;DNS&quot;), and step (3) starts with a stray «DNS» before «يرد خادم DNS». In question (2) the blank ([1] ) precedes «username@» in the printed Arabic sentence while English prints it after, “username@( [1] )”, and the printed explanation answer [1] = domain name in both editions. Heading: Arabic «تحدي معلوماتك»; English &quot;Warm Up&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العنوان المُدخل في السؤال (1): العربية &quot;https://www.example.com.eg&quot;؛ الإنجليزية “https://www.example.co.jp”. خطوات (1) مرقمة (1)-(4) في العربية بينما الإنجليزية A-D، و«الشرح» العربي يجيب بالحروف «(ث) ← (ت) ← (ب) ← (أ)» بأسهم لليسار — تُنقل التسميات كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;D → C → B → A&quot; والترتيب نفسه. الخطوة (2) العربية تطبع «من خادم .» بفراغ قبل النقطة (بدون &quot;DNS&quot;)، والخطوة (3) تبدأ بكلمة «DNS» زائدة قبل «يرد خادم DNS». في السؤال (2) يأتي الفراغ ([1] ) قبل «username@» في الجملة العربية المطبوعة بينما الإنجليزية تطبعه بعدها “username@( [1] )”، وإجابة الشرح المطبوعة [1] = اسم النطاق في الطبعتين. العنوان: العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 106 (المطبوع 106)؛ AR 119." data-en="The text above is from the book. Full source: English PDF 106 (printed 106); Arabic 119.">النص السابق من الكتاب. المصدر الكامل: EN PDF 106 (المطبوع 106)؛ AR 119.</span>
+          <p data-ar="«الشرح» المطبوع:«(1) (ث) ← (ت) ← (ب) ← (أ) (2) [1] اسم النطاق [2] SMTP [3] POP [4] IMAP (ملاحظة: يمكن أن يكون [3] و [4] بأي ترتيب)»." data-en="The printed Explanation: &quot;(1) D → C → B → A (2) [1] Domain name [2] SMTP [3] POP [4] IMAP (note:[3] and [4] can be in any order)&quot;.">«الشرح» المطبوع:«(1) (ث) ← (ت) ← (ب) ← (أ) (2) [1] اسم النطاق [2] SMTP [3] POP [4] IMAP (ملاحظة: يمكن أن يكون [3] و [4] بأي ترتيب)».</p>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العنوان المُدخل في السؤال (1): العربية &quot;https://www.example.com.eg&quot;؛ الإنجليزية “https://www.example.co.jp”. خطوات (1) مرقمة (1)-(4) في العربية بينما الإنجليزية A-D، و«الشرح» العربي يجيب بالحروف «(ث) ← (ت) ← (ب) ← (أ)» بأسهم لليسار — تُنقل التسميات كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;D → C → B → A&quot; والترتيب نفسه. الخطوة (2) العربية تطبع «من خادم .» بفراغ قبل النقطة (بدون &quot;DNS&quot;)، والخطوة (3) تبدأ بكلمة «DNS» زائدة قبل «يرد خادم DNS». في السؤال (2) يأتي الفراغ ([1] ) قبل «username@» في الجملة العربية المطبوعة بينما الإنجليزية تطبعه بعدها “username@( [1] )”، وإجابة الشرح المطبوعة [1] = اسم النطاق في الطبعتين. العنوان:العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;." data-en="Edition comparison (confirmed from the printed page images): the address entered in question (1): Arabic &quot;https://www.example.com.eg&quot;; English “https://www.example.co.jp”. Steps of (1) are numbered (1)-(4) in Arabic while English uses A-D, and the Arabic explanation answers with letters «(ث) ← (ت) ← (ب) ← (أ)» with leftward arrows — labels carried as printed without asserting the intended convention; English &quot;D → C → B → A&quot;, the same order. Arabic step (2) prints «من خادم .» with a gap before the period (no &quot;DNS&quot;), and step (3) starts with a stray «DNS» before «يرد خادم DNS». In question (2) the blank ([1] ) precedes «username@» in the printed Arabic sentence while English prints it after, “username@( [1] )”, and the printed explanation answer [1] = domain name in both editions. Heading:Arabic «تحدي معلوماتك»; English &quot;Warm Up&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العنوان المُدخل في السؤال (1): العربية &quot;https://www.example.com.eg&quot;؛ الإنجليزية “https://www.example.co.jp”. خطوات (1) مرقمة (1)-(4) في العربية بينما الإنجليزية A-D، و«الشرح» العربي يجيب بالحروف «(ث) ← (ت) ← (ب) ← (أ)» بأسهم لليسار — تُنقل التسميات كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;D → C → B → A&quot; والترتيب نفسه. الخطوة (2) العربية تطبع «من خادم .» بفراغ قبل النقطة (بدون &quot;DNS&quot;)، والخطوة (3) تبدأ بكلمة «DNS» زائدة قبل «يرد خادم DNS». في السؤال (2) يأتي الفراغ ([1] ) قبل «username@» في الجملة العربية المطبوعة بينما الإنجليزية تطبعه بعدها “username@( [1] )”، وإجابة الشرح المطبوعة [1] = اسم النطاق في الطبعتين. العنوان:العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 106 (المطبوع 106)؛ AR 119." data-en="The text above is from the book. Full source: English PDF 106 (printed 106); Arabic 119.">النص السابق من الكتاب. المصدر الكامل:EN PDF 106 (المطبوع 106)؛ AR 119.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
@@ -1682,22 +1681,22 @@
           <h3 data-ar="من الكتاب: جرب بنفسك — والإجابات التالية غير مطبوعة" data-en="From the book: Try — the answers below are not printed">من الكتاب: جرب بنفسك — والإجابات التالية غير مطبوعة</h3>
           <p data-ar="«جرب بنفسك 1 أجب عن الأسئلة التالية. (1) اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [4] في الجمل التالية من الخيارات من أ إلى ج ، وأجب باستخدام الحروف. تُكتب صفحات الويب بلغة تسمى ( [1] ) ويتم تحديد موقع صفحة الويب وبروتوكول الاتصال بواسطة ( [2] ). النظام الخاص بتحويل أسماء النطاقات وعناوين IP ضمن ([2]) هو ( [3] )، و ( [4] ) يقوم بهذا الدور. (أ) URL (ب) DNS (ت) HTML (ث) WWW (ج) DNS server»" data-en="&quot;Try 1 Answer the following questions. (1) Choose the term that best fits into the blanks [1] to [4] in the following sentences from the options A to E below, and answer using the letters. Web pages are written in a language called ( [1] ) and the location and communication protocol of the web page are specified by ( [2] ). The system for converting domain names and IP addresses within ([2]) is ( [3] ), and ( [4] ) fulfills that role. A URL B DNS C HTML D WWW E DNS server&quot;">«جرب بنفسك 1 أجب عن الأسئلة التالية. (1) اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [4] في الجمل التالية من الخيارات من أ إلى ج ، وأجب باستخدام الحروف. تُكتب صفحات الويب بلغة تسمى ( [1] ) ويتم تحديد موقع صفحة الويب وبروتوكول الاتصال بواسطة ( [2] ). النظام الخاص بتحويل أسماء النطاقات وعناوين IP ضمن ([2]) هو ( [3] )، و ( [4] ) يقوم بهذا الدور. (أ) URL (ب) DNS (ت) HTML (ث) WWW (ج) DNS server»</p>
           <p data-ar="«(2) ما هو اسم الخدمة التي تتيح لك عرض صفحات الويب على الإنترنت؟ (3) اختر الأسماء المناسبة للأقسام [1] إلى [6] التي يتكون منها عنوان URL التالي من الخيارات من أ إلى ز ، وأجب باستخدام الحروف.» https://www.mext.go.jp/index.html مع [1] إلى [6]. «(أ) اسم المخطط (ب) اسم الدولة (ج) اسم نوع المنظمة (د) اسم المنظمة (هـ) اسم المضيف (و) اسم الملف (ز) اسم النطاق»" data-en="&quot;(2) What is the name of the service that allows you to view web pages on the internet? (3) Choose the appropriate names for sections [1] to [6] that compose the following URL from the options A to G below, and answer using the letters.&quot; https://www.mext.go.jp/index.html with [1] to [6]. &quot;A Scheme name B Country name C Organization type name D Name of organization E Hostname F File name G Domain name&quot;">«(2) ما هو اسم الخدمة التي تتيح لك عرض صفحات الويب على الإنترنت؟ (3) اختر الأسماء المناسبة للأقسام [1] إلى [6] التي يتكون منها عنوان URL التالي من الخيارات من أ إلى ز ، وأجب باستخدام الحروف.» https://www.mext.go.jp/index.html مع [1] إلى [6]. «(أ) اسم المخطط (ب) اسم الدولة (ج) اسم نوع المنظمة (د) اسم المنظمة (هـ) اسم المضيف (و) اسم الملف (ز) اسم النطاق»</p>
-          <p data-ar="«2 أجب عن الأسئلة التالية. (1) قم بتسمية المكونين المشار إليهما بـ [1] و [2] اللذين يشكلان عنوان البريد الإلكتروني التالي.» hanako@example.ed.jp «(2) يمثل الرسم البياني التالي تدفق إرسال واستقبال رسائل البريد الإلكتروني. اختر المجموعة المناسبة من البروتوكولات التي تناسب [1] إلى [4] في الرسم البياني التالي من الخيارات من أ إلى ث .» الشكل المطبوع: «نزّل الايميل من السيرفر وامسحه»، خادم البريد الصادر، خادم البريد الوارد، «اعرض البريد الإلكتروني على السيرفر»، والفراغات [1] إلى [4]. المجموعات: (أ) POP، SMTP، SMTP، IMAP (ب) POP، POP، IMAP، SMTP (ج) SMTP، SMTP، POP، IMAP (د) SMTP، SMTP، IMAP، POP." data-en="&quot;2 Answer the following questions. (1) Name the components labeled [1] and [2] that constitute the following email address.&quot; hanako@example.ed.jp &quot;(2) The following diagram represents the flow of sending and receiving emails. Choose the appropriate combination of protocols that fit in [1] to [4] in the following diagram from the options A to D below.&quot; Printed figure: &quot;Download and delete the email from the server&quot;, outgoing mail server, incoming mail server, &quot;View the email on the server&quot;, blanks [1] to [4]. Combinations: A POP, SMTP, SMTP, IMAP B POP, POP, IMAP, SMTP C SMTP, SMTP, POP, IMAP D SMTP, SMTP, IMAP, POP.">«2 أجب عن الأسئلة التالية. (1) قم بتسمية المكونين المشار إليهما بـ [1] و [2] اللذين يشكلان عنوان البريد الإلكتروني التالي.» hanako@example.ed.jp «(2) يمثل الرسم البياني التالي تدفق إرسال واستقبال رسائل البريد الإلكتروني. اختر المجموعة المناسبة من البروتوكولات التي تناسب [1] إلى [4] في الرسم البياني التالي من الخيارات من أ إلى ث .» الشكل المطبوع: «نزّل الايميل من السيرفر وامسحه»، خادم البريد الصادر، خادم البريد الوارد، «اعرض البريد الإلكتروني على السيرفر»، والفراغات [1] إلى [4]. المجموعات: (أ) POP، SMTP، SMTP، IMAP (ب) POP، POP، IMAP، SMTP (ج) SMTP، SMTP، POP، IMAP (د) SMTP، SMTP، IMAP، POP.</p>
+          <p data-ar="«2 أجب عن الأسئلة التالية. (1) قم بتسمية المكونين المشار إليهما بـ [1] و [2] اللذين يشكلان عنوان البريد الإلكتروني التالي.» hanako@example.ed.jp «(2) يمثل الرسم البياني التالي تدفق إرسال واستقبال رسائل البريد الإلكتروني. اختر المجموعة المناسبة من البروتوكولات التي تناسب [1] إلى [4] في الرسم البياني التالي من الخيارات من أ إلى ث .» الشكل المطبوع: «نزّل الايميل من السيرفر وامسحه»، خادم البريد الصادر، خادم البريد الوارد، «اعرض البريد الإلكتروني على السيرفر»، والفراغات [1] إلى [4]. المجموعات: (أ) POP، SMTP، SMTP، IMAP (ب) POP، POP، IMAP، SMTP (ج) SMTP، SMTP، POP، IMAP (د) SMTP، SMTP، IMAP، POP." data-en="&quot;2 Answer the following questions. (1) Name the components labeled [1] and [2] that constitute the following email address.&quot; hanako@example.ed.jp &quot;(2) The following diagram represents the flow of sending and receiving emails. Choose the appropriate combination of protocols that fit in [1] to [4] in the following diagram from the options A to D below.&quot; Printed figure:&quot;Download and delete the email from the server&quot;, outgoing mail server, incoming mail server, &quot;View the email on the server&quot;, blanks [1] to [4]. Combinations:A POP, SMTP, SMTP, IMAP B POP, POP, IMAP, SMTP C SMTP, SMTP, POP, IMAP D SMTP, SMTP, IMAP, POP.">«2 أجب عن الأسئلة التالية. (1) قم بتسمية المكونين المشار إليهما بـ [1] و [2] اللذين يشكلان عنوان البريد الإلكتروني التالي.» hanako@example.ed.jp «(2) يمثل الرسم البياني التالي تدفق إرسال واستقبال رسائل البريد الإلكتروني. اختر المجموعة المناسبة من البروتوكولات التي تناسب [1] إلى [4] في الرسم البياني التالي من الخيارات من أ إلى ث .» الشكل المطبوع: «نزّل الايميل من السيرفر وامسحه»، خادم البريد الصادر، خادم البريد الوارد، «اعرض البريد الإلكتروني على السيرفر»، والفراغات [1] إلى [4]. المجموعات: (أ) POP، SMTP، SMTP، IMAP (ب) POP، POP، IMAP، SMTP (ج) SMTP، SMTP، POP، IMAP (د) SMTP، SMTP، IMAP، POP.</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (ت) HTML [2] (أ) URL [3] (ب) DNS [4] (ج) DNS server. 1(2): الويب (WWW). 1(3): [1] (أ) اسم المخطط [2] (هـ) اسم المضيف [3] (د) اسم المنظمة [4] (ج) اسم نوع المنظمة [5] (ب) اسم الدولة [6] (و) اسم الملف. 2(1): [1] اسم المستخدم [2] اسم النطاق. 2(2): (ج)." data-en="Answers not printed in the book (teacher-prepared): 1(1): [1] C HTML [2] A URL [3] B DNS [4] E DNS server. 1(2): the Web (WWW). 1(3): [1] A Scheme name [2] E Hostname [3] D Name of organization [4] C Organization type name [5] B Country name [6] F File name. 2(1): [1] Username [2] Domain name. 2(2): C.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (ت) HTML [2] (أ) URL [3] (ب) DNS [4] (ج) DNS server. 1(2): الويب (WWW). 1(3): [1] (أ) اسم المخطط [2] (هـ) اسم المضيف [3] (د) اسم المنظمة [4] (ج) اسم نوع المنظمة [5] (ب) اسم الدولة [6] (و) اسم الملف. 2(1): [1] اسم المستخدم [2] اسم النطاق. 2(2): (ج).</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال 1(1): المدى «من أ إلى ج» مع خمسة خيارات (أ)(ب)(ت)(ث)(ج) بترتيب أبجدي متسق؛ الإنجليزية A-E. السؤال 1(3): المدى «من أ إلى ز» مع سبعة خيارات (أ)(ب)(ج)(د)(هـ)(و)(ز) بترتيب أبجدي حديث (لا تقليدي) متسق مع المدى؛ الإنجليزية A-G. السؤال 2(2): المدى «من أ إلى ث» مع أربع مجموعات (أ)(ب)(ج)(د)؛ الإنجليزية A-D. شكل 2(2) العربي يعيد استخدام عبارتَي الشكل العاميتين «نزّل الايميل من السيرفر وامسحه» و«اعرض البريد الإلكتروني على السيرفر»؛ الإنجليزية تطبعهما بالإنجليزية. صفوف المجموعات الأربع متطابقة في الطبعتين. العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): question 1(1): range «أ to ج» with five options (أ)(ب)(ت)(ث)(ج) in consistent abjad order; English A-E. Question 1(3): range «أ to ز» with seven options (أ)(ب)(ج)(د)(هـ)(و)(ز) in modern alphabetical (not traditional abjad) order, consistent with the stated range; English A-G. Question 2(2): range «أ to ث» with four combinations (أ)(ب)(ج)(د); English A-D. The Arabic 2(2) figure reuses the two colloquial figure phrases «نزّل الايميل من السيرفر وامسحه» and «اعرض البريد الإلكتروني على السيرفر»; English prints them in English. The four combination rows match in both editions. Heading: Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال 1(1): المدى «من أ إلى ج» مع خمسة خيارات (أ)(ب)(ت)(ث)(ج) بترتيب أبجدي متسق؛ الإنجليزية A-E. السؤال 1(3): المدى «من أ إلى ز» مع سبعة خيارات (أ)(ب)(ج)(د)(هـ)(و)(ز) بترتيب أبجدي حديث (لا تقليدي) متسق مع المدى؛ الإنجليزية A-G. السؤال 2(2): المدى «من أ إلى ث» مع أربع مجموعات (أ)(ب)(ج)(د)؛ الإنجليزية A-D. شكل 2(2) العربي يعيد استخدام عبارتَي الشكل العاميتين «نزّل الايميل من السيرفر وامسحه» و«اعرض البريد الإلكتروني على السيرفر»؛ الإنجليزية تطبعهما بالإنجليزية. صفوف المجموعات الأربع متطابقة في الطبعتين. العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 107 (المطبوع 107)؛ AR 120." data-en="The text above is from the book. Full source: English PDF 107 (printed 107); Arabic 120.">النص السابق من الكتاب. المصدر الكامل: EN PDF 107 (المطبوع 107)؛ AR 120.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال 1(1): المدى «من أ إلى ج» مع خمسة خيارات (أ)(ب)(ت)(ث)(ج) بترتيب أبجدي متسق؛ الإنجليزية A-E. السؤال 1(3): المدى «من أ إلى ز» مع سبعة خيارات (أ)(ب)(ج)(د)(هـ)(و)(ز) بترتيب أبجدي حديث (لا تقليدي) متسق مع المدى؛ الإنجليزية A-G. السؤال 2(2): المدى «من أ إلى ث» مع أربع مجموعات (أ)(ب)(ج)(د)؛ الإنجليزية A-D. شكل 2(2) العربي يعيد استخدام عبارتَي الشكل العاميتين «نزّل الايميل من السيرفر وامسحه» و«اعرض البريد الإلكتروني على السيرفر»؛ الإنجليزية تطبعهما بالإنجليزية. صفوف المجموعات الأربع متطابقة في الطبعتين. العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): question 1(1): range «أ to ج» with five options (أ)(ب)(ت)(ث)(ج) in consistent abjad order; English A-E. Question 1(3): range «أ to ز» with seven options (أ)(ب)(ج)(د)(هـ)(و)(ز) in modern alphabetical (not traditional abjad) order, consistent with the stated range; English A-G. Question 2(2): range «أ to ث» with four combinations (أ)(ب)(ج)(د); English A-D. The Arabic 2(2) figure reuses the two colloquial figure phrases «نزّل الايميل من السيرفر وامسحه» and «اعرض البريد الإلكتروني على السيرفر»; English prints them in English. The four combination rows match in both editions. Heading:Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال 1(1): المدى «من أ إلى ج» مع خمسة خيارات (أ)(ب)(ت)(ث)(ج) بترتيب أبجدي متسق؛ الإنجليزية A-E. السؤال 1(3): المدى «من أ إلى ز» مع سبعة خيارات (أ)(ب)(ج)(د)(هـ)(و)(ز) بترتيب أبجدي حديث (لا تقليدي) متسق مع المدى؛ الإنجليزية A-G. السؤال 2(2): المدى «من أ إلى ث» مع أربع مجموعات (أ)(ب)(ج)(د)؛ الإنجليزية A-D. شكل 2(2) العربي يعيد استخدام عبارتَي الشكل العاميتين «نزّل الايميل من السيرفر وامسحه» و«اعرض البريد الإلكتروني على السيرفر»؛ الإنجليزية تطبعهما بالإنجليزية. صفوف المجموعات الأربع متطابقة في الطبعتين. العنوان:العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 107 (المطبوع 107)؛ AR 120." data-en="The text above is from the book. Full source: English PDF 107 (printed 107); Arabic 120.">النص السابق من الكتاب. المصدر الكامل:EN PDF 107 (المطبوع 107)؛ AR 120.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
         <div class="book-card try">
           <h3 data-ar="من الكتاب: تمرين — والإجابات التالية غير مطبوعة" data-en="From the book: Exercise — the answers below are not printed">من الكتاب: تمرين — والإجابات التالية غير مطبوعة</h3>
           <p data-ar="«تمرين 1 أجب عن الأسئلة التالية. (1) اختر الشرح الأنسب لـ DNS من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف. (أ) نظام يربط عددًا لا يحصى من المحتويات على الإنترنت ويُسمى عادةً &quot;الويب&quot;. (ب) يمثل موقع صفحة الويب على الإنترنت وطريقة الاتصال. (ج) لغة تم تطويرها لإنشاء صفحات الويب. (د) نظام يقوم بربط أسماء النطاقات بعناوين IP والعكس.»" data-en="&quot;Exercise 1 Answer the following questions. (1) Choose the most appropriate explanation of a DNS from the options A to D below, and answer using the letter. A A system that links countless pieces of content on the internet and is commonly called “the Web.” B Represents the location of a web page on the internet and the method of communication. C A language developed for creating web pages. D A system that maps domain names to IP addresses and vice versa.&quot;">«تمرين 1 أجب عن الأسئلة التالية. (1) اختر الشرح الأنسب لـ DNS من الخيارات من 1 إلى 4 ، وأجب باستخدام الحرف. (أ) نظام يربط عددًا لا يحصى من المحتويات على الإنترنت ويُسمى عادةً &quot;الويب&quot;. (ب) يمثل موقع صفحة الويب على الإنترنت وطريقة الاتصال. (ج) لغة تم تطويرها لإنشاء صفحات الويب. (د) نظام يقوم بربط أسماء النطاقات بعناوين IP والعكس.»</p>
-          <p data-ar="«(2) يمثل الرسم البياني التالي تدفق تصفح صفحة ويب. اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [3] في الرسم البياني التالي من الخيارات من أ إلى ث ، وأجب باستخدام الحروف.» الشكل المطبوع: الفقاعة &quot;I want to access www.mext.go.jp&quot; مطبوعة بالإنجليزية؛ خادم ( [1] )؛ «الوصول من خلال ( [2] )»؛ «بيرجع الـ ( [2] )»؛ «الاستفسارات( [1] ) خادم»؛ «شاشات( [3] ) صفحة». «(أ) Web (ب) URL (ج) IP address (د) DNS»" data-en="&quot;(2) The following diagram represents the flow of browsing a web page. Choose the term that best fits into the blanks [1] to [3] in the diagram from the options A to D below, and answer using the letters.&quot; Printed figure: &quot;I want to access www.mext.go.jp&quot;; ( [1] ) server; &quot;Accesses via ( [2] )&quot;; &quot;Returns the ( [2] )&quot;; &quot;Queries the ( [1] ) server&quot;; &quot;Displays ( [3] ) page&quot;. &quot;A Web B URL C IP address D DNS&quot;">«(2) يمثل الرسم البياني التالي تدفق تصفح صفحة ويب. اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [3] في الرسم البياني التالي من الخيارات من أ إلى ث ، وأجب باستخدام الحروف.» الشكل المطبوع: الفقاعة &quot;I want to access www.mext.go.jp&quot; مطبوعة بالإنجليزية؛ خادم ( [1] )؛ «الوصول من خلال ( [2] )»؛ «بيرجع الـ ( [2] )»؛ «الاستفسارات( [1] ) خادم»؛ «شاشات( [3] ) صفحة». «(أ) Web (ب) URL (ج) IP address (د) DNS»</p>
+          <p data-ar="«(2) يمثل الرسم البياني التالي تدفق تصفح صفحة ويب. اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [3] في الرسم البياني التالي من الخيارات من أ إلى ث ، وأجب باستخدام الحروف.» الشكل المطبوع:الفقاعة &quot;I want to access www.mext.go.jp&quot; مطبوعة بالإنجليزية؛ خادم ( [1] )؛ «الوصول من خلال ( [2] )»؛ «بيرجع الـ ( [2] )»؛ «الاستفسارات( [1] ) خادم»؛ «شاشات( [3] ) صفحة». «(أ) Web (ب) URL (ج) IP address (د) DNS»" data-en="&quot;(2) The following diagram represents the flow of browsing a web page. Choose the term that best fits into the blanks [1] to [3] in the diagram from the options A to D below, and answer using the letters.&quot; Printed figure:&quot;I want to access www.mext.go.jp&quot;; ( [1] ) server; &quot;Accesses via ( [2] )&quot;; &quot;Returns the ( [2] )&quot;; &quot;Queries the ( [1] ) server&quot;; &quot;Displays ( [3] ) page&quot;. &quot;A Web B URL C IP address D DNS&quot;">«(2) يمثل الرسم البياني التالي تدفق تصفح صفحة ويب. اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [3] في الرسم البياني التالي من الخيارات من أ إلى ث ، وأجب باستخدام الحروف.» الشكل المطبوع:الفقاعة &quot;I want to access www.mext.go.jp&quot; مطبوعة بالإنجليزية؛ خادم ( [1] )؛ «الوصول من خلال ( [2] )»؛ «بيرجع الـ ( [2] )»؛ «الاستفسارات( [1] ) خادم»؛ «شاشات( [3] ) صفحة». «(أ) Web (ب) URL (ج) IP address (د) DNS»</p>
           <p data-ar="«(3) اختر المجموعة المناسبة من الأسماء للفراغات [1] إلى [6] التي يتكون منها عنوان URL التالي من الخيارات من أ إلى ث، وأجب باستخدام الحرف.» https://www.mext.go.jp/index.html مع [1] إلى [6]. المجموعات: (أ) اسم المخطط، اسم المضيف، نوع المنظمة، اسم المنظمة، اسم الدولة، اسم الملف (ب) اسم المخطط، اسم المضيف، اسم المنظمة، نوع المنظمة، اسم الدولة، اسم الملف (ج) اسم المضيف، اسم المخطط، نوع المنظمة، اسم المنظمة، اسم الدولة، اسم الملف (د) اسم المضيف، اسم الملف، اسم المنظمة، نوع المنظمة، اسم الدولة، اسم المخطط." data-en="&quot;(3) Choose the appropriate combination of names for the blanks [1] to [6] that compose the following URL from the options A to D below, and answer using the letter.&quot; https://www.mext.go.jp/index.html with [1] to [6]. Combinations: A Scheme name, Hostname, Type of organization, Name of organization, Country name, File name B Scheme name, Hostname, Name of organization, Type of organization, Country name, File name C Hostname, Scheme name, Type of organization, Name of organization, Country name, File name D Hostname, File name, Name of organization, Type of organization, Country name, Scheme name.">«(3) اختر المجموعة المناسبة من الأسماء للفراغات [1] إلى [6] التي يتكون منها عنوان URL التالي من الخيارات من أ إلى ث، وأجب باستخدام الحرف.» https://www.mext.go.jp/index.html مع [1] إلى [6]. المجموعات: (أ) اسم المخطط، اسم المضيف، نوع المنظمة، اسم المنظمة، اسم الدولة، اسم الملف (ب) اسم المخطط، اسم المضيف، اسم المنظمة، نوع المنظمة، اسم الدولة، اسم الملف (ج) اسم المضيف، اسم المخطط، نوع المنظمة، اسم المنظمة، اسم الدولة، اسم الملف (د) اسم المضيف، اسم الملف، اسم المنظمة، نوع المنظمة، اسم الدولة، اسم المخطط.</p>
           <p data-ar="«3 اختر الخيارات المناسبة للبروتوكولات [1] إلى [3] من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (1) بروتوكول لإرسال رسائل البريد الإلكتروني إلى خادم البريد. (2) بروتوكول للوصول إلى رسائل البريد الإلكتروني على خادم البريد. (3) بروتوكول يقوم بتنزيل رسائل البريد الإلكتروني من خادم البريد وحذفها من الخادم. (أ) POP (ب) SMTP (ت) DNS (ث) IMAP» — الكتلة مرقّمة «3» في العربية كما طُبعت؛ انظر المقارنة بالأسفل." data-en="&quot;2 Choose the appropriate options for protocols [1] to [3] from the options A to D below, and answer using the letters. (1) Protocol for sending emails to a mail server. (2) Protocol for accessing emails on a mail server. (3) A protocol that downloads emails from the mail server and deletes them from the server. A POP B SMTP C DNS D IMAP&quot; — the block is numbered «3» in Arabic as printed; see the comparison below.">«3 اختر الخيارات المناسبة للبروتوكولات [1] إلى [3] من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (1) بروتوكول لإرسال رسائل البريد الإلكتروني إلى خادم البريد. (2) بروتوكول للوصول إلى رسائل البريد الإلكتروني على خادم البريد. (3) بروتوكول يقوم بتنزيل رسائل البريد الإلكتروني من خادم البريد وحذفها من الخادم. (أ) POP (ب) SMTP (ت) DNS (ث) IMAP» — الكتلة مرقّمة «3» في العربية كما طُبعت؛ انظر المقارنة بالأسفل.</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (د) DNS. 1(2): [1] (د) DNS [2] (ج) IP address [3] (أ) Web. 1(3) = (ب). 3: [1] (ب) SMTP [2] (ث) IMAP [3] (أ) POP." data-en="Answers not printed in the book (teacher-prepared): 1(1) = D. 1(2): [1] D DNS [2] C IP address [3] A Web. 1(3) = B. 2: [1] B SMTP [2] D IMAP [3] A POP.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (د) DNS. 1(2): [1] (د) DNS [2] (ج) IP address [3] (أ) Web. 1(3) = (ب). 3: [1] (ب) SMTP [2] (ث) IMAP [3] (أ) POP.</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot; — نفس نمط درسَي 8-1 و8-3. السؤال 1(1): المدى «من 1 إلى 4» مع «باستخدام الحرف» وخيارات معنونة (أ)(ب)(ج)(د) — تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية A-D. العبارة (أ) تطبع «لا يحصى» بينما بند النقاط العربي يطبع «لا حصر له». شكل 1(2): الفقاعة &quot;I want to access www.mext.go.jp&quot; مطبوعة بالإنجليزية داخل الشكل العربي؛ «الاستفسارات( [1] ) خادم» بقوس ملتصق بالكلمة؛ «شاشات( [3] ) صفحة» مقابل الإنجليزية &quot;Displays ( [3] ) page&quot;. السؤال 1(3) يطلب الإجابة «باستخدام الحرف» والمدى «من أ إلى ث». خيارات الكتلة 3 (أ)(ب)(ت)(ث) بترتيب أبجدي متسق. العنوان: العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): the second Exercise block is numbered «3» in Arabic though it is Exercise 2; English numbers it &quot;2&quot; — the same pattern as lessons 8-1 and 8-3. Question 1(1): range «1 to 4» with «using the letter» and lettered options (أ)(ب)(ج)(د) — carried as printed without asserting the intended convention; English A-D. Option (أ) prints «لا يحصى» while the Arabic Point prints «لا حصر له». Figure 1(2): the &quot;I want to access www.mext.go.jp&quot; bubble is printed in English inside the Arabic figure; «الاستفسارات( [1] ) خادم» with a parenthesis attached to the word; «شاشات( [3] ) صفحة» versus English &quot;Displays ( [3] ) page&quot;. Question 1(3) asks to answer «using the letter» with range «أ to ث». Block 3 options (أ)(ب)(ت)(ث) are consistent abjad. Heading: Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot; — نفس نمط درسَي 8-1 و8-3. السؤال 1(1): المدى «من 1 إلى 4» مع «باستخدام الحرف» وخيارات معنونة (أ)(ب)(ج)(د) — تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية A-D. العبارة (أ) تطبع «لا يحصى» بينما بند النقاط العربي يطبع «لا حصر له». شكل 1(2): الفقاعة &quot;I want to access www.mext.go.jp&quot; مطبوعة بالإنجليزية داخل الشكل العربي؛ «الاستفسارات( [1] ) خادم» بقوس ملتصق بالكلمة؛ «شاشات( [3] ) صفحة» مقابل الإنجليزية &quot;Displays ( [3] ) page&quot;. السؤال 1(3) يطلب الإجابة «باستخدام الحرف» والمدى «من أ إلى ث». خيارات الكتلة 3 (أ)(ب)(ت)(ث) بترتيب أبجدي متسق. العنوان: العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 108 (المطبوع 108)؛ AR 121." data-en="The text above is from the book. Full source: English PDF 108 (printed 108); Arabic 121.">النص السابق من الكتاب. المصدر الكامل: EN PDF 108 (المطبوع 108)؛ AR 121.</span>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (د) DNS. 1(2): [1] (د) DNS [2] (ج) IP address [3] (أ) Web. 1(3) = (ب). 3:[1] (ب) SMTP [2] (ث) IMAP [3] (أ) POP." data-en="Answers not printed in the book (teacher-prepared): 1(1) = D. 1(2): [1] D DNS [2] C IP address [3] A Web. 1(3) = B. 2: [1] B SMTP [2] D IMAP [3] A POP.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (د) DNS. 1(2): [1] (د) DNS [2] (ج) IP address [3] (أ) Web. 1(3) = (ب). 3: [1] (ب) SMTP [2] (ث) IMAP [3] (أ) POP.</p>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot; — نفس نمط درسَي 8-1 و8-3. السؤال 1(1): المدى «من 1 إلى 4» مع «باستخدام الحرف» وخيارات معنونة (أ)(ب)(ج)(د) — تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية A-D. العبارة (أ) تطبع «لا يحصى» بينما بند النقاط العربي يطبع «لا حصر له». شكل 1(2): الفقاعة &quot;I want to access www.mext.go.jp&quot; مطبوعة بالإنجليزية داخل الشكل العربي؛ «الاستفسارات( [1] ) خادم» بقوس ملتصق بالكلمة؛ «شاشات( [3] ) صفحة» مقابل الإنجليزية &quot;Displays ( [3] ) page&quot;. السؤال 1(3) يطلب الإجابة «باستخدام الحرف» والمدى «من أ إلى ث». خيارات الكتلة 3 (أ)(ب)(ت)(ث) بترتيب أبجدي متسق. العنوان:العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): the second Exercise block is numbered «3» in Arabic though it is Exercise 2; English numbers it &quot;2&quot; — the same pattern as lessons 8-1 and 8-3. Question 1(1): range «1 to 4» with «using the letter» and lettered options (أ)(ب)(ج)(د) — carried as printed without asserting the intended convention; English A-D. Option (أ) prints «لا يحصى» while the Arabic Point prints «لا حصر له». Figure 1(2): the &quot;I want to access www.mext.go.jp&quot; bubble is printed in English inside the Arabic figure; «الاستفسارات( [1] ) خادم» with a parenthesis attached to the word; «شاشات( [3] ) صفحة» versus English &quot;Displays ( [3] ) page&quot;. Question 1(3) asks to answer «using the letter» with range «أ to ث». Block 3 options (أ)(ب)(ت)(ث) are consistent abjad. Heading:Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot; — نفس نمط درسَي 8-1 و8-3. السؤال 1(1): المدى «من 1 إلى 4» مع «باستخدام الحرف» وخيارات معنونة (أ)(ب)(ج)(د) — تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية A-D. العبارة (أ) تطبع «لا يحصى» بينما بند النقاط العربي يطبع «لا حصر له». شكل 1(2): الفقاعة &quot;I want to access www.mext.go.jp&quot; مطبوعة بالإنجليزية داخل الشكل العربي؛ «الاستفسارات( [1] ) خادم» بقوس ملتصق بالكلمة؛ «شاشات( [3] ) صفحة» مقابل الإنجليزية &quot;Displays ( [3] ) page&quot;. السؤال 1(3) يطلب الإجابة «باستخدام الحرف» والمدى «من أ إلى ث». خيارات الكتلة 3 (أ)(ب)(ت)(ث) بترتيب أبجدي متسق. العنوان:العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 108 (المطبوع 108)؛ AR 121." data-en="The text above is from the book. Full source: English PDF 108 (printed 108); Arabic 121.">النص السابق من الكتاب. المصدر الكامل:EN PDF 108 (المطبوع 108)؛ AR 121.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: تصفّح صفحة ويب — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 1: Browsing a Web Page - not printed in the book">✍️ تدريب تفاعلي إضافي 1: تصفّح صفحة ويب — غير مطبوعة في الكتاب</h3>
@@ -2013,7 +2012,7 @@
     }
 
     function tr(ar, en) {
-      return currentLang === 'en' ? en : ar;
+      return currentLang === 'en' ? en:ar;
     }
 
     function byId(id) {
@@ -2042,12 +2041,12 @@
     var nav = document.getElementById('topnav');
     var scrollBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', function () {
-      /* header slide-in: assets/js/nav.js */
+      /* header slide-in:assets/js/nav.js */
       if (window.scrollY > 500) scrollBtn.classList.add('show');
       else scrollBtn.classList.remove('show');
-    }, { passive: true });
+    }, { passive:true });
     if (scrollBtn) scrollBtn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top:0, behavior: 'smooth' });
     });
 
     function wireNav() {
@@ -2063,7 +2062,7 @@
             });
           }
         });
-      }, { rootMargin: '-45% 0px -50% 0px' });
+      }, { rootMargin:'-45% 0px -50% 0px' });
       secs.forEach(function (id) {
         var el = document.getElementById(id);
         if (el) io.observe(el);
@@ -2078,7 +2077,7 @@
         entries.forEach(function (en) {
           if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
         });
-      }, { threshold: .08 });
+      }, { threshold:.08 });
       els.forEach(function (e) { io.observe(e); });
     }
 
@@ -2092,102 +2091,102 @@
         var el = document.getElementById(SECTIONS[i]);
         if (el && el.getBoundingClientRect().top <= window.innerHeight * .5) cur = i;
       }
-      var n = cur + (e.key === 'ArrowLeft' ? -1 : 1);
+      var n = cur + (e.key === 'ArrowLeft' ? -1:1);
       if (n >= 0 && n < SECTIONS.length) {
-        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(SECTIONS[n]).scrollIntoView({ behavior:'smooth' });
       }
     });
 
     /* ================= FLOW ENGINE (sender→receiver diagrams) ================= */
 var FLOWS = {
-      www: {
+      www:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'wwww', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'whtml', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'wuse', x: 660, y: 140, w: 180, h: 120 }
+          { k:'whtml', x: 360, y: 140, w: 180, h: 120 },
+          { k:'wuse', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. نظام الـ WWW', enT: '1. The WWW System', arD: 'نظام بيربط محتوى لا يُعد ولا يُحصى على الإنترنت — وهو الـ Web.', enD: 'A system linking countless pieces of content on the Internet — it is the Web.', icon: '🌍', boxes: ['wwww'], nodes: ['a'], wires: [] },
-          { arT: '2. لغة الـ HTML', enT: '2. The HTML Language', arD: 'اللغة المستخدمة لإنشاء صفحات الويب.', enD: 'The language used for creating web pages.', icon: '📝', boxes: ['whtml'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. تصفح الصفحات', enT: '3. Browsing the Pages', arD: 'المستخدم بيتصفح صفحات ويب بتجمع بيانات متنوعة.', enD: 'The user browses web pages that compile various data.', icon: '🖥️', boxes: ['wuse'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. لغة الـ HTML', enT: '2. The HTML Language', arD: 'اللغة المستخدمة لإنشاء صفحات الويب.', enD: 'The language used for creating web pages.', icon: '📝', boxes: ['whtml'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. تصفح الصفحات', enT: '3. Browsing the Pages', arD: 'المستخدم بيتصفح صفحات ويب بتجمع بيانات متنوعة.', enD: 'The user browses web pages that compile various data.', icon: '🖥️', boxes: ['wuse'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      url: {
+      url:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'uloc', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'uscheme', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'uparts', x: 660, y: 140, w: 180, h: 120 }
+          { k:'uscheme', x: 360, y: 140, w: 180, h: 120 },
+          { k:'uparts', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. تعريف الـ URL', enT: '1. Defining the URL', arD: 'بيمثل موقع صفحة الويب وطريقة الاتصال.', enD: 'Represents the web page location and the communication method.', icon: '🔗', boxes: ['uloc'], nodes: ['a'], wires: [] },
-          { arT: '2. المخطط والمضيف', enT: '2. Scheme and Host', arD: 'اسم المخطط Scheme (البروتوكول زي https) واسم المضيف Host (زي www).', enD: 'The Scheme name (protocol like https) and the Host name (like www).', icon: '🏠', boxes: ['uscheme'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. باقي الأجزاء', enT: '3. The Other Parts', arD: 'اسم المنظمة ونوعها واسم الدولة واسم الملف.', enD: 'The organization name and type, the country name, and the file name.', icon: '🗂️', boxes: ['uparts'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. المخطط والمضيف', enT: '2. Scheme and Host', arD: 'اسم المخطط Scheme (البروتوكول زي https) واسم المضيف Host (زي www).', enD: 'The Scheme name (protocol like https) and the Host name (like www).', icon: '🏠', boxes: ['uscheme'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. باقي الأجزاء', enT: '3. The Other Parts', arD: 'اسم المنظمة ونوعها واسم الدولة واسم الملف.', enD: 'The organization name and type, the country name, and the file name.', icon: '🗂️', boxes: ['uparts'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      browse: {
+      browse:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'bquery', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'bip', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'bshow', x: 660, y: 140, w: 180, h: 120 }
+          { k:'bip', x: 360, y: 140, w: 180, h: 120 },
+          { k:'bshow', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. الاستعلام من الـ DNS', enT: '1. Querying the DNS', arD: 'استعلم من خادم الـ DNS عن الـ IP المقابل لاسم النطاق.', enD: 'Query the DNS server for the IP corresponding to the domain name.', icon: '🔎', boxes: ['bquery'], nodes: ['a'], wires: [] },
-          { arT: '2. الرجوع بالـ IP', enT: '2. Getting the IP Back', arD: 'يرجع خادم الـ DNS عنوان الـ IP، ونصل عبره للموقع.', enD: 'The DNS server returns the IP address, and we access the site via it.', icon: '🌐', boxes: ['bip'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. عرض الصفحة', enT: '3. Displaying the Page', arD: 'يعرض خادم الويب بيانات الصفحة وتظهر قدامنا.', enD: 'The web server displays the page data and it appears to us.', icon: '🖥️', boxes: ['bshow'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. الرجوع بالـ IP', enT: '2. Getting the IP Back', arD: 'يرجع خادم الـ DNS عنوان الـ IP، ونصل عبره للموقع.', enD: 'The DNS server returns the IP address, and we access the site via it.', icon: '🌐', boxes: ['bip'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. عرض الصفحة', enT: '3. Displaying the Page', arD: 'يعرض خادم الويب بيانات الصفحة وتظهر قدامنا.', enD: 'The web server displays the page data and it appears to us.', icon: '🖥️', boxes: ['bshow'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      email: {
+      email:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'emsg', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'euser', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'edom', x: 660, y: 140, w: 180, h: 120 }
+          { k:'euser', x: 360, y: 140, w: 180, h: 120 },
+          { k:'edom', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. تعريف الإيميل', enT: '1. Defining Email', arD: 'نظام لتبادل الرسائل والبيانات مع مستخدمين محددين عبر الإنترنت.', enD: 'A system for exchanging messages and data with specific users via the Internet.', icon: '✉️', boxes: ['emsg'], nodes: ['a'], wires: [] },
-          { arT: '2. الـ Username', enT: '2. The Username', arD: 'اسم المستخدم اللي بيحدد المستقبِل.', enD: 'The username that identifies the recipient.', icon: '👤', boxes: ['euser'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. الـ Domain name', enT: '3. The Domain name', arD: 'بيحدد الـ mail server اللي بيستخدمه المستقبِل — زي example.co.jp.', enD: 'Identifies the mail server the recipient uses — like example.co.jp.', icon: '🏢', boxes: ['edom'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. الـ Username', enT: '2. The Username', arD: 'اسم المستخدم اللي بيحدد المستقبِل.', enD: 'The username that identifies the recipient.', icon: '👤', boxes: ['euser'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. الـ Domain name', enT: '3. The Domain name', arD: 'بيحدد الـ mail server اللي بيستخدمه المستقبِل — زي example.co.jp.', enD: 'Identifies the mail server the recipient uses — like example.co.jp.', icon: '🏢', boxes: ['edom'], nodes: ['d'], wires: ['w2'] }
         ]
       },
-      protocols: {
+      protocols:{
         vb: '0 0 900 400',
         boxes: [
           { k: 'psmtp', x: 60, y: 140, w: 180, h: 120 },
-          { k: 'ppop', x: 360, y: 140, w: 180, h: 120 },
-          { k: 'pimap', x: 660, y: 140, w: 180, h: 120 }
+          { k:'ppop', x: 360, y: 140, w: 180, h: 120 },
+          { k:'pimap', x: 660, y: 140, w: 180, h: 120 }
         ],
-        nodes: { a: { x: 240, y: 200 }, b: { x: 360, y: 200 }, c: { x: 540, y: 200 }, d: { x: 660, y: 200 } },
-        wires: [
+        nodes:{ a: { x: 240, y: 200 }, b:{ x: 360, y: 200 }, c:{ x: 540, y: 200 }, d:{ x: 660, y: 200 } },
+        wires:[
           { from: 'a', to: 'b', k: 'w1' },
-          { from: 'c', to: 'd', k: 'w2' }
+          { from:'c', to: 'd', k: 'w2' }
         ],
-        steps: [
+        steps:[
           { arT: '1. الـ SMTP', enT: '1. The SMTP', arD: 'بروتوكول لإرسال الإيميلات إلى الـ mail server.', enD: 'A protocol for sending emails to the mail server.', icon: '📤', boxes: ['psmtp'], nodes: ['a'], wires: [] },
-          { arT: '2. الـ POP', enT: '2. The POP', arD: 'بيحمّل الإيميلات من السيرفر ويمسحها من السيرفر.', enD: 'Downloads emails from the server and deletes them from the server.', icon: '📥', boxes: ['ppop'], nodes: ['b'], wires: ['w1'] },
-          { arT: '3. الـ IMAP', enT: '3. The IMAP', arD: 'بيوصل للإيميلات المخزنة على السيرفر.', enD: 'Accesses emails stored on the mail server.', icon: '📬', boxes: ['pimap'], nodes: ['d'], wires: ['w2'] }
+          { arT:'2. الـ POP', enT: '2. The POP', arD: 'بيحمّل الإيميلات من السيرفر ويمسحها من السيرفر.', enD: 'Downloads emails from the server and deletes them from the server.', icon: '📥', boxes: ['ppop'], nodes: ['b'], wires: ['w1'] },
+          { arT:'3. الـ IMAP', enT: '3. The IMAP', arD: 'بيوصل للإيميلات المخزنة على السيرفر.', enD: 'Accesses emails stored on the mail server.', icon: '📬', boxes: ['pimap'], nodes: ['d'], wires: ['w2'] }
         ]
       }
     };
@@ -2201,10 +2200,10 @@ var FLOWS = {
       for (var i = 0; i < cfg.boxes.length; i++) {
         if (cfg.boxes[i].k === k) {
           var b = cfg.boxes[i];
-          return { x: b.x + b.w / 2, y: b.y + b.h / 2 };
+          return { x:b.x + b.w / 2, y: b.y + b.h / 2 };
         }
       }
-      return { x: 450, y: 200 };
+      return { x:450, y: 200 };
     }
 
     function buildFlow(id) {
@@ -2223,12 +2222,12 @@ var FLOWS = {
       var gWires = mk('g', {}), gArrows = mk('g', {}), gBoxes = mk('g', {}), gPorts = mk('g', {});
       cfg.wires.forEach(function (w) {
         var a = cfg.nodes[w.from], b = cfg.nodes[w.to];
-        gWires.appendChild(mk('line', { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
+        gWires.appendChild(mk('line', { x1:a.x, y1: a.y, x2: b.x, y2: b.y, class: 'flow-wire', 'data-w': w.k }));
         var ang = Math.atan2(b.y - a.y, b.x - a.x);
         function arrow(tip) {
           var bx = tip.x - 12 * Math.cos(ang), by = tip.y - 12 * Math.sin(ang);
           return mk('polygon', {
-            points: [tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
+            points:[tip.x, tip.y, bx + 7 * Math.cos(ang + 2.6), by + 7 * Math.sin(ang + 2.6), bx + 7 * Math.cos(ang - 2.6), by + 7 * Math.sin(ang - 2.6)].join(','),
             class: 'wire-arrow', 'data-w': w.k
           });
         }
@@ -2236,10 +2235,10 @@ var FLOWS = {
         if (w.both) gArrows.appendChild(arrow(a));
       });
       cfg.boxes.forEach(function (b) {
-        gBoxes.appendChild(mk('rect', { x: b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
+        gBoxes.appendChild(mk('rect', { x:b.x, y: b.y, width: b.w, height: b.h, rx: 18, class: 'flow-box', 'data-b': b.k }));
       });
       Object.keys(cfg.nodes).forEach(function (k) {
-        gPorts.appendChild(mk('circle', { cx: cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
+        gPorts.appendChild(mk('circle', { cx:cfg.nodes[k].x, cy: cfg.nodes[k].y, r: 6, class: 'flow-port', 'data-p': k }));
       });
       svg.appendChild(gWires);
       svg.appendChild(gArrows);
@@ -2265,7 +2264,7 @@ var FLOWS = {
           '<div class="tl-desc">' + st[L() + 'D'] + '</div>';
         stepsBox.appendChild(s);
       });
-      FLOW_STATE[id] = FLOW_STATE[id] || { cur: 0 };
+      FLOW_STATE[id] = FLOW_STATE[id] || { cur:0 };
       showFlowStep(id, FLOW_STATE[id].cur);
     }
 
@@ -2374,8 +2373,8 @@ var FLOWS = {
             s.className = 'ex-score';
             card.appendChild(s);
           }
-          var rawAr = '✅ إجاباتك الصحيحة: ' + right + ' من ' + scored;
-          var rawEn = '✅ Your correct answers: ' + right + ' of ' + scored;
+          var rawAr = '✅ إجاباتك الصحيحة:' + right + ' من ' + scored;
+          var rawEn = '✅ Your correct answers:' + right + ' of ' + scored;
           s.dataset.rawAr = rawAr;
           s.dataset.rawEn = rawEn;
           s.textContent = tr(rawAr, rawEn);
@@ -2448,7 +2447,7 @@ var FLOWS = {
                 if (co) co.classList.add('correct');
               }
               lock(q);
-              showFb(ok, rqFb(o), ok ? null : (q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
+              showFb(ok, rqFb(o), ok ? null:(q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
             });
           });
           if (skip) skip.addEventListener('click', function () {
