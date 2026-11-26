@@ -83,7 +83,7 @@ html,body{overflow-x:clip}
 .tilt:hover .glare{opacity:1}
 .sticker{position:absolute;z-index:4;background:#fff;border:2.5px solid #0b1020;border-radius:16px;padding:8px 16px;font-weight:700;font-size:17px;box-shadow:4px 4px 0 #0b1020;animation:stickerIn .7s cubic-bezier(.34,1.56,.64,1) 1s both;cursor:default;transition:transform .25s}
 .sticker:hover{animation:wig .5s ease-in-out}
-.st1{bottom:calc(100% + 14px);inset-inline-start:16%;--r:-7deg;transform:rotate(-7deg)}
+.st1{bottom:20%;inset-inline-start:-16px;--r:-7deg;transform:rotate(-7deg)}
 .st2{bottom:8%;inset-inline-end:-5%;--r:6deg;transform:rotate(6deg);color:#1838f8}
 .sticker b{color:#1838f8}
 .shot .tx h1 .l1,.shot .tx h1 .l2,.shot .tx h1 em,.shot .sticker{animation:none!important;opacity:1!important}
@@ -96,7 +96,7 @@ html,body{overflow-x:clip}
 .sub{font-size:16px;margin:14px 0 22px}
 .ph{margin-top:50px}
 .ph img{height:min(50vh,440px)}
-.st1{bottom:calc(100% + 12px);inset-inline-start:0;white-space:nowrap}
+.st1{bottom:14%;inset-inline-start:-8px;white-space:nowrap;font-size:14px;padding:5px 12px}
 .st2{bottom:4%;inset-inline-end:2px;font-size:14px;padding:5px 12px}
 .hero{min-height:0;padding-bottom:40px}
 }
@@ -458,7 +458,7 @@ g.rotation.z=.12;return g}
 function tagMesh(){var g=new THREE.Group();
 ['<','/','>'].forEach(function(ch,i){var m=textMesh(ch,58,20,blue);m.position.x=(i-1)*40;g.add(m)});
 g.rotation.z=-.05;return g}
-function braceMesh(ch){return textMesh(ch,120,34,blue)}
+function braceMesh(ch){return textMesh(ch,58,17,blue)}
 function digitMesh(ch){return textMesh(ch,30,10,blue2)}
 // name, builder, desktop anchor (ax,ay,z), mobile anchor or null, hideShort
 var DEFS=[
@@ -498,7 +498,7 @@ function draw(t){
 tx+=(mx-tx)*.06;ty+=(my-ty)*.06;
 world.rotation.y=tx*.16;world.rotation.x=-ty*.11;world.position.x=tx*14;
 items.forEach(function(m){if(!m.visible)return;var u=m.userData,n=u.name;
-var br=n.indexOf('br')===0;var bob=Math.sin(t*u.sp*(br?1.7:1.35)+u.ph)*(br?26:16);
+var br=n.indexOf('br')===0;var bob=Math.sin(t*u.sp*(br?1.7:1.35)+u.ph)*(br?13:16);
 m.position.y=u.by+bob;
 if(n==='gear')m.rotation.z=t*1.2;
 else if(n==='cube'){m.rotation.x=t*.65;m.rotation.y=t*.9}
