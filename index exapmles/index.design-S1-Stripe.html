@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Egypt ICT Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#3b5bff; --accent:#00c896; --bg:#0a0d1f; --card:#121836;
+    --text:#e8e8f0; --dim:#9ca3c0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--dim);
+    line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--primary);color:#fff}
+  a{text-decoration:none;color:inherit}
+  .lang-toggle{position:fixed;top:16px;left:16px;z-index:300;background:#fff;color:#0a0d1f;
+    border:none;font-weight:800;padding:9px 15px;border-radius:99px;font-size:.85rem;cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.4)}
+
+  /* STRIPE: layered curved gradient hero, soft cards */
+  .hero{position:relative;padding:13vh 6vw 9vh;overflow:hidden;
+    background:
+      radial-gradient(70% 60% at 80% 0%, rgba(59,91,255,.5), transparent 60%),
+      radial-gradient(60% 50% at 10% 90%, rgba(0,200,150,.42), transparent 60%),
+      linear-gradient(180deg,#0c1130,#0a0d1f);}
+  .hero-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+  .kick{color:var(--accent);font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;margin-bottom:18px}
+  .hero h1{color:#fff;font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:20px}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{font-size:1.1rem;max-width:46ch;margin-bottom:28px}
+  .hero-img{position:relative}
+  .hero-img img{width:100%;border-radius:28px;object-fit:cover;box-shadow:0 30px 80px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.1)}
+  .hero-img::after{content:"";position:absolute;inset:-16px;z-index:-1;border-radius:40px;
+    background:linear-gradient(135deg,var(--primary),var(--accent));filter:blur(40px);opacity:.4}
+  .btn-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;background:#fff;color:#0a0d1f;font-weight:800;
+    padding:13px 26px;border-radius:99px;font-size:1rem;transition:.2s;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);box-shadow:none}
+  .btn.alt:hover{border-color:var(--accent)}
+
+  .curve{position:relative;margin-top:-40px}
+  .curve svg{display:block;width:100%;height:60px}
+  .section{max-width:1120px;margin:0 auto;padding:6vh 6vw}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+  .c{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px;transition:.2s}
+  .c:hover{transform:translateY(-4px);background:#1a2148}
+  .c .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:900;margin-bottom:14px}
+  .c:nth-child(1) .ico{background:var(--primary)} .c:nth-child(2) .ico{background:var(--accent)} .c:nth-child(3) .ico{background:linear-gradient(135deg,var(--primary),var(--accent))}
+  .c h3{color:#fff;font-size:1.15rem;font-weight:800;margin-bottom:6px}
+  .c p{font-size:.9rem}
+
+  .stage-band{max-width:1120px;margin:0 auto;padding:4vh 6vw 10vh;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .st{position:relative;overflow:hidden;border-radius:24px;padding:36px;color:#fff;transition:.22s}
+  .st.sec{background:linear-gradient(135deg,#2433a8,#3b5bff)} .st.prep{background:linear-gradient(135deg,#0a8f6e,#00c896)}
+  .st:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+  .st h2{font-size:1.8rem;font-weight:900;margin-bottom:8px}
+  .st p{font-size:.95rem;opacity:.92;margin-bottom:18px}
+  .st .go{display:inline-flex;align-items:center;background:rgba(255,255,255,.95);color:#0a0d1f;font-weight:800;padding:11px 22px;border-radius:99px;font-size:.92rem}
+  .st.prep .go{color:#04121a}
+
+  .foot{text-align:center;padding:6vh 6vw 8vh;color:var(--dim);font-size:.85rem;border-top:1px solid rgba(255,255,255,.08)}
+  @media(max-width:860px){.hero-inner,.stage-band{grid-template-columns:1fr}.cards3{grid-template-columns:1fr}.hero-img{order:-1;max-width:320px;margin:0 auto}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+  <button class="lang-toggle" id="langToggle" aria-label="Switch to English"><span id="langIcon">EN</span></button>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="kick" data-ar="منصّة ICT" data-en="ICT PLATFORM">منصّة ICT</div>
+        <h1 data-ar="افهم. <span class='grad'>طبّق</span>. اتعلّم." data-en="Understand. <span class='grad'>Apply</span>. Learn.">افهم. <span class="grad">طبّق</span>. اتعلّم.</h1>
+        <p data-ar="منهج ICT للمرحلة الإعدادية والثانوية — شرح مبسّط، أمثلة حقيقية، وتطبيق خطوة بخطوة." data-en="The ICT curriculum for preparatory and secondary — clear explanations, real examples, step-by-step practice.">
+          منهج ICT للمرحلة الإعدادية والثانوية — شرح مبسّط، أمثلة حقيقية، وتطبيق خطوة بخطوة.</p>
+        <div class="btn-row">
+          <a class="btn" href="secondary.html" data-id="ctaSecondary" data-ar="المرحلة الثانوية" data-en="Secondary Stage">المرحلة الثانوية</a>
+          <a class="btn alt" href="preparatory.html" data-id="ctaPreparatory" data-ar="المرحلة الإعدادية" data-en="Preparatory Stage">المرحلة الإعدادية</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="assets/Untitled - August 12, 2026 at 01.30.25.png" alt="Bilal Abdelnasser" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </header>
+
+  <div class="curve"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C360,80 1080,-20 1440,30 L1440,60 L0,60 Z" fill="#0a0d1f"/></svg></div>
+
+  <section class="section">
+    <div class="kick" data-ar="هتلاقي إيه؟" data-en="WHAT YOU'LL FIND">دليل المحتوى</div>
+    <h2 style="color:#fff;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900" data-ar="محتوى متظبط خطوة بخطوة" data-en="Organized content, step by step">محتوى متظبط خطوة بخطوة</h2>
+    <div class="cards3">
+      <div class="c"><div class="ico">١</div><h3 data-ar="شرح واضح" data-en="Clear Explain">شرح واضح</h3><p data-ar="من غير ما نفترض إنك عارف كل حاجة." data-en="Without assuming you know everything.">من غير ما نفترض إنك عارف كل حاجة.</p></div>
+      <div class="c"><div class="ico">٢</div><h3 data-ar="أمثلة عملية" data-en="Practical">أمثلة عملية</h3><p data-ar="المفاهيم وهي بتشتغل في أمثلة حقيقية." data-en="Concepts working through real examples.">المفاهيم وهي بتشتغل في أمثلة حقيقية.</p></div>
+      <div class="c"><div class="ico">٣</div><h3 data-ar="تمارين ومراجعة" data-en="Practice">تمارين ومراجعة</h3><p data-ar="تراجع وتحل وتختبر فهمك." data-en="Review, solve, and check your understanding.">تراجع وتحل وتختبر فهمك.</p></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:2vh">
+    <div class="kick" data-ar="مين بيشرح؟" data-en="WHO TEACHES">مين بيشرح؟</div>
+    <h2 style="color:#fff;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900" data-ar="بلال عبد الناصر" data-en="Bilal Abdelnasser">بلال عبد الناصر</h2>
+    <p style="max-width:52ch;margin-top:8px" data-ar="معلّم ICT، خريج علوم حاسب (جامعة القاهرة)، من أوائل 3 طلاب على القسم." data-en="ICT teacher, CS graduate (Cairo University), top-3 of his department.">معلّم ICT، خريج علوم حاسب (جامعة القاهرة)، من أوائل 3 طلاب على القسم.</p>
+  </section>
+
+  <div class="stage-band">
+    <a class="st sec" href="secondary.html" data-id="stageSecondary">
+      <h2 data-ar="المرحلة الثانوية" data-en="Secondary Stage">المرحلة الثانوية</h2>
+      <p data-ar="منهج ICT للثانوي بشرح مبسّط وتطبيق عملي." data-en="ICT for secondary, simplified with hands-on practice.">منهج ICT للثانوي بشرح مبسّط وتطبيق عملي.</p>
+      <span class="go" data-ar="ابدأ الثانوية" data-en="Start Secondary">ابدأ الثانوية</span>
+    </a>
+    <a class="st prep" href="preparatory.html" data-id="stagePreparatory">
+      <h2 data-ar="المرحلة الإعدادية" data-en="Preparatory Stage">المرحلة الإعدادية</h2>
+      <p data-ar="أساسيات ICT للإعدادي من الأول للتطبيق." data-en="ICT fundamentals for preparatory, basics to practice.">أساسيات ICT للإعدادي من الأول للتطبيق.</p>
+      <span class="go" data-ar="ابدأ الإعدادية" data-en="Start Preparatory">ابدأ الإعدادية</span>
+    </a>
+  </div>
+
+  <footer class="foot" data-ar="Egypt ICT Hub — بلال عبد الناصر © 2026" data-en="Egypt ICT Hub — Bilal Abdelnasser © 2026">Egypt ICT Hub — بلال عبد الناصر © 2026</footer>
+
+  <script>
+    var langBtn=document.getElementById('langToggle'),currentLang='ar';window.currentLang=currentLang;
+    function setLang(l){window.currentLang=l;var ar=l==='ar';
+      langBtn.setAttribute('aria-label',ar?'Switch to English':'Switch to العربية');
+      var ic=document.getElementById('langIcon');if(ic)ic.textContent=ar?'EN':'AR';
+      document.documentElement.lang=l;document.documentElement.dir=ar?'rtl':'ltr';
+      document.querySelectorAll('[data-ar],[data-en]').forEach(function(e){var v=l==='ar'?e.getAttribute('data-ar'):e.getAttribute('data-en');if(v!==null){e.innerHTML=v;e.setAttribute('data-lang',l);}});
+      localStorage.setItem('langPreference',l);}
+    setLang(localStorage.getItem('langPreference')||'ar');
+    langBtn.addEventListener('click',function(){setLang(window.currentLang==='ar'?'en':'ar');});
+  </script>
+</body>
+</html>
