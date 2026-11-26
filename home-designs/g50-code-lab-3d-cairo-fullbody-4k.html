@@ -23,6 +23,7 @@ h1,h2,h3,p{margin:0}
 .btn.ghost{background:transparent;color:var(--text);border-color:var(--line)}.btn.ghost:hover{background:var(--card)}
 nav{background:rgba(255,255,255,.95)!important;border-bottom:1px solid var(--line)!important}
 nav .lang-toggle{border-color:#1838f8!important;background:rgba(24,56,248,.08)!important}nav .nav-links a:hover,nav .nav-links a.active{background:rgba(24,56,248,.1)!important;border-color:#1838f8!important}
+@media(max-width:860px){nav .nav-links a{padding-top:11px!important;padding-bottom:11px!important}nav .lang-toggle{padding-top:11px!important;padding-bottom:11px!important}nav .nav-inner>a{padding-top:4px!important;padding-bottom:4px!important;padding-inline:6px!important}}
 .mono{font-family:var(--mono);direction:ltr}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
 .reveal.visible{opacity:1;transform:none}
@@ -49,16 +50,11 @@ h1,h2{text-wrap:balance}p{text-wrap:pretty}
 @media (prefers-reduced-motion:reduce){.reveal{transition:opacity .3s;transform:none}.btn{transition:none}.tagline .w{transition:none}[data-enter]{animation:none!important;opacity:1!important;transform:none!important}}
 @media (max-width:640px){.wrap{padding:0 16px}.sec{padding:64px 0}.tagline-sec{padding:72px 0}}
 
-@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-40px) scale(1.1)}}
-@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-70px,50px) scale(.93)}}
 @keyframes pop{0%{opacity:0;transform:translateY(34px) scale(.82)}70%{opacity:1;transform:translateY(-6px) scale(1.03)}100%{opacity:1;transform:none}}
 @keyframes wig{0%,100%{transform:rotate(0)}25%{transform:rotate(-2.4deg)}75%{transform:rotate(2.4deg)}}
 @keyframes stickerIn{0%{opacity:0;transform:scale(.3) rotate(-30deg)}70%{opacity:1;transform:scale(1.12) rotate(4deg)}100%{opacity:1;transform:scale(1) rotate(var(--r))}}
 html,body{overflow-x:clip}
 .hero{position:relative;overflow:hidden;min-height:100vh;background:#f7f8fd;color:#0b1020;display:flex;flex-direction:column;perspective:1400px}
-.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none}
-.b1{width:520px;height:520px;background:#c9d6ff;top:-140px;inset-inline-start:-120px;animation:drift1 19s ease-in-out infinite}
-.b2{width:460px;height:460px;background:#dfe7ff;bottom:-160px;inset-inline-end:-100px;animation:drift2 24s ease-in-out infinite}
 #gl{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
 .hero .wrap{flex:1;display:flex;position:relative;z-index:3}
 .g{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;align-items:center;width:100%;padding-top:104px}
@@ -100,7 +96,6 @@ html,body{overflow-x:clip}
 .st2{bottom:4%;inset-inline-end:2px;font-size:14px;padding:5px 12px}
 .hero{min-height:0;padding-bottom:40px}
 }
-@media(prefers-reduced-motion:reduce){.blob{animation:none!important}}
 
 .proof{background:#fff;border-bottom:1px solid var(--line)}
 .proof .wrap{display:flex;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;padding-top:26px;padding-bottom:26px}
@@ -128,11 +123,11 @@ html,body{overflow-x:clip}
       <button aria-label="Toggle language" class="lang-toggle" id="langToggle" type="button"><span id="langIcon">EN</span></button>
     </div>
   </nav>
-<main id="main"><header class="hero" id="home"><div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
+<main id="main"><header class="hero" id="home">
 <canvas id="gl" aria-hidden="true"></canvas>
 <div class="wrap"><div class="g"><div class="tx"><div data-enter="1"><h1 class="h1"><span data-ar="&lt;span class=&quot;l1&quot;&gt;منهج ICT...&lt;/span&gt;&lt;span class=&quot;l2&quot;&gt;&lt;em&gt;يتفهم&lt;/em&gt; مش يتحفظ&lt;/span&gt;" data-en="&lt;span class=&quot;l1&quot;&gt;ICT...&lt;/span&gt;&lt;span class=&quot;l2&quot;&gt;&lt;em&gt;actually understood.&lt;/em&gt; Not memorized.&lt;/span&gt;"><span class="l1">منهج ICT...</span><span class="l2"><em>يتفهم</em> مش يتحفظ</span></span></h1></div><div data-enter="2"><p class="sub"><span data-ar="منصة لطلاب الإعدادي والثانوي مع بلال عبدالناصر، مدرّب ICT وبرمجة. شرح واضح وأمثلة وخطوات عملية." data-en="A platform for preparatory and secondary students with Bilal Abdelnasser, ICT and coding instructor. Clear lessons, examples, and practical steps.">منصة لطلاب الإعدادي والثانوي مع بلال عبدالناصر، مدرّب ICT وبرمجة. شرح واضح وأمثلة وخطوات عملية.</span></p></div><div data-enter="3"><div class="cta"><a class="btn" href="../secondary.html"><span data-ar="المرحلة الثانوية" data-en="Secondary Stage">المرحلة الثانوية</span></a><a class="btn ghost" href="../preparatory.html"><span data-ar="المرحلة الإعدادية" data-en="Preparatory Stage">المرحلة الإعدادية</span></a></div></div></div>
 <div class="ph"><div class="tilt" id="tilt"><img src="../assets/bilal-fullbody-4k.webp" alt="بلال عبدالناصر"><div class="glare" aria-hidden="true"></div></div>
-<div class="sticker st1"><b>4.86</b> ★ <span data-ar="تقييم" data-en="rating">تقييم</span></div>
+<div class="sticker st1"><b>4.86</b> <svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;vertical-align:-.08em" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg> <span data-ar="تقييم" data-en="rating">تقييم</span></div>
 <div class="sticker st2"><span data-ar="أوائل علوم الحاسب" data-en="Top CS student">أوائل علوم الحاسب</span></div></div></div></div></header>
 <section class="proof"><div class="wrap"><div class="stat"><b data-count="4.86">4.86</b><span data-ar="من ٥ — أكتر من ٨٥٠٠ تقييم طالب" data-en="out of 5 — 8,500+ student ratings">من ٥ — أكتر من ٨٥٠٠ تقييم طالب</span></div>
 <div class="stat"><b>Top 3</b><span data-ar="من أوائل ٣ طلاب في علوم الحاسب، جامعة القاهرة" data-en="Top 3 in Computer Science, Cairo University">من أوائل ٣ طلاب في علوم الحاسب، جامعة القاهرة</span></div>
