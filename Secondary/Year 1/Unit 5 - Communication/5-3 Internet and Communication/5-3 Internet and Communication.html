@@ -919,6 +919,20 @@
 html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
 .bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
 .bq-inline + .bq-inline .bqi-tag{display:none}
+
+/* dimmed step rows: grey instead of faded, so the text stays readable */
+.email-row.dim, .chat-row.dim{ opacity:.95 }
+.email-row.dim .email-tag, .chat-row.dim .chat-who{ color:#334155!important; background:rgba(11,16,32,.06)!important }
+.email-row.dim .email-vals, .chat-row.dim .chat-hint, .chat-row.dim .chat-tick{ color:#334155!important }
+
+/* dimmed step rows: grey instead of faded, so the text stays readable */
+.email-row.dim, .chat-row.dim{ opacity:1 }
+.email-row.dim .email-tag, .chat-row.dim .chat-who{ color:#334155!important; background:rgba(11,16,32,.06)!important }
+.email-row.dim .email-vals, .chat-row.dim .chat-hint, .chat-row.dim .chat-tick{ color:#334155!important }
+/* small labels: a shade darker so they clear 4.5:1 on their tinted chips */
+.email-tag{ color:#0d2ac4!important }
+.chat-hint, .chat-tick{ color:#2440d8!important }
+.error-box h4{ color:#b31f33!important }
 </style>
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
@@ -1108,7 +1122,7 @@ select{color:var(--text)!important}
         }
 
         .email-row.dim {
-          opacity:.72
+          opacity:1
         }
 
         .email-row.on {
@@ -1541,7 +1555,7 @@ select{color:var(--text)!important}
         }
 
         .chat-row.dim {
-          opacity:.72
+          opacity:1
         }
 
         .chat-row.on {
