@@ -7,25 +7,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
 </style>
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable. The floating captions are stacked under the diagram instead of overlapping or needing a sideways swipe. */
-@media (max-width:640px){ .diagram-wrap{overflow:hidden} .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px} .diagram-wrap svg{max-width:100%;height:auto} .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important; width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start; padding:6px 9px;margin:0} .diagram-wrap table{font-size:11.5px} .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word} .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
 </head> <body> <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true"> <defs> <linearGradient id="bxG" x1="0" y1="0" x2="1" y2="1"> <stop offset="0" stop-color="#edeef1" /> <stop offset="1" stop-color="#ecedf0" /> </linearGradient> <path id="arr" d="M15 3 L6 10 L15 17" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /> </defs> </svg> <div class="bg-gradient"></div>
 <nav id="topnav" aria-label="أقسام الدرس"> <div class="nav-inner"> <a href="../../../../index.html" aria-label="الرئيسية"><img class="nav-logo" src="../../../../assets/logo-extracted.webp" alt="logo"></a> <div class="nav-links" id="navLinks"> <a href="#intro" data-ar="يلا نبدأ" data-en="Start">يلا نبدأ</a> <a href="#plt" data-ar="مخطط التبعثر (Scatter Plot)" data-en="Scatter Plot">مخطط التبعثر (Scatter Plot)</a> <a href="#cor" data-ar="معامل الارتباط (Correlation Coefficient)" data-en="Correlation Coefficient">معامل الارتباط (Correlation Coefficient)</a> <a href="#rel" data-ar="السببية والارتباط الزائف (Causality and Pseudo-correlation)" data-en="Causality and Pseudo-correlation">السببية والارتباط الزائف (Causality and Pseudo-correlation)</a> <a href="#crs" data-ar="التقاطع (Cross Tabulation)" data-en="Cross Tabulation">التقاطع (Cross Tabulation)</a> <a href="#practice" data-ar="تمارين" data-en="Exercises">تمارين</a> <a href="#recap" data-ar="المراجعة" data-en="Recap">المراجعة</a> </div> <button class="lang-toggle" id="langToggle" data-current="ar">EN</button> </div> </nav>
 <header class="hero"> <div class="hero-content"> <div class="hero-badge" data-ar="الدرس 5 — تحليل الداتا [4]" data-en="Lesson 5 — Data Analysis [4]">الدرس 5 — تحليل الداتا [4]</div> <h1 class="hero-title" data-ar="المخططات النقطية والارتباطات <span class=&quot;grad&quot;>والجداول التقاطعية</span>" data-en="Scatter Plots, Correlations <span class=&quot;grad&quot;>and Cross Tabulation</span>">المخططات النقطية والارتباطات <span class="grad">والجداول التقاطعية</span></h1> <p class="hero-sub" data-ar="النهارده هنتعلّم إزاي نفحص العلاقة بين متغيّرين:مخطط التبعثر، اللي بيمثّل كل زوج (x, y) كنقطة، والارتباط الموجب والسالب وعدم الارتباط، ومعامل الارتباط (r)، اللي بيقيس قوة الارتباط بين -1 و1 بدالّة CORREL، والعلاقة السببية والارتباط الزائف، والتقاطع، اللي بيقارن الداتا (Data) بين فئتين أو أكتر." data-en="Today we learn how to examine the relationship between two variables: the scatter plot, which represents each pair (x, y) as a point, positive, negative, and no correlation, the correlation coefficient (r), which measures the strength of the correlation between -1 and 1 with the CORREL function, the causal relationship and pseudo-correlation, and cross tabulation, which compares data among two or more categories."> النهارده هنتعلم نفحص العلاقة بين متغيرين: المخطط النقطي <span dir="ltr">Scatter plot</span> اللي بيمثل كل زوج <span dir="ltr">(x, y)</span> كنقطة، والارتباط الموجب والسالب والمنعدم، ومعامل الارتباط <span dir="ltr">Correlation coefficient</span> <span dir="ltr">(r)</span> اللي بيقيس قوة الارتباط بين <span dir="ltr">-1</span> و<span dir="ltr">1</span> ودالته <span dir="ltr">CORREL</span>، والعلاقة السببية <span dir="ltr">Causal relationship</span> والارتباط الزائف <span dir="ltr">Pseudo-correlation</span>، والجدول التقاطعي <span dir="ltr">Cross tabulation</span> اللي بيقارن البيانات بين فئتين أو أكثر.</p> <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="15 سؤالًا" data-en="15 practice questions">15 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a> </div> </header>
