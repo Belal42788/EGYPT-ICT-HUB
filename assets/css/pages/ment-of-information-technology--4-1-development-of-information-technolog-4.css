@@ -1,0 +1,31 @@
+/* 4-1 Development of Information Technology.html : block 4 of the page styles, moved verbatim; link sits in the original position. */
+
+/* === narrow screens: wide tables become stacked cards (no sideways scrolling) === */
+@media (max-width:900px){
+  .tbl-wrap{ overflow:visible!important }
+  .swipe-hint{ display:none!important }
+  .bq-inline{ overflow-wrap:anywhere }
+  .tbl-wrap > table, .bq-inline table{
+    display:block!important; width:100%!important; max-width:100%!important; border:0!important;
+    table-layout:auto!important; white-space:normal!important; font-size:14px!important }
+  .tbl-wrap > table tbody, .bq-inline table tbody{ display:block!important; width:100%!important }
+  .tbl-wrap > table tr, .bq-inline table tr{
+    display:block!important; width:100%!important; box-sizing:border-box; max-width:100%;
+    border:1px solid rgba(11,16,32,.14); border-radius:12px; padding:10px 12px; margin:0 0 10px;
+    background:rgba(11,16,32,.02) }
+  .tbl-wrap > table tr:first-child, .bq-inline table tr:first-child{ display:none!important }
+  .tbl-wrap > table th, .tbl-wrap > table td, .bq-inline table th, .bq-inline table td{
+    display:block!important; width:auto!important; max-width:100%!important; box-sizing:border-box;
+    border:0!important; padding:2px 0!important; text-align:start!important; white-space:normal!important;
+    background:transparent!important; overflow-wrap:anywhere; word-break:break-word;
+    font-size:14px!important; font-family:inherit!important; line-height:1.6 }
+  .tbl-wrap > table tr > th:first-child, .bq-inline table tr > th:first-child{
+    font-size:14.5px!important; font-weight:800; color:#1838f8; margin:0 0 6px }
+  .tbl-wrap > table td::before, .bq-inline table td::before{
+    content:attr(data-cell-label); display:block; font-size:11.5px; font-weight:800; color:#4b5563; margin-bottom:2px }
+  .tbl-wrap > table td:not([data-cell-label])::before,
+  .bq-inline table td:not([data-cell-label])::before{ display:none }
+}
+
+#societies .tbl-wrap table tr > td:nth-child(2)::before, #societies .bq-inline table tr > td:nth-child(2)::before{ content:"شرح"; display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin:6px 0 2px;white-space:nowrap;overflow-wrap:normal;word-break:normal; }
+#societies .tbl-wrap table tr > td:nth-child(3)::before, #societies .bq-inline table tr > td:nth-child(3)::before{ content:"التقنيات والأدوات المؤثرة"; display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin:6px 0 2px;white-space:nowrap;overflow-wrap:normal;word-break:normal; }
