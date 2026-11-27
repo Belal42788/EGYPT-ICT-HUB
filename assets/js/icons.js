@@ -4,24 +4,25 @@ var ICONS={"speakerphone": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"cu
 var MAP={"✅": "circle-check", "✔": "check", "☑": "check", "❌": "circle-x", "❎": "circle-x", "🚫": "circle-x", "⛔": "circle-x", "💡": "bulb", "✍": "pencil", "✏": "pencil", "🖊": "pencil", "🖋": "pencil", "✒": "pencil", "⚠": "alert-triangle", "🚨": "alert-triangle", "🚧": "alert-triangle", "🎯": "target-arrow", "🎣": "target-arrow", "📖": "book", "📚": "book", "📜": "book", "📰": "news", "🔢": "list-numbers", "🔟": "list-numbers", "🧮": "list-numbers", "🔄": "refresh", "🔃": "refresh", "🔀": "arrows-shuffle", "🔁": "repeat", "🔥": "flame", "💪": "barbell", "🏋": "barbell", "👥": "users", "🤝": "users", "👤": "user", "🧍": "user", "🚶": "user", "🏃": "user", "🧑": "user", "👨": "user", "🙋": "user", "🎉": "confetti", "✨": "sparkles", "🪄": "sparkles", "🔮": "wand", "🖱": "pointer", "📊": "chart-bar", "📈": "chart-line", "💹": "chart-line", "📉": "chart-arrows", "💻": "device-laptop", "⚡": "bolt", "📋": "clipboard-list", "📌": "clipboard", "🧾": "receipt", "📦": "box", "🧊": "box", "🧰": "box", "🗄": "archive", "🗂": "archive", "📂": "archive", "📡": "antenna-bars-5", "📶": "antenna-bars-5", "🛰": "satellite", "📻": "radio", "📢": "speakerphone", "📣": "speakerphone", "🌊": "wave-sine", "💧": "droplet", "📏": "ruler-2", "📐": "triangle-square-circle", "📝": "file-text", "📄": "file-text", "📃": "file-text", "📇": "id", "🪪": "id", "🆔": "id", "🫆": "id", "➕": "plus", "➖": "minus", "🖥": "device-desktop", "📺": "device-desktop", "🖼": "device-desktop", "🧠": "brain", "🤔": "mood-puzzled", "💾": "database", "💿": "database", "📀": "database", "🗜": "database", "🔗": "link", "📱": "device-mobile", "☎": "phone", "📞": "phone", "🌐": "world", "🌍": "world", "🗺": "map", "👀": "eye", "👁": "eye", "🕶": "eye", "👓": "eye", "🤫": "eye-off", "🕵": "spy", "📁": "folder", "📅": "calendar", "🔒": "lock", "🔐": "lock", "🔓": "lock-open", "🔑": "key", "🗝": "key", "🛡": "shield", "⚕": "shield-check", "🌟": "star", "⭐": "star", "💙": "star", "🏆": "trophy", "🏅": "medal", "🏠": "home", "🏢": "building", "🏭": "building", "🏪": "building-store", "🏛": "building-bank", "🏫": "school", "🎓": "school", "⚙": "settings", "🎛": "settings", "🎚": "settings", "🔧": "tool", "🛠": "tool", "🔍": "search", "🔎": "search", "💬": "message", "🗣": "message", "❓": "message-question", "🏁": "flag", "🪧": "flag", "🔴": "point", "🟡": "point", "🟦": "point", "🔘": "point", "🔲": "point", "🟢": "point", "🔵": "point", "🟠": "point", "🕸": "sitemap", "🕒": "clock", "🕰": "clock", "⏱": "clock", "⏰": "clock", "🐛": "bug", "🦠": "bug", "🚪": "door", "⌨": "keyboard", "🎹": "keyboard", "📷": "camera", "📸": "camera", "📹": "video", "🎬": "video", "🎞": "video", "📼": "video", "🎤": "microphone", "🎙": "microphone", "🔊": "volume", "🎧": "headphones", "🎵": "music", "🛒": "shopping-cart", "💳": "credit-card", "💰": "wallet", "💲": "currency-dollar", "✉": "mail", "📨": "mail", "📬": "mail", "📤": "mail-forward", "📥": "mail-opened", "🧩": "puzzle", "🏷": "tag", "🔌": "plug", "📴": "plug-off", "🌡": "temperature", "⚖": "scale", "🎮": "device-gamepad-2", "🎲": "dice", "🎭": "masks-theater", "🎴": "cards", "🎨": "palette", "🔤": "typography", "🔠": "typography", "🔡": "typography", "🔣": "typography", "🚀": "rocket", "🏗": "crane", "🔔": "bell", "🗑": "trash", "🧲": "magnet", "🔬": "microscope", "🧪": "flask", "🤖": "robot", "👂": "ear", "😢": "mood-sad", "😰": "mood-nervous", "😨": "mood-nervous", "😌": "mood-smile", "🐴": "horse", "👣": "shoe", "🚚": "truck", "📍": "map-pin", "🧭": "compass", "🏖": "sandbox", "🌳": "tree", "🌤": "sun-wind", "🌫": "sun-wind", "🔛": "toggle-right", "🔼": "arrow-badge-up", "🔽": "arrow-badge-down", "🚦": "traffic-lights", "🆕": "sparkle", "🛋": "armchair", "👻": "ghost", "💊": "pill", "💼": "briefcase", "🍫": "chocolate", "🖨": "printer", "🪟": "app-window", "😊": "mood-happy", "💣": "bomb", "🥽": "badge-vr", "🐍": "brand-python", "🗿": "building-monument", "🕊": "send", "🗳": "checkbox", "💥": "plug-connected-x", "🥁": "music", "🔋": "battery-charging", "📛": "tag", "🙈": "eye-off", "🧑‍💻": "user-code", "🧱": "wall", "🐢": "point", "🧑‍": "user", "👨‍": "user"};
 var RE=/(?:[\u{1F000}-\u{1FAFF}]|[\u2600-\u27BF]|[\u2B00-\u2BFF]|[\u2300-\u23FF]|\u00A9|\u00AE|\u2139|\u3030|\u303D)(?:\uFE0F|\u200D|[\u{1F3FB}-\u{1F3FF}])*/gu;
 var KEEP=/^[\u2190-\u21FF\u2713\u2715\u2717\u2716\u2605\u2702\u2776-\u277F\u2797\u2B1B\u2B1C\u2601\u2712\u27A1\u25CB\u25CF\u25C9]$/;
-var GOOD={'circle-check':1,'check':1}, BAD={'circle-x':1}, WARN={'alert-triangle':1};
+var STATUS={'circle-check':1,'check':1,'circle-x':1,'alert-triangle':1};var GOOD={'circle-check':1,'check':1}, BAD={'circle-x':1}, WARN={'alert-triangle':1};
 function mk(name,big){var s=document.createElement('span');s.className='ic ic-'+name+(GOOD[name]?' ic-good':BAD[name]?' ic-bad':WARN[name]?' ic-warn':'')+(big?' ic-big':'');s.innerHTML=ICONS[name];return s;}
 function key(m){return m.replace(/[\uFE0F\u200D]/g,'');}
 function fix(node){
-  var big=node.parentNode&&node.parentNode.closest&&node.parentNode.closest('.card-icon,.ico,.icon');
+  var P=node.parentNode;
+  var big=P&&P.closest&&P.closest('.card-icon,.oc-ic,.def-icon,.char-icon,.tl-icon,.fn-icon');
   var t=node.nodeValue;RE.lastIndex=0;var any=false,mm;while((mm=RE.exec(t))){if(!KEEP.test(key(mm[0]))){any=true;break;}}if(!any)return;RE.lastIndex=0;
   var frag=document.createDocumentFragment(),last=0,m;
   while((m=RE.exec(t))){
     frag.appendChild(document.createTextNode(t.slice(last,m.index)));
     var k=key(m[0]),n=MAP[m[0]]||MAP[k];
-    if(KEEP.test(k)){frag.appendChild(document.createTextNode(m[0]));}
-    else if(n){frag.appendChild(mk(n,big));}
-    else if(big){frag.appendChild(mk('point',big));}
     last=m.index+m[0].length;
-    if(!n&&!big&&t.charAt(last)===' ')last++;
+    if(KEEP.test(k)){frag.appendChild(document.createTextNode(m[0]));}
+    else if(big){frag.appendChild(mk(n||'point',true));}
+    else if(n&&STATUS[n]){frag.appendChild(mk(n,false));}
+    else if(t.charAt(last)===' ')last++;
   }
   frag.appendChild(document.createTextNode(t.slice(last)));
-  node.parentNode.replaceChild(frag,node);
+  P.replaceChild(frag,node);
 }
 function walk(root){
   if(!root||root.nodeType===8)return;
