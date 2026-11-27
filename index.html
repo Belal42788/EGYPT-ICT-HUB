@@ -466,17 +466,76 @@ g.rotation.z=-.05;return g}
 function braceMesh(ch){return textMesh(ch,58,17,blue)}
 function digitMesh(ch){return textMesh(ch,30,10,blue2)}
 // name, builder, desktop anchor (ax,ay,z), mobile anchor or null, hideShort
+
+function M(m,x,y,z,rx,ry,rz){if(x!==undefined)m.position.set(x,y,z);if(rx)m.rotation.x=rx;if(ry)m.rotation.y=ry;if(rz)m.rotation.z=rz;return m}
+function starShape(R,r){var s=new THREE.Shape();for(var i=0;i<10;i++){var a=-Math.PI/2+i*Math.PI/5,rad=i%2?r:R;var x=Math.cos(a)*rad,y=Math.sin(a)*rad;if(i===0)s.moveTo(x,y);else s.lineTo(x,y)}s.closePath();return s}
+
+function robotMesh(){var g=new THREE.Group();
+var head=new THREE.Mesh(new THREE.BoxGeometry(120,90,80),blue);g.add(head);
+[-1,1].forEach(function(k){var eye=new THREE.Mesh(new THREE.SphereGeometry(12,16,12),white);eye.position.set(k*24,8,42);g.add(eye);
+var pup=new THREE.Mesh(new THREE.SphereGeometry(5,10,8),dark);pup.position.set(k*24,8,52);g.add(pup);
+var ear=new THREE.Mesh(new THREE.CylinderGeometry(10,10,14,14),dark);ear.rotation.z=Math.PI/2;ear.position.set(k*66,0,0);g.add(ear)});
+var mouth=new THREE.Mesh(new THREE.BoxGeometry(40,6,4),white);mouth.position.set(0,-22,42);g.add(mouth);
+var ant=new THREE.Mesh(new THREE.CylinderGeometry(4,4,28,10),dark);ant.position.y=58;g.add(ant);
+var tip=new THREE.Mesh(new THREE.SphereGeometry(9,14,10),white);tip.position.y=76;g.add(tip);
+return g}
+function batteryMesh(){var g=new THREE.Group();
+var body=new THREE.Mesh(new THREE.BoxGeometry(96,54,30),blue);g.add(body);
+var cap=new THREE.Mesh(new THREE.BoxGeometry(14,24,20),dark);cap.position.x=55;g.add(cap);
+[-30,-4,22].forEach(function(x){var b=new THREE.Mesh(new THREE.BoxGeometry(18,34,34),white);b.position.set(x,0,0);g.add(b)});
+return g}
+function playMesh(){var g=new THREE.Group();
+var disc=new THREE.Mesh(new THREE.CylinderGeometry(50,50,14,44),blue);disc.rotation.x=Math.PI/2;g.add(disc);
+var tri=new THREE.Shape();tri.moveTo(-12,20);tri.lineTo(-12,-20);tri.lineTo(24,0);tri.closePath();
+var m=new THREE.Mesh(new THREE.ExtrudeGeometry(tri,{depth:10,bevelEnabled:false}),white);m.position.z=8;g.add(m);
+return g}
+function headphonesMesh(){var g=new THREE.Group();
+var band=new THREE.Mesh(new THREE.TorusGeometry(46,7,10,28,Math.PI),blue);g.add(band);
+[-1,1].forEach(function(k){var cup=new THREE.Mesh(new THREE.BoxGeometry(24,38,26),dark);cup.position.set(k*46,-8,0);g.add(cup);
+var cush=new THREE.Mesh(new THREE.BoxGeometry(10,30,20),white);cush.position.set(k*36,-8,0);g.add(cush)});
+return g}
+function keycapMesh(){var g=new THREE.Group();
+var key=new THREE.Mesh(new THREE.BoxGeometry(74,74,26),white);g.add(key);
+var top=new THREE.Mesh(new THREE.BoxGeometry(60,60,10),blue);top.position.z=12;g.add(top);
+var ch=textMesh('B',34,10,white);ch.position.z=20;g.add(ch);
+return g}
+function sigMesh(){var g=new THREE.Group();
+[[20,blue2],[34,blue],[48,dark]].forEach(function(p,i){var b=new THREE.Mesh(new THREE.BoxGeometry(p[0],14,12),p[1]);b.position.set(0,-i*46,0);g.add(b)});
+var dot=new THREE.Mesh(new THREE.SphereGeometry(8,12,10),white);dot.position.y=34;g.add(dot);
+return g}
+function mouseMesh(){var g=new THREE.Group();
+var body=new THREE.Mesh(new THREE.SphereGeometry(30,24,18),blue);body.scale.set(1.1,1.45,.9);g.add(body);
+var seam=new THREE.Mesh(new THREE.BoxGeometry(2,52,2),dark);seam.position.set(0,6,26);g.add(seam);
+var wheel=new THREE.Mesh(new THREE.CylinderGeometry(5,5,10,12),white);wheel.rotation.x=Math.PI/2;wheel.position.set(0,20,24);g.add(wheel);
+return g}
+function gamepadMesh(){var g=new THREE.Group();
+var body=new THREE.Mesh(new THREE.BoxGeometry(116,60,26),blue);g.add(body);
+[-1,1].forEach(function(k){var grip=new THREE.Mesh(new THREE.CylinderGeometry(15,17,36,16),blue);grip.position.set(k*48,-26,2);grip.rotation.z=k*.35;g.add(grip)});
+var d1=new THREE.Mesh(new THREE.BoxGeometry(26,9,8),white);d1.position.set(-32,4,15);g.add(d1);
+var d2=new THREE.Mesh(new THREE.BoxGeometry(9,26,8),white);d2.position.set(-32,4,15);g.add(d2);
+[[30,12],[44,2],[30,-8],[16,2]].forEach(function(p){var b=new THREE.Mesh(new THREE.SphereGeometry(6,12,10),white);b.position.set(p[0],p[1],15);g.add(b)});
+return g}
+function cloudMesh(){var g=new THREE.Group();
+[[0,4,38],[-36,-8,26],[36,-8,28],[0,-14,44]].forEach(function(p){var m=new THREE.Mesh(new THREE.SphereGeometry(p[2],22,16),white);m.position.set(p[0],p[1],0);g.add(m)});
+var sh=new THREE.Mesh(new THREE.BoxGeometry(96,10,30),blue2);sh.position.y=-32;g.add(sh);
+return g}
+function targetMesh(){var g=new THREE.Group();
+[[46,10,blue],[32,13,white],[18,16,blue]].forEach(function(p){var c=new THREE.Mesh(new THREE.CylinderGeometry(p[0],p[0],p[1],40),p[2]);c.rotation.x=Math.PI/2;g.add(c)});
+var dot=new THREE.Mesh(new THREE.CylinderGeometry(6,6,20,16),white);dot.rotation.x=Math.PI/2;g.add(dot);
+return g}
+
+//setMesh:setB
 var DEFS=[
-['term',termMesh,[.115,.16,-30],null,false],
-['chip',chipMesh,[.465,.115,-10],null,false],
-['cube',cubeMesh,[.685,.13,20],null,false],
-['tag',tagMesh,[.885,.105,0],null,false],
-['br1',function(){return braceMesh('{')},[.108,.45,30],[.11,.62,20],false],
-['digits',function(){var g=new THREE.Group();['1','0','1','1'].forEach(function(ch,i){var d=digitMesh(ch);d.position.set((i%2)*8-4,-i*46,0);g.add(d)});return g},[.035,.42,-15],null,false],
-['cur',cursorMesh,[.10,.64,45],null,false],
-['br2',function(){return braceMesh('}')},[.425,.62,10],[.89,.79,20],false],
-['lap',lapMesh,[.765,.93,0],null,true,undefined,[.80,.93,0]],
-['gear',gearMesh,[.93,.915,25],null,false,[.955,.95,25],[.93,.915,25]]
+['term',robotMesh,[.115,.16,-30],null,false],
+['chip',batteryMesh,[.465,.115,-10],null,false],
+['cube',playMesh,[.685,.13,20],null,false],
+['tag',headphonesMesh,[.885,.105,0],null,false],
+['br1',keycapMesh,[.108,.45,30],[.11,.62,20],false],
+['digits',sigMesh,[.035,.42,-15],null,false],
+['cur',mouseMesh,[.10,.64,45],null,false],
+['br2',gamepadMesh,[.425,.62,10],[.89,.79,20],false],
+['lap',cloudMesh,[.765,.93,0],null,true,undefined,[.80,.93,0]],
+['gear',targetMesh,[.93,.915,25],null,false,[.955,.95,25],[.93,.915,25]]
 ];
 var items=[];
 DEFS.forEach(function(d,i){
