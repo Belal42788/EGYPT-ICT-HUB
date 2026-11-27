@@ -946,16 +946,26 @@
       font-size:.9rem
     }
 
+/* === Book text moved beside the part that explains it (out of the old top box) === */
+.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
+  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
+html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
+.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
 </style>
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="mob-diagram-fix">
-/* Mobile: diagram labels were clipped by .diagram-wrap{overflow:hidden} at phone widths.
-   Keep the diagram at a readable minimum size and let the card scroll instead of cutting text. */
+<style id="mob-diagram-fit">
+/* Mobile: diagram captions must fit the phone width. No sideways scrolling:
+   the diagram keeps the card width and the captions shrink, wrap and are
+   clamped inside the card so nothing is clipped. */
 @media (max-width:640px){
-  .diagram-wrap{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
-  .diagram-wrap .inner{min-width:600px}
-  .svg-label{font-size:12px;line-height:1.35;max-width:180px;white-space:normal;text-align:center}
+  .diagram-wrap{overflow:hidden}
+  .diagram-wrap .inner{min-width:0}
+  .svg-label{font-size:11px;line-height:1.3;max-width:46%;white-space:normal;text-align:center;padding:4px 6px}
+  .diagram-wrap svg{max-width:100%;height:auto}
+  .diagram-wrap table{font-size:11.5px}
+  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
+  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
 }
 </style>
 </head>
@@ -1069,15 +1079,7 @@
 
     <!-- ============ 02 QTY ============ -->
     <div class="section-inner">
-        <div class="book-card">
-          <h3 data-ar="من الكتاب: النقاط الرئيسية — أنواع البيانات وطرق تحليلها" data-en="From the book: Point box — Types of Data and Data Analysis Approaches">من الكتاب: النقاط الرئيسية — أنواع البيانات وطرق تحليلها</h3>
-          <p data-ar="«أ. أنواع البيانات — (1) البيانات النوعية (Qualitative Data): بيانات تصف الصفات أو الخصائص، وتقسم إلى. [1] البيانات الاسمية (Nominal): بيانات الفئات بدون ترتيب. &amp;lt;مثال&amp;gt; الجنس، اللون، المدينة. [2] البيانات الترتيبية (Ordinal): بيانات فئات مع ترتيب. &amp;lt;مثال&amp;gt; مستوى التعليم، التقييمات.»" data-en="&quot;1. Types of Data — (Qualitative data): Data used to distinguish classifications or types. [1] (Nominal scale): Data that only holds meaning in distinguishing different categories. &amp;lt;Examples&amp;gt; Blood type, prefecture, phone number, etc. [2] (Ordinal scale): Data in which the order is meaningful but the intervals are not meaningful. &amp;lt;Examples&amp;gt; Grades on report cards, test rankings, grade level, etc.&quot;">«أ. أنواع البيانات — (1) البيانات النوعية (Qualitative Data): بيانات تصف الصفات أو الخصائص، وتقسم إلى. [1] البيانات الاسمية (Nominal): بيانات الفئات بدون ترتيب. &lt;مثال&gt; الجنس، اللون، المدينة. [2] البيانات الترتيبية (Ordinal): بيانات فئات مع ترتيب. &lt;مثال&gt; مستوى التعليم، التقييمات.»</p>
-          <p data-ar="«(2) البيانات الكمية (Quantitative Data): بيانات رقمية يمكن قياسها. [1] البيانات الفاصلة (Interval Data): بيانات رقمية بدون نقطة الصفر المطلقة. &amp;lt;مثال&amp;gt; درجة الحرارة، التاريخ. [2] البيانات النسبية (Ratio): بيانات رقمية مع نقطة الصفر المطلقة، تكون النسب فيها ذات معنى. &amp;lt;مثال&amp;gt; الطول، الوزن، الدخل.»" data-en="&quot;(Quantitative data): Data that is expressed in numbers and where the size of the numbers has meaning. [1] (Interval scale): Data where the intervals between numbers have meaning. &amp;lt;Examples&amp;gt; Time, temperature, calendar year, etc. [2] (Ratio scale): Data where not only the intervals between numbers but also the ratios of the numbers have meaning. &amp;lt;Examples&amp;gt; Length, weight, age, etc.&quot;">«(2) البيانات الكمية (Quantitative Data): بيانات رقمية يمكن قياسها. [1] البيانات الفاصلة (Interval Data): بيانات رقمية بدون نقطة الصفر المطلقة. &lt;مثال&gt; درجة الحرارة، التاريخ. [2] البيانات النسبية (Ratio): بيانات رقمية مع نقطة الصفر المطلقة، تكون النسب فيها ذات معنى. &lt;مثال&gt; الطول، الوزن، الدخل.»</p>
-          <p data-ar="«ب. طرق تحليل البيانات — (1) الإحصاء الوصفي (Descriptive Statistics): يلخص ويميز البيانات باستخدام:[1] (مقاييس النزعة المركزية): المتوسط، الوسيط، المنوال. [2] (مقاييس التشتت): المدى، التباين، الانحراف المعياري.»" data-en="&quot;2. Data Analysis Approaches — (1) (Descriptive Statistics): Summarizing and organizing historical data to get insights about the characteristics of a sample. [1] (Measures of central tendency): Mean, Median, and Mode. [2] (Measures of Spread): Range, Variance, and Standard Deviation.&quot;">«ب. طرق تحليل البيانات — (1) الإحصاء الوصفي (Descriptive Statistics): يلخص ويميز البيانات باستخدام:[1] (مقاييس النزعة المركزية): المتوسط، الوسيط، المنوال. [2] (مقاييس التشتت): المدى، التباين، الانحراف المعياري.»</p>
-          <p data-ar="«(2) الإحصاء الاستدلالي (Inferential Statistics): يستنتج خصائص المجتمع بأكمله من بيانات عينة محددة باستخدام: [1] اختبارات الفرضيات (Hypothesis Testing). [2] فترات الثقة (Confidence Intervals).»" data-en="&quot;(2) (Inferential Statistics): Used to make inferences, predictions, and generalizations about the entire population from the data of a sample. [1] (Hypothesis Testing) [2] (Confidence Intervals)&quot;">«(2) الإحصاء الاستدلالي (Inferential Statistics): يستنتج خصائص المجتمع بأكمله من بيانات عينة محددة باستخدام:[1] اختبارات الفرضيات (Hypothesis Testing). [2] فترات الثقة (Confidence Intervals).»</p>
-          <div class="book-diff" data-ar="مقارنة النسختين: العربية تقدّم البيانات النوعية قبل الكمية، والإنجليزية بالعكس. الأمثلة مختلفة في كل مستوى: الاسمية (الجنس/اللون/المدينة مقابل Blood type/prefecture/phone number)، الفاصلة (درجة الحرارة/التاريخ مقابل Time/temperature/calendar year)، النسبية (الطول/الوزن/الدخل مقابل Length/weight/age)، الترتيبية (مستوى التعليم/التقييمات مقابل Grades/test rankings/grade level). الإنجليزية تستخدم مصطلح scale وتعرّف الفاصلة بمعنى المسافات بين الأرقام والنسبية بمعنى المسافات والنسب معًا؛ العربية تعرّفهما بغياب/وجود نقطة الصفر المطلقة. الإنجليزية تطبع أخطاء إملائية كما هي: «Approachs» و«Discriptive» و«centeral»." data-en="Edition comparison: Arabic presents qualitative data before quantitative; English is the reverse. The examples differ at every level:nominal (الجنس/اللون/المدينة vs Blood type/prefecture/phone number), interval (درجة الحرارة/التاريخ vs Time/temperature/calendar year), ratio (الطول/الوزن/الدخل vs Length/weight/age), ordinal (مستوى التعليم/التقييمات vs Grades/test rankings/grade level). English uses the term scale and defines interval by meaningful intervals and ratio by meaningful intervals and ratios together; Arabic defines both by the absence/presence of an absolute zero point. English prints typos as-is:&quot;Approachs&quot;, &quot;Discriptive&quot;, and &quot;centeral&quot;.">مقارنة النسختين:العربية تقدّم البيانات النوعية قبل الكمية، والإنجليزية بالعكس. الأمثلة مختلفة في كل مستوى: الاسمية (الجنس/اللون/المدينة مقابل Blood type/prefecture/phone number)، الفاصلة (درجة الحرارة/التاريخ مقابل Time/temperature/calendar year)، النسبية (الطول/الوزن/الدخل مقابل Length/weight/age)، الترتيبية (مستوى التعليم/التقييمات مقابل Grades/test rankings/grade level). الإنجليزية تستخدم مصطلح scale وتعرّف الفاصلة بمعنى المسافات بين الأرقام والنسبية بمعنى المسافات والنسب معًا؛ العربية تعرّفهما بغياب/وجود نقطة الصفر المطلقة. الإنجليزية تطبع أخطاء إملائية كما هي: «Approachs» و«Discriptive» و«centeral».</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 123 (المطبوع 123)؛ AR 136." data-en="The text above is from the book. Full source: English PDF 123 (printed 123); Arabic 136.">النص السابق من الكتاب. المصدر الكامل:EN PDF 123 (المطبوع 123)؛ AR 136.</span>
-        </div>
+        
     </div>
 
     <section id="qty">
@@ -1102,10 +1104,10 @@
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="30° أحسن من 20° بفرق 10 درجات (فواصل). ووزن 60 كجم ضعف 30 كجم (نسب)."
             data-en="30° is better than 20° by a difference of 10 degrees (intervals). A weight of 60 kg is double 30 kg (ratios).">30° أحسن من 20° بفرق 10 درجات (فواصل). ووزن 60 كجم ضعف 30 كجم (نسب).</span></div>
-      </div>
+      <p class="bq-inline" data-ar="«(2) البيانات الكمية (Quantitative Data): بيانات رقمية يمكن قياسها. [1] البيانات الفاصلة (Interval Data): بيانات رقمية بدون نقطة الصفر المطلقة. &amp;lt;مثال&amp;gt; درجة الحرارة، التاريخ. [2] البيانات النسبية (Ratio): بيانات رقمية مع نقطة الصفر المطلقة، تكون النسب فيها ذات معنى. &amp;lt;مثال&amp;gt; الطول، الوزن، الدخل.»" data-en="&quot;(Quantitative data): Data that is expressed in numbers and where the size of the numbers has meaning. [1] (Interval scale): Data where the intervals between numbers have meaning. &amp;lt;Examples&amp;gt; Time, temperature, calendar year, etc. [2] (Ratio scale): Data where not only the intervals between numbers but also the ratios of the numbers have meaning. &amp;lt;Examples&amp;gt; Length, weight, age, etc.&quot;"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«(2) البيانات الكمية (Quantitative Data): بيانات رقمية يمكن قياسها. [1] البيانات الفاصلة (Interval Data): بيانات رقمية بدون نقطة الصفر المطلقة. &lt;مثال&gt; درجة الحرارة، التاريخ. [2] البيانات النسبية (Ratio): بيانات رقمية مع نقطة الصفر المطلقة، تكون النسب فيها ذات معنى. &lt;مثال&gt; الطول، الوزن، الدخل.»</p></div>
 
       <div class="section-inner">
-        <div class="diagram-wrap" tabindex="0" role="group">
+        <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
             <div class="demo-label" data-ar="مقاييس الداتا (Data) الكمّي"
@@ -1215,10 +1217,10 @@
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="فصيلة الدم (اسمي) بتميّز الفئات بس، بينما ترتيب الطالب في اختبار (رتبي) ليّه ترتيب له معنى بس الفروق ملهاش معنى."
             data-en="Blood type (nominal) only distinguishes categories, while student ranking in a test (ordinal) has meaningful order but not meaningful differences.">فصيلة الدم (اسمي) بتميّز الفئات بس، بينما ترتيب الطالب في اختبار (رتبي) ليّه ترتيب له معنى بس الفروق ملهاش معنى.</span></div>
-      </div>
+      <p class="bq-inline" data-ar="«أ. أنواع البيانات — (1) البيانات النوعية (Qualitative Data): بيانات تصف الصفات أو الخصائص، وتقسم إلى. [1] البيانات الاسمية (Nominal): بيانات الفئات بدون ترتيب. &amp;lt;مثال&amp;gt; الجنس، اللون، المدينة. [2] البيانات الترتيبية (Ordinal): بيانات فئات مع ترتيب. &amp;lt;مثال&amp;gt; مستوى التعليم، التقييمات.»" data-en="&quot;1. Types of Data — (Qualitative data): Data used to distinguish classifications or types. [1] (Nominal scale): Data that only holds meaning in distinguishing different categories. &amp;lt;Examples&amp;gt; Blood type, prefecture, phone number, etc. [2] (Ordinal scale): Data in which the order is meaningful but the intervals are not meaningful. &amp;lt;Examples&amp;gt; Grades on report cards, test rankings, grade level, etc.&quot;"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«أ. أنواع البيانات — (1) البيانات النوعية (Qualitative Data): بيانات تصف الصفات أو الخصائص، وتقسم إلى. [1] البيانات الاسمية (Nominal): بيانات الفئات بدون ترتيب. &lt;مثال&gt; الجنس، اللون، المدينة. [2] البيانات الترتيبية (Ordinal): بيانات فئات مع ترتيب. &lt;مثال&gt; مستوى التعليم، التقييمات.»</p></div>
 
       <div class="section-inner">
-        <div class="diagram-wrap" tabindex="0" role="group">
+        <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
             <div class="demo-label" data-ar="مقاييس الداتا (Data) النوعي"
@@ -1329,10 +1331,10 @@
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="النزعة المركزية بتبين النص — المتوسط والوسيط والمنوال. والتشتت بيبين الأرقام متفرّقة قد إيه — المدى والتباين والانحراف المعياري."
             data-en="Central tendency tells you the middle — mean, median, and mode. Spread tells you how scattered the numbers are — range, variance, and standard deviation.">النزعة المركزية بتبين النص — المتوسط والوسيط والمنوال. والتشتت بيبين الأرقام متفرّقة قد إيه — المدى والتباين والانحراف المعياري.</span></div>
-      </div>
+      <p class="bq-inline" data-ar="«ب. طرق تحليل البيانات — (1) الإحصاء الوصفي (Descriptive Statistics): يلخص ويميز البيانات باستخدام:[1] (مقاييس النزعة المركزية): المتوسط، الوسيط، المنوال. [2] (مقاييس التشتت): المدى، التباين، الانحراف المعياري.»" data-en="&quot;2. Data Analysis Approaches — (1) (Descriptive Statistics): Summarizing and organizing historical data to get insights about the characteristics of a sample. [1] (Measures of central tendency): Mean, Median, and Mode. [2] (Measures of Spread): Range, Variance, and Standard Deviation.&quot;"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«ب. طرق تحليل البيانات — (1) الإحصاء الوصفي (Descriptive Statistics): يلخص ويميز البيانات باستخدام:[1] (مقاييس النزعة المركزية): المتوسط، الوسيط، المنوال. [2] (مقاييس التشتت): المدى، التباين، الانحراف المعياري.»</p></div>
 
       <div class="section-inner">
-        <div class="diagram-wrap" tabindex="0" role="group">
+        <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
             <div class="demo-label" data-ar="الإحصاء الوصفي هو إيه؟"
@@ -1442,10 +1444,10 @@
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="بناخد عيّنة من طلاب المدرسة ونتنبأ بنسبة الرضا في المدرسة كلها — وبنحسب فواصل الثقة عشان نعرف دقّة التنبؤ."
             data-en="We take a sample of school students and predict the satisfaction rate across the whole school — and we compute confidence intervals to know how accurate the prediction is.">بناخد عيّنة من طلاب المدرسة ونتنبأ بنسبة الرضا في المدرسة كلها — وبنحسب فواصل الثقة عشان نعرف دقّة التنبؤ.</span></div>
-      </div>
+      <p class="bq-inline" data-ar="«(2) الإحصاء الاستدلالي (Inferential Statistics): يستنتج خصائص المجتمع بأكمله من بيانات عينة محددة باستخدام: [1] اختبارات الفرضيات (Hypothesis Testing). [2] فترات الثقة (Confidence Intervals).»" data-en="&quot;(2) (Inferential Statistics): Used to make inferences, predictions, and generalizations about the entire population from the data of a sample. [1] (Hypothesis Testing) [2] (Confidence Intervals)&quot;"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«(2) الإحصاء الاستدلالي (Inferential Statistics): يستنتج خصائص المجتمع بأكمله من بيانات عينة محددة باستخدام:[1] اختبارات الفرضيات (Hypothesis Testing). [2] فترات الثقة (Confidence Intervals).»</p></div>
 
       <div class="section-inner">
-        <div class="diagram-wrap" tabindex="0" role="group">
+        <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
             <div class="demo-label" data-ar="الإحصاء الاستنتاجي هو إيه؟"
@@ -2031,7 +2033,7 @@
       </div>
 
       <div class="section-inner">
-        <div class="diagram-wrap" tabindex="0" role="group">
+        <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
             <div class="journey">
@@ -2674,6 +2676,30 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script></body>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
+/* Keep absolutely positioned diagram captions inside the card at phone widths. */
+(function(){
+  function clamp(){
+    if (window.innerWidth > 640) return;
+    document.querySelectorAll('.diagram-wrap').forEach(function(w){
+      var W = w.clientWidth;
+      w.querySelectorAll('.svg-label').forEach(function(l){
+        var r = l.getBoundingClientRect();
+        var half = r.width/2;
+        var minC = half + 3, maxC = W - half - 3;
+        if (minC > maxC) return;
+        var cur = parseFloat(l.style.left);
+        if (isNaN(cur)) return;
+        var curPx = cur/100*W;
+        var t = Math.min(Math.max(curPx, minC), maxC);
+        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
+      });
+    });
+  }
+  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
+  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
+})();
+</script>
+</body>
 
 </html>
