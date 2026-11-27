@@ -1235,6 +1235,17 @@ select{color:var(--text)!important}
     white-space:normal!important; overflow-wrap:anywhere; padding:4px 5px!important }
 }
 </style>
+<style>/* narrow screens: diagram panels fit the screen instead of scrolling */
+@media (max-width:900px){
+  .diagram-body, .dg-body{
+    overflow-x:visible!important; max-width:100%!important }
+  .diagram-body svg, .dg-scroll svg, .dg-body svg{
+    width:100%!important; max-width:100%!important; height:auto!important; display:block }
+  .diagram-body img, .dg-scroll img{ max-width:100%!important; height:auto!important }
+  .diagram-body table, .dg-scroll table{ width:100%!important; table-layout:auto!important }
+  .diagram-body pre, .dg-scroll pre{ white-space:pre-wrap!important; overflow-wrap:anywhere }
+}
+</style>
 </head>
 
 <body>
