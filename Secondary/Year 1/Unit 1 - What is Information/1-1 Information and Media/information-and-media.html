@@ -1590,6 +1590,62 @@
       border:1px solid rgba(11, 16, 32, 0.08);
       color:var(--dim);
     }
+
+/* === Book definition placed beside the part that explains it (moved out of the old top box) === */
+.bq-inline{
+  margin:12px 0 0;
+  padding:10px 13px;
+  border-inline-start:3px solid var(--primary);
+  background:rgba(24,56,248,.05);
+  border-radius:0 10px 10px 0;
+  font-size:13.5px;
+  line-height:1.8;
+  color:var(--dim);
+}
+html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
+.bq-inline .bqi-tag{
+  display:block;
+  font-size:11.5px;
+  font-weight:800;
+  letter-spacing:.2px;
+  color:var(--primary);
+  margin-bottom:3px;
+}
+.bq-inline .bqi-term{color:var(--text);font-weight:800}
+.bq-inline .bqi-sub{display:block;margin-top:3px;font-size:12.5px;color:var(--dim);opacity:.9}
+
+/* === Book questions: real question cards (was one flat dump) === */
+.mcq-list{gap:26px}
+.mcq-group-title .mg-tag{display:none}
+.q-group-count{flex-shrink:0;margin-inline-start:auto;font-size:12px;font-weight:800;color:var(--dim);background:rgba(11,16,32,.05);border-radius:50px;padding:3px 10px}
+.q-block{
+  background:#fff;
+  border:1px solid rgba(11,16,32,.09);
+  border-radius:16px;
+  padding:16px 18px 14px;
+  margin-bottom:14px;
+  box-shadow:0 2px 10px rgba(11,16,32,.04);
+}
+.q-block:last-child{margin-bottom:0}
+.q-block-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.q-block-num{background:var(--primary);color:#fff;font-size:12.5px;font-weight:800;border-radius:50px;padding:4px 12px}
+.q-block-src{font-size:11.5px;font-weight:700;color:var(--primary);background:rgba(24,56,248,.07);border-radius:50px;padding:3px 10px}
+.q-stem{font-size:15.5px;font-weight:700;color:var(--text);line-height:1.9;margin-bottom:12px}
+.q-items{display:flex;flex-direction:column;gap:14px}
+.q-block .mcq-q{margin:0;padding-top:12px;border-top:1px dashed rgba(11,16,32,.14)}
+.q-block .mcq-q:first-child{padding-top:0;border-top:0}
+.q-block .mcq-q-head{font-size:14.5px;margin-bottom:9px}
+.mcq-opts{flex-direction:row;flex-wrap:wrap;gap:8px}
+.mcq-opt{flex:0 1 auto;max-width:100%;border-radius:50px;padding:8px 15px;background:#fff;font-size:13.5px;font-weight:600;color:var(--text)}
+.mcq-opt > span:last-child{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.mcq-opt .mcq-letter{width:22px;height:22px;font-size:11px}
+.mcq-explanation{border-radius:12px;font-size:13px;line-height:1.8}
+.mcq-actions{margin:0 0 16px;padding:12px 14px;border-radius:14px;background:rgba(24,56,248,.05);border:1px solid rgba(24,56,248,.15)}
+@media(max-width:650px){
+  .q-block{padding:13px 13px 12px}
+  .q-stem{font-size:14.5px}
+  .mcq-opt{font-size:13px;padding:7px 12px}
+}
   </style>
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
@@ -1633,11 +1689,7 @@
           <p class="section-subtitle" data-ar="البيانات (Data)، المعلومات (Information)، المعرفة (Knowledge)" data-en="Data, Information, Knowledge">البيانات (Data)، المعلومات (Information)، المعرفة (Knowledge)</p>
         </div>
       </div>
-            <div class="book-quote section-inner" data-id="bq-s1">
-        <span class="bq-label" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>
-        <span class="bq-label" data-ar="EN PDF 4 (المطبوع 4)؛ AR 8" data-en="EN PDF 4 (printed 4); AR 8">EN PDF 4 (المطبوع 4)؛ AR 8</span>
-        <div class="bq-body" data-ar="<p class=&quot;bq-h&quot;>أ. البيانات، المعلومات، المعرفة</p><p>(1) <span class=&quot;bq-term&quot;>البيانات (Data)</span>: هي حقائق تمثل باستخدام الأرقام أو الأحرف أو الرموز.</p><p>(2) <span class=&quot;bq-term&quot;>المعلومات (Information)</span>: هي معنى أو قيمة للمتلقي وتستخدم لاتخاذ القرار. وعلى عكس الأشياء المادية، فالمعلومات ليس لها شكل أو كيان ثابت.</p><p>(3) <span class=&quot;bq-term&quot;>المعرفة (Knowledge)</span>: هي المعلومات التي تم تحليلها وتنظيمها بشكل منهجي للمساعدة في حل المشكلات.</p>" data-en="<p class=&quot;bq-h&quot;>1. Data, Information, Knowledge</p><p>(1) <span class=&quot;bq-term&quot;>Data</span>: Facts or matters represented using numbers, characters, or symbols.</p><p>(2) <span class=&quot;bq-term&quot;>Information</span>: Something that holds meaning or value for the recipient and serves as a basis for decision-making. Unlike objects, information has no form.</p><p>(3) <span class=&quot;bq-term&quot;>Knowledge</span>: Information that has been analyzed and systematized to aid in problem-solving.</p>"><p class="bq-h">أ. البيانات، المعلومات، المعرفة</p><p>(1) <span class="bq-term">البيانات (Data)</span>: هي حقائق تمثل باستخدام الأرقام أو الأحرف أو الرموز.</p><p>(2) <span class="bq-term">المعلومات (Information)</span>: هي معنى أو قيمة للمتلقي وتستخدم لاتخاذ القرار. وعلى عكس الأشياء المادية، فالمعلومات ليس لها شكل أو كيان ثابت.</p><p>(3) <span class="bq-term">المعرفة (Knowledge)</span>: هي المعلومات التي تم تحليلها وتنظيمها بشكل منهجي للمساعدة في حل المشكلات.</p></div>
-      </div>
+            >
       <div class="simple-divider section-inner" data-ar="بالبسيط — شرحي أنا (مش من الكتاب)" data-en="In simple words — my own explanation (not from the book)">بالبسيط — شرحي أنا (مش من الكتاب)</div>
       <div class="summary-box section-inner">
         <h4 data-ar="هدفنا النهارده" data-en="Our Goal Today">هدفنا النهارده</h4>
@@ -1650,19 +1702,19 @@
           <span class="def-icon emoji-glow">🔢</span>
           <h4 data-ar="البيانات (Data)" data-en="Data">البيانات (Data)</h4>
           <p data-ar="حقائق أو حاجات متعبر عنها بأرقام أو حروف أو رموز — من غير سياق."
-            data-en="Facts or matters represented using numbers, characters, or symbols — without context.">حقائق أو حاجات متعبر عنها بأرقام أو حروف أو رموز — من غير سياق.</p>
+            data-en="Facts or matters represented using numbers, characters, or symbols — without context.">حقائق أو حاجات متعبر عنها بأرقام أو حروف أو رموز — من غير سياق.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;(1) &lt;span class=&quot;bqi-term&quot;&gt;البيانات (Data)&lt;/span&gt;: هي حقائق تمثل باستخدام الأرقام أو الأحرف أو الرموز." data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;(1) &lt;span class=&quot;bqi-term&quot;&gt;Data&lt;/span&gt;: Facts or matters represented using numbers, characters, or symbols."><span class="bqi-tag">📖 من الكتاب</span>(1) <span class="bqi-term">البيانات (Data)</span>: هي حقائق تمثل باستخدام الأرقام أو الأحرف أو الرموز.</p>
         </div>
         <div class="def-card">
           <span class="def-icon emoji-glow" style="animation-delay:.5s">💡</span>
           <h4 data-ar="المعلومات (Information)" data-en="Information">المعلومات (Information)</h4>
           <p data-ar="حاجة ليها معنى وقيمة بالنسبة للمستقبِل وبتتستخدم كأساس لاتخاذ القرار. عكس الأشياء، المعلومات (Information) مالهاش شكل."
-            data-en="Something that holds meaning or value for the recipient and serves as a basis for decision-making. Unlike objects, information has no form.">حاجة ليها معنى وقيمة بالنسبة للمستقبِل وبتتستخدم كأساس لاتخاذ القرار. عكس الأشياء، المعلومات (Information) مالهاش شكل.</p>
+            data-en="Something that holds meaning or value for the recipient and serves as a basis for decision-making. Unlike objects, information has no form.">حاجة ليها معنى وقيمة بالنسبة للمستقبِل وبتتستخدم كأساس لاتخاذ القرار. عكس الأشياء، المعلومات (Information) مالهاش شكل.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;(2) &lt;span class=&quot;bqi-term&quot;&gt;المعلومات (Information)&lt;/span&gt;: هي معنى أو قيمة للمتلقي وتستخدم لاتخاذ القرار. وعلى عكس الأشياء المادية، فالمعلومات ليس لها شكل أو كيان ثابت." data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;(2) &lt;span class=&quot;bqi-term&quot;&gt;Information&lt;/span&gt;: Something that holds meaning or value for the recipient and serves as a basis for decision-making. Unlike objects, information has no form."><span class="bqi-tag">📖 من الكتاب</span>(2) <span class="bqi-term">المعلومات (Information)</span>: هي معنى أو قيمة للمتلقي وتستخدم لاتخاذ القرار. وعلى عكس الأشياء المادية، فالمعلومات ليس لها شكل أو كيان ثابت.</p>
         </div>
         <div class="def-card">
           <span class="def-icon emoji-glow" style="animation-delay:1s">🧠</span>
           <h4 data-ar="المعرفة (Knowledge)" data-en="Knowledge">المعرفة (Knowledge)</h4>
           <p data-ar="المعلومات (Information) اتحللت واتنظمت عشان تساعد في حل المشاكل."
-            data-en="Information that has been analyzed and systematized to aid in problem-solving.">المعلومات (Information) اتحللت واتنظمت عشان تساعد في حل المشاكل.</p>
+            data-en="Information that has been analyzed and systematized to aid in problem-solving.">المعلومات (Information) اتحللت واتنظمت عشان تساعد في حل المشاكل.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;(3) &lt;span class=&quot;bqi-term&quot;&gt;المعرفة (Knowledge)&lt;/span&gt;: هي المعلومات التي تم تحليلها وتنظيمها بشكل منهجي للمساعدة في حل المشكلات." data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;(3) &lt;span class=&quot;bqi-term&quot;&gt;Knowledge&lt;/span&gt;: Information that has been analyzed and systematized to aid in problem-solving."><span class="bqi-tag">📖 من الكتاب</span>(3) <span class="bqi-term">المعرفة (Knowledge)</span>: هي المعلومات التي تم تحليلها وتنظيمها بشكل منهجي للمساعدة في حل المشكلات.</p>
         </div>
       </div>
 
@@ -1848,11 +1900,7 @@
             data-en="Persistence, Reproducibility, Propagation">الاستمرارية (Persistence)، قابلية التكرار (Reproducibility)، الانتشار (Propagation)</p>
         </div>
       </div>
-            <div class="book-quote section-inner" data-id="bq-s2">
-        <span class="bq-label" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>
-        <span class="bq-label" data-ar="EN PDF 4 (المطبوع 4)؛ AR 8" data-en="EN PDF 4 (printed 4); AR 8">EN PDF 4 (المطبوع 4)؛ AR 8</span>
-        <div class="bq-body" data-ar="<p>• للمعلومات الخصائص التالية:</p><p>[1] <span class=&quot;bq-term&quot;>الاستمرارية (Persistence)</span>: بمجرد إنشاء المعلومات، لا يمكن محوها بالكامل.</p><p>[2] <span class=&quot;bq-term&quot;>قابلية التكرار (Reproducibility)</span>: إمكانية نسخ المعلومات بسهولة بكميات كبيرة.</p><p>[3] <span class=&quot;bq-term&quot;>الانتشار (Propagation)</span>: من السهل توصيل المعلومات ونشرها. يمكن أن تنتشر المعلومات بسهولة عبر وسائل الإعلام الجماهيرية (Mass Media) مثل الصحف والتلفزيون، وكذلك الإنترنت.</p>" data-en="<p>• Information has the following characteristics.</p><p>[1] <span class=&quot;bq-term&quot;>Persistence</span>: Information, once created, cannot be completely erased.</p><p>[2] <span class=&quot;bq-term&quot;>Reproducibility</span>: Information can be easily copied in large quantities.</p><p>[3] <span class=&quot;bq-term&quot;>Propagation</span>: Information is easy to convey and spread. Information can easily spread through mass media such as newspapers and television, as well as the internet.</p>"><p>• للمعلومات الخصائص التالية:</p><p>[1] <span class="bq-term">الاستمرارية (Persistence)</span>: بمجرد إنشاء المعلومات، لا يمكن محوها بالكامل.</p><p>[2] <span class="bq-term">قابلية التكرار (Reproducibility)</span>: إمكانية نسخ المعلومات بسهولة بكميات كبيرة.</p><p>[3] <span class="bq-term">الانتشار (Propagation)</span>: من السهل توصيل المعلومات ونشرها. يمكن أن تنتشر المعلومات بسهولة عبر وسائل الإعلام الجماهيرية (Mass Media) مثل الصحف والتلفزيون، وكذلك الإنترنت.</p></div>
-      </div>
+            >
       <div class="bq-note section-inner" data-ar="📝 ملحوظة مني: الكتاب بيكتب نفس الخصائص بكلمات مختلفة في الأسئلة. «الثبات» = الاستمرارية، و«القدرة على الاستنساخ» و«القابلية للتكرار» و«قابلية النسخ» = قابلية التكرار. اعرف الكلمتين عشان متتلخبطش في الامتحان." data-en="📝 My note: in the questions the book uses other Arabic words for the same characteristics. “الثبات” = Persistence, and “القدرة على الاستنساخ” / “القابلية للتكرار” / “قابلية النسخ” = Reproducibility. Know both wordings.">📝 ملحوظة مني: الكتاب بيكتب نفس الخصائص بكلمات مختلفة في الأسئلة. «الثبات» = الاستمرارية، و«القدرة على الاستنساخ» و«القابلية للتكرار» و«قابلية النسخ» = قابلية التكرار. اعرف الكلمتين عشان متتلخبطش في الامتحان.</div>
       <div class="simple-divider section-inner" data-ar="بالبسيط — شرحي أنا (مش من الكتاب)" data-en="In simple words — my own explanation (not from the book)">بالبسيط — شرحي أنا (مش من الكتاب)</div>
       <div class="summary-box section-inner">
@@ -1899,7 +1947,7 @@
               <div>
                 <h4 data-ar="الاستمرارية (Persistence)" data-en="Persistence">الاستمرارية (Persistence)</h4>
                 <p data-ar="مهما حاولت، المعلومات (Information) مابتتمسحش تماماً أبداً. زي الصورة اللي مسحتها ولقيتها في backup."
-                  data-en="No matter how hard you try, information can never be completely erased. Like the photo you deleted but found in a backup.">مهما حاولت، المعلومات (Information) مابتتمسحش تماماً أبداً. زي الصورة اللي مسحتها ولقيتها في backup.</p>
+                  data-en="No matter how hard you try, information can never be completely erased. Like the photo you deleted but found in a backup.">مهما حاولت، المعلومات (Information) مابتتمسحش تماماً أبداً. زي الصورة اللي مسحتها ولقيتها في backup.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;[1] &lt;span class=&quot;bqi-term&quot;&gt;الاستمرارية (Persistence)&lt;/span&gt;: بمجرد إنشاء المعلومات، لا يمكن محوها بالكامل." data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;[1] &lt;span class=&quot;bqi-term&quot;&gt;Persistence&lt;/span&gt;: Information, once created, cannot be completely erased."><span class="bqi-tag">📖 من الكتاب</span>[1] <span class="bqi-term">الاستمرارية (Persistence)</span>: بمجرد إنشاء المعلومات، لا يمكن محوها بالكامل.</p>
               </div>
             </div>
             <div class="char-item char-repro">
@@ -1907,7 +1955,7 @@
               <div>
                 <h4 data-ar="قابلية التكرار (Reproducibility)" data-en="Reproducibility">قابلية التكرار (Reproducibility)</h4>
                 <p data-ar="المعلومات (Information) ممكن تتنسخ بكميات كبيرة من غير ما تبوظ. ملف اتنسخ 1000 مرة يفضل زي الأصل بالظبط."
-                  data-en="Information can be copied in large quantities without degradation. A file copied 1000 times stays identical to the original.">المعلومات (Information) ممكن تتنسخ بكميات كبيرة من غير ما تبوظ. ملف اتنسخ 1000 مرة يفضل زي الأصل بالظبط.</p>
+                  data-en="Information can be copied in large quantities without degradation. A file copied 1000 times stays identical to the original.">المعلومات (Information) ممكن تتنسخ بكميات كبيرة من غير ما تبوظ. ملف اتنسخ 1000 مرة يفضل زي الأصل بالظبط.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;[2] &lt;span class=&quot;bqi-term&quot;&gt;قابلية التكرار (Reproducibility)&lt;/span&gt;: إمكانية نسخ المعلومات بسهولة بكميات كبيرة." data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;[2] &lt;span class=&quot;bqi-term&quot;&gt;Reproducibility&lt;/span&gt;: Information can be easily copied in large quantities."><span class="bqi-tag">📖 من الكتاب</span>[2] <span class="bqi-term">قابلية التكرار (Reproducibility)</span>: إمكانية نسخ المعلومات بسهولة بكميات كبيرة.</p>
               </div>
             </div>
             <div class="char-item char-propag">
@@ -1915,7 +1963,7 @@
               <div>
                 <h4 data-ar="الانتشار (Propagation)" data-en="Propagation">الانتشار (Propagation)</h4>
                 <p data-ar="المعلومات (Information) سهلة إنها توصّل وتنتشر. تغريدة ممكن توصل لملايين الناس في ثواني عن طريق الوسائط الجماهيرية (mass media) والإنترنت."
-                  data-en="Information is easy to convey and spread. A tweet can reach millions of people in seconds through mass media and the internet.">المعلومات (Information) سهلة إنها توصّل وتنتشر. تغريدة ممكن توصل لملايين الناس في ثواني عن طريق الوسائط الجماهيرية (mass media) والإنترنت.</p>
+                  data-en="Information is easy to convey and spread. A tweet can reach millions of people in seconds through mass media and the internet.">المعلومات (Information) سهلة إنها توصّل وتنتشر. تغريدة ممكن توصل لملايين الناس في ثواني عن طريق الوسائط الجماهيرية (mass media) والإنترنت.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;[3] &lt;span class=&quot;bqi-term&quot;&gt;الانتشار (Propagation)&lt;/span&gt;: من السهل توصيل المعلومات ونشرها. يمكن أن تنتشر المعلومات بسهولة عبر وسائل الإعلام الجماهيرية (Mass Media) مثل الصحف والتلفزيون، وكذلك الإنترنت." data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;[3] &lt;span class=&quot;bqi-term&quot;&gt;Propagation&lt;/span&gt;: Information is easy to convey and spread. Information can easily spread through mass media such as newspapers and television, as well as the internet."><span class="bqi-tag">📖 من الكتاب</span>[3] <span class="bqi-term">الانتشار (Propagation)</span>: من السهل توصيل المعلومات ونشرها. يمكن أن تنتشر المعلومات بسهولة عبر وسائل الإعلام الجماهيرية (Mass Media) مثل الصحف والتلفزيون، وكذلك الإنترنت.</p>
               </div>
             </div>
           </div>
@@ -2010,11 +2058,7 @@
             data-en="Primary vs Secondary Information">المعلومات الأولية والثانوية</p>
         </div>
       </div>
-            <div class="book-quote section-inner" data-id="bq-s3">
-        <span class="bq-label" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>
-        <span class="bq-label" data-ar="EN PDF 4 (المطبوع 4)؛ AR 8" data-en="EN PDF 4 (printed 4); AR 8">EN PDF 4 (المطبوع 4)؛ AR 8</span>
-        <div class="bq-body" data-ar="<p class=&quot;bq-h&quot;>(4) المعلومات الأولية والثانوية</p><p>[1] <span class=&quot;bq-term&quot;>المعلومات الأولية (Primary information)</span>: هي المعلومات التي يتم الحصول عليها من خلال التجربة الشخصية المباشرة أو عن طريق البحث والتجارب.<br><span class=&quot;bq-sub&quot;>أمثلة:تقارير التجارب، نتائج الاستطلاعات، جداول نتائج الاستبيانات، إلخ.</span></p><p>[2] <span class=&quot;bq-term&quot;>المعلومات الثانوية (Secondary information)</span>: هي المعلومات التي لا تحصل عليها بنفسك بشكل مباشر، بل من خلال طرف ثالث.<br><span class=&quot;bq-sub&quot;>مثال:الكتب، الصحف، التلفزيون، إلخ.</span></p><p>• يمكن أن تختلف المعلومات الثانوية في بعض الأحيان عن المعلومات الأصلية، أو تحتوي على تفسيرات مضافة إليها. لذلك، من الضروري مقارنة المعلومات التي تحصل عليها من مصادر متعددة مع معلومات أخرى لتحديد مدى دقتها وموثوقيتها. هذه العملية تسمى <span class=&quot;bq-term&quot;>بالتحقق المتبادل (Cross-checking)</span>.</p>" data-en="<p class=&quot;bq-h&quot;>(4) Primary information and secondary information</p><p>[1] <span class=&quot;bq-term&quot;>Primary information</span>: Information obtained through direct personal experience or acquired through research and experiments.<br><span class=&quot;bq-sub&quot;>Examples:Experimental reports, survey results, tabulations of questionnaire results, etc.</span></p><p>[2] <span class=&quot;bq-term&quot;>Secondary information</span>: Information not obtained directly by oneself, but acquired through a third party.<br><span class=&quot;bq-sub&quot;>Example:Books, newspapers, television, etc.</span></p><p>• Secondary information can sometimes differ from the original information or have interpretations added to it. In other words, it is necessary to compare the obtained information from multiple perspectives with other information to determine the degree of its accuracy and reliability. This is called <span class=&quot;bq-term&quot;>cross-checking</span>.</p>"><p class="bq-h">(4) المعلومات الأولية والثانوية</p><p>[1] <span class="bq-term">المعلومات الأولية (Primary information)</span>: هي المعلومات التي يتم الحصول عليها من خلال التجربة الشخصية المباشرة أو عن طريق البحث والتجارب.<br><span class="bq-sub">أمثلة:تقارير التجارب، نتائج الاستطلاعات، جداول نتائج الاستبيانات، إلخ.</span></p><p>[2] <span class="bq-term">المعلومات الثانوية (Secondary information)</span>: هي المعلومات التي لا تحصل عليها بنفسك بشكل مباشر، بل من خلال طرف ثالث.<br><span class="bq-sub">مثال: الكتب، الصحف، التلفزيون، إلخ.</span></p><p>• يمكن أن تختلف المعلومات الثانوية في بعض الأحيان عن المعلومات الأصلية، أو تحتوي على تفسيرات مضافة إليها. لذلك، من الضروري مقارنة المعلومات التي تحصل عليها من مصادر متعددة مع معلومات أخرى لتحديد مدى دقتها وموثوقيتها. هذه العملية تسمى <span class="bq-term">بالتحقق المتبادل (Cross-checking)</span>.</p></div>
-      </div>
+            >
       <div class="simple-divider section-inner" data-ar="بالبسيط — شرحي أنا (مش من الكتاب)" data-en="In simple words — my own explanation (not from the book)">بالبسيط — شرحي أنا (مش من الكتاب)</div>
       <div class="summary-box section-inner">
         <h4 data-ar="هدفنا النهارده" data-en="Our Goal Today">هدفنا النهارده</h4>
@@ -2026,7 +2070,7 @@
         <div class="card">
           <h3 data-ar="المعلومات الأولية (Primary Information)" data-en="Primary Information">المعلومات الأولية (Primary Information)</h3>
           <p data-ar="المعلومات (Information) بتجيلك من تجربة شخصية مباشرة، أو من بحث وتجارب إنت عملته بـ إيدك."
-            data-en="Information obtained through direct personal experience, or acquired through research and experiments you conducted yourself.">المعلومات (Information) بتجيلك من تجربة شخصية مباشرة، أو من بحث وتجارب إنت عملته بـ إيدك.</p>
+            data-en="Information obtained through direct personal experience, or acquired through research and experiments you conducted yourself.">المعلومات (Information) بتجيلك من تجربة شخصية مباشرة، أو من بحث وتجارب إنت عملته بـ إيدك.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;[1] &lt;span class=&quot;bqi-term&quot;&gt;المعلومات الأولية (Primary information)&lt;/span&gt;: هي المعلومات التي يتم الحصول عليها من خلال التجربة الشخصية المباشرة أو عن طريق البحث والتجارب.&lt;br&gt;&lt;span class=&quot;bqi-sub&quot;&gt;أمثلة:تقارير التجارب، نتائج الاستطلاعات، جداول نتائج الاستبيانات، إلخ.&lt;/span&gt;" data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;[1] &lt;span class=&quot;bqi-term&quot;&gt;Primary information&lt;/span&gt;: Information obtained through direct personal experience or acquired through research and experiments.&lt;br&gt;&lt;span class=&quot;bqi-sub&quot;&gt;Examples:Experimental reports, survey results, tabulations of questionnaire results, etc.&lt;/span&gt;"><span class="bqi-tag">📖 من الكتاب</span>[1] <span class="bqi-term">المعلومات الأولية (Primary information)</span>: هي المعلومات التي يتم الحصول عليها من خلال التجربة الشخصية المباشرة أو عن طريق البحث والتجارب.<br><span class="bqi-sub">أمثلة:تقارير التجارب، نتائج الاستطلاعات، جداول نتائج الاستبيانات، إلخ.</span></p>
           <div class="summary-box">
             <h4 data-ar="أمثلة" data-en="Examples">أمثلة</h4>
             <p data-ar="تقارير تجارب معملية، نتائج استبيانات، جداول نتائج استبيانات."
@@ -2036,7 +2080,7 @@
         <div class="card">
           <h3 data-ar="المعلومات الثانوية (Secondary Information)" data-en="Secondary Information">المعلومات الثانوية (Secondary Information)</h3>
           <p data-ar="المعلومات (Information) مش مجيبة منك بشكل مباشر، لكن جاية من طرف تالت."
-            data-en="Information not obtained directly by yourself, but acquired through a third party.">المعلومات (Information) مش مجيبة منك بشكل مباشر، لكن جاية من طرف تالت.</p>
+            data-en="Information not obtained directly by yourself, but acquired through a third party.">المعلومات (Information) مش مجيبة منك بشكل مباشر، لكن جاية من طرف تالت.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;[2] &lt;span class=&quot;bqi-term&quot;&gt;المعلومات الثانوية (Secondary information)&lt;/span&gt;: هي المعلومات التي لا تحصل عليها بنفسك بشكل مباشر، بل من خلال طرف ثالث.&lt;br&gt;&lt;span class=&quot;bqi-sub&quot;&gt;مثال:الكتب، الصحف، التلفزيون، إلخ.&lt;/span&gt;" data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;[2] &lt;span class=&quot;bqi-term&quot;&gt;Secondary information&lt;/span&gt;: Information not obtained directly by oneself, but acquired through a third party.&lt;br&gt;&lt;span class=&quot;bqi-sub&quot;&gt;Example:Books, newspapers, television, etc.&lt;/span&gt;"><span class="bqi-tag">📖 من الكتاب</span>[2] <span class="bqi-term">المعلومات الثانوية (Secondary information)</span>: هي المعلومات التي لا تحصل عليها بنفسك بشكل مباشر، بل من خلال طرف ثالث.<br><span class="bqi-sub">مثال:الكتب، الصحف، التلفزيون، إلخ.</span></p>
           <div class="summary-box">
             <h4 data-ar="أمثلة" data-en="Examples">أمثلة</h4>
             <p data-ar="كتب، جرايد، تليفزيون." data-en="Books, newspapers, television.">كتب، جرايد، تليفزيون.</p>
@@ -2048,7 +2092,7 @@
         <h3 data-ar="التحقق المتبادل (Cross-checking)" data-en="Cross-checking">التحقق من المعلومة — <span
             class="ltr-term">Cross-checking</span></h3>
         <p data-ar="المعلومات الثانوية (Secondary Information) أوقات ممكن تختلف عن الأصل أو يتضاف عليها تفسيرات. عشان كده لازم نقارن المعلومة اللي جبناها من زوايا متعددة مع معلومات تانية — وده هو التحقق المتبادل (Cross-checking)."
-          data-en="Secondary information can sometimes differ from the original or have interpretations added to it. So we must compare the obtained information from multiple perspectives with other information — that is cross-checking.">المعلومات الثانوية (Secondary Information) أوقات ممكن تختلف عن الأصل أو يتضاف عليها تفسيرات. عشان كده لازم نقارن المعلومة اللي جبناها من زوايا متعددة مع معلومات تانية — وده هو التحقق المتبادل (Cross-checking).</p>
+          data-en="Secondary information can sometimes differ from the original or have interpretations added to it. So we must compare the obtained information from multiple perspectives with other information — that is cross-checking.">المعلومات الثانوية (Secondary Information) أوقات ممكن تختلف عن الأصل أو يتضاف عليها تفسيرات. عشان كده لازم نقارن المعلومة اللي جبناها من زوايا متعددة مع معلومات تانية — وده هو التحقق المتبادل (Cross-checking).</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;• يمكن أن تختلف المعلومات الثانوية في بعض الأحيان عن المعلومات الأصلية، أو تحتوي على تفسيرات مضافة إليها. لذلك، من الضروري مقارنة المعلومات التي تحصل عليها من مصادر متعددة مع معلومات أخرى لتحديد مدى دقتها وموثوقيتها. هذه العملية تسمى &lt;span class=&quot;bqi-term&quot;&gt;بالتحقق المتبادل (Cross-checking)&lt;/span&gt;." data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;• Secondary information can sometimes differ from the original information or have interpretations added to it. In other words, it is necessary to compare the obtained information from multiple perspectives with other information to determine the degree of its accuracy and reliability. This is called &lt;span class=&quot;bqi-term&quot;&gt;cross-checking&lt;/span&gt;."><span class="bqi-tag">📖 من الكتاب</span>• يمكن أن تختلف المعلومات الثانوية في بعض الأحيان عن المعلومات الأصلية، أو تحتوي على تفسيرات مضافة إليها. لذلك، من الضروري مقارنة المعلومات التي تحصل عليها من مصادر متعددة مع معلومات أخرى لتحديد مدى دقتها وموثوقيتها. هذه العملية تسمى <span class="bqi-term">بالتحقق المتبادل (Cross-checking)</span>.</p>
       </div>
 
       <div class="card section-inner" data-id="crosscheck-sim">
@@ -2238,11 +2282,7 @@
           <p class="section-subtitle" data-ar="التعبير (Expression)، النقل (Transmission)، التسجيل (Recording)" data-en="Expression, Transmission, Recording">التعبير (Expression)، النقل (Transmission)، التسجيل (Recording)</p>
         </div>
       </div>
-            <div class="book-quote section-inner" data-id="bq-s4">
-        <span class="bq-label" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>
-        <span class="bq-label" data-ar="EN PDF 4 (المطبوع 4)؛ AR 8" data-en="EN PDF 4 (printed 4); AR 8">EN PDF 4 (المطبوع 4)؛ AR 8</span>
-        <div class="bq-body" data-ar="<p class=&quot;bq-h&quot;>ب. الوسائط (Media)</p><p>• هي وسائل لنقل المعلومات إلى عدد من الأفراد.</p><p>(2) أنواع الوسائط</p><table class=&quot;bq-table&quot;><tr><th>الاسم</th><th>المحتوى</th><th>مثال</th></tr><tr><td><span class=&quot;bq-term&quot;>وسائط التعبير (Expression media)</span></td><td>الوسائط المستخدمة كوسيلة للتعبير عن المعلومات.</td><td>النص، الصور، الصوت، الفيديو</td></tr><tr><td><span class=&quot;bq-term&quot;>وسائط الإرسال/النقل (Propagation/Transmission media)</span></td><td>الوسائط المستخدمة كوسيط لنقل وتبادل المعلومات.</td><td>التلفزيون، الراديو، الصحف، الكتب، الهاتف، الإنترنت</td></tr><tr><td><span class=&quot;bq-term&quot;>وسائط التسجيل (Recording media)</span></td><td>الوسائط المستخدمة لتسجيل وتخزين المعلومات.</td><td>الورق، محركات أقراص USB، أقراص DVD، التخزين السحابي</td></tr></table>" data-en="<p class=&quot;bq-h&quot;>2. Media</p><p>(1) <span class=&quot;bq-term&quot;>Media</span>: Media for conveying information to people.</p><p>(2) Types of media</p><table class=&quot;bq-table&quot;><tr><th>Name</th><th>Content</th><th>Example</th></tr><tr><td><span class=&quot;bq-term&quot;>Expression media</span></td><td>Media used as a means of expressing information.</td><td>Text, images, audio, video</td></tr><tr><td><span class=&quot;bq-term&quot;>Propagation/Transmission media</span></td><td>Media used as an intermediary for the transmission and communication of information.</td><td>Television, radio, newspapers, books, telephone, internet</td></tr><tr><td><span class=&quot;bq-term&quot;>Recording media</span></td><td>Media used for recording and storing information.</td><td>Paper, USB drives, DVDs, cloud storage</td></tr></table>"><p class="bq-h">ب. الوسائط (Media)</p><p>• هي وسائل لنقل المعلومات إلى عدد من الأفراد.</p><p>(2) أنواع الوسائط</p><table class="bq-table"><tr><th>الاسم</th><th>المحتوى</th><th>مثال</th></tr><tr><td><span class="bq-term">وسائط التعبير (Expression media)</span></td><td>الوسائط المستخدمة كوسيلة للتعبير عن المعلومات.</td><td>النص، الصور، الصوت، الفيديو</td></tr><tr><td><span class="bq-term">وسائط الإرسال/النقل (Propagation/Transmission media)</span></td><td>الوسائط المستخدمة كوسيط لنقل وتبادل المعلومات.</td><td>التلفزيون، الراديو، الصحف، الكتب، الهاتف، الإنترنت</td></tr><tr><td><span class="bq-term">وسائط التسجيل (Recording media)</span></td><td>الوسائط المستخدمة لتسجيل وتخزين المعلومات.</td><td>الورق، محركات أقراص USB، أقراص DVD، التخزين السحابي</td></tr></table></div>
-      </div>
+            >
       <div class="simple-divider section-inner" data-ar="بالبسيط — شرحي أنا (مش من الكتاب)" data-en="In simple words — my own explanation (not from the book)">بالبسيط — شرحي أنا (مش من الكتاب)</div>
       <div class="summary-box section-inner">
         <h4 data-ar="هدفنا النهارده" data-en="Our Goal Today">هدفنا النهارده</h4>
@@ -2257,21 +2297,21 @@
             <span class="cc-emoji emoji-glow">✏️</span>
             <h4 data-ar="وسائط التعبير (Expression)" data-en="Expression media">وسائط التعبير (Expression)</h4>
             <p data-ar="وسيلة للتعبير عن المعلومة:نص، صور، صوت، فيديو."
-              data-en="A means of expressing information: text, images, audio, video.">وسيلة للتعبير عن المعلومة: نص، صور، صوت، فيديو.</p>
+              data-en="A means of expressing information: text, images, audio, video.">وسيلة للتعبير عن المعلومة: نص، صور، صوت، فيديو.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;&lt;b&gt;وسائط التعبير (Expression media)&lt;/b&gt;: الوسائط المستخدمة كوسيلة للتعبير عن المعلومات. &lt;span class=&quot;bqi-sub&quot;&gt;مثال: النص، الصور، الصوت، الفيديو.&lt;/span&gt;" data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;&lt;b&gt;Expression media&lt;/b&gt;: Media used as a means of expressing information. &lt;span class=&quot;bqi-sub&quot;&gt;Example: text, images, audio, video.&lt;/span&gt;"><span class="bqi-tag">📖 من الكتاب</span><b>وسائط التعبير (Expression media)</b>: الوسائط المستخدمة كوسيلة للتعبير عن المعلومات. <span class="bqi-sub">مثال: النص، الصور، الصوت، الفيديو.</span></p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;• هي وسائل لنقل المعلومات إلى عدد من الأفراد." data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;(1) &lt;span class=&quot;bqi-term&quot;&gt;Media&lt;/span&gt;: Media for conveying information to people."><span class="bqi-tag">📖 من الكتاب</span>• هي وسائل لنقل المعلومات إلى عدد من الأفراد.</p>
             <span class="cc-badge" data-ar="إزاي بنعبّر" data-en="How we express">إزاي بنعبّر</span>
           </div>
           <div class="cc-source" style="cursor:default;">
             <span class="cc-emoji emoji-glow" style="animation-delay:.5s">📡</span>
             <h4 data-ar="وسائط الإرسال/النقل (Propagation/Transmission)" data-en="Propagation/Transmission media">وسائط الإرسال/النقل (Propagation/Transmission)</h4>
             <p data-ar="وسيط للإرسال والتواصل: تليفزيون، راديو، جرايد، تليفون، إنترنت."
-              data-en="A medium for transmission and communication: TV, radio, newspapers, telephone, internet.">وسيط للإرسال والتواصل: تليفزيون، راديو، جرايد، تليفون، إنترنت.</p>
+              data-en="A medium for transmission and communication: TV, radio, newspapers, telephone, internet.">وسيط للإرسال والتواصل: تليفزيون، راديو، جرايد، تليفون، إنترنت.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;&lt;b&gt;وسائط الإرسال/النقل (Propagation/Transmission media)&lt;/b&gt;: الوسائط المستخدمة كوسيط لنقل وتبادل المعلومات. &lt;span class=&quot;bqi-sub&quot;&gt;مثال: التلفزيون، الراديو، الصحف، الكتب، الهاتف، الإنترنت.&lt;/span&gt;" data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;&lt;b&gt;Propagation/Transmission media&lt;/b&gt;: Media used as an intermediary for the transmission and communication of information. &lt;span class=&quot;bqi-sub&quot;&gt;Example: television, radio, newspapers, books, telephone, internet.&lt;/span&gt;"><span class="bqi-tag">📖 من الكتاب</span><b>وسائط الإرسال/النقل (Propagation/Transmission media)</b>: الوسائط المستخدمة كوسيط لنقل وتبادل المعلومات. <span class="bqi-sub">مثال: التلفزيون، الراديو، الصحف، الكتب، الهاتف، الإنترنت.</span></p>
             <span class="cc-badge" data-ar="إزاي توصل" data-en="How it gets there">إزاي توصل</span>
           </div>
           <div class="cc-source" style="cursor:default;">
             <span class="cc-emoji emoji-glow" style="animation-delay:1s">💾</span>
             <h4 data-ar="وسائط التسجيل (Recording)" data-en="Recording media">وسائط التسجيل (Recording)</h4>
             <p data-ar="وسيط للتسجيل والتخزين: ورق، فلاشات USB، DVD، تخزين سحابي."
-              data-en="A medium for recording and storing: paper, USB drives, DVDs, cloud storage.">وسيط للتسجيل والتخزين: ورق، فلاشات USB، DVD، تخزين سحابي.</p>
+              data-en="A medium for recording and storing: paper, USB drives, DVDs, cloud storage.">وسيط للتسجيل والتخزين: ورق، فلاشات USB، DVD، تخزين سحابي.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;&lt;b&gt;وسائط التسجيل (Recording media)&lt;/b&gt;: الوسائط المستخدمة لتسجيل وتخزين المعلومات. &lt;span class=&quot;bqi-sub&quot;&gt;مثال: الورق، محركات أقراص USB، أقراص DVD، التخزين السحابي.&lt;/span&gt;" data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;&lt;b&gt;Recording media&lt;/b&gt;: Media used for recording and storing information. &lt;span class=&quot;bqi-sub&quot;&gt;Example: paper, USB drives, DVDs, cloud storage.&lt;/span&gt;"><span class="bqi-tag">📖 من الكتاب</span><b>وسائط التسجيل (Recording media)</b>: الوسائط المستخدمة لتسجيل وتخزين المعلومات. <span class="bqi-sub">مثال: الورق، محركات أقراص USB، أقراص DVD، التخزين السحابي.</span></p>
             <span class="cc-badge" data-ar="إزاي بنخزّن" data-en="How we store">إزاي بنخزّن</span>
           </div>
         </div>
@@ -2502,11 +2542,7 @@
           <p class="section-subtitle" data-ar="الثقافة الإعلامية (Media Literacy)" data-en="Media Literacy">الثقافة الإعلامية (Media Literacy)</p>
         </div>
       </div>
-            <div class="book-quote section-inner" data-id="bq-s5">
-        <span class="bq-label" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>
-        <span class="bq-label" data-ar="EN PDF 4 (المطبوع 4)؛ AR 8" data-en="EN PDF 4 (printed 4); AR 8">EN PDF 4 (المطبوع 4)؛ AR 8</span>
-        <div class="bq-body" data-ar="<p>(3) <span class=&quot;bq-term&quot;>الثقافة الإعلامية (Media literacy)</span>: القدرة على تفسير المعلومات التي تم الحصول عليها من الوسائط بدقة.</p>" data-en="<p>(3) <span class=&quot;bq-term&quot;>Media literacy</span>: The ability to accurately interpret information obtained from media.</p>"><p>(3) <span class="bq-term">الثقافة الإعلامية (Media literacy)</span>: القدرة على تفسير المعلومات التي تم الحصول عليها من الوسائط بدقة.</p></div>
-      </div>
+            >
       <div class="simple-divider section-inner" data-ar="بالبسيط — شرحي أنا (مش من الكتاب)" data-en="In simple words — my own explanation (not from the book)">بالبسيط — شرحي أنا (مش من الكتاب)</div>
       <div class="summary-box section-inner">
         <h4 data-ar="هدفنا النهارده" data-en="Our Goal Today">هدفنا النهارده</h4>
@@ -2517,7 +2553,7 @@
       <div class="card section-inner">
         <h3 data-ar="إيه هي الثقافة الإعلامية (Media Literacy)؟" data-en="What is Media Literacy?">إيه هي الثقافة الإعلامية (Media Literacy)؟</h3>
         <p data-ar="هي القدرة على فهم معنى وخصائص الوسائط، وتفسير المعلومة الجاية منها بدقة — من غير ما تقبل كل حاجة من غير تساؤل."
-          data-en="It is the ability to understand the meaning and characteristics of media, and to accurately interpret the information coming from it — not accepting everything without questioning.">هي القدرة على فهم معنى وخصائص الوسائط، وتفسير المعلومة الجاية منها بدقة — من غير ما تقبل كل حاجة من غير تساؤل.</p>
+          data-en="It is the ability to understand the meaning and characteristics of media, and to accurately interpret the information coming from it — not accepting everything without questioning.">هي القدرة على فهم معنى وخصائص الوسائط، وتفسير المعلومة الجاية منها بدقة — من غير ما تقبل كل حاجة من غير تساؤل.</p><p class="bq-inline" data-ar="&lt;span class=&quot;bqi-tag&quot;&gt;📖 من الكتاب&lt;/span&gt;(3) &lt;span class=&quot;bqi-term&quot;&gt;الثقافة الإعلامية (Media literacy)&lt;/span&gt;: القدرة على تفسير المعلومات التي تم الحصول عليها من الوسائط بدقة." data-en="&lt;span class=&quot;bqi-tag&quot;&gt;📖 From the book&lt;/span&gt;(3) &lt;span class=&quot;bqi-term&quot;&gt;Media literacy&lt;/span&gt;: The ability to accurately interpret information obtained from media."><span class="bqi-tag">📖 من الكتاب</span>(3) <span class="bqi-term">الثقافة الإعلامية (Media literacy)</span>: القدرة على تفسير المعلومات التي تم الحصول عليها من الوسائط بدقة.</p>
         <div class="flow-row">
           <div class="flow-node"><span class="fn-icon emoji-float">📱</span><span class="fn-label"
               data-ar="المعلومة بتوصل" data-en="Info arrives">المعلومة بتوصل</span></div>
@@ -2740,14 +2776,47 @@
       <div class="src-note section-inner" data-ar="الأسئلة دي بنصها من الكتاب العربي. علامة 📖 معناها إن الإجابة مكتوبة في الكتاب، وعلامة ✍️ معناها إن الكتاب مش بيدي إجابة السؤال ده فأنا اقترحتها — راجعها مع مدرسك. اختار إجاباتك وبعدين دوس «اعرض كل الإجابات» (مش لازم تجاوب على الكل)." data-en="These questions are taken from the Arabic book as printed. 📖 means the answer is printed in the book; ✍️ means the book does not give an answer so I suggest one — check it with your teacher. Choose your answers, then press “Show all answers” (you do not have to answer everything).">الأسئلة دي بنصها من الكتاب العربي. علامة 📖 معناها إن الإجابة مكتوبة في الكتاب، وعلامة ✍️ معناها إن الكتاب مش بيدي إجابة السؤال ده فأنا اقترحتها — راجعها مع مدرسك. اختار إجاباتك وبعدين دوس «اعرض كل الإجابات» (مش لازم تجاوب على الكل).</div>
 
       <div class="card section-inner" data-id="book-mcq">
-        <div class="mcq-list">
+        <div class="mcq-actions">
+          <button class="btn btn-ghost mini-btn" data-action="mcq-reveal" data-ar="اعرض كل الإجابات" data-en="Show all answers">اعرض كل الإجابات</button>
+          <button class="mini-btn" data-action="mcq-replay" data-ar="↺ إعادة المحاولة" data-en="↺ Try again">↺ إعادة المحاولة</button>
+          <span class="mcq-score" id="mcqScore" style="display:none;"></span>
+        </div><div class="mcq-list">
           <div class="mcq-group">
-            <div class="mcq-group-title"><span class="mg-tag" data-ar="تحدى معلوماتك" data-en="Warm Up">تحدى معلوماتك</span><h3 data-ar="تحدى معلوماتك" data-en="Warm Up">تحدى معلوماتك</h3><span class="bq-label" data-ar="EN PDF 5 (المطبوع 5)؛ AR 9" data-en="EN PDF 5 (printed 5); AR 9">EN PDF 5 (المطبوع 5)؛ AR 9</span></div>
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(1) [1] للعناصر من أ إلى ت، أجب عما إذا كان كل منهم مرتبط بالمصطلحات التالية:(1) البيانات، (2) المعلومات، أو (3) المعرفة. اكتب &quot;1&quot; أو &quot;2&quot; أو &quot;3&quot; كإجابتك." data-en="(1) [1] For the following items a to c, answer whether they are related to:1) Data, 2) Information, or 3) Knowledge. Write “1,” “2,” or “3” as your answer.">(1) [1] للعناصر من أ إلى ت، أجب عما إذا كان كل منهم مرتبط بالمصطلحات التالية: (1) البيانات، (2) المعلومات، أو (3) المعرفة. اكتب "1" أو "2" أو "3" كإجابتك.</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
+            <div class="mcq-group-title"><span class="mg-tag" data-ar="تحدى معلوماتك" data-en="Warm Up">تحدى معلوماتك</span><h3 data-ar="تحدى معلوماتك" data-en="Warm Up">تحدى معلوماتك</h3><span class="bq-label" data-ar="EN PDF 5 (المطبوع 5)؛ AR 9" data-en="EN PDF 5 (printed 5); AR 9">EN PDF 5 (المطبوع 5)؛ AR 9</span><span class="q-group-count" data-ar="5 أسئلة" data-en="5 questions">5 أسئلة</span></div>
+          
+            
+
+            
+
+            
+
+          
+            
+
+          
+            
+
+            
+
+            
+
+          
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+          
+            
+
+          <div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 1" data-en="Question 1">سؤال 1</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(1) [1] للعناصر من أ إلى ت، أجب عما إذا كان كل منهم مرتبط بالمصطلحات التالية:(1) البيانات، (2) المعلومات، أو (3) المعرفة. اكتب &quot;1&quot; أو &quot;2&quot; أو &quot;3&quot; كإجابتك." data-en="(1) [1] For the following items a to c, answer whether they are related to:1) Data, 2) Information, or 3) Knowledge. Write “1,” “2,” or “3” as your answer.">(1) [1] للعناصر من أ إلى ت، أجب عما إذا كان كل منهم مرتبط بالمصطلحات التالية:(1) البيانات، (2) المعلومات، أو (3) المعرفة. اكتب "1" أو "2" أو "3" كإجابتك.</div><div class="q-items"><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="أ" data-en="a">أ</span><span data-ar="(أ) قيم درجة الحرارة والرطوبة" data-en="a. Temperature and humidity values">(أ) قيم درجة الحرارة والرطوبة</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="البيانات" data-en="Data">البيانات</span></div>
@@ -2755,9 +2824,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="المعرفة" data-en="Knowledge">المعرفة</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (1) البيانات" data-en="📖 Answer from the book: (1) Data">📖 الإجابة من الكتاب: (1) البيانات</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ب" data-en="b">ب</span><span data-ar="(ب) نتائج تحليل درجة الحرارة والرطوبة على مدى العشر السنوات الماضية" data-en="b. Analysis results of temperature and humidity over the past 10 years">(ب) نتائج تحليل درجة الحرارة والرطوبة على مدى العشر السنوات الماضية</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="البيانات" data-en="Data">البيانات</span></div>
@@ -2765,9 +2832,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="المعرفة" data-en="Knowledge">المعرفة</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (2) المعلومات" data-en="📖 Answer from the book: (2) Information">📖 الإجابة من الكتاب: (2) المعلومات</div>
-            </div>
-
-            <div class="mcq-q" data-answer="C">
+            </div><div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ت" data-en="c">ت</span><span data-ar="(ت) توقعات الطقس" data-en="c. Weather forecast">(ت) توقعات الطقس</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="البيانات" data-en="Data">البيانات</span></div>
@@ -2775,14 +2840,8 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="المعرفة" data-en="Knowledge">المعرفة</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (3) المعرفة" data-en="📖 Answer from the book: (3) Knowledge">📖 الإجابة من الكتاب: (3) المعرفة</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="[2] اختر عبارة واحدة غير مناسبة كخاصية للمعلومات من الخيارات من أ إلى ث، وأجب باستخدام الحروف." data-en="[2] Choose one statement that is not suitable as a characteristic of information from the options A to D, and answer using the letters.">[2] اختر عبارة واحدة غير مناسبة كخاصية للمعلومات من الخيارات من أ إلى ث، وأجب باستخدام الحروف.</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
-              <div class="mcq-q-head"><span class="mcq-num" data-ar="2" data-en="2">2</span><span data-ar="أي عبارة غير مناسبة كخاصية للمعلومات؟" data-en="Which statement is not suitable as a characteristic of information?">أي عبارة غير مناسبة كخاصية للمعلومات؟</span></div>
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 2" data-en="Question 2">سؤال 2</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="[2] اختر عبارة واحدة غير مناسبة كخاصية للمعلومات من الخيارات من أ إلى ث، وأجب باستخدام الحروف." data-en="[2] Choose one statement that is not suitable as a characteristic of information from the options A to D, and answer using the letters.">[2] اختر عبارة واحدة غير مناسبة كخاصية للمعلومات من الخيارات من أ إلى ث، وأجب باستخدام الحروف.</div><div class="q-items"><div class="mcq-q" data-answer="A">
+              
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="لها شكل مثل الجسم المادي." data-en="It has a form just like an object.">لها شكل مثل الجسم المادي.</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="ب" data-en="B">ب</span><span data-ar="المعنى أو القيمة تتغير اعتمادًا على المستلم." data-en="The meaning or value changes depending on the recipient.">المعنى أو القيمة تتغير اعتمادًا على المستلم.</span></div>
@@ -2790,13 +2849,7 @@
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter" data-ar="ث" data-en="D">ث</span><span data-ar="لها خاصية الانتشار." data-en="It has the characteristic of propagation.">لها خاصية الانتشار.</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (أ) لها شكل مثل الجسم المادي. — على عكس الأشياء، المعلومات ليس لها شكل." data-en="📖 Answer from the book: (A) It has a form just like an object. — Unlike objects, information does not have form.">📖 الإجابة من الكتاب: (أ) لها شكل مثل الجسم المادي. — على عكس الأشياء، المعلومات ليس لها شكل.</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="[3] اختر المحتوى المرتبط بالجمل من أ إلى ت من مجموعة الكلمات المسمّاة من أ إلى ت. [مجموعة الجمل] (أ) الثبات (ب) القدرة على الاستنساخ (ت) الانتشار" data-en="[3] Choose the content related to the following sentences a to c from the group of words labeled A to C below, and answer using the letters. [Word group] A Persistence B Reproducibility C Propagation">[3] اختر المحتوى المرتبط بالجمل من أ إلى ت من مجموعة الكلمات المسمّاة من أ إلى ت. [مجموعة الجمل] (أ) الثبات (ب) القدرة على الاستنساخ (ت) الانتشار</p>
-          </div>
-            <div class="mcq-q" data-answer="B">
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 3" data-en="Question 3">سؤال 3</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="[3] اختر المحتوى المرتبط بالجمل من أ إلى ت من مجموعة الكلمات المسمّاة من أ إلى ت. [مجموعة الجمل] (أ) الثبات (ب) القدرة على الاستنساخ (ت) الانتشار" data-en="[3] Choose the content related to the following sentences a to c from the group of words labeled A to C below, and answer using the letters. [Word group] A Persistence B Reproducibility C Propagation">[3] اختر المحتوى المرتبط بالجمل من أ إلى ت من مجموعة الكلمات المسمّاة من أ إلى ت. [مجموعة الجمل] (أ) الثبات (ب) القدرة على الاستنساخ (ت) الانتشار</div><div class="q-items"><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="أ" data-en="a">أ</span><span data-ar="(أ) حتى إذا قمت بشراء قرص موسيقي تجاري (CD)، لا يُسمح لك بعمل نسخ لتوزيعها على الأصدقاء." data-en="a. Even if you purchase a commercially available music CD, you are not allowed to make copies to distribute to friends.">(أ) حتى إذا قمت بشراء قرص موسيقي تجاري (CD)، لا يُسمح لك بعمل نسخ لتوزيعها على الأصدقاء.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الثبات" data-en="Persistence">الثبات</span></div>
@@ -2804,9 +2857,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ت" data-en="C">ت</span><span data-ar="الانتشار" data-en="Propagation">الانتشار</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (ب) القدرة على الاستنساخ — خاصية القدرة على النسخ بسهولة هي القدرة على الاستنساخ." data-en="📖 Answer from the book: (B) Reproducibility — The characteristic of being easily copied is reproducibility.">📖 الإجابة من الكتاب: (ب) القدرة على الاستنساخ — خاصية القدرة على النسخ بسهولة هي القدرة على الاستنساخ.</div>
-            </div>
-
-            <div class="mcq-q" data-answer="C">
+            </div><div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ب" data-en="b">ب</span><span data-ar="(ب) يمكن إرسال رسائل البريد الإلكتروني على الفور إلى الخارج." data-en="b. Emails can be sent instantly overseas.">(ب) يمكن إرسال رسائل البريد الإلكتروني على الفور إلى الخارج.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الثبات" data-en="Persistence">الثبات</span></div>
@@ -2814,9 +2865,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ت" data-en="C">ت</span><span data-ar="الانتشار" data-en="Propagation">الانتشار</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (ت) الانتشار — خاصية القدرة على الإرسال الفوري هي الانتشار." data-en="📖 Answer from the book: (C) Propagation — The characteristic of being able to be sent instantaneously is propagation.">📖 الإجابة من الكتاب: (ت) الانتشار — خاصية القدرة على الإرسال الفوري هي الانتشار.</div>
-            </div>
-
-            <div class="mcq-q" data-answer="A">
+            </div><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ت" data-en="c">ت</span><span data-ar="(ت) الشائعات حول الأشخاص والمعلومات الكاذبة يمكن أن تستمر إلى أجل غير مسمى." data-en="c. Rumors about people and false information can persist indefinitely.">(ت) الشائعات حول الأشخاص والمعلومات الكاذبة يمكن أن تستمر إلى أجل غير مسمى.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الثبات" data-en="Persistence">الثبات</span></div>
@@ -2824,23 +2873,15 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ت" data-en="C">ت</span><span data-ar="الانتشار" data-en="Propagation">الانتشار</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (أ) الثبات — خاصية المعلومات، بمجرد إنشائها، أنها لا تختفي أبدًا هي الثبات." data-en="📖 Answer from the book: (A) Persistence — The characteristic of information, once created, that never disappears is persistence.">📖 الإجابة من الكتاب: (أ) الثبات — خاصية المعلومات، بمجرد إنشائها، أنها لا تختفي أبدًا هي الثبات.</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(2) [1] للوسائط التالية من أ إلى ح، أجب عما إذا كانت مصنفة على أنها (1) وسائط تعبير، (2) وسائط نقل/إرسال، أو (3) وسائط تخزين. اكتب &quot;1&quot; أو &quot;2&quot; أو &quot;3&quot; كإجابة لك." data-en="(2) [1] For the following media from a to f, answer whether they are classified as 1) Expression media, 2) Propagation/Transmission media, or 3) Recording media. Write “1,” “2,” or “3” as your answer.">(2) [1] للوسائط التالية من أ إلى ح، أجب عما إذا كانت مصنفة على أنها (1) وسائط تعبير، (2) وسائط نقل/إرسال، أو (3) وسائط تخزين. اكتب "1" أو "2" أو "3" كإجابة لك.</p>
-          </div>
-            <div class="mcq-q" data-answer="B">
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 4" data-en="Question 4">سؤال 4</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(2) [1] للوسائط التالية من أ إلى ح، أجب عما إذا كانت مصنفة على أنها (1) وسائط تعبير، (2) وسائط نقل/إرسال، أو (3) وسائط تخزين. اكتب &quot;1&quot; أو &quot;2&quot; أو &quot;3&quot; كإجابة لك." data-en="(2) [1] For the following media from a to f, answer whether they are classified as 1) Expression media, 2) Propagation/Transmission media, or 3) Recording media. Write “1,” “2,” or “3” as your answer.">(2) [1] للوسائط التالية من أ إلى ح، أجب عما إذا كانت مصنفة على أنها (1) وسائط تعبير، (2) وسائط نقل/إرسال، أو (3) وسائط تخزين. اكتب "1" أو "2" أو "3" كإجابة لك.</div><div class="q-items"><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="أ" data-en="a">أ</span><span data-ar="(أ) التلفزيون" data-en="a. Television">(أ) التلفزيون</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط تعبير" data-en="Expression media">وسائط تعبير</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="2" data-en="2">2</span><span data-ar="وسائط نقل/إرسال" data-en="Propagation/Transmission media">وسائط نقل/إرسال</span></div>
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط تخزين" data-en="Recording media">وسائط تخزين</span></div>
               </div>
-              <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب:(2) وسائط نقل/إرسال" data-en="📖 Answer from the book: (2) Propagation/Transmission media">📖 الإجابة من الكتاب: (2) وسائط نقل/إرسال</div>
-            </div>
-
-            <div class="mcq-q" data-answer="C">
+              <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب:(2) وسائط نقل/إرسال" data-en="📖 Answer from the book: (2) Propagation/Transmission media">📖 الإجابة من الكتاب:(2) وسائط نقل/إرسال</div>
+            </div><div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ب" data-en="b">ب</span><span data-ar="(ب) التخزين السحابي" data-en="b. Cloud storage">(ب) التخزين السحابي</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط تعبير" data-en="Expression media">وسائط تعبير</span></div>
@@ -2848,9 +2889,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط تخزين" data-en="Recording media">وسائط تخزين</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (3) وسائط تخزين" data-en="📖 Answer from the book: (3) Recording media">📖 الإجابة من الكتاب: (3) وسائط تخزين</div>
-            </div>
-
-            <div class="mcq-q" data-answer="A">
+            </div><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ت" data-en="c">ت</span><span data-ar="(ت) صورة" data-en="c. Photograph">(ت) صورة</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط تعبير" data-en="Expression media">وسائط تعبير</span></div>
@@ -2858,9 +2897,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط تخزين" data-en="Recording media">وسائط تخزين</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (1) وسائط تعبير" data-en="📖 Answer from the book: (1) Expression media">📖 الإجابة من الكتاب: (1) وسائط تعبير</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ث" data-en="d">ث</span><span data-ar="(ث) الإنترنت" data-en="d. Internet">(ث) الإنترنت</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط تعبير" data-en="Expression media">وسائط تعبير</span></div>
@@ -2868,9 +2905,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط تخزين" data-en="Recording media">وسائط تخزين</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (2) وسائط نقل/إرسال" data-en="📖 Answer from the book: (2) Propagation/Transmission media">📖 الإجابة من الكتاب: (2) وسائط نقل/إرسال</div>
-            </div>
-
-            <div class="mcq-q" data-answer="A">
+            </div><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ج" data-en="e">ج</span><span data-ar="(ج) حرف نصي" data-en="e. Text character">(ج) حرف نصي</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط تعبير" data-en="Expression media">وسائط تعبير</span></div>
@@ -2878,9 +2913,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط تخزين" data-en="Recording media">وسائط تخزين</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (1) وسائط تعبير" data-en="📖 Answer from the book: (1) Expression media">📖 الإجابة من الكتاب: (1) وسائط تعبير</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ح" data-en="f">ح</span><span data-ar="(ح) كتاب" data-en="f. Book">(ح) كتاب</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط تعبير" data-en="Expression media">وسائط تعبير</span></div>
@@ -2888,14 +2921,8 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط تخزين" data-en="Recording media">وسائط تخزين</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (2) وسائط نقل/إرسال" data-en="📖 Answer from the book: (2) Propagation/Transmission media">📖 الإجابة من الكتاب: (2) وسائط نقل/إرسال</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="[2] ما هو المصطلح الذي يشير إلى القدرة على تفسير المعلومات التي تم الحصول عليها من الوسائط بدقة؟" data-en="[2] What is the term for the ability to accurately interpret information obtained from media?">[2] ما هو المصطلح الذي يشير إلى القدرة على تفسير المعلومات التي تم الحصول عليها من الوسائط بدقة؟</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
-              <div class="mcq-q-head"><span class="mcq-num" data-ar="2" data-en="2">2</span><span data-ar="ما هو المصطلح؟" data-en="What is the term?">ما هو المصطلح؟</span></div>
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 5" data-en="Question 5">سؤال 5</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="[2] ما هو المصطلح الذي يشير إلى القدرة على تفسير المعلومات التي تم الحصول عليها من الوسائط بدقة؟" data-en="[2] What is the term for the ability to accurately interpret information obtained from media?">[2] ما هو المصطلح الذي يشير إلى القدرة على تفسير المعلومات التي تم الحصول عليها من الوسائط بدقة؟</div><div class="q-items"><div class="mcq-q" data-answer="A">
+              
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الثقافة الإعلامية" data-en="Media literacy">الثقافة الإعلامية</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="ب" data-en="B">ب</span><span data-ar="التحقق المتبادل" data-en="Cross-checking">التحقق المتبادل</span></div>
@@ -2903,18 +2930,54 @@
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter" data-ar="ث" data-en="D">ث</span><span data-ar="وسائط التسجيل" data-en="Recording media">وسائط التسجيل</span></div>
               </div>
               <div class="mcq-explanation" data-ar="📖 الإجابة من الكتاب: (أ) الثقافة الإعلامية" data-en="📖 Answer from the book: (A) Media literacy">📖 الإجابة من الكتاب: (أ) الثقافة الإعلامية</div>
-            </div>
-
-          </div>
+            </div></div></div></div>
 
           <div class="mcq-group">
-            <div class="mcq-group-title"><span class="mg-tag" data-ar="جرب بنفسك" data-en="Try">جرب بنفسك</span><h3 data-ar="جرب بنفسك" data-en="Try">جرب بنفسك</h3><span class="bq-label" data-ar="EN PDF 6 (المطبوع 6)؛ AR 10" data-en="EN PDF 6 (printed 6); AR 10">EN PDF 6 (المطبوع 6)؛ AR 10</span></div>
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="1 (1) ما هو مصطلح تمثيل الحقائق أو الأمور باستخدام الأرقام أو الأحرف أو الرموز؟" data-en="1 (1) What is the term for the representation of facts or matters using numbers, characters, or symbols?">1 (1) ما هو مصطلح تمثيل الحقائق أو الأمور باستخدام الأرقام أو الأحرف أو الرموز؟</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
-              <div class="mcq-q-head"><span class="mcq-num" data-ar="1" data-en="1">1</span><span data-ar="ما هو المصطلح؟" data-en="What is the term?">ما هو المصطلح؟</span></div>
+            <div class="mcq-group-title"><span class="mg-tag" data-ar="جرب بنفسك" data-en="Try">جرب بنفسك</span><h3 data-ar="جرب بنفسك" data-en="Try">جرب بنفسك</h3><span class="bq-label" data-ar="EN PDF 6 (المطبوع 6)؛ AR 10" data-en="EN PDF 6 (printed 6); AR 10">EN PDF 6 (المطبوع 6)؛ AR 10</span><span class="q-group-count" data-ar="8 أسئلة" data-en="8 questions">8 أسئلة</span></div>
+          
+            
+
+          
+            
+
+            
+
+            
+
+          
+            
+
+          
+            
+
+            
+
+            
+
+          
+            
+
+          
+            
+
+          
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+          
+            
+
+          <div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 1" data-en="Question 1">سؤال 1</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="1 (1) ما هو مصطلح تمثيل الحقائق أو الأمور باستخدام الأرقام أو الأحرف أو الرموز؟" data-en="1 (1) What is the term for the representation of facts or matters using numbers, characters, or symbols?">1 (1) ما هو مصطلح تمثيل الحقائق أو الأمور باستخدام الأرقام أو الأحرف أو الرموز؟</div><div class="q-items"><div class="mcq-q" data-answer="A">
+              
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="البيانات" data-en="Data">البيانات</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="ب" data-en="B">ب</span><span data-ar="المعلومات" data-en="Information">المعلومات</span></div>
@@ -2922,13 +2985,7 @@
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter" data-ar="ث" data-en="D">ث</span><span data-ar="الوسائط" data-en="Media">الوسائط</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) البيانات — ده تعريف البيانات في الكتاب." data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (A) Data — This is the book’s definition of data.">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) البيانات — ده تعريف البيانات في الكتاب.</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(2) بالنسبة للبنود التالية من أ إلى ت، أجب عما إذا كانت مرتبطة بما يلي:1) البيانات، 2) المعلومات، أو 3) المعرفة. اكتب &quot;1&quot; أو &quot;2&quot; أو &quot;3&quot; كإجابة." data-en="(2) For the following items a to c, answer whether they are related to:1) Data, 2) Information, or 3) Knowledge. Write “1,” “2,” or “3” as your answer.">(2) بالنسبة للبنود التالية من أ إلى ت، أجب عما إذا كانت مرتبطة بما يلي: 1) البيانات، 2) المعلومات، أو 3) المعرفة. اكتب "1" أو "2" أو "3" كإجابة.</p>
-          </div>
-            <div class="mcq-q" data-answer="B">
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 2" data-en="Question 2">سؤال 2</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(2) بالنسبة للبنود التالية من أ إلى ت، أجب عما إذا كانت مرتبطة بما يلي:1) البيانات، 2) المعلومات، أو 3) المعرفة. اكتب &quot;1&quot; أو &quot;2&quot; أو &quot;3&quot; كإجابة." data-en="(2) For the following items a to c, answer whether they are related to:1) Data, 2) Information, or 3) Knowledge. Write “1,” “2,” or “3” as your answer.">(2) بالنسبة للبنود التالية من أ إلى ت، أجب عما إذا كانت مرتبطة بما يلي:1) البيانات، 2) المعلومات، أو 3) المعرفة. اكتب "1" أو "2" أو "3" كإجابة.</div><div class="q-items"><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="أ" data-en="a">أ</span><span data-ar="(أ) نتائج الامتحان التجريبي" data-en="a. Results on mock exam">(أ) نتائج الامتحان التجريبي</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="البيانات" data-en="Data">البيانات</span></div>
@@ -2936,9 +2993,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="المعرفة" data-en="Knowledge">المعرفة</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (2) المعلومات — الأرقام الخام = بيانات، والنتائج بتتفسّر = معلومات، والتحليل لقرار = معرفة." data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (2) Information — Raw numbers = data, interpreted results = information, analysis for a decision = knowledge.">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (2) المعلومات — الأرقام الخام = بيانات، والنتائج بتتفسّر = معلومات، والتحليل لقرار = معرفة.</div>
-            </div>
-
-            <div class="mcq-q" data-answer="C">
+            </div><div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ب" data-en="b">ب</span><span data-ar="(ب) نتائج تحليل القبول في المدرسة المطلوبة" data-en="b. Analysis results for admission to the desired school">(ب) نتائج تحليل القبول في المدرسة المطلوبة</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="البيانات" data-en="Data">البيانات</span></div>
@@ -2946,9 +3001,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="المعرفة" data-en="Knowledge">المعرفة</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (3) المعرفة" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (3) Knowledge">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (3) المعرفة</div>
-            </div>
-
-            <div class="mcq-q" data-answer="A">
+            </div><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ت" data-en="c">ت</span><span data-ar="(ت) درجات الامتحان التجريبي" data-en="c. Scores on mock exam">(ت) درجات الامتحان التجريبي</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="البيانات" data-en="Data">البيانات</span></div>
@@ -2956,14 +3009,8 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="المعرفة" data-en="Knowledge">المعرفة</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (1) البيانات" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (1) Data">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (1) البيانات</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(3) اختر خاصية المعلومات المناسبة من الخيارات من 1 إلى 4، ثم اشرحها." data-en="(3) Choose the characteristic of information that is appropriate from the options A to D below, and answer using the letters.">(3) اختر خاصية المعلومات المناسبة من الخيارات من 1 إلى 4، ثم اشرحها.</p>
-          </div>
-            <div class="mcq-q" data-answer="D">
-              <div class="mcq-q-head"><span class="mcq-num" data-ar="3" data-en="3">3</span><span data-ar="أي خاصية مناسبة للمعلومات؟" data-en="Which characteristic of information is appropriate?">أي خاصية مناسبة للمعلومات؟</span></div>
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 3" data-en="Question 3">سؤال 3</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(3) اختر خاصية المعلومات المناسبة من الخيارات من 1 إلى 4، ثم اشرحها." data-en="(3) Choose the characteristic of information that is appropriate from the options A to D below, and answer using the letters.">(3) اختر خاصية المعلومات المناسبة من الخيارات من 1 إلى 4، ثم اشرحها.</div><div class="q-items"><div class="mcq-q" data-answer="D">
+              
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="لا تتمتع المعلومات بخاصية القابلية للنسخ." data-en="Information does not have the characteristic of reproducibility.">لا تتمتع المعلومات بخاصية القابلية للنسخ.</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="2" data-en="2">2</span><span data-ar="لا يتغير معنى المعلومات أو قيمتها حسب المستلم." data-en="The meaning or value of the information does not change depending on the recipient.">لا يتغير معنى المعلومات أو قيمتها حسب المستلم.</span></div>
@@ -2971,13 +3018,7 @@
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter" data-ar="4" data-en="4">4</span><span data-ar="لا يمكن حذف المعلومات التي تم نشرها بسهولة." data-en="Information that has been disseminated cannot be easily deleted.">لا يمكن حذف المعلومات التي تم نشرها بسهولة.</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (4) لا يمكن حذف المعلومات التي تم نشرها بسهولة." data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (4) Information that has been disseminated cannot be easily deleted.">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (4) لا يمكن حذف المعلومات التي تم نشرها بسهولة.</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(4) اختر المحتوى المتعلق بالجمل التالية [1] إلى [3] من [مجموعة الكلمات] المسماة من أ إلى ج، ثم أجب باستخدام الحروف. [مجموعة الكلمات] (أ) الاستمرارية (ب) القابلية للتكرار (ج) الانتشار" data-en="(4) Choose the content related to the following sentences [1] to [3] from the group of words labeled A to C below, and answer using the letters. [Word group] A Persistence B Reproducibility C Propagation">(4) اختر المحتوى المتعلق بالجمل التالية [1] إلى [3] من [مجموعة الكلمات] المسماة من أ إلى ج، ثم أجب باستخدام الحروف. [مجموعة الكلمات] (أ) الاستمرارية (ب) القابلية للتكرار (ج) الانتشار</p>
-          </div>
-            <div class="mcq-q" data-answer="B">
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 4" data-en="Question 4">سؤال 4</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(4) اختر المحتوى المتعلق بالجمل التالية [1] إلى [3] من [مجموعة الكلمات] المسماة من أ إلى ج، ثم أجب باستخدام الحروف. [مجموعة الكلمات] (أ) الاستمرارية (ب) القابلية للتكرار (ج) الانتشار" data-en="(4) Choose the content related to the following sentences [1] to [3] from the group of words labeled A to C below, and answer using the letters. [Word group] A Persistence B Reproducibility C Propagation">(4) اختر المحتوى المتعلق بالجمل التالية [1] إلى [3] من [مجموعة الكلمات] المسماة من أ إلى ج، ثم أجب باستخدام الحروف. [مجموعة الكلمات] (أ) الاستمرارية (ب) القابلية للتكرار (ج) الانتشار</div><div class="q-items"><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="1" data-en="1">1</span><span data-ar="[1] من الممكن نسخ الموسيقى والأفلام المتوفرة تجاريا بكميات كبيرة دون أي تدهور في الجودة." data-en="[1] It is possible to copy commercially available music and movies in large quantities without any degradation.">[1] من الممكن نسخ الموسيقى والأفلام المتوفرة تجاريا بكميات كبيرة دون أي تدهور في الجودة.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الاستمرارية" data-en="Persistence">الاستمرارية</span></div>
@@ -2985,9 +3026,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ج" data-en="C">ج</span><span data-ar="الانتشار" data-en="Propagation">الانتشار</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ب) القابلية للتكرار" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (B) Reproducibility">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ب) القابلية للتكرار</div>
-            </div>
-
-            <div class="mcq-q" data-answer="A">
+            </div><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="2" data-en="2">2</span><span data-ar="[2] تستمر الشائعات حول الناس ولا تختفي تماما." data-en="[2] Rumors about people persist and never completely disappear.">[2] تستمر الشائعات حول الناس ولا تختفي تماما.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الاستمرارية" data-en="Persistence">الاستمرارية</span></div>
@@ -2995,9 +3034,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ج" data-en="C">ج</span><span data-ar="الانتشار" data-en="Propagation">الانتشار</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) الاستمرارية" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (A) Persistence">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) الاستمرارية</div>
-            </div>
-
-            <div class="mcq-q" data-answer="C">
+            </div><div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="3" data-en="3">3</span><span data-ar="[3] تنتشر المعلومات المنشورة على الإنترنت على نطاق واسع في فترة زمنية قصيرة." data-en="[3] Information published on the internet spreads widely in a short period of time.">[3] تنتشر المعلومات المنشورة على الإنترنت على نطاق واسع في فترة زمنية قصيرة.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الاستمرارية" data-en="Persistence">الاستمرارية</span></div>
@@ -3005,14 +3042,8 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ج" data-en="C">ج</span><span data-ar="الانتشار" data-en="Propagation">الانتشار</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ج) الانتشار" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (C) Propagation">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ج) الانتشار</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(5) ما هو المصطلح الذي يطلق على المعلومات التي تم الحصول عليها من خلال التجربة الشخصية أو من التحقيقات والتجارب التي تم إجراؤها شخصيا؟" data-en="(5) What is the term for information obtained through personal experience or from investigations and experiments that were personally conducted?">(5) ما هو المصطلح الذي يطلق على المعلومات التي تم الحصول عليها من خلال التجربة الشخصية أو من التحقيقات والتجارب التي تم إجراؤها شخصيا؟</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
-              <div class="mcq-q-head"><span class="mcq-num" data-ar="5" data-en="5">5</span><span data-ar="ما هو المصطلح؟" data-en="What is the term?">ما هو المصطلح؟</span></div>
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 5" data-en="Question 5">سؤال 5</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(5) ما هو المصطلح الذي يطلق على المعلومات التي تم الحصول عليها من خلال التجربة الشخصية أو من التحقيقات والتجارب التي تم إجراؤها شخصيا؟" data-en="(5) What is the term for information obtained through personal experience or from investigations and experiments that were personally conducted?">(5) ما هو المصطلح الذي يطلق على المعلومات التي تم الحصول عليها من خلال التجربة الشخصية أو من التحقيقات والتجارب التي تم إجراؤها شخصيا؟</div><div class="q-items"><div class="mcq-q" data-answer="A">
+              
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="المعلومات الأولية" data-en="Primary information">المعلومات الأولية</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="ب" data-en="B">ب</span><span data-ar="المعلومات الثانوية" data-en="Secondary information">المعلومات الثانوية</span></div>
@@ -3020,14 +3051,8 @@
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter" data-ar="ث" data-en="D">ث</span><span data-ar="المعرفة" data-en="Knowledge">المعرفة</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) المعلومات الأولية" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (A) Primary information">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) المعلومات الأولية</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="2 (1) ما هو مصطلح الوسيط المستخدم لنقل المعلومات إلى الناس؟" data-en="2 (1) What is the term for the medium used to convey information to people?">2 (1) ما هو مصطلح الوسيط المستخدم لنقل المعلومات إلى الناس؟</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
-              <div class="mcq-q-head"><span class="mcq-num" data-ar="1" data-en="1">1</span><span data-ar="ما هو المصطلح؟" data-en="What is the term?">ما هو المصطلح؟</span></div>
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 6" data-en="Question 6">سؤال 6</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="2 (1) ما هو مصطلح الوسيط المستخدم لنقل المعلومات إلى الناس؟" data-en="2 (1) What is the term for the medium used to convey information to people?">2 (1) ما هو مصطلح الوسيط المستخدم لنقل المعلومات إلى الناس؟</div><div class="q-items"><div class="mcq-q" data-answer="A">
+              
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الوسائط" data-en="Media">الوسائط</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="ب" data-en="B">ب</span><span data-ar="البيانات" data-en="Data">البيانات</span></div>
@@ -3035,13 +3060,7 @@
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter" data-ar="ث" data-en="D">ث</span><span data-ar="المعرفة" data-en="Knowledge">المعرفة</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) الوسائط" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (A) Media">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) الوسائط</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب (اتحوّل لسؤال لكل عنصر عشان يشتغل تفاعليًا)" data-en="📖 The question as printed in the book (split into one question per item so it works interactively)">📖 نص السؤال في الكتاب (اتحوّل لسؤال لكل عنصر عشان يشتغل تفاعليًا)</span>
-            <p data-ar="(2) من الخيارات من أ إلى ح، اختر جميع الوسائط المقابلة لما يلي من أنواع الوسائط [1 إلى 3]، ثم أجب باستخدام الحروف: (1) وسائط التعبير (2) وسائط الإرسال/النشر (3) وسائط التسجيل. الخيارات: (أ) USB (ب) راديو (ت) هاتف (ث) DVD (ج) فيديو (ح) صوت" data-en="(2) Choose all the media corresponding to the following a to c from the options A to F, and answer using the letters. a Expression media b Propagation/Transmission media c Recording media. Options: A USB drive B Radio C Telephone D DVD E Video F Audio">(2) من الخيارات من أ إلى ح، اختر جميع الوسائط المقابلة لما يلي من أنواع الوسائط [1 إلى 3]، ثم أجب باستخدام الحروف: (1) وسائط التعبير (2) وسائط الإرسال/النشر (3) وسائط التسجيل. الخيارات: (أ) USB (ب) راديو (ت) هاتف (ث) DVD (ج) فيديو (ح) صوت</p>
-          </div>
-            <div class="mcq-q" data-answer="C">
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 7" data-en="Question 7">سؤال 7</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(2) من الخيارات من أ إلى ح، اختر جميع الوسائط المقابلة لما يلي من أنواع الوسائط [1 إلى 3]، ثم أجب باستخدام الحروف: (1) وسائط التعبير (2) وسائط الإرسال/النشر (3) وسائط التسجيل. الخيارات: (أ) USB (ب) راديو (ت) هاتف (ث) DVD (ج) فيديو (ح) صوت" data-en="(2) Choose all the media corresponding to the following a to c from the options A to F, and answer using the letters. a Expression media b Propagation/Transmission media c Recording media. Options: A USB drive B Radio C Telephone D DVD E Video F Audio">(2) من الخيارات من أ إلى ح، اختر جميع الوسائط المقابلة لما يلي من أنواع الوسائط [1 إلى 3]، ثم أجب باستخدام الحروف: (1) وسائط التعبير (2) وسائط الإرسال/النشر (3) وسائط التسجيل. الخيارات: (أ) USB (ب) راديو (ت) هاتف (ث) DVD (ج) فيديو (ح) صوت</div><div class="q-items"><div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="أ" data-en="a">أ</span><span data-ar="(أ) USB" data-en="A. USB drive">(أ) USB</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط التعبير" data-en="Expression media">وسائط التعبير</span></div>
@@ -3049,9 +3068,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط التسجيل" data-en="Recording media">وسائط التسجيل</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (3) وسائط التسجيل" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (3) Recording media">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (3) وسائط التسجيل</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ب" data-en="b">ب</span><span data-ar="(ب) راديو" data-en="B. Radio">(ب) راديو</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط التعبير" data-en="Expression media">وسائط التعبير</span></div>
@@ -3059,9 +3076,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط التسجيل" data-en="Recording media">وسائط التسجيل</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (2) وسائط الإرسال/النشر" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (2) Propagation/Transmission media">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (2) وسائط الإرسال/النشر</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ت" data-en="c">ت</span><span data-ar="(ت) هاتف" data-en="C. Telephone">(ت) هاتف</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط التعبير" data-en="Expression media">وسائط التعبير</span></div>
@@ -3069,9 +3084,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط التسجيل" data-en="Recording media">وسائط التسجيل</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (2) وسائط الإرسال/النشر" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (2) Propagation/Transmission media">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (2) وسائط الإرسال/النشر</div>
-            </div>
-
-            <div class="mcq-q" data-answer="C">
+            </div><div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ث" data-en="d">ث</span><span data-ar="(ث) DVD" data-en="D. DVD">(ث) DVD</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط التعبير" data-en="Expression media">وسائط التعبير</span></div>
@@ -3079,9 +3092,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط التسجيل" data-en="Recording media">وسائط التسجيل</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (3) وسائط التسجيل" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (3) Recording media">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (3) وسائط التسجيل</div>
-            </div>
-
-            <div class="mcq-q" data-answer="A">
+            </div><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ج" data-en="e">ج</span><span data-ar="(ج) فيديو" data-en="E. Video">(ج) فيديو</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط التعبير" data-en="Expression media">وسائط التعبير</span></div>
@@ -3089,9 +3100,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط التسجيل" data-en="Recording media">وسائط التسجيل</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (1) وسائط التعبير" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (1) Expression media">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (1) وسائط التعبير</div>
-            </div>
-
-            <div class="mcq-q" data-answer="A">
+            </div><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ح" data-en="f">ح</span><span data-ar="(ح) صوت" data-en="F. Audio">(ح) صوت</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="1" data-en="1">1</span><span data-ar="وسائط التعبير" data-en="Expression media">وسائط التعبير</span></div>
@@ -3099,14 +3108,8 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="3" data-en="3">3</span><span data-ar="وسائط التسجيل" data-en="Recording media">وسائط التسجيل</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (1) وسائط التعبير" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (1) Expression media">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (1) وسائط التعبير</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(3) اختر شرح الثقافة الإعلامية المناسب من الخيارات من أ إلى ث، وأجب باستخدام الحروف." data-en="(3) Choose the explanation of media literacy that is appropriate from the options A to D below, and answer using the letters.">(3) اختر شرح الثقافة الإعلامية المناسب من الخيارات من أ إلى ث، وأجب باستخدام الحروف.</p>
-          </div>
-            <div class="mcq-q" data-answer="B">
-              <div class="mcq-q-head"><span class="mcq-num" data-ar="3" data-en="3">3</span><span data-ar="أي شرح مناسب للثقافة الإعلامية؟" data-en="Which explanation of media literacy is appropriate?">أي شرح مناسب للثقافة الإعلامية؟</span></div>
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 8" data-en="Question 8">سؤال 8</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(3) اختر شرح الثقافة الإعلامية المناسب من الخيارات من أ إلى ث، وأجب باستخدام الحروف." data-en="(3) Choose the explanation of media literacy that is appropriate from the options A to D below, and answer using the letters.">(3) اختر شرح الثقافة الإعلامية المناسب من الخيارات من أ إلى ث، وأجب باستخدام الحروف.</div><div class="q-items"><div class="mcq-q" data-answer="B">
+              
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="القدرة على قبول المعلومات التي تنشرها وسائط الإعلام دون مساءلة" data-en="The ability to accept information disseminated by the media without question">القدرة على قبول المعلومات التي تنشرها وسائط الإعلام دون مساءلة</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="ب" data-en="B">ب</span><span data-ar="القدرة على فهم معنى وخصائص الوسائط والتفسير الدقيق للمعلومات" data-en="The ability to understand the meaning and characteristics of media and to accurately interpret information">القدرة على فهم معنى وخصائص الوسائط والتفسير الدقيق للمعلومات</span></div>
@@ -3114,21 +3117,53 @@
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter" data-ar="ث" data-en="D">ث</span><span data-ar="القدرة على استخدام الوسائط لتحرير المعلومات وفقا لقصد المرسل" data-en="The ability to use media to edit information in accordance with the intent of the sender">القدرة على استخدام الوسائط لتحرير المعلومات وفقا لقصد المرسل</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ب) القدرة على فهم معنى وخصائص الوسائط والتفسير الدقيق للمعلومات" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (B) The ability to understand the meaning and characteristics of media and to accurately interpret information">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ب) القدرة على فهم معنى وخصائص الوسائط والتفسير الدقيق للمعلومات</div>
-            </div>
-
-          </div>
+            </div></div></div></div>
 
           <div class="mcq-group">
-            <div class="mcq-group-title"><span class="mg-tag" data-ar="تمرين" data-en="Exercise">تمرين</span><h3 data-ar="تمرين" data-en="Exercise">تمرين</h3><span class="bq-label" data-ar="EN PDF 7 (المطبوع 7)؛ AR 11" data-en="EN PDF 7 (printed 7); AR 11">EN PDF 7 (المطبوع 7)؛ AR 11</span></div>
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="1 اقرأ المقطع التالي وأجب عن كل سؤال. «نحصل على (أ ......) مثل تنبؤات الطقس من مصادر مثل الصحف والتلفزيون، ونستخدمها كأساس لاتخاذ قرار بشأن أفعالنا. تنظم التنبؤات الجوية (ب ......) مثل أحوال الطقس، معدل هطول الأمطار وأنماط الضغط الجوي، وإضافة معنى وقيمة لها. بالإضافة إلى ذلك، يمكن أن يكون هذا نتيجة لتراكم (ت ......)، مثل &quot;غالبا ما تمطر في مايو ويونيو كل عام&quot;.»" data-en="1 Read the following passage and answer each question. “We obtain ( a ) such as weather forecasts from sources such as newspapers and television, and use it as a basis for deciding on our actions. Weather forecasts organize ( b ) such as weather conditions, precipitation, and atmospheric pressure patterns, and add meaning and value to them. Additionally, this can be generalized to accumulate ( c ), such as “it often rains in May and June every year.””">1 اقرأ المقطع التالي وأجب عن كل سؤال. «نحصل على (أ ......) مثل تنبؤات الطقس من مصادر مثل الصحف والتلفزيون، ونستخدمها كأساس لاتخاذ قرار بشأن أفعالنا. تنظم التنبؤات الجوية (ب ......) مثل أحوال الطقس، معدل هطول الأمطار وأنماط الضغط الجوي، وإضافة معنى وقيمة لها. بالإضافة إلى ذلك، يمكن أن يكون هذا نتيجة لتراكم (ت ......)، مثل "غالبا ما تمطر في مايو ويونيو كل عام".»</p>
-          </div>
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(1) لكل خيار من الخيارات التالية من أ إلى ت، استخدم الحرف المقابل للإشارة إلى الفراغ، (أ) إلى (ت)." data-en="(1) For each of the following options A to C, use the corresponding letter to indicate which blank, ( a ) to ( c ), it is related to.">(1) لكل خيار من الخيارات التالية من أ إلى ت، استخدم الحرف المقابل للإشارة إلى الفراغ، (أ) إلى (ت).</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
+            <div class="mcq-group-title"><span class="mg-tag" data-ar="تمرين" data-en="Exercise">تمرين</span><h3 data-ar="تمرين" data-en="Exercise">تمرين</h3><span class="bq-label" data-ar="EN PDF 7 (المطبوع 7)؛ AR 11" data-en="EN PDF 7 (printed 7); AR 11">EN PDF 7 (المطبوع 7)؛ AR 11</span><span class="q-group-count" data-ar="7 أسئلة" data-en="7 questions">7 أسئلة</span></div>
+          
+          
+            
+
+            
+
+            
+
+          
+            
+
+            
+
+            
+
+          
+            
+
+            
+
+            
+
+            
+
+          
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+          
+            
+
+          
+
+        <div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 1" data-en="Question 1">سؤال 1</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="1 اقرأ المقطع التالي وأجب عن كل سؤال. «نحصل على (أ ......) مثل تنبؤات الطقس من مصادر مثل الصحف والتلفزيون، ونستخدمها كأساس لاتخاذ قرار بشأن أفعالنا. تنظم التنبؤات الجوية (ب ......) مثل أحوال الطقس، معدل هطول الأمطار وأنماط الضغط الجوي، وإضافة معنى وقيمة لها. بالإضافة إلى ذلك، يمكن أن يكون هذا نتيجة لتراكم (ت ......)، مثل &quot;غالبا ما تمطر في مايو ويونيو كل عام&quot;.»" data-en="1 Read the following passage and answer each question. “We obtain ( a ) such as weather forecasts from sources such as newspapers and television, and use it as a basis for deciding on our actions. Weather forecasts organize ( b ) such as weather conditions, precipitation, and atmospheric pressure patterns, and add meaning and value to them. Additionally, this can be generalized to accumulate ( c ), such as “it often rains in May and June every year.””">1 اقرأ المقطع التالي وأجب عن كل سؤال. «نحصل على (أ ......) مثل تنبؤات الطقس من مصادر مثل الصحف والتلفزيون، ونستخدمها كأساس لاتخاذ قرار بشأن أفعالنا. تنظم التنبؤات الجوية (ب ......) مثل أحوال الطقس، معدل هطول الأمطار وأنماط الضغط الجوي، وإضافة معنى وقيمة لها. بالإضافة إلى ذلك، يمكن أن يكون هذا نتيجة لتراكم (ت ......)، مثل "غالبا ما تمطر في مايو ويونيو كل عام".»</div><div class="q-items"></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 2" data-en="Question 2">سؤال 2</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(1) لكل خيار من الخيارات التالية من أ إلى ت، استخدم الحرف المقابل للإشارة إلى الفراغ، (أ) إلى (ت)." data-en="(1) For each of the following options A to C, use the corresponding letter to indicate which blank, ( a ) to ( c ), it is related to.">(1) لكل خيار من الخيارات التالية من أ إلى ت، استخدم الحرف المقابل للإشارة إلى الفراغ، (أ) إلى (ت).</div><div class="q-items"><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="أ" data-en="a">أ</span><span data-ar="(أ) الرسم البياني لدرجة الحرارة" data-en="A. Temperature graph">(أ) الرسم البياني لدرجة الحرارة</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الفراغ (أ)" data-en="Blank (a)">الفراغ (أ)</span></div>
@@ -3136,9 +3171,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ت" data-en="C">ت</span><span data-ar="الفراغ (ت)" data-en="Blank (c)">الفراغ (ت)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) الفراغ (أ) — تنبؤات الطقس نوع من المعلومات." data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (A) Blank (a) — Weather forecasts are information.">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) الفراغ (أ) — تنبؤات الطقس نوع من المعلومات.</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ب" data-en="b">ب</span><span data-ar="(ب) درجة الحرارة" data-en="B. Temperature">(ب) درجة الحرارة</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الفراغ (أ)" data-en="Blank (a)">الفراغ (أ)</span></div>
@@ -3146,9 +3179,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ت" data-en="C">ت</span><span data-ar="الفراغ (ت)" data-en="Blank (c)">الفراغ (ت)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ب) الفراغ (ب) — القراءات الخام = بيانات." data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (B) Blank (b) — Raw readings = data.">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ب) الفراغ (ب) — القراءات الخام = بيانات.</div>
-            </div>
-
-            <div class="mcq-q" data-answer="C">
+            </div><div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ت" data-en="c">ت</span><span data-ar="(ت) نتائج تحليل درجات الحرارة الدنيا على مدار الـ 20 عاما الماضية" data-en="C. Analysis results of the lowest temperatures over the past 20 years">(ت) نتائج تحليل درجات الحرارة الدنيا على مدار الـ 20 عاما الماضية</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الفراغ (أ)" data-en="Blank (a)">الفراغ (أ)</span></div>
@@ -3156,13 +3187,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ت" data-en="C">ت</span><span data-ar="الفراغ (ت)" data-en="Blank (c)">الفراغ (ت)</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ت) الفراغ (ت) — التعميم المتراكم = معرفة." data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (C) Blank (c) — Accumulated generalization = knowledge.">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ت) الفراغ (ت) — التعميم المتراكم = معرفة.</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(2) اختر المحتوى المتعلق بالجمل التالية [1] إلى [3] من مجموعة الكلمات المسماة من أ إلى ت، والإجابة باستخدام الحروف. (أ) الاستمرارية (ب) قابلية النسخ (ت) الانتشار" data-en="(2) Choose the content related to the following sentences [1] to [3] from the group of words labeled A to C below, and answer using the letters. A Persistence B Reproducibility C Propagation">(2) اختر المحتوى المتعلق بالجمل التالية [1] إلى [3] من مجموعة الكلمات المسماة من أ إلى ت، والإجابة باستخدام الحروف. (أ) الاستمرارية (ب) قابلية النسخ (ت) الانتشار</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 3" data-en="Question 3">سؤال 3</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(2) اختر المحتوى المتعلق بالجمل التالية [1] إلى [3] من مجموعة الكلمات المسماة من أ إلى ت، والإجابة باستخدام الحروف. (أ) الاستمرارية (ب) قابلية النسخ (ت) الانتشار" data-en="(2) Choose the content related to the following sentences [1] to [3] from the group of words labeled A to C below, and answer using the letters. A Persistence B Reproducibility C Propagation">(2) اختر المحتوى المتعلق بالجمل التالية [1] إلى [3] من مجموعة الكلمات المسماة من أ إلى ت، والإجابة باستخدام الحروف. (أ) الاستمرارية (ب) قابلية النسخ (ت) الانتشار</div><div class="q-items"><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="1" data-en="1">1</span><span data-ar="[1] يمكن أن تستمر المعلومات الخاطئة بمجرد نشرها على الإنترنت إلى فترات طويلة." data-en="[1] False information once disseminated on the internet can persist indefinitely.">[1] يمكن أن تستمر المعلومات الخاطئة بمجرد نشرها على الإنترنت إلى فترات طويلة.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الاستمرارية" data-en="Persistence">الاستمرارية</span></div>
@@ -3170,9 +3195,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ت" data-en="C">ت</span><span data-ar="الانتشار" data-en="Propagation">الانتشار</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) الاستمرارية" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (A) Persistence">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) الاستمرارية</div>
-            </div>
-
-            <div class="mcq-q" data-answer="C">
+            </div><div class="mcq-q" data-answer="C">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="2" data-en="2">2</span><span data-ar="[2] ليس فقط وسائل الإعلام، ولكن أيضا الأفراد قادرون الآن على نشر كميات كبيرة من المعلومات في جميع أنحاء العالم." data-en="[2] Not only mass media, but also individuals are now able to disseminate large amounts of information throughout the world.">[2] ليس فقط وسائل الإعلام، ولكن أيضا الأفراد قادرون الآن على نشر كميات كبيرة من المعلومات في جميع أنحاء العالم.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الاستمرارية" data-en="Persistence">الاستمرارية</span></div>
@@ -3180,9 +3203,7 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ت" data-en="C">ت</span><span data-ar="الانتشار" data-en="Propagation">الانتشار</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ت) الانتشار" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (C) Propagation">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ت) الانتشار</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="3" data-en="3">3</span><span data-ar="[3] قام شخص بنسخ قرص مضغوط موسيقي متاح تجاريا ووزعه على أصدقائه." data-en="[3] A person copied a commercially available music CD and distributed it to their friends.">[3] قام شخص بنسخ قرص مضغوط موسيقي متاح تجاريا ووزعه على أصدقائه.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الاستمرارية" data-en="Persistence">الاستمرارية</span></div>
@@ -3190,112 +3211,78 @@
                 <div class="mcq-opt" data-opt="C"><span class="mcq-letter" data-ar="ت" data-en="C">ت</span><span data-ar="الانتشار" data-en="Propagation">الانتشار</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ب) قابلية النسخ" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (B) Reproducibility">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (ب) قابلية النسخ</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(3) بالنسبة للعبارات التالية حول المعلومات، ضع علامة &quot;✓&quot; إذا كان البيان صحيحا، و &quot;✗&quot; إذا كان خطأ." data-en="(3) For the following statements about information, mark “○” if the statement is correct, and “×” if it is incorrect.">(3) بالنسبة للعبارات التالية حول المعلومات، ضع علامة "✓" إذا كان البيان صحيحا، و "✗" إذا كان خطأ.</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 4" data-en="Question 4">سؤال 4</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(3) بالنسبة للعبارات التالية حول المعلومات، ضع علامة &quot;✓&quot; إذا كان البيان صحيحا، و &quot;✗&quot; إذا كان خطأ." data-en="(3) For the following statements about information, mark “○” if the statement is correct, and “×” if it is incorrect.">(3) بالنسبة للعبارات التالية حول المعلومات، ضع علامة "✓" إذا كان البيان صحيحا، و "✗" إذا كان خطأ.</div><div class="q-items"><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="1" data-en="1">1</span><span data-ar="[1] تشير المعلومات الأولية إلى المعلومات التي تم الحصول عليها من خلال الدراسات الاستقصائية أو التحقيقات التي يجريها الشخص نفسه." data-en="[1] Primary information refers to information obtained through surveys or investigations conducted by the person themselves.">[1] تشير المعلومات الأولية إلى المعلومات التي تم الحصول عليها من خلال الدراسات الاستقصائية أو التحقيقات التي يجريها الشخص نفسه.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="✓" data-en="✓">✓</span><span data-ar="صح" data-en="True">صح</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="✗" data-en="✗">✗</span><span data-ar="خطأ" data-en="False">خطأ</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✓) صح" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (✓) True">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✓) صح</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="2" data-en="2">2</span><span data-ar="[2] تعتبر البيانات الإحصائية المنشورة على موقع جهاز الإحصاء معلومات أولية." data-en="[2] The statistical data published on the Statistics Bureau’s website is considered primary information.">[2] تعتبر البيانات الإحصائية المنشورة على موقع جهاز الإحصاء معلومات أولية.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="✓" data-en="✓">✓</span><span data-ar="صح" data-en="True">صح</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="✗" data-en="✗">✗</span><span data-ar="خطأ" data-en="False">خطأ</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✗) خطأ — لأنها وصلتلك من طرف تالت (الموقع) مش من تجربتك." data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (✗) False — Because it reached you through a third party (the website), not your own research.">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✗) خطأ — لأنها وصلتلك من طرف تالت (الموقع) مش من تجربتك.</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="3" data-en="3">3</span><span data-ar="[3] تعتبر المعلومات التي يعثر عليها شخص ما على موقع الويب معلومات أولية." data-en="[3] Information found by a person on a website is considered primary information.">[3] تعتبر المعلومات التي يعثر عليها شخص ما على موقع الويب معلومات أولية.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="✓" data-en="✓">✓</span><span data-ar="صح" data-en="True">صح</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="✗" data-en="✗">✗</span><span data-ar="خطأ" data-en="False">خطأ</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✗) خطأ" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (✗) False">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✗) خطأ</div>
-            </div>
-
-            <div class="mcq-q" data-answer="A">
+            </div><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="4" data-en="4">4</span><span data-ar="[4] تعتبر المعلومات التي تم الحصول عليها من خلال طرف ثالث معلومات ثانوية." data-en="[4] Information obtained through a third party is considered secondary information.">[4] تعتبر المعلومات التي تم الحصول عليها من خلال طرف ثالث معلومات ثانوية.</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="✓" data-en="✓">✓</span><span data-ar="صح" data-en="True">صح</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="✗" data-en="✗">✗</span><span data-ar="خطأ" data-en="False">خطأ</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✓) صح" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (✓) True">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✓) صح</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب (اتحوّل لسؤال صح/خطأ لكل عنصر عشان يشتغل تفاعليًا)" data-en="📖 The question as printed in the book (split into true/false per item so it works interactively)">📖 نص السؤال في الكتاب (اتحوّل لسؤال صح/خطأ لكل عنصر عشان يشتغل تفاعليًا)</span>
-            <p data-ar="2 (1) اختر كل الوسائط التالية من أ إلى ح التي تُصنف كوسائط انتشار/إرسال. (أ) الإنترنت (ب) كتابة نصية (ت) قرص USB (ث) صوت (ج) راديو (ح) كتاب" data-en="2 (1) Choose all of the following media from A to F that qualify as Propagation/Transmission media. A Internet B Text character C USB drive D Audio E Radio F Book">2 (1) اختر كل الوسائط التالية من أ إلى ح التي تُصنف كوسائط انتشار/إرسال. (أ) الإنترنت (ب) كتابة نصية (ت) قرص USB (ث) صوت (ج) راديو (ح) كتاب</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 5" data-en="Question 5">سؤال 5</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="2 (1) اختر كل الوسائط التالية من أ إلى ح التي تُصنف كوسائط انتشار/إرسال. (أ) الإنترنت (ب) كتابة نصية (ت) قرص USB (ث) صوت (ج) راديو (ح) كتاب" data-en="2 (1) Choose all of the following media from A to F that qualify as Propagation/Transmission media. A Internet B Text character C USB drive D Audio E Radio F Book">2 (1) اختر كل الوسائط التالية من أ إلى ح التي تُصنف كوسائط انتشار/إرسال. (أ) الإنترنت (ب) كتابة نصية (ت) قرص USB (ث) صوت (ج) راديو (ح) كتاب</div><div class="q-items"><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="أ" data-en="a">أ</span><span data-ar="(أ) الإنترنت — هل هو من وسائط الانتشار/الإرسال؟" data-en="A. Internet — is it a Propagation/Transmission medium?">(أ) الإنترنت — هل هو من وسائط الانتشار/الإرسال؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="✓" data-en="✓">✓</span><span data-ar="صح" data-en="True">صح</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="✗" data-en="✗">✗</span><span data-ar="خطأ" data-en="False">خطأ</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✓) صح" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (✓) True">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✓) صح</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ب" data-en="b">ب</span><span data-ar="(ب) كتابة نصية — هل هو من وسائط الانتشار/الإرسال؟" data-en="B. Text character — is it a Propagation/Transmission medium?">(ب) كتابة نصية — هل هو من وسائط الانتشار/الإرسال؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="✓" data-en="✓">✓</span><span data-ar="صح" data-en="True">صح</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="✗" data-en="✗">✗</span><span data-ar="خطأ" data-en="False">خطأ</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✗) خطأ" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (✗) False">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✗) خطأ</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ت" data-en="c">ت</span><span data-ar="(ت) قرص USB — هل هو من وسائط الانتشار/الإرسال؟" data-en="C. USB drive — is it a Propagation/Transmission medium?">(ت) قرص USB — هل هو من وسائط الانتشار/الإرسال؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="✓" data-en="✓">✓</span><span data-ar="صح" data-en="True">صح</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="✗" data-en="✗">✗</span><span data-ar="خطأ" data-en="False">خطأ</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✗) خطأ" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (✗) False">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✗) خطأ</div>
-            </div>
-
-            <div class="mcq-q" data-answer="B">
+            </div><div class="mcq-q" data-answer="B">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ث" data-en="d">ث</span><span data-ar="(ث) صوت — هل هو من وسائط الانتشار/الإرسال؟" data-en="D. Audio — is it a Propagation/Transmission medium?">(ث) صوت — هل هو من وسائط الانتشار/الإرسال؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="✓" data-en="✓">✓</span><span data-ar="صح" data-en="True">صح</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="✗" data-en="✗">✗</span><span data-ar="خطأ" data-en="False">خطأ</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✗) خطأ" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (✗) False">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✗) خطأ</div>
-            </div>
-
-            <div class="mcq-q" data-answer="A">
+            </div><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ج" data-en="e">ج</span><span data-ar="(ج) راديو — هل هو من وسائط الانتشار/الإرسال؟" data-en="E. Radio — is it a Propagation/Transmission medium?">(ج) راديو — هل هو من وسائط الانتشار/الإرسال؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="✓" data-en="✓">✓</span><span data-ar="صح" data-en="True">صح</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="✗" data-en="✗">✗</span><span data-ar="خطأ" data-en="False">خطأ</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✓) صح" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (✓) True">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✓) صح</div>
-            </div>
-
-            <div class="mcq-q" data-answer="A">
+            </div><div class="mcq-q" data-answer="A">
               <div class="mcq-q-head"><span class="mcq-num" data-ar="ح" data-en="f">ح</span><span data-ar="(ح) كتاب — هل هو من وسائط الانتشار/الإرسال؟" data-en="F. Book — is it a Propagation/Transmission medium?">(ح) كتاب — هل هو من وسائط الانتشار/الإرسال؟</span></div>
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="✓" data-en="✓">✓</span><span data-ar="صح" data-en="True">صح</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="✗" data-en="✗">✗</span><span data-ar="خطأ" data-en="False">خطأ</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✓) صح" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (✓) True">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (✓) صح</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="📖 نص السؤال في الكتاب" data-en="📖 The question as printed in the book">📖 نص السؤال في الكتاب</span>
-            <p data-ar="(2) ما هو المصطلح الذي يصف القدرة على فهم معنى وخصائص الوسائط وتفسير المعلومات بدقة؟" data-en="(2) What is the term for the ability to understand the meaning and characteristics of media and to accurately interpret information?">(2) ما هو المصطلح الذي يصف القدرة على فهم معنى وخصائص الوسائط وتفسير المعلومات بدقة؟</p>
-          </div>
-            <div class="mcq-q" data-answer="A">
-              <div class="mcq-q-head"><span class="mcq-num" data-ar="2" data-en="2">2</span><span data-ar="ما هو المصطلح؟" data-en="What is the term?">ما هو المصطلح؟</span></div>
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 6" data-en="Question 6">سؤال 6</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="(2) ما هو المصطلح الذي يصف القدرة على فهم معنى وخصائص الوسائط وتفسير المعلومات بدقة؟" data-en="(2) What is the term for the ability to understand the meaning and characteristics of media and to accurately interpret information?">(2) ما هو المصطلح الذي يصف القدرة على فهم معنى وخصائص الوسائط وتفسير المعلومات بدقة؟</div><div class="q-items"><div class="mcq-q" data-answer="A">
+              
               <div class="mcq-opts">
                 <div class="mcq-opt" data-opt="A"><span class="mcq-letter" data-ar="أ" data-en="A">أ</span><span data-ar="الثقافة الإعلامية" data-en="Media literacy">الثقافة الإعلامية</span></div>
                 <div class="mcq-opt" data-opt="B"><span class="mcq-letter" data-ar="ب" data-en="B">ب</span><span data-ar="التحقق المتبادل" data-en="Cross-checking">التحقق المتبادل</span></div>
@@ -3303,21 +3290,10 @@
                 <div class="mcq-opt" data-opt="D"><span class="mcq-letter" data-ar="ث" data-en="D">ث</span><span data-ar="وسائط التعبير" data-en="Expression media">وسائط التعبير</span></div>
               </div>
               <div class="mcq-explanation" data-ar="✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) الثقافة الإعلامية" data-en="✍️ Suggested answer (the book does not give it — check with your teacher): (A) Media literacy">✍️ إجابة مقترحة (الكتاب مش بيديها — راجعها مع مدرسك): (أ) الثقافة الإعلامية</div>
-            </div>
-
-          <div class="book-quote">
-            <span class="bq-label" data-ar="مقارنة النسختين" data-en="Edition comparison">مقارنة النسختين</span>
-            <p data-ar="خيارات سؤال جرب بنفسك ١(٣) مرقمة 1-4 في العربي مع عبارة «ثم أشرحها»، بينما EN يرمز لها A-D دون طلب الشرح؛ الموقع يتبع ترقيم العربي. مصطلح قابلية النسخ يظهر في العربي بصيغ متعددة:«الثبات/القدرة على الاستنساخ» في تحدى معلوماتك، «الاستمرارية/القابلية للتكرار» في جرب بنفسك، و«الاستمرارية/قابلية النسخ» في تمرين؛ EN يطبع Persistence/Reproducibility في كل المواضع. خيار تمرين ٢(١) ب مطبوع «كتابة نصية» في العربي و&quot;Text character&quot; في EN. العربي يستخدم ✓/× حيث يستخدم EN ○/×. عنوان الدرس «المعلومات والوسائط» في العربي و&quot;Information and Media&quot; في EN، ومصطلح Media literacy مطبوع «الثقافة الإعلامية» في العربي. كلا النسختين منقولتان كما هما." data-en="Try 1(3) options are numbered 1-4 in Arabic with the phrase «ثم أشرحها» (then explain it), while EN letters them A-D without an explain request; the site follows the Arabic numbering. The reproducibility term appears in Arabic in several forms:«الثبات/القدرة على الاستنساخ» in Warm Up, «الاستمرارية/القابلية للتكرار» in Try, and «الاستمرارية/قابلية النسخ» in Exercise; EN prints Persistence/Reproducibility throughout. Exercise 2(1) option B prints «كتابة نصية» in Arabic vs &quot;Text character&quot; in EN. Arabic uses ✓/× where EN uses ○/×. The lesson title is «المعلومات والوسائط» in Arabic vs &quot;Information and Media&quot; in EN, and Media literacy is printed «الثقافة الإعلامية» in Arabic. Both printings are quoted as-is.">خيارات سؤال جرب بنفسك ١(٣) مرقمة 1-4 في العربي مع عبارة «ثم أشرحها»، بينما EN يرمز لها A-D دون طلب الشرح؛ الموقع يتبع ترقيم العربي. مصطلح قابلية النسخ يظهر في العربي بصيغ متعددة:«الثبات/القدرة على الاستنساخ» في تحدى معلوماتك، «الاستمرارية/القابلية للتكرار» في جرب بنفسك، و«الاستمرارية/قابلية النسخ» في تمرين؛ EN يطبع Persistence/Reproducibility في كل المواضع. خيار تمرين ٢(١) ب مطبوع «كتابة نصية» في العربي و"Text character" في EN. العربي يستخدم ✓/× حيث يستخدم EN ○/×. عنوان الدرس «المعلومات والوسائط» في العربي و"Information and Media" في EN، ومصطلح Media literacy مطبوع «الثقافة الإعلامية» في العربي. كلا النسختين منقولتان كما هما.</p>
-          </div>
-
-        </div>
+            </div></div></div><div class="q-block"><div class="q-block-head"><span class="q-block-num" data-ar="سؤال 7" data-en="Question 7">سؤال 7</span><span class="q-block-src" data-ar="📖 من الكتاب" data-en="📖 From the book">📖 من الكتاب</span></div><div class="q-stem" data-ar="خيارات سؤال جرب بنفسك ١(٣) مرقمة 1-4 في العربي مع عبارة «ثم أشرحها»، بينما EN يرمز لها A-D دون طلب الشرح؛ الموقع يتبع ترقيم العربي. مصطلح قابلية النسخ يظهر في العربي بصيغ متعددة:«الثبات/القدرة على الاستنساخ» في تحدى معلوماتك، «الاستمرارية/القابلية للتكرار» في جرب بنفسك، و«الاستمرارية/قابلية النسخ» في تمرين؛ EN يطبع Persistence/Reproducibility في كل المواضع. خيار تمرين ٢(١) ب مطبوع «كتابة نصية» في العربي و&quot;Text character&quot; في EN. العربي يستخدم ✓/× حيث يستخدم EN ○/×. عنوان الدرس «المعلومات والوسائط» في العربي و&quot;Information and Media&quot; في EN، ومصطلح Media literacy مطبوع «الثقافة الإعلامية» في العربي. كلا النسختين منقولتان كما هما." data-en="Try 1(3) options are numbered 1-4 in Arabic with the phrase «ثم أشرحها» (then explain it), while EN letters them A-D without an explain request; the site follows the Arabic numbering. The reproducibility term appears in Arabic in several forms:«الثبات/القدرة على الاستنساخ» in Warm Up, «الاستمرارية/القابلية للتكرار» in Try, and «الاستمرارية/قابلية النسخ» in Exercise; EN prints Persistence/Reproducibility throughout. Exercise 2(1) option B prints «كتابة نصية» in Arabic vs &quot;Text character&quot; in EN. Arabic uses ✓/× where EN uses ○/×. The lesson title is «المعلومات والوسائط» in Arabic vs &quot;Information and Media&quot; in EN, and Media literacy is printed «الثقافة الإعلامية» in Arabic. Both printings are quoted as-is.">خيارات سؤال جرب بنفسك ١(٣) مرقمة 1-4 في العربي مع عبارة «ثم أشرحها»، بينما EN يرمز لها A-D دون طلب الشرح؛ الموقع يتبع ترقيم العربي. مصطلح قابلية النسخ يظهر في العربي بصيغ متعددة:«الثبات/القدرة على الاستنساخ» في تحدى معلوماتك، «الاستمرارية/القابلية للتكرار» في جرب بنفسك، و«الاستمرارية/قابلية النسخ» في تمرين؛ EN يطبع Persistence/Reproducibility في كل المواضع. خيار تمرين ٢(١) ب مطبوع «كتابة نصية» في العربي و"Text character" في EN. العربي يستخدم ✓/× حيث يستخدم EN ○/×. عنوان الدرس «المعلومات والوسائط» في العربي و"Information and Media" في EN، ومصطلح Media literacy مطبوع «الثقافة الإعلامية» في العربي. كلا النسختين منقولتان كما هما.</div><div class="q-items"></div></div></div>
         </div>
 
-        <div class="mcq-actions">
-          <button class="btn btn-ghost mini-btn" data-action="mcq-reveal" data-ar="اعرض كل الإجابات" data-en="Show all answers">اعرض كل الإجابات</button>
-          <button class="mini-btn" data-action="mcq-replay" data-ar="↺ إعادة المحاولة" data-en="↺ Try again">↺ إعادة المحاولة</button>
-          <span class="mcq-score" id="mcqScore" style="display:none;"></span>
-        </div>
+        
       </div>
     </section>
 
