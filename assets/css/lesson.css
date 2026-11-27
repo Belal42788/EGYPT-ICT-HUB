@@ -62,3 +62,33 @@ table.book-symbol-table tr:nth-child(even) td {
 /* the digit tables were 12px monospace; give them the site size and a little air */
 .tbl-wrap table.ascii { font-size:.82rem !important; }
 .tbl-wrap table.ascii th, .tbl-wrap table.ascii td { padding:4px 9px !important; }
+
+/* ---------- section headers: number circle must not sit on the title ---------- */
+.section-head { gap:16px; }
+.section-head > div { min-width:0; }
+.section-head > div > h2,
+.section-head > div > h3,
+.section-head .section-title {
+  white-space:normal !important;
+  overflow-wrap:anywhere;
+  max-width:100%;
+}
+.section-number { flex:0 0 auto; }
+
+/* ---------- book tables: Arabic cells read right to left ---------- */
+.tbl-wrap table,
+.book-tbl table,
+table.bt,
+table.bq-table,
+table.book-symbol-table,
+table.ascii { direction:rtl; }
+
+.tbl-wrap table th, .tbl-wrap table td,
+.book-tbl table th, .book-tbl table td,
+table.bt th, table.bt td,
+table.bq-table th, table.bq-table td,
+table.book-symbol-table th, table.book-symbol-table td,
+table.ascii th, table.ascii td {
+  unicode-bidi:plaintext;
+  text-align:right;
+}
