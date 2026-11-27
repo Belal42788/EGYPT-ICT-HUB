@@ -76,19 +76,23 @@ table.book-symbol-table tr:nth-child(even) td {
 .section-number { flex:0 0 auto; }
 
 /* ---------- book tables: Arabic cells read right to left ---------- */
-.tbl-wrap table,
-.book-tbl table,
+.tbl-wrap table.commforms,
+.book-tbl table.bt,
 table.bt,
 table.bq-table,
-table.book-symbol-table,
-table.ascii { direction:rtl; }
+table.book-symbol-table { direction:rtl !important; }
 
-.tbl-wrap table th, .tbl-wrap table td,
-.book-tbl table th, .book-tbl table td,
+.tbl-wrap table.commforms th, .tbl-wrap table.commforms td,
+.book-tbl table.bt th, .book-tbl table.bt td,
 table.bt th, table.bt td,
 table.bq-table th, table.bq-table td,
-table.book-symbol-table th, table.book-symbol-table td,
+table.book-symbol-table th, table.book-symbol-table td {
+  unicode-bidi:plaintext;
+  text-align:right !important;
+}
+
+/* digit tables (decimal/binary/hex) stay centred, but Arabic headers still read correctly */
+.tbl-wrap table.ascii th, .tbl-wrap table.ascii td,
 table.ascii th, table.ascii td {
   unicode-bidi:plaintext;
-  text-align:right;
 }
