@@ -16,3 +16,49 @@
 .footer-tag{color:var(--dim);margin-top:14px;font-size:.95rem}
 .footer-tag b{color:var(--text)}
 @media(max-width:650px){.hero{padding:54px 18px 44px}.hero-sub{font-size:17px}.hero-stats{gap:6px}.hero-stats span{font-size:12px;padding:3px 10px}.hero-btn{padding:14px 34px}}
+
+/* ---------- book tables: site font + blue palette ----------
+   The tables carried grey borders and, in the digit tables, a monospace font.
+   They now use the site font (Cairo) with tabular digits so columns still line up,
+   and borders/headers in the site blue instead of grey. */
+.tbl-wrap table.ascii,
+.tbl-wrap table.commforms,
+.book-tbl table.bt,
+table.bq-table,
+table.book-symbol-table {
+  font-family:inherit !important;
+  font-variant-numeric:tabular-nums;
+  border-collapse:collapse;
+  color:#0b1020;
+}
+
+.tbl-wrap table.ascii th, .tbl-wrap table.ascii td,
+.tbl-wrap table.commforms th, .tbl-wrap table.commforms td,
+.book-tbl table.bt th, .book-tbl table.bt td,
+table.bq-table th, table.bq-table td,
+table.book-symbol-table th, table.book-symbol-table td {
+  border:1px solid rgba(24, 56, 248, .32) !important;
+  color:#0b1020;
+}
+
+.tbl-wrap table.ascii th,
+.tbl-wrap table.commforms th,
+.book-tbl table.bt th,
+table.bq-table th,
+table.book-symbol-table th {
+  background:rgba(24, 56, 248, .12) !important;
+  color:#0b1020;
+  font-weight:700;
+}
+
+.tbl-wrap table.ascii tr:nth-child(even) td,
+.tbl-wrap table.commforms tr:nth-child(even) td,
+.book-tbl table.bt tr:nth-child(even) td,
+table.bq-table tr:nth-child(even) td,
+table.book-symbol-table tr:nth-child(even) td {
+  background:rgba(24, 56, 248, .05);
+}
+
+/* the digit tables were 12px monospace; give them the site size and a little air */
+.tbl-wrap table.ascii { font-size:.82rem !important; }
+.tbl-wrap table.ascii th, .tbl-wrap table.ascii td { padding:4px 9px !important; }
