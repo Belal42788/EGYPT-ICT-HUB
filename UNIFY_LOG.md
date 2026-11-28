@@ -19,3 +19,8 @@
 - Same phone pattern as 1-5/1-6/1-7: JS fit() toggles `ac-phone` on the canvas under 720px and skips the 1280x720 scale-down; `@media(max-width:719px)` restyles the app chrome.
 - Phone: ribbon scrolls horizontally, view buttons + save-status wrap into full-width rows, design grid type cells become 44px tap targets, datasheet grid scrolls horizontally (rows min-width 560px inside an overflow-x:auto grid).
 - Desktop unchanged: pixel-identical screenshots (PIL ImageChops bbox None) for empty/design/unsaved states; datasheet diff is only the record rows (walkthrough fix, not CSS).
+
+## 1-10 Your Digital Project — phone pass (preview/fixes-round2)
+- Lab (digitalproject) already stacks on phone (no scaled canvas); the one broken piece was the Sheets output table: `.s5-table` had `min-width:470px` + nowrap cells, so on a 312px screen the values column was clipped into horizontal scroll.
+- Fix (page CSS only, `@media(max-width:719px)`): `.s5-table{min-width:0}` and cells `white-space:normal;min-width:0;padding:8px` — table now fits (280px at 390w) with both columns visible.
+- Verified 320/360/390/430/768/1024: no page overflow, table fits. Desktop 1366 pixel-identical (PIL diff bbox None) for Docs/Sheets/Slides states.
