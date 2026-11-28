@@ -383,13 +383,13 @@
         function stop() {
           playing = false;
           if (timer) { clearInterval(timer); timer = null; }
-          playBtn.textContent = '▶ تشغيل';
+          playBtn.textContent = (typeof currentLang !== 'undefined' && currentLang === 'en') ? '▶ Play' : '▶ تشغيل';
         }
 
         function play() {
           if (playing) { stop(); return; }
           playing = true;
-          playBtn.textContent = '⏸ إيقاف';
+          playBtn.textContent = (typeof currentLang !== 'undefined' && currentLang === 'en') ? '⏸ Pause' : '⏸ إيقاف';
           timer = setInterval(function () {
             var v = parseInt(scrub.value, 10) + 1;
             if (v > 100) v = 0;
