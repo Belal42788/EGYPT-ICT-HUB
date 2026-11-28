@@ -24,3 +24,6 @@
 - Lab (digitalproject) already stacks on phone (no scaled canvas); the one broken piece was the Sheets output table: `.s5-table` had `min-width:470px` + nowrap cells, so on a 312px screen the values column was clipped into horizontal scroll.
 - Fix (page CSS only, `@media(max-width:719px)`): `.s5-table{min-width:0}` and cells `white-space:normal;min-width:0;padding:8px` — table now fits (280px at 390w) with both columns visible.
 - Verified 320/360/390/430/768/1024: no page overflow, table fits. Desktop 1366 pixel-identical (PIL diff bbox None) for Docs/Sheets/Slides states.
+
+## 1-9 Forms and Queries — phone pass (preview/fixes-round2)
+- Same s5-table phone rule as 1-10 (approved by Bilal 9:41 for 1-9): the source/result tables had min-width 470px + nowrap, clipping the English/Computer columns on phones. Now fit (295px at 390w). CSS-only media ≤719px; desktop untouched.
