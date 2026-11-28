@@ -138,7 +138,69 @@ function code(s){const n=E('pre',undefined,'code-block');n.dir='ltr';n.append(E(
 function svg(p,h=250){const n=S('svg',{viewBox:`0 0 740 ${h}`,class:'wb-svg',role:'img','aria-label':t(p)});box.append(n);return n}
 function anim(n,attr,from,to){if(from!==to&&!matchMedia('(prefers-reduced-motion:reduce)').matches)n.append(S('animate',{attributeName:attr,from,to,dur:'.7s',fill:'freeze'}))}
 function key(labels,active){const row=E('div',undefined,'wb3-key');row.style.gridTemplateColumns=`repeat(${labels.length},minmax(0,1fr))`;labels.forEach((p,i)=>row.append(E('span',p,i===active?'active':'')));box.append(row)}
+function dataJourney(labels,phase){
+ const g=svg(['سجلات المثال الحقيقية تسير في خط أنابيب ملون عبر مراحل الاستعلام','The example real records flowing through a colored query pipeline'],340),n=labels.length,ltr=document.documentElement.lang==='en',xs=labels.map((_,i)=>ltr?75+i*590/(n-1):665-i*590/(n-1));
+ const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ const acc=['#4f8cff','#f6a32f','#8a5cf6','#22b573'];
+ const raw=FQ.cut.trim(),cutN=safeInt(raw,0,20);
+ const pass=r=>{const c=[];if(FQ.name!=='any')c.push(r.name===FQ.name);if(raw!==''&&cutN!==null)c.push(FQ.op==='gt'?r.en>cutN:r.en>=cutN);return !c.length||(FQ.logic==='and'?c.every(Boolean):c.some(Boolean))};
+ const passing=FQ.rows.filter(pass);
+ const nm=r=>String(t(namelist[r.name])).replace(/\s*\(.*\)\s*/,'');
+ const defs=S('defs',{});
+ const lg=S('linearGradient',{id:'fq-track',x1:'0',x2:'1',y1:'0',y2:'0'});
+ [['0','#375b68'],['.5','#4f8cff'],['1','#72e3bb']].forEach(p=>lg.append(S('stop',{offset:p[0],'stop-color':p[1]})));
+ defs.append(lg);g.append(defs);
+ const track=S('path',{d:'M60 278H680',stroke:'url(#fq-track)','stroke-width':8,fill:'none','stroke-linecap':'round','stroke-dasharray':'16 12'});
+ if(!RM)track.append(S('animate',{attributeName:'stroke-dashoffset',from:'56',to:'0',dur:'2.4s',repeatCount:'indefinite'}));
+ g.append(track);
+ xs.forEach((x,i)=>{
+  const on=i===phase,a=acc[i];
+  if(on)g.append(S('rect',{x:x-74,y:30,width:148,height:204,rx:22,fill:'none',stroke:a,'stroke-width':7,opacity:.30}));
+  g.append(S('rect',{x:x-70,y:34,width:140,height:196,rx:20,fill:on?'#17354a':'#102d3b',stroke:on?a:'#42616f','stroke-width':2,'stroke-dasharray':(i===3&&!FQ.result)?'6 5':'none'}));
+  g.append(S('text',{x,y:64,fill:on?a:'#d7efed','font-family':'monospace','font-size':20,'text-anchor':'middle'},String(i+1).padStart(2,'0')));
+  const cap=(par,y,r,mode,k)=>{const cg=S('g',{});par.append(cg);
+   cg.append(S('rect',{x:x-56,y,width:112,height:22,rx:11,fill:'#0b2239',stroke:a,'stroke-width':1.5}));
+   cg.append(S('circle',{cx:x-46,cy:y+11,r:7,fill:a}));
+   cg.append(S('text',{x:x-46,y:y+14.5,fill:'#0b2239','font-size':9,'font-family':'monospace','text-anchor':'middle'},String(r.id)));
+   cg.append(S('text',{x:x-34,y:y+15,fill:'#d7efed','font-size':11,'text-anchor':'start'},nm(r)));
+   const chips=mode==='all'?['ar','en','co']:mode==='shown'?['ar','en','co'].filter(k2=>FQ.show[{id:0,name:1,ar:2,en:3,co:4}[k2]]):[];
+   chips.forEach((k2,q)=>{const bx=ltr?x+8+q*17:x+50-q*17;cg.append(S('rect',{x:bx-14,y:y+4,width:15,height:14,rx:3,fill:{ar:'#7fb0e8',en:'#edc87d',co:'#8fd6a0'}[k2]}));
+    cg.append(S('text',{x:bx-6.5,y:y+14.5,fill:'#0b2239','font-size':9,'font-family':'monospace','text-anchor':'middle'},String(r[k2])))});
+   if(mode==='hidden')['ar','en','co'].forEach((k2,q)=>{const on2=FQ.show[{ar:2,en:3,co:4}[k2]];const bx=ltr?x+8+q*17:x+50-q*17;
+    const rc=S('rect',{x:bx-14,y:y+4,width:on2?15:6,height:14,rx:3,fill:on2?{ar:'#7fb0e8',en:'#edc87d',co:'#8fd6a0'}[k2]:'#1d3b4a'});
+    if(!on2&&!RM&&phase===2){rc.append(S('animate',{attributeName:'width',from:'15',to:'6',dur:'.5s',begin:(q*.15)+'s',fill:'freeze'}));rc.append(S('animate',{attributeName:'fill',from:'#7fb0e8',to:'#1d3b4a',dur:'.5s',begin:(q*.15)+'s',fill:'freeze'}))}
+    cg.append(rc);
+    if(on2)cg.append(S('text',{x:bx-6.5,y:y+14.5,fill:'#0b2239','font-size':9,'font-family':'monospace','text-anchor':'middle'},String(r[k2])))});
+   return cg};
+  if(i===0)FQ.rows.forEach((r,k)=>{const cg=cap(g,92+k*36,r,'all');if(!RM){cg.append(S('animate',{attributeName:'opacity',values:'0;1',keyTimes:'0;1',dur:'.5s',begin:(k*.12)+'s',fill:'freeze'}))}});
+  if(i===1){g.append(S('path',{d:'M'+(x-16)+' 80h32l-9 13v15h-14V95z',fill:'none',stroke:'#f6a32f','stroke-width':2.5}));
+   if(!RM){const scan=S('path',{d:'M'+(x-56)+' 80V214',stroke:'#f6a32f','stroke-width':2,opacity:.5});scan.append(S('animateTransform',{attributeName:'transform',type:'translate',values:'0 0;112 0;0 0',dur:'3s',repeatCount:'indefinite'}));g.append(scan)}
+   FQ.rows.forEach((r,k)=>{const ok=pass(r),cg=cap(g,122+k*36,r,'all');cg.setAttribute('opacity',ok?1:.35);
+    if(!ok){cg.append(S('text',{x:x+62,y:136+k*36,fill:'#ff9d8a','font-size':14,'text-anchor':'middle'},'✕'));
+     if(!RM&&phase===1){cg.append(S('animateTransform',{attributeName:'transform',type:'translate',values:'0 0;0 22',dur:'.6s',begin:(.3+k*.15)+'s',fill:'freeze'}));cg.append(S('animate',{attributeName:'opacity',values:'1;.18',dur:'.6s',begin:(.3+k*.15)+'s',fill:'freeze'}))}}
+    else{const bd=S('g',{});bd.append(S('circle',{cx:x+62,cy:133+k*36,r:8,fill:'#22b573'}));bd.append(S('text',{x:x+62,y:137+k*36,fill:'#0b2239','font-size':11,'text-anchor':'middle'},'✓'));cg.append(bd);
+     if(!RM&&phase===1)bd.append(S('animate',{attributeName:'opacity',values:'0;1',dur:'.4s',begin:(.2+k*.15)+'s',fill:'freeze'}))}})}
+  if(i===2){if(passing.length)passing.forEach((r,k)=>cap(g,92+k*36,r,'hidden'));
+   else g.append(S('text',{x,y:150,fill:'#8aa8b5','font-size':13,'text-anchor':'middle'},t(['لا سجلات عابرة','No passing rows'])))}
+  if(i===3){if(passing.length){passing.forEach((r,k)=>{const cg=cap(g,92+k*36,r,'shown');cg.setAttribute('opacity',FQ.result?1:.5);
+    if(!RM){cg.append(S('animate',{attributeName:'opacity',values:'0;'+(FQ.result?1:.5),keyTimes:'0;1',dur:'.5s',begin:(k*.18)+'s',fill:'freeze'}))}});
+   }else g.append(S('text',{x,y:150,fill:'#8aa8b5','font-size':13,'text-anchor':'middle'},t(['لا نتيجة بهذه الشروط','No result under these criteria'])));
+   if(FQ.result){const pl=S('g',{});pl.append(S('rect',{x:x-52,y:196,width:104,height:22,rx:11,fill:'#22b573'}));
+    pl.append(S('text',{x,y:211,fill:'#0b2239','font-size':12,'font-weight':'bold','text-anchor':'middle'},t(['الناتج: ','Result: '])+FQ.result.rows.length+t([' سجل',' rows'])));
+    if(!RM){pl.append(S('animate',{attributeName:'opacity',values:'0;1',dur:'.45s',begin:'.5s',fill:'freeze'}));pl.append(S('animateTransform',{attributeName:'transform',type:'scale',values:'0.95;1',dur:'.45s',begin:'.5s',fill:'freeze',additive:'sum'}))}
+    g.append(pl)}}
+ });
+ const tx=xs[Math.min(n-1,Math.max(0,phase))],px=xs[Math.max(0,phase-1)];
+ const tok=S('g',{transform:'translate('+tx+' 262)'});
+ tok.append(S('rect',{x:-30,y:-14,width:60,height:12+Math.max(1,passing.length)*13,rx:8,fill:'#0b2239',stroke:'#ffd67c','stroke-width':2}));
+ passing.forEach((r,k)=>{tok.append(S('rect',{x:-22,y:-8+k*13,width:44,height:10,rx:3,fill:'#ffd67c'}));tok.append(S('text',{x:0,y:0+k*13,fill:'#102d3b','font-size':8,'font-family':'monospace','text-anchor':'middle'},'#'+r.id))});
+ if(!passing.length)tok.append(S('text',{x:0,y:4,fill:'#ffd67c','font-size':9,'text-anchor':'middle'},'0'));
+ if(!RM){tok.append(S('animate',{attributeName:'opacity',values:'.75;1;.75',dur:'2.8s',repeatCount:'indefinite'}));
+  if(px!==tx)tok.append(S('animateTransform',{attributeName:'transform',type:'translate',from:px+' 262',to:tx+' 262',dur:'.7s',fill:'freeze'}))}
+ g.append(tok);key(labels,phase)
+}
 function journey(labels,phase,kind='file'){
+ if(kind==='data')return dataJourney(labels,phase);
  const g=svg(['رموز تتحرك بين مراحل المثال المحدد','Symbols moving between this example\'s stages'],230),n=labels.length,xs=labels.map((_,i)=>document.documentElement.lang==='en'?75+i*590/(n-1):665-i*590/(n-1));
  g.append(S('path',{d:'M75 95H665',stroke:'#375b68','stroke-width':5,fill:'none'}));xs.forEach((x,i)=>{g.append(S('rect',{x:x-48,y:42,width:96,height:108,rx:18,fill:i===phase?'#20574c':'#102d3b',stroke:i===phase?'#72e3bb':'#42616f','stroke-width':2}),S('text',{x,y:79,fill:'#d7efed','font-family':'monospace','font-size':20,'text-anchor':'middle'},String(i+1).padStart(2,'0')));if(kind==='mail')g.append(S('rect',{x:x-25,y:95,width:50,height:31,rx:3,fill:'none',stroke:'#8ae5c8','stroke-width':2}),S('path',{d:`M${x-25} 96l25 19 25-19`,fill:'none',stroke:'#8ae5c8','stroke-width':2}));else if(kind==='data')for(let k=0;k<3;k++)g.append(S('rect',{x:x-25,y:94+k*10,width:50,height:6,rx:2,fill:k===1?'#edc87d':'#73c6ba'}));else g.append(S('path',{d:`M${x-20} 94h30l11 12v24h-41zM${x+10} 94v13h11`,fill:'none',stroke:'#8ae5c8','stroke-width':2}));});
  const x=xs[Math.min(n-1,Math.max(0,phase))],token=S(kind==='mail'?'rect':'circle',kind==='mail'?{x:x-13,y:173,width:26,height:19,rx:3,fill:'#ffd67c'}:{cx:x,cy:184,r:12,fill:'#ffd67c'});anim(token,kind==='mail'?'x':'cx',xs[Math.max(0,phase-1)]-(kind==='mail'?13:0),x-(kind==='mail'?13:0));g.append(token);key(labels,phase)
