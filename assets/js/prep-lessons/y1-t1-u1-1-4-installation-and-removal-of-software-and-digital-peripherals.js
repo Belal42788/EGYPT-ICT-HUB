@@ -1,0 +1,66 @@
+(() => {
+'use strict';
+const D=JSON.parse(document.getElementById('lesson-data').textContent);if(!['installation','email','datatoai','uxui','functions','inputerrors'].includes(D.lab))return;
+const box=document.getElementById('interactive-lab'),NS='http://www.w3.org/2000/svg';
+function isolate(s){return s.replace(/[A-Za-z0-9_"'\[\]()=.,+<>{}@#$%&:/?!\- ]+/g,v=>/[A-Za-z0-9]/.test(v)?v.match(/^\s*/)[0]+'\u2066'+v.trim()+'\u2069'+v.match(/\s*$/)[0]:v)}
+const t=p=>Array.isArray(p)?(document.documentElement.lang==='en'?p[1]:isolate(p[0])):String(p);
+const E=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=t(text);if(cls)n.className=cls;return n};
+const B=(id,p,fn,primary=false)=>{const n=E('button',p,'btn'+(primary?' primary':''));n.id=id;n.type='button';n.onclick=()=>{stop();fn();paint()};return n};
+const S=(tag,attrs={},text)=>{const n=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=text;return n};
+let timer=null,playing=false;function stop(){if(timer!==null)clearInterval(timer);timer=null;playing=false}
+function run(next,done,reset){if(done())reset();playing=true;timer=setInterval(()=>{next();if(done())stop();paint()},1000)}
+function title(a,e,na,ne){box.append(E('h3',[a,e]),E('p',[na,ne],'source-note'))}
+function note(a,e){box.append(E('p',[a,e],'source-note'))}
+function panel(p,cls='wb-panel'){const n=E('div',undefined,cls);if(p)n.append(E('h4',p));box.append(n);return n}
+function controls(nodes){const n=E('div',undefined,'scene-actions');n.append(...nodes);box.append(n)}
+function out(id,p,bad=false){const n=E('div',p,'wb-result'+(bad?' invalid':''));n.id=id;n.setAttribute('role','status');box.append(n);return n}
+function select(id,p,opts,v,fn){const row=E('label',undefined,'wb-field'),n=E('select');row.htmlFor=id;row.append(E('span',p));n.id=id;for(const[value,label]of opts){const o=E('option',label);o.value=value;n.append(o)}n.value=v;n.onchange=()=>{stop();fn(n.value);paint()};row.append(n);box.append(row);return n}
+function check(id,p,v,fn){const row=E('label',undefined,'wb-check'),n=E('input');n.type='checkbox';n.id=id;n.checked=v;n.onchange=()=>{stop();fn(n.checked);paint()};row.append(n,E('span',p));box.append(row);return n}
+function input(id,p,v,fn){const row=E('label',undefined,'wb-field'),n=E('input');row.htmlFor=id;row.append(E('span',p));n.id=id;n.type='text';n.value=v;n.maxLength=24;n.autocomplete='off';n.spellcheck=false;n.onchange=()=>{stop();fn(n.value);paint()};row.append(n);box.append(row);return n}
+function code(s){const n=E('pre',undefined,'code-block');n.dir='ltr';n.append(E('code',s));box.append(n)}
+function svg(p,h=250){const n=S('svg',{viewBox:`0 0 740 ${h}`,class:'wb-svg',role:'img','aria-label':t(p)});box.append(n);return n}
+function anim(n,attr,from,to){if(from!==to&&!matchMedia('(prefers-reduced-motion:reduce)').matches)n.append(S('animate',{attributeName:attr,from,to,dur:'.7s',fill:'freeze'}))}
+function key(labels,active){const row=E('div',undefined,'wb3-key');labels.forEach((p,i)=>row.append(E('span',p,i===active?'active':'')));box.append(row)}
+function journey(labels,phase,kind='file'){
+ const g=svg(['رموز تتحرك بين مراحل المثال المحدد','Symbols moving between this example’s stages'],230),n=labels.length,xs=labels.map((_,i)=>75+i*590/(n-1));
+ g.append(S('path',{d:'M75 95H665',stroke:'#375b68','stroke-width':5,fill:'none'}));xs.forEach((x,i)=>{g.append(S('rect',{x:x-48,y:42,width:96,height:108,rx:18,fill:i===phase?'#20574c':'#102d3b',stroke:i===phase?'#72e3bb':'#42616f','stroke-width':2}),S('text',{x,y:79,fill:'#d7efed','font-family':'monospace','font-size':20,'text-anchor':'middle'},String(i+1).padStart(2,'0')));if(kind==='mail')g.append(S('rect',{x:x-25,y:95,width:50,height:31,rx:3,fill:'none',stroke:'#8ae5c8','stroke-width':2}),S('path',{d:`M${x-25} 96l25 19 25-19`,fill:'none',stroke:'#8ae5c8','stroke-width':2}));else if(kind==='data')for(let k=0;k<3;k++)g.append(S('rect',{x:x-25,y:94+k*10,width:50,height:6,rx:2,fill:k===1?'#edc87d':'#73c6ba'}));else g.append(S('path',{d:`M${x-20} 94h30l11 12v24h-41zM${x+10} 94v13h11`,fill:'none',stroke:'#8ae5c8','stroke-width':2}));});
+ const x=xs[Math.min(n-1,Math.max(0,phase))],token=S(kind==='mail'?'rect':'circle',kind==='mail'?{x:x-13,y:173,width:26,height:19,rx:3,fill:'#ffd67c'}:{cx:x,cy:184,r:12,fill:'#ffd67c'});anim(token,kind==='mail'?'x':'cx',xs[Math.max(0,phase-1)]-(kind==='mail'?13:0),x-(kind==='mail'?13:0));g.append(token);key(labels,phase)
+}
+function pause(id){return B(id,['إيقاف الحركة','Pause'],()=>stop())}
+// Installation is a local state model. It never downloads, installs or prints.
+const ins={source:'zip',trusted:true,compatible:true,extracted:false,phase:0,installed:false,notice:null,model:'usb',port:'usb',connected:false,driver:'none',configured:false,print:0,pnotice:null};
+function installNext(){if(!ins.trusted||!ins.compatible){ins.notice=['توقف:تحقق من مصدر موثوق وتوافق البرنامج أولًا. لم يُثبت شيء.','Stopped: verify trusted provenance and compatibility first. Nothing was installed.'];stop();return}if(ins.source==='zip'&&!ins.extracted&&ins.phase>=1){ins.notice=['الملف المضغوط يحتاج استخراجًا في مثال الكتاب قبل تشغيل المثبت.','The textbook archive needs extraction before its installer can run.'];stop();return}ins.notice=null;ins.phase=Math.min(4,ins.phase+1);if(ins.phase===4)ins.installed=true}
+function printerReady(){return ins.connected&&((ins.model==='usb'&&ins.port==='usb')||(ins.model==='legacy'&&ins.port==='lpt1'&&ins.configured))}
+function paintInstallation(){
+ title('حزمة ← تثبيت ← إزالة، دون لمس الجهاز','Package → install → remove, without touching the device','كل الملفات والمساحة والطابعة رموز خيالية داخل الصفحة. لا تنزيل أو تثبيت أو طباعة فعلية.','Every file, capacity and printer is fictional and local to this page. No real downloads, installation or printing.');
+ select('install-source',['مصدر الحزمة التدريبية','Practice package source'],[['zip',['أرشيف ZIP خيالي','Fictional ZIP archive']],['disc',['قرص CD/DVD خيالي','Fictional CD/DVD']],['file',['ملف منزل خيالي','Fictional downloaded installer']]],ins.source,v=>{ins.source=v;ins.phase=0;ins.installed=false;ins.notice=null;ins.extracted=false});
+ check('install-trust',['المصدر الرسمي معلوم في هذا السيناريو','The official source is known in this scenario'],ins.trusted,v=>{ins.trusted=v;ins.phase=0;ins.installed=false;ins.notice=null});
+ check('install-compatible',['البرنامج متوافق مع النظام في السيناريو','The app is compatible in this scenario'],ins.compatible,v=>{ins.compatible=v;ins.phase=0;ins.installed=false;ins.notice=null});
+ if(ins.source==='zip')check('install-extract',['استخرجنا الأرشيف الخيالي','The fictional archive was extracted'],ins.extracted,v=>{ins.extracted=v;ins.phase=0;ins.installed=false;ins.notice=null});
+ journey([['حزمة','Package'],['فحص واستخراج','Check/extract'],['معالج التثبيت','Setup wizard'],['تجهيز الملفات','Set up files'],['جاهز','Ready']],ins.phase);
+ const store=panel(['ملفات نموذجية ومساحة افتراضية','Model files and fictional capacity'],'wb-files');store.append(E('div',ins.installed?'SketchLab.app ✓':'SketchLab.app ○','wb-file'),E('div','student-project.txt ✓','wb-file'),E('div',[`حر:${ins.installed?104:128} MB`,`Free:${ins.installed?104:128} MB`],'wb-file'));store.dir='ltr';
+ const play=B('install-play',['شاهد التثبيت','Watch installation'],()=>run(installNext,()=>ins.phase===4,()=>{ins.phase=0}),true),step=B('install-step',['خطوة واحدة','One step'],installNext);play.disabled=step.disabled=ins.installed;
+ controls([play,step,pause('install-pause'),B('install-remove',['أزل البرنامج الخيالي','Uninstall the fictional app'],()=>{if(!ins.installed){ins.notice=['لا يوجد برنامج مثبت في النموذج.','No app is installed in the model.'];return}ins.installed=false;ins.phase=0;ins.notice=['أزيل البرنامج وعادت 24 MB افتراضية. بقي student-project.txt؛ الإزالة لا تضمن حذف كل ملف في كل نظام.','The app was removed and 24 fictional MB returned. student-project.txt remains; uninstalling does not guarantee every file is deleted.']}),B('install-reset',['صفّر المثال','Reset example'],()=>{Object.assign(ins,{source:'zip',trusted:true,compatible:true,extracted:false,phase:0,installed:false,notice:null})})]);
+ out('install-status',ins.notice||[`${ins.phase}/4 مراحل. ${ins.installed?'البرنامج جاهز داخل النموذج فقط.':'لم ينته التثبيت بعد.'}`,`${ins.phase}/4 stages. ${ins.installed?'The app is ready only inside this model.':'Installation has not finished.'}`],!!ins.notice&&!ins.notice[1].startsWith('The app was removed'));
+ note('24 MB حجم خيالي للتوضيح. تغيير اختيار المصدر يبدأ سيناريو جديدًا، وليس إجراءً على جهازك. صور Windows 7 في الكتاب تاريخية؛ لا نقدمها كواجهة حديثة ثابتة.','24 MB is an invented teaching size. Changing source begins a new scenario, not a device operation. The textbook Windows 7 images are historical, not a universal current UI.');
+ box.append(E('h3',['من الكابل إلى صفحة اختبار خيالية','From cable to a fictional test page']));
+ select('printer-model',['الطابعة النموذجية','Model printer'],[['usb',['A:USB وتوصيل وتشغيل','A: USB with Plug and Play']],['legacy',['B: قديمة موازية وبرنامج تشغيل يدوي','B: legacy parallel with manual driver']]],ins.model,v=>{ins.model=v;ins.configured=false;ins.print=0;ins.pnotice=null});
+ select('printer-port',['المنفذ المختار','Selected port'],[['usb','USB'],['lpt1','LPT1']],ins.port,v=>{ins.port=v;ins.configured=false;ins.print=0;ins.pnotice=null});
+ check('printer-connected',['الكابل متصل في النموذج','The model cable is connected'],ins.connected,v=>{ins.connected=v;ins.configured=false;ins.print=0;ins.pnotice=null});
+ select('printer-driver',['برنامج التشغيل المتاح يدويًا','Manually available driver'],[['none',['لا شيء','None']],['a',['Driver A.inf','Driver A.inf']],['b',['Driver B.inf','Driver B.inf']]],ins.driver,v=>{ins.driver=v;ins.configured=false;ins.print=0;ins.pnotice=null});
+ controls([B('printer-apply',['طبّق برنامج التشغيل','Apply driver'],()=>{ins.configured=ins.model==='legacy'&&ins.port==='lpt1'&&ins.connected&&ins.driver==='b';ins.pnotice=ins.configured?['تم إعداد B ببرنامج متوافق في النموذج.','B is configured with a matching model driver.']:printerReady()?['A مهيأة تلقائيًا ببرنامج مدمج في هذا السيناريو.','A uses a built-in driver automatically in this scenario.']:['لا إعداد:تحقق من الكابل والمنفذ وتوافق برنامج التشغيل.','Not configured: check cable, port and driver compatibility.']}),B('printer-test',['شاهد صفحة اختبار','Watch a test page'],()=>{if(!printerReady()){ins.pnotice=['توقف:الطابعة غير جاهزة. التوصيل والتشغيل ليس ضمانًا لكل جهاز.','Stopped: printer not ready. Plug and Play is not guaranteed for every device.'];return}ins.pnotice=null;run(()=>ins.print++,()=>ins.print>=3,()=>ins.print=0)},true),pause('printer-pause')]);
+ const g=svg(['رسم لطابعة يخرج منها ورق اختباري','A model printer with an emerging test sheet'],230);g.id='printer-scene';g.append(S('path',{d:'M75 105H240',stroke:ins.connected?'#7fe0b9':'#c67f86','stroke-width':7,'stroke-dasharray':ins.connected?'none':'12 8'}),S('rect',{x:260,y:60,width:240,height:102,rx:20,fill:'#174555',stroke:'#76b8b6','stroke-width':3}),S('rect',{x:293,y:89,width:172,height:20,rx:4,fill:'#071f2a'}));const sheet=S('g');sheet.append(S('rect',{x:317,y:ins.print>=3?115:68,width:126,height:86,rx:4,fill:'#d9eee8'}),S('text',{x:380,y:ins.print>=3?150:103,'text-anchor':'middle',fill:'#17313b','font-family':'monospace','font-size':17},ins.print>=3?'TEST ✓':'TEST'));if(ins.print>=3&&!matchMedia('(prefers-reduced-motion:reduce)').matches)sheet.append(S('animateTransform',{attributeName:'transform',type:'translate',from:'0 -45',to:'0 0',dur:'.8s',fill:'freeze'}));g.append(sheet,S('circle',{cx:478,cy:80,r:7,fill:printerReady()?'#82e7b7':'#c77d88'}));
+ out('printer-status',ins.pnotice||[`${printerReady()?'جاهزة':'غير جاهزة'} · ${ins.print>=3?'خرجت صفحة اختبار رمزية.':ins.print?'تنقل مهمة طباعة رمزية…':'لم تبدأ طباعة.'}`,`${printerReady()?'Ready':'Not ready'} · ${ins.print>=3?'A symbolic test page emerged.':ins.print?'A model print job is travelling…':'No print started.'}`],!!ins.pnotice&&!printerReady());
+ note('Driver Store و Have Disk و Windows Update مصادر/مسارات يذكرها الكتاب، وليست أزرار تنزيل هنا. المنفذ LPT1 مثال تاريخي للطابعة الموازية، لا منفذ كل طابعة حديثة.','Driver Store, Have Disk and Windows Update are textbook sources/routes, not downloads here. LPT1 is a historical parallel-printer example, not every modern printer’s port.');
+}
+// All account and mail states are fictional, with fixed non-secret fields.
+const mail={phase:0,parent:false,terms:false,signed:false,notice:null,send:0,delivered:false,pending:'ar',saved:'ar'};
+// A fitted line versus interpolation:held-out references are never fitted.
+// The deliberately weak interface is contained inside a labelled prototype.
+// Fixed programs, not eval or a general Python interpreter.
+const fn={mode:'add',a:'3',b:'5',missing:false,phase:0,outside:false};
+// A deliberately bounded decimal-string model. Unsupported Python forms are
+// reported as interface limits, not invented Python ValueErrors.
+function paint(){box.textContent='';paintInstallation()}
+window.paintLab=paint;document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing){stop();paint()}});window.addEventListener('pagehide',stop);paint();
+})();
