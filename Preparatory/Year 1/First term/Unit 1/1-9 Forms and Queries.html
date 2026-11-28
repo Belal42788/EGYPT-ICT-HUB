@@ -138,7 +138,41 @@ function code(s){const n=E('pre',undefined,'code-block');n.dir='ltr';n.append(E(
 function svg(p,h=250){const n=S('svg',{viewBox:`0 0 740 ${h}`,class:'wb-svg',role:'img','aria-label':t(p)});box.append(n);return n}
 function anim(n,attr,from,to){if(from!==to&&!matchMedia('(prefers-reduced-motion:reduce)').matches)n.append(S('animate',{attributeName:attr,from,to,dur:'.7s',fill:'freeze'}))}
 function key(labels,active){const row=E('div',undefined,'wb3-key');row.style.gridTemplateColumns=`repeat(${labels.length},minmax(0,1fr))`;labels.forEach((p,i)=>row.append(E('span',p,i===active?'active':'')));box.append(row)}
+function dataJourney(labels,phase){
+ const g=svg(['سجلات المثال الحقيقية تعبر مراحل الاستعلام: المصدر ثم اختبار الشروط ثم اختيار الأعمدة ثم الناتج','The example real records crossing the query stages: source, criteria test, column projection, result'],320),n=labels.length,ltr=document.documentElement.lang==='en',xs=labels.map((_,i)=>ltr?75+i*590/(n-1):665-i*590/(n-1));
+ const keys=['id','name','ar','en','co'],fills={id:'#8496a5',name:'#73c6ba',ar:'#7fb0e8',en:'#edc87d',co:'#8fd6a0'};
+ const raw=FQ.cut.trim(),cutN=safeInt(raw,0,20);
+ const pass=r=>{const c=[];if(FQ.name!=='any')c.push(r.name===FQ.name);if(raw!==''&&cutN!==null)c.push(FQ.op==='gt'?r.en>cutN:r.en>=cutN);return !c.length||(FQ.logic==='and'?c.every(Boolean):c.some(Boolean))};
+ const passing=FQ.rows.filter(pass);
+ g.append(S('path',{d:'M75 264H665',stroke:'#375b68','stroke-width':5,fill:'none'}));
+ const W={id:18,name:34,ar:18,en:18,co:18};
+ const cell=(par,cx,cy,k,val,on)=>{const w=W[k];par.append(S('rect',{x:cx,y:cy,width:w,height:17,rx:3,fill:on?fills[k]:'#102d3b',stroke:on?'none':'#42616f','stroke-width':1}));if(on)par.append(S('text',{x:cx+w/2,y:cy+12.5,fill:'#0b2239','font-size':k==='name'?9:11,'font-family':k==='name'?'inherit':'monospace','text-anchor':'middle'},val))};
+ const val=(r,k)=>k==='name'?String(t(namelist[r[k]])).replace(/\s*\(.*\)\s*/,''):String(r[k]);
+ const rowCells=(par,x,y,r,mode)=>{let cur=ltr?x-59:x+59;keys.forEach((k,j)=>{const w=W[k];const cx=ltr?cur:cur-w;
+   if(mode==='project')cell(par,cx,y,k,val(r,k),FQ.show[j]);else cell(par,cx,y,k,val(r,k),true);cur=ltr?cur+w+3:cur-w-3})};
+ xs.forEach((x,i)=>{
+  g.append(S('rect',{x:x-68,y:34,width:136,height:190,rx:18,fill:i===phase?'#20574c':'#102d3b',stroke:i===phase?'#72e3bb':'#42616f','stroke-width':2,'stroke-dasharray':(i===3&&!FQ.result)?'6 5':'none'}));
+  g.append(S('text',{x,y:66,fill:'#d7efed','font-family':'monospace','font-size':20,'text-anchor':'middle'},String(i+1).padStart(2,'0')));
+  if(i===0)FQ.rows.forEach((r,k)=>rowCells(g,x,92+k*30,r,'source'));
+  if(i===1){g.append(S('path',{d:'M'+(x-14)+' 82h28l-8 12v14h-12V94z',fill:'none',stroke:'#8ae5c8','stroke-width':2}));
+   FQ.rows.forEach((r,k)=>{const gg=S('g',{opacity:pass(r)?1:.28});g.append(gg);rowCells(gg,x,122+k*30,r,'gate');
+    if(!pass(r))gg.append(S('text',{x:x-64,y:135+k*30,fill:'#ff9d8a','font-size':13,'text-anchor':'start'},'✕'))})}
+  if(i===2){if(passing.length)passing.forEach((r,k)=>{const gg=S('g',{});g.append(gg);rowCells(gg,x,92+k*30,r,'project')});
+   else g.append(S('text',{x,y:140,fill:'#8aa8b5','font-size':13,'text-anchor':'middle'},t(['لا سجلات عابرة','No passing rows'])))}
+  if(i===3){const shown=keys.map((k,j)=>FQ.show[j]?j:-1).filter(j=>j>=0);
+   if(passing.length&&shown.length)passing.forEach((r,k)=>{const gg=S('g',{opacity:FQ.result?1:.55});g.append(gg);
+    let cur=ltr?x-59:x+59;shown.forEach(j=>{const k2=keys[j],w=W[k2];const cx=ltr?cur:cur-w;cell(gg,cx,92+k*30,k2,val(r,k2),true);cur=ltr?cur+w+3:cur-w-3})});
+   else g.append(S('text',{x,y:140,fill:'#8aa8b5','font-size':13,'text-anchor':'middle'},t(['لا نتيجة بهذه الشروط','No result under these criteria'])));}
+ });
+ const tok=S('g',{transform:'translate('+xs[Math.min(n-1,Math.max(0,phase))]+' 250)'});
+ if(passing.length)passing.forEach((r,k)=>{tok.append(S('rect',{x:-24,y:-16+k*12,width:48,height:10,rx:3,fill:'#ffd67c'}));tok.append(S('text',{x:0,y:-8+k*12,fill:'#102d3b','font-size':8,'font-family':'monospace','text-anchor':'middle'},'#'+r.id))});
+ else tok.append(S('rect',{x:-24,y:-8,width:48,height:16,rx:4,fill:'none',stroke:'#ffd67c','stroke-width':2}));
+ const px=xs[Math.max(0,phase-1)],tx=xs[Math.min(n-1,Math.max(0,phase))];
+ if(px!==tx&&!matchMedia('(prefers-reduced-motion:reduce)').matches)tok.append(S('animateTransform',{attributeName:'transform',type:'translate',from:px+' 250',to:tx+' 250',dur:'.7s',fill:'freeze'}));
+ g.append(tok);key(labels,phase)
+}
 function journey(labels,phase,kind='file'){
+ if(kind==='data')return dataJourney(labels,phase);
  const g=svg(['رموز تتحرك بين مراحل المثال المحدد','Symbols moving between this example\'s stages'],230),n=labels.length,xs=labels.map((_,i)=>document.documentElement.lang==='en'?75+i*590/(n-1):665-i*590/(n-1));
  g.append(S('path',{d:'M75 95H665',stroke:'#375b68','stroke-width':5,fill:'none'}));xs.forEach((x,i)=>{g.append(S('rect',{x:x-48,y:42,width:96,height:108,rx:18,fill:i===phase?'#20574c':'#102d3b',stroke:i===phase?'#72e3bb':'#42616f','stroke-width':2}),S('text',{x,y:79,fill:'#d7efed','font-family':'monospace','font-size':20,'text-anchor':'middle'},String(i+1).padStart(2,'0')));if(kind==='mail')g.append(S('rect',{x:x-25,y:95,width:50,height:31,rx:3,fill:'none',stroke:'#8ae5c8','stroke-width':2}),S('path',{d:`M${x-25} 96l25 19 25-19`,fill:'none',stroke:'#8ae5c8','stroke-width':2}));else if(kind==='data')for(let k=0;k<3;k++)g.append(S('rect',{x:x-25,y:94+k*10,width:50,height:6,rx:2,fill:k===1?'#edc87d':'#73c6ba'}));else g.append(S('path',{d:`M${x-20} 94h30l11 12v24h-41zM${x+10} 94v13h11`,fill:'none',stroke:'#8ae5c8','stroke-width':2}));});
  const x=xs[Math.min(n-1,Math.max(0,phase))],token=S(kind==='mail'?'rect':'circle',kind==='mail'?{x:x-13,y:173,width:26,height:19,rx:3,fill:'#ffd67c'}:{cx:x,cy:184,r:12,fill:'#ffd67c'});anim(token,kind==='mail'?'x':'cx',xs[Math.max(0,phase-1)]-(kind==='mail'?13:0),x-(kind==='mail'?13:0));g.append(token);key(labels,phase)
