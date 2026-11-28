@@ -14,3 +14,25 @@
 #interactive-lab .s5-table{font-size:12.5px}
 #interactive-lab .s5-table th,#interactive-lab .s5-table td{padding:6px 5px}
 }
+/* Handwritten fonts for the 1-9 register scene (OFL, self-hosted like Cairo). */
+@font-face{font-family:'Marhey';font-style:normal;font-weight:400 700;font-display:swap;src:url('../../fonts/marhey-arabic.woff2') format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:'Marhey';font-style:normal;font-weight:400 700;font-display:swap;src:url('../../fonts/marhey-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url('../../fonts/caveat-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F}
+/* Register scene motion: CSS (not SMIL) so animations restart correctly when the lab repaints each phase. */
+@media (prefers-reduced-motion:no-preference){
+.rg-fade{opacity:0;animation:rg-in .5s ease both}
+.rg-pop{opacity:0;animation:rg-in .3s ease both}
+.rg-strike{stroke-dashoffset:100;animation:rg-draw .5s ease both}
+.rg-wipe{animation:rg-wipe .45s ease both}
+.rg-slip{opacity:0;animation:rg-slip .6s ease .1s both}
+.rg-slam{opacity:0;transform-box:fill-box;transform-origin:center;animation:rg-slam .5s cubic-bezier(.2,1.6,.4,1) .45s both}
+.rg-slam0{transform-box:fill-box;transform-origin:center;animation:rg-stamp .45s ease both;opacity:0}
+.rg-pen{animation:rg-pen .55s ease both}
+}
+@keyframes rg-in{to{opacity:1}}
+@keyframes rg-draw{to{stroke-dashoffset:0}}
+@keyframes rg-wipe{from{width:0}}
+@keyframes rg-slip{from{transform:translateY(90px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes rg-slam{from{transform:scale(2.3);opacity:0}60%{transform:scale(.92);opacity:1}to{transform:scale(1);opacity:1}}
+@keyframes rg-stamp{from{transform:scale(1.5);opacity:0}to{transform:scale(1);opacity:.55}}
+@keyframes rg-pen{from{transform:translate(var(--fx),var(--fy))}to{transform:translate(var(--tx),var(--ty))}}

@@ -138,7 +138,114 @@ function code(s){const n=E('pre',undefined,'code-block');n.dir='ltr';n.append(E(
 function svg(p,h=250){const n=S('svg',{viewBox:`0 0 740 ${h}`,class:'wb-svg',role:'img','aria-label':t(p)});box.append(n);return n}
 function anim(n,attr,from,to){if(from!==to&&!matchMedia('(prefers-reduced-motion:reduce)').matches)n.append(S('animate',{attributeName:attr,from,to,dur:'.7s',fill:'freeze'}))}
 function key(labels,active){const row=E('div',undefined,'wb3-key');row.style.gridTemplateColumns=`repeat(${labels.length},minmax(0,1fr))`;labels.forEach((p,i)=>row.append(E('span',p,i===active?'active':'')));box.append(row)}
+function dataJourney(labels,phase){
+ const g=svg(['سجلات المثال مكتوبة بخط اليد في دفتر درجات ورقي يمر بمراحل الاستعلام','The example records handwritten in a paper grade register passing through the query stages'],330),n=labels.length,ltr=document.documentElement.lang==='en';
+ const raw=FQ.cut.trim(),cutN=safeInt(raw,0,20);
+ const pass=r=>{const c=[];if(FQ.name!=='any')c.push(r.name===FQ.name);if(raw!==''&&cutN!==null)c.push(FQ.op==='gt'?r.en>cutN:r.en>=cutN);return !c.length||(FQ.logic==='and'?c.every(Boolean):c.some(Boolean))};
+ const nm=r=>String(t(namelist[r.name])).replace(/\s*\(.*\)\s*/,'');
+ const keys=['id','name','ar','en','co'],showK=k=>FQ.show[keys.indexOf(k)];
+ const FL=[['id','id'],['الاسم','Name'],['العربي','Arabic'],['الإنجليزي','English'],['الكمبيوتر','Computer']];
+ const rtl=s2=>/[\u0600-\u06FF]/.test(s2)?'\u2067'+s2+'\u2069':s2;
+ const FA="'Marhey','Cairo',cursive",FD="'Caveat','Marhey','Cairo',cursive";
+ const defs=S('defs',{});
+ const rough=S('filter',{id:'rgD',x:'-5%',y:'-5%',width:'110%',height:'110%'});
+ rough.append(S('feTurbulence',{type:'fractalNoise',baseFrequency:'0.035',numOctaves:3,seed:7,result:'n'}),S('feDisplacementMap',{in:'SourceGraphic',in2:'n',scale:2.6}));
+ const wood=S('linearGradient',{id:'rgDw',x1:'0',y1:'0',x2:'0',y2:'1'});
+ wood.append(S('stop',{offset:'0','stop-color':'#a07a4e'}),S('stop',{offset:'1','stop-color':'#7d5c38'}));
+ defs.append(rough,wood);g.append(defs);
+ g.append(S('rect',{x:0,y:0,width:740,height:330,fill:'url(#rgDw)'}));
+ for(let i=0;i<4;i++)g.append(S('path',{d:'M'+(20+i*190)+' '+(60+(i%2)*200)+' q 90 '+(i%2?16:-13)+' 185 0',stroke:'#6d4f30','stroke-width':5,fill:'none',opacity:.22,filter:'url(#rgD)'}));
+ const xs=labels.map((_,i)=>ltr?105+i*530/(n-1):635-i*530/(n-1));
+ xs.forEach((x,i)=>{
+  const on=i===phase,ink=on?'#1d3f8f':'#5a6a8a';
+  const st=S('g',{transform:'translate('+x+' 26) rotate('+((i%2)?1.6:-1.6)+')',opacity:on?1:.4});
+  st.append(S('rect',{x:-70,y:-15,width:140,height:30,rx:7,fill:'#f7f1de',stroke:ink,'stroke-width':2.2,filter:'url(#rgD)'}));
+  st.append(S('text',{x:0,y:5,fill:ink,'font-size':13.5,'font-family':FA,'text-anchor':'middle'},rtl(String(i+1)+' · '+t(labels[i]))));
+  if(on){const pl=S('g',{class:'rg-slam0'});pl.append(S('rect',{x:-70,y:-15,width:140,height:30,rx:7,fill:'none',stroke:ink,'stroke-width':1.4}));st.append(pl)}
+  g.append(st);
+  if(i<n-1){const ax=ltr?x+74:x-74,gx=ltr?xs[i+1]-74:xs[i+1]+74;g.append(S('path',{d:'M'+ax+' 26 q '+((gx-ax)/2)+' '+(i%2?-9:9)+' '+(gx-ax)+' 0',stroke:'#5a6a8a','stroke-width':2,fill:'none',opacity:.55,filter:'url(#rgD)','stroke-linecap':'round'}))}
+ });
+ const pg=S('g',{transform:'rotate(-1.2 370 190)'});g.append(pg);
+ pg.append(S('rect',{x:70,y:56,width:600,height:262,rx:5,fill:'#f8f2df',stroke:'#d8c9a3','stroke-width':2,filter:'url(#rgD)'}));
+ pg.append(S('rect',{x:82,y:48,width:52,height:15,rx:2,fill:'#e8d98a',opacity:.65,transform:'rotate(-38 108 55)'}));
+ pg.append(S('rect',{x:606,y:48,width:52,height:15,rx:2,fill:'#e8d98a',opacity:.65,transform:'rotate(34 632 55)'}));
+ for(let k=0;k<6;k++)pg.append(S('line',{x1:86,y1:136+k*34,x2:654,y2:136+k*34,stroke:'#a8c2ce','stroke-width':1,opacity:.65}));
+ pg.append(S('line',{x1:ltr?100:640,y1:66,x2:ltr?100:640,y2:308,stroke:'#e08a8a','stroke-width':1.6,opacity:.8}));
+ pg.append(S('text',{x:370,y:92,fill:'#3b4a6b','font-size':23,'font-family':FA,'text-anchor':'middle',filter:'url(#rgD)'},t(['دفتر درجات الطلاب','Student grade register'])));
+ pg.append(S('circle',{cx:118,cy:292,r:24,fill:'none',stroke:'#8a6844','stroke-width':4,opacity:.16}));
+ pg.append(S('circle',{cx:118,cy:292,r:19,fill:'none',stroke:'#8a6844','stroke-width':2,opacity:.12}));
+ const cols=ltr?[150,245,355,460,555]:[590,495,385,280,175];
+ FL.forEach((p,i)=>pg.append(S('text',{x:cols[i],y:126,fill:'#55688a','font-size':15,'font-family':FA,'text-anchor':'middle'},t(p))));
+ const rowY=k=>160+k*34;
+ const condA=[];if(FQ.name!=='any')condA.push('الاسم = '+nm({name:FQ.name}));if(raw!==''&&cutN!==null)condA.push('الإنجليزي '+(FQ.op==='gt'?'>':'≥')+' '+cutN);
+ const condE=[];if(FQ.name!=='any')condE.push('Name = '+String(namelist[FQ.name][1]).replace(/\s*\(.*\)\s*/,''));if(raw!==''&&cutN!==null)condE.push('English '+(FQ.op==='gt'?'>':'≥')+' '+cutN);
+ const noteT=rtl(t([condA.length?condA.join(FQ.logic==='and'?' AND ':' OR '):'بلا شروط',condE.length?condE.join(FQ.logic==='and'?' AND ':' OR '):'no criteria']));
+ const sn=S('g',{transform:'translate('+(ltr?516:82)+' 62) rotate('+(ltr?3:-3)+')'});
+ sn.append(S('rect',{x:0,y:0,width:142,height:46,rx:2,fill:'#ffe98a',stroke:'#e3cf6d','stroke-width':1.5,filter:'url(#rgD)'}));
+ sn.append(S('rect',{x:56,y:-7,width:30,height:11,rx:2,fill:'#e8d98a',opacity:.8,transform:'rotate(-2 71 -2)'}));
+ sn.append(S('text',{x:71,y:18,fill:'#6b5b2a','font-size':11.5,'font-family':FA,'text-anchor':'middle'},t(['الشرط:','Criteria:'])));
+ sn.append(S('text',{x:71,y:35,fill:'#6b5b2a','font-size':12,'font-family':FA,'text-anchor':'middle'},noteT));
+ pg.append(sn);
+ const penFrom=(ltr?150:590)+'px,74px';
+ let penTo=null;{const fk=FQ.rows.findIndex(r=>!pass(r));if(phase>=1&&fk>=0)penTo=((ltr?118:622)+'px,'+(rowY(fk)-12)+'px')}
+ const penO=S('g',{transform:'translate('+(penTo?penTo.replace(/px/g,''):(ltr?'150 74':'590 74'))+')',class:penTo?'rg-pen':'','style:':'x'});
+ penO.removeAttribute('style:');
+ if(penTo){penO.style.setProperty('--fx',penFrom.split(',')[0]);penO.style.setProperty('--fy','74px');penO.style.setProperty('--tx',penTo.split(',')[0]);penO.style.setProperty('--ty',penTo.split(',')[1])}
+ const penI=S('g',{transform:'rotate('+(ltr?24:-24)+')'});
+ penI.append(S('rect',{x:0,y:-3.5,width:48,height:7,rx:3.5,fill:'#2f4a8a',filter:'url(#rgD)'}));
+ penI.append(S('path',{d:'M48 -3.5 L62 0 L48 3.5 Z',fill:'#d9b24a',stroke:'#a8843a','stroke-width':1}));
+ penI.append(S('circle',{cx:6,cy:0,r:1.6,fill:'#d9b24a'}));
+ penO.append(penI);pg.append(penO);
+ const tickX=ltr?86:652;
+ FQ.rows.forEach((r,k)=>{
+  const y=rowY(k),rg=S('g',{class:'rg-fade'});
+  rg.style.animationDelay=(k*.22)+'s';
+  rg.append(S('text',{x:cols[0],y,fill:'#333c56','font-size':16,'font-family':FD,'text-anchor':'middle'},String(r.id)));
+  rg.append(S('text',{x:cols[1],y,fill:'#333c56','font-size':15.5,'font-family':FA,'text-anchor':'middle'},nm(r)));
+  ['ar','en','co'].forEach((kk,q)=>rg.append(S('text',{x:cols[2+q],y,fill:'#333c56','font-size':16,'font-family':FD,'text-anchor':'middle'},String(r[kk]))));
+  pg.append(rg);
+ });
+ if(phase>=1)FQ.rows.forEach((r,k)=>{
+  const y=rowY(k),ok=pass(r);
+  if(!ok){
+   pg.append(S('path',{d:'M'+(ltr?120:615)+' '+(y-4)+' q '+(ltr?62:-62)+' -4 '+(ltr?124:-124)+' 0 t '+(ltr?371:-371)+' 0',stroke:'#d94f3d','stroke-width':2.6,fill:'none',filter:'url(#rgD)','stroke-linecap':'round',pathLength:100,'stroke-dasharray':100,'stroke-dashoffset':0,class:'rg-strike',style:'animation-delay:'+(.55+k*.5)+'s'}));
+   const xx=S('text',{x:tickX,y:y+5,fill:'#d94f3d','font-size':19,'font-family':FA,'text-anchor':'middle',transform:'rotate(-9 '+tickX+' '+y+')',class:'rg-pop'},'✕');
+   xx.style.animationDelay=(1.05+k*.5)+'s';pg.append(xx);
+   if(k===FQ.rows.findIndex(rr=>!pass(rr)))pg.append(S('text',{x:ltr?180:560,y:y+16,fill:'#d94f3d','font-size':10.5,'font-family':FA,'text-anchor':'middle',class:'rg-pop'},rtl(t(['خارج الشرط','fails criteria']))));
+  }else{
+   const tk=S('text',{x:tickX,y:y+5,fill:'#2e8b57','font-size':18,'font-family':FA,'text-anchor':'middle',transform:'rotate(6 '+tickX+' '+y+')',class:'rg-pop'},'✓');
+   tk.style.animationDelay=(.3+k*.28)+'s';pg.append(tk);
+  }
+ });
+ if(phase>=2)keys.forEach((kk,i)=>{
+  const cx2=cols[i],rot=((i*37)%5)-2;
+  if(showK(kk)){
+   const mk=(yy,h,o,b)=>{const hl=S('rect',{x:cx2-38,y:yy,width:76,height:h,fill:'#d8f45f',opacity:o,style:'mix-blend-mode:multiply',class:'rg-wipe'});hl.style.animationDelay=b+'s';pg.append(hl)};
+   mk(115,17,.5,i*.1);FQ.rows.forEach((r,k)=>mk(rowY(k)-12.5,16,.42,.15+i*.1+k*.07));
+  }else{
+   const mk=(yy,h,w,b,r2)=>{const tp=S('rect',{x:cx2-w/2,y:yy,width:w,height:h,rx:2,fill:'#fdfdf8',stroke:'#d9d9cd','stroke-width':1,opacity:.97,transform:'rotate('+r2+' '+cx2+' '+(yy+h/2)+')',filter:'url(#rgD)',class:'rg-wipe'});tp.style.animationDelay=b+'s';pg.append(tp)};
+   mk(113,18,74,i*.09,rot);FQ.rows.forEach((r,k)=>mk(rowY(k)-13,16,66,.12+i*.09+k*.07,-rot));
+  }
+ });
+ if(phase>=3&&FQ.result){
+  const ix=FQ.result.show.flatMap((v,i)=>v?[i]:[]),cnt=FQ.result.rows.length,sh=34+cnt*19;
+  const slip=S('g',{class:'rg-slip'});
+  slip.append(S('rect',{x:110,y:324-sh,width:280,height:sh,rx:4,fill:'#fdf9ec',stroke:'#d8c9a3','stroke-width':2,filter:'url(#rgD)'}));
+  slip.append(S('text',{x:250,y:324-sh+19,fill:'#3b4a6b','font-size':13.5,'font-family':FA,'text-anchor':'middle'},rtl(t(['نتيجة الاستعلام','Query result']))));
+  FQ.result.rows.forEach((row,k)=>{const parts=ix.map(i=>keys[i]==='name'?nm({name:row[i]}):row[i]);slip.append(S('text',{x:250,y:324-sh+38+k*19,fill:'#333c56','font-size':13,'font-family':FA,'text-anchor':'middle'},rtl(parts.join(' · '))))});
+  g.append(slip);
+  const stmO=S('g',{transform:'translate(455 288) rotate(-12)'});
+  const stm=S('g',{class:'rg-slam'});
+  stm.append(S('circle',{cx:0,cy:0,r:27,fill:'none',stroke:'#b8433a','stroke-width':3,filter:'url(#rgD)'}));
+  stm.append(S('circle',{cx:0,cy:0,r:21,fill:'none',stroke:'#b8433a','stroke-width':1.2,opacity:.7,filter:'url(#rgD)'}));
+  stm.append(S('text',{x:0,y:-2,fill:'#b8433a','font-size':12,'font-family':FA,'text-anchor':'middle'},t(['الناتج','Result'])));
+  stm.append(S('text',{x:0,y:13,fill:'#b8433a','font-size':13,'font-family':FA,'text-anchor':'middle'},rtl(cnt+' '+t(['سجل','rows']))));
+  stmO.append(stm);g.append(stmO);
+ }
+ key(labels,phase)
+}
 function journey(labels,phase,kind='file'){
+ if(kind==='data')return dataJourney(labels,phase);
  const g=svg(['رموز تتحرك بين مراحل المثال المحدد','Symbols moving between this example\'s stages'],230),n=labels.length,xs=labels.map((_,i)=>document.documentElement.lang==='en'?75+i*590/(n-1):665-i*590/(n-1));
  g.append(S('path',{d:'M75 95H665',stroke:'#375b68','stroke-width':5,fill:'none'}));xs.forEach((x,i)=>{g.append(S('rect',{x:x-48,y:42,width:96,height:108,rx:18,fill:i===phase?'#20574c':'#102d3b',stroke:i===phase?'#72e3bb':'#42616f','stroke-width':2}),S('text',{x,y:79,fill:'#d7efed','font-family':'monospace','font-size':20,'text-anchor':'middle'},String(i+1).padStart(2,'0')));if(kind==='mail')g.append(S('rect',{x:x-25,y:95,width:50,height:31,rx:3,fill:'none',stroke:'#8ae5c8','stroke-width':2}),S('path',{d:`M${x-25} 96l25 19 25-19`,fill:'none',stroke:'#8ae5c8','stroke-width':2}));else if(kind==='data')for(let k=0;k<3;k++)g.append(S('rect',{x:x-25,y:94+k*10,width:50,height:6,rx:2,fill:k===1?'#edc87d':'#73c6ba'}));else g.append(S('path',{d:`M${x-20} 94h30l11 12v24h-41zM${x+10} 94v13h11`,fill:'none',stroke:'#8ae5c8','stroke-width':2}));});
  const x=xs[Math.min(n-1,Math.max(0,phase))],token=S(kind==='mail'?'rect':'circle',kind==='mail'?{x:x-13,y:173,width:26,height:19,rx:3,fill:'#ffd67c'}:{cx:x,cy:184,r:12,fill:'#ffd67c'});anim(token,kind==='mail'?'x':'cx',xs[Math.max(0,phase-1)]-(kind==='mail'?13:0),x-(kind==='mail'?13:0));g.append(token);key(labels,phase)
