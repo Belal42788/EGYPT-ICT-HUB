@@ -34,3 +34,7 @@
 - Colored per-person account avatars (Google-style palette) in call grid, filmstrip and people panel.
 - Tile mic-off badges now dark like real Meet (red is only for control-bar off states); name labels float with text shadow instead of black pills; subtle tile borders.
 - Verified 1366 and 390: no overflow, no console errors.
+
+## 1-6 Drive lab realism (preview/labs-realistic)
+- Real multicolor Drive triangle logo (SVG) replacing the gradient placeholder; sidebar nav icons (folder/people/cloud/trash); multicolor plus in the New button; magnifier in the search pill; blue Docs-style file icon replacing the page emoji; cloud chip label without emoji.
+- Verified 1366 and 390: no overflow, no console errors; share dialog/upload flow unchanged.
