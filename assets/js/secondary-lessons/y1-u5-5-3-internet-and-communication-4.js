@@ -12,22 +12,6 @@
 
 
     /* ---------- particles ---------- */
-    (function () {
-      var box = document.getElementById('particles');
-      if (!box) return; /* 'particles' removed by design - skip safely */
-      if (!box) return;
-      var frag = document.createDocumentFragment();
-      for (var i = 0; i < 28; i++) {
-        var s = document.createElement('i');
-        s.style.left = (Math.random() * 100) + 'vw';
-        s.style.animationDuration = (14 + Math.random() * 14) + 's';
-        s.style.animationDelay = (Math.random() * 12) + 's';
-        s.style.width = s.style.height = (2 + Math.random() * 4) + 'px';
-        if (Math.random() > .65) s.style.background = 'var(--accent)';
-        frag.appendChild(s);
-      }
-      box.appendChild(frag);
-    })();
 
     /* ---------- nav ---------- */
     var nav = document.getElementById('topnav');
@@ -469,35 +453,4 @@ function wireRecall() {
     });
 
     /* ---------- glossary ---------- */
-    (function () {
-      var search = document.getElementById('glossarySearch');
-      if (!search) return;
-      var filters = document.querySelectorAll('.gl-filter');
-      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
-      var activeFilter = 'all';
-
-      function applyFilters() {
-        var q = search.value.trim().toLowerCase();
-        terms.forEach(function (t) {
-          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
-          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
-          t.classList.toggle('hidden', !(catOk && textOk));
-        });
-      }
-
-      filters.forEach(function (f) {
-        f.addEventListener('click', function () {
-          filters.forEach(function (x) { x.classList.remove('active'); });
-          f.classList.add('active');
-          activeFilter = f.getAttribute('data-filter');
-          applyFilters();
-        });
-      });
-
-      search.addEventListener('input', applyFilters);
-
-      document.addEventListener('langChange', function () {
-        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
-      });
-    })();
   
