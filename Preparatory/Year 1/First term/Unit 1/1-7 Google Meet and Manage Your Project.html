@@ -164,7 +164,8 @@ function meet(){
  if(!window.__mlFit){window.__mlFit=1;addEventListener('resize',()=>{document.querySelectorAll('.ml-canvas').forEach(c=>{const p=c.parentElement,w=p.clientWidth,ph=w<720;c.classList.toggle('ml-phone',ph);if(ph){c.style.transform='';c.style.left='';p.style.height='';return}const s=Math.min(1,w/1280);c.style.transform='scale('+s+')';c.style.left=Math.max(0,(w-1280*s)/2)+'px';p.style.height=(720*s)+'px'})})}
  setTimeout(fit,0);
  const PEOPLE=[[['المعلمة سارة','Teacher Sara'],'س','host'],[['عمر','Omar'],'ع',''],[['لينا','Lina'],'ل',''],[['أنت','You'],'أ','you']];
- const tile=(name,initial,extra,you)=>{const d=E('div',undefined,'ml-tile '+extra);const av=E('span',undefined,'ml-avatar');av.textContent=initial;d.append(av);const tag=E('span',undefined,'ml-nametag');tag.append(bl(...name));d.append(tag);
+ const AVC=['#9334e6','#1a73e8','#188038','#e8710a'];
+ const tile=(name,initial,extra,you,avc)=>{const d=E('div',undefined,'ml-tile '+extra);const av=E('span',undefined,'ml-avatar');av.textContent=initial;if(avc)av.style.background=avc;d.append(av);const tag=E('span',undefined,'ml-nametag');tag.append(bl(...name));d.append(tag);
   if(you){const micSt=E('span',undefined,'ml-mic'+(M.mic?' on':' off'));micSt.append(ico(M.mic?'mic':'micOff'));d.append(micSt);if(M.hand){const h=E('span',undefined,'ml-hand');h.append(ico('hand'));d.append(h)}if(M.mic)d.classList.add('talking')}else{const ms=E('span',undefined,'ml-mic off');ms.append(ico('micOff'));d.append(ms)}
   return d};
  if(!M.made){
@@ -204,19 +205,19 @@ function meet(){
     if(M.share==='screen'){const w=E('div',undefined,'ml-warning');w.append(bl('نافذة ملاحظاتك الخاصة ظاهرة للجميع! مشاركة الشاشة كلها تكشف كل ما عليها.','Your private-notes window is visible to everyone! Sharing the entire screen reveals everything on it.','p'));sheet.append(w)}
     stage.append(sheet);grid.append(stage);
     const strip=E('div',undefined,'ml-strip');
-    PEOPLE.forEach(pr=>strip.append(tile(pr[0],pr[1],'mini',pr[2]==='you')));grid.append(strip);
+    PEOPLE.forEach((pr,i)=>strip.append(tile(pr[0],pr[1],'mini',pr[2]==='you',AVC[i])));grid.append(strip);
     const band=E('div',undefined,'ml-band');
     band.append(bl(M.share==='screen'?'أنت تعرض الشاشة كلها للجميع':M.share==='window'?'أنت تعرض النافذة المختارة فقط':'أنت تعرض علامة التبويب فقط',M.share==='screen'?'You are presenting your entire screen':M.share==='window'?'You are presenting the selected window only':'You are presenting the tab only','span'));
     const stopB=E('button',undefined,'ml-stop');stopB.type='button';stopB.id='mt-stop';stopB.append(bl('إيقاف العرض فقط','Stop presenting only'));stopB.onclick=act(()=>{M.present=false;M.msg=['انتهى العرض، ولم نغادر الاجتماع أو نبدل الميكروفون.','Presentation stopped, without leaving or changing the mic.']});band.append(stopB);grid.append(band);
    }else{
-    PEOPLE.forEach(pr=>grid.append(tile(pr[0],pr[1],pr[2]==='host'?'host-tile'+(M.permit?'':''):'',pr[2]==='you')));
+    PEOPLE.forEach((pr,i)=>grid.append(tile(pr[0],pr[1],pr[2]==='host'?'host-tile'+(M.permit?'':''):'',pr[2]==='you',AVC[i])));
     if(M.cc){const cap=E('div',undefined,'ml-cc');cap.append(bl('تعليقات توضيحية خيالية: مرحبًا يا فصلنا','Fictional captions: Hello, class','p'));grid.append(cap)}
    }
    main.append(grid);
    if(M.panel==='people'){
     const pp=E('div',undefined,'ml-side-panel');
     pp.append(bl('المشاركون','People','h4'));
-    PEOPLE.forEach(pr=>{const r=E('div',undefined,'ml-prow');const av=E('span',undefined,'ml-avatar sm');av.textContent=pr[1];r.append(av);r.append(bl(...pr[0]));if(pr[2]==='host')r.append(bl('المضيف','Host','small'));
+    PEOPLE.forEach((pr,i)=>{const r=E('div',undefined,'ml-prow');const av=E('span',undefined,'ml-avatar sm');av.textContent=pr[1];av.style.background=AVC[i];r.append(av);r.append(bl(...pr[0]));if(pr[2]==='host')r.append(bl('المضيف','Host','small'));
      if(pr[2]==='you'){const give=E('button',undefined,'ml-mini');give.type='button';give.id='mt-permit';give.append(bl(M.hand&&!M.permit?'المضيف يسمح بالكلام':'إذن الكلام','Give the floor'));give.disabled=!(M.hand&&!M.permit);give.onclick=act(()=>{M.permit=true;M.phase=Math.max(M.phase,5);M.msg=['تم الإذن؛ حالة الميكروفون لم تتغير. المضيف لا يستطيع فتح ميكروفون شخص آخر.','Permission granted; microphone state unchanged. A host cannot unmute another person.']});r.append(give)}
      else{const hm=E('button',undefined,'ml-mini');hm.type='button';hm.append(bl('فتح الميكروفون','Unmute'));hm.onclick=act(()=>{M.msg=['المضيف لا يستطيع فتح ميكروفون شخص آخر — يكتمه فقط.','A host cannot unmute another person - they can only mute them.']});r.append(hm)}
      pp.append(r)});

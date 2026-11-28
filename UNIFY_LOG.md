@@ -29,3 +29,8 @@
 - Rewrote the email lab chrome to mirror real Gmail: desktop web (multicolor envelope logo, search pill with icons, help/gear/apps/avatar, folder list with SVG icons, tabs Primary/Social/Promotions, message rows with checkbox/star/avatar/time, compose dock bottom-corner) and phone app (search pill + avatar, FAB compose, bottom bar Mail/Meet, full-screen compose sheet).
 - Compose now closes on symbolic send like real Gmail; delivered row appears in inbox.
 - SVG icons replace all emoji chrome. Verified 1366 and 390: no overflow, no console errors.
+
+## 1-7 Meet lab realism (preview/labs-realistic)
+- Colored per-person account avatars (Google-style palette) in call grid, filmstrip and people panel.
+- Tile mic-off badges now dark like real Meet (red is only for control-bar off states); name labels float with text shadow instead of black pills; subtle tile borders.
+- Verified 1366 and 390: no overflow, no console errors.
