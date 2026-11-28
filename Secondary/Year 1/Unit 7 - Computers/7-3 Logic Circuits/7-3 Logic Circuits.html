@@ -10,990 +10,12 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 7-3 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-tbl{ margin-top:12px }.book-tbl .bt-note{ font-size:.85rem; opacity:.8; margin-bottom:8px }.book-tbl table.bt{ display:inline-table; vertical-align:top; border-collapse:collapse; margin:0 0 14px; margin-inline-end:22px }.book-tbl table.bt caption{ text-align:start; font-weight:700; margin-bottom:4px; color:var(--s2, #9a6a00); color:color-mix(in srgb, var(--s2, #9a6a00) 72%, #000) }.book-tbl table.bt th, .book-tbl table.bt td{ border:1px solid rgba(11, 16, 32, 0.18); padding:6px 16px; text-align:center }.book-tbl table.bt th{ background:rgba(11, 16, 32, 0.06) }.book-tbl .bt-sub{ font-size:.72rem; opacity:.7; font-weight:400 }
-
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/7-computers-7-3-logic-circuits--7-3-logic-circuits-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="contrast-pass-3">
-/* Readability pass 3: faded component blocks and light code editors. */
-.bt,.bt-sub{opacity:1!important}
-.bt-sub{color:#2f3542!important}
-.bt-note{opacity:1!important;color:#3a4152!important}
-.email-vals{color:#1a3fd0!important}
-.chat-who{color:#3a4152!important}
-.html-edit,.js-edit,.py-edit,textarea{color:var(--text)!important}
-</style>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
+
 </head>
 
 <body>
@@ -1030,12 +52,12 @@ select{color:var(--text)!important}
       <div class="hero-badge" data-ar="الدرس 3 — دوائر المنطق" data-en="Lesson 3 — Logic Circuits">الدرس 3 — دوائر المنطق</div>
       <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>الدوائر</span> المنطقية" data-en="<span class=&quot;grad&quot;>Logic</span> Circuits">الدوائر <span class="grad">المنطقية</span></h1>
       <p class="hero-sub"
-        data-ar="دوائر المنطق (Logic Circuits) — دوائر المنطق هي أساس الكمبيوتر كله. النهارده هنتعلّم العمليات المنطقية، ودائرة المنطق، وجدول الصح (Truth table)، وبوّابات AND وOR وNOT، وفي الآخر نصفي الجمع (Half adder) والجمع الكامل (Full adder)."
+        data-ar="دوائر المنطق — دوائر المنطق هي أساس الكمبيوتر كله. النهارده هنتعلّم العمليات المنطقية، ودائرة المنطق، وجدول الصح، وبوّابات AND وOR وNOT، وفي الآخر نصفي الجمع والجمع الكامل."
         data-en="Logic Circuits — logic circuits are the basis of the whole computer. Today we learn logical operations, the Logic circuit, the Truth table, the AND, OR, and NOT gates, and finally the Half adder and the Full adder.">
         <span dir="ltr">Logic Circuits</span> — الدوائر المنطقية هي أساس الكمبيوتر كله. النهارده هنتعلم العمليات المنطقية
-        Logical operations، والدائرة المنطقية Logic circuit، وجدول الحقيقة Truth table، والبوابات AND وOR وNOT، ونهائياً
-        الجامع النصفي Half adder والجامع الكامل Full adder.</p>
-      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ Logical operations، والدائرة المنطقية Logic circuit، وجدول الحقيقة Truth table، والبوابات AND وOR وNOT، ونهائياً
+ الجامع النصفي Half adder والجامع الكامل Full adder.</p>
+      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 
@@ -1054,18 +76,18 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#1440c9)">01</div>
           <div>
             <h2 data-ar="إيه اللي هنتعلّمه النهارده؟" data-en="What will we learn today?">إيه اللي هنتعلّمه النهارده؟</h2>
-            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — دوائر المنطق (Logic Circuits)"
-              data-en="Lesson introduction — Logic Circuits">مقدمة الدرس — دوائر المنطق (Logic Circuits)</div>
+            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — دوائر المنطق"
+              data-en="Lesson introduction — Logic Circuits">مقدمة الدرس — دوائر المنطق</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الكمبيوتر مبني بالكامل على دوائر المنطق — دوائر بتشتغل بالأرقام 0 و1 وتعمل عمليات منطقية. النهارده هنتعلّم العمليات المنطقية، ودائرة المنطق، وجدول الصح (truth table)، وبوّابات AND وOR وNOT، وفي الآخر نصفي الجمع (half adder) والجمع الكامل (full adder)."
+        <p data-ar="الكمبيوتر مبني بالكامل على دوائر المنطق — دوائر بتشتغل بالأرقام 0 و1 وتعمل عمليات منطقية. النهارده هنتعلّم العمليات المنطقية، ودائرة المنطق، وجدول الصح، وبوّابات AND وOR وNOT، وفي الآخر نصفي الجمع والجمع الكامل."
           data-en="A computer is built entirely on logic circuits — circuits that work with the numbers 0 and 1 and perform logical operations. Today we learn logical operations, the logic circuit, the truth table, the AND, OR, and NOT gates, and finally the half adder and full adder.">
-          الكمبيوتر كله مبني على <b>الدوائر المنطقية</b> — دوائر بتشتغل بأرقام 0 و1 وبتنفذ عمليات منطقية. النهارده هنتعلم
-          العمليات المنطقية، والدائرة المنطقية، وجدول الحقيقة، والبوابات AND وOR وNOT، ونهائياً الجامع النصفي والجامع
-          الكامل.</p>
+ الكمبيوتر كله مبني على <b>الدوائر المنطقية</b> — دوائر بتشتغل بأرقام 0 و1 وبتنفذ عمليات منطقية. النهارده هنتعلم
+ العمليات المنطقية، والدائرة المنطقية، وجدول الحقيقة، والبوابات AND وOR وNOT، ونهائياً الجامع النصفي والجامع
+ الكامل.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="دائرة المنطق زي مفتاح النور: إشارة بتدخل (0 أو 1)، والدائرة بتقرّر المخرج — شغّال أو مقفول."
             data-en="A logic circuit is like a light switch: a signal goes in (0 or 1), and the circuit decides the output — on or off.">دائرة المنطق زي مفتاح النور: إشارة بتدخل (0 أو 1)، والدائرة بتقرّر المخرج — شغّال أو مقفول.</span></div>
@@ -1080,14 +102,14 @@ select{color:var(--text)!important}
                   style="color:var(--s2)" data-ar="العمليات المنطقية"
                   data-en="logical operations">العمليات المنطقية</b></span></div>
             <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">⚡</span><span><b
-                  style="color:var(--s3)" data-ar="دائرة المنطق وجدول الصح (Truth table)"
-                  data-en="the Logic circuit and the Truth table">دائرة المنطق وجدول الصح (Truth table)</b></span></div>
+                  style="color:var(--s3)" data-ar="دائرة المنطق وجدول الصح"
+                  data-en="the Logic circuit and the Truth table">دائرة المنطق وجدول الصح</b></span></div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🚪</span><span><b
                   style="color:var(--s4)" data-ar="بوّابات المنطق — AND وOR وNOT"
                   data-en="the logic gates — AND, OR, and NOT">بوّابات المنطق — AND وOR وNOT</b></span></div>
             <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">➕</span><span><b
-                  style="color:var(--s5)" data-ar="نصفي الجمع (Half adder) والجمع الكامل (Full adder)"
-                  data-en="the Half adder and the Full adder">نصفي الجمع (Half adder) والجمع الكامل (Full adder)</b></span></div>
+                  style="color:var(--s5)" data-ar="نصفي الجمع والجمع الكامل"
+                  data-en="the Half adder and the Full adder">نصفي الجمع والجمع الكامل</b></span></div>
           </div>
           <div class="demo-panel">
             <div class="demo-label" data-ar="ليه بنتعلم ده؟" data-en="Why do we learn this?">ليه بنتعلم ده؟</div>
@@ -1099,12 +121,12 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين بوّابة AND وبوّابة OR — AND بتبدّع 1 بس لما كل المدخلات 1، وOR بتبدّع 1 لو على الأقل مدخل واحد 1."
             data-en="Confusing the AND gate with the OR gate — AND outputs 1 only when all inputs are 1, and OR outputs 1 if at least one input is 1.">الخلط بين بوّابة AND وبوّابة OR — AND بتبدّع 1 بس لما كل المدخلات 1، وOR بتبدّع 1 لو على الأقل مدخل واحد 1.</li>
-          <li data-ar="الخلط بين نصفي الجمع والجمع الكامل — نصفي الجمع بيجمع أرقام مفردة، والجمع الكامل بيحسب بقية النقل (carry)."
-            data-en="Confusing the half adder with the full adder — the half adder adds single-digit numbers, and the full adder considers the carry.">الخلط بين نصفي الجمع والجمع الكامل — نصفي الجمع بيجمع أرقام مفردة، والجمع الكامل بيحسب بقية النقل (carry).</li>
+          <li data-ar="الخلط بين نصفي الجمع والجمع الكامل — نصفي الجمع بيجمع أرقام مفردة، والجمع الكامل بيحسب بقية النقل."
+            data-en="Confusing the half adder with the full adder — the half adder adds single-digit numbers, and the full adder considers the carry.">الخلط بين نصفي الجمع والجمع الكامل — نصفي الجمع بيجمع أرقام مفردة، والجمع الكامل بيحسب بقية النقل.</li>
         </ul>
       </div>
     </section>
@@ -1117,8 +139,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="العمليات المنطقية" data-en="Logical Operations">العمليات المنطقية <span dir="ltr">(Logical
                 Operations)</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="عمليات باستخدام تركيبات 0 و1 — صفحة 91 بالكتاب"
-              data-en="operations using combinations of 0 and 1 — book page 91">عمليات باستخدام تركيبات 0 و1 — صفحة 91 بالكتاب</div>
+            <div class="tag" style="color:var(--s2)" data-ar="عمليات باستخدام تركيبات 0 و1 — بالكتاب"
+              data-en="operations using combinations of 0 and 1 — book">عمليات باستخدام تركيبات 0 و1 — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1127,9 +149,9 @@ select{color:var(--text)!important}
         <p data-ar="العمليات المنطقية هي عمليات بتتعمل باستخدام تركيبات الأرقام 0 و1."
           data-en="Logical operations are operations performed using combinations of the numbers 0 and 1.">
           <b>العمليات المنطقية <span dir="ltr">(Logical operations)</span></b> هي عمليات بنعملها بتركيبات من الرقمين 0 و1.</p>
-        <p data-ar="في الكمبيوتر، 1 بتتعمَل صح (true) و0 غلط (false)."
+        <p data-ar="في الكمبيوتر، 1 بتتعمَل صح و0 غلط."
           data-en="In computers, 1 is processed as true and 0 as false.">وفي الكمبيوتر، «1» بيتعامل معاملة <span dir="ltr">true</span> (صح)
-          و«0» بيتعامل معاملة <span dir="ltr">false</span> (غلط).</p>
+ و«0» بيتعامل معاملة <span dir="ltr">false</span> (غلط).</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="زي إجابة صح أو غلط: صح = 1، غلط = 0 — والعمليات المنطقية بتقرّر بيهم."
             data-en="Like a true or false answer: true = 1, false = 0 — and logical operations decide with them.">زي إجابة صح أو غلط: صح = 1، غلط = 0 — والعمليات المنطقية بتقرّر بيهم.</span></div>
@@ -1153,8 +175,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="logicalPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="logicalNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="logicalPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="logicalNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="logicalCounter">1 / 3</span>
                 <button class="mini-btn" data-id="logicalReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1227,14 +249,14 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="دائرة المنطق" data-en="The Logic Circuit">الدائرة المنطقية <span dir="ltr">(Logic
                 Circuit)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="دائرة متصممة عشان تعمل عمليات منطقية — صفحة 91 بالكتاب"
-              data-en="a circuit designed to perform logical operations — book page 91">دائرة متصممة عشان تعمل عمليات منطقية — صفحة 91 بالكتاب</div>
+            <div class="tag" style="color:var(--s3)" data-ar="دائرة متصممة عشان تعمل عمليات منطقية — بالكتاب"
+              data-en="a circuit designed to perform logical operations — book">دائرة متصممة عشان تعمل عمليات منطقية — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="دائرة المنطق (Logic circuit) هي دائرة متصممة عشان تعمل عمليات منطقية."
+        <p data-ar="دائرة المنطق هي دائرة متصممة عشان تعمل عمليات منطقية."
           data-en="A Logic circuit is a circuit designed to perform logical operations.">
           <b>الدائرة المنطقية <span dir="ltr">(Logic circuit)</span></b> هي دائرة مصممة عشان تنفذ عمليات منطقية.</p>
         <p data-ar="بتاخد مدخلات (0 أو 1) وتنتج مخرج (0 أو 1) حسب العملية اللي مبنية عليها."
@@ -1262,8 +284,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="circuitPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="circuitNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="circuitPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="circuitNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="circuitCounter">1 / 3</span>
                 <button class="mini-btn" data-id="circuitReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1293,7 +315,7 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="circuitRq1o2" data-key="A"
                 data-fb-ar="مش كده — ده شغل العتاد عامةً."
                 data-fb-en="Not quite — that is hardware in general."><span class="rq-key">A</span><span
-                  class="rq-body" data-ar="تخزين داتا (Data)" data-en="storing data">تخزين داتا (Data)</span></div>
+                  class="rq-body" data-ar="تخزين بيانات" data-en="storing data">تخزين بيانات</span></div>
               <div class="rq-opt" data-id="circuitRq1o1" data-key="B" data-ok="1"
                 data-fb-ar="صحيح! الدائرة المنطقية مصممة لتنفيذ العمليات المنطقية."
                 data-fb-en="Correct! A logic circuit is designed to perform logical operations."><span
@@ -1338,24 +360,24 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
           <div>
-            <h2 data-ar="جدول الصح (Truth table)" data-en="The Truth Table">جدول الحقيقة <span dir="ltr">(Truth Table)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="كل تركيبات المدخلات والمخرجات الممكنة — صفحة 91 بالكتاب"
-              data-en="all possible input and output combinations — book page 91">كل تركيبات المدخلات والمخرجات الممكنة — صفحة 91 بالكتاب</div>
+            <h2 data-ar="جدول الصح" data-en="The Truth Table">جدول الحقيقة <span dir="ltr">(Truth Table)</span></h2>
+            <div class="tag" style="color:var(--s4)" data-ar="كل تركيبات المدخلات والمخرجات الممكنة — بالكتاب"
+              data-en="all possible input and output combinations — book">كل تركيبات المدخلات والمخرجات الممكنة — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="جدول الصح (Truth table) هو جدول بيورّي كل تركيبات المدخلات والمخرجات الممكنة لدائرة منطق."
+        <p data-ar="جدول الصح هو جدول بيورّي كل تركيبات المدخلات والمخرجات الممكنة لدائرة منطق."
           data-en="A Truth table is a table that shows all possible combinations of inputs and outputs for a logic circuit.">
           <b>جدول الحقيقة <span dir="ltr">(Truth table)</span></b> هو جدول بيبيّن كل التركيبات الممكنة للمدخلات والمخرجات
-          بتاعة دائرة منطقية.</p>
+ بتاعة دائرة منطقية.</p>
         <p data-ar="بمدخلين، الجدول فيه 4 تركيبات: 00 و01 و10 و11."
           data-en="With two inputs, the table has 4 combinations: 00, 01, 10, and 11.">لو عندنا مدخلين، الجدول بيبقى فيه
-          <b>4 تركيببات</b>: 00 و01 و10 و11.</p>
+ <b>4 تركيببات</b>: 00 و01 و10 و11.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="جدول الصح (truth table) زي جدول النتايج في لعبة: كل حركة (مدخل) ونتيجتها (مخرج)."
-            data-en="A truth table is like a results table in a game: every move (input) and its result (output).">جدول الصح (truth table) زي جدول النتايج في لعبة: كل حركة (مدخل) ونتيجتها (مخرج).</span></div>
+            data-ar="جدول الصح زي جدول النتايج في لعبة: كل حركة (مدخل) ونتيجتها (مخرج)."
+            data-en="A truth table is like a results table in a game: every move (input) and its result (output).">جدول الصح زي جدول النتايج في لعبة: كل حركة (مدخل) ونتيجتها (مخرج).</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«وجداول الصواب المطبوعة بجوار رسم كل دائرة:بوابة AND — (A=0، B=0) → X=0؛ (0، 1) → 0؛ (1، 0) → 0؛ (1، 1) → 1. بوابة OR — (0، 0) → 0؛ (0، 1) → 1؛ (1، 0) → 1؛ (1، 1) → 1. دائرة NOT — A=0 → X=1؛ A=1 → X=0.»</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-tbl" data-ar="&lt;div class=&quot;bt-note&quot;&gt;إعادة تنسيق للجداول المطبوعة أعلاه — نفس القيم من الكتاب، والتنسيق الجدولي فقط من إعدادنا.&lt;/div&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;بوابة AND — جدول الصواب المطبوع&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مدخل&lt;/span&gt;&lt;/th&gt;&lt;th&gt;B&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مدخل&lt;/span&gt;&lt;/th&gt;&lt;th&gt;X&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مخرج&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;بوابة OR — جدول الصواب المطبوع&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مدخل&lt;/span&gt;&lt;/th&gt;&lt;th&gt;B&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مدخل&lt;/span&gt;&lt;/th&gt;&lt;th&gt;X&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مخرج&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;دائرة NOT — جدول الصواب المطبوع&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مدخل&lt;/span&gt;&lt;/th&gt;&lt;th&gt;X&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مخرج&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-en="&lt;div class=&quot;bt-note&quot;&gt;The tables below reformat the printed tables above - same values from the book; only the layout is ours.&lt;/div&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;AND gate - printed truth table&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;input&lt;/span&gt;&lt;/th&gt;&lt;th&gt;B&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;input&lt;/span&gt;&lt;/th&gt;&lt;th&gt;X&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;output&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;OR gate - printed truth table&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;input&lt;/span&gt;&lt;/th&gt;&lt;th&gt;B&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;input&lt;/span&gt;&lt;/th&gt;&lt;th&gt;X&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;output&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;NOT circuit - printed truth table&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;input&lt;/span&gt;&lt;/th&gt;&lt;th&gt;X&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;output&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"><div class="bt-note">إعادة تنسيق للجداول المطبوعة أعلاه — نفس القيم من الكتاب، والتنسيق الجدولي فقط من إعدادنا.</div><table class="bt"><caption>بوابة AND — جدول الصواب المطبوع</caption><tr><th>A<br><span class="bt-sub">مدخل</span></th><th>B<br><span class="bt-sub">مدخل</span></th><th>X<br><span class="bt-sub">مخرج</span></th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table><table class="bt"><caption>بوابة OR — جدول الصواب المطبوع</caption><tr><th>A<br><span class="bt-sub">مدخل</span></th><th>B<br><span class="bt-sub">مدخل</span></th><th>X<br><span class="bt-sub">مخرج</span></th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table><table class="bt"><caption>دائرة NOT — جدول الصواب المطبوع</caption><tr><th>A<br><span class="bt-sub">مدخل</span></th><th>X<br><span class="bt-sub">مخرج</span></th></tr><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></table></div></div></div>
 
       <div class="section-inner">
@@ -1369,15 +391,15 @@ select{color:var(--text)!important}
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="truth"></svg>
                 <div class="svg-label" data-fbox="comb" data-ar="كل تركيبات المدخلات الممكنة"
                   data-en="all possible input combinations">كل تركيبات المدخلات الممكنة</div>
-                <div class="svg-label" data-fbox="tbl" data-ar="جدول الصح (Truth table)"
-                  data-en="the Truth table">جدول الصح (Truth table)</div>
+                <div class="svg-label" data-fbox="tbl" data-ar="جدول الصح"
+                  data-en="the Truth table">جدول الصح</div>
                 <div class="svg-label" data-fbox="res" data-ar="المخرج لكل تركيبة"
                   data-en="the output for each combination">المخرج لكل تركيبة</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="truthPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="truthNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="truthPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="truthNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="truthCounter">1 / 3</span>
                 <button class="mini-btn" data-id="truthReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1416,7 +438,7 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="truthRq1o3" data-key="C"
                 data-fb-ar="مش كده — جدول الحقيقة للمخرجات مش للعتاد."
                 data-fb-en="Not quite — a truth table is for outputs, not hardware."><span class="rq-key">C</span><span
-                  class="rq-body" data-ar="مكوّنات هاردوير (Hardware)" data-en="hardware components">مكوّنات هاردوير (Hardware)</span></div>
+                  class="rq-body" data-ar="مكوّنات هاردوير" data-en="hardware components">مكوّنات هاردوير</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="truthRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -1453,8 +475,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="بوّابة AND" data-en="The AND Gate">البوابة AND <span dir="ltr">(Logical conjunction
                 circuit)</span></h2>
-            <div class="tag" style="color:var(--s5)" data-ar="تبدّع 1 بس لما كل المدخلات 1 — صفحة 91 بالكتاب"
-              data-en="outputs 1 only when all inputs are 1 — book page 91">تبدّع 1 بس لما كل المدخلات 1 — صفحة 91 بالكتاب</div>
+            <div class="tag" style="color:var(--s5)" data-ar="تبدّع 1 بس لما كل المدخلات 1 — بالكتاب"
+              data-en="outputs 1 only when all inputs are 1 — book">تبدّع 1 بس لما كل المدخلات 1 — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1488,8 +510,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="andPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="andNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="andPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="andNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="andCounter">1 / 3</span>
                 <button class="mini-btn" data-id="andReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1566,8 +588,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="بوّابة OR" data-en="The OR Gate">البوابة OR <span dir="ltr">(Logical disjunction
                 circuit)</span></h2>
-            <div class="tag" style="color:var(--s6)" data-ar="تبدّع 1 لو على الأقل مدخل واحد 1 — صفحة 91 بالكتاب"
-              data-en="outputs 1 if at least one input is 1 — book page 91">تبدّع 1 لو على الأقل مدخل واحد 1 — صفحة 91 بالكتاب</div>
+            <div class="tag" style="color:var(--s6)" data-ar="تبدّع 1 لو على الأقل مدخل واحد 1 — بالكتاب"
+              data-en="outputs 1 if at least one input is 1 — book">تبدّع 1 لو على الأقل مدخل واحد 1 — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1601,8 +623,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="orPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="orNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="orPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="orNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="orCounter">1 / 3</span>
                 <button class="mini-btn" data-id="orReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1677,8 +699,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">07</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 91–94 (المطبوع 91–94)؛ AR 103–106"
-              data-en="Your book: EN PDF 91–94 (printed 91–94); AR 103–106">الكتاب بتاعك:EN PDF 91–94 (المطبوع 91–94)؛ AR 103–106</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1706,7 +728,7 @@ select{color:var(--text)!important}
           <p data-ar="«الشرح» المطبوع: «(1) بوابة AND (دائرة الاقتران المنطقية). دائرة AND هي دائرة تخرج 1 فقط عندما تكون جميع المدخلات 1. لذلك ، فإن جدول الحقيقة هو كما يلي. [جدول مطبوع بعنواني مدخل/مخرج: (A=0، B=0) → X=0؛ (0، 1) → 0؛ (1، 0) → 0؛ (1، 1) → 1] (2) إنشاء وتحليل جدول الحقيقة لكل دائرة. [جدول التحليل المطبوع A B C D X: 0 0 0 1 1؛ 0 1 0 0 0؛ 1 0 0 1 1؛ 1 1 1 0 1] لذلك ، فإن جدول الحقيقة هو كما يلي: [جدول مطبوع بعنواني إدخال/إخراج: (A=0، B=0) → X=1؛ (0، 1) → 0؛ (1، 0) → 1؛ (1، 1) → 1]»" data-en="&quot;Printed Explanation:(1) AND Circuit (logical conjunction circuit). An AND circuit is a circuit that outputs 1 only when all inputs are 1. Therefore, the truth table is as follows. [printed table: (A=0, B=0) -> X=0; (0, 1) -> 0; (1, 0) -> 0; (1, 1) -> 1] (2) Create and analyze the truth table for each circuit. [printed analysis table A B C D X:0 0 0 1 1; 0 1 0 0 0; 1 0 0 1 1; 1 1 1 0 1] Therefore, the truth table is as follows. [printed table:(A=0, B=0) -> X=1; (0, 1) -> 0; (1, 0) -> 1; (1, 1) -> 1]&quot;">«الشرح» المطبوع:«(1) بوابة AND (دائرة الاقتران المنطقية). دائرة AND هي دائرة تخرج 1 فقط عندما تكون جميع المدخلات 1. لذلك ، فإن جدول الحقيقة هو كما يلي. [جدول مطبوع بعنواني مدخل/مخرج: (A=0، B=0) → X=0؛ (0، 1) → 0؛ (1، 0) → 0؛ (1، 1) → 1] (2) إنشاء وتحليل جدول الحقيقة لكل دائرة. [جدول التحليل المطبوع A B C D X: 0 0 0 1 1؛ 0 1 0 0 0؛ 1 0 0 1 1؛ 1 1 1 0 1] لذلك ، فإن جدول الحقيقة هو كما يلي: [جدول مطبوع بعنواني إدخال/إخراج: (A=0، B=0) → X=1؛ (0، 1) → 0؛ (1، 0) → 1؛ (1، 1) → 1]»</p>
           <div class="book-tbl" data-ar="&lt;div class=&quot;bt-note&quot;&gt;إعادة تنسيق للجداول المطبوعة أعلاه — نفس القيم من الكتاب، والتنسيق الجدولي فقط من إعدادنا.&lt;/div&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;(1) بوابة AND — الجدول المطبوع في «الشرح»&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مدخل&lt;/span&gt;&lt;/th&gt;&lt;th&gt;B&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مدخل&lt;/span&gt;&lt;/th&gt;&lt;th&gt;X&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;مخرج&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;(2) جدول التحليل المطبوع&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;/th&gt;&lt;th&gt;B&lt;/th&gt;&lt;th&gt;C&lt;/th&gt;&lt;th&gt;D&lt;/th&gt;&lt;th&gt;X&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;(2) جدول الحقيقة المطبوع&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;إدخال&lt;/span&gt;&lt;/th&gt;&lt;th&gt;B&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;إدخال&lt;/span&gt;&lt;/th&gt;&lt;th&gt;X&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;إخراج&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-en="&lt;div class=&quot;bt-note&quot;&gt;The tables below reformat the printed tables above - same values from the book; only the layout is ours.&lt;/div&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;(1) AND gate - the table printed in the Explanation&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;input&lt;/span&gt;&lt;/th&gt;&lt;th&gt;B&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;input&lt;/span&gt;&lt;/th&gt;&lt;th&gt;X&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;output&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;(2) printed analysis table&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;/th&gt;&lt;th&gt;B&lt;/th&gt;&lt;th&gt;C&lt;/th&gt;&lt;th&gt;D&lt;/th&gt;&lt;th&gt;X&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table class=&quot;bt&quot;&gt;&lt;caption&gt;(2) printed truth table&lt;/caption&gt;&lt;tr&gt;&lt;th&gt;A&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;input&lt;/span&gt;&lt;/th&gt;&lt;th&gt;B&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;input&lt;/span&gt;&lt;/th&gt;&lt;th&gt;X&lt;br&gt;&lt;span class=&quot;bt-sub&quot;&gt;output&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"><div class="bt-note">إعادة تنسيق للجداول المطبوعة أعلاه — نفس القيم من الكتاب، والتنسيق الجدولي فقط من إعدادنا.</div><table class="bt"><caption>(1) بوابة AND — الجدول المطبوع في «الشرح»</caption><tr><th>A<br><span class="bt-sub">مدخل</span></th><th>B<br><span class="bt-sub">مدخل</span></th><th>X<br><span class="bt-sub">مخرج</span></th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table><table class="bt"><caption>(2) جدول التحليل المطبوع</caption><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>X</th></tr><tr><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr><tr><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td></tr></table><table class="bt"><caption>(2) جدول الحقيقة المطبوع</caption><tr><th>A<br><span class="bt-sub">إدخال</span></th><th>B<br><span class="bt-sub">إدخال</span></th><th>X<br><span class="bt-sub">إخراج</span></th></tr><tr><td>0</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإجابات مطبوعة في قسم «الشرح» في النسختين وقيم الجداول متطابقة. في (1) تطلب العربية «جدول الصواب الخاص بها (Truth Table)» وفي (2) «جدول الحقيقة» — تغيّر مصطلح داخل النسخة العربية نفسها؛ الإنجليزية &quot;truth table&quot; في كلتيهما. تطبع العربية في (2) «للمدخلات A ,B،» بفاصلة لاتينية قبل B. جدول AND في الشرح العربي بعنواني «مدخل/مخرج» والجدول الختامي بعنواني «إدخال/إخراج» — غير موحّدتين داخليًا؛ الإنجليزية Input/Output في الجدولين. خلية A في ترويسة الجدول الختامي العربي مطبوعة «Aأ» بحرف زائد كما ورد. الشرح العربي «لذلك ،» بمسافة قبل الفاصلة." data-en="Edition comparison (verified from the printed page images): the answers are printed in the Explanation section in both editions and the table values match. In (1) Arabic asks for «جدول الصواب الخاص بها (Truth Table)» and in (2) for «جدول الحقيقة» — a terminology shift inside the Arabic edition itself; English prints &quot;truth table&quot; in both. Arabic (2) prints «للمدخلات A ,B،» with a spaced comma before B. The Arabic Explanation AND table uses «مدخل/مخرج» headers while the final table uses «إدخال/إخراج» — internally inconsistent; English uses Input/Output in both. The Arabic final table header cell prints «Aأ» with a stray letter as printed. The Arabic Explanation prints «لذلك ،» with a space before the comma.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإجابات مطبوعة في قسم «الشرح» في النسختين وقيم الجداول متطابقة. في (1) تطلب العربية «جدول الصواب الخاص بها (Truth Table)» وفي (2) «جدول الحقيقة» — تغيّر مصطلح داخل النسخة العربية نفسها؛ الإنجليزية &quot;truth table&quot; في كلتيهما. تطبع العربية في (2) «للمدخلات A ,B،» بفاصلة لاتينية قبل B. جدول AND في الشرح العربي بعنواني «مدخل/مخرج» والجدول الختامي بعنواني «إدخال/إخراج» — غير موحّدتين داخليًا؛ الإنجليزية Input/Output في الجدولين. خلية A في ترويسة الجدول الختامي العربي مطبوعة «Aأ» بحرف زائد كما ورد. الشرح العربي «لذلك ،» بمسافة قبل الفاصلة.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 92 (المطبوع 92)؛ AR 104–105." data-en="The text above is from the book. Full source: English PDF 92 (printed 92); Arabic 104–105.">النص السابق من الكتاب. المصدر الكامل:EN PDF 92 (المطبوع 92)؛ AR 104–105.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
@@ -1715,9 +737,9 @@ select{color:var(--text)!important}
           <p data-ar="«جرب بنفسك. (أ)جب عن الأسئلة التالية. (1) قم بتسمية الدائرة المنطقية التالية، ثم أنشئ جدول الصواب الخاص بها (Truth Table). [رسم مطبوع: بوابة OR بمدخلين A و B ومخرج X]»" data-en="&quot;Try. Answer the following questions. (1) Name the following logic circuit and create a truth table. [printed figure:OR gate with inputs A, B and output X]&quot;">«جرب بنفسك. (أ)جب عن الأسئلة التالية. (1) قم بتسمية الدائرة المنطقية التالية، ثم أنشئ جدول الصواب الخاص بها (Truth Table). [رسم مطبوع:بوابة OR بمدخلين A و B ومخرج X]»</p>
           <p data-ar="«(2) تم(2) إنشاء دائرة كهربائية عن طريق الجمع بين الدوائر المنطقية كما هو موضح في الرسم البياني التالي. في هذه الحالة ، قم بإنشاء حقيقة جدول المدخلات A و B والإخراج X. [رسم مطبوع: A إلى بوابة AND؛ B إلى دائرة NOT ثم إلى بوابة AND؛ خرج AND إلى دائرة NOT والمخرج X]»" data-en="&quot;(2) A circuit was created by combining logic circuits as shown in the following diagram. In this case, create a truth table for inputs A, B, and output X. [printed figure:A into AND; B through NOT into AND; the AND output through NOT to X]&quot;">«(2) تم(2) إنشاء دائرة كهربائية عن طريق الجمع بين الدوائر المنطقية كما هو موضح في الرسم البياني التالي. في هذه الحالة ، قم بإنشاء حقيقة جدول المدخلات A و B والإخراج X. [رسم مطبوع:A إلى بوابة AND؛ B إلى دائرة NOT ثم إلى بوابة AND؛ خرج AND إلى دائرة NOT والمخرج X]»</p>
           <p data-ar="«(3) في نصف دائرة الجمع التالية ، أوجد قيم كل مخرج من A إلى D عندما يكون الإدخال A هو 0 والمدخل B هو 1. [رسم مطبوع: دائرة الجمع النصفي على مستوى البوابات بالنقاط a و b و c و d والمخرجين C و S] (4) في دائرة الجمع الكاملة التالية ، حدد قيم كل مخرج من A إلى F عندما يكون الإدخال A هو 1 ، والإدخال B هو 1 ، وإدخال Cin هو 0. [رسم مطبوع: دائرتا «دائرة الجامع النصفي» وبوابة OR؛ Cin موسوم «الاستلاف من الرقم الأصغر»]»" data-en="&quot;(3) In the following half adder circuit, determine the values of each output a to d when input A is 0 and input B is 1. [printed figure:gate-level half adder with points a, b, c, d and outputs C, S] (4) In the following full adder circuit, determine the values of each output a to f when input A is 1, input B is 1, and input Cin is 0. [printed figure: two half adder circuits and an OR gate; Cin labeled “Carry from the lower digit”]&quot;">«(3) في نصف دائرة الجمع التالية ، أوجد قيم كل مخرج من A إلى D عندما يكون الإدخال A هو 0 والمدخل B هو 1. [رسم مطبوع:دائرة الجمع النصفي على مستوى البوابات بالنقاط a و b و c و d والمخرجين C و S] (4) في دائرة الجمع الكاملة التالية ، حدد قيم كل مخرج من A إلى F عندما يكون الإدخال A هو 1 ، والإدخال B هو 1 ، وإدخال Cin هو 0. [رسم مطبوع: دائرتا «دائرة الجامع النصفي» وبوابة OR؛ Cin موسوم «الاستلاف من الرقم الأصغر»]»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) بوابة OR؛ جدول الصواب: (0،0) → 0؛ (0،1) → 1؛ (1،0) → 1؛ (1،1) → 1. (2) الدائرة = NOT(A AND (NOT B))؛ جدول الحقيقة: (0،0) → 1؛ (0،1) → 1؛ (1،0) → 0؛ (1،1) → 1. (3) a=0، b=1، c=1، d=1 — أي C=0 و S=1. (4) a=1، b=0، c=0، d=0، e=1، f=0 — أي Cout=1 و S=0." data-en="Answers not printed in the book (teacher-prepared): (1) OR gate; truth table:(0,0) -> 0; (0,1) -> 1; (1,0) -> 1; (1,1) -> 1. (2) the circuit is NOT(A AND (NOT B)); truth table:(0,0) -> 1; (0,1) -> 1; (1,0) -> 0; (1,1) -> 1. (3) a=0, b=1, c=1, d=1 - that is C=0 and S=1. (4) a=1, b=0, c=0, d=0, e=1, f=0 - that is Cout=1 and S=0.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) بوابة OR؛ جدول الصواب:(0،0) → 0؛ (0،1) → 1؛ (1،0) → 1؛ (1،1) → 1. (2) الدائرة = NOT(A AND (NOT B))؛ جدول الحقيقة: (0،0) → 1؛ (0،1) → 1؛ (1،0) → 0؛ (1،1) → 1. (3) a=0، b=1، c=1، d=1 — أي C=0 و S=1. (4) a=1، b=0، c=0، d=0، e=1، f=0 — أي Cout=1 و S=0.</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) بوابة OR؛ جدول الصواب: (0،0) → 0؛ (0،1) → 1؛ (1،0) → 1؛ (1،1) → 1. (2) الدائرة = NOT(A AND)؛ جدول الحقيقة: (0،0) → 1؛ (0،1) → 1؛ (1،0) → 0؛ (1،1) → 1. (3) a=0، b=1، c=1، d=1 — أي C=0 و S=1. (4) a=1، b=0، c=0، d=0، e=1، f=0 — أي Cout=1 و S=0." data-en="Answers not printed in the book (teacher-prepared): (1) OR gate; truth table:(0,0) -> 0; (0,1) -> 1; (1,0) -> 1; (1,1) -> 1. (2) the circuit is NOT(A AND); truth table:(0,0) -> 1; (0,1) -> 1; (1,0) -> 0; (1,1) -> 1. (3) a=0, b=1, c=1, d=1 - that is C=0 and S=1. (4) a=1, b=0, c=0, d=0, e=1, f=0 - that is Cout=1 and S=0.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) بوابة OR؛ جدول الصواب:(0،0) → 0؛ (0،1) → 1؛ (1،0) → 1؛ (1،1) → 1. (2) الدائرة = NOT(A AND)؛ جدول الحقيقة: (0،0) → 1؛ (0،1) → 1؛ (1،0) → 0؛ (1،1) → 1. (3) a=0، b=1، c=1، d=1 — أي C=0 و S=1. (4) a=1، b=0، c=0، d=0، e=1، f=0 — أي Cout=1 و S=0.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «جرب بنفسك» العربية مطبوعة «(أ)جب عن الأسئلة التالية.» بالألف ملتصقة. في (1) تضيف العربية الشرح «(Truth Table)» بين قوسين؛ الإنجليزية بلا قوس. في (2) تطبع العربية «تم(2) إنشاء دائرة كهربائية» برقم مكرر ملتصق، و«قم بإنشاء حقيقة جدول المدخلات A و B والإخراج X» بترتيب الكلمات كما طُبع، و«في هذه الحالة ،» بمسافة قبل الفاصلة؛ الإنجليزية &quot;create a truth table for inputs A, B, and output X&quot;. في (3) تطبع العربية «في نصف دائرة الجمع التالية» و«من A إلى D» بأحرف لاتينية كبيرة بينما وسوم الرسم صغيرة a–d؛ الإنجليزية &quot;each output a to d&quot; بأحرف صغيرة. في (3) «أوجد قيم» وفي (4) «حدد قيم»؛ الإنجليزية &quot;determine&quot; في كلتيهما. وسم Cin في الرسم العربي «الاستلاف من الرقم الأصغر» مقابل &quot;Carry from the lower digit&quot;." data-en="Edition comparison (verified from the printed page images): the Arabic Try intro prints «(أ)جب» with the alif glued. In (1) Arabic adds the gloss «(Truth Table)»; English prints &quot;create a truth table&quot; without it. In (2) Arabic prints «تم(2) إنشاء دائرة كهربائية» with a duplicated glued numeral, «قم بإنشاء حقيقة جدول المدخلات A و B والإخراج X» with the word order as printed, and «في هذه الحالة ،» with a space before the comma; English &quot;create a truth table for inputs A, B, and output X&quot;. In (3) Arabic prints «في نصف دائرة الجمع التالية» and «من A إلى D» in uppercase Latin while the figure labels are lowercase a-d; English &quot;each output a to d&quot; lowercase. Arabic (3) uses «أوجد قيم» and (4) «حدد قيم»; English &quot;determine&quot; in both. The Arabic figure labels Cin «الاستلاف من الرقم الأصغر» vs English &quot;Carry from the lower digit&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «جرب بنفسك» العربية مطبوعة «(أ)جب عن الأسئلة التالية.» بالألف ملتصقة. في (1) تضيف العربية الشرح «(Truth Table)» بين قوسين؛ الإنجليزية بلا قوس. في (2) تطبع العربية «تم(2) إنشاء دائرة كهربائية» برقم مكرر ملتصق، و«قم بإنشاء حقيقة جدول المدخلات A و B والإخراج X» بترتيب الكلمات كما طُبع، و«في هذه الحالة ،» بمسافة قبل الفاصلة؛ الإنجليزية &quot;create a truth table for inputs A, B, and output X&quot;. في (3) تطبع العربية «في نصف دائرة الجمع التالية» و«من A إلى D» بأحرف لاتينية كبيرة بينما وسوم الرسم صغيرة a–d؛ الإنجليزية &quot;each output a to d&quot; بأحرف صغيرة. في (3) «أوجد قيم» وفي (4) «حدد قيم»؛ الإنجليزية &quot;determine&quot; في كلتيهما. وسم Cin في الرسم العربي «الاستلاف من الرقم الأصغر» مقابل &quot;Carry from the lower digit&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 93 (المطبوع 93)؛ AR 105." data-en="The text above is from the book. Full source: English PDF 93 (printed 93); Arabic 105.">النص السابق من الكتاب. المصدر الكامل:EN PDF 93 (المطبوع 93)؛ AR 105.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
@@ -1725,9 +747,9 @@ select{color:var(--text)!important}
           <h3 data-ar="من الكتاب: تمرين — والإجابات التالية غير مطبوعة" data-en="From the book: Exercise — the answers below are not printed">من الكتاب: تمرين — والإجابات التالية غير مطبوعة</h3>
           <p data-ar="«تمرين 1 أجب عن الأسئلة التالية. (1) قم بتسمية الدائرة المنطقية التالية وإنشاء جدول حقيقة. [رسم مطبوع: دائرة NOT بمدخل A ومخرج X] (2) تم إنشاء دائرة كهربائية عن طريق الجمع بين الدوائر المنطقية كما هو موضح في الرسم البياني التالي. في هذه الحالة، قم بإنشاء ملف جدول الحقيقة للمدخلات A و B والإخراج X. [رسم مطبوع: A و B إلى بوابة OR؛ A و B إلى بوابة AND ثم دائرة NOT؛ الخرجان إلى بوابة AND والمخرج X]»" data-en="&quot;Exercise 1 Answer the following questions. (1) Name the following logic circuit and create a truth table. [printed figure:NOT circuit with input A and output X] (2) A circuit was created by combining logic circuits as shown in the following diagram. In this case, create a truth table for inputs A, B, and output X. [printed figure: A, B into OR; A, B into AND then NOT; both outputs into AND; output X]&quot;">«تمرين 1 أجب عن الأسئلة التالية. (1) قم بتسمية الدائرة المنطقية التالية وإنشاء جدول حقيقة. [رسم مطبوع:دائرة NOT بمدخل A ومخرج X] (2) تم إنشاء دائرة كهربائية عن طريق الجمع بين الدوائر المنطقية كما هو موضح في الرسم البياني التالي. في هذه الحالة، قم بإنشاء ملف جدول الحقيقة للمدخلات A و B والإخراج X. [رسم مطبوع: A و B إلى بوابة OR؛ A و B إلى بوابة AND ثم دائرة NOT؛ الخرجان إلى بوابة AND والمخرج X]»</p>
           <p data-ar="«(3) في دائرة الجمع التالية ، حدد قيم كل مخرج من A إلى D عندما يكون الإدخال A هو 1 والإدخال B هو 1. [رسم مطبوع: دائرة الجمع النصفي على مستوى البوابات بالنقاط a و b و c و d والمخرجين C و S] (4) في دائرة الجمع الكاملة التالية ، حدد قيم كل مخرج من A إلى F عندما يكون الإدخال A هو 1 ، والإدخال B هو 1 ، وإدخال Cin هو 0. [نفس رسم الجمع الكامل: دائرتا «دائرة الجامع النصفي» وبوابة OR]»" data-en="&quot;(3) In the following half adder circuit, determine the values of each output a to d when input A is 1 and input B is 1. [printed figure:gate-level half adder with points a, b, c, d and outputs C, S] (4) In the following full adder circuit, determine the values of each output a to f when input A is 1, input B is 0, and input Cin is 1. [printed figure: same full adder figure as Try (4)]&quot;">«(3) في دائرة الجمع التالية ، حدد قيم كل مخرج من A إلى D عندما يكون الإدخال A هو 1 والإدخال B هو 1. [رسم مطبوع:دائرة الجمع النصفي على مستوى البوابات بالنقاط a و b و c و d والمخرجين C و S] (4) في دائرة الجمع الكاملة التالية ، حدد قيم كل مخرج من A إلى F عندما يكون الإدخال A هو 1 ، والإدخال B هو 1 ، وإدخال Cin هو 0. [نفس رسم الجمع الكامل: دائرتا «دائرة الجامع النصفي» وبوابة OR]»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) دائرة NOT (دائرة العاكسة)؛ جدول الحقيقة: A=0 → X=1؛ A=1 → X=0. (2) الدائرة = (A OR B) AND NOT(A AND B) أي XOR؛ جدول الحقيقة: (0،0) → 0؛ (0،1) → 1؛ (1،0) → 1؛ (1،1) → 0. (3) a=1، b=1، c=0، d=0 — أي C=1 و S=0. (4) بالقيم العربية المطبوعة (A=1، B=1، Cin=0): a=1، b=0، c=0، d=0، e=1، f=0 — أي Cout=1 و S=0." data-en="Answers not printed in the book (teacher-prepared): (1) NOT circuit (inverter); truth table:A=0 -> X=1; A=1 -> X=0. (2) the circuit is (A OR B) AND NOT(A AND B), that is XOR; truth table:(0,0) -> 0; (0,1) -> 1; (1,0) -> 1; (1,1) -> 0. (3) a=1, b=1, c=0, d=0 - that is C=1 and S=0. (4) with the English printed inputs (A=1, B=0, Cin=1): a=0, b=1, c=1, d=0, e=1, f=0 - that is Cout=1 and S=0.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) دائرة NOT (دائرة العاكسة)؛ جدول الحقيقة:A=0 → X=1؛ A=1 → X=0. (2) الدائرة = (A OR B) AND NOT(A AND B) أي XOR؛ جدول الحقيقة: (0،0) → 0؛ (0،1) → 1؛ (1،0) → 1؛ (1،1) → 0. (3) a=1، b=1، c=0، d=0 — أي C=1 و S=0. (4) بالقيم العربية المطبوعة (A=1، B=1، Cin=0): a=1، b=0، c=0، d=0، e=1، f=0 — أي Cout=1 و S=0.</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) دائرة NOT (دائرة العاكسة)؛ جدول الحقيقة: A=0 → X=1؛ A=1 → X=0. (2) الدائرة = AND NOT أي XOR؛ جدول الحقيقة: (0،0) → 0؛ (0،1) → 1؛ (1،0) → 1؛ (1،1) → 0. (3) a=1، b=1، c=0، d=0 — أي C=1 و S=0. (4) بالقيم العربية المطبوعة (A=1، B=1، Cin=0): a=1، b=0، c=0، d=0، e=1، f=0 — أي Cout=1 و S=0." data-en="Answers not printed in the book (teacher-prepared): (1) NOT circuit (inverter); truth table:A=0 -> X=1; A=1 -> X=0. (2) the circuit is AND NOT, that is XOR; truth table:(0,0) -> 0; (0,1) -> 1; (1,0) -> 1; (1,1) -> 0. (3) a=1, b=1, c=0, d=0 - that is C=1 and S=0. (4) with the English printed inputs (A=1, B=0, Cin=1): a=0, b=1, c=1, d=0, e=1, f=0 - that is Cout=1 and S=0.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) دائرة NOT (دائرة العاكسة)؛ جدول الحقيقة:A=0 → X=1؛ A=1 → X=0. (2) الدائرة = AND NOT أي XOR؛ جدول الحقيقة: (0،0) → 0؛ (0،1) → 1؛ (1،0) → 1؛ (1،1) → 0. (3) a=1، b=1، c=0، d=0 — أي C=1 و S=0. (4) بالقيم العربية المطبوعة (A=1، B=1، Cin=0): a=1، b=0، c=0، d=0، e=1، f=0 — أي Cout=1 و S=0.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): شريط «تمرين» في الصفحة العربية مطبوع بالأحمر مع رقم 1 في مربع أسود، وبقية أشرطة الدرس زرقاء. في (1) تطبع العربية «وإنشاء جدول حقيقة.» بلا أل التعريف. في (2) تطبع العربية «قم بإنشاء ملف جدول الحقيقة» بكلمة «ملف» كما وردت؛ الإنجليزية &quot;create a truth table&quot;. في (3) تطبع العربية «في دائرة الجمع التالية» دون كلمة «نصف»، بينما الإنجليزية &quot;half adder circuit&quot; و«جرب بنفسك» (3) العربية «نصف دائرة الجمع». في (4) القيم المطبوعة عربيًا هي A=1 و B=1 و Cin=0 — مثل «جرب بنفسك» (4) — بينما الإنجليزية تطبع A=1 و B=0 و Cin=1؛ الإجابات المشتقة أعلاه محسوبة على قيم كل نسخة كما طُبعت، دون الجزم بأي النسختين هي المقصودة." data-en="Edition comparison (verified from the printed page images): the Arabic Exercise band prints red with a boxed 1 while the other bands of the lesson are blue. In (1) Arabic prints «وإنشاء جدول حقيقة.» without the definite article. In (2) Arabic prints «قم بإنشاء ملف جدول الحقيقة» with the word «ملف» (file) as printed; English &quot;create a truth table&quot;. In (3) Arabic prints «في دائرة الجمع التالية» without «نصف» (half) vs English &quot;half adder circuit&quot; and the Arabic Try (3) «نصف دائرة الجمع». In (4) the Arabic printed inputs are A=1, B=1, Cin=0 - identical to Try (4) - while English prints A=1, B=0, Cin=1; the derived answers above are computed on each edition's own printed inputs, without asserting which edition is the intended one.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): شريط «تمرين» في الصفحة العربية مطبوع بالأحمر مع رقم 1 في مربع أسود، وبقية أشرطة الدرس زرقاء. في (1) تطبع العربية «وإنشاء جدول حقيقة.» بلا أل التعريف. في (2) تطبع العربية «قم بإنشاء ملف جدول الحقيقة» بكلمة «ملف» كما وردت؛ الإنجليزية &quot;create a truth table&quot;. في (3) تطبع العربية «في دائرة الجمع التالية» دون كلمة «نصف»، بينما الإنجليزية &quot;half adder circuit&quot; و«جرب بنفسك» (3) العربية «نصف دائرة الجمع». في (4) القيم المطبوعة عربيًا هي A=1 و B=1 و Cin=0 — مثل «جرب بنفسك» (4) — بينما الإنجليزية تطبع A=1 و B=0 و Cin=1؛ الإجابات المشتقة أعلاه محسوبة على قيم كل نسخة كما طُبعت، دون الجزم بأي النسختين هي المقصودة.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 94 (المطبوع 94)؛ AR 106." data-en="The text above is from the book. Full source: English PDF 94 (printed 94); Arabic 106.">النص السابق من الكتاب. المصدر الكامل:EN PDF 94 (المطبوع 94)؛ AR 106.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: بوّابات المنطق — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 1: the logic gates - not printed in the book">✍️ تدريب تفاعلي إضافي 1: بوّابات المنطق — غير مطبوعة في الكتاب</h3>
@@ -1735,9 +757,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="الدائرة اللي بتبدّع 1 بس لما كل المدخلات 1 — إنهي واحدة؟"
               data-en="The circuit that outputs 1 only when all inputs are 1 — which is it?">الدائرة اللي بتبدّع 1 بس لما كل المدخلات 1 — إنهي واحدة؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  بوّابة OR" data-en="A  the OR gate">A  بوّابة OR</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  بوّابة AND" data-en="B  the AND gate">B  بوّابة AND</div>
-            <div class="ex-opt" data-ar="C  دائرة NOT" data-en="C  the NOT circuit">C  دائرة NOT</div>
+            <div class="ex-opt" data-ar="A بوّابة OR" data-en="A  the OR gate">A بوّابة OR</div>
+            <div class="ex-opt" data-ok="1" data-ar="B بوّابة AND" data-en="B  the AND gate">B بوّابة AND</div>
+            <div class="ex-opt" data-ar="C دائرة NOT" data-en="C  the NOT circuit">C دائرة NOT</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — بوّابة AND" data-en="✅ Answer: B — the AND gate">✅ الإجابة: B — بوّابة AND</b> <span data-ar="بوّابة AND بتبدّع 1 بس لما كل المدخلات 1."
               data-en="An AND gate outputs 1 only when all inputs are 1.">بوّابة AND بتبدّع 1 بس لما كل المدخلات 1.</span></div>
@@ -1746,9 +768,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="الدائرة اللي بتبدّع 1 لو على الأقل مدخل واحد 1 — إنهي واحدة؟"
               data-en="The circuit that outputs 1 if at least one input is 1 — which is it?">الدائرة اللي بتبدّع 1 لو على الأقل مدخل واحد 1 — إنهي واحدة؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  بوّابة OR" data-en="A  the OR gate">A  بوّابة OR</div>
-            <div class="ex-opt" data-ar="B  بوّابة AND" data-en="B  the AND gate">B  بوّابة AND</div>
-            <div class="ex-opt" data-ar="C  دائرة NOT" data-en="C  the NOT circuit">C  دائرة NOT</div>
+            <div class="ex-opt" data-ok="1" data-ar="A بوّابة OR" data-en="A  the OR gate">A بوّابة OR</div>
+            <div class="ex-opt" data-ar="B بوّابة AND" data-en="B  the AND gate">B بوّابة AND</div>
+            <div class="ex-opt" data-ar="C دائرة NOT" data-en="C  the NOT circuit">C دائرة NOT</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — بوّابة OR" data-en="✅ Answer: A — the OR gate">✅ الإجابة: A — بوّابة OR</b> <span data-ar="بوّابة OR بتبدّع 1 لو على الأقل مدخل واحد 1."
               data-en="An OR gate outputs 1 if at least one input is 1.">بوّابة OR بتبدّع 1 لو على الأقل مدخل واحد 1.</span></div>
@@ -1757,9 +779,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="الدائرة اللي بتبدّع عكس المدخل — إنهي واحدة؟"
               data-en="The circuit that outputs the opposite of the input — which is it?">الدائرة اللي بتبدّع عكس المدخل — إنهي واحدة؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  بوّابة AND" data-en="A  the AND gate">A  بوّابة AND</div>
-            <div class="ex-opt" data-ar="B  بوّابة OR" data-en="B  the OR gate">B  بوّابة OR</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  دائرة NOT" data-en="C  the NOT circuit">C  دائرة NOT</div>
+            <div class="ex-opt" data-ar="A بوّابة AND" data-en="A  the AND gate">A بوّابة AND</div>
+            <div class="ex-opt" data-ar="B بوّابة OR" data-en="B  the OR gate">B بوّابة OR</div>
+            <div class="ex-opt" data-ok="1" data-ar="C دائرة NOT" data-en="C  the NOT circuit">C دائرة NOT</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — دائرة NOT" data-en="✅ Answer: C — the NOT circuit">✅ الإجابة: C — دائرة NOT</b> <span data-ar="دائرة NOT بتبدّع عكس المدخل — 0 يبقى 1 و1 يبقى 0."
               data-en="A NOT circuit outputs the opposite of the input — 0 becomes 1 and 1 becomes 0.">دائرة NOT بتبدّع عكس المدخل — 0 يبقى 1 و1 يبقى 0.</span></div>
@@ -1771,14 +793,14 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 2: جداول الصح (truth tables) — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 2: the truth tables - not printed in the book">✍️ تدريب تفاعلي إضافي 2: جداول الصح (truth tables) — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 2: جداول الصح — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 2: the truth tables - not printed in the book">✍️ تدريب تفاعلي إضافي 2: جداول الصح — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
           <div class="q"><span class="q-num">1</span> <span data-ar="بوّابة AND: A=1 وB=1، إيه المخرج X؟"
               data-en="AND gate: A=1 and B=1, what is the output X?">بوّابة AND: A=1 وB=1، إيه المخرج X؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  1" data-en="A  1">A  1</div>
-            <div class="ex-opt" data-ar="B  0" data-en="B  0">B  0</div>
-            <div class="ex-opt" data-ar="C  2" data-en="C  2">C  2</div>
+            <div class="ex-opt" data-ok="1" data-ar="A 1" data-en="A  1">A  1</div>
+            <div class="ex-opt" data-ar="B 0" data-en="B  0">B  0</div>
+            <div class="ex-opt" data-ar="C 2" data-en="C  2">C  2</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 1" data-en="✅ Answer: A — 1">✅ الإجابة: A — 1</b> <span
               data-ar="كل المدخلات 1، يبقى بوّابة AND بتبدّع 1."
@@ -1788,9 +810,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="بوّابة OR: A=0 وB=1، إيه المخرج X؟"
               data-en="OR gate: A=0 and B=1, what is the output X?">بوّابة OR: A=0 وB=1، إيه المخرج X؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  0" data-en="A  0">A  0</div>
-            <div class="ex-opt" data-ar="B  2" data-en="B  2">B  2</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  1" data-en="C  1">C  1</div>
+            <div class="ex-opt" data-ar="A 0" data-en="A  0">A  0</div>
+            <div class="ex-opt" data-ar="B 2" data-en="B  2">B  2</div>
+            <div class="ex-opt" data-ok="1" data-ar="C 1" data-en="C  1">C  1</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 1" data-en="✅ Answer: C — 1">✅ الإجابة: C — 1</b> <span
               data-ar="على الأقل مدخل واحد 1، يبقى بوّابة OR بتبدّع 1."
@@ -1800,9 +822,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="دائرة NOT: المدخل 0، إيه المخرج X؟"
               data-en="NOT circuit: input 0, what is the output X?">دائرة NOT: المدخل 0، إيه المخرج X؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  0" data-en="A  0">A  0</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  1" data-en="B  1">B  1</div>
-            <div class="ex-opt" data-ar="C  2" data-en="C  2">C  2</div>
+            <div class="ex-opt" data-ar="A 0" data-en="A  0">A  0</div>
+            <div class="ex-opt" data-ok="1" data-ar="B 1" data-en="B  1">B  1</div>
+            <div class="ex-opt" data-ar="C 2" data-en="C  2">C  2</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 1" data-en="✅ Answer: B — 1">✅ الإجابة: B — 1</b> <span
               data-ar="دائرة NOT بتبدّع عكس المدخل — 0 يبقى 1."
@@ -1815,28 +837,28 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 3: نصفي الجمع (half adder) — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 3: the half adder - not printed in the book">✍️ تدريب تفاعلي إضافي 3: نصفي الجمع (half adder) — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 3: نصفي الجمع — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 3: the half adder - not printed in the book">✍️ تدريب تفاعلي إضافي 3: نصفي الجمع — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="نصفي الجمع (half adder) مكوّن من إيه؟"
-              data-en="What is a half adder composed of?">نصفي الجمع (half adder) مكوّن من إيه؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="نصفي الجمع مكوّن من إيه؟"
+              data-en="What is a half adder composed of?">نصفي الجمع مكوّن من إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  بوّابات AND وOR وNOT"
-              data-en="A  AND, OR, and NOT gates">A  بوّابات AND وOR وNOT</div>
-            <div class="ex-opt" data-ar="B  بوّابة AND بس" data-en="B  only an AND gate">B  بوّابة AND بس</div>
-            <div class="ex-opt" data-ar="C  دائرة NOT بس" data-en="C  only a NOT circuit">C  دائرة NOT بس</div>
+            <div class="ex-opt" data-ok="1" data-ar="A بوّابات AND وOR وNOT"
+              data-en="A  AND, OR, and NOT gates">A بوّابات AND وOR وNOT</div>
+            <div class="ex-opt" data-ar="B بوّابة AND بس" data-en="B  only an AND gate">B بوّابة AND بس</div>
+            <div class="ex-opt" data-ar="C دائرة NOT بس" data-en="C  only a NOT circuit">C دائرة NOT بس</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — بوّابات AND وOR وNOT"
               data-en="✅ Answer: A — AND, OR, and NOT gates">✅ الإجابة: A — بوّابات AND وOR وNOT</b> <span
-              data-ar="نصفي الجمع (half adder) مكوّن من بوّابات AND وOR وNOT."
-              data-en="A half adder is composed of AND, OR, and NOT gates.">نصفي الجمع (half adder) مكوّن من بوّابات AND وOR وNOT.</span></div>
+              data-ar="نصفي الجمع مكوّن من بوّابات AND وOR وNOT."
+              data-en="A half adder is composed of AND, OR, and NOT gates.">نصفي الجمع مكوّن من بوّابات AND وOR وNOT.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="نصفي الجمع: A=0 وB=1، إيه المجموع S؟"
               data-en="Half adder: A=0 and B=1, what is the sum S?">نصفي الجمع: A=0 وB=1، إيه المجموع S؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  0" data-en="A  0">A  0</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  1" data-en="B  1">B  1</div>
-            <div class="ex-opt" data-ar="C  2" data-en="C  2">C  2</div>
+            <div class="ex-opt" data-ar="A 0" data-en="A  0">A  0</div>
+            <div class="ex-opt" data-ok="1" data-ar="B 1" data-en="B  1">B  1</div>
+            <div class="ex-opt" data-ar="C 2" data-en="C  2">C  2</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 1" data-en="✅ Answer: B — 1">✅ الإجابة: B — 1</b> <span
               data-ar="0+1 = 1، يبقى المجموع S=1 والنقل C=0."
@@ -1846,9 +868,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="نصفي الجمع: A=1 وB=1، إيه المجموع S؟"
               data-en="Half adder: A=1 and B=1, what is the sum S?">نصفي الجمع: A=1 وB=1، إيه المجموع S؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  0" data-en="A  0">A  0</div>
-            <div class="ex-opt" data-ar="B  1" data-en="B  1">B  1</div>
-            <div class="ex-opt" data-ar="C  2" data-en="C  2">C  2</div>
+            <div class="ex-opt" data-ok="1" data-ar="A 0" data-en="A  0">A  0</div>
+            <div class="ex-opt" data-ar="B 1" data-en="B  1">B  1</div>
+            <div class="ex-opt" data-ar="C 2" data-en="C  2">C  2</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 0" data-en="✅ Answer: A — 0">✅ الإجابة: A — 0</b> <span
               data-ar="1+1 = 2، يبقى المجموع S=0 والنقل C=1."
@@ -1861,27 +883,27 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: الجمع الكامل (full adder) — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 4: the full adder - not printed in the book">✍️ تدريب تفاعلي إضافي 4: الجمع الكامل (full adder) — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: الجمع الكامل — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 4: the full adder - not printed in the book">✍️ تدريب تفاعلي إضافي 4: الجمع الكامل — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="الجمع الكامل (full adder) بيحسب إيه؟"
-              data-en="What does a full adder consider?">الجمع الكامل (full adder) بيحسب إيه؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="الجمع الكامل بيحسب إيه؟"
+              data-en="What does a full adder consider?">الجمع الكامل بيحسب إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  الألوان بس" data-en="A  only the colors">A  الألوان بس</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  النقل من البت الأقل والنقل للبت الأعلى"
-              data-en="B  the carry from the lower bit and the carry to the higher bit">B  النقل من البت الأقل والنقل للبت الأعلى</div>
-            <div class="ex-opt" data-ar="C  الصوت بس" data-en="C  only the sound">C  الصوت بس</div>
+            <div class="ex-opt" data-ar="A الألوان بس" data-en="A  only the colors">A الألوان بس</div>
+            <div class="ex-opt" data-ok="1" data-ar="B النقل من البت الأقل والنقل للبت الأعلى"
+              data-en="B  the carry from the lower bit and the carry to the higher bit">B النقل من البت الأقل والنقل للبت الأعلى</div>
+            <div class="ex-opt" data-ar="C الصوت بس" data-en="C  only the sound">C الصوت بس</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — النقل من البت الأقل وللبت الأعلى"
-              data-en="✅ Answer: B — the carry from the lower bit and to the higher bit">✅ الإجابة: B — النقل من البت الأقل وللبت الأعلى</b> <span data-ar="الجمع الكامل (full adder) بيحسب النقل من البت الأقل والنقل للبت الأعلى."
-              data-en="A full adder considers the carry from the lower bit and the carry to the higher bit.">الجمع الكامل (full adder) بيحسب النقل من البت الأقل والنقل للبت الأعلى.</span></div>
+              data-en="✅ Answer: B — the carry from the lower bit and to the higher bit">✅ الإجابة: B — النقل من البت الأقل وللبت الأعلى</b> <span data-ar="الجمع الكامل بيحسب النقل من البت الأقل والنقل للبت الأعلى."
+              data-en="A full adder considers the carry from the lower bit and the carry to the higher bit.">الجمع الكامل بيحسب النقل من البت الأقل والنقل للبت الأعلى.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="الجمع الكامل: A=1 وB=1 وCin=0 — إيه المجموع S؟"
               data-en="Full adder: A=1, B=1, Cin=0 — what is the sum S?">الجمع الكامل: A=1 وB=1 وCin=0 — إيه المجموع S؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  0" data-en="A  0">A  0</div>
-            <div class="ex-opt" data-ar="B  1" data-en="B  1">B  1</div>
-            <div class="ex-opt" data-ar="C  2" data-en="C  2">C  2</div>
+            <div class="ex-opt" data-ok="1" data-ar="A 0" data-en="A  0">A  0</div>
+            <div class="ex-opt" data-ar="B 1" data-en="B  1">B  1</div>
+            <div class="ex-opt" data-ar="C 2" data-en="C  2">C  2</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 0" data-en="✅ Answer: A — 0">✅ الإجابة: A — 0</b> <span
               data-ar="1+1+0 = 2، يبقى المجموع S=0 والنقل الخارج Cout=1."
@@ -1891,9 +913,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="الجمع الكامل: A=1 وB=0 وCin=1 — إيه المجموع S؟"
               data-en="Full adder: A=1, B=0, Cin=1 — what is the sum S?">الجمع الكامل: A=1 وB=0 وCin=1 — إيه المجموع S؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  1" data-en="A  1">A  1</div>
-            <div class="ex-opt" data-ar="B  2" data-en="B  2">B  2</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  0" data-en="C  0">C  0</div>
+            <div class="ex-opt" data-ar="A 1" data-en="A  1">A  1</div>
+            <div class="ex-opt" data-ar="B 2" data-en="B  2">B  2</div>
+            <div class="ex-opt" data-ok="1" data-ar="C 0" data-en="C  0">C  0</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 0" data-en="✅ Answer: C — 0">✅ الإجابة: C — 0</b> <span
               data-ar="1+0+1 = 2، يبقى المجموع S=0 والنقل الخارج Cout=1."
@@ -1927,7 +949,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="العمليات المنطقية" data-en="Logical operations">العمليات المنطقية</h4>
+                  <h3 data-ar="العمليات المنطقية" data-en="Logical operations" class="lvl-h4 lvl-h4-2">العمليات المنطقية</h3>
                   <p data-ar="عمليات باستخدام تركيبات 0 و1 — 1 يعني صح و0 يعني غلط."
                     data-en="operations using combinations of 0 and 1 — 1 means true and 0 means false.">عمليات باستخدام تركيبات 0 و1 — 1 يعني صح و0 يعني غلط.</p>
                 </div>
@@ -1935,7 +957,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="دائرة المنطق وجدول الصح (truth table)" data-en="The logic circuit and truth table">دائرة المنطق وجدول الصح (truth table)</h4>
+                  <h3 data-ar="دائرة المنطق وجدول الصح" data-en="The logic circuit and truth table" class="lvl-h4 lvl-h4-2">دائرة المنطق وجدول الصح</h3>
                   <p data-ar="دائرة بتعمل عمليات منطقية — وجدول الصح بيجمّع كل تركيبات المدخلات والمخرجات."
                     data-en="a circuit that performs logical operations — and the truth table collects all input and output combinations.">دائرة بتعمل عمليات منطقية — وجدول الصح بيجمّع كل تركيبات المدخلات والمخرجات.</p>
                 </div>
@@ -1943,7 +965,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="البوّابات" data-en="The gates">البوّابات</h4>
+                  <h3 data-ar="البوّابات" data-en="The gates" class="lvl-h4 lvl-h4-2">البوّابات</h3>
                   <p data-ar="AND بتبدّع 1 لما الكل 1، وOR بتبدّع 1 لو أي واحد 1، وNOT بتبدّع العكس."
                     data-en="AND outputs 1 when all are 1, OR outputs 1 if any is 1, and NOT outputs the opposite.">AND بتبدّع 1 لما الكل 1، وOR بتبدّع 1 لو أي واحد 1، وNOT بتبدّع العكس.</p>
                 </div>
@@ -1951,9 +973,9 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">04</span>
                 <div>
-                  <h4 data-ar="الجمّاعات (adders)" data-en="The adders">الجمّاعات (adders)</h4>
-                  <p data-ar="نصفي الجمع بيجمع أرقام مفردة، والجمع الكامل بيحسب النقل (carry)."
-                    data-en="the half adder adds single digits, and the full adder considers the carry.">نصفي الجمع بيجمع أرقام مفردة، والجمع الكامل بيحسب النقل (carry).</p>
+                  <h3 data-ar="الجمّاعات" data-en="The adders" class="lvl-h4 lvl-h4-2">الجمّاعات</h3>
+                  <p data-ar="نصفي الجمع بيجمع أرقام مفردة، والجمع الكامل بيحسب النقل."
+                    data-en="the half adder adds single digits, and the full adder considers the carry.">نصفي الجمع بيجمع أرقام مفردة، والجمع الكامل بيحسب النقل.</p>
                 </div>
               </div>
             </div>
@@ -2572,30 +1594,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>

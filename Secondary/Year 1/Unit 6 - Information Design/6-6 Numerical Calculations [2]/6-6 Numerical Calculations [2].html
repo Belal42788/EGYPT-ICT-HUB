@@ -10,995 +10,12 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 6-6 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#7a5200;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap:anywhere
-    }
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-
-/* var(--warn) text: darker amber for contrast */
-:root{--warn:#7a5200}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/6-6-numerical-calculations-2-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="contrast-pass-3">
-/* Readability pass 3: faded component blocks and light code editors. */
-.bt,.bt-sub{opacity:1!important}
-.bt-sub{color:#2f3542!important}
-.bt-note{opacity:1!important;color:#3a4152!important}
-.email-vals{color:#1a3fd0!important}
-.chat-who{color:#3a4152!important}
-.html-edit,.js-edit,.py-edit,textarea{color:var(--text)!important}
-</style>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
 
-</style>
+
 </head>
 
 <body>
@@ -1034,8 +51,8 @@ select{color:var(--text)!important}
         data-ar="حسابات رقمية [2] — الكمبيوتر بيمثّل الأرقام السالبة بالمتمم. النهارده هنتعلّم المتمم والمتمم للأساس 2، وإزاي نحسب الطرح بالجمع."
         data-en="Numerical Calculations [2] — the computer represents negative numbers with the complement. Today we learn the Complement and the 2’s complement, and how to calculate subtraction by addition.">
         <span dir="ltr">Numerical Calculations [2]</span> — الكمبيوتر بيمثّل الأرقام السالبة بالمتمِّم. النهارده
-        هنتعلم الـ Complement والمتمِّم الثنائي 2’s complement، وإزاي نحسب الطرح عن طريق الجمع.</p>
-      <div class="hero-stats"><span data-ar="5 أقسام" data-en="5 sections">5 أقسام</span><span data-ar="18 سؤالًا" data-en="18 practice questions">18 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ هنتعلم الـ Complement والمتمِّم الثنائي 2’s complement، وإزاي نحسب الطرح عن طريق الجمع.</p>
+      <div class="hero-stats"><span data-ar="5 أقسام" data-en="5 sections">5 أقسام</span><span data-ar="18 سؤالًا" data-en="18 practice questions">18 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 <main>
@@ -1060,13 +77,13 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="في الدرس اللي فات اتعلمنا الجمع والطرح بالثنائي. النهارده هنتعلّم إزاي الكمبيوتر بيمثّل الأرقام السالبة — باستخدام فكرة اسمها المتمم — وإزاي بيستخدمها للطرح."
           data-en="In the previous lesson we learned addition and subtraction in binary. Today we learn how the computer represents negative numbers — using an idea called the complement — and how it uses it for subtraction.">
-          في الدرس اللي فات اتعلمنا الجمع والطرح بالثنائي. النهارده هنتعلم إزاي الكمبيوتر بيمثّل <b>الأرقام
-            السالبة</b> — باستخدام فكرة اسمها <b>المتمِّم <span dir="ltr">(Complement)</span></b> — وازاي بيستعملها في
-          الطرح.</p>
+ في الدرس اللي فات اتعلمنا الجمع والطرح بالثنائي. النهارده هنتعلم إزاي الكمبيوتر بيمثّل <b>الأرقام
+ السالبة</b> — باستخدام فكرة اسمها <b>المتمِّم <span dir="ltr">(Complement)</span></b> — وازاي بيستعملها في
+ الطرح.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="بدل الطرح، الكمبيوتر بيجمع المتمم! وده ليه الحساب بيبقى أسهل وأسرع."
             data-en="Instead of subtracting, the computer adds the complement! That is why the calculation becomes easier and faster.">بدل
-            ما الكمبيوتر يطرح، هو بيجمع <b>المتمِّم</b>! عشان كده الحساب بيبقى أسهل وأسرع.</span></div>
+ ما الكمبيوتر يطرح، هو بيجمع <b>المتمِّم</b>! عشان كده الحساب بيبقى أسهل وأسرع.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1092,18 +109,18 @@ select{color:var(--text)!important}
             <p style="font-size:.95rem"
               data-ar="الكمبيوتر مبيحبش الطرح المباشر — بيحوّل الطرح لجمع. المتمم هو اللي بيسمح له بده، وبكده بيمثّل الأرقام السالبة."
               data-en="The computer does not like direct subtraction — it converts subtraction into addition. The complement is what allows it to do this, and thus it represents negative numbers.">
-              الكمبيوتر مبيحبش الطرح المباشر — هو بيحول الطرح لجمع. <b>المتمِّم</b> هو اللي بيسمح له بكده، وبكده بيمثل
-              الأرقام السالبة.</p>
+ الكمبيوتر مبيحبش الطرح المباشر — هو بيحول الطرح لجمع. <b>المتمِّم</b> هو اللي بيسمح له بكده، وبكده بيمثل
+ الأرقام السالبة.</p>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين متمم العشري (متمم الأساس 10) والثنائي (متمم الأساس 2) — واحد للأرقام العادية والتاني للثنائي."
             data-en="Confusing the decimal complement (10’s complement) with the binary one (2’s complement) — one is for ordinary numbers and the other for binary.">
-            خلط المتمِّم العشري <span dir="ltr">(10’s complement)</span> بالثنائي <span dir="ltr">(2’s
+ خلط المتمِّم العشري <span dir="ltr">(10’s complement)</span> بالثنائي <span dir="ltr">(2’s
               complement)</span> — واحد للأرقام العادية والتاني للثنائي.</li>
           <li data-ar="نسيان خطوة جمع 1 بعد قلب الأرقام — دي أهم خطوة في متمم الأساس 2."
             data-en="Forgetting the step of adding 1 after inverting the digits — this is the most important step in the 2’s complement.">نسيان خطوة جمع 1 بعد قلب الأرقام — دي أهم خطوة في متمم الأساس 2.</li>
@@ -1119,8 +136,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="المتمم" data-en="The Complement">الـ Complement — المتمِّم <span
                 dir="ltr">(Complement)</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="متمم الأساس 2 — EN PDF 67 (المطبوع 67)؛ AR 76"
-              data-en="The 2’s complement - English PDF 67 (printed 67); Arabic 76">متمم الأساس 2 — EN PDF 67 (المطبوع 67)؛ AR 76</div>
+            <div class="tag" style="color:var(--s2)" data-ar="متمم الأساس 2"
+              data-en="The 2’s complement">متمم الأساس 2</div>
           </div>
         </div>
       </div>
@@ -1129,16 +146,16 @@ select{color:var(--text)!important}
         <p data-ar="المتمم هو أصغر رقم، لما يتجمع مع رقم معيّن، بيعمل نقل لخانة أعلى — والكمبيوتر بيستخدمه عشان يمثّل الأرقام السالبة."
           data-en="The complement is the smallest number which, when added to a given number, produces a carry to the next higher digit — and the computer uses it to represent negative numbers.">
           <b>المتمِّم <span dir="ltr">(Complement)</span></b> هو أصغر عدد لو ضيفناه لعدد معيّن هيطلّع حمل للخانة اللي
-          بعده — والكمبيوتر بيستعمله لتمثيل <b>الأرقام السالبة</b>.</p>
+ بعده — والكمبيوتر بيستعمله لتمثيل <b>الأرقام السالبة</b>.</p>
         <p data-ar="في العشري بنسميه متمم الأساس 10:مثلاً متمم 71 هو 29، لأن 71 + 29 = 100. وفي الثنائي بنسميه متمم الأساس 2."
           data-en="In decimal we call it the 10’s complement: for example the complement of 71 is 29, because 71 + 29 = 100. And in binary we call it the 2’s complement.">
-          في العشري بنسمّيه <b>المتمِّم العشري <span dir="ltr">(10’s complement)</span></b>: مثلاً متمِّم العدد 71 هو
-          29، لأن <span dir="ltr">71 + 29 = 100</span>. وفي الثنائي بنسمّيه <b>المتمِّم الثنائي <span
+ في العشري بنسمّيه <b>المتمِّم العشري <span dir="ltr">(10’s complement)</span></b>: مثلاً متمِّم العدد 71 هو
+ 29، لأن <span dir="ltr">71 + 29 = 100</span>. وفي الثنائي بنسمّيه <b>المتمِّم الثنائي <span
               dir="ltr">(2’s complement)</span></b>.</p>
         <div class="note"><b data-ar="قاعدة متمم الأساس 2:" data-en="The 2’s complement rule:">قاعدة متمم الأساس 2:</b> <span data-ar="بنقلب كل رقم (صفر يبقى 1 و1 يبقى صفر)، وبعدين بنجمع 1."
             data-en="we invert every digit (0 becomes 1 and 1 becomes 0), then we add 1.">نعكس كل رقم (0 يبقى 1 و1
-            يبقى 0)، وبعدين نزيد <b>1</b>.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>أ. تمثيل الأرقام السالبة باستخدام المتممات — (المكمل) : هو أصغر رقم ينتج، عند إضافته إلى عدد طبيعي معين، ترحيلًا (carry) إلى الخانة الأعلى التالية. تُستخدم المتممات لتمثيل الأرقام السالبة في أجهزة الكمبيوتر. [1] (المكمل الـعشري) : في النظام العشري، هو أصغر رقم ينتج، عند إضافته، ترحيلًا إلى الخانة الأعلى التالية. مثال:المتمم العشري للرقم 71 هو 29، والمتمم العشري للرقم 635 هو 365. [2] (المكمل الثنائي) : في النظام الثنائي، هو أصغر رقم ينتج، عند إضافته، ترحيلًا إلى الخانة الأعلى التالية. • كيفية حساب المكمل الثنائي : لكل خانة من العدد الثنائي الأصلي، قم بعكس 0 إلى 1 و1 إلى 0 ثم أضف 1 في النهاية للحصول على النتيجة تلقائيًا. مثال : المكمل الثنائي للرقم 0101(2) من خلال عكس كل رقم من 0 إلى 1 ومن 1 إلى 0، يصبح (1010(2)). أخيرًا، من خلال إضافة 1، يصبح (1011(2)).</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>ومربعا عمل مطبوعان في النسخة العربية فقط (غير موجودين في الإنجليزية): المربع الأول: «1- المكمل للتسعة (9's Complement) — نطرح كل رقم من 9: 9 - 6 = 3، 9 - 3 = 6، 9 - 5 = 4، إذن المكمّل للتسعة = 364. 2- المكمل للعشرة (10's Complement) — نضيف 1 إلى الناتج السابق: 364 + 1 = 365. النتيجة: المكمّل للتسعة للعدد 635 = 364، المكمّل للعشرة للعدد 635 = 365». المربع الثاني: «العدد الثنائي: 0101 — 1- المكمّل للأحاد (One's Complement): نقلب كل بت (0↔1): 0101 → 1010. 2- المكمل للإثنين (Two's Complement): نأخذ المكمّل للأحاد: 1010، نضيف 1: 1010 + 0001 = 1011. النتيجة: المكمّل للأحاد (One's Complement) للعدد 0101 = 1010، المكمل للإثنين (Two's Complement) للعدد 0101 = 1011».</p></div>
+ يبقى 0)، وبعدين نزيد <b>1</b>.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>أ. تمثيل الأرقام السالبة باستخدام المتممات — (المكمل): هو أصغر رقم ينتج، عند إضافته إلى عدد طبيعي معين، ترحيلًا إلى الخانة الأعلى التالية. تُستخدم المتممات لتمثيل الأرقام السالبة في أجهزة الكمبيوتر. [1] (المكمل الـعشري): في النظام العشري، هو أصغر رقم ينتج، عند إضافته، ترحيلًا إلى الخانة الأعلى التالية. مثال:المتمم العشري للرقم 71 هو 29، والمتمم العشري للرقم 635 هو 365. [2] (المكمل الثنائي): في النظام الثنائي، هو أصغر رقم ينتج، عند إضافته، ترحيلًا إلى الخانة الأعلى التالية. • كيفية حساب المكمل الثنائي: لكل خانة من العدد الثنائي الأصلي، قم بعكس 0 إلى 1 و1 إلى 0 ثم أضف 1 في النهاية للحصول على النتيجة تلقائيًا. مثال: المكمل الثنائي للرقم 0101(2) من خلال عكس كل رقم من 0 إلى 1 ومن 1 إلى 0، يصبح (1010(2)). أخيرًا، من خلال إضافة 1، يصبح (1011(2)).</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>ومربعا عمل مطبوعان في النسخة العربية فقط (غير موجودين في الإنجليزية): المربع الأول: «1- المكمل للتسعة (9's Complement) — نطرح كل رقم من 9: 9 - 6 = 3، 9 - 3 = 6، 9 - 5 = 4، إذن المكمّل للتسعة = 364. 2- المكمل للعشرة (10's Complement) — نضيف 1 إلى الناتج السابق: 364 + 1 = 365. النتيجة: المكمّل للتسعة للعدد 635 = 364، المكمّل للعشرة للعدد 635 = 365». المربع الثاني: «العدد الثنائي: 0101 — 1- المكمّل للأحاد (One's Complement): نقلب كل بت (0↔1): 0101 → 1010. 2- المكمل للإثنين (Two's Complement): نأخذ المكمّل للأحاد: 1010، نضيف 1: 1010 + 0001 = 1011. النتيجة: المكمّل للأحاد (One's Complement) للعدد 0101 = 1010، المكمل للإثنين (Two's Complement) للعدد 0101 = 1011».</p></div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
@@ -1150,13 +167,13 @@ select{color:var(--text)!important}
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="twos"></svg>
                 <div class="svg-label" data-fbox="num" data-ar="الرقم الأصلي 0101(2)" data-en="the original number 0101(2)">الرقم الأصلي 0101(2)</div>
-                <div class="svg-label" data-fbox="inv" data-ar="قلب الأرقام ← 1010(2)" data-en="invert the digits → 1010(2)">قلب الأرقام ← 1010(2)</div>
-                <div class="svg-label" data-fbox="res" data-ar="جمع 1 ← 1011(2)" data-en="add 1 → 1011(2)">جمع 1 ← 1011(2)</div>
+                <div class="svg-label" data-fbox="inv" data-ar="قلب الأرقام → 1010(2)" data-en="invert the digits → 1010(2)">قلب الأرقام ← 1010(2)</div>
+                <div class="svg-label" data-fbox="res" data-ar="جمع 1 → 1011(2)" data-en="add 1 → 1011(2)">جمع 1 ← 1011(2)</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="twosPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="twosNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="twosPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="twosNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="twosCounter">1 / 3</span>
                 <button class="mini-btn" data-id="twosReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1225,7 +242,7 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="قلب الأرقام من غير ما نجمع 1 — النتيجة هتكون أقل بـ 1 من المتمم الصح."
             data-en="Inverting the digits without adding 1 — the result will be 1 less than the correct complement.">قلب الأرقام من غير ما نجمع 1 — النتيجة هتكون أقل بـ 1 من المتمم الصح.</li>
@@ -1243,8 +260,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="الطرح باستخدام المتممات" data-en="Subtraction Using Complements">الطرح باستخدام المتمِّم <span
                 dir="ltr">(Subtraction Using Complements)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="مثال عملي: 1000(2) − 0111(2) — EN PDF 68 (المطبوع 68)؛ AR 77"
-              data-en="Worked example: 1000(2) − 0111(2) - English PDF 68 (printed 68); Arabic 77">مثال عملي:1000(2) − 0111(2) — EN PDF 68 (المطبوع 68)؛ AR 77</div>
+            <div class="tag" style="color:var(--s3)" data-ar="مثال عملي: 1000(2) − 0111(2)"
+              data-en="Worked example: 1000(2) − 0111(2)">مثال عملي:1000(2) − 0111(2)</div>
           </div>
         </div>
       </div>
@@ -1252,14 +269,14 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="الكمبيوتر بيعمل الطرح عن طريق الجمع بالمتمم. العملية فيها 3 خطوات: نلاقي المتمم، نجمع بيه، ونتجاهل الرقم الأول من النتيجة."
           data-en="The computer performs subtraction by doing addition with the complement. The process has 3 steps: find the complement, add with it, and ignore the leading digit of the result.">
-          الكمبيوتر بيحسّب الطرح عن طريق عمل <b>جمع بالمتمِّم</b>. العملية في 3 خطوات: نوجد المتمِّم، نجمع بيه، ونتجاهل
-          الرقم الأول من الناتج.</p>
+ الكمبيوتر بيحسّب الطرح عن طريق عمل <b>جمع بالمتمِّم</b>. العملية في 3 خطوات: نوجد المتمِّم، نجمع بيه، ونتجاهل
+ الرقم الأول من الناتج.</p>
         <div class="note"><b data-ar="الخطوات:" data-en="The steps:">الخطوات:</b> <span
             data-ar="① لاقي متمم المطروح منه. ② استخدم المتمم عشان تعمل جمع. ③ تجاهل أرقام النتيجة الأولى وادي الإجابة."
             data-en="① find the complement of the subtrahend. ② use the complement to perform addition. ③ ignore the leading digits of the result and give the answer.">①
-            نوجد متمِّم <b>المطروح</b>. ② نستخدم المتمِّم في عمل <b>جمع</b>. ③ نتجاهل الأرقام الأولى من الناتج ونكتب
-            الإجابة.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>ب. الطرح باستخدام المكملات — يستخدم الكمبيوتر الطرح عن طريق إجراء عملية جمع مع المكملات. عملية الطرح : (1) أوجد المكمل للمطروح. (2) استخدم المكمل لإجراء الجمع. (3) تجاهل الخانات الرئيسية لنتيجة الحساب وقدم الإجابة. <مثال 1> طرح "8 ⊠ 6" في النظام العشري: (1) المتمم 10 للعدد العشري 6 هو (¹⁰4) — (2) 8 ⊠ 6 ⊠ 8 (¹¹+ 4) = (¹²12) — (3) تجاهل الرقم الرائد، (¹³2). <مثال 2> طرح "1000(2) ⊠ 0111(2)" في النظام الثنائي: (1) المتمم 2 للعدد الثنائي 0111(2) هو (¹⁴1001(2)) — (2) 1000(2) ⊠ 0111(2) ⊠ 1000(2) (¹⁵+ 1001(2)) = (¹⁶10001(2)) — (3) تجاهل الرقم الرائد، (¹⁷0001(2)).</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) الإنجليزية تعلّم المصطلحات المميزة بأرقام مرتفعة ¹-¹⁷؛ العربية تحتفظ بالتظليل الأحمر لكنها تحمل الأرقام ¹⁰-¹⁷ فقط في المثالين العمليين وتسقط ¹-⁹ (التعريف والمثالين والخطوتين). (2) مربعا العمل المحسوبان (مكمّل التسعة/العشرة للعدد 635، ومكمّل الأحاد/الإثنين للعدد 0101) مطبوعان في العربية فقط. (3) تتنوع صيغ المصطلح في العربية: متممات (عنوان أ)، المكملات (عنوان ب)، والمكمل/المتمم/المكمّل في المتن، و«المكمل الـعشري» مقابل &quot;10’s complement&quot;، و«المتمم 10»/«المتمم 2» في المثالين، و«المكمّل للأحاد (One's Complement)» و«المكمل للإثنين (Two's Complement)» في المربع الثاني. (4) علامة الطرح (－) والسهم المزدوج (⇒) تظهران في العربية كمربعات فارغة ⊠ في كل عبارات الطرح — منقولة هنا بالرمز ⊠ كما تظهر للقارئ — بينما تظهران سليمتين في الإنجليزية. (5) &quot;تجاهل الخانة/الأرقام الأولى&quot; ترد بثلاث صيغ في العربية:«تجاهل الخانات الرئيسية» (الخطوة 3)، و«تجاهل الرقم الرائد» (خطوة 3 في المثالين)، و«بتجاهل الخانة الرئيسية» (الشرح). (6) تعريف العربية يضيف الترجمة الصوتية «ترحيلًا (carry)» حيث الإنجليزية &quot;produces a carry&quot;. (7) عنوان الدرس في الكتاب:العربية «العمليات الحسابات العددية [2]» والإنجليزية &quot;Numerical Calculations [2]&quot;." data-en="Edition comparison:(1) English marks the highlighted terms with superscripts ¹-¹⁷; Arabic keeps the red highlight but carries only ¹⁰-¹⁷ (in the two worked examples), dropping ¹-⁹ (the definitions, the example boxes, and the two process steps). (2) The two computed walkthrough boxes (9's/10's complement of 635; One's/Two's complement of 0101) are printed in Arabic only. (3) The Arabic term appears in several forms:متممات (section a title), المكملات (section b title), and المكمل/المتمم/المكمّل in the body, with «المكمل الـعشري» for &quot;10’s complement&quot;, «المتمم 10»/«المتمم 2» in the examples, and «المكمّل للأحاد (One's Complement)»/«المكمل للإثنين (Two's Complement)» in the second box. (4) The fullwidth minus (－) and double arrow (⇒) display as empty boxes ⊠ throughout the Arabic edition - carried here as ⊠ as the reader sees them - while they print correctly in English. (5) &quot;Ignore the leading digit(s)&quot; appears in three Arabic phrasings:step 3, the examples, and the Explanation. (6) The Arabic definition adds the transliteration &quot;ترحيلًا (carry)&quot; where English reads &quot;produces a carry&quot;. (7) Lesson title:Arabic «العمليات الحسابات العددية [2]» vs English &quot;Numerical Calculations [2]&quot;.">مقارنة النسختين:(1) الإنجليزية تعلّم المصطلحات المميزة بأرقام مرتفعة ¹-¹⁷؛ العربية تحتفظ بالتظليل الأحمر لكنها تحمل الأرقام ¹⁰-¹⁷ فقط في المثالين العمليين وتسقط ¹-⁹ (التعريف والمثالين والخطوتين). (2) مربعا العمل المحسوبان (مكمّل التسعة/العشرة للعدد 635، ومكمّل الأحاد/الإثنين للعدد 0101) مطبوعان في العربية فقط. (3) تتنوع صيغ المصطلح في العربية: متممات (عنوان أ)، المكملات (عنوان ب)، والمكمل/المتمم/المكمّل في المتن، و«المكمل الـعشري» مقابل "10’s complement"، و«المتمم 10»/«المتمم 2» في المثالين، و«المكمّل للأحاد (One's Complement)» و«المكمل للإثنين (Two's Complement)» في المربع الثاني. (4) علامة الطرح (－) والسهم المزدوج (⇒) تظهران في العربية كمربعات فارغة ⊠ في كل عبارات الطرح — منقولة هنا بالرمز ⊠ كما تظهر للقارئ — بينما تظهران سليمتين في الإنجليزية. (5) "تجاهل الخانة/الأرقام الأولى" ترد بثلاث صيغ في العربية: «تجاهل الخانات الرئيسية» (الخطوة 3)، و«تجاهل الرقم الرائد» (خطوة 3 في المثالين)، و«بتجاهل الخانة الرئيسية» (الشرح). (6) تعريف العربية يضيف الترجمة الصوتية «ترحيلًا (carry)» حيث الإنجليزية "produces a carry". (7) عنوان الدرس في الكتاب: العربية «العمليات الحسابات العددية [2]» والإنجليزية "Numerical Calculations [2]".</div></div></div>
+ نوجد متمِّم <b>المطروح</b>. ② نستخدم المتمِّم في عمل <b>جمع</b>. ③ نتجاهل الأرقام الأولى من الناتج ونكتب
+ الإجابة.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>ب. الطرح باستخدام المكملات — يستخدم الكمبيوتر الطرح عن طريق إجراء عملية جمع مع المكملات. عملية الطرح: (1) أوجد المكمل للمطروح. (2) استخدم المكمل لإجراء الجمع. (3) تجاهل الخانات الرئيسية لنتيجة الحساب وقدم الإجابة. <مثال 1> طرح "8 ⊠ 6" في النظام العشري: (1) المتمم 10 للعدد العشري 6 هو (¹⁰4) — (2) 8 ⊠ 6 ⊠ 8 (¹¹+ 4) = (¹²12) — (3) تجاهل الرقم الرائد، (¹³2). <مثال 2> طرح "1000(2) ⊠ 0111(2)" في النظام الثنائي: (1) المتمم 2 للعدد الثنائي 0111(2) هو (¹⁴1001(2)) — (2) 1000(2) ⊠ 0111(2) ⊠ 1000(2) (¹⁵+ 1001(2)) = (¹⁶10001(2)) — (3) تجاهل الرقم الرائد، (¹⁷0001(2)).</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) الإنجليزية تعلّم المصطلحات المميزة بأرقام مرتفعة ¹-¹⁷؛ العربية تحتفظ بالتظليل الأحمر لكنها تحمل الأرقام ¹⁰-¹⁷ فقط في المثالين العمليين وتسقط ¹-⁹ (التعريف والمثالين والخطوتين). (2) مربعا العمل المحسوبان (مكمّل التسعة/العشرة للعدد 635، ومكمّل الأحاد/الإثنين للعدد 0101) مطبوعان في العربية فقط. (3) تتنوع صيغ المصطلح في العربية: متممات (عنوان أ)، المكملات (عنوان ب)، والمكمل/المتمم/المكمّل في المتن، و«المكمل الـعشري» مقابل &quot;10’s complement&quot;، و«المتمم 10»/«المتمم 2» في المثالين، و«المكمّل للأحاد (One's Complement)» و«المكمل للإثنين (Two's Complement)» في المربع الثاني. (4) علامة الطرح (－) والسهم المزدوج (⇒) تظهران في العربية كمربعات فارغة ⊠ في كل عبارات الطرح — منقولة هنا بالرمز ⊠ كما تظهر للقارئ — بينما تظهران سليمتين في الإنجليزية. (5) &quot;تجاهل الخانة/الأرقام الأولى&quot; ترد بثلاث صيغ في العربية:«تجاهل الخانات الرئيسية» (الخطوة 3)، و«تجاهل الرقم الرائد» (خطوة 3 في المثالين)، و«بتجاهل الخانة الرئيسية» (الشرح). (6) تعريف العربية يضيف الترجمة الصوتية «ترحيلًا (carry)» حيث الإنجليزية &quot;produces a carry&quot;. (7) عنوان الدرس في الكتاب:العربية «العمليات الحسابات العددية [2]» والإنجليزية &quot;Numerical Calculations [2]&quot;." data-en="Edition comparison:(1) English marks the highlighted terms with superscripts ¹-¹⁷; Arabic keeps the red highlight but carries only ¹⁰-¹⁷ (in the two worked examples), dropping ¹-⁹ (the definitions, the example boxes, and the two process steps). (2) The two computed walkthrough boxes (9's/10's complement of 635; One's/Two's complement of 0101) are printed in Arabic only. (3) The Arabic term appears in several forms:متممات (section a title), المكملات (section b title), and المكمل/المتمم/المكمّل in the body, with «المكمل الـعشري» for &quot;10’s complement&quot;, «المتمم 10»/«المتمم 2» in the examples, and «المكمّل للأحاد (One's Complement)»/«المكمل للإثنين (Two's Complement)» in the second box. (4) The fullwidth minus (－) and double arrow (⇒) display as empty boxes ⊠ throughout the Arabic edition - carried here as ⊠ as the reader sees them - while they print correctly in English. (5) &quot;Ignore the leading digit(s)&quot; appears in three Arabic phrasings:ste, the examples, and the Explanation. (6) The Arabic definition adds the transliteration &quot;ترحيلًا (carry)&quot; where English reads &quot;produces a carry&quot;. (7) Lesson title:Arabic «العمليات الحسابات العددية [2]» vs English &quot;Numerical Calculations [2]&quot;.">مقارنة النسختين:(1) الإنجليزية تعلّم المصطلحات المميزة بأرقام مرتفعة ¹-¹⁷؛ العربية تحتفظ بالتظليل الأحمر لكنها تحمل الأرقام ¹⁰-¹⁷ فقط في المثالين العمليين وتسقط ¹-⁹ (التعريف والمثالين والخطوتين). (2) مربعا العمل المحسوبان (مكمّل التسعة/العشرة للعدد 635، ومكمّل الأحاد/الإثنين للعدد 0101) مطبوعان في العربية فقط. (3) تتنوع صيغ المصطلح في العربية: متممات (عنوان أ)، المكملات (عنوان ب)، والمكمل/المتمم/المكمّل في المتن، و«المكمل الـعشري» مقابل "10’s complement"، و«المتمم 10»/«المتمم 2» في المثالين، و«المكمّل للأحاد (One's Complement)» و«المكمل للإثنين (Two's Complement)» في المربع الثاني. (4) علامة الطرح (－) والسهم المزدوج (⇒) تظهران في العربية كمربعات فارغة ⊠ في كل عبارات الطرح — منقولة هنا بالرمز ⊠ كما تظهر للقارئ — بينما تظهران سليمتين في الإنجليزية. (5) "تجاهل الخانة/الأرقام الأولى" ترد بثلاث صيغ في العربية: «تجاهل الخانات الرئيسية» (الخطوة 3)، و«تجاهل الرقم الرائد» (خطوة 3 في المثالين)، و«بتجاهل الخانة الرئيسية» (الشرح). (6) تعريف العربية يضيف الترجمة الصوتية «ترحيلًا (carry)» حيث الإنجليزية "produces a carry". (7) عنوان الدرس في الكتاب: العربية «العمليات الحسابات العددية [2]» والإنجليزية "Numerical Calculations [2]".</div></div></div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
@@ -1272,12 +289,12 @@ select{color:var(--text)!important}
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="subs"></svg>
                 <div class="svg-label" data-fbox="comp" data-ar="متمم 0111(2) = 1001(2)" data-en="the complement of 0111(2) = 1001(2)">متمم 0111(2) = 1001(2)</div>
                 <div class="svg-label" data-fbox="add" data-ar="1000(2) + 1001(2) = 10001(2)" data-en="1000(2) + 1001(2) = 10001(2)">1000(2) + 1001(2) = 10001(2)</div>
-                <div class="svg-label" data-fbox="drop" data-ar="تجاهل الرقم الأول ← 0001(2)" data-en="ignore the leading digit → 0001(2)">تجاهل الرقم الأول ← 0001(2)</div>
+                <div class="svg-label" data-fbox="drop" data-ar="تجاهل الرقم الأول → 0001(2)" data-en="ignore the leading digit → 0001(2)">تجاهل الرقم الأول ← 0001(2)</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="subsPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="subsNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="subsPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="subsNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="subsCounter">1 / 3</span>
                 <button class="mini-btn" data-id="subsReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1347,7 +364,7 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="نسيان تجاهل الرقم الأول من نتيجة الجمع — الإجابة الصح هي الجزء اللي بعد الرقم الأول."
             data-en="Forgetting to ignore the leading digit of the addition result — the correct answer is the part after the leading digit.">نسيان تجاهل الرقم الأول من نتيجة الجمع — الإجابة الصح هي الجزء اللي بعد الرقم الأول.</li>
@@ -1364,8 +381,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">04</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 68 (المطبوع 68)؛ AR 77–78"
-              data-en="Your book: English PDF 68 (printed 68); Arabic 77-78">الكتاب بتاعك:EN PDF 68 (المطبوع 68)؛ AR 77–78</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1388,29 +405,29 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <!-- TEXTBOOK-CARD-BEGIN id="book-warm" -->
         <div class="book-card">
-          <h3 data-ar="من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع</h3>
+          <h3 data-ar="من الكتاب: تحدى معلوماتك مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك مع الشرح المطبوع</h3>
           <p data-ar="تحدى معلوماتك — أجب عن الأسئلة التالية. (1) ما هو المكمل للرقم الثنائي التالي؟ [1] 1001(2) [2] 0100(2) — (2) استخدم المكملات لإجراء عمليات الطرح الثنائية التالية. [1] 1100(2) ⊠ 0111(2) [2] 1110(2) ⊠ 1001(2)." data-en="Warm Up - Answer the following questions. (1) What is the complement of the following binary number? [1] 1001(2) [2] 0100(2) - (2) Use complements to perform the following binary subtractions. [1] 1100(2) － 0111(2) [2] 1110(2) － 1001(2).">تحدى معلوماتك — أجب عن الأسئلة التالية. (1) ما هو المكمل للرقم الثنائي التالي؟ [1] 1001(2) [2] 0100(2) — (2) استخدم المكملات لإجراء عمليات الطرح الثنائية التالية. [1] 1100(2) ⊠ 0111(2) [2] 1110(2) ⊠ 1001(2).</p>
           <p data-ar="الشرح المطبوع — (1) [1] بعكس كل خانة من 0 إلى 1 ومن 1 إلى 0، يصبح (0110(2)). أخيرًا، بإضافة 1، يصبح (0111(2)). [2] بعكس كل خانة من 0 إلى 1 ومن 1 إلى 0، يصبح (1011(2)). أخيرًا، بإضافة 1، يصبح (1100(2)). (2) [1] مكمل الرقم الثنائي (0111(2)) هو (1001(2))، لذا 1100(2) ⊠ 0111(2) ⊠ 1100(2) + 1001(2) = 10101(2) بتجاهل الخانة الرئيسية 0101(2)، [2] مكمل الرقم الثنائي (1001(2)) هو (0111(2))، بالتالي، 1110(2) ⊠ 1001(2) ⊠ 1110(2) + 0111(2) = 10101(2) بتجاهل الخانة الرئيسية 0101(2)،" data-en="Printed Explanation - (1) [1] By inverting each digit from 0 to 1 and from 1 to 0, it becomes 0110(2). Finally, by adding 1, it becomes 0111(2). [2] By inverting each digit from 0 to 1 and from 1 to 0, it becomes 1011(2). Adding 1 causes a place value to carry over. Finally, by adding 1, it becomes 1100(2). (2) [1] The complement of the binary number 0111(2) is 1001(2), so 1100(2) － 0111(2) ⇒ 1100(2) + 1001(2) = 10101(2). By ignoring the leading digit, 0101(2). [2] The complement of the binary number 1001(2) is 0111(2), therefore, 1110(2) － 1001(2) ⇒ 1110(2) + 0111(2) = 10101(2). By ignoring the leading digit, 0101(2).">الشرح المطبوع — (1) [1] بعكس كل خانة من 0 إلى 1 ومن 1 إلى 0، يصبح (0110(2)). أخيرًا، بإضافة 1، يصبح (0111(2)). [2] بعكس كل خانة من 0 إلى 1 ومن 1 إلى 0، يصبح (1011(2)). أخيرًا، بإضافة 1، يصبح (1100(2)). (2) [1] مكمل الرقم الثنائي (0111(2)) هو (1001(2))، لذا 1100(2) ⊠ 0111(2) ⊠ 1100(2) + 1001(2) = 10101(2) بتجاهل الخانة الرئيسية 0101(2)، [2] مكمل الرقم الثنائي (1001(2)) هو (0111(2))، بالتالي، 1110(2) ⊠ 1001(2) ⊠ 1110(2) + 0111(2) = 10101(2) بتجاهل الخانة الرئيسية 0101(2)،</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) الإجابات المطبوعة متفقّة: (1) [1] ‏0111(2) [2] ‏1100(2)؛ و(2) ‏0101(2) في السؤالين. (2) شرح (1)[2] في الإنجليزية يضيف ملاحظة منقّطة &quot;Adding 1 causes a place value to carry over.&quot; غير موجودة في العربية. (3) علامتا － و⇒ تظهران في العربية كمربعات ⊠ (منقولة كما تظهر للقارئ). (4) سؤال (1) هنا بصيغة «ما هو المكمل للرقم الثنائي التالي؟» بينما جرب وتمرين يطبعان «ما هو مكمل العدد الثنائي التالي؟»." data-en="Edition comparison:(1) The printed answers agree: (1) [1] 0111(2) [2] 1100(2); (2) 0101(2) for both questions. (2) The English explanation of (1)[2] adds a dotted note &quot;Adding 1 causes a place value to carry over.&quot; that the Arabic lacks. (3) The － and ⇒ marks display as ⊠ boxes in Arabic (carried as printed). (4) Question (1) here reads «ما هو المكمل للرقم الثنائي التالي؟» while Try and Exercise print «ما هو مكمل العدد الثنائي التالي؟».">مقارنة النسختين:(1) الإجابات المطبوعة متفقّة: (1) [1] ‏0111(2) [2] ‏1100(2)؛ و(2) ‏0101(2) في السؤالين. (2) شرح (1)[2] في الإنجليزية يضيف ملاحظة منقّطة "Adding 1 causes a place value to carry over." غير موجودة في العربية. (3) علامتا － و⇒ تظهران في العربية كمربعات ⊠ (منقولة كما تظهر للقارئ). (4) سؤال (1) هنا بصيغة «ما هو المكمل للرقم الثنائي التالي؟» بينما جرب وتمرين يطبعان «ما هو مكمل العدد الثنائي التالي؟».</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 68 (المطبوع 68)؛ AR 77." data-en="The above is from the textbook. Full source: English PDF 68 (printed 68); Arabic 77.">النص السابق من الكتاب. المصدر الكامل:EN PDF 68 (المطبوع 68)؛ AR 77.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: جرب بنفسك (Try)" data-en="From the book: Try">من الكتاب: جرب بنفسك (Try)</h3>
+          <h3 data-ar="من الكتاب: جرب بنفسك" data-en="From the book: Try">من الكتاب: جرب بنفسك</h3>
           <p data-ar="جرب بنفسك — (أ) أجب عن الأسئلة التالية. (1) (1) ما هو مكمل العدد الثنائي التالي؟ [1] 0101(2) [2] 1101(2) [3] 10110001(2) [4] 01001100(2) — (2) استخدم المكملات لإجراء عمليات الطرح الثنائية التالية. [1] 1101(2) ⊠ 0110(2) [2] 1010(2) ⊠ 0111(2) [3] 1101(2) ⊠ 1010(2)." data-en="Try - Answer the following questions. (1) What is the complement of the following binary number? [1] 0101(2) [2] 1101(2) [3] 10110001(2) [4] 01001100(2) - (2) Use complements to perform the following binary subtractions. [1] 1101(2) － 0110(2) [2] 1010(2) － 0111(2) [3] 1101(2) － 1010(2).">جرب بنفسك — (أ) أجب عن الأسئلة التالية. (1) (1) ما هو مكمل العدد الثنائي التالي؟ [1] 0101(2) [2] 1101(2) [3] 10110001(2) [4] 01001100(2) — (2) استخدم المكملات لإجراء عمليات الطرح الثنائية التالية. [1] 1101(2) ⊠ 0110(2) [2] 1010(2) ⊠ 0111(2) [3] 1101(2) ⊠ 1010(2).</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ‏1011(2) [2] ‏0011(2) [3] ‏01001111(2) [4] ‏10110100(2) — (2) [1] ‏0111(2) [2] ‏0011(2) [3] ‏0011(2)." data-en="Answers not printed in the book (teacher-prepared): (1) [1] 1011(2) [2] 0011(2) [3] 01001111(2) [4] 10110100(2) - (2) [1] 0111(2) [2] 0011(2) [3] 0011(2).">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ‏1011(2) [2] ‏0011(2) [3] ‏01001111(2) [4] ‏10110100(2) — (2) [1] ‏0111(2) [2] ‏0011(2) [3] ‏0011(2).</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) جرب في العربية يفتتح «(أ) أجب عن الأسئلة التالية.» ويرقّم السؤال الأول «(1) (1)» بينما الإنجليزية &quot;Answer the following questions. (1)&quot;. (2) علامة الطرح － تظهر ⊠ في العربية. (3) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا. (4) صيغة السؤال العربية هنا «مكمل العدد الثنائي» مقابل «المكمل للرقم الثنائي» في تحدى." data-en="Edition comparison:(1) The Arabic Try opens with «(أ) أجب عن الأسئلة التالية.» and numbers the first question «(1) (1)», while English prints &quot;Answer the following questions. (1)&quot;. (2) The minus － displays as ⊠ in Arabic. (3) The answers are not printed in either edition - the answers above are teacher-prepared. (4) The Arabic question wording here is «مكمل العدد الثنائي» vs «المكمل للرقم الثنائي» in the Warm Up.">مقارنة النسختين:(1) جرب في العربية يفتتح «(أ) أجب عن الأسئلة التالية.» ويرقّم السؤال الأول «(1) (1)» بينما الإنجليزية "Answer the following questions. (1)". (2) علامة الطرح － تظهر ⊠ في العربية. (3) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا. (4) صيغة السؤال العربية هنا «مكمل العدد الثنائي» مقابل «المكمل للرقم الثنائي» في تحدى.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 68 (المطبوع 68)؛ AR 78." data-en="The above is from the textbook. Full source: English PDF 68 (printed 68); Arabic 78.">النص السابق من الكتاب. المصدر الكامل:EN PDF 68 (المطبوع 68)؛ AR 78.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: تمرين (Exercise)" data-en="From the book: Exercise">من الكتاب: تمرين (Exercise)</h3>
+          <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
           <p data-ar="تمرين 1 — أجب عن الأسئلة التالية. (1) ما هو مكمل العدد الثنائي التالي؟ [1] 0111(2) [2] 1011(2) [3] 10011011(2) [4] 11000110(2) — (2) استخدم المكملات لإجراء عمليات الطرح الثنائية التالية. [1] 1010(2) ⊠ 0110(2) [2] 1011(2) ⊠ 1001(2) [3] 1100(2) ⊠ 0010(2)." data-en="Exercise 1 - Answer the following questions. (1) What is the complement of the following binary number? [1] 0111(2) [2] 1011(2) [3] 10011011(2) [4] 11000110(2) - (2) Use complements to perform the following binary subtractions. [1] 1010(2) － 0110(2) [2] 1011(2) － 1001(2) [3] 1100(2) － 0010(2).">تمرين 1 — أجب عن الأسئلة التالية. (1) ما هو مكمل العدد الثنائي التالي؟ [1] 0111(2) [2] 1011(2) [3] 10011011(2) [4] 11000110(2) — (2) استخدم المكملات لإجراء عمليات الطرح الثنائية التالية. [1] 1010(2) ⊠ 0110(2) [2] 1011(2) ⊠ 1001(2) [3] 1100(2) ⊠ 0010(2).</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ‏1001(2) [2] ‏0101(2) [3] ‏01100101(2) [4] ‏00111010(2) — (2) [1] ‏0100(2) [2] ‏0010(2) [3] ‏1010(2)." data-en="Answers not printed in the book (teacher-prepared): (1) [1] 1001(2) [2] 0101(2) [3] 01100101(2) [4] 00111010(2) - (2) [1] 0100(2) [2] 0010(2) [3] 1010(2).">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ‏1001(2) [2] ‏0101(2) [3] ‏01100101(2) [4] ‏00111010(2) — (2) [1] ‏0100(2) [2] ‏0010(2) [3] ‏1010(2).</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) شريط عنوان «تمرين» أحمر في العربية وأسود في الإنجليزية. (2) علامة الطرح － تظهر ⊠ في العربية. (3) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا." data-en="Edition comparison: (1) The &quot;تمرين/Exercise&quot; band is red in Arabic and black in English. (2) The minus － displays as ⊠ in Arabic. (3) The answers are not printed in either edition - the answers above are teacher-prepared.">مقارنة النسختين:(1) شريط عنوان «تمرين» أحمر في العربية وأسود في الإنجليزية. (2) علامة الطرح － تظهر ⊠ في العربية. (3) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 68 (المطبوع 68)؛ AR 78." data-en="The above is from the textbook. Full source: English PDF 68 (printed 68); Arabic 78.">النص السابق من الكتاب. المصدر الكامل:EN PDF 68 (المطبوع 68)؛ AR 78.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
       </div>
@@ -1421,25 +438,25 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه متمم الأساس 2 للرقم 1001(2)؟"
               data-en="What is the 2’s complement of 1001(2)?">إيه متمم الأساس 2 للرقم 1001(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="B  0111(2)" data-en="B  0111(2)">B  <span dir="ltr">0111(2)</span></div>
-            <div class="ex-opt" data-ar="A  0110(2)" data-en="A  0110(2)">A  <span dir="ltr">0110(2)</span></div>
-            <div class="ex-opt" data-ar="C  1001(2)" data-en="C  1001(2)">C  <span dir="ltr">1001(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 0111(2)" data-en="B  0111(2)">B  <span dir="ltr">0111(2)</span></div>
+            <div class="ex-opt" data-ar="A 0110(2)" data-en="A  0110(2)">A  <span dir="ltr">0110(2)</span></div>
+            <div class="ex-opt" data-ar="C 1001(2)" data-en="C  1001(2)">C  <span dir="ltr">1001(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 0111(2)" data-en="✅ Answer: B — 0111(2)">✅ الإجابة: B — 0111(2)</b> <span data-ar="قلب 1001 بيدّي 0110، وجمع 1 بيدّي 0111."
               data-en="inverting 1001 gives 0110, and adding 1 gives 0111.">نعكس 1001 يبقى <b>0110</b>، ونزيد 1 يبقى
-              <b>0111</b>.</span></div>
+ <b>0111</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه متمم الأساس 2 للرقم 0100(2)؟"
               data-en="What is the 2’s complement of 0100(2)?">إيه متمم الأساس 2 للرقم 0100(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  1011(2)" data-en="A  1011(2)">A  <span dir="ltr">1011(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  1100(2)" data-en="B  1100(2)">B  <span dir="ltr">1100(2)</span></div>
-            <div class="ex-opt" data-ar="C  0100(2)" data-en="C  0100(2)">C  <span dir="ltr">0100(2)</span></div>
+            <div class="ex-opt" data-ar="A 1011(2)" data-en="A  1011(2)">A  <span dir="ltr">1011(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 1100(2)" data-en="B  1100(2)">B  <span dir="ltr">1100(2)</span></div>
+            <div class="ex-opt" data-ar="C 0100(2)" data-en="C  0100(2)">C  <span dir="ltr">0100(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 1100(2)" data-en="✅ Answer: B — 1100(2)">✅ الإجابة: B — 1100(2)</b> <span data-ar="قلب 0100 بيدّي 1011، وجمع 1 بيدّي 1100."
               data-en="inverting 0100 gives 1011, and adding 1 gives 1100.">نعكس 0100 يبقى <b>1011</b>، ونزيد 1 يبقى
-              <b>1100</b>.</span></div>
+ <b>1100</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1453,25 +470,25 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه 1100(2) − 0111(2) باستخدام المتمم؟"
               data-en="What is 1100(2) − 0111(2) using the complement?">إيه 1100(2) − 0111(2) باستخدام المتمم؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  10101(2)" data-en="A  10101(2)">A  <span dir="ltr">10101(2)</span></div>
-            <div class="ex-opt" data-ar="B  0110(2)" data-en="B  0110(2)">B  <span dir="ltr">0110(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  0101(2)" data-en="C  0101(2)">C  <span dir="ltr">0101(2)</span></div>
+            <div class="ex-opt" data-ar="A 10101(2)" data-en="A  10101(2)">A  <span dir="ltr">10101(2)</span></div>
+            <div class="ex-opt" data-ar="B 0110(2)" data-en="B  0110(2)">B  <span dir="ltr">0110(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 0101(2)" data-en="C  0101(2)">C  <span dir="ltr">0101(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 0101(2)" data-en="✅ Answer: C — 0101(2)">✅ الإجابة: C — 0101(2)</b> <span data-ar="متمم 0111 = 1001، و1100 + 1001 = 10101، وتجاهل الرقم الأول بيدّي 0101."
               data-en="the complement of 0111 = 1001, and 1100 + 1001 = 10101, ignoring the leading digit gives 0101.">متمِّم
-              0111 = 1001، و1100 + 1001 = 10101، ونتجاهل الأول يبقى <b>0101</b>.</span></div>
+ 0111 = 1001، و1100 + 1001 = 10101، ونتجاهل الأول يبقى <b>0101</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه 1110(2) − 1001(2) باستخدام المتمم؟"
               data-en="What is 1110(2) − 1001(2) using the complement?">إيه 1110(2) − 1001(2) باستخدام المتمم؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="C  0101(2)" data-en="C  0101(2)">C  <span dir="ltr">0101(2)</span></div>
-            <div class="ex-opt" data-ar="B  10101(2)" data-en="B  10101(2)">B  <span dir="ltr">10101(2)</span></div>
-            <div class="ex-opt" data-ar="A  0111(2)" data-en="A  0111(2)">A  <span dir="ltr">0111(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 0101(2)" data-en="C  0101(2)">C  <span dir="ltr">0101(2)</span></div>
+            <div class="ex-opt" data-ar="B 10101(2)" data-en="B  10101(2)">B  <span dir="ltr">10101(2)</span></div>
+            <div class="ex-opt" data-ar="A 0111(2)" data-en="A  0111(2)">A  <span dir="ltr">0111(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 0101(2)" data-en="✅ Answer: C — 0101(2)">✅ الإجابة: C — 0101(2)</b> <span data-ar="متمم 1001 = 0111، و1110 + 0111 = 10101، وتجاهل الرقم الأول بيدّي 0101."
               data-en="the complement of 1001 = 0111, and 1110 + 0111 = 10101, ignoring the leading digit gives 0101.">متمِّم
-              1001 = 0111، و1110 + 0111 = 10101، ونتجاهل الأول يبقى <b>0101</b>.</span></div>
+ 1001 = 0111، و1110 + 0111 = 10101، ونتجاهل الأول يبقى <b>0101</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1486,49 +503,49 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه متمم الأساس 2 للرقم 0101(2)؟"
               data-en="What is the 2’s complement of 0101(2)?">إيه متمم الأساس 2 للرقم 0101(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="C  1011(2)" data-en="C  1011(2)">C  <span dir="ltr">1011(2)</span></div>
-            <div class="ex-opt" data-ar="B  1010(2)" data-en="B  1010(2)">B  <span dir="ltr">1010(2)</span></div>
-            <div class="ex-opt" data-ar="A  0111(2)" data-en="A  0111(2)">A  <span dir="ltr">0111(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 1011(2)" data-en="C  1011(2)">C  <span dir="ltr">1011(2)</span></div>
+            <div class="ex-opt" data-ar="B 1010(2)" data-en="B  1010(2)">B  <span dir="ltr">1010(2)</span></div>
+            <div class="ex-opt" data-ar="A 0111(2)" data-en="A  0111(2)">A  <span dir="ltr">0111(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 1011(2)" data-en="✅ Answer: C — 1011(2)">✅ الإجابة: C — 1011(2)</b> <span data-ar="قلب 0101 بيدّي 1010، وجمع 1 بيدّي 1011."
               data-en="inverting 0101 gives 1010, and adding 1 gives 1011.">نعكس 0101 يبقى <b>1010</b>، ونزيد 1 يبقى
-              <b>1011</b>.</span></div>
+ <b>1011</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه متمم الأساس 2 للرقم 1101(2)؟"
               data-en="What is the 2’s complement of 1101(2)?">إيه متمم الأساس 2 للرقم 1101(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  0010(2)" data-en="A  0010(2)">A  <span dir="ltr">0010(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  0011(2)" data-en="B  0011(2)">B  <span dir="ltr">0011(2)</span></div>
-            <div class="ex-opt" data-ar="C  1011(2)" data-en="C  1011(2)">C  <span dir="ltr">1011(2)</span></div>
+            <div class="ex-opt" data-ar="A 0010(2)" data-en="A  0010(2)">A  <span dir="ltr">0010(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 0011(2)" data-en="B  0011(2)">B  <span dir="ltr">0011(2)</span></div>
+            <div class="ex-opt" data-ar="C 1011(2)" data-en="C  1011(2)">C  <span dir="ltr">1011(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 0011(2)" data-en="✅ Answer: B — 0011(2)">✅ الإجابة: B — 0011(2)</b> <span data-ar="قلب 1101 بيدّي 0010، وجمع 1 بيدّي 0011."
               data-en="inverting 1101 gives 0010, and adding 1 gives 0011.">نعكس 1101 يبقى <b>0010</b>، ونزيد 1 يبقى
-              <b>0011</b>.</span></div>
+ <b>0011</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه متمم الأساس 2 للرقم 10110001(2)؟"
               data-en="What is the 2’s complement of 10110001(2)?">إيه متمم الأساس 2 للرقم 10110001(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  01001110(2)" data-en="A  01001110(2)">A  <span dir="ltr">01001110(2)</span></div>
-            <div class="ex-opt" data-ar="B  10110001(2)" data-en="B  10110001(2)">B  <span dir="ltr">10110001(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  01001111(2)" data-en="C  01001111(2)">C  <span dir="ltr">01001111(2)</span></div>
+            <div class="ex-opt" data-ar="A 01001110(2)" data-en="A  01001110(2)">A  <span dir="ltr">01001110(2)</span></div>
+            <div class="ex-opt" data-ar="B 10110001(2)" data-en="B  10110001(2)">B  <span dir="ltr">10110001(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 01001111(2)" data-en="C  01001111(2)">C  <span dir="ltr">01001111(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 01001111(2)" data-en="✅ Answer: C — 01001111(2)">✅ الإجابة: C — 01001111(2)</b> <span data-ar="قلب 10110001 بيدّي 01001110، وجمع 1 بيدّي 01001111."
               data-en="inverting 10110001 gives 01001110, and adding 1 gives 01001111.">نعكس 10110001 يبقى
-              <b>01001110</b>، ونزيد 1 يبقى <b>01001111</b>.</span></div>
+ <b>01001110</b>، ونزيد 1 يبقى <b>01001111</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">4</span> <span data-ar="إيه متمم الأساس 2 للرقم 01001100(2)؟"
               data-en="What is the 2’s complement of 01001100(2)?">إيه متمم الأساس 2 للرقم 01001100(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  10110100(2)" data-en="A  10110100(2)">A  <span dir="ltr">10110100(2)</span></div>
-            <div class="ex-opt" data-ar="B  10110011(2)" data-en="B  10110011(2)">B  <span dir="ltr">10110011(2)</span></div>
-            <div class="ex-opt" data-ar="C  01001100(2)" data-en="C  01001100(2)">C  <span dir="ltr">01001100(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 10110100(2)" data-en="A  10110100(2)">A  <span dir="ltr">10110100(2)</span></div>
+            <div class="ex-opt" data-ar="B 10110011(2)" data-en="B  10110011(2)">B  <span dir="ltr">10110011(2)</span></div>
+            <div class="ex-opt" data-ar="C 01001100(2)" data-en="C  01001100(2)">C  <span dir="ltr">01001100(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 10110100(2)" data-en="✅ Answer: A — 10110100(2)">✅ الإجابة: A — 10110100(2)</b> <span data-ar="قلب 01001100 بيدّي 10110011، وجمع 1 بيدّي 10110100."
               data-en="inverting 01001100 gives 10110011, and adding 1 gives 10110100.">نعكس 01001100 يبقى
-              <b>10110011</b>، ونزيد 1 يبقى <b>10110100</b>.</span></div>
+ <b>10110011</b>، ونزيد 1 يبقى <b>10110100</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1543,37 +560,37 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه 1101(2) − 0110(2) باستخدام المتمم؟"
               data-en="What is 1101(2) − 0110(2) using the complement?">إيه 1101(2) − 0110(2) باستخدام المتمم؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  0111(2)" data-en="A  0111(2)">A  <span dir="ltr">0111(2)</span></div>
-            <div class="ex-opt" data-ar="B  10111(2)" data-en="B  10111(2)">B  <span dir="ltr">10111(2)</span></div>
-            <div class="ex-opt" data-ar="C  0101(2)" data-en="C  0101(2)">C  <span dir="ltr">0101(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 0111(2)" data-en="A  0111(2)">A  <span dir="ltr">0111(2)</span></div>
+            <div class="ex-opt" data-ar="B 10111(2)" data-en="B  10111(2)">B  <span dir="ltr">10111(2)</span></div>
+            <div class="ex-opt" data-ar="C 0101(2)" data-en="C  0101(2)">C  <span dir="ltr">0101(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 0111(2)" data-en="✅ Answer: A — 0111(2)">✅ الإجابة: A — 0111(2)</b> <span data-ar="متمم 0110 = 1010، و1101 + 1010 = 10111، وتجاهل الرقم الأول بيدّي 0111."
               data-en="the complement of 0110 = 1010, and 1101 + 1010 = 10111, ignoring the leading digit gives 0111.">متمِّم
-              0110 = 1010، و1101 + 1010 = 10111، ونتجاهل الأول يبقى <b>0111</b>.</span></div>
+ 0110 = 1010، و1101 + 1010 = 10111، ونتجاهل الأول يبقى <b>0111</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه 1010(2) − 0111(2) باستخدام المتمم؟"
               data-en="What is 1010(2) − 0111(2) using the complement?">إيه 1010(2) − 0111(2) باستخدام المتمم؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  10011(2)" data-en="A  10011(2)">A  <span dir="ltr">10011(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  0011(2)" data-en="B  0011(2)">B  <span dir="ltr">0011(2)</span></div>
-            <div class="ex-opt" data-ar="C  0101(2)" data-en="C  0101(2)">C  <span dir="ltr">0101(2)</span></div>
+            <div class="ex-opt" data-ar="A 10011(2)" data-en="A  10011(2)">A  <span dir="ltr">10011(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 0011(2)" data-en="B  0011(2)">B  <span dir="ltr">0011(2)</span></div>
+            <div class="ex-opt" data-ar="C 0101(2)" data-en="C  0101(2)">C  <span dir="ltr">0101(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 0011(2)" data-en="✅ Answer: B — 0011(2)">✅ الإجابة: B — 0011(2)</b> <span data-ar="متمم 0111 = 1001، و1010 + 1001 = 10011، وتجاهل الرقم الأول بيدّي 0011."
               data-en="the complement of 0111 = 1001, and 1010 + 1001 = 10011, ignoring the leading digit gives 0011.">متمِّم
-              0111 = 1001، و1010 + 1001 = 10011، ونتجاهل الأول يبقى <b>0011</b>.</span></div>
+ 0111 = 1001، و1010 + 1001 = 10011، ونتجاهل الأول يبقى <b>0011</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه 1101(2) − 1010(2) باستخدام المتمم؟"
               data-en="What is 1101(2) − 1010(2) using the complement?">إيه 1101(2) − 1010(2) باستخدام المتمم؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  10011(2)" data-en="A  10011(2)">A  <span dir="ltr">10011(2)</span></div>
-            <div class="ex-opt" data-ar="B  0110(2)" data-en="B  0110(2)">B  <span dir="ltr">0110(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  0011(2)" data-en="C  0011(2)">C  <span dir="ltr">0011(2)</span></div>
+            <div class="ex-opt" data-ar="A 10011(2)" data-en="A  10011(2)">A  <span dir="ltr">10011(2)</span></div>
+            <div class="ex-opt" data-ar="B 0110(2)" data-en="B  0110(2)">B  <span dir="ltr">0110(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 0011(2)" data-en="C  0011(2)">C  <span dir="ltr">0011(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 0011(2)" data-en="✅ Answer: C — 0011(2)">✅ الإجابة: C — 0011(2)</b> <span data-ar="متمم 1010 = 0110، و1101 + 0110 = 10011، وتجاهل الرقم الأول بيدّي 0011."
               data-en="the complement of 1010 = 0110, and 1101 + 0110 = 10011, ignoring the leading digit gives 0011.">متمِّم
-              1010 = 0110، و1101 + 0110 = 10011، ونتجاهل الأول يبقى <b>0011</b>.</span></div>
+ 1010 = 0110، و1101 + 0110 = 10011، ونتجاهل الأول يبقى <b>0011</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1588,49 +605,49 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه متمم الأساس 2 للرقم 0111(2)؟"
               data-en="What is the 2’s complement of 0111(2)?">إيه متمم الأساس 2 للرقم 0111(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  1001(2)" data-en="A  1001(2)">A  <span dir="ltr">1001(2)</span></div>
-            <div class="ex-opt" data-ar="B  1000(2)" data-en="B  1000(2)">B  <span dir="ltr">1000(2)</span></div>
-            <div class="ex-opt" data-ar="C  0111(2)" data-en="C  0111(2)">C  <span dir="ltr">0111(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 1001(2)" data-en="A  1001(2)">A  <span dir="ltr">1001(2)</span></div>
+            <div class="ex-opt" data-ar="B 1000(2)" data-en="B  1000(2)">B  <span dir="ltr">1000(2)</span></div>
+            <div class="ex-opt" data-ar="C 0111(2)" data-en="C  0111(2)">C  <span dir="ltr">0111(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 1001(2)" data-en="✅ Answer: A — 1001(2)">✅ الإجابة: A — 1001(2)</b> <span data-ar="قلب 0111 بيدّي 1000، وجمع 1 بيدّي 1001."
               data-en="inverting 0111 gives 1000, and adding 1 gives 1001.">نعكس 0111 يبقى <b>1000</b>، ونزيد 1 يبقى
-              <b>1001</b>.</span></div>
+ <b>1001</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه متمم الأساس 2 للرقم 1011(2)؟"
               data-en="What is the 2’s complement of 1011(2)?">إيه متمم الأساس 2 للرقم 1011(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  0101(2)" data-en="A  0101(2)">A  <span dir="ltr">0101(2)</span></div>
-            <div class="ex-opt" data-ar="B  0100(2)" data-en="B  0100(2)">B  <span dir="ltr">0100(2)</span></div>
-            <div class="ex-opt" data-ar="C  1101(2)" data-en="C  1101(2)">C  <span dir="ltr">1101(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 0101(2)" data-en="A  0101(2)">A  <span dir="ltr">0101(2)</span></div>
+            <div class="ex-opt" data-ar="B 0100(2)" data-en="B  0100(2)">B  <span dir="ltr">0100(2)</span></div>
+            <div class="ex-opt" data-ar="C 1101(2)" data-en="C  1101(2)">C  <span dir="ltr">1101(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 0101(2)" data-en="✅ Answer: A — 0101(2)">✅ الإجابة: A — 0101(2)</b> <span data-ar="قلب 1011 بيدّي 0100، وجمع 1 بيدّي 0101."
               data-en="inverting 1011 gives 0100, and adding 1 gives 0101.">نعكس 1011 يبقى <b>0100</b>، ونزيد 1 يبقى
-              <b>0101</b>.</span></div>
+ <b>0101</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه متمم الأساس 2 للرقم 10011011(2)؟"
               data-en="What is the 2’s complement of 10011011(2)?">إيه متمم الأساس 2 للرقم 10011011(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  01100100(2)" data-en="A  01100100(2)">A  <span dir="ltr">01100100(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  01100101(2)" data-en="B  01100101(2)">B  <span dir="ltr">01100101(2)</span></div>
-            <div class="ex-opt" data-ar="C  10011011(2)" data-en="C  10011011(2)">C  <span dir="ltr">10011011(2)</span></div>
+            <div class="ex-opt" data-ar="A 01100100(2)" data-en="A  01100100(2)">A  <span dir="ltr">01100100(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 01100101(2)" data-en="B  01100101(2)">B  <span dir="ltr">01100101(2)</span></div>
+            <div class="ex-opt" data-ar="C 10011011(2)" data-en="C  10011011(2)">C  <span dir="ltr">10011011(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 01100101(2)" data-en="✅ Answer: B — 01100101(2)">✅ الإجابة: B — 01100101(2)</b> <span data-ar="قلب 10011011 بيدّي 01100100، وجمع 1 بيدّي 01100101."
               data-en="inverting 10011011 gives 01100100, and adding 1 gives 01100101.">نعكس 10011011 يبقى
-              <b>01100100</b>، ونزيد 1 يبقى <b>01100101</b>.</span></div>
+ <b>01100100</b>، ونزيد 1 يبقى <b>01100101</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">4</span> <span data-ar="إيه متمم الأساس 2 للرقم 11000110(2)؟"
               data-en="What is the 2’s complement of 11000110(2)?">إيه متمم الأساس 2 للرقم 11000110(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  00111001(2)" data-en="A  00111001(2)">A  <span dir="ltr">00111001(2)</span></div>
-            <div class="ex-opt" data-ar="B  11000110(2)" data-en="B  11000110(2)">B  <span dir="ltr">11000110(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  00111010(2)" data-en="C  00111010(2)">C  <span dir="ltr">00111010(2)</span></div>
+            <div class="ex-opt" data-ar="A 00111001(2)" data-en="A  00111001(2)">A  <span dir="ltr">00111001(2)</span></div>
+            <div class="ex-opt" data-ar="B 11000110(2)" data-en="B  11000110(2)">B  <span dir="ltr">11000110(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 00111010(2)" data-en="C  00111010(2)">C  <span dir="ltr">00111010(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 00111010(2)" data-en="✅ Answer: C — 00111010(2)">✅ الإجابة: C — 00111010(2)</b> <span data-ar="قلب 11000110 بيدّي 00111001، وجمع 1 بيدّي 00111010."
               data-en="inverting 11000110 gives 00111001, and adding 1 gives 00111010.">نعكس 11000110 يبقى
-              <b>00111001</b>، ونزيد 1 يبقى <b>00111010</b>.</span></div>
+ <b>00111001</b>، ونزيد 1 يبقى <b>00111010</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1645,37 +662,37 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه 1010(2) − 0110(2) باستخدام المتمم؟"
               data-en="What is 1010(2) − 0110(2) using the complement?">إيه 1010(2) − 0110(2) باستخدام المتمم؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  0100(2)" data-en="A  0100(2)">A  <span dir="ltr">0100(2)</span></div>
-            <div class="ex-opt" data-ar="B  10100(2)" data-en="B  10100(2)">B  <span dir="ltr">10100(2)</span></div>
-            <div class="ex-opt" data-ar="C  0011(2)" data-en="C  0011(2)">C  <span dir="ltr">0011(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 0100(2)" data-en="A  0100(2)">A  <span dir="ltr">0100(2)</span></div>
+            <div class="ex-opt" data-ar="B 10100(2)" data-en="B  10100(2)">B  <span dir="ltr">10100(2)</span></div>
+            <div class="ex-opt" data-ar="C 0011(2)" data-en="C  0011(2)">C  <span dir="ltr">0011(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 0100(2)" data-en="✅ Answer: A — 0100(2)">✅ الإجابة: A — 0100(2)</b> <span data-ar="متمم 0110 = 1010، و1010 + 1010 = 10100، وتجاهل الرقم الأول بيدّي 0100."
               data-en="the complement of 0110 = 1010, and 1010 + 1010 = 10100, ignoring the leading digit gives 0100.">متمِّم
-              0110 = 1010، و1010 + 1010 = 10100، ونتجاهل الأول يبقى <b>0100</b>.</span></div>
+ 0110 = 1010، و1010 + 1010 = 10100، ونتجاهل الأول يبقى <b>0100</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه 1011(2) − 1001(2) باستخدام المتمم؟"
               data-en="What is 1011(2) − 1001(2) using the complement?">إيه 1011(2) − 1001(2) باستخدام المتمم؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  0010(2)" data-en="A  0010(2)">A  <span dir="ltr">0010(2)</span></div>
-            <div class="ex-opt" data-ar="B  10010(2)" data-en="B  10010(2)">B  <span dir="ltr">10010(2)</span></div>
-            <div class="ex-opt" data-ar="C  0100(2)" data-en="C  0100(2)">C  <span dir="ltr">0100(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 0010(2)" data-en="A  0010(2)">A  <span dir="ltr">0010(2)</span></div>
+            <div class="ex-opt" data-ar="B 10010(2)" data-en="B  10010(2)">B  <span dir="ltr">10010(2)</span></div>
+            <div class="ex-opt" data-ar="C 0100(2)" data-en="C  0100(2)">C  <span dir="ltr">0100(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 0010(2)" data-en="✅ Answer: A — 0010(2)">✅ الإجابة: A — 0010(2)</b> <span data-ar="متمم 1001 = 0111، و1011 + 0111 = 10010، وتجاهل الرقم الأول بيدّي 0010."
               data-en="the complement of 1001 = 0111, and 1011 + 0111 = 10010, ignoring the leading digit gives 0010.">متمِّم
-              1001 = 0111، و1011 + 0111 = 10010، ونتجاهل الأول يبقى <b>0010</b>.</span></div>
+ 1001 = 0111، و1011 + 0111 = 10010، ونتجاهل الأول يبقى <b>0010</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه 1100(2) − 0010(2) باستخدام المتمم؟"
               data-en="What is 1100(2) − 0010(2) using the complement?">إيه 1100(2) − 0010(2) باستخدام المتمم؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  11010(2)" data-en="A  11010(2)">A  <span dir="ltr">11010(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  1010(2)" data-en="B  1010(2)">B  <span dir="ltr">1010(2)</span></div>
-            <div class="ex-opt" data-ar="C  0110(2)" data-en="C  0110(2)">C  <span dir="ltr">0110(2)</span></div>
+            <div class="ex-opt" data-ar="A 11010(2)" data-en="A  11010(2)">A  <span dir="ltr">11010(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 1010(2)" data-en="B  1010(2)">B  <span dir="ltr">1010(2)</span></div>
+            <div class="ex-opt" data-ar="C 0110(2)" data-en="C  0110(2)">C  <span dir="ltr">0110(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 1010(2)" data-en="✅ Answer: B — 1010(2)">✅ الإجابة: B — 1010(2)</b> <span data-ar="متمم 0010 = 1110، و1100 + 1110 = 11010، وتجاهل الرقم الأول بيدّي 1010."
               data-en="the complement of 0010 = 1110, and 1100 + 1110 = 11010, ignoring the leading digit gives 1010.">متمِّم
-              0010 = 1110، و1100 + 1110 = 11010، ونتجاهل الأول يبقى <b>1010</b>.</span></div>
+ 0010 = 1110، و1100 + 1110 = 11010، ونتجاهل الأول يبقى <b>1010</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1705,7 +722,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="المتمم" data-en="The Complement">المتمم</h4>
+                  <h3 data-ar="المتمم" data-en="The Complement" class="lvl-h4 lvl-h4-2">المتمم</h3>
                   <p data-ar="أصغر رقم، لما يتجمع مع رقم، بيعمل نقل — وبيتستخدم لتمثيل الأرقام السالبة."
                     data-en="the smallest number which, when added to a number, produces a carry — and it is used to represent negative numbers.">أصغر رقم، لما يتجمع مع رقم، بيعمل نقل — وبيتستخدم لتمثيل الأرقام السالبة.</p>
                 </div>
@@ -1713,7 +730,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="إيجاد متمم الأساس 2" data-en="Finding the 2’s complement">إيجاد متمم الأساس 2</h4>
+                  <h3 data-ar="إيجاد متمم الأساس 2" data-en="Finding the 2’s complement" class="lvl-h4 lvl-h4-2">إيجاد متمم الأساس 2</h3>
                   <p data-ar="بنقلب كل رقم (0 ↔ 1)، وبعدين بنجمع 1."
                     data-en="we invert every digit (0 ↔ 1), then add 1.">نعكس كل رقم (0 ↔ 1)، وبعدين نزيد <b>1</b>.</p>
                 </div>
@@ -1721,7 +738,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="الطرح بالجمع" data-en="Subtraction by addition">الطرح بالجمع</h4>
+                  <h3 data-ar="الطرح بالجمع" data-en="Subtraction by addition" class="lvl-h4 lvl-h4-2">الطرح بالجمع</h3>
                   <p data-ar="بنلاقي متمم المطروح منه، نجمع، ونتجاهل الرقم الأول من النتيجة."
                     data-en="we find the complement of the subtrahend, add, and ignore the leading digit of the result.">بنلاقي متمم المطروح منه، نجمع، ونتجاهل الرقم الأول من النتيجة.</p>
                 </div>
@@ -2293,30 +1310,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>

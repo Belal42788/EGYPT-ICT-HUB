@@ -10,981 +10,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 8-2 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }
-
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/-ip-addresses-and-domain-names--8-2-ip-addresses-and-domain-names-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
 </head>
 
 <body>
@@ -1021,12 +51,12 @@ select{color:var(--text)!important}
       <div class="hero-badge" data-ar="الدرس 2 — عناوين IP وأسماء النطاقات" data-en="Lesson 2 — IP Addresses and Domain Names">الدرس 2 — عناوين IP وأسماء النطاقات</div>
       <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>عناوين</span> IP وأسماء النطاقات" data-en="<span class=&quot;grad&quot;>IP</span> Addresses and Domain Names">عناوين <span class="grad">IP</span> وأسماء النطاقات</h1>
       <p class="hero-sub"
-        data-ar="عناوين IP وأسماء النطاقات — كل جهاز على شبكة محتاج عنوان فريد. النهارده هنتعلّم عنوان IP وتعريفه، والعالمي والخاص، ومشكلة النفاذ وحلها IPv6، واسم النطاق (Domain name)، ونظام DNS."
+        data-ar="عناوين IP وأسماء النطاقات — كل جهاز على شبكة محتاج عنوان فريد. النهارده هنتعلّم عنوان IP وتعريفه، والعالمي والخاص، ومشكلة النفاذ وحلها IPv6، واسم النطاق، ونظام DNS."
         data-en="IP Addresses and Domain Names — every device on a network needs a unique address. Today we learn the IP address and its definition, the Global and the Private, the exhaustion problem and its IPv6 solution, the Domain name, and the DNS system.">
         <span dir="ltr">IP Addresses and Domain Names</span> — كل جهاز على الشبكة محتاج عنوان فريد. النهارده هنتعلم الـ
-        IP address وتعريفه، والـ Global والـ Private، ومشكلة استنفاد العناوين وحلّها بـ IPv6، والـ Domain name، ونظام
-        الـ DNS.</p>
-      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ IP address وتعريفه، والـ Global والـ Private، ومشكلة استنفاد العناوين وحلّها بـ IPv6، والـ Domain name، ونظام
+ الـ DNS.</p>
+      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 <main>
@@ -1044,14 +74,14 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="كل جهاز على شبكة محتاج عنوان بيميّزه — زي رقم البيت بالظبط. النهارده هنتعلّم إيه هو عنوان IP، وأنواعه العالمي والخاص، ومشكلة نفاذ عناوين IP وحلها بـ IPv6، واسم النطاق (Domain name)، ونظام DNS اللي بيترجم الأسماء لعناوين."
+        <p data-ar="كل جهاز على شبكة محتاج عنوان بيميّزه — زي رقم البيت بالظبط. النهارده هنتعلّم إيه هو عنوان IP، وأنواعه العالمي والخاص، ومشكلة نفاذ عناوين IP وحلها بـ IPv6، واسم النطاق، ونظام DNS اللي بيترجم الأسماء لعناوين."
           data-en="Every device on a network needs an address that identifies it — exactly like a house number. Today we learn what an IP address is, its Global and Private types, the IP address exhaustion problem and its solution with IPv6, the Domain name, and the DNS system that translates names into addresses.">
-          كل جهاز متصل بالشبكة محتاج عنوان يعرّفه — زي رقم البيت بالظبط. النهارده هنتعلم إيه هو <b>الـ IP
-            address</b>، وفروقه <b>Global</b> و<b>Private</b>، ومشكلة استنفاد العناوين وحلّها بـ <b>IPv6</b>، والـ
-          <b>Domain name</b>، ونظام الـ <b>DNS</b> اللي بيترجم الأسماء للعناوين.</p>
+ كل جهاز متصل بالشبكة محتاج عنوان يعرّفه — زي رقم البيت بالظبط. النهارده هنتعلم إيه هو <b>الـ IP
+ address</b>، وفروقه <b>Global</b> و<b>Private</b>، ومشكلة استنفاد العناوين وحلّها بـ <b>IPv6</b>، والـ
+ <b>Domain name</b>، ونظام الـ <b>DNS</b> اللي بيترجم الأسماء للعناوين.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="عنوان IP زي رقم بيتك، واسم النطاق (Domain name) زي اسم بيت سهل تتذكره، وDNS زي دفتر تليفون بيوصّلك من الاسم للرقم."
-            data-en="An IP address is like your house number, a Domain name is like an easy-to-remember house name, and the DNS is like a phone book that takes you from the name to the number.">عنوان IP زي رقم بيتك، واسم النطاق (Domain name) زي اسم بيت سهل تتذكره، وDNS زي دفتر تليفون بيوصّلك من الاسم للرقم.</span></div>
+            data-ar="عنوان IP زي رقم بيتك، واسم النطاق زي اسم بيت سهل تتذكره، وDNS زي دفتر تليفون بيوصّلك من الاسم للرقم."
+            data-en="An IP address is like your house number, a Domain name is like an easy-to-remember house name, and the DNS is like a phone book that takes you from the name to the number.">عنوان IP زي رقم بيتك، واسم النطاق زي اسم بيت سهل تتذكره، وDNS زي دفتر تليفون بيوصّلك من الاسم للرقم.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1069,8 +99,8 @@ select{color:var(--text)!important}
                   style="color:var(--s4)" data-ar="نفاذ IP والانتقال لـ IPv6"
                   data-en="IP exhaustion and the transition to IPv6">نفاذ IP والانتقال لـ IPv6</b></span></div>
             <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">🔤</span><span><b
-                  style="color:var(--s5)" data-ar="اسم النطاق (Domain name)"
-                  data-en="the Domain name">اسم النطاق (Domain name)</b></span></div>
+                  style="color:var(--s5)" data-ar="اسم النطاق"
+                  data-en="the Domain name">اسم النطاق</b></span></div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">📖</span><span><b
                   style="color:var(--s6)" data-ar="نظام DNS"
                   data-en="the DNS system">نظام DNS</b></span></div>
@@ -1085,12 +115,12 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
-          <li data-ar="الخلط بين اسم النطاق (Domain name) وعنوان IP — اسم النطاق سلسلة حروف للبشر، وIP رقم فريد للجهاز."
-            data-en="Confusing the Domain name with the IP address — the Domain name is a character string for humans, and the IP is a unique number for the device.">الخلط بين اسم النطاق (Domain name) وعنوان IP — اسم النطاق سلسلة حروف للبشر، وIP رقم فريد للجهاز.</li>
-          <li data-ar="الخلط بين DNS واسم النطاق (Domain name) — DNS نظام بيترجم بين الأسماء والعناوين، مش الاسم نفسه."
-            data-en="Confusing the DNS with the Domain name — the DNS is a system that translates between names and addresses, not the name itself.">الخلط بين DNS واسم النطاق (Domain name) — DNS نظام بيترجم بين الأسماء والعناوين، مش الاسم نفسه.</li>
+          <li data-ar="الخلط بين اسم النطاق وعنوان IP — اسم النطاق سلسلة حروف للبشر، وIP رقم فريد للجهاز."
+            data-en="Confusing the Domain name with the IP address — the Domain name is a character string for humans, and the IP is a unique number for the device.">الخلط بين اسم النطاق وعنوان IP — اسم النطاق سلسلة حروف للبشر، وIP رقم فريد للجهاز.</li>
+          <li data-ar="الخلط بين DNS واسم النطاق — DNS نظام بيترجم بين الأسماء والعناوين، مش الاسم نفسه."
+            data-en="Confusing the DNS with the Domain name — the DNS is a system that translates between names and addresses, not the name itself.">الخلط بين DNS واسم النطاق — DNS نظام بيترجم بين الأسماء والعناوين، مش الاسم نفسه.</li>
         </ul>
       </div>
     </section>
@@ -1107,8 +137,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="عنوان IP" data-en="The IP Address">الـ IP address <span dir="ltr">(IP
                 Address)</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="عنوان فريد لكل جهاز — صفحة 99 بالكتاب"
-              data-en="a unique address for every device — book page 99">عنوان فريد لكل جهاز — صفحة 99 بالكتاب</div>
+            <div class="tag" style="color:var(--s2)" data-ar="عنوان فريد لكل جهاز — بالكتاب"
+              data-en="a unique address for every device — book">عنوان فريد لكل جهاز — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1119,8 +149,8 @@ select{color:var(--text)!important}
           <b>الـ IP address</b> هو رقم تعريف فريد زي العنوان بالظبط، بيتحدد لكل جهاز على شبكة المعلومات والاتصالات.</p>
         <p data-ar="تمثيل عنوان IP في نظام ثنائي باستخدام 32 بت بيتسمّى IPv4 — وبيتكتب في أربع كتل كل واحدة 8 بت، مفصولة بنقطة (.)، ومكتوبة بعشري من 0 لـ 255."
           data-en="Representing an IP address in binary using 32 bits is called IPv4 — it is written in four blocks of 8 bits each, separated by a dot (.), expressed in decimal from 0 to 255.">
-          طريقة تمثيل الـ IP address بالنظام الثنائي بـ <b>32 بت</b> اسمها <b>IPv4</b> — وهي بتتكتب في <b>4 خانات</b> كل
-          خانة <b>8 بت</b>، مفصولة بنقطة (.)، وبتتكتب بالنظام العشري من 0 لـ 255.</p>
+ طريقة تمثيل الـ IP address بالنظام الثنائي بـ <b>32 بت</b> اسمها <b>IPv4</b> — وهي بتتكتب في <b>4 خانات</b> كل
+ خانة <b>8 بت</b>، مفصولة بنقطة (.)، وبتتكتب بالنظام العشري من 0 لـ 255.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="IPv4 زي عنوان بيت من 4 أجزاء: شارع + حي + مدينة + محافظة — والأجزاء مفصولة بنقط زي 192.168.0.1."
             data-en="IPv4 is like a house address with 4 parts: street + district + city + governorate — with the parts separated by dots like 192.168.0.1.">IPv4 زي عنوان بيت من 4 أجزاء: شارع + حي + مدينة + محافظة — والأجزاء مفصولة بنقط زي 192.168.0.1.</span></div>
@@ -1144,8 +174,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="ipPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="ipNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="ipPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="ipNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="ipCounter">1 / 3</span>
                 <button class="mini-btn" data-id="ipReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1220,9 +250,9 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#1838f8)">03</div>
           <div>
             <h2 data-ar="IP العالمي وIP الخاص" data-en="Global and Private IP">الـ Global IP والـ Private IP
-              <span dir="ltr">(Global and Private)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="على الإنترنت أو في الشبكة المحلية — صفحة 99 بالكتاب"
-              data-en="on the Internet or in the local network — book page 99">على الإنترنت أو في الشبكة المحلية — صفحة 99 بالكتاب</div>
+ <span dir="ltr">(Global and Private)</span></h2>
+            <div class="tag" style="color:var(--s3)" data-ar="على الإنترنت أو في الشبكة المحلية — بالكتاب"
+              data-en="on the Internet or in the local network — book">على الإنترنت أو في الشبكة المحلية — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1233,8 +263,8 @@ select{color:var(--text)!important}
           <b>الـ Global IP address</b> هو عنوان بيتستخدم على <b>الإنترنت</b> — وفريد ومش بيتكرر.</p>
         <p data-ar="عنوان IP الخاص هو عنوان بيستخدم جوه شبكة محلية زي LAN — متاح بحرية جوه نفس الشركة."
           data-en="A Private IP address is an address used within a local network like a LAN — freely usable within the same company.">
-          أما <b>الـ Private IP address</b> فهو عنوان بيتستخدم جوه <b>الشبكة المحلية</b> زي الـ LAN — وبيتقدر يستخدم
-          بحرية في نفس الشركة.</p>
+ أما <b>الـ Private IP address</b> فهو عنوان بيتستخدم جوه <b>الشبكة المحلية</b> زي الـ LAN — وبيتقدر يستخدم
+ بحرية في نفس الشركة.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="العالمي زي رقم جواز سفر فريد في العالم كله، والخاص زي تحويلة تليفون داخلية ممكن تتكرر جوه كل شركة."
             data-en="The Global is like a passport number unique worldwide, and the Private is like an internal phone extension that can repeat inside each company.">العالمي زي رقم جواز سفر فريد في العالم كله، والخاص زي تحويلة تليفون داخلية ممكن تتكرر جوه كل شركة.</span></div>
@@ -1258,8 +288,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="typesPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="typesNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="typesPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="typesNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="typesCounter">1 / 3</span>
                 <button class="mini-btn" data-id="typesReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1333,9 +363,9 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
           <div>
             <h2 data-ar="نفاذ IP وIPv6" data-en="IP Exhaustion and IPv6">استنفاد العناوين والتحويل
-              لـ IPv6 <span dir="ltr">(Exhaustion and IPv6)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="المشكلة والحل — صفحة 99 بالكتاب"
-              data-en="the problem and the solution — book page 99">المشكلة والحل — صفحة 99 بالكتاب</div>
+ لـ IPv6 <span dir="ltr">(Exhaustion and IPv6)</span></h2>
+            <div class="tag" style="color:var(--s4)" data-ar="المشكلة والحل — بالكتاب"
+              data-en="the problem and the solution — book">المشكلة والحل — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1343,10 +373,10 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="بسبب الانتشار السريع للإنترنت، مفيش تقريباً أي عناوين IPv4 جديدة متاحة للتوزيع."
           data-en="Due to the rapid proliferation of the Internet, there are almost no new IPv4 addresses available for allocation.">
-          بسبب انتشار الإنترنت السريع، بقى <b>مفيش عناوين IPv4 جديدة تقريباً</b> للتوزيع.</p>
+ بسبب انتشار الإنترنت السريع، بقى <b>مفيش عناوين IPv4 جديدة تقريباً</b> للتوزيع.</p>
         <p data-ar="عشان كده إحنا حالياً بننتقل لـ IPv6 — عناوين IP بقت ممتدة لـ 128 بت."
           data-en="That is why we are currently transitioning to IPv6 — IP addresses expanded to 128 bits.">علشان كده إحنا
-          حاليين بنتحول لـ <b>IPv6</b> — وهي عناوين IP تم توسيعها لـ <b>128 بت</b>.</p>
+ حاليين بنتحول لـ <b>IPv6</b> — وهي عناوين IP تم توسيعها لـ <b>128 بت</b>.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="IPv4 زي مدينة خلّصت أرقام بيوت، وIPv6 زي مدينة جديدة فيها أرقام كتير لكل البيوت الجديدة."
             data-en="IPv4 is like a city running out of house numbers, and IPv6 is like a new city with plenty of numbers for all the new houses.">IPv4 زي مدينة خلّصت أرقام بيوت، وIPv6 زي مدينة جديدة فيها أرقام كتير لكل البيوت الجديدة.</span></div>
@@ -1370,8 +400,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="v6Prev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="v6Next" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="v6Prev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="v6Next" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="v6Counter">1 / 3</span>
                 <button class="mini-btn" data-id="v6Replay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1445,21 +475,21 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
           <div>
-            <h2 data-ar="اسم النطاق (Domain name)" data-en="The Domain Name">الـ Domain name <span dir="ltr">(Domain
+            <h2 data-ar="اسم النطاق" data-en="The Domain Name">الـ Domain name <span dir="ltr">(Domain
                 Name)</span></h2>
-            <div class="tag" style="color:var(--s5)" data-ar="اسم متعمول للبشر بدل الأرقام — صفحة 99 بالكتاب"
-              data-en="a name built for humans instead of numbers — book page 99">اسم متعمول للبشر بدل الأرقام — صفحة 99 بالكتاب</div>
+            <div class="tag" style="color:var(--s5)" data-ar="اسم متعمول للبشر بدل الأرقام — بالكتاب"
+              data-en="a name built for humans instead of numbers — book">اسم متعمول للبشر بدل الأرقام — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="اسم النطاق (Domain name) هو سلسلة حروف بتتتعيَّن عشان تخلي عنوان IP الرقمي أوضح للبشر."
+        <p data-ar="اسم النطاق هو سلسلة حروف بتتتعيَّن عشان تخلي عنوان IP الرقمي أوضح للبشر."
           data-en="A Domain name is a string of characters assigned to make the numerical IP address more understandable for humans.">
           <b>الـ Domain name</b> هو سلسلة حروف بتتحدد عشان تخلّي رقم الـ IP أسهل في الفهم للبشر.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="بدل ما نفتكر أرقام زي 203.216.206.63، بنفتكر اسم سهل زي example.com — الاسم ده هو اسم النطاق (Domain name)."
-            data-en="Instead of remembering numbers like 203.216.206.63, we remember an easy name like example.com — that name is the Domain name.">بدل ما نفتكر أرقام زي 203.216.206.63، بنفتكر اسم سهل زي example.com — الاسم ده هو اسم النطاق (Domain name).</span></div>
+            data-ar="بدل ما نفتكر أرقام زي 203.216.206.63، بنفتكر اسم سهل زي example.com — الاسم ده هو اسم النطاق."
+            data-en="Instead of remembering numbers like 203.216.206.63, we remember an easy name like example.com — that name is the Domain name.">بدل ما نفتكر أرقام زي 203.216.206.63، بنفتكر اسم سهل زي example.com — الاسم ده هو اسم النطاق.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«(4) اسم النطاق (Domain name): سلسلة من الأحرف تم تعيينها لجعل عنوان IP الرقمي أكثر قابلية للفهم للبشر. (5) (DNS (DNS)): نظام يربط أسماء النطاقات بعناوين IP والعكس.(( خادم DNS (DNS server) هو المسؤول عن أداء هذا الدور.»</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): البند (1) العربي يعرّف الأجهزة بأنها «متصل بالإنترنت» بينما الإنجليزية &quot;devices on an information and communication network&quot;. النقطة الأولى من خصائص العنوان في العربية تسقط ذكر «(32 bits)» الذي تطبعه الإنجليزية في المتن (تبقى «32 بت» في تسمية الشكل العربي «ثنائي 32 بت» فقط). الشكل العربي يطبع القيمتين «11000000.10101000.00000011.00000001» و«192.168.3.1» صراحة. البند (5) العربي يطبع الشرح «(DNS (DNS))» مكررًا متبوعًا بقوسين ورمز زخرفي (دائرة سوداء — نفس الرمز الذي ظهر في درسَي 8-1 و9-3)؛ الإنجليزية تطبع &quot;( DNS )&quot; مرة واحدة. الوحدات:العربية «8 bit» و«128 bit»؛ الإنجليزية &quot;8 bits&quot; و&quot;128 bits&quot;. العنوان:العربية «النقاط الرئيسية»؛ الإنجليزية &quot;Point!&quot;." data-en="Edition comparison (confirmed from the printed page images): Arabic item (1) defines the devices as «connected to the internet» while English reads &quot;devices on an information and communication network&quot;. The first features bullet in Arabic drops the «(32 bits)» that English prints inline (Arabic keeps &quot;32 bits&quot; only in its figure label). The Arabic figure prints both values «11000000.10101000.00000011.00000001» and «192.168.3.1» explicitly. Arabic item (5) prints the gloss «(DNS (DNS))» doubled, followed by doubled parentheses and a decorative glyph (a black circle, the same glyph seen in lessons 8-1 and 9-3); English prints &quot;( DNS )&quot; once. Units:Arabic «8 bit» and «128 bit»; English &quot;8 bits&quot; and &quot;128 bits&quot;. Heading:Arabic «النقاط الرئيسية»; English &quot;Point!&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): البند (1) العربي يعرّف الأجهزة بأنها «متصل بالإنترنت» بينما الإنجليزية "devices on an information and communication network". النقطة الأولى من خصائص العنوان في العربية تسقط ذكر «(32 bits)» الذي تطبعه الإنجليزية في المتن (تبقى «32 بت» في تسمية الشكل العربي «ثنائي 32 بت» فقط). الشكل العربي يطبع القيمتين «11000000.10101000.00000011.00000001» و«192.168.3.1» صراحة. البند (5) العربي يطبع الشرح «(DNS (DNS))» مكررًا متبوعًا بقوسين ورمز زخرفي (دائرة سوداء — نفس الرمز الذي ظهر في درسَي 8-1 و9-3)؛ الإنجليزية تطبع "( DNS )" مرة واحدة. الوحدات:العربية «8 bit» و«128 bit»؛ الإنجليزية "8 bits" و"128 bits". العنوان: العربية «النقاط الرئيسية»؛ الإنجليزية "Point!".</div></div></div>
 
       <div class="section-inner">
@@ -1473,15 +503,15 @@ select{color:var(--text)!important}
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="domain"></svg>
                 <div class="svg-label" data-fbox="dnum" data-ar="رقم IP — صعب على البشر"
                   data-en="the IP number — hard for humans">رقم IP — صعب على البشر</div>
-                <div class="svg-label" data-fbox="dname" data-ar="اسم النطاق (Domain name) — اسم سهل"
-                  data-en="the Domain name — an easy name">اسم النطاق (Domain name) — اسم سهل</div>
+                <div class="svg-label" data-fbox="dname" data-ar="اسم النطاق — اسم سهل"
+                  data-en="the Domain name — an easy name">اسم النطاق — اسم سهل</div>
                 <div class="svg-label" data-fbox="dmap" data-ar="لازم نربط الاسم بالرقم"
                   data-en="we must map the name to the number">لازم نربط الاسم بالرقم</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="domainPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="domainNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="domainPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="domainNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="domainCounter">1 / 3</span>
                 <button class="mini-btn" data-id="domainReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1505,8 +535,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="domainRecall">
           <div class="rq" data-id="domainRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="اسم النطاق (Domain name) هو إيه؟"
-                data-en="What is a Domain name?">اسم النطاق (Domain name) هو إيه؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="اسم النطاق هو إيه؟"
+                data-en="What is a Domain name?">اسم النطاق هو إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="domainRq1o2" data-key="A"
                 data-fb-ar="مش كده — ده وصف الـ IP نفسه."
@@ -1527,8 +557,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="domainRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="domainRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه من ده مثال على اسم النطاق (Domain name)؟"
-                data-en="Which of these is an example of a Domain name?">إيه من ده مثال على اسم النطاق (Domain name)؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه من ده مثال على اسم النطاق؟"
+                data-en="Which of these is an example of a Domain name?">إيه من ده مثال على اسم النطاق؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="domainRq2o2" data-key="A"
                 data-fb-ar="مش كده — ده مثال لـ IPv4."
@@ -1558,17 +588,17 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#b91c1c)">06</div>
           <div>
             <h2 data-ar="نظام DNS" data-en="The DNS System">نظام الـ DNS <span dir="ltr">(DNS)</span></h2>
-            <div class="tag" style="color:var(--s6)" data-ar="بيربط الأسماء بالعناوين — صفحة 99 بالكتاب"
-              data-en="associates names with addresses — book page 99">بيربط الأسماء بالعناوين — صفحة 99 بالكتاب</div>
+            <div class="tag" style="color:var(--s6)" data-ar="بيربط الأسماء بالعناوين — بالكتاب"
+              data-en="associates names with addresses — book">بيربط الأسماء بالعناوين — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="DNS هو نظام بيربط أسماء النطاقات بعناوين IP والعكس. وخادم DNS (DNS server) هو المسؤول عن القيام بالدور ده."
+        <p data-ar="DNS هو نظام بيربط أسماء النطاقات بعناوين IP والعكس. وخادم DNS هو المسؤول عن القيام بالدور ده."
           data-en="DNS is a system that associates domain names with IP addresses and vice versa. The DNS server is responsible for fulfilling that role.">
           <b>الـ DNS</b> هو نظام بيربط أسماء النطاقات <b>(Domain names)</b> بعناوين الـ IP وبالعكس. وخادم الـ
-          <b>DNS server</b> هو المسؤول عن تنفيذ الدور ده.</p>
+ <b>DNS server</b> هو المسؤول عن تنفيذ الدور ده.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="لما تكتب اسم موقع، DNS بيترجم الاسم لـ IP بتاعه ويوصّلك — زي دفتر تليفون ضخم."
             data-en="When you type a website name, DNS translates the name to its IP and gets you there — like a giant phone book.">لما تكتب اسم موقع، DNS بيترجم الاسم لـ IP بتاعه ويوصّلك — زي دفتر تليفون ضخم.</span></div>
@@ -1592,8 +622,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="dnsPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="dnsNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="dnsPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="dnsNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="dnsCounter">1 / 3</span>
                 <button class="mini-btn" data-id="dnsReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1668,8 +698,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">07</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 99–100 (المطبوع 99–100)؛ AR 112–113"
-              data-en="Your book: EN PDF 99–100 (printed 99–100); AR 112–113">الكتاب بتاعك:EN PDF 99–100 (المطبوع 99–100)؛ AR 112–113</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1695,34 +725,34 @@ select{color:var(--text)!important}
           <p data-ar="«اختر المثال المناسب لعنوان IPv4 لجهاز كمبيوتر من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (أ) 192.168.0.1 (ب) kantei.go.jp (ج) 555-1234-5678 (د) https://www.example.co.jp/»" data-en="&quot;Choose the appropriate example of an IPv4 IP address for a computer from the options A to D below, and answer using the letter. A 192.168.0.1 B kantei.go.jp C 555-1234-5678 D https://www.example.co.jp/&quot;">«اختر المثال المناسب لعنوان IPv4 لجهاز كمبيوتر من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (أ) 192.168.0.1 (ب) kantei.go.jp (ج) 555-1234-5678 (د) https://www.example.co.jp/»</p>
           <p data-ar="«الشرح» المطبوع في الكتاب: «ينقسم عنوان IPv4 إلى أربع كتل ، حيث تتراوح قيمة كل كتلة من 0 إلى 255. لذلك ، أ»." data-en="The book's printed Explanation: &quot;An IPv4 address is divided into four blocks, with each block's value ranging from 0 to 255. Therefore, A&quot;.">«الشرح» المطبوع في الكتاب:«ينقسم عنوان IPv4 إلى أربع كتل ، حيث تتراوح قيمة كل كتلة من 0 إلى 255. لذلك ، أ».</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): اللافتة العربية هنا «تحدي معلوماتك» بياء (درس 8-1 طبع «تحدى» بألف مقصورة). التسميات المطبوعة للخيارات (أ)(ب)(ج)(د) بينما نطاق التعليمات «من أ إلى ث» — تُنقل كما طُبعت دون الجزم بأي نمط حروف مقصود؛ الإنجليزية &quot;A to D&quot;. الخيار (د) يطبع الشرطة المائلة الختامية مثل الإنجليزية D. «الشرح» القصير متطابق في الطبعتين والجواب المطبوع أ = A. صندوق الإجابة:العربية «الشرح»؛ الإنجليزية &quot;Explanation&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic banner here reads «تحدي معلوماتك» with a yaa (lesson 8-1 printed «تحدى»). The printed option labels are (أ)(ب)(ج)(د) while the instruction's stated range is «أ to ث» — carried as printed without asserting which lettering convention is intended; English reads &quot;A to D&quot;. Option (د) prints the trailing slash like English D. The short explanation matches in both editions and the printed answer أ = A. Answer box:Arabic «الشرح»; English &quot;Explanation&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): اللافتة العربية هنا «تحدي معلوماتك» بياء (درس 8-1 طبع «تحدى» بألف مقصورة). التسميات المطبوعة للخيارات (أ)(ب)(ج)(د) بينما نطاق التعليمات «من أ إلى ث» — تُنقل كما طُبعت دون الجزم بأي نمط حروف مقصود؛ الإنجليزية "A to D". الخيار (د) يطبع الشرطة المائلة الختامية مثل الإنجليزية D. «الشرح» القصير متطابق في الطبعتين والجواب المطبوع أ = A. صندوق الإجابة:العربية «الشرح»؛ الإنجليزية "Explanation".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 99 (المطبوع 99)؛ AR 112." data-en="The text above is from the book. Full source: English PDF 99 (printed 99); Arabic 112.">النص السابق من الكتاب. المصدر الكامل:EN PDF 99 (المطبوع 99)؛ AR 112.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <div class="book-card try">
           <h3 data-ar="من الكتاب: جرب بنفسك" data-en="From the book: Try">من الكتاب: جرب بنفسك</h3>
           <p data-ar="«(أ)جب عن الأسئلة التالية. (1) اختر المثال المناسب لعنوان IPv4 لجهاز كمبيوتر من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (أ) aa.bb.cc.00.00.11 (ب) 050-1234-5678 (ت) 10.123.45.67 (ث) https://www.example.co.jp/»" data-en="&quot;Answer the following questions. (1) Choose the appropriate example of an IPv4 IP address for a computer from the options A to D below, and answer using the letter. A 00.00.11.aa.bb.cc B 050-1234-5678 C 10.123.45.67 D https://www.example.co.jp/&quot;">«(أ)جب عن الأسئلة التالية. (1) اختر المثال المناسب لعنوان IPv4 لجهاز كمبيوتر من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (أ) aa.bb.cc.00.00.11 (ب) 050-1234-5678 (ت) 10.123.45.67 (ث) https://www.example.co.jp/»</p>
           <p data-ar="«(2) املأ الفراغ في الجملة التالية بالمصطلح الصحيح. يُشار إلى عنوان IP الذي يتم تعيينه بشكل فريد على الإنترنت بدون تكرار باسم عنوان ( ).»" data-en="&quot;(2) Fill in the blank in the following sentence with the correct term. An IP address that is uniquely assigned on the internet with no duplication is referred to as a ( ) IP address.&quot;">«(2) املأ الفراغ في الجملة التالية بالمصطلح الصحيح. يُشار إلى عنوان IP الذي يتم تعيينه بشكل فريد على الإنترنت بدون تكرار باسم عنوان ( ).»</p>
           <p data-ar="«(3) اختر العبارة الصحيحة بخصوص عناوين IP من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (أ) عدد عناوين IP بصيغة 4 Byte مثل 192.168.1.1 يتجاوز عدد سكان الأرض، الذي يبلغ حوالي 7 مليارات. (ب) يتم حل مشكلة نفاد عناوين IP بواسطة IPv6، الذي يتم تمثيله باستخدام 128 bit. (ت) في IPv4، يتم تمثيل العناوين بدمج أربعة أرقام تتراوح من 0 إلى 256. (ث) يمكن استخدام عنوان IP العام global IP بحرية داخل شبكة محلية، مثل داخل نفس الشركة.»" data-en="&quot;(3) Choose the correct statement regarding IP addresses from the options A to D, and answer using the letter. A The number of IP addresses in a four-byte format like 192.168.1.1 exceeds the population of the Earth, which is approximately 7 billion. B The issue of IP address exhaustion is resolved by IPv6, which is represented using 128 bits. C In IPv4, addresses are represented by combining four numbers ranging from 0 to 256. D A global IP address can be freely used within a local network, such as within the same company.&quot;">«(3) اختر العبارة الصحيحة بخصوص عناوين IP من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (أ) عدد عناوين IP بصيغة 4 Byte مثل 192.168.1.1 يتجاوز عدد سكان الأرض، الذي يبلغ حوالي 7 مليارات. (ب) يتم حل مشكلة نفاد عناوين IP بواسطة IPv6، الذي يتم تمثيله باستخدام 128 bit. (ت) في IPv4، يتم تمثيل العناوين بدمج أربعة أرقام تتراوح من 0 إلى 256. (ث) يمكن استخدام عنوان IP العام global IP بحرية داخل شبكة محلية، مثل داخل نفس الشركة.»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = (ت) 10.123.45.67. (2) = العام (Global). (3) = (ب)." data-en="Answers not printed in the book (teacher-prepared): (1) = C 10.123.45.67. (2) = Global. (3) = B.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = (ت) 10.123.45.67. (2) = العام (Global). (3) = (ب).</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = (ت) 10.123.45.67. (2) = العام. (3) = (ب)." data-en="Answers not printed in the book (teacher-prepared): (1) = C 10.123.45.67. (2) = Global. (3) = B.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = (ت) 10.123.45.67. (2) = العام. (3) = (ب).</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان القسم العربي يطبع «(أ)جب عن الأسئلة التالية.» بحرف «أ» الأول داخل قوسين كما طُبع؛ الإنجليزية &quot;Answer the following questions.&quot;. الخيار (أ) في السؤال (1) العربي يطبع «aa.bb.cc.00.00.11» بترتيب معكوس عن الإنجليزية &quot;00.00.11.aa.bb.cc&quot;. العبارة (ت)/C تطبع «من 0 إلى 256» في الطبعتين كما هي. الخيار (ث) العربي يدمج الشرح اللاتيني «global IP» وسط الجملة. المدى «من أ إلى ث» هنا أربعة أحرف أبجد صحيحة (أ ب ت ث) تقابل A–D. العنوان:العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic section heading prints «(أ)جب عن الأسئلة التالية.» with its first alef inside parentheses, as printed; English reads &quot;Answer the following questions.&quot;. Arabic option (أ) of question (1) prints «aa.bb.cc.00.00.11», reversed versus English &quot;00.00.11.aa.bb.cc&quot;. Statement (ت)/C prints &quot;0 to 256&quot; in both editions, carried as printed. Arabic option (ث) embeds the Latin gloss «global IP» mid-sentence. The «أ to ث» range here is four correct abjad letters (أ ب ت ث) matching A–D. Heading:Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان القسم العربي يطبع «(أ)جب عن الأسئلة التالية.» بحرف «أ» الأول داخل قوسين كما طُبع؛ الإنجليزية "Answer the following questions.". الخيار (أ) في السؤال (1) العربي يطبع «aa.bb.cc.00.00.11» بترتيب معكوس عن الإنجليزية "00.00.11.aa.bb.cc". العبارة (ت)/C تطبع «من 0 إلى 256» في الطبعتين كما هي. الخيار (ث) العربي يدمج الشرح اللاتيني «global IP» وسط الجملة. المدى «من أ إلى ث» هنا أربعة أحرف أبجد صحيحة (أ ب ت ث) تقابل A–D. العنوان:العربية «جرب بنفسك»؛ الإنجليزية "Try".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 100 (المطبوع 100)؛ AR 113." data-en="The text above is from the book. Full source: English PDF 100 (printed 100); Arabic 113.">النص السابق من الكتاب. المصدر الكامل:EN PDF 100 (المطبوع 100)؛ AR 113.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <div class="book-card try">
           <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
           <p data-ar="«1 أجب عن الأسئلة التالية. (1) اختر المثال المناسب لعنوان IPv4 لجهاز كمبيوتر من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (أ) saiyo@example.co.jp (ب) 070-1234-5678 (ج) https://www.example.co.jp (د) 203.216.206.63»" data-en="&quot;1 Answer the following questions. (1) Choose the appropriate example of an IPv4 IP address for a computer from the options A to D below, and answer using the letter. A saiyo@example.co.jp B 070-1234-5678 C https://www.example.co.jp/ D 203.216.206.63&quot;">«1 أجب عن الأسئلة التالية. (1) اختر المثال المناسب لعنوان IPv4 لجهاز كمبيوتر من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (أ) saiyo@example.co.jp (ب) 070-1234-5678 (ج) https://www.example.co.jp (د) 203.216.206.63»</p>
           <p data-ar="«(2) املأ الفراغ في الجملة التالية بالمصطلح الصحيح. يُشار إلى عنوان IP الذي يمكن استخدامه بحرية داخل شبكة محلية، مثل LAN، باسم عنوان ( ).»" data-en="&quot;(2) Fill in the blank in the following sentence with the correct term. An IP address that can be freely used within a local network, such as a LAN, is referred to as a ( ) IP address.&quot;">«(2) املأ الفراغ في الجملة التالية بالمصطلح الصحيح. يُشار إلى عنوان IP الذي يمكن استخدامه بحرية داخل شبكة محلية، مثل LAN، باسم عنوان ( ).»</p>
           <p data-ar="«(3) اختر الشرح الصحيح بخصوص DNS من الخيارات من 1 إلى 4 ، وأجب باستخدام الرقم. (1) رقم تعريف فريد يتم تعيينه للأجهزة على شبكة المعلومات والاتصالات. (2) سلسلة من الأحرف يتم تعيينها لعناوين IP لتسهيل فهمه للبشر. (3) نظام يقوم بربط أسماء النطاقات بعناوين IP والعكس. (4) عنوان IP يتم تعيينه بشكل فريد على الإنترنت بدون تكرار.»" data-en="&quot;(3) Choose the correct explanation regarding DNS from the options A to D below, and answer using the letter. A A unique identification number assigned to devices on an information and communication network. B A string of characters assigned to an IP address to make it easier for humans to understand. C A system that maps domain names to IP addresses and vice versa. D An IP address that is uniquely assigned on the internet with no duplication.&quot;">«(3) اختر الشرح الصحيح بخصوص DNS من الخيارات من 1 إلى 4 ، وأجب باستخدام الرقم. (1) رقم تعريف فريد يتم تعيينه للأجهزة على شبكة المعلومات والاتصالات. (2) سلسلة من الأحرف يتم تعيينها لعناوين IP لتسهيل فهمه للبشر. (3) نظام يقوم بربط أسماء النطاقات بعناوين IP والعكس. (4) عنوان IP يتم تعيينه بشكل فريد على الإنترنت بدون تكرار.»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = (د) 203.216.206.63. (2) = الخاص (Private). (3) = (3)." data-en="Answers not printed in the book (teacher-prepared): (1) = D 203.216.206.63. (2) = Private. (3) = C.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = (د) 203.216.206.63. (2) = الخاص (Private). (3) = (3).</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = (د) 203.216.206.63. (2) = الخاص. (3) = (3)." data-en="Answers not printed in the book (teacher-prepared): (1) = D 203.216.206.63. (2) = Private. (3) = C.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) = (د) 203.216.206.63. (2) = الخاص. (3) = (3).</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال (1) العربي يطبع التسميات (أ)(ب)(ج)(د) مع نطاق التعليمات «من أ إلى ث» (كما في تحدي معلوماتك — تُنقل كما طُبعت دون الجزم بالنمط المقصود)، وخياره (ج) يطبع «https://www.example.co.jp» بلا شرطة مائلة ختامية بينما الإنجليزية C وروابط العربية في تحدي معلوماتك (د) وجرب بنفسك (ث) تطبعها. السؤال (3) العربي يرقّم خياراته (1)-(4) ويطلب الإجابة «باستخدام الرقم» بينما الإنجليزية ترمز A–D — اصطلاحان داخل التمرين الواحد (السؤال 1 حروف، السؤال 3 أرقام) يُنقلان كما هما. محتوى الخيارات متطابق بين الطبعتين. العنوان: العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): Arabic question (1) prints labels (أ)(ب)(ج)(د) against the stated range «أ to ث» (as in Warm Up — carried as printed without asserting the intended convention), and its option (ج) prints «https://www.example.co.jp» without the trailing slash that English C and the Arabic Warm Up (د) and Try (ث) URLs print. Arabic question (3) numbers its options (1)-(4) and asks to answer «using the number» while English uses A–D — two conventions within one exercise (question 1 lettered, question 3 numbered), carried as printed. Option content matches across editions. Heading: Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال (1) العربي يطبع التسميات (أ)(ب)(ج)(د) مع نطاق التعليمات «من أ إلى ث» (كما في تحدي معلوماتك — تُنقل كما طُبعت دون الجزم بالنمط المقصود)، وخياره (ج) يطبع «https://www.example.co.jp» بلا شرطة مائلة ختامية بينما الإنجليزية C وروابط العربية في تحدي معلوماتك (د) وجرب بنفسك (ث) تطبعها. السؤال (3) العربي يرقّم خياراته (1)-(4) ويطلب الإجابة «باستخدام الرقم» بينما الإنجليزية ترمز A–D — اصطلاحان داخل التمرين الواحد (السؤال 1 حروف، السؤال 3 أرقام) يُنقلان كما هما. محتوى الخيارات متطابق بين الطبعتين. العنوان: العربية «تمرين»؛ الإنجليزية "Exercise".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 100 (المطبوع 100)؛ AR 113." data-en="The text above is from the book. Full source: English PDF 100 (printed 100); Arabic 113.">النص السابق من الكتاب. المصدر الكامل:EN PDF 100 (المطبوع 100)؛ AR 113.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
 <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: IPv4" data-en="✍️ Additional interactive drill 1: IPv4">✍️ تدريب 1: IPv4</h3>
         <div class="ex-item">
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه من ده مثال صح لعنوان IPv4؟"
               data-en="Which of these is a correct example of an IPv4 address?">إيه من ده مثال صح لعنوان IPv4؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  192.168.0.1" data-en="A  192.168.0.1">A  192.168.0.1</div>
-            <div class="ex-opt" data-ar="B  kantei.go.jp" data-en="B  kantei.go.jp">B  kantei.go.jp</div>
-            <div class="ex-opt" data-ar="C  555-1234-5678" data-en="C  555-1234-5678">C  555-1234-5678</div>
+            <div class="ex-opt" data-ok="1" data-ar="A 192.168.0.1" data-en="A  192.168.0.1">A  192.168.0.1</div>
+            <div class="ex-opt" data-ar="B kantei.go.jp" data-en="B  kantei.go.jp">B  kantei.go.jp</div>
+            <div class="ex-opt" data-ar="C 555-1234-5678" data-en="C  555-1234-5678">C  555-1234-5678</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 192.168.0.1" data-en="✅ Answer: A — 192.168.0.1">✅ الإجابة: A — 192.168.0.1</b> <span data-ar="IPv4 بيتكتب في أربع كتل مفصولة بنقط، كل واحدة من 0 لـ 255."
               data-en="IPv4 is written in four blocks separated by dots, each from 0 to 255.">IPv4 بيتكتب في أربع كتل مفصولة بنقط، كل واحدة من 0 لـ 255.</span></div>
@@ -1731,9 +761,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه من ده مثال صح لعنوان IPv4؟"
               data-en="Which of these is a correct example of an IPv4 address?">إيه من ده مثال صح لعنوان IPv4؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  00.00.11.aa.bb.cc" data-en="A  00.00.11.aa.bb.cc">A  00.00.11.aa.bb.cc</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  10.123.45.67" data-en="B  10.123.45.67">B  10.123.45.67</div>
-            <div class="ex-opt" data-ar="C  050-1234-5678" data-en="C  050-1234-5678">C  050-1234-5678</div>
+            <div class="ex-opt" data-ar="A 00.00.11.aa.bb.cc" data-en="A  00.00.11.aa.bb.cc">A  00.00.11.aa.bb.cc</div>
+            <div class="ex-opt" data-ok="1" data-ar="B 10.123.45.67" data-en="B  10.123.45.67">B  10.123.45.67</div>
+            <div class="ex-opt" data-ar="C 050-1234-5678" data-en="C  050-1234-5678">C  050-1234-5678</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 10.123.45.67" data-en="✅ Answer: B — 10.123.45.67">✅ الإجابة: B — 10.123.45.67</b> <span data-ar="IPv4 بيتكتب في أربع كتل مفصولة بنقط، كل واحدة من 0 لـ 255."
               data-en="IPv4 is written in four blocks separated by dots, each from 0 to 255.">IPv4 بيتكتب في أربع كتل مفصولة بنقط، كل واحدة من 0 لـ 255.</span></div>
@@ -1742,9 +772,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه من ده مثال صح لعنوان IPv4؟"
               data-en="Which of these is a correct example of an IPv4 address?">إيه من ده مثال صح لعنوان IPv4؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  saiyo@example.co.jp" data-en="A  saiyo@example.co.jp">A  saiyo@example.co.jp</div>
-            <div class="ex-opt" data-ar="B  070-1234-5678" data-en="B  070-1234-5678">B  070-1234-5678</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  203.216.206.63" data-en="C  203.216.206.63">C  203.216.206.63</div>
+            <div class="ex-opt" data-ar="A saiyo@example.co.jp" data-en="A  saiyo@example.co.jp">A  saiyo@example.co.jp</div>
+            <div class="ex-opt" data-ar="B 070-1234-5678" data-en="B  070-1234-5678">B  070-1234-5678</div>
+            <div class="ex-opt" data-ok="1" data-ar="C 203.216.206.63" data-en="C  203.216.206.63">C  203.216.206.63</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 203.216.206.63" data-en="✅ Answer: C — 203.216.206.63">✅ الإجابة: C — 203.216.206.63</b> <span data-ar="IPv4 بيتكتب في أربع كتل مفصولة بنقط، كل واحدة من 0 لـ 255."
               data-en="IPv4 is written in four blocks separated by dots, each from 0 to 255.">IPv4 بيتكتب في أربع كتل مفصولة بنقط، كل واحدة من 0 لـ 255.</span></div>
@@ -1761,9 +791,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="العنوان المعيَّن بشكل فريد على الإنترنت من غير تكرار بيتسمّى إيه؟"
               data-en="What is the address uniquely assigned on the Internet with no duplication called?">العنوان المعيَّن بشكل فريد على الإنترنت من غير تكرار بيتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  IP العالمي" data-en="A  the Global IP">A  IP العالمي</div>
-            <div class="ex-opt" data-ar="B  IP الخاص" data-en="B  the Private IP">B  IP الخاص</div>
-            <div class="ex-opt" data-ar="C  اسم النطاق (Domain name)" data-en="C  the Domain name">C  اسم النطاق (Domain name)</div>
+            <div class="ex-opt" data-ok="1" data-ar="A IP العالمي" data-en="A  the Global IP">A IP العالمي</div>
+            <div class="ex-opt" data-ar="B IP الخاص" data-en="B  the Private IP">B IP الخاص</div>
+            <div class="ex-opt" data-ar="C اسم النطاق" data-en="C  the Domain name">C اسم النطاق</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — IP العالمي" data-en="✅ Answer: A — the Global IP">✅ الإجابة: A — IP العالمي</b> <span data-ar="IP العالمي فريد على الإنترنت من غير تكرار."
               data-en="The Global IP is unique on the Internet with no duplication.">IP العالمي فريد على الإنترنت من غير تكرار.</span></div>
@@ -1772,9 +802,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="العنوان المتاح بحرية جوه شبكة محلية زي LAN بيتسمّى إيه؟"
               data-en="What is the address freely used within a local network like a LAN called?">العنوان المتاح بحرية جوه شبكة محلية زي LAN بيتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  IP العالمي" data-en="A  the Global IP">A  IP العالمي</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  IP الخاص" data-en="B  the Private IP">B  IP الخاص</div>
-            <div class="ex-opt" data-ar="C  IPv6" data-en="C  IPv6">C  IPv6</div>
+            <div class="ex-opt" data-ar="A IP العالمي" data-en="A  the Global IP">A IP العالمي</div>
+            <div class="ex-opt" data-ok="1" data-ar="B IP الخاص" data-en="B  the Private IP">B IP الخاص</div>
+            <div class="ex-opt" data-ar="C IPv6" data-en="C  IPv6">C  IPv6</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — IP الخاص" data-en="✅ Answer: B — the Private IP">✅ الإجابة: B — IP الخاص</b> <span data-ar="IP الخاص متاح بحرية جوه الـ LAN."
               data-en="The Private IP is freely used inside the LAN.">IP الخاص متاح بحرية جوه الـ LAN.</span></div>
@@ -1783,9 +813,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="هل IP العالمي ممكن يتردّ بحرية جوه شبكة محلية؟"
               data-en="Can a Global IP be freely used within a local network?">هل IP العالمي ممكن يتردّ بحرية جوه شبكة محلية؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  أيوه، عادي" data-en="A  yes, normally">A  أيوه، عادي</div>
-            <div class="ex-opt" data-ar="B  مش بيتردّ خالص" data-en="B  it is not used at all">B  مش بيتردّ خالص</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  لأ — ده الخاص" data-en="C  no — that is the Private">C  لأ — ده الخاص</div>
+            <div class="ex-opt" data-ar="A أيوه، عادي" data-en="A  yes, normally">A أيوه، عادي</div>
+            <div class="ex-opt" data-ar="B مش بيتردّ خالص" data-en="B  it is not used at all">B مش بيتردّ خالص</div>
+            <div class="ex-opt" data-ok="1" data-ar="C لأ — ده الخاص" data-en="C  no — that is the Private">C لأ — ده الخاص</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — لأ" data-en="✅ Answer: C — no">✅ الإجابة: C — لأ</b> <span
               data-ar="اللي متاح بحرية جوه الشبكة المحلية هو IP الخاص."
@@ -1803,9 +833,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه اللي حلّ مشكلة نفاذ عناوين IP؟"
               data-en="What solved the IP address exhaustion problem?">إيه اللي حلّ مشكلة نفاذ عناوين IP؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  IPv4 بـ 32 بت" data-en="A  IPv4 with 32 bits">A  IPv4 بـ 32 بت</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  IPv6 بـ 128 بت" data-en="B  IPv6 with 128 bits">B  IPv6 بـ 128 بت</div>
-            <div class="ex-opt" data-ar="C  DNS" data-en="C  the DNS">C  DNS</div>
+            <div class="ex-opt" data-ar="A IPv4 بـ 32 بت" data-en="A  IPv4 with 32 bits">A IPv4 بـ 32 بت</div>
+            <div class="ex-opt" data-ok="1" data-ar="B IPv6 بـ 128 بت" data-en="B  IPv6 with 128 bits">B IPv6 بـ 128 بت</div>
+            <div class="ex-opt" data-ar="C DNS" data-en="C  the DNS">C  DNS</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — IPv6" data-en="✅ Answer: B — IPv6">✅ الإجابة: B — IPv6</b> <span data-ar="IPv6 اتمدّد لـ 128 بت، ودلوقتي فيه عناوين أكتر."
               data-en="IPv6 was expanded to 128 bits, providing more addresses.">IPv6 اتمدّد لـ 128 بت، ودلوقتي فيه عناوين أكتر.</span></div>
@@ -1814,10 +844,10 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه العبارة الصح؟"
               data-en="Which statement is correct?">إيه العبارة الصح؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  النفاذ اتحلّ بـ IPv6 بـ 128 بت"
-              data-en="A  exhaustion was solved by IPv6 with 128 bits">A  النفاذ اتحلّ بـ IPv6 بـ 128 بت</div>
-            <div class="ex-opt" data-ar="B  IPv4 أربع أرقام من 0 لـ 256" data-en="B  IPv4 is four numbers from 0 to 256">B  IPv4 أربع أرقام من 0 لـ 256</div>
-            <div class="ex-opt" data-ar="C  IP العالمي متاح بحرية جوه الـ LAN" data-en="C  the Global IP is freely used inside the LAN">C  IP العالمي متاح بحرية جوه الـ LAN</div>
+            <div class="ex-opt" data-ok="1" data-ar="A النفاذ اتحلّ بـ IPv6 بـ 128 بت"
+              data-en="A  exhaustion was solved by IPv6 with 128 bits">A النفاذ اتحلّ بـ IPv6 بـ 128 بت</div>
+            <div class="ex-opt" data-ar="B IPv4 أربع أرقام من 0 لـ 256" data-en="B  IPv4 is four numbers from 0 to 256">B IPv4 أربع أرقام من 0 لـ 256</div>
+            <div class="ex-opt" data-ar="C IP العالمي متاح بحرية جوه الـ LAN" data-en="C  the Global IP is freely used inside the LAN">C IP العالمي متاح بحرية جوه الـ LAN</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — IPv6 بـ 128 بت" data-en="✅ Answer: A — IPv6 with 128 bits">✅ الإجابة: A — IPv6 بـ 128 بت</b> <span data-ar="حل النفاذ هو IPv6 بـ 128 بت — وده الكلام الصح."
               data-en="The exhaustion solution is IPv6 with 128 bits — that is the correct statement.">حل النفاذ هو IPv6 بـ 128 بت — وده الكلام الصح.</span></div>
@@ -1826,9 +856,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="IPv4 بيتُمثَّل في نظام ثنائي بكم بت؟"
               data-en="In how many bits is IPv4 represented in binary?">IPv4 بيتُمثَّل في نظام ثنائي بكم بت؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  128 بت" data-en="A  128 bits">A  128 بت</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  32 بت" data-en="B  32 bits">B  32 بت</div>
-            <div class="ex-opt" data-ar="C  64 بت" data-en="C  64 bits">C  64 بت</div>
+            <div class="ex-opt" data-ar="A 128 بت" data-en="A  128 bits">A 128 بت</div>
+            <div class="ex-opt" data-ok="1" data-ar="B 32 بت" data-en="B  32 bits">B 32 بت</div>
+            <div class="ex-opt" data-ar="C 64 بت" data-en="C  64 bits">C 64 بت</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 32 بت" data-en="✅ Answer: B — 32 bits">✅ الإجابة: B — 32 بت</b> <span data-ar="IPv4 بيتُمثَّل في نظام ثنائي باستخدام 32 بت."
               data-en="IPv4 is represented in binary using 32 bits.">IPv4 بيتُمثَّل في نظام ثنائي باستخدام 32 بت.</span></div>
@@ -1840,25 +870,25 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: DNS واسم النطاق (Domain name)" data-en="✍️ Additional interactive drill 4: DNS and the Domain name">✍️ تدريب 4: DNS واسم النطاق (Domain name)</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: DNS واسم النطاق" data-en="✍️ Additional interactive drill 4: DNS and the Domain name">✍️ تدريب 4: DNS واسم النطاق</h3>
         <div class="ex-item">
           <div class="q"><span class="q-num">1</span> <span data-ar="سلسلة الحروف اللي بتخلي عنوان IP أوضح للبشر بتبقى إيه؟"
               data-en="What is the character string that makes an IP address easier for humans called?">سلسلة الحروف اللي بتخلي عنوان IP أوضح للبشر بتبقى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  عنوان IP" data-en="A  the IP address">A  عنوان IP</div>
-            <div class="ex-opt" data-ar="B  DNS" data-en="B  the DNS">B  DNS</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  اسم النطاق (Domain name)" data-en="C  the Domain name">C  اسم النطاق (Domain name)</div>
+            <div class="ex-opt" data-ar="A عنوان IP" data-en="A  the IP address">A عنوان IP</div>
+            <div class="ex-opt" data-ar="B DNS" data-en="B  the DNS">B  DNS</div>
+            <div class="ex-opt" data-ok="1" data-ar="C اسم النطاق" data-en="C  the Domain name">C اسم النطاق</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: C — اسم النطاق (Domain name)" data-en="✅ Answer: C — the Domain name">✅ الإجابة: C — اسم النطاق (Domain name)</b> <span data-ar="اسم النطاق (Domain name) هو سلسلة حروف بتخلي العنوان أوضح للبشر."
-              data-en="The Domain name is a character string that makes the address easier for humans.">اسم النطاق (Domain name) هو سلسلة حروف بتخلي العنوان أوضح للبشر.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — اسم النطاق" data-en="✅ Answer: C — the Domain name">✅ الإجابة: C — اسم النطاق</b> <span data-ar="اسم النطاق هو سلسلة حروف بتخلي العنوان أوضح للبشر."
+              data-en="The Domain name is a character string that makes the address easier for humans.">اسم النطاق هو سلسلة حروف بتخلي العنوان أوضح للبشر.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه النظام اللي بيربط أسماء النطاقات بعناوين IP والعكس؟"
               data-en="What is the system that maps domain names to IP addresses and vice versa?">إيه النظام اللي بيربط أسماء النطاقات بعناوين IP والعكس؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  اسم النطاق (Domain name)" data-en="A  the Domain name">A  اسم النطاق (Domain name)</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  DNS" data-en="B  the DNS">B  DNS</div>
-            <div class="ex-opt" data-ar="C  IPv6" data-en="C  IPv6">C  IPv6</div>
+            <div class="ex-opt" data-ar="A اسم النطاق" data-en="A  the Domain name">A اسم النطاق</div>
+            <div class="ex-opt" data-ok="1" data-ar="B DNS" data-en="B  the DNS">B  DNS</div>
+            <div class="ex-opt" data-ar="C IPv6" data-en="C  IPv6">C  IPv6</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — DNS" data-en="✅ Answer: B — the DNS">✅ الإجابة: B — DNS</b> <span data-ar="DNS هو النظام اللي بيربط أسماء النطاقات بعناوين IP."
               data-en="DNS is the system that maps domain names to IP addresses.">DNS هو النظام اللي بيربط أسماء النطاقات بعناوين IP.</span></div>
@@ -1867,9 +897,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه المسؤول عن تنفيذ ربط الاسم بالعنوان؟"
               data-en="What is responsible for executing the name-to-address mapping?">إيه المسؤول عن تنفيذ ربط الاسم بالعنوان؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  خادم DNS" data-en="A  the DNS server">A  خادم DNS</div>
-            <div class="ex-opt" data-ar="B  Hub" data-en="B  the Hub">B  Hub</div>
-            <div class="ex-opt" data-ar="C  Router" data-en="C  the Router">C  Router</div>
+            <div class="ex-opt" data-ok="1" data-ar="A خادم DNS" data-en="A  the DNS server">A خادم DNS</div>
+            <div class="ex-opt" data-ar="B Hub" data-en="B  the Hub">B  Hub</div>
+            <div class="ex-opt" data-ar="C Router" data-en="C  the Router">C  Router</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — خادم DNS" data-en="✅ Answer: A — the DNS server">✅ الإجابة: A — خادم DNS</b> <span data-ar="خادم DNS هو المسؤول عن ربط الأسماء بالعناوين."
               data-en="The DNS server is responsible for mapping names to addresses.">خادم DNS هو المسؤول عن ربط الأسماء بالعناوين.</span></div>
@@ -1902,7 +932,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="عنوان IP" data-en="The IP address">عنوان IP</h4>
+                  <h3 data-ar="عنوان IP" data-en="The IP address" class="lvl-h4 lvl-h4-2">عنوان IP</h3>
                   <p data-ar="رقم تعريف فريد لكل جهاز — IPv4 بـ 32 بت في أربع كتل من 0 لـ 255."
                     data-en="a unique identification number for each device — IPv4 is 32 bits in four blocks from 0 to 255.">رقم تعريف فريد لكل جهاز — IPv4 بـ 32 بت في أربع كتل من 0 لـ 255.</p>
                 </div>
@@ -1910,7 +940,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="العالمي والخاص" data-en="The Global and the Private">العالمي والخاص</h4>
+                  <h3 data-ar="العالمي والخاص" data-en="The Global and the Private" class="lvl-h4 lvl-h4-2">العالمي والخاص</h3>
                   <p data-ar="العالمي فريد على الإنترنت، والخاص متاح بحرية جوه الـ LAN."
                     data-en="the Global is unique on the Internet, and the Private is freely used inside the LAN.">العالمي فريد على الإنترنت، والخاص متاح بحرية جوه الـ LAN.</p>
                 </div>
@@ -1918,7 +948,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="النفاذ" data-en="The exhaustion">النفاذ</h4>
+                  <h3 data-ar="النفاذ" data-en="The exhaustion" class="lvl-h4 lvl-h4-2">النفاذ</h3>
                   <p data-ar="عناوين IPv4 بتخلص — والحل IPv6 بـ 128 بت."
                     data-en="IPv4 addresses are running out — the solution is IPv6 with 128 bits.">عناوين IPv4 بتخلص — والحل IPv6 بـ 128 بت.</p>
                 </div>
@@ -1926,7 +956,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">04</span>
                 <div>
-                  <h4 data-ar="اسم النطاق (Domain name)" data-en="The Domain name">اسم النطاق (Domain name)</h4>
+                  <h3 data-ar="اسم النطاق" data-en="The Domain name" class="lvl-h4 lvl-h4-2">اسم النطاق</h3>
                   <p data-ar="سلسلة حروف بتخلي عناوين IP أوضح للبشر."
                     data-en="a character string that makes IP addresses easier for humans to understand.">سلسلة حروف بتخلي عناوين IP أوضح للبشر.</p>
                 </div>
@@ -1934,7 +964,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">05</span>
                 <div>
-                  <h4 data-ar="DNS" data-en="The DNS">DNS</h4>
+                  <h3 data-ar="DNS" data-en="The DNS" class="lvl-h4 lvl-h4-2">DNS</h3>
                   <p data-ar="نظام بيربط أسماء النطاقات بعناوين IP والعكس — والخادم بتاعه ب ينفّذ الدور."
                     data-en="a system linking domain names to IP addresses and vice versa — its server executes the role.">نظام بيربط أسماء النطاقات بعناوين IP والعكس — والخادم بتاعه ب ينفّذ الدور.</p>
                 </div>
@@ -1983,7 +1013,7 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="recapRq2o2" data-key="B"
                 data-fb-ar="مش كده — الـ Domain name هو الاسم نفسه."
                 data-fb-en="Not quite — the Domain name is the name itself."><span class="rq-key">B</span><span
-                  class="rq-body" data-ar="اسم النطاق (Domain name)" data-en="the Domain name">اسم النطاق (Domain name)</span></div>
+                  class="rq-body" data-ar="اسم النطاق" data-en="the Domain name">اسم النطاق</span></div>
               <div class="rq-opt" data-id="recapRq2o3" data-key="C"
                 data-fb-ar="مش كده — الـ IPv6 إصدار عناوين جديد."
                 data-fb-en="Not quite — IPv6 is a new address version."><span class="rq-key">C</span><span
@@ -2561,30 +1591,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>

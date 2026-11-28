@@ -10,967 +10,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 8-1 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }
-
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/networks-8-1-computer-networks--8-1-computer-networks-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
 </head>
 
 <body>
@@ -1007,12 +50,12 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
       <div class="hero-badge" data-ar="الدرس 1 — شبكات الكمبيوتر" data-en="Lesson 1 — Computer Networks">الدرس 1 — شبكات الكمبيوتر</div>
       <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>شبكات</span> الكمبيوتر" data-en="<span class=&quot;grad&quot;>Computer</span> Networks">شبكات <span class="grad">الكمبيوتر</span></h1>
       <p class="hero-sub"
-        data-ar="شبكات الكمبيوتر — الشبكات هي إزاي الكمبيوترات بتتكلم مع بعض. النهارده هنتعلّم تعريف الشبكة، وأنواعها LAN وWAN، والإنترنت، وأجهزة الاتصال ISP وRouter وHub، والـ Server والـ Client، وطرق الاتصال تبديل الدائرة (Circuit switching) وتبديل الحزم (Packet switching)."
+        data-ar="شبكات الكمبيوتر — الشبكات هي إزاي الكمبيوترات بتتكلم مع بعض. النهارده هنتعلّم تعريف الشبكة، وأنواعها LAN وWAN، والإنترنت، وأجهزة الاتصال ISP وRouter وHub، والـ Server والـ Client، وطرق الاتصال تبديل الدائرة وتبديل الحزم."
         data-en="Computer Networks — networks are how computers talk to each other. Today we learn the network definition, its types LAN and WAN, the Internet, the connection devices ISP, Router, and Hub, the Server and Client, and the communication methods Circuit switching and Packet switching.">
         <span dir="ltr">Computer Networks</span> — الشبكات هي الطريقة اللي الكمبيوترات بتتكلم بيها مع بعض. النهارده
-        هنتعلم تعريف الشبكة، وأنواعها LAN وWAN، والإنترنت، وأجهزة الاتصال ISP والراوتر والهب، والـ Server والـ Client،
-        وطرق الاتصال Circuit switching وPacket switching.</p>
-      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ هنتعلم تعريف الشبكة، وأنواعها LAN وWAN، والإنترنت، وأجهزة الاتصال ISP والراوتر والهب، والـ Server والـ Client،
+ وطرق الاتصال Circuit switching وPacket switching.</p>
+      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 
@@ -1031,15 +74,15 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="شبكات الكمبيوتر هي إزاي الكمبيوترات بتتكلم مع بعض وتتبادل الداتا (Data). النهارده هنتعلّم إيه هي الشبكة، وأنواعها LAN وWAN، والإنترنت، والأجهزة اللي بنتوصّل بيها زي ISP وRouter وHub، والـ Server والـ Client، وطرق الاتصال زي تبديل الدائرة (Circuit switching) وتبديل الحزم (Packet switching)."
+        <p data-ar="شبكات الكمبيوتر هي إزاي الكمبيوترات بتتكلم مع بعض وتتبادل البيانات. النهارده هنتعلّم إيه هي الشبكة، وأنواعها LAN وWAN، والإنترنت، والأجهزة اللي بنتوصّل بيها زي ISP وRouter وHub، والـ Server والـ Client، وطرق الاتصال زي تبديل الدائرة وتبديل الحزم."
           data-en="Computer networks are how computers talk to each other and exchange data. Today we learn what a network is, its types LAN and WAN, the Internet, the devices we connect with like ISP, Router, and Hub, the Server and Client, and communication methods like Circuit switching and Packet switching.">
-          شبكات الكمبيوتر هي الطريقة اللي الكمبيوترات بتتكلم بيها مع بعض وتبادل بيها البيانات. النهارده هنتعلم إيه هي
-          <b>الشبكة</b>، وأنواعها <b>LAN</b> و<b>WAN</b>، والإنترنت، والأجهزة اللي بنوصل بيها زي الـ <b>ISP</b> والراوتر
-          والهب، والـ <b>Server</b> والـ <b>Client</b>، وطرق الاتصال زي <b>Circuit switching</b> و<b>Packet
+ شبكات الكمبيوتر هي الطريقة اللي الكمبيوترات بتتكلم بيها مع بعض وتبادل بيها البيانات. النهارده هنتعلم إيه هي
+ <b>الشبكة</b>، وأنواعها <b>LAN</b> و<b>WAN</b>، والإنترنت، والأجهزة اللي بنوصل بيها زي الـ <b>ISP</b> والراوتر
+ والهب، والـ <b>Server</b> والـ <b>Client</b>، وطرق الاتصال زي <b>Circuit switching</b> و<b>Packet
             switching</b>.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="الشبكة زي عيلة بتكبر: الأول كانوا مع بعض في بيت واحد (LAN)، بعدين اتفرقوا وفضلوا متواصلين في كل حتة (WAN)، وفي الآخر كلهم اتربطوا ببعض (الإنترنت)."
-            data-en="A network is like a growing family: first they were together in one house (LAN), then they spread out and stayed connected everywhere (WAN), and in the end they all linked together (the Internet).">الشبكة زي عيلة بتكبر: الأول كانوا مع بعض في بيت واحد (LAN)، بعدين اتفرقوا وفضلوا متواصلين في كل حتة (WAN)، وفي الآخر كلهم اتربطوا ببعض (الإنترنت).</span></div>
+            data-ar="الشبكة زي عيلة بتكبر: الأول كانوا مع بعض في بيت واحد، بعدين اتفرقوا وفضلوا متواصلين في كل حتة، وفي الآخر كلهم اتربطوا ببعض (الإنترنت)."
+            data-en="A network is like a growing family: first they were together in one house (LAN), then they spread out and stayed connected everywhere (WAN), and in the end they all linked together (the Internet).">الشبكة زي عيلة بتكبر: الأول كانوا مع بعض في بيت واحد، بعدين اتفرقوا وفضلوا متواصلين في كل حتة، وفي الآخر كلهم اتربطوا ببعض (الإنترنت).</span></div>
       </div>
 
       <div class="section-inner">
@@ -1060,25 +103,25 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
                   style="color:var(--s5)" data-ar="الـ Server والـ Client وأنماط الاستخدام"
                   data-en="the Server and Client and usage patterns">الـ Server والـ Client وأنماط الاستخدام</b></span></div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">📡</span><span><b
-                  style="color:var(--s6)" data-ar="طرق الاتصال — تبديل الدائرة (Circuit switching) وتبديل الحزم (Packet switching)"
-                  data-en="communication methods — Circuit switching and Packet switching">طرق الاتصال — تبديل الدائرة (Circuit switching) وتبديل الحزم (Packet switching)</b></span></div>
+                  style="color:var(--s6)" data-ar="طرق الاتصال — تبديل الدائرة وتبديل الحزم"
+                  data-en="communication methods — Circuit switching and Packet switching">طرق الاتصال — تبديل الدائرة وتبديل الحزم</b></span></div>
           </div>
           <div class="demo-panel">
             <div class="demo-label" data-ar="ليه بنتعلم ده؟" data-en="Why do we learn this?">ليه بنتعلم ده؟</div>
             <p style="font-size:.95rem"
-              data-ar="كل حاجة حوالينا متوصولة ببعض بالشبكات — الإنترنت والتليفونات والبيت والمدرسة. لما تفهم الشبكات بتشتغل إزاي، هتفهم الداتا (Data) بتمشي منك لأي حد في العالم إزاي."
-              data-en="Everything around us is connected by networks — the Internet, phones, home, and school. When you understand how networks work, you will understand how data travels from you to anyone in the world.">كل حاجة حوالينا متوصولة ببعض بالشبكات — الإنترنت والتليفونات والبيت والمدرسة. لما تفهم الشبكات بتشتغل إزاي، هتفهم الداتا (Data) بتمشي منك لأي حد في العالم إزاي.</p>
+              data-ar="كل حاجة حوالينا متوصولة ببعض بالشبكات — الإنترنت والتليفونات والبيت والمدرسة. لما تفهم الشبكات بتشتغل إزاي، هتفهم البيانات بتمشي منك لأي حد في العالم إزاي."
+              data-en="Everything around us is connected by networks — the Internet, phones, home, and school. When you understand how networks work, you will understand how data travels from you to anyone in the world.">كل حاجة حوالينا متوصولة ببعض بالشبكات — الإنترنت والتليفونات والبيت والمدرسة. لما تفهم الشبكات بتشتغل إزاي، هتفهم البيانات بتمشي منك لأي حد في العالم إزاي.</p>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين LAN وWAN — LAN لمنطقة محدودة زي البيت أو المدرسة، وWAN لمنطقة أوسع."
             data-en="Confusing LAN with WAN — LAN is for a limited area like home or school, and WAN is for a broader area.">الخلط بين LAN وWAN — LAN لمنطقة محدودة زي البيت أو المدرسة، وWAN لمنطقة أوسع.</li>
-          <li data-ar="الخلط بين Router وHub — الراوتر (Router) بيرحّل الداتا (Data) بين شبكات مختلفة، والهاب (Hub) جهاز مركزي بيوصّل كابلات كتير."
-            data-en="Confusing the Router with the Hub — the router relays data between different networks, and the hub is a central device that connects many cables.">الخلط بين Router وHub — الراوتر (Router) بيرحّل الداتا (Data) بين شبكات مختلفة، والهاب (Hub) جهاز مركزي بيوصّل كابلات كتير.</li>
+          <li data-ar="الخلط بين Router وHub — الراوتر بيرحّل البيانات بين شبكات مختلفة، والهاب جهاز مركزي بيوصّل كابلات كتير."
+            data-en="Confusing the Router with the Hub — the router relays data between different networks, and the hub is a central device that connects many cables.">الخلط بين Router وHub — الراوتر بيرحّل البيانات بين شبكات مختلفة، والهاب جهاز مركزي بيوصّل كابلات كتير.</li>
         </ul>
       </div>
     </section>
@@ -1094,22 +137,22 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">02</div>
           <div>
             <h2 data-ar="شبكة المعلومات والاتصالات" data-en="Information and Communication Network">شبكات
-              المعلومات والاتصالات والشبكة <span dir="ltr">(Information and Communication Network)</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="تعريف الشبكة — صفحة 95 بالكتاب"
-              data-en="the network definition — book page 95">تعريف الشبكة — صفحة 95 بالكتاب</div>
+ المعلومات والاتصالات والشبكة <span dir="ltr">(Information and Communication Network)</span></h2>
+            <div class="tag" style="color:var(--s2)" data-ar="تعريف الشبكة — بالكتاب"
+              data-en="the network definition — book">تعريف الشبكة — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="شبكة المعلومات والاتصالات هي شبكة شبه الشبكة العنكبوتية بتستخدم خطوط اتصال عشان تنقل المعلومات (Information)."
+        <p data-ar="شبكة المعلومات والاتصالات هي شبكة شبه الشبكة العنكبوتية بتستخدم خطوط اتصال عشان تنقل المعلومات."
           data-en="An information and communication network is a network resembling a web that uses communication lines to transmit information.">
           <b>شبكة المعلومات والاتصالات <span dir="ltr">(Information and communication network)</span></b> هي شبكة زي
-          العنكبوتية بتستخدم خطوط الاتصالات عشان تنقل المعلومات.</p>
-        <p data-ar="شبكة الكمبيوتر هي نظام اتصال بيوصّل الأجهزة المعلوماتية زي الكمبيوترات والموبايلات عشان تتبادل الداتا (Data) مع بعض."
+ العنكبوتية بتستخدم خطوط الاتصالات عشان تنقل المعلومات.</p>
+        <p data-ar="شبكة الكمبيوتر هي نظام اتصال بيوصّل الأجهزة المعلوماتية زي الكمبيوترات والموبايلات عشان تتبادل البيانات مع بعض."
           data-en="A Computer network is a communication system that connects information devices like computers and smartphones so they can exchange data with one another.">
-          أما <b>الشبكة <span dir="ltr">(Computer network)</span></b> فهي نظام اتصالات بيربط أجهزة زي الكمبيوترات
-          والموبايلات عشان يتبادلوا البيانات مع بعض.</p>
+ أما <b>الشبكة <span dir="ltr">(Computer network)</span></b> فهي نظام اتصالات بيربط أجهزة زي الكمبيوترات
+ والموبايلات عشان يتبادلوا البيانات مع بعض.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="الشبكة زي مجموعة صحاب بيتكلموا في التليفونات — كل واحد معاه جهاز، والخطوط بتوصّل أصواتهم."
             data-en="A network is like a group of friends talking on phones — each has a device, and the lines connect their voices.">الشبكة زي مجموعة صحاب بيتكلموا في التليفونات — كل واحد معاه جهاز، والخطوط بتوصّل أصواتهم.</span></div>
@@ -1119,8 +162,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
         <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
-            <div class="demo-label" data-ar="الداتا (Data) بتمشي على خطوط الاتصال"
-              data-en="data travels over communication lines">الداتا (Data) بتمشي على خطوط الاتصال</div>
+            <div class="demo-label" data-ar="البيانات بتمشي على خطوط الاتصال"
+              data-en="data travels over communication lines">البيانات بتمشي على خطوط الاتصال</div>
             <div class="flow-card" data-id="network">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="network"></svg>
@@ -1133,8 +176,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="networkPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="networkNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="networkPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="networkNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="networkCounter">1 / 3</span>
                 <button class="mini-btn" data-id="networkReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1158,8 +201,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="networkRecall">
           <div class="rq" data-id="networkRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="شبكة المعلومات والاتصالات بتستخدم إيه عشان تنقل المعلومات (Information)؟"
-                data-en="What does an information and communication network use to transmit information?">شبكة المعلومات والاتصالات بتستخدم إيه عشان تنقل المعلومات (Information)؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="شبكة المعلومات والاتصالات بتستخدم إيه عشان تنقل المعلومات؟"
+                data-en="What does an information and communication network use to transmit information?">شبكة المعلومات والاتصالات بتستخدم إيه عشان تنقل المعلومات؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="networkRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! بتستخدم خطوط الاتصالات لنقل المعلومات."
@@ -1179,8 +222,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
             <button class="mini-btn rq-skip" data-id="networkRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="networkRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="شبكة الكمبيوتر بتوصّل أنهي أجهزة عشان تتبادل الداتا (Data)؟"
-                data-en="What devices does a Computer network connect to exchange data?">شبكة الكمبيوتر بتوصّل أنهي أجهزة عشان تتبادل الداتا (Data)؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="شبكة الكمبيوتر بتوصّل أنهي أجهزة عشان تتبادل البيانات؟"
+                data-en="What devices does a Computer network connect to exchange data?">شبكة الكمبيوتر بتوصّل أنهي أجهزة عشان تتبادل البيانات؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="networkRq2o2" data-key="A"
                 data-fb-ar="مش كده — الشبكة مش بتربط الكراسي."
@@ -1211,22 +254,22 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div>
             <h2 data-ar="أنواع الشبكات" data-en="Types of Networks">أنواع الشبكات <span dir="ltr">(Types of
                 Networks)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="LAN وWAN والإنترنت — صفحة 95 بالكتاب"
-              data-en="LAN, WAN, and the Internet — book page 95">LAN وWAN والإنترنت — صفحة 95 بالكتاب</div>
+            <div class="tag" style="color:var(--s3)" data-ar="LAN وWAN والإنترنت — بالكتاب"
+              data-en="LAN, WAN, and the Internet — book">LAN وWAN والإنترنت — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="شبكة المنطقة المحلية (LAN) بتوصّل أجهزة في منطقة محدودة، زي مدرسة أو بيت — إما سلكية (Wired LAN) بالكابلات أو لاسلكية (Wireless LAN) باستخدام الموجات الراديوية."
+        <p data-ar="شبكة المنطقة المحلية بتوصّل أجهزة في منطقة محدودة، زي مدرسة أو بيت — إما سلكية بالكابلات أو لاسلكية باستخدام الموجات الراديوية."
           data-en="A Local Area Network (LAN) connects devices in a limited area, like a school or home — either wired (Wired LAN) with cables or wireless (Wireless LAN) using radio waves.">
           <b>الشبكة المحلية <span dir="ltr">(LAN)</span></b> هي شبكة بتوصل الأجهزة في منطقة محدودة، زي المدرسة أو البيت —
-          وبتكون <b>بالسلك <span dir="ltr">(Wired LAN)</span></b> بالكابلات أو <b>لاسلكية <span dir="ltr">(Wireless
+ وبتكون <b>بالسلك <span dir="ltr">(Wired LAN)</span></b> بالكابلات أو <b>لاسلكية <span dir="ltr">(Wireless
               LAN)</span></b> بالموجات الراديوية.</p>
-        <p data-ar="شبكة المنطقة الواسعة (WAN) بتوصّل منطقة أوسع. والإنترنت بتوصّل شبكات LAN وWAN على مستوى العالم."
+        <p data-ar="شبكة المنطقة الواسعة بتوصّل منطقة أوسع. والإنترنت بتوصّل شبكات LAN وWAN على مستوى العالم."
           data-en="A Wide Area Network (WAN) connects a broader area. The Internet connects LANs and WANs on a global scale.">
-          أما <b>الشبكة الواسعة <span dir="ltr">(WAN)</span></b> فهي شبكة بتوصل منطقة أوسع. والإنترنت
-          <b><span dir="ltr">(Internet)</span></b> هي شبكة بتوصل الـ LAN والـ WAN على نطاق عالمي.</p>
+ أما <b>الشبكة الواسعة <span dir="ltr">(WAN)</span></b> فهي شبكة بتوصل منطقة أوسع. والإنترنت
+ <b><span dir="ltr">(Internet)</span></b> هي شبكة بتوصل الـ LAN والـ WAN على نطاق عالمي.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="LAN زي شبكة البيت، وWAN زي شبكة المحافظة كلها، والإنترنت زي العالم كله متوصّل."
             data-en="LAN is like the home network, WAN is like the whole governorate network, and the Internet is like the whole world connected.">LAN زي شبكة البيت، وWAN زي شبكة المحافظة كلها، والإنترنت زي العالم كله متوصّل.</span></div>
@@ -1250,8 +293,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="typesPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="typesNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="typesPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="typesNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="typesCounter">1 / 3</span>
                 <button class="mini-btn" data-id="typesReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1295,8 +338,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
             <button class="mini-btn rq-skip" data-id="typesRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="typesRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="شبكة Wireless LAN بتبادل الداتا (Data) إزاي؟"
-                data-en="How does a Wireless LAN exchange data?">شبكة Wireless LAN بتبادل الداتا (Data) إزاي؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="شبكة Wireless LAN بتبادل البيانات إزاي؟"
+                data-en="How does a Wireless LAN exchange data?">شبكة Wireless LAN بتبادل البيانات إزاي؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="typesRq2o2" data-key="A"
                 data-fb-ar="مش كده — ده وصف الـ Wired LAN."
@@ -1327,18 +370,18 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
           <div>
             <h2 data-ar="الاتصال بالإنترنت" data-en="Connecting to the Internet">الاتصال بالإنترنت <span dir="ltr">(Connecting to the Internet)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="ISP وRouter وHub — صفحة 95 بالكتاب"
-              data-en="ISP, Router, and Hub — book page 95">ISP وRouter وHub — صفحة 95 بالكتاب</div>
+            <div class="tag" style="color:var(--s4)" data-ar="ISP وRouter وHub — بالكتاب"
+              data-en="ISP, Router, and Hub — book">ISP وRouter وHub — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="عشان نتصل بالإنترنت محتاجين: ISP (مزوّد)، وهي شركة بتسهّل الاتصال وبنعمل معاها عقد، وRouter، وهو جهاز بيرحّل الداتا (Data) بين شبكات مختلفة، وHub، وهو جهاز مركزي بيوصّل كابلات كتير."
+        <p data-ar="عشان نتصل بالإنترنت محتاجين: ISP (مزوّد)، وهي شركة بتسهّل الاتصال وبنعمل معاها عقد، وRouter، وهو جهاز بيرحّل البيانات بين شبكات مختلفة، وHub، وهو جهاز مركزي بيوصّل كابلات كتير."
           data-en="To connect to the Internet we need: an ISP (provider), a company that facilitates the connection and we sign a contract with it, a Router, a device that relays data between different networks, and a Hub, a central device that connects many cables.">
-          عشان نوصّل للإنترنت محتاجين: <b>مزوّد خدمة <span dir="ltr">(ISP)</span></b> وهو شركة بتسهّل الاتصال بالإنترنت
-          وبنوقع معاها عقد، و<b>راوتر <span dir="ltr">(Router)</span></b> وهو جهاز بيرحّل البيانات بين الشبكات المختلفة،
-          و<b>هب <span dir="ltr">(Hub)</span></b> وهو جهاز مركزي بيربط كابلات كتير.</p>
+ عشان نوصّل للإنترنت محتاجين: <b>مزوّد خدمة <span dir="ltr">(ISP)</span></b> وهو شركة بتسهّل الاتصال بالإنترنت
+ وبنوقع معاها عقد، و<b>راوتر <span dir="ltr">(Router)</span></b> وهو جهاز بيرحّل البيانات بين الشبكات المختلفة،
+ و<b>هب <span dir="ltr">(Hub)</span></b> وهو جهاز مركزي بيربط كابلات كتير.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="ISP زي شركة الكهربا اللي بتوصّل الخدمة بتاعتك بعقد، والـ Router زي موزّع بريد بيوصّل الجوابات بين الأماكن، والـ Hub زي لوحة توصيل بتيجمّع كل الكابلات."
             data-en="The ISP is like the electricity company that connects your service with a contract, the Router is like a mail distributor that delivers letters between places, and the Hub is like a connection board that gathers all the cables.">ISP زي شركة الكهربا اللي بتوصّل الخدمة بتاعتك بعقد، والـ Router زي موزّع بريد بيوصّل الجوابات بين الأماكن، والـ Hub زي لوحة توصيل بتيجمّع كل الكابلات.</span></div>
@@ -1362,8 +405,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="connectPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="connectNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="connectPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="connectNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="connectCounter">1 / 3</span>
                 <button class="mini-btn" data-id="connectReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1408,8 +451,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
             <button class="mini-btn rq-skip" data-id="connectRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="connectRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="الجهاز اللي بيرحّل الداتا (Data) بين شبكات مختلفة بيتسمّى إيه؟"
-                data-en="What is the device that relays data between different networks called?">الجهاز اللي بيرحّل الداتا (Data) بين شبكات مختلفة بيتسمّى إيه؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="الجهاز اللي بيرحّل البيانات بين شبكات مختلفة بيتسمّى إيه؟"
+                data-en="What is the device that relays data between different networks called?">الجهاز اللي بيرحّل البيانات بين شبكات مختلفة بيتسمّى إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="connectRq2o2" data-key="A"
                 data-fb-ar="مش كده — الهب بيجمع الكابلات مش بيرحّل بين الشبكات."
@@ -1439,23 +482,23 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
           <div>
             <h2 data-ar="الـ Server والـ Client وأنماط الاستخدام" data-en="Server, Client, and Usage Patterns">الـ
-              Server والـ Client وأنماط الاستخدام <span dir="ltr">(Server and Client)</span></h2>
-            <div class="tag" style="color:var(--s5)" data-ar="أنماط استخدام الشبكة — صفحة 95 بالكتاب"
-              data-en="network usage patterns — book page 95">أنماط استخدام الشبكة — صفحة 95 بالكتاب</div>
+ Server والـ Client وأنماط الاستخدام <span dir="ltr">(Server and Client)</span></h2>
+            <div class="tag" style="color:var(--s5)" data-ar="أنماط استخدام الشبكة — بالكتاب"
+              data-en="network usage patterns — book">أنماط استخدام الشبكة — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الـ Server هو كمبيوتر بيوفّر خدمات مختلفة — زي خادم ملفات (File server) بيدير الملفات، وخادم طابعة (Printer server) بيتعامل مع معالجة الطباعة، وخادم ميل (Mail server) بيتعامل مع إرسال واستقبال الإيميلات، وخادم وسيط (Proxy server) بيعمل وسيط عشان تدخل على الإنترنت."
+        <p data-ar="الـ Server هو كمبيوتر بيوفّر خدمات مختلفة — زي خادم ملفات بيدير الملفات، وخادم طابعة بيتعامل مع معالجة الطباعة، وخادم ميل بيتعامل مع إرسال واستقبال الإيميلات، وخادم وسيط بيعمل وسيط عشان تدخل على الإنترنت."
           data-en="A Server is a computer that provides various services — like a File server that manages files, a Printer server that handles print processing, a Mail server that handles sending and receiving emails, and a Proxy server that acts as an intermediary for accessing the Internet.">
-          الـ <b>Server</b> هو كمبيوتر بيوفّر خدمات مختلفة — زي <b>خادم الملفات <span dir="ltr">(File
+ الـ <b>Server</b> هو كمبيوتر بيوفّر خدمات مختلفة — زي <b>خادم الملفات <span dir="ltr">(File
               server)</span></b> اللي بيدير الملفات، و<b>خادم الطباعة <span dir="ltr">(Printer server)</span></b> اللي
-          بيتعامل مع الطباعة، و<b>خادم البريد <span dir="ltr">(Mail server)</span></b> اللي بيتعامل مع إرسال واستقبال
-          الإيميلات، و<b>خادم الوكيل <span dir="ltr">(Proxy server)</span></b> اللي بيتوسط للوصول للإنترنت.</p>
-        <p data-ar="الـ Client هو كمبيوتر بيطلب خدمات مختلفة من السيرفر (Server). فيه نمطين: نظام العميل-الخادم (Client-server) اللي بتتوفّر فيه الخدمات وبتترد، ونظام الند-للند (Peer-to-peer) اللي الكمبيوترات فيه بعلاقة متساوية، بتوفّر وبتاخد خدمات."
+ بيتعامل مع الطباعة، و<b>خادم البريد <span dir="ltr">(Mail server)</span></b> اللي بيتعامل مع إرسال واستقبال
+ الإيميلات، و<b>خادم الوكيل <span dir="ltr">(Proxy server)</span></b> اللي بيتوسط للوصول للإنترنت.</p>
+        <p data-ar="الـ Client هو كمبيوتر بيطلب خدمات مختلفة من السيرفر. فيه نمطين: نظام العميل-الخادم اللي بتتوفّر فيه الخدمات وبتترد، ونظام الند-للند اللي الكمبيوترات فيه بعلاقة متساوية، بتوفّر وبتاخد خدمات."
           data-en="A Client is a computer that requests various services from a server. There are two patterns: the Client-server system where services are provided and received, and the Peer-to-peer system where computers are in an equal relationship, providing and receiving services.">
-          أما الـ <b>Client</b> فهو كمبيوتر بيطلب خدمات مختلفة من الـ Server. وفيه نمطين: <b>نظام العميل-الخادم <span
+ أما الـ <b>Client</b> فهو كمبيوتر بيطلب خدمات مختلفة من الـ Server. وفيه نمطين: <b>نظام العميل-الخادم <span
             dir="ltr">(Client-server system)</span></b> حيث الخدمات بتتقدم وتتستقبل، و<b>نظام الند للند <span
             dir="ltr">(Peer-to-peer system)</span></b> حيث الكمبيوترات في علاقة متساوية بتقدّم وتستقبل الخدمات من بعض.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
@@ -1476,13 +519,13 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
                   data-en="the Server — provides the services">الـ Server — بيوفّر الخدمات</div>
                 <div class="svg-label" data-fbox="ucli" data-ar="الـ Client — بيطلب الخدمات"
                   data-en="the Client — requests the services">الـ Client — بيطلب الخدمات</div>
-                <div class="svg-label" data-fbox="usys" data-ar="الأنظمة — العميل-الخادم (Client-server) والند-للند (Peer-to-peer)"
-                  data-en="the systems — Client-server and Peer-to-peer">الأنظمة — العميل-الخادم (Client-server) والند-للند (Peer-to-peer)</div>
+                <div class="svg-label" data-fbox="usys" data-ar="الأنظمة — العميل-الخادم والند-للند"
+                  data-en="the systems — Client-server and Peer-to-peer">الأنظمة — العميل-الخادم والند-للند</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="usagePrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="usageNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="usagePrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="usageNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="usageCounter">1 / 3</span>
                 <button class="mini-btn" data-id="usageReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1532,13 +575,13 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="rq-opt" data-id="usageRq2o2" data-key="A"
                 data-fb-ar="مش كده — العميل-الخادم فيه Server وClient."
                 data-fb-en="Not quite — client-server has a Server and a Client."><span class="rq-key">A</span><span
-                  class="rq-body" data-ar="نظام العميل-الخادم (Client-server)"
-                  data-en="the Client-server system">نظام العميل-الخادم (Client-server)</span></div>
+                  class="rq-body" data-ar="نظام العميل-الخادم"
+                  data-en="the Client-server system">نظام العميل-الخادم</span></div>
               <div class="rq-opt" data-id="usageRq2o1" data-key="B" data-ok="1"
                 data-fb-ar="صحيح! نظام الند للند Peer-to-peer هو اللي الكل فيه متساويين."
                 data-fb-en="Correct! The Peer-to-peer system is where everyone is equal."><span
-                  class="rq-key">B</span><span class="rq-body" data-ar="نظام الند-للند (Peer-to-peer)"
-                  data-en="the Peer-to-peer system">نظام الند-للند (Peer-to-peer)</span></div>
+                  class="rq-key">B</span><span class="rq-body" data-ar="نظام الند-للند"
+                  data-en="the Peer-to-peer system">نظام الند-للند</span></div>
               <div class="rq-opt" data-id="usageRq2o3" data-key="C"
                 data-fb-ar="مش كده — LAN نوع من أنواع الشبكات مش نظام استخدام."
                 data-fb-en="Not quite — LAN is a network type, not a usage pattern."><span class="rq-key">C</span><span
@@ -1559,25 +602,25 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div>
             <h2 data-ar="طرق الاتصال" data-en="Communication Methods">طرق الاتصال <span dir="ltr">(Communication
                 Methods)</span></h2>
-            <div class="tag" style="color:var(--s6)" data-ar="تبديل الدائرة (Circuit switching) وتبديل الحزم (Packet switching) — صفحات 95–96 بالكتاب"
-              data-en="Circuit switching and Packet switching — book pages 95–96">تبديل الدائرة (Circuit switching) وتبديل الحزم (Packet switching) — صفحات 95–96 بالكتاب</div>
+            <div class="tag" style="color:var(--s6)" data-ar="تبديل الدائرة وتبديل الحزم — صفحات 95–96 بالكتاب"
+              data-en="Circuit switching and Packet switching — book pages 95–96">تبديل الدائرة وتبديل الحزم — صفحات 95–96 بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="طريقة تبديل الدائرة (Circuit switching) هي طريقة اتصال بيتمّ فيها تأسيس مسار اتصال بين المرسل والمستقبل قبل ما يبدأ الإرسال عشان يتبادلوا المعلومات (Information)."
+        <p data-ar="طريقة تبديل الدائرة هي طريقة اتصال بيتمّ فيها تأسيس مسار اتصال بين المرسل والمستقبل قبل ما يبدأ الإرسال عشان يتبادلوا المعلومات."
           data-en="The Circuit switching method is a communication method where a communication path is established between the sender and the recipient before starting the transmission to exchange information.">
           <b>طريقة تبديل الدائرة <span dir="ltr">(Circuit switching method)</span></b> هي طريقة اتصال بيتم فيها إنشاء
-          مسار اتصال بين المرسل والمستقبل قبل بدء الإرسال لتبادل المعلومات.</p>
-        <p data-ar="الحزمة (Packet) هي وحدة لتقسيم الداتا (Data) لقطع صغيرة لما بتتنقل على شبكة. وطريقة تبديل الحزم (Packet switching) بتقسّم الداتا (Data) اللي بتترسل لحزم عشان تتبادل."
+ مسار اتصال بين المرسل والمستقبل قبل بدء الإرسال لتبادل المعلومات.</p>
+        <p data-ar="الحزمة هي وحدة لتقسيم البيانات لقطع صغيرة لما بتتنقل على شبكة. وطريقة تبديل الحزم بتقسّم البيانات اللي بتترسل لحزم عشان تتبادل."
           data-en="A Packet is a unit for dividing data into small chunks when transmitting over a network. The Packet switching method divides the data being transmitted into packets for exchange.">
-          أما <b>الـ Packet</b> فهو وحدة بتقسّم البيانات لقطع صغيرة عند نقلها عبر الشبكة. و<b>طريقة تبديل الحزم <span
+ أما <b>الـ Packet</b> فهو وحدة بتقسّم البيانات لقطع صغيرة عند نقلها عبر الشبكة. و<b>طريقة تبديل الحزم <span
             dir="ltr">(Packet switching method)</span></b> هي طريقة اتصال بتقسّم البيانات اللي بتتبعت لـ Packets
-          للتبادل.</p>
+ للتبادل.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="تبديل الدائرة (Circuit switching) زي مكالمة تليفون بتمسك الخط لحد ما الكلام يخلص، وتبديل الحزم (Packet switching) زي البريد اللي بيقسّم كتاب لفصول وبيبعت كل واحد لوحده، وبعدين بيجمّعهم في الآخر."
-            data-en="Circuit switching is like a phone call that holds the line until the conversation ends, and packet switching is like the mail that splits a book into chapters and sends each separately, then gathers them at the end.">تبديل الدائرة (Circuit switching) زي مكالمة تليفون بتمسك الخط لحد ما الكلام يخلص، وتبديل الحزم (Packet switching) زي البريد اللي بيقسّم كتاب لفصول وبيبعت كل واحد لوحده، وبعدين بيجمّعهم في الآخر.</span></div>
+            data-ar="تبديل الدائرة زي مكالمة تليفون بتمسك الخط لحد ما الكلام يخلص، وتبديل الحزم زي البريد اللي بيقسّم كتاب لفصول وبيبعت كل واحد لوحده، وبعدين بيجمّعهم في الآخر."
+            data-en="Circuit switching is like a phone call that holds the line until the conversation ends, and packet switching is like the mail that splits a book into chapters and sends each separately, then gathers them at the end.">تبديل الدائرة زي مكالمة تليفون بتمسك الخط لحد ما الكلام يخلص، وتبديل الحزم زي البريد اللي بيقسّم كتاب لفصول وبيبعت كل واحد لوحده، وبعدين بيجمّعهم في الآخر.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«ت. طرق الاتصال (1) طريقة تبديل الدوائر (Circuit switching method): طريقة اتصال يتم فيها إنشاء مسار اتصال بين المرسل والمستلم قبل بدء الإرسال لتبادل المعلومات. (2) الحزمة (Packet): وحدة لتقسيم البيانات إلى أجزاء صغيرة عند نقل البيانات عبر شبكة. (3) طريقة تبديل الحزم (Packet switching method): طريقة اتصال تتضمن تقسيم البيانات المراد إرسالها إلى حزم لتبادلها. (4) مزايا وعيوب طرق الاتصال — المزايا:تبديل الدوائر: بمجرد إنشاء مسار اتصال، يمكن تحقيق اتصال مستقر. تبديل الحزم: حتى إذا كانت الشبكة مزدحمة، يمكن إرسال البيانات تدريجيًا، لذا فإن احتمالية عدم القدرة على الاتصال تمامًا منخفضة. العيوب: تبديل الدوائر: مسار الاتصال مشغول من قبل المستخدم، لذا ليس من الممكن استخدام الخط في نفس الوقت مع الآخرين. تبديل الحزم: قد تُفقد الحزم (Packets) أحيانًا أثناء الطريق أو تتأثر بازدحام الشبكة (Network Congestion).»</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العربية تطبع رمزًا زخرفيًا (دائرة سوداء بداخلها علامة) بعد بنود مثل (2) شبكة الكمبيوتر و[3] المحول و[2] نظام ند إلى ند وبعد جدول المزايا والعيوب — نفس الرمز الذي ظهر في درس 9-3 بعد تعريف EIS؛ لا مقابل له في الإنجليزية وهو زخرفة متكررة في الطبعة العربية. العناوين الفرعية: العربية بالحروف «أ.» «ب.» «ت.»؛ الإنجليزية بالأرقام 1، 2، 3. العنوان: العربية «النقاط الرئيسية»؛ الإنجليزية &quot;Point!&quot;." data-en="Edition comparison (confirmed from the printed page images): Arabic prints a decorative glyph (a black circle with a mark inside) after items such as (2) Computer network, [3] Hub, [2] Peer-to-peer system, and after the advantages/disadvantages table — the same glyph seen in lesson 9-3 after the EIS definition; it has no English counterpart and is a recurring decoration in the Arabic edition. Sub-headings:Arabic lettered «أ.» «ب.» «ت.»; English numbered 1, 2, 3. Heading:Arabic «النقاط الرئيسية»; English &quot;Point!&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العربية تطبع رمزًا زخرفيًا (دائرة سوداء بداخلها علامة) بعد بنود مثل (2) شبكة الكمبيوتر و[3] المحول و[2] نظام ند إلى ند وبعد جدول المزايا والعيوب — نفس الرمز الذي ظهر في درس 9-3 بعد تعريف EIS؛ لا مقابل له في الإنجليزية وهو زخرفة متكررة في الطبعة العربية. العناوين الفرعية:العربية بالحروف «أ.» «ب.» «ت.»؛ الإنجليزية بالأرقام 1، 2، 3. العنوان: العربية «النقاط الرئيسية»؛ الإنجليزية "Point!".</div></div></div>
 
       <div class="section-inner">
@@ -1591,15 +634,15 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="methods"></svg>
                 <div class="svg-label" data-fbox="mcir" data-ar="تبديل الدائرة — مسار ثابت قبل الإرسال"
                   data-en="the Circuit switching — a fixed path before transmission">تبديل الدائرة — مسار ثابت قبل الإرسال</div>
-                <div class="svg-label" data-fbox="mpkt" data-ar="الحزمة (Packet) — تقسيم الداتا (Data) لقطع صغيرة"
-                  data-en="the Packet — dividing data into small chunks">الحزمة (Packet) — تقسيم الداتا (Data) لقطع صغيرة</div>
+                <div class="svg-label" data-fbox="mpkt" data-ar="الحزمة — تقسيم البيانات لقطع صغيرة"
+                  data-en="the Packet — dividing data into small chunks">الحزمة — تقسيم البيانات لقطع صغيرة</div>
                 <div class="svg-label" data-fbox="msw" data-ar="تبديل الحزم — التبادل عن طريق الحزم"
                   data-en="the Packet switching — exchanging via packets">تبديل الحزم — التبادل عن طريق الحزم</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="methodsPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="methodsNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="methodsPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="methodsNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="methodsCounter">1 / 3</span>
                 <button class="mini-btn" data-id="methodsReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1629,13 +672,13 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="rq-opt" data-id="methodsRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! تبديل الدائرة بينشئ مسار قبل بدء الإرسال."
                 data-fb-en="Correct! Circuit switching establishes a path before transmission."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="تبديل الدائرة (Circuit switching)"
-                  data-en="Circuit switching">تبديل الدائرة (Circuit switching)</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="تبديل الدائرة"
+                  data-en="Circuit switching">تبديل الدائرة</span></div>
               <div class="rq-opt" data-id="methodsRq1o2" data-key="B"
                 data-fb-ar="مش كده — تبديل الحزم بيقسّم البيانات لـ Packets."
                 data-fb-en="Not quite — packet switching divides data into packets."><span class="rq-key">B</span><span
-                  class="rq-body" data-ar="تبديل الحزم (Packet switching)"
-                  data-en="Packet switching">تبديل الحزم (Packet switching)</span></div>
+                  class="rq-body" data-ar="تبديل الحزم"
+                  data-en="Packet switching">تبديل الحزم</span></div>
               <div class="rq-opt" data-id="methodsRq1o3" data-key="C"
                 data-fb-ar="مش كده — الـ LAN نوع من الشبكات مش طريقة اتصال."
                 data-fb-en="Not quite — LAN is a network type, not a communication method."><span
@@ -1646,8 +689,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
             <button class="mini-btn rq-skip" data-id="methodsRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="methodsRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="الوحدة اللي بتقسّم الداتا (Data) لقطع صغيرة لما بتترسل على شبكة بتبقى إيه؟"
-                data-en="What is the unit that divides data into small chunks when transmitting over a network called?">الوحدة اللي بتقسّم الداتا (Data) لقطع صغيرة لما بتترسل على شبكة بتبقى إيه؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="الوحدة اللي بتقسّم البيانات لقطع صغيرة لما بتترسل على شبكة بتبقى إيه؟"
+                data-en="What is the unit that divides data into small chunks when transmitting over a network called?">الوحدة اللي بتقسّم البيانات لقطع صغيرة لما بتترسل على شبكة بتبقى إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="methodsRq2o2" data-key="A"
                 data-fb-ar="مش كده — الراوتر جهاز مش وحدة بيانات."
@@ -1660,7 +703,7 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="rq-opt" data-id="methodsRq2o1" data-key="C" data-ok="1"
                 data-fb-ar="صحيح! الـ Packet هو وحدة تقسيم البيانات لقطع صغيرة."
                 data-fb-en="Correct! A Packet is the unit for dividing data into small chunks."><span
-                  class="rq-key">C</span><span class="rq-body" data-ar="الحزمة (Packet)" data-en="the Packet">الحزمة (Packet)</span></div>
+                  class="rq-key">C</span><span class="rq-body" data-ar="الحزمة" data-en="the Packet">الحزمة</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="methodsRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -1676,8 +719,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">07</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 95–98 (المطبوع 95–98)؛ AR 108–111"
-              data-en="Your book: EN PDF 95–98 (printed 95–98); AR 108–111">الكتاب بتاعك:EN PDF 95–98 (المطبوع 95–98)؛ AR 108–111</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1702,9 +745,9 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <h3 data-ar="من الكتاب: تحدى معلوماتك — الإجابة في الشرح أسفل السؤال" data-en="From the book: Warm Up — the answer is printed in the Explanation below the question">من الكتاب: تحدى معلوماتك — الإجابة في الشرح أسفل السؤال</h3>
           <p data-ar="«أجب عن الأسئلة التالية. (1) اختر عبارة واحدة غير صحيحة بخصوص أجهزة بناء الشبكة من الخيارات من أ إلى ث. (أ) المنظمات أو الشركات التي تسهل الاتصالات بالإنترنت يشار إليها باسم موفري الخدمة (ISP Providers). (ب) شبكة محدودة إلى مناطق مثل مدرسة أو منزل يشار إليها باسم WAN. (ت) جهاز يجمع ويصل كابلات متعددة يشار إليه باسم المحول (Hub). (ث) جهاز يرحّل وينقل بين شبكات مختلفة يشار إليه باسم جهاز التوجيه (Router).»" data-en="&quot;Answer the following questions. (1) Choose one statement that is incorrect regarding network construction devices from the options A to D below, and answer using the letter. A Organizations or companies that facilitate connections to the internet are referred to as providers. B A network limited to areas such as within a school or a home is referred to as a WAN. C A device that gathers and connects multiple cables is referred to as a hub. D A device that relays and transfers between different networks is referred to as a router.&quot;">«أجب عن الأسئلة التالية. (1) اختر عبارة واحدة غير صحيحة بخصوص أجهزة بناء الشبكة من الخيارات من أ إلى ث. (أ) المنظمات أو الشركات التي تسهل الاتصالات بالإنترنت يشار إليها باسم موفري الخدمة (ISP Providers). (ب) شبكة محدودة إلى مناطق مثل مدرسة أو منزل يشار إليها باسم WAN. (ت) جهاز يجمع ويصل كابلات متعددة يشار إليه باسم المحول (Hub). (ث) جهاز يرحّل وينقل بين شبكات مختلفة يشار إليه باسم جهاز التوجيه (Router).»</p>
           <p data-ar="«(2) اختر العبارة التي تناسب الفراغات [1] إلى [4] في الجدول التالي من الخيارات من أ إلى ث.» الجدول المطبوع:طريقة تبديل الدوائر: المزايا [1]، العيوب [2]؛ طريقة تبديل الحزم: المزايا [3]، العيوب [4]. «(أ) الخط مشغول، مما يضمن اتصالاً مستقرًا. (ب) قد يكون هناك تأخير أو فقدان للبيانات أثناء الإرسال. (ت) يستخدم فقط عدد الخطوط اللازمة للاتصال المطلوب. (ث) من الممكن التعامل مع العديد من الاتصالات في نفس الوقت.»" data-en="&quot;(2) Choose the statement that best fits into the blanks [1] to [4] in the following table from the options A to D below, and answer using the letters.&quot; Printed table:Circuit switching method: Advantages [1], Disadvantages [2]; Packet switching method:Advantages [3], Disadvantages [4]. &quot;A The line is occupied, which ensures stable communication. B There may be delays or loss of data during transmission. C Only the number of lines necessary for communication is required. D It is possible to handle many communications simultaneously.&quot;">«(2) اختر العبارة التي تناسب الفراغات [1] إلى [4] في الجدول التالي من الخيارات من أ إلى ث.» الجدول المطبوع:طريقة تبديل الدوائر: المزايا [1]، العيوب [2]؛ طريقة تبديل الحزم: المزايا [3]، العيوب [4]. «(أ) الخط مشغول، مما يضمن اتصالاً مستقرًا. (ب) قد يكون هناك تأخير أو فقدان للبيانات أثناء الإرسال. (ت) يستخدم فقط عدد الخطوط اللازمة للاتصال المطلوب. (ث) من الممكن التعامل مع العديد من الاتصالات في نفس الوقت.»</p>
-          <p data-ar="إجابات الكتاب المطبوعة في «الشرح»: (1) يشار إلى الشبكة التي تقتصر على مناطق مثل المدرسة أو المنزل باسم شبكة LAN. لذلك ، ب. (2) [1] (أ) [2] (ت) [3] (ث) [4] (ب)." data-en="The book's printed answers in the &quot;Explanation&quot;: (1) A network limited to areas such as within a school or a home is referred to as a LAN. Therefore, B. (2) [1] A [2] C [3] D [4] B.">إجابات الكتاب المطبوعة في «الشرح»: (1) يشار إلى الشبكة التي تقتصر على مناطق مثل المدرسة أو المنزل باسم شبكة LAN. لذلك ، ب. (2) [1] (أ) [2] (ت) [3] (ث) [4] (ب).</p>
+          <p data-ar="إجابات الكتاب المطبوعة في «الشرح»: (1) يشار إلى الشبكة التي تقتصر على مناطق مثل المدرسة أو المنزل باسم شبكة LAN. لذلك، ب. (2) [1] (أ) [2] (ت) [3] (ث) [4] (ب)." data-en="The book's printed answers in the &quot;Explanation&quot;: (1) A network limited to areas such as within a school or a home is referred to as a LAN. Therefore, B. (2) [1] A [2] C [3] D [4] B.">إجابات الكتاب المطبوعة في «الشرح»: (1) يشار إلى الشبكة التي تقتصر على مناطق مثل المدرسة أو المنزل باسم شبكة LAN. لذلك، ب. (2) [1] (أ) [2] (ت) [3] (ث) [4] (ب).</p>
           <div class="book-diff" data-ar="مقارنة النسختين:المدى العربي «من أ إلى ث» بأربعة خيارات صحيح بحروف الأبجد (أ ب ت ث) ويقابل &quot;A to D&quot;. مفتاح الإجابة المطبوع متطابق في الطبعتين (ب = B ؛ أ/ت/ث/ب = A/C/D/B). الخيار (أ) العربي يطبع الشرح «(ISP Providers)» بترتيب معكوس مقابل &quot;providers&quot; الإنجليزية. العنوان:العربية «تحدى معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;. صندوق الإجابة:العربية «الشرح»؛ الإنجليزية &quot;Explanation&quot;." data-en="Edition comparison:the Arabic range «من أ إلى ث» with four options is correct abjad lettering (أ ب ت ث) matching &quot;A to D&quot;. The printed key matches in both editions (ب = B; أ/ت/ث/ب = A/C/D/B). Arabic option (أ) prints the gloss «(ISP Providers)» in reversed order versus English &quot;providers&quot;. Heading:Arabic «تحدى معلوماتك»; English &quot;Warm Up&quot;. Answer box:Arabic «الشرح»; English &quot;Explanation&quot;.">مقارنة النسختين:المدى العربي «من أ إلى ث» بأربعة خيارات صحيح بحروف الأبجد (أ ب ت ث) ويقابل "A to D". مفتاح الإجابة المطبوع متطابق في الطبعتين (ب = B ؛ أ/ت/ث/ب = A/C/D/B). الخيار (أ) العربي يطبع الشرح «(ISP Providers)» بترتيب معكوس مقابل "providers" الإنجليزية. العنوان: العربية «تحدى معلوماتك»؛ الإنجليزية "Warm Up". صندوق الإجابة: العربية «الشرح»؛ الإنجليزية "Explanation".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 96 (المطبوع 96)؛ AR 109–110." data-en="The text above is from the book. Full source: English PDF 96 (printed 96); Arabic 109–110.">النص السابق من الكتاب. المصدر الكامل:EN PDF 96 (المطبوع 96)؛ AR 109–110.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <div class="book-card try">
           <h3 data-ar="من الكتاب: جرب بنفسك" data-en="From the book: Try">من الكتاب: جرب بنفسك</h3>
@@ -1713,9 +756,9 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <p data-ar="«(2) املأ الفراغات بالكلمات المناسبة. [أ] يُشار إلى الخادم الذي يعمل كوسيط للوصول إلى الإنترنت باسم ( ). [ب] يُشار إلى الخادم الذي يدير الملفات باسم ( ). [ت] يُشار إلى الكمبيوتر الذي يطلب خدمات متنوعة من خادم باسم ( ).»" data-en="&quot;(2) Fill in the blanks with the appropriate words. [1] A server that acts as an intermediary for accessing the internet is referred to as a ( ). [2] A server that manages files is referred to as a ( ). [3] A computer that requests various services from a server is referred to as a ( ).&quot;">«(2) املأ الفراغات بالكلمات المناسبة. [أ] يُشار إلى الخادم الذي يعمل كوسيط للوصول إلى الإنترنت باسم ( ). [ب] يُشار إلى الخادم الذي يدير الملفات باسم ( ). [ت] يُشار إلى الكمبيوتر الذي يطلب خدمات متنوعة من خادم باسم ( ).»</p>
           <p data-ar="«3 أجب عن الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغين [1] و [2] بالمصطلحين المناسبين. يوجد طرق ( [1] ) وطرق ( [2] ) في أنظمة الاتصالات. طريقة ( [1] ) هي طريقة اتصال يتم فيها إنشاء مسار اتصال بين المرسل والمستقبل قبل بدء الاتصال لتبادل المعلومات. طريقة ( [2] ) هي طريقة اتصال يتم فيها تقسيم البيانات المراد إرسالها إلى وحدات صغيرة تسمى الحزم للتبادل.»" data-en="&quot;3 Answer the following questions. (1) Complete the following sentences by filling in the blanks [1] and [2] with the appropriate terms. There are ( [1] ) methods and ( [2] ) methods in communication systems. The ([1]) method is a communication method where a communication path is established between the sender and the recipient before starting communication to exchange information. The ([2]) method is a communication method where the data to be sent is divided into small units called packets for exchange.&quot;">«3 أجب عن الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغين [1] و [2] بالمصطلحين المناسبين. يوجد طرق ( [1] ) وطرق ( [2] ) في أنظمة الاتصالات. طريقة ( [1] ) هي طريقة اتصال يتم فيها إنشاء مسار اتصال بين المرسل والمستقبل قبل بدء الاتصال لتبادل المعلومات. طريقة ( [2] ) هي طريقة اتصال يتم فيها تقسيم البيانات المراد إرسالها إلى وحدات صغيرة تسمى الحزم للتبادل.»</p>
           <p data-ar="«(2) اختر جميع العبارات المناسبة التي تصف طريقة تبديل الدوائر وطريقة تبديل الحزم من الخيارات من 1 إلى 4. (أ) تسمح طريقة تبديل الدوائر بسرعات اتصال عالية لأن مسار الاتصال يتم مشاركته مع مستخدمين آخرين. (ب) في طريقة تبديل الدوائر، بمجرد إنشاء الاتصال، يصبح التواصل مستقرًا لأن مسار الاتصال يكون مشغولاً. (ت) تتضمن طريقة تبديل الحزم مشاركة مسار الاتصال، مما قد يؤدي إلى انخفاض سرعات الاتصال. (د) تتميز طريقة تبديل الحزم باحتمالية منخفضة لفشل الاتصال الكامل، حتى عندما تكون الشبكة مزدحمة.»" data-en="&quot;(2) Choose all appropriate statements that describe circuit switching method and packet switching method from the options A to D below, and answer using the letters. A Circuit switching method allows for high communication speeds because the communication path is shared with other users. B In circuit switching method, once a connection is established, stable communication is possible because the communication path is occupied. C Packet switching method involves sharing the communication path, which can result in lower communication speeds. D Packet switching method has a low likelihood of complete communication failure, even when the network is congested.&quot;">«(2) اختر جميع العبارات المناسبة التي تصف طريقة تبديل الدوائر وطريقة تبديل الحزم من الخيارات من 1 إلى 4. (أ) تسمح طريقة تبديل الدوائر بسرعات اتصال عالية لأن مسار الاتصال يتم مشاركته مع مستخدمين آخرين. (ب) في طريقة تبديل الدوائر، بمجرد إنشاء الاتصال، يصبح التواصل مستقرًا لأن مسار الاتصال يكون مشغولاً. (ت) تتضمن طريقة تبديل الحزم مشاركة مسار الاتصال، مما قد يؤدي إلى انخفاض سرعات الاتصال. (د) تتميز طريقة تبديل الحزم باحتمالية منخفضة لفشل الاتصال الكامل، حتى عندما تكون الشبكة مزدحمة.»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (أ) LAN [2] (ب) WAN [3] (خ) Internet [4] (د) ISP [5] (ث) Hub [6] (ح) Router. 2(1) = (أ) نظام العميل-الخادم. 2(2): [أ] الخادم الوكيل (Proxy server) [ب] خادم الملفات (File server) [ت] العميل (Client). 3(1): [1] تبديل الدوائر [2] تبديل الحزم. 3(2) = (ب) و(د)." data-en="Answers not printed in the book (teacher-prepared): 1(1): [1] A LAN [2] B WAN [3] G Internet [4] H ISP [5] D Hub [6] F Router. 2(1) = A Client-server system. 2(2): [1] Proxy server [2] File server [3] Client. 3(1): [1] circuit switching [2] packet switching. 3(2) = B and D.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (أ) LAN [2] (ب) WAN [3] (خ) Internet [4] (د) ISP [5] (ث) Hub [6] (ح) Router. 2(1) = (أ) نظام العميل-الخادم. 2(2): [أ] الخادم الوكيل (Proxy server) [ب] خادم الملفات (File server) [ت] العميل (Client). 3(1): [1] تبديل الدوائر [2] تبديل الحزم. 3(2) = (ب) و(د).</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (أ) LAN [2] (ب) WAN [3] (خ) Internet [4] (د) ISP [5] (ث) Hub [6] (ح) Router. 2(1) = (أ) نظام العميل-الخادم. 2(2): [أ] الخادم الوكيل [ب] خادم الملفات [ت] العميل. 3(1): [1] تبديل الدوائر [2] تبديل الحزم. 3(2) = (ب) و(د)." data-en="Answers not printed in the book (teacher-prepared): 1(1): [1] A LAN [2] B WAN [3] G Internet [4] H ISP [5] D Hub [6] F Router. 2(1) = A Client-server system. 2(2): [1] Proxy server [2] File server [3] Client. 3(1): [1] circuit switching [2] packet switching. 3(2) = B and D.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (أ) LAN [2] (ب) WAN [3] (خ) Internet [4] (د) ISP [5] (ث) Hub [6] (ح) Router. 2(1) = (أ) نظام العميل-الخادم. 2(2): [أ] الخادم الوكيل [ب] خادم الملفات [ت] العميل. 3(1): [1] تبديل الدوائر [2] تبديل الحزم. 3(2) = (ب) و(د).</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): جملة سؤال 1(1) العربية تطبع نقطة بين «باسم» والفراغات [2] [3] [4] («باسم. ([2])») بينما الفراغ [1] بلا نقطة («باسم ([1])،») — ترقيم غير متسق داخل الجملة الواحدة. تعليمة سؤال 2(1) العربية تطلب «يملأ الفراغ من 1 إلى 4» بالأرقام بينما الخيارات معنونة بالحروف (أ)-(ث)؛ الإنجليزية &quot;the blank ... options A to D&quot;. خيارات سؤال 2(1) العربية تطبع الشروح الإنجليزية مزاحة موضعًا واحدًا:(ب) نظام النظير إلى النظير بلا شرح، و&quot;Peer-to-peer system&quot; بعد (ت) شبكة المنطقة المحلية، و&quot;(LAN)&quot; بعد (ث) شبكة المنطقة الواسعة، ولا يظهر شرح WAN. فراغات سؤال 2(2) العربية معنونة [أ] [ب] [ت] بينما الإنجليزية ترقّمها [1] [2] [3]. تعليمة سؤال 3(2) العربية تقول «من الخيارات من 1 إلى 4» بينما الخيارات معنونة (أ)-(د)؛ الإنجليزية &quot;options A to D&quot; متسقة. المدى «من أ إلى د» في سؤال 1(1) ثمانية أحرف أبجد صحيحة (أ ب ت ث ج ح خ د) تقابل &quot;A to H&quot;. العنوان:العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): the Arabic 1(1) sentence prints a period between «باسم» and blanks [2] [3] [4] («باسم. ([2])») while blank [1] has none («باسم ([1])،») — inconsistent punctuation within one sentence. The Arabic 2(1) instruction says «يملأ الفراغ من 1 إلى 4» (blanks 1 to 4) while the options are lettered (أ)-(ث); English reads &quot;the blank ... options A to D&quot;. Arabic 2(1) options print the English glosses shifted one slot:(ب) نظام النظير إلى النظير has no gloss, &quot;Peer-to-peer system&quot; follows (ت) شبكة المنطقة المحلية, &quot;(LAN)&quot; follows (ث) شبكة المنطقة الواسعة, and no WAN gloss appears. Arabic 2(2) blanks are lettered [أ] [ب] [ت] while English numbers them [1] [2] [3]. The Arabic 3(2) instruction says «من الخيارات من 1 إلى 4» while its options are lettered (أ)-(د); English &quot;options A to D&quot; is consistent. The 1(1) range «من أ إلى د» is eight correct abjad letters (أ ب ت ث ج ح خ د) matching &quot;A to H&quot;. Heading:Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): جملة سؤال 1(1) العربية تطبع نقطة بين «باسم» والفراغات [2] [3] [4] («باسم. ([2])») بينما الفراغ [1] بلا نقطة («باسم ([1])،») — ترقيم غير متسق داخل الجملة الواحدة. تعليمة سؤال 2(1) العربية تطلب «يملأ الفراغ من 1 إلى 4» بالأرقام بينما الخيارات معنونة بالحروف (أ)-(ث)؛ الإنجليزية "the blank ... options A to D". خيارات سؤال 2(1) العربية تطبع الشروح الإنجليزية مزاحة موضعًا واحدًا:(ب) نظام النظير إلى النظير بلا شرح، و"Peer-to-peer system" بعد (ت) شبكة المنطقة المحلية، و"(LAN)" بعد (ث) شبكة المنطقة الواسعة، ولا يظهر شرح WAN. فراغات سؤال 2(2) العربية معنونة [أ] [ب] [ت] بينما الإنجليزية ترقّمها [1] [2] [3]. تعليمة سؤال 3(2) العربية تقول «من الخيارات من 1 إلى 4» بينما الخيارات معنونة (أ)-(د)؛ الإنجليزية "options A to D" متسقة. المدى «من أ إلى د» في سؤال 1(1) ثمانية أحرف أبجد صحيحة (أ ب ت ث ج ح خ د) تقابل "A to H". العنوان: العربية «جرب بنفسك»؛ الإنجليزية "Try".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 97 (المطبوع 97)؛ AR 110–111." data-en="The text above is from the book. Full source: English PDF 97 (printed 97); Arabic 110–111.">النص السابق من الكتاب. المصدر الكامل:EN PDF 97 (المطبوع 97)؛ AR 110–111.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <div class="book-card try">
           <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
@@ -1726,16 +769,16 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <p data-ar="«(3) إذا كانت العبارات التالية [1] إلى [4] تتعلق بطريقة تبديل الدوائر، أجب بـ &amp;quot;أ&amp;quot; إذا كانت العبارات تتعلق بطريقة تبديل الحزم، أجب بـ &amp;quot;ب&amp;quot;. [1] بمجرد إنشاء مسار اتصال، يمكن تحقيق اتصال مستقر. [2] نظرًا لأنه يمكنه إرسال البيانات في أجزاء صغيرة، فإن احتمالية عدم القدرة على الاتصال منخفضة، حتى لو أصبحت الشبكة مزدحمة. [3] قد يحدث تأخير أو فقدان أثناء نقل البيانات. [4] نظرًا لأنه لا يمكنك استخدام الخط في نفس الوقت مع الآخرين، هناك حاجة لعدد من الخطوط المخصصة للاتصال.»" data-en="&quot;(3) If the following statements [1] to [4] pertain to circuit switching method, answer with “A.” If the statements pertain to packet switching method, answer with “B.” [1] Once a communication path is established, stable communication can be achieved. [2] Since it can send data in small portions, the possibility of being unable to communicate is low, even if the network gets congested. [3] Delays, tampering, or loss may occur during data transmission. [4] Since you cannot use the line simultaneously with others, there is a need for a number of lines dedicated to communication.&quot;">«(3) إذا كانت العبارات التالية [1] إلى [4] تتعلق بطريقة تبديل الدوائر، أجب بـ "أ" إذا كانت العبارات تتعلق بطريقة تبديل الحزم، أجب بـ "ب". [1] بمجرد إنشاء مسار اتصال، يمكن تحقيق اتصال مستقر. [2] نظرًا لأنه يمكنه إرسال البيانات في أجزاء صغيرة، فإن احتمالية عدم القدرة على الاتصال منخفضة، حتى لو أصبحت الشبكة مزدحمة. [3] قد يحدث تأخير أو فقدان أثناء نقل البيانات. [4] نظرًا لأنه لا يمكنك استخدام الخط في نفس الوقت مع الآخرين، هناك حاجة لعدد من الخطوط المخصصة للاتصال.»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (2). 1(2): [1] (أ) Wired LAN [2] (ث) Wireless LAN [3] (ب) Router. 3(1) = (2). 3(2): [1] (ث) Printer server [2] (ب) Mail server [3] (أ) Client-server system. 3(3): [1] أ [2] ب [3] ب [4] أ." data-en="Answers not printed in the book (teacher-prepared): 1(1) = B. 1(2): [1] A Wired LAN [2] D Wireless LAN [3] B Router. 2(1) = B. 2(2): [1] D Printer server [2] B Mail server [3] A Client-server system. 2(3): [1] A [2] B [3] B [4] A.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (2). 1(2): [1] (أ) Wired LAN [2] (ث) Wireless LAN [3] (ب) Router. 3(1) = (2). 3(2): [1] (ث) Printer server [2] (ب) Mail server [3] (أ) Client-server system. 3(3): [1] أ [2] ب [3] ب [4] أ.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot;. العبارة [3] من سؤال (3) الإنجليزية تذكر &quot;Delays, tampering, or loss&quot; بينما العربية تحذف التلاعب:«قد يحدث تأخير أو فقدان أثناء نقل البيانات.». الخيار (4) من سؤال 3(1) العربي يطبع «باسم نظام الند للند .(peer-to-peer system).» بترتيب أقواس ونقطة معكوس حول الشرح. خيارات الأسئلة (1) و3(1) العربية مرقمة (1)-(4) والإنجليزية A-D؛ والمدى «من أ إلى ث» في (2) و3(2) أربعة أحرف أبجد صحيحة تقابل A-D. العنوان: العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): the second Exercise block is numbered «3» in Arabic though it is Exercise 2; English numbers it &quot;2&quot;. English statement [3] of question (3) reads &quot;Delays, tampering, or loss&quot; while Arabic omits the tampering:«قد يحدث تأخير أو فقدان أثناء نقل البيانات.». Arabic option (4) of question 3(1) prints «باسم نظام الند للند .(peer-to-peer system).» with the parenthesis and period order flipped around the gloss. Arabic questions (1) and 3(1) number their options (1)-(4) versus English A-D; the «من أ إلى ث» ranges in (2) and 3(2) are four correct abjad letters matching A-D. Heading:Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها "2". العبارة [3] من سؤال (3) الإنجليزية تذكر "Delays, tampering, or loss" بينما العربية تحذف التلاعب:«قد يحدث تأخير أو فقدان أثناء نقل البيانات.». الخيار (4) من سؤال 3(1) العربي يطبع «باسم نظام الند للند .(peer-to-peer system).» بترتيب أقواس ونقطة معكوس حول الشرح. خيارات الأسئلة (1) و3(1) العربية مرقمة (1)-(4) والإنجليزية A-D؛ والمدى «من أ إلى ث» في (2) و3(2) أربعة أحرف أبجد صحيحة تقابل A-D. العنوان: العربية «تمرين»؛ الإنجليزية "Exercise".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 98 (المطبوع 98)؛ AR 111." data-en="The text above is from the book. Full source: English PDF 98 (printed 98); Arabic 111.">النص السابق من الكتاب. المصدر الكامل:EN PDF 98 (المطبوع 98)؛ AR 111.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
 <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: أنواع الشبكات والأجهزة" data-en="✍️ Additional interactive drill 1: network types and devices">✍️ تدريب 1: أنواع الشبكات والأجهزة</h3>
         <div class="ex-item">
           <div class="q"><span class="q-num">1</span> <span data-ar="الشبكة اللي بتوصّل منطقة محدودة زي مدرسة أو بيت بتتسمّى إيه؟"
               data-en="What is a network connecting a limited area like a school or home called?">الشبكة اللي بتوصّل منطقة محدودة زي مدرسة أو بيت بتتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  LAN" data-en="A  LAN">A  LAN</div>
-            <div class="ex-opt" data-ar="B  WAN" data-en="B  WAN">B  WAN</div>
-            <div class="ex-opt" data-ar="C  الإنترنت" data-en="C  the Internet">C  الإنترنت</div>
+            <div class="ex-opt" data-ok="1" data-ar="A LAN" data-en="A  LAN">A  LAN</div>
+            <div class="ex-opt" data-ar="B WAN" data-en="B  WAN">B  WAN</div>
+            <div class="ex-opt" data-ar="C الإنترنت" data-en="C  the Internet">C الإنترنت</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — LAN" data-en="✅ Answer: A — LAN">✅ الإجابة: A — LAN</b>
             <span data-ar="LAN هي الشبكة المحلية لمنطقة محدودة زي مدرسة أو بيت."
@@ -1745,23 +788,23 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">2</span> <span data-ar="الجهاز المركزي اللي بيوصّل كابلات كتير بيتسمّى إيه؟"
               data-en="What is the central device that connects many cables called?">الجهاز المركزي اللي بيوصّل كابلات كتير بيتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  Router" data-en="A  the Router">A  Router</div>
-            <div class="ex-opt" data-ar="B  ISP" data-en="B  the ISP">B  ISP</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  Hub" data-en="C  the Hub">C  Hub</div>
+            <div class="ex-opt" data-ar="A Router" data-en="A  the Router">A  Router</div>
+            <div class="ex-opt" data-ar="B ISP" data-en="B  the ISP">B  ISP</div>
+            <div class="ex-opt" data-ok="1" data-ar="C Hub" data-en="C  the Hub">C  Hub</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — Hub" data-en="✅ Answer: C — the Hub">✅ الإجابة: C — Hub</b> <span data-ar="Hub هو الجهاز المركزي اللي بيوصّل كابلات كتير."
               data-en="The Hub is the central device that connects many cables.">Hub هو الجهاز المركزي اللي بيوصّل كابلات كتير.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="الطريقة اللي بتبادل بيها الداتا (Data) عن طريق موجات الراديو بدل الكابلات بتتسمّى إيه؟"
-              data-en="What is the method of exchanging data via radio waves instead of cables called?">الطريقة اللي بتبادل بيها الداتا (Data) عن طريق موجات الراديو بدل الكابلات بتتسمّى إيه؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="الطريقة اللي بتبادل بيها البيانات عن طريق موجات الراديو بدل الكابلات بتتسمّى إيه؟"
+              data-en="What is the method of exchanging data via radio waves instead of cables called?">الطريقة اللي بتبادل بيها البيانات عن طريق موجات الراديو بدل الكابلات بتتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  شبكة Wireless LAN" data-en="A  the Wireless LAN">A  شبكة Wireless LAN</div>
-            <div class="ex-opt" data-ar="B  شبكة Wired LAN" data-en="B  the Wired LAN">B  شبكة Wired LAN</div>
-            <div class="ex-opt" data-ar="C  WAN" data-en="C  the WAN">C  WAN</div>
+            <div class="ex-opt" data-ok="1" data-ar="A شبكة Wireless LAN" data-en="A  the Wireless LAN">A شبكة Wireless LAN</div>
+            <div class="ex-opt" data-ar="B شبكة Wired LAN" data-en="B  the Wired LAN">B شبكة Wired LAN</div>
+            <div class="ex-opt" data-ar="C WAN" data-en="C  the WAN">C  WAN</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: A — شبكة Wireless LAN" data-en="✅ Answer: A — the Wireless LAN">✅ الإجابة: A — شبكة Wireless LAN</b> <span data-ar="شبكة Wireless LAN بتبادل الداتا (Data) عن طريق موجات الراديو."
-              data-en="Wireless LAN exchanges data via radio waves.">شبكة Wireless LAN بتبادل الداتا (Data) عن طريق موجات الراديو.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — شبكة Wireless LAN" data-en="✅ Answer: A — the Wireless LAN">✅ الإجابة: A — شبكة Wireless LAN</b> <span data-ar="شبكة Wireless LAN بتبادل البيانات عن طريق موجات الراديو."
+              data-en="Wireless LAN exchanges data via radio waves.">شبكة Wireless LAN بتبادل البيانات عن طريق موجات الراديو.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1775,31 +818,31 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">1</span> <span data-ar="الشركة اللي بتسهّل الاتصال بالإنترنت وبنعمل معاها عقد هي إيه؟"
               data-en="What is the company that facilitates the Internet connection that we sign a contract with?">الشركة اللي بتسهّل الاتصال بالإنترنت وبنعمل معاها عقد هي إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  Hub" data-en="A  the Hub">A  Hub</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  ISP (مزوّد)" data-en="B  the ISP (provider)">B  ISP (مزوّد)</div>
-            <div class="ex-opt" data-ar="C  Client" data-en="C  the Client">C  Client</div>
+            <div class="ex-opt" data-ar="A Hub" data-en="A  the Hub">A  Hub</div>
+            <div class="ex-opt" data-ok="1" data-ar="B ISP (مزوّد)" data-en="B  the ISP (provider)">B ISP (مزوّد)</div>
+            <div class="ex-opt" data-ar="C Client" data-en="C  the Client">C  Client</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — ISP" data-en="✅ Answer: B — the ISP">✅ الإجابة: B — ISP</b> <span data-ar="ISP هي الشركة اللي بتسهّل الاتصال بالإنترنت."
               data-en="The ISP is the company that facilitates the Internet connection.">ISP هي الشركة اللي بتسهّل الاتصال بالإنترنت.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="الجهاز اللي بيرحّل الداتا (Data) بين شبكات مختلفة هو إيه؟"
-              data-en="What is the device that relays data between different networks?">الجهاز اللي بيرحّل الداتا (Data) بين شبكات مختلفة هو إيه؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="الجهاز اللي بيرحّل البيانات بين شبكات مختلفة هو إيه؟"
+              data-en="What is the device that relays data between different networks?">الجهاز اللي بيرحّل البيانات بين شبكات مختلفة هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  Hub" data-en="A  the Hub">A  Hub</div>
-            <div class="ex-opt" data-ar="B  Server" data-en="B  the Server">B  Server</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  Router" data-en="C  the Router">C  Router</div>
+            <div class="ex-opt" data-ar="A Hub" data-en="A  the Hub">A  Hub</div>
+            <div class="ex-opt" data-ar="B Server" data-en="B  the Server">B  Server</div>
+            <div class="ex-opt" data-ok="1" data-ar="C Router" data-en="C  the Router">C  Router</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: C — Router" data-en="✅ Answer: C — the Router">✅ الإجابة: C — Router</b> <span data-ar="Router بيرحّل الداتا (Data) بين شبكات مختلفة."
-              data-en="The Router relays data between different networks.">Router بيرحّل الداتا (Data) بين شبكات مختلفة.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — Router" data-en="✅ Answer: C — the Router">✅ الإجابة: C — Router</b> <span data-ar="Router بيرحّل البيانات بين شبكات مختلفة."
+              data-en="The Router relays data between different networks.">Router بيرحّل البيانات بين شبكات مختلفة.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="الشبكة اللي بتوصّل شبكات LAN وWAN على مستوى العالم هي إيه؟"
               data-en="What is the network that connects LANs and WANs on a global scale?">الشبكة اللي بتوصّل شبكات LAN وWAN على مستوى العالم هي إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  LAN" data-en="A  the LAN">A  LAN</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  الإنترنت" data-en="B  the Internet">B  الإنترنت</div>
-            <div class="ex-opt" data-ar="C  WAN" data-en="C  the WAN">C  WAN</div>
+            <div class="ex-opt" data-ar="A LAN" data-en="A  the LAN">A  LAN</div>
+            <div class="ex-opt" data-ok="1" data-ar="B الإنترنت" data-en="B  the Internet">B الإنترنت</div>
+            <div class="ex-opt" data-ar="C WAN" data-en="C  the WAN">C  WAN</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — الإنترنت" data-en="✅ Answer: B — the Internet">✅ الإجابة: B — الإنترنت</b> <span data-ar="الإنترنت بتوصّل شبكات LAN وWAN على مستوى العالم."
               data-en="The Internet connects LANs and WANs globally.">الإنترنت بتوصّل شبكات LAN وWAN على مستوى العالم.</span></div>
@@ -1816,34 +859,34 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">1</span> <span data-ar="الخادم اللي بيدير الملفات بيتسمّى إيه؟"
               data-en="What is the server that manages files called?">الخادم اللي بيدير الملفات بيتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  خادم الميل (Mail server)" data-en="A  the Mail server">A  خادم الميل (Mail server)</div>
-            <div class="ex-opt" data-ar="B  خادم الطابعة (Printer server)" data-en="B  the Printer server">B  خادم الطابعة (Printer server)</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  خادم الملفات (File server)" data-en="C  the File server">C  خادم الملفات (File server)</div>
+            <div class="ex-opt" data-ar="A خادم الميل" data-en="A  the Mail server">A خادم الميل</div>
+            <div class="ex-opt" data-ar="B خادم الطابعة" data-en="B  the Printer server">B خادم الطابعة</div>
+            <div class="ex-opt" data-ok="1" data-ar="C خادم الملفات" data-en="C  the File server">C خادم الملفات</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: C — خادم الملفات (File server)" data-en="✅ Answer: C — the File server">✅ الإجابة: C — خادم الملفات (File server)</b> <span data-ar="خادم الملفات (File server) هو اللي بيدير الملفات على الشبكة."
-              data-en="The File server is the one that manages files on the network.">خادم الملفات (File server) هو اللي بيدير الملفات على الشبكة.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — خادم الملفات" data-en="✅ Answer: C — the File server">✅ الإجابة: C — خادم الملفات</b> <span data-ar="خادم الملفات هو اللي بيدير الملفات على الشبكة."
+              data-en="The File server is the one that manages files on the network.">خادم الملفات هو اللي بيدير الملفات على الشبكة.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="الكمبيوتر اللي بيطلب خدمات مختلفة من السيرفر (Server) هو إيه؟"
-              data-en="What is the computer that requests various services from a server?">الكمبيوتر اللي بيطلب خدمات مختلفة من السيرفر (Server) هو إيه؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="الكمبيوتر اللي بيطلب خدمات مختلفة من السيرفر هو إيه؟"
+              data-en="What is the computer that requests various services from a server?">الكمبيوتر اللي بيطلب خدمات مختلفة من السيرفر هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  Server" data-en="A  the Server">A  Server</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  Client" data-en="B  the Client">B  Client</div>
-            <div class="ex-opt" data-ar="C  ISP" data-en="C  the ISP">C  ISP</div>
+            <div class="ex-opt" data-ar="A Server" data-en="A  the Server">A  Server</div>
+            <div class="ex-opt" data-ok="1" data-ar="B Client" data-en="B  the Client">B  Client</div>
+            <div class="ex-opt" data-ar="C ISP" data-en="C  the ISP">C  ISP</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — Client" data-en="✅ Answer: B — the Client">✅ الإجابة: B — Client</b> <span data-ar="الـ Client هو اللي بيطلب الخدمات من السيرفر (Server)."
-              data-en="The Client is the one that requests services from the Server.">الـ Client هو اللي بيطلب الخدمات من السيرفر (Server).</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — Client" data-en="✅ Answer: B — the Client">✅ الإجابة: B — Client</b> <span data-ar="الـ Client هو اللي بيطلب الخدمات من السيرفر."
+              data-en="The Client is the one that requests services from the Server.">الـ Client هو اللي بيطلب الخدمات من السيرفر.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="الخادم اللي بيعمل وسيط عشان تدخل على الإنترنت بيتسمّى إيه؟"
               data-en="What is the server that acts as an intermediary for accessing the Internet called?">الخادم اللي بيعمل وسيط عشان تدخل على الإنترنت بيتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  خادم وسيط (Proxy server)" data-en="A  the Proxy server">A  خادم وسيط (Proxy server)</div>
-            <div class="ex-opt" data-ar="B  خادم الطابعة (Printer server)" data-en="B  the Printer server">B  خادم الطابعة (Printer server)</div>
-            <div class="ex-opt" data-ar="C  خادم الميل (Mail server)" data-en="C  the Mail server">C  خادم الميل (Mail server)</div>
+            <div class="ex-opt" data-ok="1" data-ar="A خادم وسيط" data-en="A  the Proxy server">A خادم وسيط</div>
+            <div class="ex-opt" data-ar="B خادم الطابعة" data-en="B  the Printer server">B خادم الطابعة</div>
+            <div class="ex-opt" data-ar="C خادم الميل" data-en="C  the Mail server">C خادم الميل</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: A — خادم وسيط (Proxy server)" data-en="✅ Answer: A — the Proxy server">✅ الإجابة: A — خادم وسيط (Proxy server)</b> <span data-ar="خادم وسيط (Proxy server) بيتوسّط الدخول على الإنترنت."
-              data-en="The Proxy server mediates access to the Internet.">خادم وسيط (Proxy server) بيتوسّط الدخول على الإنترنت.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — خادم وسيط" data-en="✅ Answer: A — the Proxy server">✅ الإجابة: A — خادم وسيط</b> <span data-ar="خادم وسيط بيتوسّط الدخول على الإنترنت."
+              data-en="The Proxy server mediates access to the Internet.">خادم وسيط بيتوسّط الدخول على الإنترنت.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1854,37 +897,37 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
       <div class="section-inner card">
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: طرق الاتصال" data-en="✍️ Additional interactive drill 4: communication methods">✍️ تدريب 4: طرق الاتصال</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="في أنهي طريقة بنقسّم الداتا (Data) لحزم عشان نتبادلها؟"
-              data-en="In which method do we divide data into packets for exchange?">في أنهي طريقة بنقسّم الداتا (Data) لحزم عشان نتبادلها؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="في أنهي طريقة بنقسّم البيانات لحزم عشان نتبادلها؟"
+              data-en="In which method do we divide data into packets for exchange?">في أنهي طريقة بنقسّم البيانات لحزم عشان نتبادلها؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  تبديل الدائرة (Circuit switching)" data-en="A  Circuit switching">A  تبديل الدائرة (Circuit switching)</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  تبديل الحزم (Packet switching)" data-en="B  Packet switching">B  تبديل الحزم (Packet switching)</div>
-            <div class="ex-opt" data-ar="C  LAN" data-en="C  the LAN">C  LAN</div>
+            <div class="ex-opt" data-ar="A تبديل الدائرة" data-en="A  Circuit switching">A تبديل الدائرة</div>
+            <div class="ex-opt" data-ok="1" data-ar="B تبديل الحزم" data-en="B  Packet switching">B تبديل الحزم</div>
+            <div class="ex-opt" data-ar="C LAN" data-en="C  the LAN">C  LAN</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — تبديل الحزم (Packet switching)" data-en="✅ Answer: B — Packet switching">✅ الإجابة: B — تبديل الحزم (Packet switching)</b> <span data-ar="تبديل الحزم (Packet switching) بيقسّم الداتا (Data) لحزم عشان تتبادل."
-              data-en="Packet switching divides data into packets for exchange.">تبديل الحزم (Packet switching) بيقسّم الداتا (Data) لحزم عشان تتبادل.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — تبديل الحزم" data-en="✅ Answer: B — Packet switching">✅ الإجابة: B — تبديل الحزم</b> <span data-ar="تبديل الحزم بيقسّم البيانات لحزم عشان تتبادل."
+              data-en="Packet switching divides data into packets for exchange.">تبديل الحزم بيقسّم البيانات لحزم عشان تتبادل.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="أنهي طريقة بتحتل الخط فمش بيقدر المستخدم يستخدمه في نفس الوقت مع غيره؟"
               data-en="Which method occupies the line so the user cannot use it simultaneously with others?">أنهي طريقة بتحتل الخط فمش بيقدر المستخدم يستخدمه في نفس الوقت مع غيره؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  تبديل الدائرة (Circuit switching)" data-en="A  Circuit switching">A  تبديل الدائرة (Circuit switching)</div>
-            <div class="ex-opt" data-ar="B  تبديل الحزم (Packet switching)" data-en="B  Packet switching">B  تبديل الحزم (Packet switching)</div>
-            <div class="ex-opt" data-ar="C  شبكة Wireless LAN" data-en="C  the Wireless LAN">C  شبكة Wireless LAN</div>
+            <div class="ex-opt" data-ok="1" data-ar="A تبديل الدائرة" data-en="A  Circuit switching">A تبديل الدائرة</div>
+            <div class="ex-opt" data-ar="B تبديل الحزم" data-en="B  Packet switching">B تبديل الحزم</div>
+            <div class="ex-opt" data-ar="C شبكة Wireless LAN" data-en="C  the Wireless LAN">C شبكة Wireless LAN</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: A — تبديل الدائرة (Circuit switching)" data-en="✅ Answer: A — Circuit switching">✅ الإجابة: A — تبديل الدائرة (Circuit switching)</b> <span data-ar="تبديل الدائرة (Circuit switching) بيحتل الخط، فمش بيقدر غيره يستخدمه."
-              data-en="Circuit switching occupies the line, so others cannot use it.">تبديل الدائرة (Circuit switching) بيحتل الخط، فمش بيقدر غيره يستخدمه.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — تبديل الدائرة" data-en="✅ Answer: A — Circuit switching">✅ الإجابة: A — تبديل الدائرة</b> <span data-ar="تبديل الدائرة بيحتل الخط، فمش بيقدر غيره يستخدمه."
+              data-en="Circuit switching occupies the line, so others cannot use it.">تبديل الدائرة بيحتل الخط، فمش بيقدر غيره يستخدمه.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="أنهي طريقة احتمال فشل الاتصال بالكامل فيها قليل حتى لو الشبكة مزدحمة؟"
               data-en="Which method has a low chance of complete communication failure even if the network is congested?">أنهي طريقة احتمال فشل الاتصال بالكامل فيها قليل حتى لو الشبكة مزدحمة؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  تبديل الدائرة (Circuit switching)" data-en="A  Circuit switching">A  تبديل الدائرة (Circuit switching)</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  تبديل الحزم (Packet switching)" data-en="B  Packet switching">B  تبديل الحزم (Packet switching)</div>
-            <div class="ex-opt" data-ar="C  شبكة Wired LAN" data-en="C  the Wired LAN">C  شبكة Wired LAN</div>
+            <div class="ex-opt" data-ar="A تبديل الدائرة" data-en="A  Circuit switching">A تبديل الدائرة</div>
+            <div class="ex-opt" data-ok="1" data-ar="B تبديل الحزم" data-en="B  Packet switching">B تبديل الحزم</div>
+            <div class="ex-opt" data-ar="C شبكة Wired LAN" data-en="C  the Wired LAN">C شبكة Wired LAN</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — تبديل الحزم (Packet switching)" data-en="✅ Answer: B — Packet switching">✅ الإجابة: B — تبديل الحزم (Packet switching)</b> <span data-ar="تبديل الحزم (Packet switching) بيبعت الداتا (Data) تدريجياً حتى لو في زحمة."
-              data-en="Packet switching sends data gradually even with congestion.">تبديل الحزم (Packet switching) بيبعت الداتا (Data) تدريجياً حتى لو في زحمة.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — تبديل الحزم" data-en="✅ Answer: B — Packet switching">✅ الإجابة: B — تبديل الحزم</b> <span data-ar="تبديل الحزم بيبعت البيانات تدريجياً حتى لو في زحمة."
+              data-en="Packet switching sends data gradually even with congestion.">تبديل الحزم بيبعت البيانات تدريجياً حتى لو في زحمة.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1914,15 +957,15 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="الشبكة" data-en="The network">الشبكة</h4>
-                  <p data-ar="شبكة معلومات واتصالات بتستخدم خطوط الاتصال، وشبكة بتوصّل الكمبيوترات والموبايلات عشان تتبادل الداتا (Data)."
-                    data-en="an information and communication network using communication lines, and a network connecting computers and smartphones to exchange data.">شبكة معلومات واتصالات بتستخدم خطوط الاتصال، وشبكة بتوصّل الكمبيوترات والموبايلات عشان تتبادل الداتا (Data).</p>
+                  <h3 data-ar="الشبكة" data-en="The network" class="lvl-h4 lvl-h4-2">الشبكة</h3>
+                  <p data-ar="شبكة معلومات واتصالات بتستخدم خطوط الاتصال، وشبكة بتوصّل الكمبيوترات والموبايلات عشان تتبادل البيانات."
+                    data-en="an information and communication network using communication lines, and a network connecting computers and smartphones to exchange data.">شبكة معلومات واتصالات بتستخدم خطوط الاتصال، وشبكة بتوصّل الكمبيوترات والموبايلات عشان تتبادل البيانات.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="الأنواع" data-en="The types">الأنواع</h4>
+                  <h3 data-ar="الأنواع" data-en="The types" class="lvl-h4 lvl-h4-2">الأنواع</h3>
                   <p data-ar="LAN لمنطقة محدودة، سلكية أو لاسلكية، وWAN لمنطقة أوسع، والإنترنت شبكة عالمية بتوصّلهم."
                     data-en="LAN for a limited area, wired or wireless, WAN for a broader area, and the Internet is a global network connecting them.">LAN لمنطقة محدودة، سلكية أو لاسلكية، وWAN لمنطقة أوسع، والإنترنت شبكة عالمية بتوصّلهم.</p>
                 </div>
@@ -1930,7 +973,7 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="الأجهزة" data-en="The devices">الأجهزة</h4>
+                  <h3 data-ar="الأجهزة" data-en="The devices" class="lvl-h4 lvl-h4-2">الأجهزة</h3>
                   <p data-ar="ISP بتوصّلنا بعقد، وRouter بيرحّل بين الشبكات، وHub بيجمّع الكابلات."
                     data-en="The ISP connects us with a contract, the Router relays between networks, and the Hub gathers cables.">ISP بتوصّلنا بعقد، وRouter بيرحّل بين الشبكات، وHub بيجمّع الكابلات.</p>
                 </div>
@@ -1938,17 +981,17 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="journey-item">
                 <span class="jn-num">04</span>
                 <div>
-                  <h4 data-ar="الاستخدام" data-en="The usage">الاستخدام</h4>
-                  <p data-ar="الـ Server بيوفّر والـ Client بيطلب — بنظام العميل-الخادم (Client-server) أو نظام الند-للند (Peer-to-peer) المتساوي."
-                    data-en="the Server provides and the Client requests — with a Client-server system or an equal Peer-to-peer system.">الـ Server بيوفّر والـ Client بيطلب — بنظام العميل-الخادم (Client-server) أو نظام الند-للند (Peer-to-peer) المتساوي.</p>
+                  <h3 data-ar="الاستخدام" data-en="The usage" class="lvl-h4 lvl-h4-2">الاستخدام</h3>
+                  <p data-ar="الـ Server بيوفّر والـ Client بيطلب — بنظام العميل-الخادم أو نظام الند-للند المتساوي."
+                    data-en="the Server provides and the Client requests — with a Client-server system or an equal Peer-to-peer system.">الـ Server بيوفّر والـ Client بيطلب — بنظام العميل-الخادم أو نظام الند-للند المتساوي.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">05</span>
                 <div>
-                  <h4 data-ar="طرق الاتصال" data-en="Communication methods">طرق الاتصال</h4>
-                  <p data-ar="تبديل الدائرة (Circuit switching) بيأسّس مسار ثابت، وتبديل الحزم (Packet switching) بيقسّم الداتا (Data) لحزم."
-                    data-en="circuit switching establishes a fixed path, and packet switching divides data into packets.">تبديل الدائرة (Circuit switching) بيأسّس مسار ثابت، وتبديل الحزم (Packet switching) بيقسّم الداتا (Data) لحزم.</p>
+                  <h3 data-ar="طرق الاتصال" data-en="Communication methods" class="lvl-h4 lvl-h4-2">طرق الاتصال</h3>
+                  <p data-ar="تبديل الدائرة بيأسّس مسار ثابت، وتبديل الحزم بيقسّم البيانات لحزم."
+                    data-en="circuit switching establishes a fixed path, and packet switching divides data into packets.">تبديل الدائرة بيأسّس مسار ثابت، وتبديل الحزم بيقسّم البيانات لحزم.</p>
                 </div>
               </div>
             </div>
@@ -2005,19 +1048,19 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
             <button class="mini-btn rq-skip" data-id="recapRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="recapRq3">
-            <div class="rq-q"><span class="q-num">3</span> <span data-ar="طريقة الاتصال اللي بتقسّم الداتا (Data) لحزم هي إيه؟"
-                data-en="What is the communication method that divides data into packets?">طريقة الاتصال اللي بتقسّم الداتا (Data) لحزم هي إيه؟</span></div>
+            <div class="rq-q"><span class="q-num">3</span> <span data-ar="طريقة الاتصال اللي بتقسّم البيانات لحزم هي إيه؟"
+                data-en="What is the communication method that divides data into packets?">طريقة الاتصال اللي بتقسّم البيانات لحزم هي إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq3o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! تبديل الحزم بيقسّم البيانات لـ Packets للتبادل."
                 data-fb-en="Correct! Packet switching divides data into packets for exchange."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="تبديل الحزم (Packet switching)"
-                  data-en="Packet switching">تبديل الحزم (Packet switching)</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="تبديل الحزم"
+                  data-en="Packet switching">تبديل الحزم</span></div>
               <div class="rq-opt" data-id="recapRq3o2" data-key="B"
                 data-fb-ar="مش كده — تبديل الدائرة بينشئ مسار ثابت."
                 data-fb-en="Not quite — circuit switching establishes a fixed path."><span class="rq-key">B</span><span
-                  class="rq-body" data-ar="تبديل الدائرة (Circuit switching)"
-                  data-en="Circuit switching">تبديل الدائرة (Circuit switching)</span></div>
+                  class="rq-body" data-ar="تبديل الدائرة"
+                  data-en="Circuit switching">تبديل الدائرة</span></div>
               <div class="rq-opt" data-id="recapRq3o3" data-key="C"
                 data-fb-ar="مش كده — الـ LAN نوع من الشبكات."
                 data-fb-en="Not quite — LAN is a type of network."><span class="rq-key">C</span><span
@@ -2575,30 +1618,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>

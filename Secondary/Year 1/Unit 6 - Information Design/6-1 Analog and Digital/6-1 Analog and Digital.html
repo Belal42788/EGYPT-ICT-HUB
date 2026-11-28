@@ -10,966 +10,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 6-1 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .22);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap:anywhere
-    }
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/6-1-analog-and-digital-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
 </head>
 
 <body>
@@ -1007,11 +51,11 @@ select{color:var(--text)!important}
       <div class="hero-badge" data-ar="الدرس 1 — دراسة المعلومات" data-en="Lesson 1 — Information Study">الدرس 1 — دراسة المعلومات</div>
       <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>الأنالوج</span> والديجيتال" data-en="<span class=&quot;grad&quot;>Analog</span> and Digital">الأنالوج <span class="grad">والديجيتال</span></h1>
       <p class="hero-sub"
-        data-ar="التناظري والرقمي — إزاي بنخزّن أي حاجة حوالينا — صوت وصورة وحرارة ووقت — كأرقام يفهمها الكمبيوتر؟ النهارده هنتعلّم الفرق بين الداتا (Data) التناظرية والرقمية، والتحويل بينهم، والنظام الثنائي."
+        data-ar="التناظري والرقمي — إزاي بنخزّن أي حاجة حوالينا — صوت وصورة وحرارة ووقت — كأرقام يفهمها الكمبيوتر؟ النهارده هنتعلّم الفرق بين البيانات التناظرية والرقمية، والتحويل بينهم، والنظام الثنائي."
         data-en="Analog and Digital — how do we store anything around us — sound, image, temperature and time — as numbers a computer understands? Today we learn the difference between analog and digital data, converting between them, and the binary system.">
         <span dir="ltr">Analog and Digital</span> — إزاي بنخزّن أي حاجة حوالينا — صوت وصورة وحرارة ووقت — كأرقام يفهمها
-        الكمبيوتر؟ النهارده هنعرف الفرق بين البيانات الأنالوج والديجيتال، والتحويل بينهم، والنظام الثنائي.</p>
-      <div class="hero-stats"><span data-ar="9 أقسام" data-en="9 sections">9 أقسام</span><span data-ar="15 سؤالًا" data-en="15 practice questions">15 سؤالًا</span><span data-ar="10 مصطلحات" data-en="10 glossary terms">10 مصطلحات</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ الكمبيوتر؟ النهارده هنعرف الفرق بين البيانات الأنالوج والديجيتال، والتحويل بينهم، والنظام الثنائي.</p>
+      <div class="hero-stats"><span data-ar="9 أقسام" data-en="9 sections">9 أقسام</span><span data-ar="15 سؤالًا" data-en="15 practice questions">15 سؤالًا</span><span data-ar="10 مصطلحات" data-en="10 glossary terms">10 مصطلحات</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 
@@ -1035,15 +79,15 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="النهارده هنتعلّم الفرق بين نوعين أساسيين من الداتا (Data): التناظري، اللي بيمثّله قيم مستمرة زي الحرارة والوقت، والرقمي، اللي بيمثّله بأرقام بتقسيم القيمة لفواصل منتظمة. وبعدين هنشوف إزاي نحوّل بينهم — A/D وD/A — وفي الآخر هنتعلّم النظام الثنائي اللي الكمبيوتر بيعتمد عليه لتمثيل كل حاجة."
+        <p data-ar="النهارده هنتعلّم الفرق بين نوعين أساسيين من البيانات: التناظري، اللي بيمثّله قيم مستمرة زي الحرارة والوقت، والرقمي، اللي بيمثّله بأرقام بتقسيم القيمة لفواصل منتظمة. وبعدين هنشوف إزاي نحوّل بينهم — A/D وD/A — وفي الآخر هنتعلّم النظام الثنائي اللي الكمبيوتر بيعتمد عليه لتمثيل كل حاجة."
           data-en="Today we will learn the difference between two basic types of data: Analog, which is represented by continuous values like temperature and time, and Digital, which is represented by numbers by dividing the value into regular intervals. Then we will see how to convert between them — A/D and D/A — and finally we will learn the Binary system that the computer relies on to represent everything.">
-          النهارده هنعرف الفرق بين نوعين أساسيين من البيانات: <b>الأنالوج <span dir="ltr">(Analog)</span></b> اللي بيتمثل
-          بقيم مستمرة زي الحرارة والوقت، و<b>الديجيتال <span dir="ltr">(Digital)</span></b> اللي بيتمثل بأرقام عن طريق
-          تقسيم القيمة لفترات منتظمة. وبعدين هنشوف إزاي بنحوّل بينهم — <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span>
-          — وفي الآخر هنعرف <b>النظام الثنائي <span dir="ltr">(Binary)</span></b> اللي الكمبيوتر بيعتمد عليه في تمثيل كل حاجة.</p>
+ النهارده هنعرف الفرق بين نوعين أساسيين من البيانات: <b>الأنالوج <span dir="ltr">(Analog)</span></b> اللي بيتمثل
+ بقيم مستمرة زي الحرارة والوقت، و<b>الديجيتال <span dir="ltr">(Digital)</span></b> اللي بيتمثل بأرقام عن طريق
+ تقسيم القيمة لفترات منتظمة. وبعدين هنشوف إزاي بنحوّل بينهم — <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span>
+ — وفي الآخر هنعرف <b>النظام الثنائي <span dir="ltr">(Binary)</span></b> اللي الكمبيوتر بيعتمد عليه في تمثيل كل حاجة.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="التناظري زي الساعة بالعقارب اللي بتتحرك باستمرار، والرقمي زي الساعة الديجيتال اللي بتورّي أرقام بتقفز. كل الداتا (Data) حوالينا — صوت وصورة وحرارة — بنحوّلها لرقمي عشان الكمبيوتر يفهمها."
-            data-en="Analog is like a clock with hands that move continuously, and digital is like a digital clock that shows jumping numbers. All the data around us — sound, image, temperature — we convert it to digital so the computer can understand it.">التناظري زي الساعة بالعقارب اللي بتتحرك باستمرار، والرقمي زي الساعة الديجيتال اللي بتورّي أرقام بتقفز. كل الداتا (Data) حوالينا — صوت وصورة وحرارة — بنحوّلها لرقمي عشان الكمبيوتر يفهمها.</span></div>
+            data-ar="التناظري زي الساعة بالعقارب اللي بتتحرك باستمرار، والرقمي زي الساعة الديجيتال اللي بتورّي أرقام بتقفز. كل البيانات حوالينا — صوت وصورة وحرارة — بنحوّلها لرقمي عشان الكمبيوتر يفهمها."
+            data-en="Analog is like a clock with hands that move continuously, and digital is like a digital clock that shows jumping numbers. All the data around us — sound, image, temperature — we convert it to digital so the computer can understand it.">التناظري زي الساعة بالعقارب اللي بتتحرك باستمرار، والرقمي زي الساعة الديجيتال اللي بتورّي أرقام بتقفز. كل البيانات حوالينا — صوت وصورة وحرارة — بنحوّلها لرقمي عشان الكمبيوتر يفهمها.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1067,32 +111,32 @@ select{color:var(--text)!important}
           <div class="demo-panel">
             <div class="demo-label" data-ar="ليه محتاجين الدرس ده؟" data-en="Why do we need this lesson?">ليه محتاجين الدرس ده؟</div>
             <p style="font-size:.95rem"
-              data-ar="كل جهاز حواليك — موبايل ولابتوب وتليفزيون — بيشتغل على داتا (Data) رقمية. وبما إن العالم الحقيقي حوالينا تناظري (حرارة وصوت وصورة)، لازم نفهم إزاي نحوّل بين العالمين. النهارده بنبدأ رحلتنا في تصميم المعلومات (Information)."
-              data-en="Every device around you — a phone, a laptop, a TV — works on digital data. And because the real world around us is analog (temperature, sound, image), we must understand how to convert between the two worlds. Today we start our journey in Information Design.">كل جهاز حواليك — موبايل ولابتوب وتليفزيون — بيشتغل على داتا (Data) رقمية. وبما إن العالم الحقيقي حوالينا تناظري (حرارة وصوت وصورة)، لازم نفهم إزاي نحوّل بين العالمين. النهارده بنبدأ رحلتنا في تصميم المعلومات (Information).</p>
+              data-ar="كل جهاز حواليك — موبايل ولابتوب وتليفزيون — بيشتغل على بيانات رقمية. وبما إن العالم الحقيقي حوالينا تناظري (حرارة وصوت وصورة)، لازم نفهم إزاي نحوّل بين العالمين. النهارده بنبدأ رحلتنا في تصميم المعلومات."
+              data-en="Every device around you — a phone, a laptop, a TV — works on digital data. And because the real world around us is analog (temperature, sound, image), we must understand how to convert between the two worlds. Today we start our journey in Information Design.">كل جهاز حواليك — موبايل ولابتوب وتليفزيون — بيشتغل على بيانات رقمية. وبما إن العالم الحقيقي حوالينا تناظري (حرارة وصوت وصورة)، لازم نفهم إزاي نحوّل بين العالمين. النهارده بنبدأ رحلتنا في تصميم المعلومات.</p>
             <div class="note" style="margin-top:8px"><b data-ar="وإيه الجاي؟"
                 data-en="And what comes next?">وإيه الجاي؟</b> <span
-                data-ar="في الدرس الجاي (6-2) هننزل أعمق في النظام الثنائي ومقدار المعلومات (Information)، وهنكمل بباقي أنواع تمثيل الداتا (Data) في الوحدة."
+                data-ar="في الدرس الجاي (6-2) هننزل أعمق في النظام الثنائي ومقدار المعلومات، وهنكمل بباقي أنواع تمثيل البيانات في الوحدة."
                 data-en="in the next lesson (6-2) we will go deeper into the binary system and the amount of information, and we will continue with the rest of data representation types in the unit.">الدرس
-                اللي جاي (6-2) هنتعمق في <span dir="ltr">Binary</span> وكمية المعلومات، وهنكمّل بقية أنواع تمثيل البيانات في
-                الوحدة.</span></div>
+ اللي جاي (6-2) هنتعمق في <span dir="ltr">Binary</span> وكمية المعلومات، وهنكمّل بقية أنواع تمثيل البيانات في
+ الوحدة.</span></div>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين التناظري والرقمي — الأول قيم مستمرة من غير تقسيم، والتاني تقسيم لفواصل وتمثيل رقمي."
             data-en="Mixing up Analog and Digital — the first is continuous values without division, the second is dividing into intervals and numeric representation.">
-            الخلط بين <span dir="ltr">Analog</span> و<span dir="ltr">Digital</span> — الأول <b>قيم مستمرة</b> من غير تقسيم،
-            والتاني <b>تقسيم لفترات وتمثيل رقمي</b>.</li>
+ الخلط بين <span dir="ltr">Analog</span> و<span dir="ltr">Digital</span> — الأول <b>قيم مستمرة</b> من غير تقسيم،
+ والتاني <b>تقسيم لفترات وتمثيل رقمي</b>.</li>
           <li data-ar="الخلط بين A/D وD/A — الأول من التناظري للرقمي، والتاني العكس."
             data-en="Mixing up A/D and D/A — the first is from analog to digital, the second is the reverse.">
-            الخلط بين <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span> — الأول <b>من أنالوج لديجيتال</b>، والتاني
-            <b>العكس</b>.</li>
+ الخلط بين <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span> — الأول <b>من أنالوج لديجيتال</b>، والتاني
+ <b>العكس</b>.</li>
           <li data-ar="إنك تفتكر الرقمي بيمثّل قيم مستمرة — لا، الرقمي بيقسّم القيمة لفواصل ويمثّلها رقمياً."
             data-en="Thinking digital represents continuous values — no, digital divides the value into intervals and represents it numerically.">
-            اعتبار إن الديجيتال بيرمز لقيم مستمرة — لأ، الديجيتال <b>بيقسّم القيمة لفترات</b> ويرمز لها رقمياً.</li>
+ اعتبار إن الديجيتال بيرمز لقيم مستمرة — لأ، الديجيتال <b>بيقسّم القيمة لفترات</b> ويرمز لها رقمياً.</li>
         </ul>
       </div>
     </section>
@@ -1103,10 +147,10 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">02</div>
           <div>
-            <h2 data-ar="الأنالوج <span dir=&quot;ltr&quot;>(Analog)</span>" data-en="Analog"><span
+            <h2 data-ar="الأنالوج <span dir=&quot;ltr&quot;></span>" data-en="Analog"><span
                 dir="ltr">Analog</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكمية المستمرة — EN PDF 53 (المطبوع 53)؛ AR 62"
-              data-en="the continuous quantity - English PDF 53 (printed 53); Arabic 62">الكمية المستمرة — EN PDF 53 (المطبوع 53)؛ AR 62</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكمية المستمرة"
+              data-en="the continuous quantity">الكمية المستمرة</div>
           </div>
         </div>
       </div>
@@ -1126,8 +170,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="analogPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="analogNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="analogPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="analogNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="analogCounter">1 / 3</span>
                 <button class="mini-btn" data-id="analogReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1143,21 +187,21 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="التناظري بيشير لكميات ممكن تتقاس باستمرار وبدقّة عالية، زي الكتلة والوقت والحرارة. الداتا (Data) اللي بتمثّل بشكل تناظري بتتسمّى داتا (Data) تناظرية."
+        <p data-ar="التناظري بيشير لكميات ممكن تتقاس باستمرار وبدقّة عالية، زي الكتلة والوقت والحرارة. البيانات اللي بتمثّل بشكل تناظري بتتسمّى بيانات تناظرية."
           data-en="Analog refers to quantities that can be measured continuously and with fine precision, such as mass, time, or temperature. Data represented in analog form is called analog data.">
-          الـ <b>Analog</b> هو كمية بتتغير بشكل <b>مستمر</b> وبتتقاس بدقة متناهية، زي الكتلة <span
+ الـ <b>Analog</b> هو كمية بتتغير بشكل <b>مستمر</b> وبتتقاس بدقة متناهية، زي الكتلة <span
             dir="ltr">(Mass)</span> أو الوقت <span dir="ltr">(Time)</span> أو درجة الحرارة <span
             dir="ltr">(Temperature)</span>. البيانات اللي بتتمثل بالشكل الأنالوج بنسميها <b>بيانات أنالوج <span
               dir="ltr">(Analog data)</span></b>.</p>
         <p data-ar="مثال مهم من الكتاب: الترمومتر الزئبقي — لما الحرارة تزيد، عمود الزئبق بيمدّد باستمرار على المقياس. القيمة بتاخد أي نقطة على المقياس من غير ما تتقسّم لفواصل."
           data-en="An important example from the book: a mercury thermometer — as the temperature rises, the mercury column extends continuously along the scale. The value takes any point on the scale without being divided into intervals.">
-          مثال مهم من الكتاب: <b>ميزان الحرارة بالزئبق</b> — كل ما درجة الحرارة تزيد، عمود الزئبق بيمتد بشكل مستمر على
-          التدريج. القيمة بتاخد أي نقطة على التدريج من غير ما تنقسم لفترات.</p>
+ مثال مهم من الكتاب: <b>ميزان الحرارة بالزئبق</b> — كل ما درجة الحرارة تزيد، عمود الزئبق بيمتد بشكل مستمر على
+ التدريج. القيمة بتاخد أي نقطة على التدريج من غير ما تنقسم لفترات.</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
             data-ar="التناظري = مستمر = بياخد أي قيمة في المدى — زي عقرب الساعة اللي بيفضل بيتحرك."
             data-en="Analog = continuous = takes any value in the range — like the clock hand that keeps moving.">الأنالوج
-            = <b>مستمر</b> = بياخد أي قيمة في المدى — زي عقرب الساعة اللي بيتحرك على طول.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>أ. التناظرية والرقمية — (1) التناظري (Analog) : هي كميات تتغير تدريجيًا وبشكل مستمر ويمكن قياسها بدقة فائقة، مثل الكتلة أو الوقت أو درجة الحرارة. البيانات الممثلة في شكل تناظري يشار إليها باسم البيانات التناظرية (analog data).</p></div>
+ = <b>مستمر</b> = بياخد أي قيمة في المدى — زي عقرب الساعة اللي بيتحرك على طول.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>أ. التناظرية والرقمية — (1) التناظري: هي كميات تتغير تدريجيًا وبشكل مستمر ويمكن قياسها بدقة فائقة، مثل الكتلة أو الوقت أو درجة الحرارة. البيانات الممثلة في شكل تناظري يشار إليها باسم البيانات التناظرية.</p></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -1172,7 +216,7 @@ select{color:var(--text)!important}
                 data-en="What do we call a quantity that changes continuously and is measured with fine precision, like mass or time?">إيه اسم الكمية اللي بتتغيّر باستمرار وتتقاس بدقّة عالية، زي الكتلة أو الوقت؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="analogRq1o1" data-key="A" data-ok="1"
-                data-fb-ar="صحيح! دي الكمية المستمرة (Analog) — زي الكتلة والوقت والحرارة."
+                data-fb-ar="صحيح! دي الكمية المستمرة — زي الكتلة والوقت والحرارة."
                 data-fb-en="Correct! This is the continuous quantity (Analog) — like mass, time, and temperature."><span
                   class="rq-key">A</span><span class="rq-body" data-ar="تناظري"
                   data-en="Analog">تناظري</span></div>
@@ -1197,13 +241,13 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="analogRq2o2" data-key="A"
                 data-fb-ar="الديجيتال بيقسّم القيمة لفترات، والزئبق مستمر."
                 data-fb-en="Digital divides the value into intervals, and the mercury is continuous."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="داتا (Data) رقمية"
-                  data-en="Digital data">داتا (Data) رقمية</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="بيانات رقمية"
+                  data-en="Digital data">بيانات رقمية</span></div>
               <div class="rq-opt" data-id="analogRq2o1" data-key="B" data-ok="1"
                 data-fb-ar="صحيح! الزئبق بيمتد بشكل مستمر على التدريج — دي بيانات أنالوج."
                 data-fb-en="Correct! The mercury extends continuously along the scale — this is analog data."><span
-                  class="rq-key">B</span><span class="rq-body" data-ar="داتا (Data) تناظرية"
-                  data-en="Analog data">داتا (Data) تناظرية</span></div>
+                  class="rq-key">B</span><span class="rq-body" data-ar="بيانات تناظرية"
+                  data-en="Analog data">بيانات تناظرية</span></div>
               <div class="rq-opt" data-id="analogRq2o3" data-key="C"
                 data-fb-ar="النظام الثنائي طريقة تمثيل، مش مثال للزئبق."
                 data-fb-en="The binary system is a representation method, not an example of the mercury."><span
@@ -1217,17 +261,17 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="إنك تفتكر أي جهاز إلكتروني تناظري — لا، التناظري بخص الكمية المستمرة، مش الجهاز نفسه."
             data-en="Thinking any electronic device is analog — no, analog is about the continuous quantity, not the device itself.">
-            اعتبار إن أي جهاز إلكتروني أنالوج — لأ، الأنالوج عن <b>الكمية المستمرة</b> مش عن الجهاز نفسه.</li>
+ اعتبار إن أي جهاز إلكتروني أنالوج — لأ، الأنالوج عن <b>الكمية المستمرة</b> مش عن الجهاز نفسه.</li>
           <li data-ar="الخلط بين قيمة تناظرية وقيمة رقمية — التناظري مش متقسّم لفواصل."
             data-en="Mixing up an analog value and a digital value — analog is not divided into intervals.">
-            الخلط بين قيمة أنالوج وقيمة ديجيتال — الأنالوج <b>مبيتقسّمش لفترات</b>.</li>
+ الخلط بين قيمة أنالوج وقيمة ديجيتال — الأنالوج <b>مبيتقسّمش لفترات</b>.</li>
           <li data-ar="نسيان أمثلة الكتاب — الكتلة والوقت والحرارة كلهم كميات تناظرية."
             data-en="Forgetting the book's examples — mass, time, and temperature are all analog quantities.">
-            نسيان أمثلة الكتاب — الكتلة والوقت والحرارة كلها <b>كميات أنالوج</b>.</li>
+ نسيان أمثلة الكتاب — الكتلة والوقت والحرارة كلها <b>كميات أنالوج</b>.</li>
         </ul>
       </div>
     </section>
@@ -1238,10 +282,10 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#1838f8)">03</div>
           <div>
-            <h2 data-ar="الديجيتال <span dir=&quot;ltr&quot;>(Digital)</span>" data-en="Digital"><span
+            <h2 data-ar="الديجيتال <span dir=&quot;ltr&quot;></span>" data-en="Digital"><span
                 dir="ltr">Digital</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="التقسيم لفواصل والتمثيل الرقمي — EN PDF 53 (المطبوع 53)؛ AR 62"
-              data-en="dividing into intervals and numeric representation - English PDF 53 (printed 53); Arabic 62">التقسيم لفواصل والتمثيل الرقمي — EN PDF 53 (المطبوع 53)؛ AR 62</div>
+            <div class="tag" style="color:var(--s3)" data-ar="التقسيم لفواصل والتمثيل الرقمي"
+              data-en="dividing into intervals and numeric representation">التقسيم لفواصل والتمثيل الرقمي</div>
           </div>
         </div>
       </div>
@@ -1261,8 +305,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="digitalPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="digitalNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="digitalPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="digitalNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="digitalCounter">1 / 3</span>
                 <button class="mini-btn" data-id="digitalReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1278,20 +322,20 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الرقمي بيشير لكميات بتتغيّر باستمرار بس بتمثّل رقمياً بتقسيمها لفواصل منتظمة. الداتا (Data) اللي بتمثّل بشكل رقمي بتتسمّى داتا (Data) رقمية."
+        <p data-ar="الرقمي بيشير لكميات بتتغيّر باستمرار بس بتمثّل رقمياً بتقسيمها لفواصل منتظمة. البيانات اللي بتمثّل بشكل رقمي بتتسمّى بيانات رقمية."
           data-en="Digital refers to quantities that continuously change but are represented numerically by segmenting them at regular intervals. Data represented in digital form is called digital data.">
-          الـ <b>Digital</b> هو كمية بتتغير باستمرار بس بنمثلها <b>رقمياً</b> عن طريق تقسيمها لفترات منتظمة <span
+ الـ <b>Digital</b> هو كمية بتتغير باستمرار بس بنمثلها <b>رقمياً</b> عن طريق تقسيمها لفترات منتظمة <span
             dir="ltr">(Regular intervals)</span>. البيانات اللي بتتمثل بالشكل الديجيتال بنسميها <b>بيانات ديجيتال <span
               dir="ltr">(Digital data)</span></b>.</p>
         <p data-ar="رجعنا للترمومتر: الرقمي بياخد قراءات على فواصل منتظمة (مثلاً رقم كل دقيقة)، مش عمود زئبق مستمر. كل فاصل بياخد رقم ثابت — ده الفرق الأساسي عن التناظري."
           data-en="Going back to the thermometer: digital takes readings at regular intervals (for example a number every minute), not a continuous mercury column. Each interval takes a fixed number — this is the essential difference from analog.">
-          لو رجعنا لميزان الحرارة: الديجيتال هياخد قراءات على <b>فترات منتظمة</b> (مثلاً كل دقيقة رقم)، مش عمود زئبق مستمر.
-          كل فترة بتاخد رقم ثابت — ده الفرق الجوهري عن الأنالوج.</p>
+ لو رجعنا لميزان الحرارة: الديجيتال هياخد قراءات على <b>فترات منتظمة</b> (مثلاً كل دقيقة رقم)، مش عمود زئبق مستمر.
+ كل فترة بتاخد رقم ثابت — ده الفرق الجوهري عن الأنالوج.</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
             data-ar="الرقمي = تقسيم + أرقام = قفزات ثابتة — زي الساعة الديجيتال اللي بتورّي أرقام."
             data-en="Digital = division + numbers = fixed jumps — like the digital clock that shows numbers.">الديجيتال =
-            <b>تقسيم + أرقام</b> = قفزات ثابتة — زي الساعة الرقمية اللي بتعرض الأرقام.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) الرقمي (Digital) : تشير إلى الكميات التي تتغير في خطوات محددة ومنفصلة ويتم تمثيلها رقميًا. البيانات الممثلة في شكل رقمي يشار إليها باسم البيانات الرقمية (digital data).</p></div>
+ <b>تقسيم + أرقام</b> = قفزات ثابتة — زي الساعة الرقمية اللي بتعرض الأرقام.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) الرقمي: تشير إلى الكميات التي تتغير في خطوات محددة ومنفصلة ويتم تمثيلها رقميًا. البيانات الممثلة في شكل رقمي يشار إليها باسم البيانات الرقمية.</p></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -1325,8 +369,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="digitalRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="digitalRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه ميزة الداتا (Data) الرقمية؟"
-                data-en="Which is an advantage of digital data?">إيه ميزة الداتا (Data) الرقمية؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه ميزة البيانات الرقمية؟"
+                data-en="Which is an advantage of digital data?">إيه ميزة البيانات الرقمية؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="digitalRq2o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! البيانات الديجيتال ممكن تتجمع وتتنسخ من غير ما تفقد جودتها."
@@ -1351,14 +395,14 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="إنك تفتكر الرقمي مجرد تناظري بشكل تاني — لا، فيه تقسيم لفواصل منتظمة."
             data-en="Thinking digital is just analog in another look — no, there is division into regular intervals.">
-            اعتبار إن الديجيتال هو نفس الأنالوج بمظهر تاني — لأ، في <b>تقسيم لفترات منتظمة</b>.</li>
-          <li data-ar="الخلط بين ميزات الداتا (Data) الرقمية — أهم واحدة فيهم التراكم والاستنساخ من غير فقدان."
+ اعتبار إن الديجيتال هو نفس الأنالوج بمظهر تاني — لأ، في <b>تقسيم لفترات منتظمة</b>.</li>
+          <li data-ar="الخلط بين ميزات البيانات الرقمية — أهم واحدة فيهم التراكم والاستنساخ من غير فقدان."
             data-en="Mixing up the advantages of digital data — one of the most important is accumulation and duplication without loss.">
-            الخلط بين مميزات البيانات الديجيتال — من أهمها <b>التجميع والنسخ من غير فقدان</b>.</li>
+ الخلط بين مميزات البيانات الديجيتال — من أهمها <b>التجميع والنسخ من غير فقدان</b>.</li>
         </ul>
       </div>
     </section>
@@ -1369,10 +413,10 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#ebf4f2)">04</div>
           <div>
-            <h2 data-ar="تحويل A/D <span dir=&quot;ltr&quot;>(digitization)</span>" data-en="A/D conversion (digitization)"><span
+            <h2 data-ar="تحويل A/D <span dir=&quot;ltr&quot;></span>" data-en="A/D conversion (digitization)"><span
                 dir="ltr">A/D</span> — الترقيم <span dir="ltr">(digitization)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="من التناظري للرقمي — EN PDF 53 (المطبوع 53)؛ AR 62"
-              data-en="from analog to digital - English PDF 53 (printed 53); Arabic 62">من التناظري للرقمي — EN PDF 53 (المطبوع 53)؛ AR 62</div>
+            <div class="tag" style="color:var(--s4)" data-ar="من التناظري للرقمي"
+              data-en="from analog to digital">من التناظري للرقمي</div>
           </div>
         </div>
       </div>
@@ -1381,20 +425,20 @@ select{color:var(--text)!important}
         <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
-            <div class="demo-label" data-ar="تحويل A/D:من موجة مستمرة لداتا (Data) رقمية"
+            <div class="demo-label" data-ar="تحويل A/D:من موجة مستمرة لبيانات رقمية"
               data-en="A/D conversion: from a continuous wave to digital data">تحويل <span dir="ltr">A/D</span>: من موجة
-              مستمرة لبيانات رقمية</div>
+ مستمرة لبيانات رقمية</div>
             <div class="flow-card" data-id="adc">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="adc"></svg>
-                <div class="svg-label" data-fbox="ana" data-ar="🌊 داتا (Data) تناظرية" data-en="🌊 Analog data">🌊 داتا (Data) تناظرية</div>
+                <div class="svg-label" data-fbox="ana" data-ar="🌊 بيانات تناظرية" data-en="🌊 Analog data">🌊 بيانات تناظرية</div>
                 <div class="svg-label" data-fbox="conv" data-ar="🔁 محوّل A/D" data-en="🔁 A/D converter">🔁 محوّل <span dir="ltr">A/D</span></div>
-                <div class="svg-label" data-fbox="dig" data-ar="🔢 داتا (Data) رقمية" data-en="🔢 Digital data">🔢 داتا (Data) رقمية</div>
+                <div class="svg-label" data-fbox="dig" data-ar="🔢 بيانات رقمية" data-en="🔢 Digital data">🔢 بيانات رقمية</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="adcPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="adcNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="adcPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="adcNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="adcCounter">1 / 3</span>
                 <button class="mini-btn" data-id="adcReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1410,18 +454,18 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="تحويل A/D، واسمه كمان رقمنة، هو عملية تحويل الداتا (Data) التناظرية لرقمية. يعني بناخد القيمة المستمرة، ونقسّمها لفواصل منتظمة، ونحوّلها لأرقام يفهمها الكمبيوتر."
+        <p data-ar="تحويل A/D، واسمه كمان رقمنة، هو عملية تحويل البيانات التناظرية لرقمية. يعني بناخد القيمة المستمرة، ونقسّمها لفواصل منتظمة، ونحوّلها لأرقام يفهمها الكمبيوتر."
           data-en="A/D conversion, also called digitization, is the process of converting analog data into digital data. That means we take the continuous value, divide it into regular intervals, and convert it into numbers the computer understands.">
-          تحويل <b><span dir="ltr">A/D</span> <span dir="ltr">(A/D conversion)</span></b> وبنسميه كمان <b>الترقيم <span
+ تحويل <b><span dir="ltr">A/D</span> <span dir="ltr">(A/D conversion)</span></b> وبنسميه كمان <b>الترقيم <span
             dir="ltr">(Digitization)</span></b> هو عملية تحويل <b>البيانات الأنالوج إلى بيانات ديجيتال</b>. يعني بناخد
-          القيمة المستمرة وبنقسّمها لفترات منتظمة ونحوّلها لأرقام يفهمها الكمبيوتر.</p>
+ القيمة المستمرة وبنقسّمها لفترات منتظمة ونحوّلها لأرقام يفهمها الكمبيوتر.</p>
         <p data-ar="مثال: لما تسمع صوت على الكمبيوتر، الموجة الصوتية (التناظرية) بتتقسّم لفواصل وكل فاصل بياخد رقم — والنتيجة صوت رقمي. بنطبّق نفس الفكرة على الصور والحرارة وأي إشارة مستمرة."
           data-en="Example: when you listen to sound on a computer, the sound wave (analog) is divided into intervals and each interval takes a number — the result is digital sound. We apply the same idea to images, temperature, and any continuous signal.">مثال: لما تسمع صوت على الكمبيوتر، الموجة الصوتية (التناظرية) بتتقسّم لفواصل وكل فاصل بياخد رقم — والنتيجة صوت رقمي. بنطبّق نفس الفكرة على الصور والحرارة وأي إشارة مستمرة.</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
             data-ar="A/D = تناظري لرقمي = بنحوّل المستمر لرقمي."
             data-en="A/D = Analog to Digital = we convert the continuous to numeric."><span
               dir="ltr">A/D</span> = <span dir="ltr">Analog to Digital</span> = بنحوّل المستمر لرقمي.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(3) التحويل من تناظري إلى رقمي ((A/D conversion (digitization))) : عملية تحويل البيانات التناظرية إلى بيانات رقمية. (4) التحويل من رقمي إلى تناظري (D/A conversion) : تحويل البيانات الرقمية إلى بيانات تناظرية. (أيقونة سماعة)</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>• مزايا البيانات الرقمية — • يمكن تجميع البيانات أو استنساخها دون إهدار. • من السهل تعديل وتحرير البيانات. • من الممكن نقل البيانات بكفاءة. • من الممكن دمج أنواع مختلفة من الوسائط للتعبير عنها.</p></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(3) التحويل من تناظري إلى رقمي ((A/D conversion)): عملية تحويل البيانات التناظرية إلى بيانات رقمية. (4) التحويل من رقمي إلى تناظري (D/A conversion): تحويل البيانات الرقمية إلى بيانات تناظرية. (أيقونة سماعة)</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>• مزايا البيانات الرقمية — • يمكن تجميع البيانات أو استنساخها دون إهدار. • من السهل تعديل وتحرير البيانات. • من الممكن نقل البيانات بكفاءة. • من الممكن دمج أنواع مختلفة من الوسائط للتعبير عنها.</p></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -1432,8 +476,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="adcRecall">
           <div class="rq" data-id="adcRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه اسم عملية تحويل الداتا (Data) التناظرية لرقمية؟"
-                data-en="What do we call the process of converting analog data into digital data?">إيه اسم عملية تحويل الداتا (Data) التناظرية لرقمية؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه اسم عملية تحويل البيانات التناظرية لرقمية؟"
+                data-en="What do we call the process of converting analog data into digital data?">إيه اسم عملية تحويل البيانات التناظرية لرقمية؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="adcRq1o2" data-key="A"
                 data-fb-ar="D/A هي العكس — من ديجيتال لأنالوج."
@@ -1458,15 +502,15 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين A/D وD/A — A/D من التناظري للرقمي، وD/A العكس."
             data-en="Mixing up A/D and D/A — A/D is from analog to digital, D/A is the reverse.">
-            الخلط بين <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span> — <span dir="ltr">A/D</span> من أنالوج
-            لديجيتال، <span dir="ltr">D/A</span> العكس.</li>
+ الخلط بين <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span> — <span dir="ltr">A/D</span> من أنالوج
+ لديجيتال، <span dir="ltr">D/A</span> العكس.</li>
           <li data-ar="نسيان إن A/D اسمه كمان رقمنة."
             data-en="Forgetting that A/D is also called digitization.">نسيان إن <span dir="ltr">A/D</span> بنسميه كمان
-            <b>الترقيم <span dir="ltr">(digitization)</span></b>.</li>
+ <b>الترقيم <span dir="ltr">(digitization)</span></b>.</li>
         </ul>
       </div>
     </section>
@@ -1478,8 +522,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
           <div>
             <h2 data-ar="تحويل D/A" data-en="D/A conversion"><span dir="ltr">D/A</span> — من ديجيتال لأنالوج</h2>
-            <div class="tag" style="color:var(--s5)" data-ar="من الرقمي للتناظري — EN PDF 53 (المطبوع 53)؛ AR 62"
-              data-en="from digital to analog - English PDF 53 (printed 53); Arabic 62">من الرقمي للتناظري — EN PDF 53 (المطبوع 53)؛ AR 62</div>
+            <div class="tag" style="color:var(--s5)" data-ar="من الرقمي للتناظري"
+              data-en="from digital to analog">من الرقمي للتناظري</div>
           </div>
         </div>
       </div>
@@ -1488,20 +532,20 @@ select{color:var(--text)!important}
         <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
-            <div class="demo-label" data-ar="تحويل D/A:من داتا (Data) رقمية لموجة مستمرة"
+            <div class="demo-label" data-ar="تحويل D/A:من بيانات رقمية لموجة مستمرة"
               data-en="D/A conversion: from digital data to a continuous wave">تحويل <span dir="ltr">D/A</span>: من بيانات
-              رقمية لموجة مستمرة</div>
+ رقمية لموجة مستمرة</div>
             <div class="flow-card" data-id="dac">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="dac"></svg>
-                <div class="svg-label" data-fbox="dig" data-ar="🔢 داتا (Data) رقمية" data-en="🔢 Digital data">🔢 داتا (Data) رقمية</div>
+                <div class="svg-label" data-fbox="dig" data-ar="🔢 بيانات رقمية" data-en="🔢 Digital data">🔢 بيانات رقمية</div>
                 <div class="svg-label" data-fbox="conv" data-ar="🔁 محوّل D/A" data-en="🔁 D/A converter">🔁 محوّل <span dir="ltr">D/A</span></div>
-                <div class="svg-label" data-fbox="ana" data-ar="🌊 داتا (Data) تناظرية" data-en="🌊 Analog data">🌊 داتا (Data) تناظرية</div>
+                <div class="svg-label" data-fbox="ana" data-ar="🌊 بيانات تناظرية" data-en="🌊 Analog data">🌊 بيانات تناظرية</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="dacPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="dacNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="dacPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="dacNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="dacCounter">1 / 3</span>
                 <button class="mini-btn" data-id="dacReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1517,11 +561,11 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="تحويل D/A هو عملية تحويل الداتا (Data) الرقمية لتناظرية — العكس بالظبط. بناخد الأرقام ونرجّع القيمة المستمرة (زي موجات الصوت اللي بتسمعها من سماعات الكمبيوتر)."
+        <p data-ar="تحويل D/A هو عملية تحويل البيانات الرقمية لتناظرية — العكس بالظبط. بناخد الأرقام ونرجّع القيمة المستمرة (زي موجات الصوت اللي بتسمعها من سماعات الكمبيوتر)."
           data-en="D/A conversion is the process of converting digital data into analog data — the exact reverse. We take the numbers and restore the continuous value (like the sound waves you hear from computer speakers).">
-          تحويل <b><span dir="ltr">D/A</span> <span dir="ltr">(D/A conversion)</span></b> هو عملية تحويل
-          <b>البيانات الديجيتال إلى بيانات أنالوج</b> — يعني العكس تماماً. بناخد الأرقام ونرجّع القيمة المستمرة (مثل موجات
-          الصوت اللي بتسمعها من سماعات الكمبيوتر).</p>
+ تحويل <b><span dir="ltr">D/A</span> <span dir="ltr">(D/A conversion)</span></b> هو عملية تحويل
+ <b>البيانات الديجيتال إلى بيانات أنالوج</b> — يعني العكس تماماً. بناخد الأرقام ونرجّع القيمة المستمرة (مثل موجات
+ الصوت اللي بتسمعها من سماعات الكمبيوتر).</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
             data-ar="D/A = رقمي لتناظري = بنحوّل الأرقام لقيم مستمرة."
             data-en="D/A = Digital to Analog = we convert numbers into continuous values."><span
@@ -1537,8 +581,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="dacRecall">
           <div class="rq" data-id="dacRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه اسم تحويل الداتا (Data) الرقمية لتناظرية؟"
-                data-en="What do we call converting digital data into analog data?">إيه اسم تحويل الداتا (Data) الرقمية لتناظرية؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه اسم تحويل البيانات الرقمية لتناظرية؟"
+                data-en="What do we call converting digital data into analog data?">إيه اسم تحويل البيانات الرقمية لتناظرية؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="dacRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! D/A conversion — من ديجيتال لأنالوج."
@@ -1563,15 +607,15 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين D/A وA/D — D/A من الرقمي للتناظري، وA/D العكس."
             data-en="Mixing up D/A and A/D — D/A is from digital to analog, A/D is the reverse.">
-            الخلط بين <span dir="ltr">D/A</span> و<span dir="ltr">A/D</span> — <span dir="ltr">D/A</span> من ديجيتال
-            لأنالوج، <span dir="ltr">A/D</span> العكس.</li>
+ الخلط بين <span dir="ltr">D/A</span> و<span dir="ltr">A/D</span> — <span dir="ltr">D/A</span> من ديجيتال
+ لأنالوج، <span dir="ltr">A/D</span> العكس.</li>
           <li data-ar="نسيان إن السماعات بتستخدم D/A عشان ترجّع الأرقام لموجات مسموعة."
             data-en="Forgetting that speakers use D/A to turn numbers back into audible waves.">نسيان إن السماعات بتستخدم
-            <span dir="ltr">D/A</span> عشان ترجّع الصوت من أرقام لموجات مسموعة.</li>
+ <span dir="ltr">D/A</span> عشان ترجّع الصوت من أرقام لموجات مسموعة.</li>
         </ul>
       </div>
     </section>
@@ -1582,10 +626,10 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#b91c1c)">06</div>
           <div>
-            <h2 data-ar="النظام الثنائي <span dir=&quot;ltr&quot;>(Binary)</span>" data-en="Binary"><span
+            <h2 data-ar="النظام الثنائي <span dir=&quot;ltr&quot;></span>" data-en="Binary"><span
                 dir="ltr">Binary</span></h2>
-            <div class="tag" style="color:var(--s6)" data-ar="تمثيل الأرقام بصفر وواحد — EN PDF 53 (المطبوع 53)؛ AR 62"
-              data-en="representing numbers with 0 and 1 - English PDF 53 (printed 53); Arabic 62">تمثيل الأرقام بصفر وواحد — EN PDF 53 (المطبوع 53)؛ AR 62</div>
+            <div class="tag" style="color:var(--s6)" data-ar="تمثيل الأرقام بصفر وواحد"
+              data-en="representing numbers with 0 and 1">تمثيل الأرقام بصفر وواحد</div>
           </div>
         </div>
       </div>
@@ -1601,12 +645,12 @@ select{color:var(--text)!important}
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="binary"></svg>
                 <div class="svg-label" data-fbox="num" data-ar="🔢 الرقم العشري" data-en="🔢 The decimal number">🔢 الرقم العشري</div>
                 <div class="svg-label" data-fbox="bits" data-ar="0️⃣1️⃣ البتّات صفر وواحد" data-en="0️⃣1️⃣ Bits 0 and 1">0️⃣1️⃣ البتّات صفر وواحد</div>
-                <div class="svg-label" data-fbox="data" data-ar="💻 كل أنواع الداتا (Data)" data-en="💻 All data types">💻 كل أنواع الداتا (Data)</div>
+                <div class="svg-label" data-fbox="data" data-ar="💻 كل أنواع البيانات" data-en="💻 All data types">💻 كل أنواع البيانات</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="binaryPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="binaryNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="binaryPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="binaryNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="binaryCounter">1 / 3</span>
                 <button class="mini-btn" data-id="binaryReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1622,19 +666,19 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="النظام الثنائي هو طريقة لتمثيل الأرقام باستخدام نوعين بس من الأرقام: صفر وواحد. في الكمبيوترات، كل أنواع المعلومات (Information) — أرقام وحروف وصوت وصور — بتمثّل بالثنائي."
+        <p data-ar="النظام الثنائي هو طريقة لتمثيل الأرقام باستخدام نوعين بس من الأرقام: صفر وواحد. في الكمبيوترات، كل أنواع المعلومات — أرقام وحروف وصوت وصور — بتمثّل بالثنائي."
           data-en="The binary system is a method of representing numbers using only two types of digits: 0 and 1. In computers, all types of information — numbers, characters, audio, images — are represented in binary.">
-          النظام الثنائي <b><span dir="ltr">(Binary)</span></b> هو طريقة تمثيل الأرقام باستخدام <b>نوعين من الأرقام فقط:
-          0 و1</b>. في الكمبيوتر، كل أنواع المعلومات — أرقام، حروف، صوت، صور — بتتمثل بالنظام الثنائي.</p>
-        <p data-ar="أمثلة: الرقم 0 في الثنائي هو 0، والرقم 1 هو 1، والرقم 2 هو 10، والرقم 3 هو 11، وهكذا. كل رقم بيتسمّى بت (bit)، ومجموعات البتّات بتكوّن أي قيمة في الكمبيوتر."
+ النظام الثنائي <b><span dir="ltr">(Binary)</span></b> هو طريقة تمثيل الأرقام باستخدام <b>نوعين من الأرقام فقط:
+ 0 و1</b>. في الكمبيوتر، كل أنواع المعلومات — أرقام، حروف، صوت، صور — بتتمثل بالنظام الثنائي.</p>
+        <p data-ar="أمثلة: الرقم 0 في الثنائي هو 0، والرقم 1 هو 1، والرقم 2 هو 10، والرقم 3 هو 11، وهكذا. كل رقم بيتسمّى بت، ومجموعات البتّات بتكوّن أي قيمة في الكمبيوتر."
           data-en="Examples: the number 0 in binary is 0, the number 1 is 1, the number 2 is 10, the number 3 is 11, and so on. Each digit is called a bit, and groups of bits form any value in the computer.">
-          أمثلة: الرقم 0 في الثنائي <b>0</b>، والرقم 1 هو <b>1</b>، والرقم 2 هو <b>10</b>، والرقم 3 هو <b>11</b>، وهكذا.
-          كل خانة بنسميها <b>بت <span dir="ltr">(Bit)</span></b>، ومجموعة البتات بتكوّن أي قيمة في الكمبيوتر.</p>
+ أمثلة: الرقم 0 في الثنائي <b>0</b>، والرقم 1 هو <b>1</b>، والرقم 2 هو <b>10</b>، والرقم 3 هو <b>11</b>، وهكذا.
+ كل خانة بنسميها <b>بت <span dir="ltr">(Bit)</span></b>، ومجموعة البتات بتكوّن أي قيمة في الكمبيوتر.</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
             data-ar="في الكمبيوتر كل حاجة — أرقام وحروف وصوت وصور — بتمثّل بالنظام الثنائي صفر وواحد."
             data-en="In the computer everything — numbers, characters, audio, images — is represented in the binary system 0 and 1.">في
-            الكمبيوتر كل حاجة — أرقام، حروف، صوت، صور — ممثلة <b>بالنظام الثنائي 0 و1</b>.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>• النظام الثنائي (Binary) : طريقة رقمية لتمثيل الأرقام باستخدام رقمين 0 و 1 وهما يمثلان نظام العد الثنائي (Binary system). • في أجهزة الكمبيوتر، جميع أنواع البيانات، مثل الأرقام والأحرف والصوت والصور، يتم تمثيلها في النظام الثنائي (Binary system). (أيقونة سماعة)</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) الترقيم: الإنجليزية ترقّم البنود (1)-(6) كلها وتجعل (5) عنوان &quot;Advantages of Digital Data&quot; بقائمة فرعية [1]-[4]؛ العربية ترقّم (1)-(4) فقط ثم تكمل بنقاط:«• مزايا البيانات الرقمية» وأربع نقاط تحتها، ثم «• النظام الثنائي» و«• في أجهزة الكمبيوتر…». (2) تعريف التناظري: العربية «هي كميات تتغير تدريجيًا وبشكل مستمر ويمكن قياسها بدقة فائقة» — تضيف «تتغير تدريجيًا» — مقابل الإنجليزية &quot;quantities that can be measured continuously and with fine precision&quot;. (3) تعريف الرقمي:العربية «تشير إلى الكميات التي تتغير في خطوات محددة ومنفصلة ويتم تمثيلها رقميًا» مقابل الإنجليزية &quot;Refers to quantities that continuously change and are represented numerically by segmenting at regular intervals&quot; — نعرض الصياغتين كما طُبعتا. (4) مزايا [1]: العربية «يمكن تجميع البيانات أو استنساخها دون إهدار» مقابل الإنجليزية &quot;accumulated or duplicated without degradation&quot;. مزايا [3]: العربية «نقل البيانات بكفاءة» مقابل الإنجليزية &quot;efficiently communicate the information&quot;. مزايا [4]: العربية تضيف «للتعبير عنها». (5) تعريف الثنائي:العربية «طريقة رقمية لتمثيل الأرقام باستخدام رقمين 0 و 1 وهما يمثلان نظام العد الثنائي (Binary system)» مقابل الإنجليزية &quot;A method of representing numbers using two types of digits, 0 and 1&quot;. (6) بند (3) العربي يطبع المصطلح داخل قوسين مزدوجين «((A/D conversion (digitization)))» مقابل قوس واحد في الإنجليزية. (7) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁴؛ العربية بالتظليل الأحمر فقط. (8) أيقونتا السماعة في الموضعين نفسيهما بالنسختين:بعد (4) وبعد سطر الكمبيوتر. (9) صورتا الترمومتر في الهامش بالنسختين: ترمومتر زئبقي موسوم «تناظري»/Analog وترمومتر رقمي «رقمي»/Digital." data-en="Edition comparison: (1) Numbering: English numbers all items (1)-(6), making (5) the &quot;Advantages of Digital Data&quot; heading with sub-list [1]-[4]; Arabic numbers only (1)-(4) and continues with bullets:&quot;• مزايا البيانات الرقمية&quot; with four bullets under it, then &quot;• النظام الثنائي&quot; and &quot;• في أجهزة الكمبيوتر…&quot;. (2) The analog definition:Arabic «هي كميات تتغير تدريجيًا وبشكل مستمر ويمكن قياسها بدقة فائقة» - adding «تتغير تدريجيًا» (change gradually) - vs English &quot;quantities that can be measured continuously and with fine precision&quot;. (3) The digital definition:Arabic «تشير إلى الكميات التي تتغير في خطوات محددة ومنفصلة ويتم تمثيلها رقميًا» (change in specific discrete steps) vs English &quot;Refers to quantities that continuously change and are represented numerically by segmenting at regular intervals&quot; - both phrasings shown as printed. (4) Advantage [1]: Arabic «يمكن تجميع البيانات أو استنساخها دون إهدار» (&quot;without waste&quot;) vs English &quot;accumulated or duplicated without degradation&quot;. Advantage [3]: Arabic «نقل البيانات بكفاءة» vs English &quot;efficiently communicate the information&quot;. Advantage [4]: Arabic adds «للتعبير عنها». (5) The binary definition:Arabic «طريقة رقمية لتمثيل الأرقام باستخدام رقمين 0 و 1 وهما يمثلان نظام العد الثنائي (Binary system)» vs English &quot;A method of representing numbers using two types of digits, 0 and 1&quot;. (6) The Arabic item (3) prints the term in doubled parentheses «((A/D conversion (digitization)))» vs one pair in English. (7) English marks terms with superscripts ¹-¹⁴; Arabic uses the red highlight only. (8) The two speaker icons sit in the same two spots in both editions:after (4) and after the computers line. (9) Both editions show the two margin thermometers: a mercury thermometer labeled «تناظري»/Analog and a digital one labeled «رقمي»/Digital.">مقارنة النسختين: (1) الترقيم: الإنجليزية ترقّم البنود (1)-(6) كلها وتجعل (5) عنوان "Advantages of Digital Data" بقائمة فرعية [1]-[4]؛ العربية ترقّم (1)-(4) فقط ثم تكمل بنقاط: «• مزايا البيانات الرقمية» وأربع نقاط تحتها، ثم «• النظام الثنائي» و«• في أجهزة الكمبيوتر…». (2) تعريف التناظري: العربية «هي كميات تتغير تدريجيًا وبشكل مستمر ويمكن قياسها بدقة فائقة» — تضيف «تتغير تدريجيًا» — مقابل الإنجليزية "quantities that can be measured continuously and with fine precision". (3) تعريف الرقمي: العربية «تشير إلى الكميات التي تتغير في خطوات محددة ومنفصلة ويتم تمثيلها رقميًا» مقابل الإنجليزية "Refers to quantities that continuously change and are represented numerically by segmenting at regular intervals" — نعرض الصياغتين كما طُبعتا. (4) مزايا [1]: العربية «يمكن تجميع البيانات أو استنساخها دون إهدار» مقابل الإنجليزية "accumulated or duplicated without degradation". مزايا [3]: العربية «نقل البيانات بكفاءة» مقابل الإنجليزية "efficiently communicate the information". مزايا [4]: العربية تضيف «للتعبير عنها». (5) تعريف الثنائي: العربية «طريقة رقمية لتمثيل الأرقام باستخدام رقمين 0 و 1 وهما يمثلان نظام العد الثنائي (Binary system)» مقابل الإنجليزية "A method of representing numbers using two types of digits, 0 and 1". (6) بند (3) العربي يطبع المصطلح داخل قوسين مزدوجين «((A/D conversion (digitization)))» مقابل قوس واحد في الإنجليزية. (7) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁴؛ العربية بالتظليل الأحمر فقط. (8) أيقونتا السماعة في الموضعين نفسيهما بالنسختين: بعد (4) وبعد سطر الكمبيوتر. (9) صورتا الترمومتر في الهامش بالنسختين: ترمومتر زئبقي موسوم «تناظري»/Analog وترمومتر رقمي «رقمي»/Digital.</div></div></div>
+ الكمبيوتر كل حاجة — أرقام، حروف، صوت، صور — ممثلة <b>بالنظام الثنائي 0 و1</b>.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>• النظام الثنائي: طريقة رقمية لتمثيل الأرقام باستخدام رقمين 0 و 1 وهما يمثلان نظام العد الثنائي. • في أجهزة الكمبيوتر، جميع أنواع البيانات، مثل الأرقام والأحرف والصوت والصور، يتم تمثيلها في النظام الثنائي. (أيقونة سماعة)</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) الترقيم: الإنجليزية ترقّم البنود (1)-(6) كلها وتجعل (5) عنوان &quot;Advantages of Digital Data&quot; بقائمة فرعية [1]-[4]؛ العربية ترقّم (1)-(4) فقط ثم تكمل بنقاط:«• مزايا البيانات الرقمية» وأربع نقاط تحتها، ثم «• النظام الثنائي» و«• في أجهزة الكمبيوتر…». (2) تعريف التناظري: العربية «هي كميات تتغير تدريجيًا وبشكل مستمر ويمكن قياسها بدقة فائقة» — تضيف «تتغير تدريجيًا» — مقابل الإنجليزية &quot;quantities that can be measured continuously and with fine precision&quot;. (3) تعريف الرقمي:العربية «تشير إلى الكميات التي تتغير في خطوات محددة ومنفصلة ويتم تمثيلها رقميًا» مقابل الإنجليزية &quot;Refers to quantities that continuously change and are represented numerically by segmenting at regular intervals&quot; — نعرض الصياغتين كما طُبعتا. (4) مزايا [1]: العربية «يمكن تجميع البيانات أو استنساخها دون إهدار» مقابل الإنجليزية &quot;accumulated or duplicated without degradation&quot;. مزايا [3]: العربية «نقل البيانات بكفاءة» مقابل الإنجليزية &quot;efficiently communicate the information&quot;. مزايا [4]: العربية تضيف «للتعبير عنها». (5) تعريف الثنائي:العربية «طريقة رقمية لتمثيل الأرقام باستخدام رقمين 0 و 1 وهما يمثلان نظام العد الثنائي (Binary system)» مقابل الإنجليزية &quot;A method of representing numbers using two types of digits, 0 and 1&quot;. (6) بند (3) العربي يطبع المصطلح داخل قوسين مزدوجين «((A/D conversion (digitization)))» مقابل قوس واحد في الإنجليزية. (7) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁴؛ العربية بالتظليل الأحمر فقط. (8) أيقونتا السماعة في الموضعين نفسيهما بالنسختين:بعد (4) وبعد سطر الكمبيوتر. (9) صورتا الترمومتر في الهامش بالنسختين: ترمومتر زئبقي موسوم «تناظري»/Analog وترمومتر رقمي «رقمي»/Digital." data-en="Edition comparison: (1) Numbering: English numbers all items (1)-(6), making (5) the &quot;Advantages of Digital Data&quot; heading with sub-list [1]-[4]; Arabic numbers only (1)-(4) and continues with bullets:&quot;• مزايا البيانات الرقمية&quot; with four bullets under it, then &quot;• النظام الثنائي&quot; and &quot;• في أجهزة الكمبيوتر…&quot;. (2) The analog definition:Arabic «هي كميات تتغير تدريجيًا وبشكل مستمر ويمكن قياسها بدقة فائقة» - adding «تتغير تدريجيًا» (change gradually) - vs English &quot;quantities that can be measured continuously and with fine precision&quot;. (3) The digital definition:Arabic «تشير إلى الكميات التي تتغير في خطوات محددة ومنفصلة ويتم تمثيلها رقميًا» (change in specific discrete steps) vs English &quot;Refers to quantities that continuously change and are represented numerically by segmenting at regular intervals&quot; - both phrasings shown as printed. (4) Advantage [1]: Arabic «يمكن تجميع البيانات أو استنساخها دون إهدار» (&quot;without waste&quot;) vs English &quot;accumulated or duplicated without degradation&quot;. Advantage [3]: Arabic «نقل البيانات بكفاءة» vs English &quot;efficiently communicate the information&quot;. Advantage [4]: Arabic adds «للتعبير عنها». (5) The binary definition:Arabic «طريقة رقمية لتمثيل الأرقام باستخدام رقمين 0 و 1 وهما يمثلان نظام العد الثنائي (Binary system)» vs English &quot;A method of representing numbers using two types of digits, 0 and 1&quot;. (6) The Arabic item (3) prints the term in doubled parentheses «((A/D conversion (digitization)))» vs one pair in English. (7) English marks terms with superscripts ¹-¹⁴; Arabic uses the red highlight only. (8) The two speaker icons sit in the same two spots in both editions:after (4) and after the computers line. (9) Both editions show the two margin thermometers: a mercury thermometer labeled «تناظري»/Analog and a digital one labeled «رقمي»/Digital.">مقارنة النسختين: (1) الترقيم: الإنجليزية ترقّم البنود (1)-(6) كلها وتجعل (5) عنوان "Advantages of Digital Data" بقائمة فرعية [1]-[4]؛ العربية ترقّم (1)-(4) فقط ثم تكمل بنقاط: «• مزايا البيانات الرقمية» وأربع نقاط تحتها، ثم «• النظام الثنائي» و«• في أجهزة الكمبيوتر…». (2) تعريف التناظري: العربية «هي كميات تتغير تدريجيًا وبشكل مستمر ويمكن قياسها بدقة فائقة» — تضيف «تتغير تدريجيًا» — مقابل الإنجليزية "quantities that can be measured continuously and with fine precision". (3) تعريف الرقمي: العربية «تشير إلى الكميات التي تتغير في خطوات محددة ومنفصلة ويتم تمثيلها رقميًا» مقابل الإنجليزية "Refers to quantities that continuously change and are represented numerically by segmenting at regular intervals" — نعرض الصياغتين كما طُبعتا. (4) مزايا [1]: العربية «يمكن تجميع البيانات أو استنساخها دون إهدار» مقابل الإنجليزية "accumulated or duplicated without degradation". مزايا [3]: العربية «نقل البيانات بكفاءة» مقابل الإنجليزية "efficiently communicate the information". مزايا [4]: العربية تضيف «للتعبير عنها». (5) تعريف الثنائي: العربية «طريقة رقمية لتمثيل الأرقام باستخدام رقمين 0 و 1 وهما يمثلان نظام العد الثنائي (Binary system)» مقابل الإنجليزية "A method of representing numbers using two types of digits, 0 and 1". (6) بند (3) العربي يطبع المصطلح داخل قوسين مزدوجين «((A/D conversion (digitization)))» مقابل قوس واحد في الإنجليزية. (7) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁴؛ العربية بالتظليل الأحمر فقط. (8) أيقونتا السماعة في الموضعين نفسيهما بالنسختين: بعد (4) وبعد سطر الكمبيوتر. (9) صورتا الترمومتر في الهامش بالنسختين: ترمومتر زئبقي موسوم «تناظري»/Analog وترمومتر رقمي «رقمي»/Digital.</div></div></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -1649,7 +693,7 @@ select{color:var(--text)!important}
                 data-en="What does the binary system use to represent numbers?">النظام الثنائي بيستخدم إيه لتمثيل الأرقام؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="binaryRq1o2" data-key="A"
-                data-fb-ar="دي العشرية (Decimal) — الأرقام من 0 لـ9."
+                data-fb-ar="دي العشرية — الأرقام من 0 لـ9."
                 data-fb-en="That is decimal — the digits from 0 to 9."><span
                   class="rq-key">A</span><span class="rq-body" data-ar="الأرقام من 0 لـ 9"
                   data-en="The digits from 0 to 9">الأرقام من 0 لـ 9</span></div>
@@ -1694,14 +738,14 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين العشري والثنائي — العشري من 0 لـ 9، والثنائي صفر وواحد بس."
             data-en="Mixing up decimal and binary — decimal is 0 to 9, binary is only 0 and 1.">
-            الخلط بين العشري والثنائي — العشري <b>0 لـ9</b>، والثنائي <b>0 و1 بس</b>.</li>
-          <li data-ar="نسيان إن كل أنواع الداتا (Data) — مش بس الأرقام — بتمثّل بالثنائي في الكمبيوتر."
+ الخلط بين العشري والثنائي — العشري <b>0 لـ9</b>، والثنائي <b>0 و1 بس</b>.</li>
+          <li data-ar="نسيان إن كل أنواع البيانات — مش بس الأرقام — بتمثّل بالثنائي في الكمبيوتر."
             data-en="Forgetting that all data types — not just numbers — are represented in binary in the computer.">
-            نسيان إن <b>كل أنواع البيانات</b> — مش الأرقام بس — بتتمثل ثنائي في الكمبيوتر.</li>
+ نسيان إن <b>كل أنواع البيانات</b> — مش الأرقام بس — بتتمثل ثنائي في الكمبيوتر.</li>
         </ul>
       </div>
     </section>
@@ -1713,8 +757,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">07</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 53–54 (المطبوع 53–54)؛ AR 62–63"
-              data-en="Your book: English PDF 53-54 (printed 53-54); Arabic 62-63">الكتاب بتاعك:EN PDF 53–54 (المطبوع 53–54)؛ AR 62–63</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1737,31 +781,31 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <!-- TEXTBOOK-CARD-BEGIN id="book-warm" -->
         <div class="book-card">
-          <h3 data-ar="من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع</h3>
-          <p data-ar="تحدى معلوماتك — في كل من العبارات التالية من أ إلى د، حدد ما إذا كانت العبارة تناظرية أم رقمية. (أ) مقياس حرارة يمثل كمية مستمرة باستخدام طول عمود الزئبق. (ب) دقيق وقابل للتكرار بشكل كبير، دون أي إهدار بسبب الاستنساخ أو النقل. (جـ) يمكن تمثيل الكمية التي تتغير بشكل مستمر باستخدام الرقمين 0 و 1 وهما يمثلان نظام العد الثنائي (Binary system). (د) جميع البيانات (الأرقام، النصوص، الصوت، الصور، مقاطع الفيديو، إلخ) يمكن تمثيلها في النظام الثنائي." data-en="Warm Up - For each of the following statements A to D, answer whether the statement describes analog or digital. A A thermometer that represents a continuous quantity using the length of a mercury column. B Accurate and highly reproducible, without any degradation due to duplication or transmission. C A quantity that changes continuously can be represented using the numbers 0 and 1. D All information (numbers, text, audio, images, videos, etc.) can be represented in binary.">تحدى معلوماتك — في كل من العبارات التالية من أ إلى د، حدد ما إذا كانت العبارة تناظرية أم رقمية. (أ) مقياس حرارة يمثل كمية مستمرة باستخدام طول عمود الزئبق. (ب) دقيق وقابل للتكرار بشكل كبير، دون أي إهدار بسبب الاستنساخ أو النقل. (جـ) يمكن تمثيل الكمية التي تتغير بشكل مستمر باستخدام الرقمين 0 و 1 وهما يمثلان نظام العد الثنائي (Binary system). (د) جميع البيانات (الأرقام، النصوص، الصوت، الصور، مقاطع الفيديو، إلخ) يمكن تمثيلها في النظام الثنائي.</p>
+          <h3 data-ar="من الكتاب: تحدى معلوماتك مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك مع الشرح المطبوع</h3>
+          <p data-ar="تحدى معلوماتك — في كل من العبارات التالية من أ إلى د، حدد ما إذا كانت العبارة تناظرية أم رقمية. (أ) مقياس حرارة يمثل كمية مستمرة باستخدام طول عمود الزئبق. (ب) دقيق وقابل للتكرار بشكل كبير، دون أي إهدار بسبب الاستنساخ أو النقل. (جـ) يمكن تمثيل الكمية التي تتغير بشكل مستمر باستخدام الرقمين 0 و 1 وهما يمثلان نظام العد الثنائي. (د) جميع البيانات (الأرقام، النصوص، الصوت، الصور، مقاطع الفيديو، إلخ) يمكن تمثيلها في النظام الثنائي." data-en="Warm Up - For each of the following statements A to D, answer whether the statement describes analog or digital. A A thermometer that represents a continuous quantity using the length of a mercury column. B Accurate and highly reproducible, without any degradation due to duplication or transmission. C A quantity that changes continuously can be represented using the numbers 0 and 1. D All information (numbers, text, audio, images, videos, etc.) can be represented in binary.">تحدى معلوماتك — في كل من العبارات التالية من أ إلى د، حدد ما إذا كانت العبارة تناظرية أم رقمية. (أ) مقياس حرارة يمثل كمية مستمرة باستخدام طول عمود الزئبق. (ب) دقيق وقابل للتكرار بشكل كبير، دون أي إهدار بسبب الاستنساخ أو النقل. (جـ) يمكن تمثيل الكمية التي تتغير بشكل مستمر باستخدام الرقمين 0 و 1 وهما يمثلان نظام العد الثنائي. (د) جميع البيانات (الأرقام، النصوص، الصوت، الصور، مقاطع الفيديو، إلخ) يمكن تمثيلها في النظام الثنائي.</p>
           <p data-ar="الشرح المطبوع — (1): تناظرية (2): رقمية (3): رقمية (4): رقمية." data-en="Printed Explanation - A: Analog B: Digital C: Digital D: Digital.">الشرح المطبوع — (1): تناظرية (2): رقمية (3): رقمية (4): رقمية.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) العربية تحرّف العبارات (أ)-(د) لكنها ترقّم إجابات الشرح (1)-(4)، بينما الإنجليزية تحرّف A-D في السؤال والشرح معًا — نعرض التسلسلين كما طُبعا، والمواضع متقابلة. (2) العبارة (جـ) العربية تضيف «وهما يمثلان نظام العد الثنائي (Binary system)» في نهايتها، بينما الإنجليزية C تقف عند &quot;the numbers 0 and 1&quot;. (3) العبارة (ب): العربية «دقيق وقابل للتكرار بشكل كبير، دون أي إهدار بسبب الاستنساخ أو النقل» مقابل الإنجليزية &quot;Accurate and highly reproducible, without any degradation due to duplication or transmission&quot;. (4) العبارة (أ): العربية «مقياس حرارة يمثل كمية مستمرة باستخدام طول عمود الزئبق» مقابل الإنجليزية &quot;A thermometer that represents a continuous quantity using the length of a mercury column&quot;. (5) تعليمة السؤال:العربية «حدد ما إذا كانت العبارة تناظرية أم رقمية» مقابل الإنجليزية &quot;answer whether the statement describes analog or digital&quot;. (6) الإجابات متفقة في النسختين:تناظرية/رقمية/رقمية/رقمية = Analog/Digital/Digital/Digital، وهي مطبوعة في «الشرح»/Explanation في النسختين." data-en="Edition comparison: (1) Arabic letters the statements (أ)-(د) but numbers the Explanation answers (1)-(4), while English letters A-D in both the question and the Explanation - both sequences shown as printed, and the positions correspond. (2) Arabic statement (جـ) adds «وهما يمثلان نظام العد الثنائي (Binary system)» at its end, while English C stops at &quot;the numbers 0 and 1&quot;. (3) Statement (ب): Arabic «دقيق وقابل للتكرار بشكل كبير، دون أي إهدار بسبب الاستنساخ أو النقل» vs English &quot;Accurate and highly reproducible, without any degradation due to duplication or transmission&quot;. (4) Statement (أ): Arabic «مقياس حرارة يمثل كمية مستمرة باستخدام طول عمود الزئبق» vs English &quot;A thermometer that represents a continuous quantity using the length of a mercury column&quot;. (5) The instruction:Arabic «حدد ما إذا كانت العبارة تناظرية أم رقمية» vs English &quot;answer whether the statement describes analog or digital&quot;. (6) The answers agree in both editions:تناظرية/رقمية/رقمية/رقمية = Analog/Digital/Digital/Digital, and they are printed in the «الشرح»/Explanation in both editions.">مقارنة النسختين: (1) العربية تحرّف العبارات (أ)-(د) لكنها ترقّم إجابات الشرح (1)-(4)، بينما الإنجليزية تحرّف A-D في السؤال والشرح معًا — نعرض التسلسلين كما طُبعا، والمواضع متقابلة. (2) العبارة (جـ) العربية تضيف «وهما يمثلان نظام العد الثنائي (Binary system)» في نهايتها، بينما الإنجليزية C تقف عند "the numbers 0 and 1". (3) العبارة (ب): العربية «دقيق وقابل للتكرار بشكل كبير، دون أي إهدار بسبب الاستنساخ أو النقل» مقابل الإنجليزية "Accurate and highly reproducible, without any degradation due to duplication or transmission". (4) العبارة (أ): العربية «مقياس حرارة يمثل كمية مستمرة باستخدام طول عمود الزئبق» مقابل الإنجليزية "A thermometer that represents a continuous quantity using the length of a mercury column". (5) تعليمة السؤال: العربية «حدد ما إذا كانت العبارة تناظرية أم رقمية» مقابل الإنجليزية "answer whether the statement describes analog or digital". (6) الإجابات متفقة في النسختين: تناظرية/رقمية/رقمية/رقمية = Analog/Digital/Digital/Digital، وهي مطبوعة في «الشرح»/Explanation في النسختين.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 53 (المطبوع 53)؛ AR 62." data-en="The above is from the textbook. Full source: English PDF 53 (printed 53); Arabic 62.">النص السابق من الكتاب. المصدر الكامل:EN PDF 53 (المطبوع 53)؛ AR 62.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: جرب بنفسك (Try)" data-en="From the book: Try">من الكتاب: جرب بنفسك (Try)</h3>
+          <h3 data-ar="من الكتاب: جرب بنفسك" data-en="From the book: Try">من الكتاب: جرب بنفسك</h3>
           <p data-ar="جرب بنفسك — أجب عن الأسئلة التالية. (1) اختر المصطلحات التي تناسب الفراغات [1] إلى [5] من الخيارات من أ إلى ح. الكمية التي توجد عادة في حياتنا اليومية وتتغير بشكل مستمر، مثل الوقت أو درجة الحرارة، تُسمى ( [1] ). في المقابل، الكمية التي تمثل قيمة متغيرة باستمرار عن طريق تقسيمها إلى فترات منتظمة والتعبير عنها رقميًا تسمى ( [2] ). تحويل البيانات التناظرية إلى بيانات رقمية يُسمى تحويل ( [3] ) بينما العكس يُسمى تحويل ( [4] ). علاوة على ذلك، عند التعامل مع الأحرف والصور والصوت والفيديو والبيانات الأخرى على الكمبيوتر، يتم تمثيل البيانات باستخدام رقمين 0 و 1، والذي يشار إليه باسم ( [5] ). الخيارات المطبوعة: (أ) النظام الثنائي (ب) النظام العشري (ت) الرقمية (ث) التناظرية (ج) A/D (ح) D/A." data-en="Try - Answer the following questions. (1) Choose the terms that best fit into the blanks [1] to [5] from the options A to F below. (Boxed text:) A quantity that is commonly found in our daily lives and changes continuously, such as time or temperature, is called ( [1] ). In contrast, a quantity that represents a continuously changing value by dividing it into regular intervals and expressing it numerically is called ( [2] ). Converting analog data to digital data is called ( [3] ) conversion, while the reverse is called ( [4] ) conversion. Furthermore, when handling characters, images, audio, video, and other data on a computer, the data is represented using two numbers, 0 and 1, which is referred to as ( [5] ). Printed options: A Binary, B Decimal, C Digital, D Analog, E A/D, F D/A.">جرب بنفسك — أجب عن الأسئلة التالية. (1) اختر المصطلحات التي تناسب الفراغات [1] إلى [5] من الخيارات من أ إلى ح. الكمية التي توجد عادة في حياتنا اليومية وتتغير بشكل مستمر، مثل الوقت أو درجة الحرارة، تُسمى ( [1] ). في المقابل، الكمية التي تمثل قيمة متغيرة باستمرار عن طريق تقسيمها إلى فترات منتظمة والتعبير عنها رقميًا تسمى ( [2] ). تحويل البيانات التناظرية إلى بيانات رقمية يُسمى تحويل ( [3] ) بينما العكس يُسمى تحويل ( [4] ). علاوة على ذلك، عند التعامل مع الأحرف والصور والصوت والفيديو والبيانات الأخرى على الكمبيوتر، يتم تمثيل البيانات باستخدام رقمين 0 و 1، والذي يشار إليه باسم ( [5] ). الخيارات المطبوعة: (أ) النظام الثنائي (ب) النظام العشري (ت) الرقمية (ث) التناظرية (ج) A/D (ح) D/A.</p>
           <p data-ar="(2) لكل من العبارات التالية من أ إلى ج، أجب سواء كانت تصف التناظرية أو الرقمية. (أ) يمكن تحقيق تراكم البيانات وتكرارها بسهولة. (ب) يتم قياس درجة الحرارة بتقييم ارتفاع عمود الزئبق. (ت) حتى إذا حدث بعض التشويه في الإشارة الكهربائية بسبب الضوضاء أثناء النقل، فيمكن بسهولة تصحيحها. (ث) الكميات التي تتغير بشكل مستمر، مثل الوقت أو درجة الحرارة. (ج) من الممكن التعامل الشامل مع أشكال مختلفة من الوسائط." data-en="(2) For each of the following statements A to E, answer whether the statement describes analog or digital. A Accumulation and duplication of information can be easily achieved. B Temperature is measured by assessing the height of the mercury column. C Even if some distortion occurs in the electrical signal due to noise during transmission, it can be easily corrected. D Quantities that change continuously, such as time or temperature. E It is possible to comprehensively handle various forms of media.">(2) لكل من العبارات التالية من أ إلى ج، أجب سواء كانت تصف التناظرية أو الرقمية. (أ) يمكن تحقيق تراكم البيانات وتكرارها بسهولة. (ب) يتم قياس درجة الحرارة بتقييم ارتفاع عمود الزئبق. (ت) حتى إذا حدث بعض التشويه في الإشارة الكهربائية بسبب الضوضاء أثناء النقل، فيمكن بسهولة تصحيحها. (ث) الكميات التي تتغير بشكل مستمر، مثل الوقت أو درجة الحرارة. (ج) من الممكن التعامل الشامل مع أشكال مختلفة من الوسائط.</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] التناظرية — الخيار (ث) [2] الرقمية — الخيار (ت) [3] ‏A/D — الخيار (ج) [4] ‏D/A — الخيار (ح) [5] النظام الثنائي — الخيار (أ) (بالترتيب الإنجليزي: D، C، E، F، A). (2) (أ) رقمية (ب) تناظرية (ت) رقمية (ث) تناظرية (ج) رقمية." data-en="Answers not printed in the book (teacher-prepared): (1) [1] Analog - option D [2] Digital - option C [3] A/D - option E [4] D/A - option F [5] Binary - option A (in the Arabic lettering: ث، ت، ج، ح، أ). (2) A digital, B analog, C digital, D analog, E digital.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] التناظرية — الخيار (ث) [2] الرقمية — الخيار (ت) [3] ‏A/D — الخيار (ج) [4] ‏D/A — الخيار (ح) [5] النظام الثنائي — الخيار (أ) (بالترتيب الإنجليزي: D، C، E، F، A). (2) (أ) رقمية (ب) تناظرية (ت) رقمية (ث) تناظرية (ج) رقمية.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) خيارات (1) معنونة أ-ح بالترتيب الأبجدي في العربية وA-F في الإنجليزية بالترتيب الدلالي نفسه: النظام الثنائي/Binary، النظام العشري/Decimal، الرقمية/Digital، التناظرية/Analog، A/D، D/A — والمصطلحات العربية بأداة التعريف وكلمة «النظام» مقابل الإنجليزية Binary/Decimal المجردة. (2) نص الفراغات داخل إطار في النسختين. (3) سؤال (2): العربية «من أ إلى ج» لخمس عبارات مقابل الإنجليزية &quot;A to E&quot;. (4) تعليمة (1): العربية «اختر المصطلحات التي تناسب الفراغات» مقابل الإنجليزية &quot;Choose the terms that best fit into the blanks&quot;. (5) تعليمة (2): العربية «أجب سواء كانت تصف التناظرية أو الرقمية» مقابل الإنجليزية &quot;answer whether the statement describes analog or digital&quot;. (6) عبارة (ب): العربية «يتم قياس درجة الحرارة بتقييم ارتفاع عمود الزئبق» مقابل الإنجليزية &quot;Temperature is measured by assessing the height of the mercury column&quot;. (7) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا." data-en="Edition comparison:(1) The options of (1) are lettered أ-ح in abjad order in Arabic and A-F in English in the same semantic order: النظام الثنائي/Binary, النظام العشري/Decimal, الرقمية/Digital, التناظرية/Analog, A/D, D/A - the Arabic terms carry the definite article and the word «النظام» vs the bare English Binary/Decimal. (2) The blanks text sits inside a frame in both editions. (3) Question (2): Arabic «من أ إلى ج» for five statements vs English &quot;A to E&quot;. (4) Instruction of (1): Arabic «اختر المصطلحات التي تناسب الفراغات» vs English &quot;Choose the terms that best fit into the blanks&quot;. (5) Instruction of (2): Arabic «أجب سواء كانت تصف التناظرية أو الرقمية» vs English &quot;answer whether the statement describes analog or digital&quot;. (6) Statement (ب): Arabic «يتم قياس درجة الحرارة بتقييم ارتفاع عمود الزئبق» vs English &quot;Temperature is measured by assessing the height of the mercury column&quot;. (7) The answers are not printed in either edition - the answers above are teacher-prepared.">مقارنة النسختين:(1) خيارات (1) معنونة أ-ح بالترتيب الأبجدي في العربية وA-F في الإنجليزية بالترتيب الدلالي نفسه: النظام الثنائي/Binary، النظام العشري/Decimal، الرقمية/Digital، التناظرية/Analog، A/D، D/A — والمصطلحات العربية بأداة التعريف وكلمة «النظام» مقابل الإنجليزية Binary/Decimal المجردة. (2) نص الفراغات داخل إطار في النسختين. (3) سؤال (2): العربية «من أ إلى ج» لخمس عبارات مقابل الإنجليزية "A to E". (4) تعليمة (1): العربية «اختر المصطلحات التي تناسب الفراغات» مقابل الإنجليزية "Choose the terms that best fit into the blanks". (5) تعليمة (2): العربية «أجب سواء كانت تصف التناظرية أو الرقمية» مقابل الإنجليزية "answer whether the statement describes analog or digital". (6) عبارة (ب): العربية «يتم قياس درجة الحرارة بتقييم ارتفاع عمود الزئبق» مقابل الإنجليزية "Temperature is measured by assessing the height of the mercury column". (7) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 54 (المطبوع 54)؛ AR 63." data-en="The above is from the textbook. Full source: English PDF 54 (printed 54); Arabic 63.">النص السابق من الكتاب. المصدر الكامل:EN PDF 54 (المطبوع 54)؛ AR 63.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: تمرين (Exercise)" data-en="From the book: Exercise">من الكتاب: تمرين (Exercise)</h3>
+          <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
           <p data-ar="تمرين — 1 أجب عن الأسئلة التالية. (أ) ما هو المصطلح للكميات التي يمكن قياسها بشكل مستمر وبدقة فائقة، مثل الكتلة أو الوقت؟ (ب) ما هو المصطلح لعملية تحويل البيانات الرقمية إلى بيانات تناظرية؟ (ت) ما هو التحويل من تناظري إلى رقمي؟ اشرح باختصار باستخدام المصطلحات &quot;رقمي&quot; و&quot;تناظري&quot;. (ث) ما هو المصطلح لطريقة تمثيل الأرقام باستخدام نوعين من الأرقام (0 و 1)؟" data-en="Exercise - 1 Answer the following questions. (1) What is the term for quantities that can be measured continuously and with fine precision, such as mass or time? (2) What is the term for the process of converting digital data into analog data? (3) What is A/D conversion? Explain briefly using the terms &quot;digital&quot; and &quot;analog.&quot; (4) What is the term for the method of representing numbers using two types of digits (0 and 1)?">تمرين — 1 أجب عن الأسئلة التالية. (أ) ما هو المصطلح للكميات التي يمكن قياسها بشكل مستمر وبدقة فائقة، مثل الكتلة أو الوقت؟ (ب) ما هو المصطلح لعملية تحويل البيانات الرقمية إلى بيانات تناظرية؟ (ت) ما هو التحويل من تناظري إلى رقمي؟ اشرح باختصار باستخدام المصطلحات "رقمي" و"تناظري". (ث) ما هو المصطلح لطريقة تمثيل الأرقام باستخدام نوعين من الأرقام (0 و 1)؟</p>
           <p data-ar="2 اختر عبارة واحدة غير صحيحة فيما يتعلق بالبيانات الرقمية من الخيارات من أ إلى ث، وأجب باستخدام الحرف. (أ) يمكن تحقيق تراكم البيانات وتكرارها بسهولة. (ب) من الممكن نقل البيانات بكفاءة. (ت) يمكنها التعبير عن الكميات التي تتغير بشكل مستمر، مثل الوقت ودرجة الحرارة. (ث) من الممكن دمج أنواع مختلفة من الوسائط." data-en="2 Choose one statement that is incorrect in regard to digital data from the options A to D below, and answer using the letter. A Accumulation and duplication of information can be easily achieved. B It is possible to efficiently communicate the information. C It can express quantities that change continuously, such as time and temperature. D It is possible to combine various types of media.">2 اختر عبارة واحدة غير صحيحة فيما يتعلق بالبيانات الرقمية من الخيارات من أ إلى ث، وأجب باستخدام الحرف. (أ) يمكن تحقيق تراكم البيانات وتكرارها بسهولة. (ب) من الممكن نقل البيانات بكفاءة. (ت) يمكنها التعبير عن الكميات التي تتغير بشكل مستمر، مثل الوقت ودرجة الحرارة. (ث) من الممكن دمج أنواع مختلفة من الوسائط.</p>
-          <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب:1 (أ) التناظري (Analog) (ب) التحويل من رقمي إلى تناظري (D/A conversion) (ت) عملية تحويل البيانات التناظرية إلى بيانات رقمية (ث) النظام الثنائي (Binary). 2 العبارة غير الصحيحة هي (ت) — وصف الكميات المتغيرة باستمرار ينطبق على التناظرية لا الرقمية (بالحرف الإنجليزي: C)." data-en="Answers not printed in the book (teacher-prepared): 1 (1) analog (2) D/A conversion (3) the process of converting analog data into digital data (4) binary. 2 The incorrect statement is C - describing continuously changing quantities fits analog, not digital (in the Arabic lettering: ت).">إجابات من إعدادنا — غير مطبوعة في الكتاب: 1 (أ) التناظري (Analog) (ب) التحويل من رقمي إلى تناظري (D/A conversion) (ت) عملية تحويل البيانات التناظرية إلى بيانات رقمية (ث) النظام الثنائي (Binary). 2 العبارة غير الصحيحة هي (ت) — وصف الكميات المتغيرة باستمرار ينطبق على التناظرية لا الرقمية (بالحرف الإنجليزي: C).</p>
+          <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب:1 (أ) التناظري (ب) التحويل من رقمي إلى تناظري (D/A conversion) (ت) عملية تحويل البيانات التناظرية إلى بيانات رقمية (ث) النظام الثنائي. 2 العبارة غير الصحيحة هي (ت) — وصف الكميات المتغيرة باستمرار ينطبق على التناظرية لا الرقمية (بالحرف الإنجليزي: C)." data-en="Answers not printed in the book (teacher-prepared): 1 (1) analog (2) D/A conversion (3) the process of converting analog data into digital data (4) binary. 2 The incorrect statement is C - describing continuously changing quantities fits analog, not digital (in the Arabic lettering: ت).">إجابات من إعدادنا — غير مطبوعة في الكتاب: 1 (أ) التناظري (ب) التحويل من رقمي إلى تناظري (D/A conversion) (ت) عملية تحويل البيانات التناظرية إلى بيانات رقمية (ث) النظام الثنائي. 2 العبارة غير الصحيحة هي (ت) — وصف الكميات المتغيرة باستمرار ينطبق على التناظرية لا الرقمية (بالحرف الإنجليزي: C).</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) سؤال 1 مرقّم (أ)-(ث) في العربية مقابل (1)-(4) في الإنجليزية. (2) سؤال 2: خيارات أ-ث في العربية مقابل A-D في الإنجليزية بالترتيب نفسه. (3) العربية (ت) تطبع «باستخدام المصطلحات &quot;رقمي&quot; و&quot;تناظري&quot;.» مقابل الإنجليزية &quot;using the terms “digital” and “analog.”&quot;. (4) العربية (ث) تطبع «باستخدام نوعين من الأرقام (0 و 1)» مقابل الإنجليزية &quot;using two types of digits (0 and 1)&quot;. (5) سؤال 2 (ب): العربية «من الممكن نقل البيانات بكفاءة» مقابل الإنجليزية &quot;It is possible to efficiently communicate the information&quot;؛ و(ت): العربية «يمكنها التعبير عن الكميات التي تتغير بشكل مستمر» مقابل الإنجليزية &quot;It can express quantities that change continuously&quot;. (6) شريط «تمرين» أحمر في العربية مقابل شريط &quot;Exercise&quot; داكن في الإنجليزية. (7) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا." data-en="Edition comparison:(1) Question 1 is numbered (أ)-(ث) in Arabic vs (1)-(4) in English. (2) Question 2: options أ-ث in Arabic vs A-D in English in the same order. (3) Arabic (ت) prints «باستخدام المصطلحات &quot;رقمي&quot; و&quot;تناظري&quot;.» vs English &quot;using the terms “digital” and “analog.”&quot;. (4) Arabic (ث) prints «باستخدام نوعين من الأرقام (0 و 1)» vs English &quot;using two types of digits (0 and 1)&quot;. (5) Question 2 (ب): Arabic «من الممكن نقل البيانات بكفاءة» vs English &quot;It is possible to efficiently communicate the information&quot;; and (ت): Arabic «يمكنها التعبير عن الكميات التي تتغير بشكل مستمر» vs English &quot;It can express quantities that change continuously&quot;. (6) The «تمرين» band is red in Arabic vs the dark &quot;Exercise&quot; band in English. (7) The answers are not printed in either edition - the answers above are teacher-prepared.">مقارنة النسختين:(1) سؤال 1 مرقّم (أ)-(ث) في العربية مقابل (1)-(4) في الإنجليزية. (2) سؤال 2: خيارات أ-ث في العربية مقابل A-D في الإنجليزية بالترتيب نفسه. (3) العربية (ت) تطبع «باستخدام المصطلحات "رقمي" و"تناظري".» مقابل الإنجليزية "using the terms “digital” and “analog.”". (4) العربية (ث) تطبع «باستخدام نوعين من الأرقام (0 و 1)» مقابل الإنجليزية "using two types of digits (0 and 1)". (5) سؤال 2 (ب): العربية «من الممكن نقل البيانات بكفاءة» مقابل الإنجليزية "It is possible to efficiently communicate the information"؛ و(ت): العربية «يمكنها التعبير عن الكميات التي تتغير بشكل مستمر» مقابل الإنجليزية "It can express quantities that change continuously". (6) شريط «تمرين» أحمر في العربية مقابل شريط "Exercise" داكن في الإنجليزية. (7) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 54 (المطبوع 54)؛ AR 63." data-en="The above is from the textbook. Full source: English PDF 54 (printed 54); Arabic 63.">النص السابق من الكتاب. المصدر الكامل:EN PDF 54 (المطبوع 54)؛ AR 63.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
       </div>
@@ -1774,76 +818,76 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="الفراغ [1] — كمية بنلاقيها في حياتنا اليومية بتتغيّر باستمرار، زي الوقت أو الحرارة، بتتسمّى إيه؟"
               data-en="Blank [1] — a quantity commonly found in our daily lives that changes continuously, like time or temperature, is called?">الفراغ [1] — كمية بنلاقيها في حياتنا اليومية بتتغيّر باستمرار، زي الوقت أو الحرارة، بتتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  ثنائي" data-en="A  Binary">A  ثنائي</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  تناظري" data-en="B  Analog">B  تناظري</div>
-            <div class="ex-opt" data-ar="C  عشري" data-en="C  Decimal">C  عشري</div>
-            <div class="ex-opt" data-ar="D  رقمي" data-en="D  Digital">D  رقمي</div>
-            <div class="ex-opt" data-ar="E  A/D" data-en="E  A/D">E  A/D</div>
-            <div class="ex-opt" data-ar="F  D/A" data-en="F  D/A">F  D/A</div>
+            <div class="ex-opt" data-ar="A ثنائي" data-en="A  Binary">A ثنائي</div>
+            <div class="ex-opt" data-ok="1" data-ar="B تناظري" data-en="B  Analog">B تناظري</div>
+            <div class="ex-opt" data-ar="C عشري" data-en="C  Decimal">C عشري</div>
+            <div class="ex-opt" data-ar="D رقمي" data-en="D  Digital">D رقمي</div>
+            <div class="ex-opt" data-ar="E A/D" data-en="E  A/D">E  A/D</div>
+            <div class="ex-opt" data-ar="F D/A" data-en="F  D/A">F  D/A</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — تناظري" data-en="✅ Answer: B — Analog">✅ الإجابة: B — تناظري</b> <span data-ar="الكمية المستمرة زي الوقت والحرارة هي التناظرية."
               data-en="the continuous quantity like time and temperature is Analog.">الكمية المستمرة زي الوقت والحرارة هي
-              <span dir="ltr">Analog</span>.</span></div>
+ <span dir="ltr">Analog</span>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="الفراغ [2] — كمية بتمثّل قيمة بتتغيّر باستمرار بتقسيمها لفواصل منتظمة وتمثيلها رقمياً، بتتسمّى إيه؟"
               data-en="Blank [2] — a quantity that represents a continuously changing value by dividing it into regular intervals and expressing it numerically, is called?">الفراغ [2] — كمية بتمثّل قيمة بتتغيّر باستمرار بتقسيمها لفواصل منتظمة وتمثيلها رقمياً، بتتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  رقمي" data-en="A  Digital">A  رقمي</div>
-            <div class="ex-opt" data-ar="B  ثنائي" data-en="B  Binary">B  ثنائي</div>
-            <div class="ex-opt" data-ar="C  عشري" data-en="C  Decimal">C  عشري</div>
-            <div class="ex-opt" data-ar="D  تناظري" data-en="D  Analog">D  تناظري</div>
-            <div class="ex-opt" data-ar="E  A/D" data-en="E  A/D">E  A/D</div>
-            <div class="ex-opt" data-ar="F  D/A" data-en="F  D/A">F  D/A</div>
+            <div class="ex-opt" data-ok="1" data-ar="A رقمي" data-en="A  Digital">A رقمي</div>
+            <div class="ex-opt" data-ar="B ثنائي" data-en="B  Binary">B ثنائي</div>
+            <div class="ex-opt" data-ar="C عشري" data-en="C  Decimal">C عشري</div>
+            <div class="ex-opt" data-ar="D تناظري" data-en="D  Analog">D تناظري</div>
+            <div class="ex-opt" data-ar="E A/D" data-en="E  A/D">E  A/D</div>
+            <div class="ex-opt" data-ar="F D/A" data-en="F  D/A">F  D/A</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — رقمي" data-en="✅ Answer: A — Digital">✅ الإجابة: A — رقمي</b> <span data-ar="التقسيم لفواصل والتمثيل الرقمي هو الرقمي."
               data-en="dividing into intervals and numeric representation is Digital.">التقسيم لفترات والتمثيل الرقمي هو
-              <span dir="ltr">Digital</span>.</span></div>
+ <span dir="ltr">Digital</span>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="الفراغ [3] — تحويل الداتا (Data) التناظرية لرقمية بيتسمّى إيه؟"
-              data-en="Blank [3] — converting analog data to digital data is called?">الفراغ [3] — تحويل الداتا (Data) التناظرية لرقمية بيتسمّى إيه؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="الفراغ [3] — تحويل البيانات التناظرية لرقمية بيتسمّى إيه؟"
+              data-en="Blank [3] — converting analog data to digital data is called?">الفراغ [3] — تحويل البيانات التناظرية لرقمية بيتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  ثنائي" data-en="A  Binary">A  ثنائي</div>
-            <div class="ex-opt" data-ar="B  عشري" data-en="B  Decimal">B  عشري</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  A/D" data-en="C  A/D">C  A/D</div>
-            <div class="ex-opt" data-ar="D  رقمي" data-en="D  Digital">D  رقمي</div>
-            <div class="ex-opt" data-ar="E  تناظري" data-en="E  Analog">E  تناظري</div>
-            <div class="ex-opt" data-ar="F  D/A" data-en="F  D/A">F  D/A</div>
+            <div class="ex-opt" data-ar="A ثنائي" data-en="A  Binary">A ثنائي</div>
+            <div class="ex-opt" data-ar="B عشري" data-en="B  Decimal">B عشري</div>
+            <div class="ex-opt" data-ok="1" data-ar="C A/D" data-en="C  A/D">C  A/D</div>
+            <div class="ex-opt" data-ar="D رقمي" data-en="D  Digital">D رقمي</div>
+            <div class="ex-opt" data-ar="E تناظري" data-en="E  Analog">E تناظري</div>
+            <div class="ex-opt" data-ar="F D/A" data-en="F  D/A">F  D/A</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — A/D" data-en="✅ Answer: C — A/D">✅ الإجابة: C — A/D</b>
             <span data-ar="A/D = تناظري لرقمي."
               data-en="A/D = Analog to Digital."><span dir="ltr">A/D</span> = <span dir="ltr">Analog to Digital</span>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">4</span> <span data-ar="الفراغ [4] — تحويل الداتا (Data) الرقمية لتناظرية بيتسمّى إيه؟"
-              data-en="Blank [4] — converting digital data to analog data is called?">الفراغ [4] — تحويل الداتا (Data) الرقمية لتناظرية بيتسمّى إيه؟</span></div>
+          <div class="q"><span class="q-num">4</span> <span data-ar="الفراغ [4] — تحويل البيانات الرقمية لتناظرية بيتسمّى إيه؟"
+              data-en="Blank [4] — converting digital data to analog data is called?">الفراغ [4] — تحويل البيانات الرقمية لتناظرية بيتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  ثنائي" data-en="A  Binary">A  ثنائي</div>
-            <div class="ex-opt" data-ar="B  عشري" data-en="B  Decimal">B  عشري</div>
-            <div class="ex-opt" data-ar="C  رقمي" data-en="C  Digital">C  رقمي</div>
-            <div class="ex-opt" data-ok="1" data-ar="D  D/A" data-en="D  D/A">D  D/A</div>
-            <div class="ex-opt" data-ar="E  تناظري" data-en="E  Analog">E  تناظري</div>
-            <div class="ex-opt" data-ar="F  A/D" data-en="F  A/D">F  A/D</div>
+            <div class="ex-opt" data-ar="A ثنائي" data-en="A  Binary">A ثنائي</div>
+            <div class="ex-opt" data-ar="B عشري" data-en="B  Decimal">B عشري</div>
+            <div class="ex-opt" data-ar="C رقمي" data-en="C  Digital">C رقمي</div>
+            <div class="ex-opt" data-ok="1" data-ar="D D/A" data-en="D  D/A">D  D/A</div>
+            <div class="ex-opt" data-ar="E تناظري" data-en="E  Analog">E تناظري</div>
+            <div class="ex-opt" data-ar="F A/D" data-en="F  A/D">F  A/D</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: D — D/A" data-en="✅ Answer: D — D/A">✅ الإجابة: D — D/A</b>
             <span data-ar="D/A = رقمي لتناظري."
               data-en="D/A = Digital to Analog."><span dir="ltr">D/A</span> = <span dir="ltr">Digital to Analog</span>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">5</span> <span data-ar="الفراغ [5] — تمثيل الداتا (Data) بالرقمين صفر وواحد في الكمبيوتر بيتسمّى إيه؟"
-              data-en="Blank [5] — representing data with the two digits 0 and 1 in the computer is called?">الفراغ [5] — تمثيل الداتا (Data) بالرقمين صفر وواحد في الكمبيوتر بيتسمّى إيه؟</span></div>
+          <div class="q"><span class="q-num">5</span> <span data-ar="الفراغ [5] — تمثيل البيانات بالرقمين صفر وواحد في الكمبيوتر بيتسمّى إيه؟"
+              data-en="Blank [5] — representing data with the two digits 0 and 1 in the computer is called?">الفراغ [5] — تمثيل البيانات بالرقمين صفر وواحد في الكمبيوتر بيتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  عشري" data-en="A  Decimal">A  عشري</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  ثنائي" data-en="B  Binary">B  ثنائي</div>
-            <div class="ex-opt" data-ar="C  رقمي" data-en="C  Digital">C  رقمي</div>
-            <div class="ex-opt" data-ar="D  تناظري" data-en="D  Analog">D  تناظري</div>
-            <div class="ex-opt" data-ar="E  A/D" data-en="E  A/D">E  A/D</div>
-            <div class="ex-opt" data-ar="F  D/A" data-en="F  D/A">F  D/A</div>
+            <div class="ex-opt" data-ar="A عشري" data-en="A  Decimal">A عشري</div>
+            <div class="ex-opt" data-ok="1" data-ar="B ثنائي" data-en="B  Binary">B ثنائي</div>
+            <div class="ex-opt" data-ar="C رقمي" data-en="C  Digital">C رقمي</div>
+            <div class="ex-opt" data-ar="D تناظري" data-en="D  Analog">D تناظري</div>
+            <div class="ex-opt" data-ar="E A/D" data-en="E  A/D">E  A/D</div>
+            <div class="ex-opt" data-ar="F D/A" data-en="F  D/A">F  D/A</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — ثنائي" data-en="✅ Answer: B — Binary">✅ الإجابة: B — ثنائي</b> <span data-ar="تمثيل الداتا (Data) بصفر وواحد هو النظام الثنائي."
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — ثنائي" data-en="✅ Answer: B — Binary">✅ الإجابة: B — ثنائي</b> <span data-ar="تمثيل البيانات بصفر وواحد هو النظام الثنائي."
               data-en="representing data with 0 and 1 is the binary system.">تمثيل البيانات بـ 0 و1 هو النظام الثنائي
-              <span dir="ltr">(Binary)</span>.</span></div>
+ <span dir="ltr">(Binary)</span>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1854,23 +898,23 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <h3 data-ar="✍️ تدريب 2: جرب بنفسك (2) — حدّد تناظري ولا رقمي"
           data-en="✍️ Exercise 2: Try (2) — decide analog or digital">✍️ التمرين الثاني: <span dir="ltr">Try</span>
-          (2) — حدد أنالوج ولا ديجيتال</h3>
+ (2) — حدد أنالوج ولا ديجيتال</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="العبارة A — التراكم والاستنساخ للمعلومات (Information) ممكن يتحققوا بسهولة."
-              data-en="Statement A — Accumulation and duplication of information can be easily achieved.">العبارة A — التراكم والاستنساخ للمعلومات (Information) ممكن يتحققوا بسهولة.</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="العبارة A — التراكم والاستنساخ للمعلومات ممكن يتحققوا بسهولة."
+              data-en="Statement A — Accumulation and duplication of information can be easily achieved.">العبارة A — التراكم والاستنساخ للمعلومات ممكن يتحققوا بسهولة.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  تناظري" data-en="A  Analog">A  تناظري</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  رقمي" data-en="B  Digital">B  رقمي</div>
+            <div class="ex-opt" data-ar="A تناظري" data-en="A  Analog">A تناظري</div>
+            <div class="ex-opt" data-ok="1" data-ar="B رقمي" data-en="B  Digital">B رقمي</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — رقمي" data-en="✅ Answer: B — Digital">✅ الإجابة: B — رقمي</b> <span data-ar="ميزة الداتا (Data) الرقمية إن التراكم والاستنساخ سهلين."
-              data-en="an advantage of digital data is the ease of accumulation and duplication.">ميزة الداتا (Data) الرقمية إن التراكم والاستنساخ سهلين.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — رقمي" data-en="✅ Answer: B — Digital">✅ الإجابة: B — رقمي</b> <span data-ar="ميزة البيانات الرقمية إن التراكم والاستنساخ سهلين."
+              data-en="an advantage of digital data is the ease of accumulation and duplication.">ميزة البيانات الرقمية إن التراكم والاستنساخ سهلين.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="العبارة B — الحرارة بتتقاس بتقدير ارتفاع عمود الزئبق."
               data-en="Statement B — Temperature is measured by assessing the height of the mercury column.">العبارة B — الحرارة بتتقاس بتقدير ارتفاع عمود الزئبق.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  تناظري" data-en="A  Analog">A  تناظري</div>
-            <div class="ex-opt" data-ar="B  رقمي" data-en="B  Digital">B  رقمي</div>
+            <div class="ex-opt" data-ok="1" data-ar="A تناظري" data-en="A  Analog">A تناظري</div>
+            <div class="ex-opt" data-ar="B رقمي" data-en="B  Digital">B رقمي</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — تناظري" data-en="✅ Answer: A — Analog">✅ الإجابة: A — تناظري</b> <span data-ar="عمود الزئبق بيمدّد باستمرار — وده قياس تناظري."
               data-en="the mercury column extends continuously — that is an analog measurement.">عمود الزئبق بيمدّد باستمرار — وده قياس تناظري.</span></div>
@@ -1879,18 +923,18 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="العبارة C — حتى لو حصل تشوّه في الإشارة الكهربية بسبب الضوضاء أثناء الإرسال، ممكن يتصلّح بسهولة."
               data-en="Statement C — Even if some distortion occurs in the electrical signal due to noise during transmission, it can be easily corrected.">العبارة C — حتى لو حصل تشوّه في الإشارة الكهربية بسبب الضوضاء أثناء الإرسال، ممكن يتصلّح بسهولة.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  تناظري" data-en="A  Analog">A  تناظري</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  رقمي" data-en="B  Digital">B  رقمي</div>
+            <div class="ex-opt" data-ar="A تناظري" data-en="A  Analog">A تناظري</div>
+            <div class="ex-opt" data-ok="1" data-ar="B رقمي" data-en="B  Digital">B رقمي</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — رقمي" data-en="✅ Answer: B — Digital">✅ الإجابة: B — رقمي</b> <span data-ar="الداتا (Data) الرقمية بتتصلّح بسهولة لما تتشوّه."
-              data-en="digital data is easily corrected when distorted.">الداتا (Data) الرقمية بتتصلّح بسهولة لما تتشوّه.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — رقمي" data-en="✅ Answer: B — Digital">✅ الإجابة: B — رقمي</b> <span data-ar="البيانات الرقمية بتتصلّح بسهولة لما تتشوّه."
+              data-en="digital data is easily corrected when distorted.">البيانات الرقمية بتتصلّح بسهولة لما تتشوّه.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">4</span> <span data-ar="العبارة D — كميات بتتغيّر باستمرار، زي الوقت أو الحرارة."
               data-en="Statement D — Quantities that change continuously, such as time or temperature.">العبارة D — كميات بتتغيّر باستمرار، زي الوقت أو الحرارة.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  تناظري" data-en="A  Analog">A  تناظري</div>
-            <div class="ex-opt" data-ar="B  رقمي" data-en="B  Digital">B  رقمي</div>
+            <div class="ex-opt" data-ok="1" data-ar="A تناظري" data-en="A  Analog">A تناظري</div>
+            <div class="ex-opt" data-ar="B رقمي" data-en="B  Digital">B رقمي</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — تناظري" data-en="✅ Answer: A — Analog">✅ الإجابة: A — تناظري</b> <span data-ar="كمية مستمرة زي الوقت والحرارة هي التناظرية."
               data-en="a continuous quantity like time and temperature is analog.">كمية مستمرة زي الوقت والحرارة هي التناظرية.</span></div>
@@ -1899,8 +943,8 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">5</span> <span data-ar="العبارة E — ممكن نتعامل بشكل شامل مع أشكال مختلفة من الوسائط."
               data-en="Statement E — It is possible to comprehensively handle various forms of media.">العبارة E — ممكن نتعامل بشكل شامل مع أشكال مختلفة من الوسائط.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  تناظري" data-en="A  Analog">A  تناظري</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  رقمي" data-en="B  Digital">B  رقمي</div>
+            <div class="ex-opt" data-ar="A تناظري" data-en="A  Analog">A تناظري</div>
+            <div class="ex-opt" data-ok="1" data-ar="B رقمي" data-en="B  Digital">B رقمي</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — رقمي" data-en="✅ Answer: B — Digital">✅ الإجابة: B — رقمي</b> <span data-ar="ميزة الرقمي إنه بيجمع أنواع مختلفة من الوسائط."
               data-en="an advantage of digital is combining different media types.">ميزة الرقمي إنه بيجمع أنواع مختلفة من الوسائط.</span></div>
@@ -1919,24 +963,24 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه المصطلح للكميات اللي ممكن تتقاس باستمرار وبدقّة عالية، زي الكتلة أو الوقت؟"
               data-en="What is the term for quantities that can be measured continuously and with fine precision, such as mass or time?">إيه المصطلح للكميات اللي ممكن تتقاس باستمرار وبدقّة عالية، زي الكتلة أو الوقت؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  رقمي" data-en="A  Digital">A  رقمي</div>
-            <div class="ex-opt" data-ar="B  ثنائي" data-en="B  Binary">B  ثنائي</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  تناظري" data-en="C  Analog">C  تناظري</div>
+            <div class="ex-opt" data-ar="A رقمي" data-en="A  Digital">A رقمي</div>
+            <div class="ex-opt" data-ar="B ثنائي" data-en="B  Binary">B ثنائي</div>
+            <div class="ex-opt" data-ok="1" data-ar="C تناظري" data-en="C  Analog">C تناظري</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — تناظري" data-en="✅ Answer: C — Analog">✅ الإجابة: C — تناظري</b>
             <span data-ar="الكمية المستمرة زي الكتلة والوقت هي التناظرية."
               data-en="the continuous quantity like mass and time is analog.">الكمية المستمرة زي الكتلة والوقت هي التناظرية.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="إيه المصطلح لعملية تحويل الداتا (Data) الرقمية لتناظرية؟"
-              data-en="What is the term for the process of converting digital data into analog data?">إيه المصطلح لعملية تحويل الداتا (Data) الرقمية لتناظرية؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="إيه المصطلح لعملية تحويل البيانات الرقمية لتناظرية؟"
+              data-en="What is the term for the process of converting digital data into analog data?">إيه المصطلح لعملية تحويل البيانات الرقمية لتناظرية؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  تحويل D/A" data-en="A  D/A conversion">A  تحويل D/A</div>
-            <div class="ex-opt" data-ar="B  تحويل A/D" data-en="B  A/D conversion">B  تحويل A/D</div>
-            <div class="ex-opt" data-ar="C  النظام الثنائي" data-en="C  Binary system">C  النظام الثنائي</div>
+            <div class="ex-opt" data-ok="1" data-ar="A تحويل D/A" data-en="A  D/A conversion">A تحويل D/A</div>
+            <div class="ex-opt" data-ar="B تحويل A/D" data-en="B  A/D conversion">B تحويل A/D</div>
+            <div class="ex-opt" data-ar="C النظام الثنائي" data-en="C  Binary system">C النظام الثنائي</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — تحويل D/A" data-en="✅ Answer: A — D/A conversion">✅ الإجابة:
-              <span dir="ltr">B — D/A conversion</span></b> <span data-ar="D/A = رقمي لتناظري."
+ <span dir="ltr">B — D/A conversion</span></b> <span data-ar="D/A = رقمي لتناظري."
               data-en="D/A = Digital to Analog."><span dir="ltr">D/A</span> = <span dir="ltr">Digital to Analog</span>.</span></div>
         </div>
         <div class="ex-item">
@@ -1944,15 +988,15 @@ select{color:var(--text)!important}
               data-en="What is A/D conversion? Explain briefly using the terms digital and analog.">إيه هو تحويل <span
                 dir="ltr">A/D</span>؟ اشرح باستخدام كلمتي <span dir="ltr">digital</span> و<span dir="ltr">analog</span>.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  تحويل الداتا (Data) الرقمية لتناظرية"
-              data-en="A  converting digital data into analog data">A  تحويل الداتا (Data) الرقمية لتناظرية</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  تحويل الداتا (Data) التناظرية لرقمية"
-              data-en="B  converting analog data into digital data">B  تحويل الداتا (Data) التناظرية لرقمية</div>
-            <div class="ex-opt" data-ar="C  تخزين الداتا (Data) في النظام الثنائي"
-              data-en="C  storing data in the binary system">C  تخزين الداتا (Data) في النظام الثنائي</div>
+            <div class="ex-opt" data-ar="A تحويل البيانات الرقمية لتناظرية"
+              data-en="A  converting digital data into analog data">A تحويل البيانات الرقمية لتناظرية</div>
+            <div class="ex-opt" data-ok="1" data-ar="B تحويل البيانات التناظرية لرقمية"
+              data-en="B  converting analog data into digital data">B تحويل البيانات التناظرية لرقمية</div>
+            <div class="ex-opt" data-ar="C تخزين البيانات في النظام الثنائي"
+              data-en="C  storing data in the binary system">C تخزين البيانات في النظام الثنائي</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — تحويل الداتا (Data) التناظرية لرقمية"
-              data-en="✅ Answer: B — converting analog data into digital data">✅ الإجابة: B — تحويل الداتا (Data) التناظرية لرقمية</b> <span data-ar="ده عملية تحويل الداتا (Data) التناظرية لرقمية."
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — تحويل البيانات التناظرية لرقمية"
+              data-en="✅ Answer: B — converting analog data into digital data">✅ الإجابة: B — تحويل البيانات التناظرية لرقمية</b> <span data-ar="ده عملية تحويل البيانات التناظرية لرقمية."
               data-en="it is the process of converting analog data into digital data.">هو عملية تحويل <span
                 dir="ltr">Analog data</span> إلى <span dir="ltr">Digital data</span>.</span></div>
         </div>
@@ -1960,9 +1004,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">4</span> <span data-ar="إيه المصطلح لطريقة تمثيل الأرقام باستخدام نوعين من الأرقام (صفر وواحد)؟"
               data-en="What is the term for the method of representing numbers using two types of digits (0 and 1)?">إيه المصطلح لطريقة تمثيل الأرقام باستخدام نوعين من الأرقام (صفر وواحد)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  ثنائي" data-en="A  Binary">A  ثنائي</div>
-            <div class="ex-opt" data-ar="B  عشري" data-en="B  Decimal">B  عشري</div>
-            <div class="ex-opt" data-ar="C  تناظري" data-en="C  Analog">C  تناظري</div>
+            <div class="ex-opt" data-ok="1" data-ar="A ثنائي" data-en="A  Binary">A ثنائي</div>
+            <div class="ex-opt" data-ar="B عشري" data-en="B  Decimal">B عشري</div>
+            <div class="ex-opt" data-ar="C تناظري" data-en="C  Analog">C تناظري</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — ثنائي" data-en="✅ Answer: A — Binary">✅ الإجابة: A — ثنائي</b>
             <span data-ar="النظام الثنائي بيستخدم صفر وواحد بس."
@@ -1975,21 +1019,21 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب 4: تدريب (2) — اختار العبارة الغلط عن الداتا (Data) الرقمية"
+        <h3 data-ar="✍️ تدريب 4: تدريب (2) — اختار العبارة الغلط عن البيانات الرقمية"
           data-en="✍️ Exercise 4: Exercise (2) — choose the incorrect statement about digital data">✍️ التمرين الرابع:
-          <span dir="ltr">Exercise</span> (2) — اختر العبارة الغلط عن البيانات الديجيتال</h3>
+ <span dir="ltr">Exercise</span> (2) — اختر العبارة الغلط عن البيانات الديجيتال</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="اختار عبارة غلط بخصوص الداتا (Data) الرقمية من الخيارات A لـ D."
-              data-en="Choose one statement that is incorrect in regard to digital data from the options A to D.">اختار عبارة غلط بخصوص الداتا (Data) الرقمية من الخيارات A لـ D.</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="اختار عبارة غلط بخصوص البيانات الرقمية من الخيارات A لـ D."
+              data-en="Choose one statement that is incorrect in regard to digital data from the options A to D.">اختار عبارة غلط بخصوص البيانات الرقمية من الخيارات A لـ D.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  التراكم والاستنساخ للمعلومات (Information) ممكن يتحققوا بسهولة"
-              data-en="A  Accumulation and duplication of information can be easily achieved">A  التراكم والاستنساخ للمعلومات (Information) ممكن يتحققوا بسهولة</div>
-            <div class="ex-opt" data-ar="B  ممكن نوصّل المعلومات (Information) بكفاءة"
-              data-en="B  It is possible to efficiently communicate the information">B  ممكن نوصّل المعلومات (Information) بكفاءة</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  ممكن يعبّر عن كميات بتتغيّر باستمرار، زي الوقت والحرارة"
-              data-en="C  It can express quantities that change continuously, such as time and temperature">C  ممكن يعبّر عن كميات بتتغيّر باستمرار، زي الوقت والحرارة</div>
-            <div class="ex-opt" data-ar="D  ممكن ندمج أنواع مختلفة من الوسائط"
-              data-en="D  It is possible to combine various types of media">D  ممكن ندمج أنواع مختلفة من الوسائط</div>
+            <div class="ex-opt" data-ar="A التراكم والاستنساخ للمعلومات ممكن يتحققوا بسهولة"
+              data-en="A  Accumulation and duplication of information can be easily achieved">A التراكم والاستنساخ للمعلومات ممكن يتحققوا بسهولة</div>
+            <div class="ex-opt" data-ar="B ممكن نوصّل المعلومات بكفاءة"
+              data-en="B  It is possible to efficiently communicate the information">B ممكن نوصّل المعلومات بكفاءة</div>
+            <div class="ex-opt" data-ok="1" data-ar="C ممكن يعبّر عن كميات بتتغيّر باستمرار، زي الوقت والحرارة"
+              data-en="C  It can express quantities that change continuously, such as time and temperature">C ممكن يعبّر عن كميات بتتغيّر باستمرار، زي الوقت والحرارة</div>
+            <div class="ex-opt" data-ar="D ممكن ندمج أنواع مختلفة من الوسائط"
+              data-en="D  It is possible to combine various types of media">D ممكن ندمج أنواع مختلفة من الوسائط</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C" data-en="✅ Answer: C">✅ الإجابة: C</b> <span
               data-ar="الكميات المستمرة زي الوقت والحرارة تناظرية — الرقمي بيقسّم القيمة لفواصل."
@@ -2023,7 +1067,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="التناظري — الكمية المستمرة" data-en="Analog — the continuous quantity">التناظري — الكمية المستمرة</h4>
+                  <h3 data-ar="التناظري — الكمية المستمرة" data-en="Analog — the continuous quantity" class="lvl-h4 lvl-h4-2">التناظري — الكمية المستمرة</h3>
                   <p data-ar="كمية بتتغيّر باستمرار وتتقاس بدقّة، زي الكتلة والوقت والحرارة — زي عمود الزئبق."
                     data-en="a quantity that changes continuously and is measured with precision, like mass, time, and temperature — like the mercury column.">كمية بتتغيّر باستمرار وتتقاس بدقّة، زي الكتلة والوقت والحرارة — زي عمود الزئبق.</p>
                 </div>
@@ -2031,33 +1075,33 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="الرقمي — التمثيل الرقمي" data-en="Digital — the numeric representation">الرقمي — التمثيل الرقمي</h4>
-                  <p data-ar="تقسيم القيمة لفواصل منتظمة وتمثيلها رقمياً — الداتا (Data) الرقمية بتتنسخ من غير فقدان."
-                    data-en="dividing the value into regular intervals and representing it numerically — digital data is copied without loss.">تقسيم القيمة لفواصل منتظمة وتمثيلها رقمياً — الداتا (Data) الرقمية بتتنسخ من غير فقدان.</p>
+                  <h3 data-ar="الرقمي — التمثيل الرقمي" data-en="Digital — the numeric representation" class="lvl-h4 lvl-h4-2">الرقمي — التمثيل الرقمي</h3>
+                  <p data-ar="تقسيم القيمة لفواصل منتظمة وتمثيلها رقمياً — البيانات الرقمية بتتنسخ من غير فقدان."
+                    data-en="dividing the value into regular intervals and representing it numerically — digital data is copied without loss.">تقسيم القيمة لفواصل منتظمة وتمثيلها رقمياً — البيانات الرقمية بتتنسخ من غير فقدان.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="تحويل A/D — رقمنة" data-en="A/D conversion — digitization">تحويل A/D — رقمنة</h4>
-                  <p data-ar="تحويل الداتا (Data) التناظرية لرقمية — من موجة مستمرة لأرقام."
-                    data-en="converting analog data into digital data — from a continuous wave to numbers.">تحويل الداتا (Data) التناظرية لرقمية — من موجة مستمرة لأرقام.</p>
+                  <h3 data-ar="تحويل A/D — رقمنة" data-en="A/D conversion — digitization" class="lvl-h4 lvl-h4-2">تحويل A/D — رقمنة</h3>
+                  <p data-ar="تحويل البيانات التناظرية لرقمية — من موجة مستمرة لأرقام."
+                    data-en="converting analog data into digital data — from a continuous wave to numbers.">تحويل البيانات التناظرية لرقمية — من موجة مستمرة لأرقام.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">04</span>
                 <div>
-                  <h4 data-ar="تحويل D/A — العكس" data-en="D/A conversion — the reverse">تحويل D/A — العكس</h4>
-                  <p data-ar="تحويل الداتا (Data) الرقمية لتناظرية — من أرقام لقيم مستمرة."
-                    data-en="converting digital data into analog data — from numbers to continuous values.">تحويل الداتا (Data) الرقمية لتناظرية — من أرقام لقيم مستمرة.</p>
+                  <h3 data-ar="تحويل D/A — العكس" data-en="D/A conversion — the reverse" class="lvl-h4 lvl-h4-2">تحويل D/A — العكس</h3>
+                  <p data-ar="تحويل البيانات الرقمية لتناظرية — من أرقام لقيم مستمرة."
+                    data-en="converting digital data into analog data — from numbers to continuous values.">تحويل البيانات الرقمية لتناظرية — من أرقام لقيم مستمرة.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">05</span>
                 <div>
-                  <h4 data-ar="الثنائي — النظام الثنائي" data-en="Binary — the binary system">الثنائي — النظام الثنائي</h4>
-                  <p data-ar="تمثيل كل الداتا (Data) في الكمبيوتر باستخدام صفر وواحد — أرقام وحروف وصوت وصور."
-                    data-en="representing all data in the computer using 0 and 1 — numbers, characters, audio, images.">تمثيل كل الداتا (Data) في الكمبيوتر باستخدام صفر وواحد — أرقام وحروف وصوت وصور.</p>
+                  <h3 data-ar="الثنائي — النظام الثنائي" data-en="Binary — the binary system" class="lvl-h4 lvl-h4-2">الثنائي — النظام الثنائي</h3>
+                  <p data-ar="تمثيل كل البيانات في الكمبيوتر باستخدام صفر وواحد — أرقام وحروف وصوت وصور."
+                    data-en="representing all data in the computer using 0 and 1 — numbers, characters, audio, images.">تمثيل كل البيانات في الكمبيوتر باستخدام صفر وواحد — أرقام وحروف وصوت وصور.</p>
                 </div>
               </div>
             </div>
@@ -2078,13 +1122,13 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="recapRq1o2" data-key="A"
                 data-fb-ar="الديجيتال بيقسّم القيمة لفترات، والزئبق مستمر."
                 data-fb-en="Digital divides the value into intervals, and the mercury is continuous."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="داتا (Data) رقمية"
-                  data-en="Digital data">داتا (Data) رقمية</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="بيانات رقمية"
+                  data-en="Digital data">بيانات رقمية</span></div>
               <div class="rq-opt" data-id="recapRq1o1" data-key="B" data-ok="1"
                 data-fb-ar="صحيح! الزئبق بيمتد بشكل مستمر — بيانات أنالوج."
                 data-fb-en="Correct! The mercury extends continuously — analog data."><span
-                  class="rq-key">B</span><span class="rq-body" data-ar="داتا (Data) تناظرية"
-                  data-en="Analog data">داتا (Data) تناظرية</span></div>
+                  class="rq-key">B</span><span class="rq-body" data-ar="بيانات تناظرية"
+                  data-en="Analog data">بيانات تناظرية</span></div>
               <div class="rq-opt" data-id="recapRq1o3" data-key="C"
                 data-fb-ar="النظام الثنائي طريقة تمثيل، مش مثال للزئبق."
                 data-fb-en="The binary system is a representation method, not an example of the mercury."><span
@@ -2095,8 +1139,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="recapRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="recapRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه اسم تحويل الداتا (Data) الرقمية لتناظرية؟"
-                data-en="What do we call converting digital data into analog data?">إيه اسم تحويل الداتا (Data) الرقمية لتناظرية؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه اسم تحويل البيانات الرقمية لتناظرية؟"
+                data-en="What do we call converting digital data into analog data?">إيه اسم تحويل البيانات الرقمية لتناظرية؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq2o1" data-key="A"
                 data-fb-ar="A/D هي العكس — من أنالوج لديجيتال."
@@ -2147,26 +1191,26 @@ select{color:var(--text)!important}
         <h3 data-ar="🎉 كده خلصت الدرس التناظري والرقمي"
           data-en="🎉 Well done! You finished the lesson Analog and Digital">🎉 أحسنت! أنهيت درس <span
             dir="ltr">Analog and Digital</span></h3>
-        <p data-ar="دلوقتي إنت عارف الفرق بين التناظري والرقمي، والتحويل بينهم (A/D وD/A)، والنظام الثنائي — أساس تمثيل أي داتا (Data) في الكمبيوتر."
+        <p data-ar="دلوقتي إنت عارف الفرق بين التناظري والرقمي، والتحويل بينهم (A/D وD/A)، والنظام الثنائي — أساس تمثيل أي بيانات في الكمبيوتر."
           data-en="Now you know the difference between analog and digital, converting between them (A/D and D/A), and the binary system — the basis of representing any data in the computer.">
-          عرفت دلوقتي الفرق بين الأنالوج والديجيتال، والتحويل بينهم (<span dir="ltr">A/D</span> و<span dir="ltr">D/A</span>)،
-          والنظام الثنائي — وأساس تمثيل أي بيانات في الكمبيوتر.</p>
-        <div class="note"><b data-ar="لو لسه محتاج مراجعة:" data-en="If you still need a review:">لو لسه محتاج مراجعة:</b> <span data-ar="رجع للرسومات في كل قسم واضغط 'التالي ←' خطوة بخطوة."
+ عرفت دلوقتي الفرق بين الأنالوج والديجيتال، والتحويل بينهم (<span dir="ltr">A/D</span> و<span dir="ltr">D/A</span>)،
+ والنظام الثنائي — وأساس تمثيل أي بيانات في الكمبيوتر.</p>
+        <div class="note"><b data-ar="لو لسه محتاج مراجعة:" data-en="If you still need a review:">لو لسه محتاج مراجعة:</b> <span data-ar="رجع للرسومات في كل قسم واضغط 'التالي →' خطوة بخطوة."
               data-en="go back to the diagrams in each section and click 'Next ←' step by step.">رجع للرسومات في كل قسم واضغط 'التالي ←' خطوة بخطوة.</span></div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="نسيان إن عمود الزئبق مثال تناظري، والقراءة الرقمية مثال رقمي."
             data-en="Forgetting the mercury column is an analog example, and the digital reading is a digital example.">نسيان إن عمود الزئبق مثال تناظري، والقراءة الرقمية مثال رقمي.</li>
           <li data-ar="الخلط بين A/D وD/A — A/D من التناظري للرقمي، وD/A العكس."
             data-en="Mixing up A/D and D/A — A/D is from analog to digital, D/A is the reverse.">
-            الخلط بين <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span> — <span dir="ltr">A/D</span> من أنالوج
-            لديجيتال، <span dir="ltr">D/A</span> العكس.</li>
-          <li data-ar="نسيان إن كل داتا (Data) الكمبيوتر — مش بس الأرقام — بتمثّل بالنظام الثنائي."
+ الخلط بين <span dir="ltr">A/D</span> و<span dir="ltr">D/A</span> — <span dir="ltr">A/D</span> من أنالوج
+ لديجيتال، <span dir="ltr">D/A</span> العكس.</li>
+          <li data-ar="نسيان إن كل بيانات الكمبيوتر — مش بس الأرقام — بتمثّل بالنظام الثنائي."
             data-en="Forgetting all computer data — not just numbers — is represented in the binary system.">
-            نسيان إن كل بيانات الكمبيوتر — مش الأرقام بس — ممثلة <b>بالنظام الثنائي</b>.</li>
+ نسيان إن كل بيانات الكمبيوتر — مش الأرقام بس — ممثلة <b>بالنظام الثنائي</b>.</li>
         </ul>
       </div>
     </section>
@@ -2183,7 +1227,7 @@ select{color:var(--text)!important}
       </div>
       <div class="section-inner card">
         <p data-ar="ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق البحث." data-en="Search any term or use the filters to narrow down.">ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق البحث.</p>
-        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح..." aria-label="ابحث عن مصطلح">
         <div class="glossary-filters">
           <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
           <button class="mini-btn gl-filter" data-filter="basic" data-ar="أساسيات" data-en="Basics">أساسيات</button>
@@ -2192,43 +1236,43 @@ select{color:var(--text)!important}
         </div>
         <div class="glossary-list">
           <div class="gl-term" data-cat="basic">
-            <h4 data-ar="تناظري" data-en="Analog">تناظري</h4>
+            <h3 data-ar="تناظري" data-en="Analog" class="lvl-h4 lvl-h4-3">تناظري</h3>
             <p data-ar="كمية بتتغيّر باستمرار وتتقاس بدقّة عالية، زي الكتلة والوقت والحرارة." data-en="A quantity that changes continuously and is measured with fine precision, like mass, time, or temperature.">كمية بتتغيّر باستمرار وتتقاس بدقّة عالية، زي الكتلة والوقت والحرارة.</p>
           </div>
           <div class="gl-term" data-cat="basic">
-            <h4 data-ar="داتا (Data) تناظرية" data-en="Analog data">داتا (Data) تناظرية</h4>
-            <p data-ar="داتا (Data) بتمثّل بشكل تناظري — قيمة مستمرة من غير تقسيم." data-en="Data represented in analog form — a continuous value without division.">داتا (Data) بتمثّل بشكل تناظري — قيمة مستمرة من غير تقسيم.</p>
+            <h3 data-ar="بيانات تناظرية" data-en="Analog data" class="lvl-h4 lvl-h4-3">بيانات تناظرية</h3>
+            <p data-ar="بيانات بتمثّل بشكل تناظري — قيمة مستمرة من غير تقسيم." data-en="Data represented in analog form — a continuous value without division.">بيانات بتمثّل بشكل تناظري — قيمة مستمرة من غير تقسيم.</p>
           </div>
           <div class="gl-term" data-cat="basic">
-            <h4 data-ar="رقمي" data-en="Digital">رقمي</h4>
+            <h3 data-ar="رقمي" data-en="Digital" class="lvl-h4 lvl-h4-3">رقمي</h3>
             <p data-ar="كمية بتتغيّر باستمرار بس بتمثّل رقمياً بتقسيمها لفواصل منتظمة." data-en="A quantity that changes continuously but is represented numerically by dividing it into regular intervals.">كمية بتتغيّر باستمرار بس بتمثّل رقمياً بتقسيمها لفواصل منتظمة.</p>
           </div>
           <div class="gl-term" data-cat="basic">
-            <h4 data-ar="داتا (Data) رقمية" data-en="Digital data">داتا (Data) رقمية</h4>
-            <p data-ar="داتا (Data) بتمثّل بشكل رقمي — بتتنسخ من غير فقدان جودة." data-en="Data represented in digital form — it is copied without loss of quality.">داتا (Data) بتمثّل بشكل رقمي — بتتنسخ من غير فقدان جودة.</p>
+            <h3 data-ar="بيانات رقمية" data-en="Digital data" class="lvl-h4 lvl-h4-3">بيانات رقمية</h3>
+            <p data-ar="بيانات بتمثّل بشكل رقمي — بتتنسخ من غير فقدان جودة." data-en="Data represented in digital form — it is copied without loss of quality.">بيانات بتمثّل بشكل رقمي — بتتنسخ من غير فقدان جودة.</p>
           </div>
           <div class="gl-term" data-cat="conv">
-            <h4 data-ar="تحويل A/D" data-en="A/D conversion">A/D conversion — تحويل <span dir="ltr">A/D</span></h4>
-            <p data-ar="عملية تحويل الداتا (Data) التناظرية لرقمية — واسمها كمان رقمنة." data-en="The process of converting analog data into digital data — also called digitization.">عملية تحويل البيانات الأنالوج إلى بيانات ديجيتال — وبنسميها كمان الترقيم <span dir="ltr">(Digitization)</span>.</p>
+            <h3 data-ar="تحويل A/D" data-en="A/D conversion" class="lvl-h4 lvl-h4-3">A/D conversion — تحويل <span dir="ltr">A/D</span></h3>
+            <p data-ar="عملية تحويل البيانات التناظرية لرقمية — واسمها كمان رقمنة." data-en="The process of converting analog data into digital data — also called digitization.">عملية تحويل البيانات الأنالوج إلى بيانات ديجيتال — وبنسميها كمان الترقيم <span dir="ltr">(Digitization)</span>.</p>
           </div>
           <div class="gl-term" data-cat="conv">
-            <h4 data-ar="تحويل D/A" data-en="D/A conversion">D/A conversion — تحويل <span dir="ltr">D/A</span></h4>
-            <p data-ar="عملية تحويل الداتا (Data) الرقمية لتناظرية — العكس بالظبط." data-en="The process of converting digital data into analog data — the exact reverse.">عملية تحويل الداتا (Data) الرقمية لتناظرية — العكس بالظبط.</p>
+            <h3 data-ar="تحويل D/A" data-en="D/A conversion" class="lvl-h4 lvl-h4-3">D/A conversion — تحويل <span dir="ltr">D/A</span></h3>
+            <p data-ar="عملية تحويل البيانات الرقمية لتناظرية — العكس بالظبط." data-en="The process of converting digital data into analog data — the exact reverse.">عملية تحويل البيانات الرقمية لتناظرية — العكس بالظبط.</p>
           </div>
           <div class="gl-term" data-cat="conv">
-            <h4 data-ar="رقمنة" data-en="Digitization">رقمنة</h4>
-            <p data-ar="اسم تاني لتحويل A/D — تحويل الداتا (Data) التناظرية لرقمية." data-en="Another name for A/D conversion — converting analog data into digital data.">اسم تاني لتحويل <span dir="ltr">A/D</span> — تحويل البيانات الأنالوج لبيانات ديجيتال.</p>
+            <h3 data-ar="رقمنة" data-en="Digitization" class="lvl-h4 lvl-h4-3">رقمنة</h3>
+            <p data-ar="اسم تاني لتحويل A/D — تحويل البيانات التناظرية لرقمية." data-en="Another name for A/D conversion — converting analog data into digital data.">اسم تاني لتحويل <span dir="ltr">A/D</span> — تحويل البيانات الأنالوج لبيانات ديجيتال.</p>
           </div>
           <div class="gl-term" data-cat="binary">
-            <h4 data-ar="ثنائي" data-en="Binary">ثنائي</h4>
+            <h3 data-ar="ثنائي" data-en="Binary" class="lvl-h4 lvl-h4-3">ثنائي</h3>
             <p data-ar="طريقة لتمثيل الأرقام باستخدام نوعين بس من الأرقام: صفر وواحد." data-en="A method of representing numbers using only two types of digits: 0 and 1.">طريقة لتمثيل الأرقام باستخدام نوعين بس من الأرقام: صفر وواحد.</p>
           </div>
           <div class="gl-term" data-cat="binary">
-            <h4 data-ar="بت (Bit)" data-en="Bit">بت (Bit)</h4>
+            <h3 data-ar="بت" data-en="Bit" class="lvl-h4 lvl-h4-3">بت</h3>
             <p data-ar="رقم واحد في النظام الثنائي — قيمته يا صفر يا واحد." data-en="One digit in the binary system — its value is either 0 or 1.">رقم واحد في النظام الثنائي — قيمته يا صفر يا واحد.</p>
           </div>
           <div class="gl-term" data-cat="basic">
-            <h4 data-ar="ميزات الداتا (Data) الرقمية" data-en="Advantages of digital data">ميزات الداتا (Data) الرقمية</h4>
+            <h3 data-ar="ميزات البيانات الرقمية" data-en="Advantages of digital data" class="lvl-h4 lvl-h4-3">ميزات البيانات الرقمية</h3>
             <p data-ar="التراكم والاستنساخ من غير فقدان، وتعديل سهل، وتواصل كفء، ودمج أنواع مختلفة من الوسائط." data-en="Accumulation and duplication without loss, easy editing, efficient communication, and combining various media types.">التراكم والاستنساخ من غير فقدان، وتعديل سهل، وتواصل كفء، ودمج أنواع مختلفة من الوسائط.</p>
           </div>
         </div>

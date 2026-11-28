@@ -10,520 +10,18 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح استخدام المعلومات وكشفها — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 20s ease-in-out infinite;
-    }@keyframes bgDrift{
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 15s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-      10% {
-        opacity:.3
-      }
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:960px;
-      margin:0 auto;
-      padding:0 24px 80px
-    }.section-inner{
-      margin-top:48px;
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(0.4, 0, 0.2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:28px 32px
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      margin-bottom:18px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      flex-shrink:0;
-      animation:glow 3s infinite
-    }@keyframes glow{
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .3)
-      }
-      50% {
-        box-shadow:0 0 40px rgba(24, 56, 248, .6)
-      }
-    }h2{
-      font-size:clamp(22px, 4vw, 32px);
-      font-weight:800;
-      color:var(--text)
-    }.tag{
-      display:inline-block;
-      padding:6px 16px;
-      border-radius:20px;
-      font-size:.8rem;
-      font-weight:700;
-      margin-top:8px
-    }.demo-label{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:12px
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .2);
-      border-radius:12px;
-      padding:14px 18px;
-      margin-top:14px
-    }.error-box{
-      background:rgba(215, 38, 61, .05);
-      border:1px solid rgba(215, 38, 61, .2);
-      border-radius:12px;
-      padding:18px 22px;
-      margin-top:32px
-    }.error-box h4{
-      color:var(--danger);
-      margin-bottom:12px;
-      font-size:1.1rem
-    }.error-box ul{
-      padding-right:20px
-    }.error-box li{
-      margin-bottom:8px
-    }.ex-item{
-      margin-bottom:22px;
-      padding-bottom:18px;
-      border-bottom:1px solid rgba(11, 16, 32, 0.05)
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px;
-      display:flex;
-      align-items:flex-start;
-      gap:8px
-    }.opt-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      padding:0 7px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:var(--primary);
-      font-weight:800;
-      font-size:.82rem;
-      margin-inline-end:8px;
-      flex-shrink:0
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px
-    }.ex-opt{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.06);
-      border-radius:12px;
-      padding:12px 14px;
-      cursor:pointer;
-      transition:all .2s;
-      font-size:.92rem;
-      white-space:pre-line
-    }.ex-opt:hover{
-      background:var(--card-hover);
-      border-color:rgba(24, 56, 248, .3)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .1)
-    }.ex-opt.correct{
-      border-color:var(--success) !important;
-      background:rgba(13, 158, 86, .08) !important
-    }.ex-opt.wrong{
-      border-color:var(--danger) !important;
-      background:rgba(215, 38, 61, .08) !important
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      margin-top:16px
-    }.btn{
-      padding:10px 22px;
-      border-radius:50px;
-      border:none;
-      background:var(--primary);
-      color:#fff;
-      font-weight:700;
-      font-family:inherit;
-      cursor:pointer;
-      transition:all .2s
-    }.btn:hover{
-      background:var(--accent)
-    }.mini-btn{
-      padding:10px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.2);
-      background:transparent;
-      color:var(--text);
-      font-weight:700;
-      font-family:inherit;
-      cursor:pointer;
-      transition:all .2s
-    }.mini-btn:hover{
-      border-color:var(--accent);
-      background:rgba(24, 56, 248, .1)
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .06);
-      border:1px solid rgba(13, 158, 86, .25);
-      color:var(--success);
-      font-weight:700
-    }.hint-line{
-      font-size:.92rem;
-      color:var(--dim)
-    }.cards-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      gap:16px;
-      margin-top:16px
-    }.card-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.06);
-      border-radius:16px;
-      padding:18px;
-      cursor:pointer;
-      transition:all .25s
-    }.card-item:hover{
-      background:var(--card-hover);
-      transform:translateY(-3px)
-    }.card-item.ok{
-      border-color:rgba(13, 158, 86, .4);
-      background:rgba(13, 158, 86, .05)
-    }.card-item.bad{
-      border-color:rgba(215, 38, 61, .4);
-      background:rgba(215, 38, 61, .05)
-    }.card-item .card-icon{
-      font-size:2rem;
-      margin-bottom:8px
-    }.card-item .card-title{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:6px
-    }.card-item .card-body{
-      font-size:.88rem;
-      color:var(--dim)
-    }.card-item .card-feedback{
-      margin-top:10px;
-      font-weight:700;
-      font-size:.88rem;
-      display:none
-    }.card-item.ok .card-feedback,
-    .card-item.bad .card-feedback{
-      display:block
-    }.card-item.ok .card-feedback{
-      color:var(--success)
-    }.card-item.bad .card-feedback{
-      color:var(--danger)
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:11px;
-      top:8px;
-      bottom:8px;
-      width:2px;
-      background:linear-gradient(to bottom, var(--primary), var(--accent));
-      border-radius:2px
-    }.journey-item{
-      position:relative;
-      margin-bottom:22px;
-      padding-right:20px
-    }.journey-item::before{
-      content:"";
-      position:absolute;
-      right:3px;
-      top:6px;
-      width:18px;
-      height:18px;
-      border-radius:50%;
-      background:var(--primary);
-      border:3px solid var(--bg);
-      box-shadow:0 0 0 2px var(--primary)
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin-bottom:4px
-    }.journey-item p{
-      font-size:.9rem
-    }@media (max-width:860px){.opt-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      padding:0 7px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:var(--primary);
-      font-weight:800;
-      font-size:.82rem;
-      margin-inline-end:8px;
-      flex-shrink:0
-    }.ex-options{
-        grid-template-columns:1fr
-      }
-    }@media (prefers-reduced-motion:reduce){*{
-        animation-duration:0s !important;
-        transition-duration:0s !important
-      }
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap:anywhere
-    }
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/-and-disclosure-of-information--2-3-utilization-and-disclosure-of-inform-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="contrast-pass-3">
-/* Readability pass 3: faded component blocks and light code editors. */
-.bt,.bt-sub{opacity:1!important}
-.bt-sub{color:#2f3542!important}
-.bt-note{opacity:1!important;color:#3a4152!important}
-.email-vals{color:#1a3fd0!important}
-.chat-who{color:#3a4152!important}
-.html-edit,.js-edit,.py-edit,textarea{color:var(--text)!important}
-</style>
-<style>/* contrast fix (a11y pass 4) */
-:root{--s4:#0b7a55}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
+<link rel="stylesheet" href="../../../../assets/css/pages/-and-disclosure-of-information--2-3-utilization-and-disclosure-of-inform-2.css">
 </head>
 
 <body>
   <div class="bg-gradient"></div>
 <!-- ============ NAV ============ -->
-  <nav id="navbar">
+  <nav id="topnav" id="navbar">
     <div class="nav-inner">
       <a href="../../../../index.html" aria-label="الرئيسية">
         <img class="nav-logo" src="../../../../assets/logo-extracted.webp" alt="logo">
@@ -548,7 +46,7 @@ select{color:var(--text)!important}
 <div class="hero-badge" data-ar="الدرس 3 — استخدام والإفصاح عن المعلومات" data-en="Lesson 3 — Utilization and Disclosure of Information">درس 3 — Utilization and Disclosure of Information</div>
       <h1 class="hero-title" data-ar="استخدام المعلومات <span class='grad'>وكشفها</span>" data-en="Utilization and Disclosure of <span class='grad'>Information</span>">استخدام المعلومات <span class="grad">وكشفها</span></h1>
       <p class="hero-sub" data-ar="استخدم أعمال الغير بطريقة قانونية وذكية — الاستخدام العادل والاقتباس وتراخيص Creative Commons في إيدك" data-en="Use others' works legally and smartly — fair use, quotation, and Creative Commons licenses in your hands">استخدم أعمال غيرك بشكل قانوني وذكي — الاستخدام العادل والاقتباس ورخص Creative Commons بين إيديك</p>
-      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="27 سؤالًا" data-en="27 practice questions">27 سؤالًا</span><span data-ar="14 مصطلحًا" data-en="14 glossary terms">14 مصطلحًا</span></div><a href="#intro" class="hero-btn" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="27 سؤالًا" data-en="27 practice questions">27 سؤالًا</span><span data-ar="14 مصطلحًا" data-en="14 glossary terms">14 مصطلحًا</span></div><a href="#intro" class="hero-btn" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 
@@ -565,7 +63,7 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#ecf0fb)">01</div>
           <div>
-            <h2 data-ar="استخدام والإفصاح عن المعلومات (Information)" data-en="Utilization and Disclosure of Information">استخدام المعلومات وكشفها</h2>
+            <h2 data-ar="استخدام والإفصاح عن المعلومات" data-en="Utilization and Disclosure of Information">استخدام المعلومات وكشفها</h2>
             <div class="tag" style="color:var(--s1)" data-ar="التوازن بين الاستخدام والحماية" data-en="Balance Between Use and Protection">التوازن بين الاستخدام والحماية</div>
           </div>
         </div>
@@ -584,8 +82,8 @@ select{color:var(--text)!important}
           <div class="card-item" data-correct="0">
             <div class="card-icon">💿</div>
             <div class="card-title" data-ar="انسخ سي دي موسيقى تجاري وتوزعه على صحابك" data-en="Copy a commercial music CD and distribute it to friends">تنسخ CD موسيقي تجاري وتوزعه على أصحابك</div>
-            <div class="card-body" data-ar="مش مشمول باستثناء الاستخدام الشخصي — ده تعدي على حقوق النشر (Copyright)" data-en="Not covered by the private-use exception — that's copyright infringement">ده مش جوه جوه استثناءات الاستخدام الشخصي — ده انتهاك لحقوق النشر</div>
-            <div class="card-feedback" data-ar="❌ غلط — ده تعدي على حقوق النشر (Copyright)" data-en="❌ Wrong — that's copyright infringement">❌ غلط — ده انتهاك لحقوق النشر</div>
+            <div class="card-body" data-ar="مش مشمول باستثناء الاستخدام الشخصي — ده تعدي على حقوق النشر" data-en="Not covered by the private-use exception — that's copyright infringement">ده مش جوه جوه استثناءات الاستخدام الشخصي — ده انتهاك لحقوق النشر</div>
+            <div class="card-feedback" data-ar="❌ غلط — ده تعدي على حقوق النشر" data-en="❌ Wrong — that's copyright infringement">❌ غلط — ده انتهاك لحقوق النشر</div>
           </div>
         </div>
       </div>
@@ -597,16 +95,16 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#d97706)">02</div>
           <div>
-            <h2 data-ar="غرض حقوق النشر (Copyright) والاستثناءات" data-en="Purpose of Copyright and Exceptions">هدف حقوق النشر والاستثناءات</h2>
+            <h2 data-ar="غرض حقوق النشر والاستثناءات" data-en="Purpose of Copyright and Exceptions">هدف حقوق النشر والاستثناءات</h2>
             <div class="tag" style="color:var(--s2)" data-ar="الاستخدام العادل" data-en="Fair Use">الاستخدام العادل</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="غرض حقوق النشر (Copyright)" data-en="Purpose of Copyright" style="color:var(--s2)">هدف حقوق النشر</h3>
+        <h3 data-ar="غرض حقوق النشر" data-en="Purpose of Copyright" style="color:var(--s2)">هدف حقوق النشر</h3>
         <p data-ar="حقوق النشر هدفها المساهمة في التطور الثقافي عن طريق ضمان الاستخدام العادل (<span dir='ltr'>fair use</span>) للأعمال المحمية وحماية الحقوق (<span dir='ltr'>protection of rights</span>). يعني التوازن بين إن المبدع يحافظ على حقوقه وإن المجتمع يستفيد من الأعمال." data-en="A copyright aims to contribute to cultural development by ensuring the fair use of copyrighted works and the protection of rights.">حقوق النشر هدفها المساهمة في التطور الثقافي عن طريق ضمان الاستخدام العادل (<span dir='ltr'>fair use</span>) للأعمال المحمية وحماية الحقوق (<span dir='ltr'>protection of rights</span>). يعني التوازن بين إن المبدع يحافظ على حقوقه وإن المجتمع يستفيد من الأعمال.</p>
-        <div class="demo-label" style="margin-top:14px" data-ar="استثناءات حقوق النشر (Copyright) — اضغط على كل استثناء:" data-en="Copyright exceptions — click each exception:">استثناءات حقوق النشر — اضغط على كل استثناء:</div>
+        <div class="demo-label" style="margin-top:14px" data-ar="استثناءات حقوق النشر — اضغط على كل استثناء:" data-en="Copyright exceptions — click each exception:">استثناءات حقوق النشر — اضغط على كل استثناء:</div>
         <div class="cards-grid">
           <div class="card-item" data-reveal="exception">
             <div class="card-icon">🏠</div>
@@ -617,7 +115,7 @@ select{color:var(--text)!important}
           <div class="card-item" data-reveal="exception">
             <div class="card-icon">🏫</div>
             <div class="card-title" data-ar="التسجيل جوه المؤسسات التعليمية" data-en="Reproduction within educational institutions">النسخ جوه المؤسسات التعليمية</div>
-            <div class="card-body" data-ar="استخدام أعمال محمية بحقوق النشر (Copyright) أثناء التدريس جوه المؤسسات التعليمية." data-en="Use of copyrighted works in the course of teaching within educational institutions.">استخدام الأعمال المحمية في سياق التدريس جوه المؤسسات التعليمية.</div>
+            <div class="card-body" data-ar="استخدام أعمال محمية بحقوق النشر أثناء التدريس جوه المؤسسات التعليمية." data-en="Use of copyrighted works in the course of teaching within educational institutions.">استخدام الأعمال المحمية في سياق التدريس جوه المؤسسات التعليمية.</div>
             <div class="card-feedback" data-ar="💡 مثال: نسخ المواد وتوزيعها على الطلاب في الفصل — مسموح." data-en="💡 Example: copying materials and distributing to students in class — allowed.">💡 مثال: نسخ مواد وتوزيعها على الطلاب في حصة دراسية — مسموح.</div>
           </div>
           <div class="card-item" data-reveal="exception">
@@ -627,12 +125,12 @@ select{color:var(--text)!important}
             <div class="card-feedback" data-ar="💡 خلي بالك: لو أخدت رسوم دخول، تبقى تعدي! زي حفلة فرقة بتاخد تذكرة." data-en="💡 Be careful: if you charge an admission fee, it becomes infringement! Like a band concert charging entry.">💡 خد بالك: لو فرضت رسوم دخول، بتبقى انتهاك! زي حفل فرقة ببيشتغلوا رسوم دخول.</div>
           </div>
         </div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(١) الغرض من حقوق المؤلف:تهدف حقوق المؤلف إلى المساهمة في التطور الثقافي من خلال ضمان الاستخدام العادل (fair use) للأعمال المحمية بحقوق المؤلف وحماية الحقوق (protection of rights). (٢) الاستثناءات: تحت غرض حقوق المؤلف، هناك استثناءات يمكن فيها الحد من حقوق المؤلف للسماح بالاستخدام دون الحصول على إذن من صاحب حقوق المؤلف. &lt;مثال&gt; الاستنساخ للاستخدام الشخصي مع عدم إخلال هذا النسخ بالاستغلال العادل للمصنف، الاستنساخ داخل المؤسسات التعليمية، العروض غير الربحية، إلخ.</p></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(١) الغرض من حقوق المؤلف:تهدف حقوق المؤلف إلى المساهمة في التطور الثقافي من خلال ضمان الاستخدام العادل للأعمال المحمية بحقوق المؤلف وحماية الحقوق. (٢) الاستثناءات: تحت غرض حقوق المؤلف، هناك استثناءات يمكن فيها الحد من حقوق المؤلف للسماح بالاستخدام دون الحصول على إذن من صاحب حقوق المؤلف. &lt;مثال&gt; الاستنساخ للاستخدام الشخصي مع عدم إخلال هذا النسخ بالاستغلال العادل للمصنف، الاستنساخ داخل المؤسسات التعليمية، العروض غير الربحية، إلخ.</p></div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
-          <li data-ar="إنك تفتكر إن نسخ سي دي تجاري وتوزيعه على صحابك استخدام شخصي — لأ، ده تعدي على حقوق النشر (Copyright)." data-en="Thinking copying a commercial CD and distributing it to friends is personal use — no, that's copyright infringement.">تظن إن نسخ CD تجاري وتوزيعه على الأصدقاء جوه جوه الاستخدام الشخصي — لأ، ده انتهاك لحقوق النشر.</li>
+          <li data-ar="إنك تفتكر إن نسخ سي دي تجاري وتوزيعه على صحابك استخدام شخصي — لأ، ده تعدي على حقوق النشر." data-en="Thinking copying a commercial CD and distributing it to friends is personal use — no, that's copyright infringement.">تظن إن نسخ CD تجاري وتوزيعه على الأصدقاء جوه جوه الاستخدام الشخصي — لأ، ده انتهاك لحقوق النشر.</li>
           <li data-ar="إنك تفتكر إن أخد رسوم دخول للعرض مفيش فيها حاجة — لأ، العروض المدفوعة مش معفاة." data-en="Thinking charging an admission fee for a performance doesn't matter — no, paid performances are not exempt.">تعتقد إن فرض رسوم دخول على عرض بيلغي الاستثناء مش فارقة — لأ، العروض اللي برسوم مش جوه جوه الاستثناء.</li>
         </ul>
       </div>
@@ -656,27 +154,27 @@ select{color:var(--text)!important}
         <div class="demo-label" style="margin-top:14px" data-ar="5 قواعد اقتباس — اضغط على كل قاعدة:" data-en="5 quotation rules — click each rule:">5 قواعد للاقتباس — اضغط على كل قاعدة:</div>
         <div class="journey">
           <div class="journey-item">
-            <h4 data-ar="1. شغلك إنت بيأخد الأولوية" data-en="1. Your work takes precedence">1. عملك هو الأساس</h4>
+            <h3 data-ar="1. شغلك إنت بيأخد الأولوية" data-en="1. Your work takes precedence" class="lvl-h4 lvl-h4-2">1. عملك هو الأساس</h3>
             <p data-ar="عملک إنت المحمي بياخد الأولوية، والعمل المقتبس يكون تابع. (عملک إنت المحمي هو الأصل.)" data-en="Your own copyrighted work takes precedence, while the quoted work is subordinate. (Your own copyrighted work is the subject.)">عملك المحمي ليه الأولوية، والعمل المقتبس منه بيبقى ثانوي (عملك هو الموضوع).</p>
           </div>
           <div class="journey-item">
-            <h4 data-ar="2. ضرورة الاقتباس" data-en="2. Necessity to quote">2. ضرورة الاقتباس</h4>
+            <h3 data-ar="2. ضرورة الاقتباس" data-en="2. Necessity to quote" class="lvl-h4 lvl-h4-2">2. ضرورة الاقتباس</h3>
             <p data-ar="لازم يبقى فيه ضرورة للاقتباس." data-en="There must be a necessity to engage in quotation.">لازم يكون في ضرورة فعلية للاقتباس — مش اقتباس عشوائي.</p>
           </div>
           <div class="journey-item">
-            <h4 data-ar="3. اقتباس واضح ومحدد" data-en="3. Clearly identifiable quotation">3. تحديد واضح للاقتباس</h4>
+            <h3 data-ar="3. اقتباس واضح ومحدد" data-en="3. Clearly identifiable quotation" class="lvl-h4 lvl-h4-2">3. تحديد واضح للاقتباس</h3>
             <p data-ar="اتأكد إن المادة المقتبسة واضحة ومحددة بتحطها بين علامتي اقتباس." data-en="Ensure that the quoted material is clearly identifiable by enclosing it in quotation marks.">لازم تجوه إن المادة المقتبسة واضحة ومحددة عن طريق وضعها بين علامات اقتباس.</p>
           </div>
           <div class="journey-item">
-            <h4 data-ar="4. حدد المصدر" data-en="4. Specify the source">4. ذكر المصدر</h4>
+            <h3 data-ar="4. حدد المصدر" data-en="4. Specify the source" class="lvl-h4 lvl-h4-2">4. ذكر المصدر</h3>
             <p data-ar="المصدر محدد بوضوح." data-en="The source is clearly specified.">لازم يكون المصدر محدد بوضوح — لحد لو الاقتباس واضح، لازم تذكر مصدره.</p>
           </div>
           <div class="journey-item">
-            <h4 data-ar="5. متغيرش" data-en="5. Do not alter">5. عدم التعديل</h4>
+            <h3 data-ar="5. متغيرش" data-en="5. Do not alter" class="lvl-h4 lvl-h4-2">5. عدم التعديل</h3>
             <p data-ar="ماتغيرش المادة المقتبسة." data-en="Do not alter the quoted material.">ممنوع تعدل المادة المقتبسة — بتنقلها زي إيه هي.</p>
           </div>
         </div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(٣) الاقتباس (Quotation): هو عملية استخدام جزء من عمل محمي بحقوق المؤلف لشخص آخر في عملك المحمي بحقوق المؤلف. إذا تم استيفاء متطلبات معينة، يمكن اقتباس أجزاء من عمل محمي بحقوق المؤلف دون الحصول على إذن من المؤلف. &lt;طرق وقواعد الاقتباس&gt; [١] يجب أن يكون عملك المحمي هو الأساس، بينما يكون العمل المقتبس منه تابعًا له. [٢] يجب أن تكون هناك ضرورة للاقتباس. [٣] ألا يضر بالمصالح المشروعة لمؤلف البرنامج. [٤] تأكد من أن المادة المقتبسة يمكن تمييزها بوضوح عن طريق وضعها بين علامات الاقتباس. [٥] يجب تحديد المصدر بوضوح. [٦] يجب عدم تغيير المادة المقتبسة. (٤) تحديد مدة الحماية:تنتهي الحقوق الاقتصادية للمؤلف بعد (50) عامًا من وفاة المبدع. (٥) ترخيص المشاع الإبداعي (Creative Commons License / CC License): علامة تشير إلى شروط استخدام الأعمال المحمية بحقوق النشر. الأنواع: (الإشارة لفضل المبدع) (BY) — اعرض عنوان العمل واسم المؤلف. (غير تجاري Non-commercial) (NC) — لا تستخدم لأغراض تجارية (commercial). (لا مشتقات No derivatives) (ND) — لا تغير العمل المحمي بحقوق المؤلف الأصلي. (نفس شروط Adaptations - Same - terms for adaptations) (SA) — انشر تحت نفس مجموعة التراخيص للعمل الأصلي.</p></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(٣) الاقتباس: هو عملية استخدام جزء من عمل محمي بحقوق المؤلف لشخص آخر في عملك المحمي بحقوق المؤلف. إذا تم استيفاء متطلبات معينة، يمكن اقتباس أجزاء من عمل محمي بحقوق المؤلف دون الحصول على إذن من المؤلف. &lt;طرق وقواعد الاقتباس&gt; [١] يجب أن يكون عملك المحمي هو الأساس، بينما يكون العمل المقتبس منه تابعًا له. [٢] يجب أن تكون هناك ضرورة للاقتباس. [٣] ألا يضر بالمصالح المشروعة لمؤلف البرنامج. [٤] تأكد من أن المادة المقتبسة يمكن تمييزها بوضوح عن طريق وضعها بين علامات الاقتباس. [٥] يجب تحديد المصدر بوضوح. [٦] يجب عدم تغيير المادة المقتبسة. (٤) تحديد مدة الحماية:تنتهي الحقوق الاقتصادية للمؤلف بعد (50) عامًا من وفاة المبدع. (٥) ترخيص المشاع الإبداعي (Creative Commons License / CC License): علامة تشير إلى شروط استخدام الأعمال المحمية بحقوق النشر. الأنواع: (الإشارة لفضل المبدع) — اعرض عنوان العمل واسم المؤلف. (غير تجاري Non-commercial) — لا تستخدم لأغراض تجارية. (لا مشتقات No derivatives) — لا تغير العمل المحمي بحقوق المؤلف الأصلي. (نفس شروط Adaptations - Same - terms for adaptations) — انشر تحت نفس مجموعة التراخيص للعمل الأصلي.</p></div>
 
       <div class="section-inner card" style="margin-top:24px">
         <h3 data-ar="امتحن نفسك: اقتباس صح ولا غلط؟" data-en="Test yourself: proper or improper quotation?" style="color:var(--s3)">اختبر نفسك: اقتباس صح ولا غلط؟</h3>
@@ -690,8 +188,8 @@ select{color:var(--text)!important}
           <div class="card-item" data-correct="0">
             <div class="card-icon">❌</div>
             <div class="card-title" data-ar="نسخت نص كامل من كتاب من غير علامتي اقتباس أو ذكر المصدر" data-en="You copied a full text from a book without quotation marks or citing the source">نقلت نص كامل من كتاب بدون علامات اقتباس وبدون ذكر المصدر</div>
-            <div class="card-body" data-ar="ده مش اقتباس — ده نسخ وتعدي على حقوق النشر (Copyright)" data-en="That's not quotation — that's copying and copyright infringement">ده مش اقتباس — ده نسخ وانتهاك لحقوق النشر</div>
-            <div class="card-feedback" data-ar="❌ غلط — ده تعدي على حقوق النشر (Copyright)" data-en="❌ Wrong — that's copyright infringement">❌ غلط — ده انتهاك لحقوق النشر</div>
+            <div class="card-body" data-ar="ده مش اقتباس — ده نسخ وتعدي على حقوق النشر" data-en="That's not quotation — that's copying and copyright infringement">ده مش اقتباس — ده نسخ وانتهاك لحقوق النشر</div>
+            <div class="card-feedback" data-ar="❌ غلط — ده تعدي على حقوق النشر" data-en="❌ Wrong — that's copyright infringement">❌ غلط — ده انتهاك لحقوق النشر</div>
           </div>
         </div>
       </div>
@@ -714,29 +212,29 @@ select{color:var(--text)!important}
         <p data-ar="الحقوق الاقتصادية للمؤلف بتنتهي 50 سنة بعد وفاة المبدع. بعدها، العمل يدخل المجال العام ويتستخدم بحرية." data-en="The economic rights of the author expire 50 years after the death of the creator. After that, the work enters the public domain and can be used freely.">الحقوق الاقتصادية للمؤلف بتتنتهي بعد 50 سنة من وفاة المبدع. بعد كده، العمل بيبقى في المجال العام وممكن استخدامه بحرية.</p>
 
         <h3 data-ar="تراخيص Creative Commons" data-en="Creative Commons Licenses" style="color:var(--s4); margin-top:18px">رخص <span dir='ltr'>Creative Commons</span></h3>
-        <p data-ar="رخصة Creative Commons (<span dir='ltr'>CC License</span>) هي علامة بتوضح شروط استخدام الأعمال المحمية بحقوق النشر. المبدع بيختار الشروط اللي عايزها — اضغط على كل شرط:" data-en="A Creative Commons License (CC License) is a mark indicating the conditions for using copyrighted works. The creator chooses the conditions — click each one:">رخصة <span dir='ltr'>Creative Commons</span> (<span dir='ltr'>CC License</span>) هي علامة بتوضح شروط استخدام الأعمال المحمية بحقوق النشر. المبدع بيختار الشروط اللي عايزها — اضغط على كل شرط:</p>
+        <p data-ar="رخصة Creative Commons (<span dir='ltr'>CC License</span>) هي علامة بتوضح شروط استخدام الأعمال المحمية بحقوق النشر. المبدع بيختار الشروط اللي عايزها — اضغط على كل شرط:" data-en="A Creative Commons License is a mark indicating the conditions for using copyrighted works. The creator chooses the conditions — click each one:">رخصة <span dir='ltr'>Creative Commons</span> (<span dir='ltr'>CC License</span>) هي علامة بتوضح شروط استخدام الأعمال المحمية بحقوق النشر. المبدع بيختار الشروط اللي عايزها — اضغط على كل شرط:</p>
         <div class="cards-grid">
           <div class="card-item" data-reveal="cc">
             <div class="card-icon">✍️</div>
-            <div class="card-title" data-ar="إسناد للمبدع (BY)" data-en="Credit to creator (BY)">نسبة الإبداع (<span dir='ltr'>BY</span>)</div>
+            <div class="card-title" data-ar="إسناد للمبدع" data-en="Credit to creator (BY)">نسبة الإبداع (<span dir='ltr'>BY</span>)</div>
             <div class="card-body" data-ar="اعرض عنوان العمل واسم المبدع." data-en="Display the title of the work and name of the creator.">اعرض عنوان العمل واسم المبدع.</div>
             <div class="card-feedback" data-ar="💡 أي استخدام لازم ينسب للمبدع." data-en="💡 Any use must credit the creator.">💡 يعني أي استخدام لازم يذكر اسم المبدع.</div>
           </div>
           <div class="card-item" data-reveal="cc">
             <div class="card-icon">🚫💼</div>
-            <div class="card-title" data-ar="غير تجاري (NC)" data-en="Non-commercial (NC)">غير تجاري (<span dir='ltr'>NC</span>)</div>
+            <div class="card-title" data-ar="غير تجاري" data-en="Non-commercial (NC)">غير تجاري (<span dir='ltr'>NC</span>)</div>
             <div class="card-body" data-ar="متستخدمش العمل لأغراض تجارية (<span dir='ltr'>commercial</span>)." data-en="Do not use for commercial purposes.">متستخدمش العمل لأغراض تجارية (<span dir='ltr'>commercial</span>).</div>
             <div class="card-feedback" data-ar="💡 مينفعش تبيع أو تكسب من استخدام العمل." data-en="💡 You must not sell or profit from using the work.">💡 يعني ممنوع تبيع أو تكسب فلوس من استخدام العمل.</div>
           </div>
           <div class="card-item" data-reveal="cc">
             <div class="card-icon">⛔</div>
-            <div class="card-title" data-ar="من غير مشتقات (ND)" data-en="No derivatives (ND)">بدون اشتقاق (<span dir='ltr'>ND</span>)</div>
-            <div class="card-body" data-ar="ماتغيرش العمل الأصلي المحمي بحقوق النشر (Copyright)." data-en="Do not alter the original copyrighted work.">متعدلش العمل الأصلي المحمي بحقوق النشر.</div>
+            <div class="card-title" data-ar="من غير مشتقات" data-en="No derivatives (ND)">بدون اشتقاق (<span dir='ltr'>ND</span>)</div>
+            <div class="card-body" data-ar="ماتغيرش العمل الأصلي المحمي بحقوق النشر." data-en="Do not alter the original copyrighted work.">متعدلش العمل الأصلي المحمي بحقوق النشر.</div>
             <div class="card-feedback" data-ar="💡 استخدمه زي ما هو بس، من غير ما تغيره." data-en="💡 Use it as-is only, without changing it.">💡 يعني تقدر تستخدمه زي إيه هو بس، من غير ما تغير فيه.</div>
           </div>
           <div class="card-item" data-reveal="cc">
             <div class="card-icon">🔁</div>
-            <div class="card-title" data-ar="نفس الشروط للمشتقات (SA)" data-en="Same terms for adaptations (SA)">نفس شروط الترخيص (<span dir='ltr'>SA</span>)</div>
+            <div class="card-title" data-ar="نفس الشروط للمشتقات" data-en="Same terms for adaptations (SA)">نفس شروط الترخيص (<span dir='ltr'>SA</span>)</div>
             <div class="card-body" data-ar="انشر تحت نفس مجموعة التراخيص زي العمل الأصلي." data-en="Publish under the same combination of licenses as the original work.">انشر التعديلات تحت نفس مجموعة تراخيص العمل الأصلي.</div>
             <div class="card-feedback" data-ar="💡 لو عدّلت العمل، النسخة المعدّلة لازم تتبع نفس الترخيص." data-en="💡 If you adapt the work, the modified version must follow the same license.">💡 يعني لو عدلت العمل، النسخة المعدلة لازم تتبع نفس الرخصة.</div>
           </div>
@@ -762,10 +260,10 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="إنك تخلط بين شروط الترخيص — BY = إسناد، NC = غير تجاري، ND = من غير مشتقات، SA = نفس الشروط للمشتقات." data-en="Mixing up the license conditions — BY = credit, NC = non-commercial, ND = no derivatives, SA = same terms for adaptations.">تخلط بين شروط الرخص — BY = ذكر المبدع، NC = غير تجاري، ND = عدم التعديل، SA = نفس الشروط للتحويرات.</li>
-          <li data-ar="إنك تفتكر إن التراخيص بتمسح حقوق النشر (Copyright) خالص — لأ، التراخيص بتحدد شروط الاستخدام ومش بتمسح حق المبدع." data-en="Thinking licenses remove copyrights entirely — no, licenses define usage conditions and don't erase the creator's right.">تظن إن الرخص بتلغي حقوق النشر تماماً — لأ، الرخص بتحدد شروط الاستخدام ومش بتمحي حق المبدع.</li>
+          <li data-ar="إنك تفتكر إن التراخيص بتمسح حقوق النشر خالص — لأ، التراخيص بتحدد شروط الاستخدام ومش بتمسح حق المبدع." data-en="Thinking licenses remove copyrights entirely — no, licenses define usage conditions and don't erase the creator's right.">تظن إن الرخص بتلغي حقوق النشر تماماً — لأ، الرخص بتحدد شروط الاستخدام ومش بتمحي حق المبدع.</li>
         </ul>
       </div>
     </section>
@@ -789,36 +287,36 @@ select{color:var(--text)!important}
           <p data-ar="(١) اختر جميع العبارات التي تسمح باستخدام الأعمال المحمية بحقوق المؤلف دون إذن كاستثناء — الإجابة المطبوعة: (أ) و(ث): استخدام الأعمال في سياق التدريس يقع تحت الاستنساخ في المؤسسات التعليمية، وفي حالة الاقتباس يمكن استخدام العمل دون إذن مؤلف العمل الآخر؛ نسخ الأقراص المدمجة التجارية وتوزيعها على الأصدقاء (ب) والحفلة برسم دخول (ت) انتهاك لحقوق المؤلف. — EN printed answer: A and D." data-en="(1) Choose all statements that allow the use of copyrighted works without permission as an exception — Printed answer: A and D (use in the course of teaching = reproduction in educational institutions; quotation may be used without the other creator's permission; copying commercial CDs for friends (B) and a concert with admission fee (C) are copyright infringement). — AR الإجابة المطبوعة:(أ) و(ث).">(١) اختر جميع العبارات التي تسمح باستخدام الأعمال المحمية بحقوق المؤلف دون إذن كاستثناء — الإجابة المطبوعة: (أ) و(ث): استخدام الأعمال في سياق التدريس يقع تحت الاستنساخ في المؤسسات التعليمية، وفي حالة الاقتباس يمكن استخدام العمل دون إذن مؤلف العمل الآخر؛ نسخ الأقراص المدمجة التجارية وتوزيعها على الأصدقاء (ب) والحفلة برسم دخول (ت) انتهاك لحقوق المؤلف. — EN printed answer: A and D.</p>
           <p data-ar="(٢) اختر جميع العبارات التي تصف بشكل صحيح طريقة وقواعد الاقتباس — الإجابة المطبوعة: (ب)، (ت)، (ث). — EN printed answer: B, C, D. (٣) عند نشر صورة التقطتها بشرطي «عرض اسم المصور وعنوان العمل» و«لا يتم تغيير العمل» — الإجابة المطبوعة EN: A and C؛ العربي يطبع وصف العلامات ((أ) يمثل الإسناد (ب) غير تجاري (ت) لا مشتقات (ث) نفس الشروط) دون سطر إجابة ختامي، وبالتالي الإجابة المستنتجة من الشرطين: (أ) و(ت)." data-en="(2) Choose all statements that correctly describe the method and rules of quotations — Printed answer: B, C, D. — AR الإجابة المطبوعة: (ب)، (ت)، (ث). (3) Publishing a photo you took under the conditions &quot;photographer's name and work title displayed&quot; and &quot;the work is not altered&quot; — EN printed answer:A and C; Arabic prints the mark descriptions (أ=attribution, ب=non-commercial, ت=no derivatives, ث=same terms) without a final answer line, so the answer derived from the two conditions:(أ) and (ت).">(٢) اختر جميع العبارات التي تصف بشكل صحيح طريقة وقواعد الاقتباس — الإجابة المطبوعة: (ب)، (ت)، (ث). — EN printed answer: B, C, D. (٣) عند نشر صورة التقطتها بشرطي «عرض اسم المصور وعنوان العمل» و«لا يتم تغيير العمل» — الإجابة المطبوعة EN: A and C؛ العربي يطبع وصف العلامات ((أ) يمثل الإسناد (ب) غير تجاري (ت) لا مشتقات (ث) نفس الشروط) دون سطر إجابة ختامي، وبالتالي الإجابة المستنتجة من الشرطين: (أ) و(ت).</p>
           <div class="book-diff" data-ar="مقارنة النسختين: العبارة (ت) في سؤال (١) في EN عن &quot;K-pop medley&quot; بينما العربي يطبع «مزيجًا من الأغاني». شرح (٣) في العربي يكتفي بوصف العلامات دون سطر «لذلك» الختامي المطبوع في EN. الموقع يعيد ترتيب الخيارات:خيارا الكتاب الصحيحان في (١) يقابلان خياري الموقع C وD، وفي (٢) يقابلان A وC. كلا النسختين منقولتان كما هما." data-en="Edition comparison: statement (C) in question (1) in EN concerns a &quot;K-pop medley&quot; while Arabic prints «مزيجًا من الأغاني». The Arabic explanation of (3) gives only the mark descriptions without the final &quot;therefore&quot; line printed in EN. The site reorders options:the book's two correct options in (1) correspond to site options C and D, and in (2) to A and C. Both printings are quoted as-is.">مقارنة النسختين: العبارة (ت) في سؤال (١) في EN عن "K-pop medley" بينما العربي يطبع «مزيجًا من الأغاني». شرح (٣) في العربي يكتفي بوصف العلامات دون سطر «لذلك» الختامي المطبوع في EN. الموقع يعيد ترتيب الخيارات: خيارا الكتاب الصحيحان في (١) يقابلان خياري الموقع C وD، وفي (٢) يقابلان A وC. كلا النسختين منقولتان كما هما.</div>
-          <span class="book-src" data-ar="EN PDF 21 (المطبوع 21)؛ AR 26" data-en="EN PDF 21 (printed 21); AR 26">EN PDF 21 (المطبوع 21)؛ AR 26</span>
+          <span class="book-src" data-ar="من الكتاب" data-en="From the book">من الكتاب</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warmup" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
         <div class="book-card try">
           <h3 data-ar="من الكتاب:جرّب (جرب بنفسك / Try)" data-en="From the book: Try">من الكتاب: جرّب (جرب بنفسك / Try)</h3>
-          <p data-ar="(١) أكمل الفراغين — الإجابات (غير مطبوعة في الكتاب): [١] الاستخدام العادل (fair use) [٢] حماية الحقوق (protection of rights). (٢) ضع ✓ أو × لكل عبارة — الإجابات (غير مطبوعة): أ× ب✓ ت× ث✓؛ EN A× B○ C× D○." data-en="(1) Fill blanks [1] and [2] — Answers (not printed in the book): [1] fair use [2] protection of rights. (2) Mark each statement — Answers (not printed): EN A× B○ C× D○; AR أ× ب✓ ت× ث✓.">(١) أكمل الفراغين — الإجابات (غير مطبوعة في الكتاب): [١] الاستخدام العادل (fair use) [٢] حماية الحقوق (protection of rights). (٢) ضع ✓ أو × لكل عبارة — الإجابات (غير مطبوعة): أ× ب✓ ت× ث✓؛ EN A× B○ C× D○.</p>
-          <p data-ar="(٣) اختر جميع العبارات الصحيحة عن قواعد الاقتباس — الإجابة (غير مطبوعة): (ب) و(ث)؛ EN B, D. (٤) أكمل جدول تراخيص المشاع الإبداعي — الإجابات (غير مطبوعة): [١] الإشارة لفضل المبدع (Credit to creator) [٢] تجارية (commercial) [٣] لا مشتقات (No derivatives) [٤] نفس شروط التعديلات (Same terms for adaptations). (٥) اختر العبارة الممثلة للترخيص الموضح (CC BY ND) — الإجابة (غير مطبوعة): (ب)؛ EN B." data-en="(3) Choose all statements that correctly describe quotation rules — Answer (not printed): B, D; AR (ب)، (ث). (4) Complete the Creative Commons table — Answers (not printed): [1] Credit to creator [2] commercial [3] No derivatives [4] Same terms for adaptations. (5) Choose the statement representing the license shown (CC BY ND) — Answer (not printed): B; AR (ب).">(٣) اختر جميع العبارات الصحيحة عن قواعد الاقتباس — الإجابة (غير مطبوعة): (ب) و(ث)؛ EN B, D. (٤) أكمل جدول تراخيص المشاع الإبداعي — الإجابات (غير مطبوعة): [١] الإشارة لفضل المبدع (Credit to creator) [٢] تجارية (commercial) [٣] لا مشتقات (No derivatives) [٤] نفس شروط التعديلات (Same terms for adaptations). (٥) اختر العبارة الممثلة للترخيص الموضح (CC BY ND) — الإجابة (غير مطبوعة): (ب)؛ EN B.</p>
+          <p data-ar="(١) أكمل الفراغين — الإجابات (غير مطبوعة في الكتاب): [١] الاستخدام العادل [٢] حماية الحقوق. (٢) ضع ✓ أو × لكل عبارة — الإجابات (غير مطبوعة): أ× ب✓ ت× ث✓؛ EN A× B○ C× D○." data-en="(1) Fill blanks [1] and [2] — Answers (not printed in the book): [1] fair use [2] protection of rights. (2) Mark each statement — Answers (not printed): EN A× B○ C× D○; AR أ× ب✓ ت× ث✓.">(١) أكمل الفراغين — الإجابات (غير مطبوعة في الكتاب): [١] الاستخدام العادل [٢] حماية الحقوق. (٢) ضع ✓ أو × لكل عبارة — الإجابات (غير مطبوعة): أ× ب✓ ت× ث✓؛ EN A× B○ C× D○.</p>
+          <p data-ar="(٣) اختر جميع العبارات الصحيحة عن قواعد الاقتباس — الإجابة (غير مطبوعة): (ب) و(ث)؛ EN B, D. (٤) أكمل جدول تراخيص المشاع الإبداعي — الإجابات (غير مطبوعة): [١] الإشارة لفضل المبدع [٢] تجارية [٣] لا مشتقات [٤] نفس شروط التعديلات. (٥) اختر العبارة الممثلة للترخيص الموضح — الإجابة (غير مطبوعة): (ب)؛ EN B." data-en="(3) Choose all statements that correctly describe quotation rules — Answer (not printed): B, D; AR (ب)، (ث). (4) Complete the Creative Commons table — Answers (not printed): [1] Credit to creator [2] commercial [3] No derivatives [4] Same terms for adaptations. (5) Choose the statement representing the license shown (CC BY ND) — Answer (not printed): B; AR (ب).">(٣) اختر جميع العبارات الصحيحة عن قواعد الاقتباس — الإجابة (غير مطبوعة): (ب) و(ث)؛ EN B, D. (٤) أكمل جدول تراخيص المشاع الإبداعي — الإجابات (غير مطبوعة): [١] الإشارة لفضل المبدع [٢] تجارية [٣] لا مشتقات [٤] نفس شروط التعديلات. (٥) اختر العبارة الممثلة للترخيص الموضح — الإجابة (غير مطبوعة): (ب)؛ EN B.</p>
           <div class="book-diff" data-ar="مقارنة النسختين:العربي يستخدم ✓/× في سؤال (٢) حيث يستخدم EN ○/×. العبارة (ت) في سؤال (٢): العربي يطبع الترجمة «إلى اللغة المصرية» بينما EN يطبع &quot;into Arabic&quot;. الخيارات بالحروف أ-ث في العربي وA-D في EN. كلا النسختين منقولتان كما هما، والإجابات غير مطبوعة في أي منهما." data-en="Edition comparison:Arabic uses ✓/× in question (2) where EN uses ○/×. Statement (ت) in question (2): Arabic prints translation «إلى اللغة المصرية» while EN prints &quot;into Arabic&quot;. Options lettered أ-ث in Arabic vs A-D in EN. Both printings are quoted as-is; answers are not printed in either.">مقارنة النسختين:العربي يستخدم ✓/× في سؤال (٢) حيث يستخدم EN ○/×. العبارة (ت) في سؤال (٢): العربي يطبع الترجمة «إلى اللغة المصرية» بينما EN يطبع "into Arabic". الخيارات بالحروف أ-ث في العربي وA-D في EN. كلا النسختين منقولتان كما هما، والإجابات غير مطبوعة في أي منهما.</div>
-          <span class="book-src" data-ar="EN PDF 22 (المطبوع 22)؛ AR 27" data-en="EN PDF 22 (printed 22); AR 27">EN PDF 22 (المطبوع 22)؛ AR 27</span>
+          <span class="book-src" data-ar="من الكتاب" data-en="From the book">من الكتاب</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exercise" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب:تمرين (Exercise)" data-en="From the book: Exercise">من الكتاب: تمرين (Exercise)</h3>
-          <p data-ar="١ (١) اختر المصطلح المناسب للفراغات [١]-[٣] — الإجابات (غير مطبوعة في الكتاب): [١] فصول دراسية (ث) [٢] شخصي (ت) [٣] اقتباس (أ)؛ EN [1]D (Classes) [2]C (Personal) [3]A (Quotation). (٢) العبارة التي لا تشكل انتهاكًا — الإجابة (غير مطبوعة): (ب) تسجيل أقراص مشتراة على الهاتف الذكي؛ EN B. (٣) العبارات الصحيحة عن قواعد الاقتباس — الإجابة (غير مطبوعة): (أ)، (ت)، (ث)؛ EN A, C, D." data-en="1 (1) Choose the terms for blanks [1]-[3] — Answers (not printed in the book): [1]D (Classes) [2]C (Personal) [3]A (Quotation); AR [١]ث [٢]ت [٣]أ. (2) The statement that does not constitute infringement — Answer (not printed): B (recording purchased CDs onto a smartphone); AR (ب). (3) Statements correct about quotation rules — Answer (not printed): A, C, D; AR (أ)، (ت)، (ث).">١ (١) اختر المصطلح المناسب للفراغات [١]-[٣] — الإجابات (غير مطبوعة في الكتاب): [١] فصول دراسية (ث) [٢] شخصي (ت) [٣] اقتباس (أ)؛ EN [1]D (Classes) [2]C (Personal) [3]A (Quotation). (٢) العبارة التي لا تشكل انتهاكًا — الإجابة (غير مطبوعة): (ب) تسجيل أقراص مشتراة على الهاتف الذكي؛ EN B. (٣) العبارات الصحيحة عن قواعد الاقتباس — الإجابة (غير مطبوعة): (أ)، (ت)، (ث)؛ EN A, C, D.</p>
-          <p data-ar="(٤) أكمل جدول تراخيص المشاع الإبداعي — الإجابات (غير مطبوعة): [١] الإشارة لفضل المبدع (Credit to creator) [٢] غير تجاري (Non-commercial) [٣] لا مشتقات (No derivatives) [٤] نفس شروط التعديلات (Same terms for adaptations). (٥) صورة بشرطي «عرض اسم المصور» و«عدم الاستخدام لأغراض تجارية» — الإجابة (غير مطبوعة): (أ) و(ب)؛ EN A and B." data-en="(4) Complete the Creative Commons table — Answers (not printed): [1] Credit to creator [2] Non-commercial [3] No derivatives [4] Same terms for adaptations. (5) A photo under the conditions &quot;photographer's name displayed&quot; and &quot;no commercial use&quot; — Answer (not printed): A and B; AR (أ) و(ب).">(٤) أكمل جدول تراخيص المشاع الإبداعي — الإجابات (غير مطبوعة): [١] الإشارة لفضل المبدع (Credit to creator) [٢] غير تجاري (Non-commercial) [٣] لا مشتقات (No derivatives) [٤] نفس شروط التعديلات (Same terms for adaptations). (٥) صورة بشرطي «عرض اسم المصور» و«عدم الاستخدام لأغراض تجارية» — الإجابة (غير مطبوعة): (أ) و(ب)؛ EN A and B.</p>
+          <h3 data-ar="من الكتاب:تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
+          <p data-ar="١ (١) اختر المصطلح المناسب للفراغات [١]-[٣] — الإجابات (غير مطبوعة في الكتاب): [١] فصول دراسية (ث) [٢] شخصي (ت) [٣] اقتباس (أ)؛ EN [1]D [2]C [3]A. (٢) العبارة التي لا تشكل انتهاكًا — الإجابة (غير مطبوعة): (ب) تسجيل أقراص مشتراة على الهاتف الذكي؛ EN B. (٣) العبارات الصحيحة عن قواعد الاقتباس — الإجابة (غير مطبوعة): (أ)، (ت)، (ث)؛ EN A, C, D." data-en="1 (1) Choose the terms for blanks [1]-[3] — Answers (not printed in the book): [1]D (Classes) [2]C (Personal) [3]A (Quotation); AR [١]ث [٢]ت [٣]أ. (2) The statement that does not constitute infringement — Answer (not printed): B (recording purchased CDs onto a smartphone); AR (ب). (3) Statements correct about quotation rules — Answer (not printed): A, C, D; AR (أ)، (ت)، (ث).">١ (١) اختر المصطلح المناسب للفراغات [١]-[٣] — الإجابات (غير مطبوعة في الكتاب): [١] فصول دراسية (ث) [٢] شخصي (ت) [٣] اقتباس (أ)؛ EN [1]D [2]C [3]A. (٢) العبارة التي لا تشكل انتهاكًا — الإجابة (غير مطبوعة): (ب) تسجيل أقراص مشتراة على الهاتف الذكي؛ EN B. (٣) العبارات الصحيحة عن قواعد الاقتباس — الإجابة (غير مطبوعة): (أ)، (ت)، (ث)؛ EN A, C, D.</p>
+          <p data-ar="(٤) أكمل جدول تراخيص المشاع الإبداعي — الإجابات (غير مطبوعة): [١] الإشارة لفضل المبدع [٢] غير تجاري [٣] لا مشتقات [٤] نفس شروط التعديلات. (٥) صورة بشرطي«عرض اسم المصور» و«عدم الاستخدام لأغراض تجارية» — الإجابة (غير مطبوعة): (أ) و(ب)؛ EN A and B." data-en="(4) Complete the Creative Commons table — Answers (not printed): [1] Credit to creator [2] Non-commercial [3] No derivatives [4] Same terms for adaptations. (5) A photo under the conditions &quot;photographer's name displayed&quot; and &quot;no commercial use&quot; — Answer (not printed): A and B; AR (أ) و(ب).">(٤) أكمل جدول تراخيص المشاع الإبداعي — الإجابات (غير مطبوعة): [١] الإشارة لفضل المبدع [٢] غير تجاري [٣] لا مشتقات [٤] نفس شروط التعديلات. (٥) صورة بشرطي «عرض اسم المصور» و«عدم الاستخدام لأغراض تجارية» — الإجابة (غير مطبوعة): (أ) و(ب)؛ EN A and B.</p>
           <div class="book-diff" data-ar="مقارنة النسختين:في جدول تمرين (٤) العربي يطبع صف [٢] «لا تستخدم لأغراض الدعاية» بينما EN يطبع &quot;Do not use for commercial purposes&quot; وبينما جدولا النقاط وجرّب في العربي يطبعان «لا تستخدم لأغراض تجارية». صف [٤] في العربي مطبوع «كما كما» مكررة. خيارات سؤال (٥) في العربي مرقمة أ ب جـ د بينما باقي أسئلة الوحدة تستخدم أ-ث. أيقونة NC في جدول تمرين العربي (¥ مشطوبة) تختلف عن أيقونة جدول النقاط العربي (شخص و$). سؤال الموقع ٣ معكوس الصياغة (يختار العبارة غير الصحيحة) ومتسق مع الإجابة المشتقة. كلا النسختين منقولتان كما هما، والإجابات غير مطبوعة في أي منهما." data-en="Edition comparison:in the Arabic Exercise (4) table, row [2] prints «لا تستخدم لأغراض الدعاية» while EN prints &quot;Do not use for commercial purposes&quot; and the Arabic Point and Try tables print «لا تستخدم لأغراض تجارية». Row [4] in Arabic prints a doubled «كما كما». Question (5) options in Arabic are lettered أ ب جـ د while the rest of the unit uses أ-ث. The NC icon in the Arabic Exercise table (crossed-out ¥) differs from the Arabic Point table icon (person + $). The site's question 3 is phrased inversely (choosing the incorrect statement) and is consistent with the derived answer. Both printings are quoted as-is; answers are not printed in either.">مقارنة النسختين:في جدول تمرين (٤) العربي يطبع صف [٢] «لا تستخدم لأغراض الدعاية» بينما EN يطبع "Do not use for commercial purposes" وبينما جدولا النقاط وجرّب في العربي يطبعان «لا تستخدم لأغراض تجارية». صف [٤] في العربي مطبوع «كما كما» مكررة. خيارات سؤال (٥) في العربي مرقمة أ ب جـ د بينما باقي أسئلة الوحدة تستخدم أ-ث. أيقونة NC في جدول تمرين العربي (¥ مشطوبة) تختلف عن أيقونة جدول النقاط العربي (شخص و$). سؤال الموقع ٣ معكوس الصياغة (يختار العبارة غير الصحيحة) ومتسق مع الإجابة المشتقة. كلا النسختين منقولتان كما هما، والإجابات غير مطبوعة في أي منهما.</div>
-          <span class="book-src" data-ar="EN PDF 23 (المطبوع 23)؛ AR 28" data-en="EN PDF 23 (printed 23); AR 28">EN PDF 23 (المطبوع 23)؛ AR 28</span>
+          <span class="book-src" data-ar="من الكتاب" data-en="From the book">من الكتاب</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exercise" -->
       </div>
 
       <!-- Warm Up -->
       <div class="section-inner card">
-        <h3 style="color:var(--s1)" data-ar="🔥 التمهيدي — EN PDF 21 (المطبوع 21)؛ AR 26" data-en="🔥 Warm Up — EN PDF 21 (printed 21); AR 26">🔥 Warm Up — EN PDF 21 (printed 21); AR 26</h3>
+        <h3 style="color:var(--s1)" data-ar="🔥 التمهيدي" data-en="🔥 Warm Up">🔥 Warm Up</h3>
         <p style="font-size:.92rem" class="hint-line" data-ar="جرّب بنفسك الأول، بعدين افتح الحل." data-en="Try by yourself first, then open the solution.">حط حلك بنفسك الأول، وبعدين افتح الحل.</p>
         <div style="margin-top:12px">
           <div class="ex-item">
-            <div class="q"><span class="q-num">1</span> <span data-ar="أي تصرفات من A لـ D مسموحة كاستثناء لحقوق النشر (Copyright) من غير إذن؟" data-en="Which actions from A to D are allowed as copyright exceptions without permission?">إيه من التصرفات A لـ D مسموح بيه كاستثناء من حقوق النشر بدون إذن؟</span></div>
+            <div class="q"><span class="q-num">1</span> <span data-ar="أي تصرفات من A لـ D مسموحة كاستثناء لحقوق النشر من غير إذن؟" data-en="Which actions from A to D are allowed as copyright exceptions without permission?">إيه من التصرفات A لـ D مسموح بيه كاستثناء من حقوق النشر بدون إذن؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ar="A&nbsp;&nbsp;نسخت سي ديات موسيقى تجارية ووزعتها على صحابي" data-en="A&nbsp;&nbsp;I copied commercially available music CDs and distributed them to friends">A&nbsp;&nbsp;نسخت CD موسيقي تجاري ووزعته على الأصدقاء</div>
               <div class="ex-opt" data-ar="B&nbsp;&nbsp;أخدنا رسوم دخول وعملنا ميدلي K-pop في حفلة الفرقة بتاعتنا" data-en="B&nbsp;&nbsp;We charged an admission fee and performed a K-pop medley at our band's concert">B&nbsp;&nbsp;عملنا رسوم دخول وقدمنا ميدلي أغاني في حفل الفرقة</div>
@@ -869,21 +367,21 @@ select{color:var(--text)!important}
 
       <!-- Try -->
       <div class="section-inner card" style="margin-top:24px">
-        <h3 style="color:var(--s2)" data-ar="🎯 جرّب — EN PDF 22 (المطبوع 22)؛ AR 27" data-en="🎯 Try — EN PDF 22 (printed 22); AR 27">🎯 Try — EN PDF 22 (printed 22); AR 27</h3>
+        <h3 style="color:var(--s2)" data-ar="🎯 جرّب" data-en="🎯 Try">🎯 Try</h3>
         <p style="font-size:.92rem" class="hint-line" data-ar="حط حلك بنفسك الأول، بعدين افتح الحل." data-en="Put your solution by yourself first, then open the solution.">حط حلك بنفسك الأول، وبعدين افتح الحل.</p>
         <div style="margin-top:12px">
           <div class="ex-item">
-            <div class="q"><span class="q-num">1</span> <span data-ar="حقوق النشر (Copyright) بتساهم في التطوير الثقافي بضمان إيه؟" data-en="A copyright aims to contribute to cultural development by ensuring what?">هدف حقوق النشر هو ضمان إيه؟</span></div>
+            <div class="q"><span class="q-num">1</span> <span data-ar="حقوق النشر بتساهم في التطوير الثقافي بضمان إيه؟" data-en="A copyright aims to contribute to cultural development by ensuring what?">هدف حقوق النشر هو ضمان إيه؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;الاستخدام العادل للأعمال المحمية وحماية الحقوق" data-en="A&nbsp;&nbsp;Fair use of copyrighted works and protection of rights">A&nbsp;&nbsp;الاستخدام العادل للأعمال المحمية وحماية الحقوق</div>
               <div class="ex-opt" data-ar="B&nbsp;&nbsp;منع كل استخدام للأعمال" data-en="B&nbsp;&nbsp;Prohibiting all use of works">B&nbsp;&nbsp;منع استخدام الأعمال نهائياً</div>
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;بيع الأعمال على الإنترنت بس" data-en="C&nbsp;&nbsp;Selling works only online">C&nbsp;&nbsp;بيع الأعمال فقط عبر الإنترنت</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;إلغاء حقوق المبدعين" data-en="D&nbsp;&nbsp;Abolishing creators' rights">D&nbsp;&nbsp;إلغاء حقوق المبدعين</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة:A — الغرض هو الاستخدام العادل وحماية الحقوق لخدمة التطوير الثقافي. (حقوق النشر (Copyright) مش بهدف منع كل استخدام أو بيع الأعمال أونلاين، وأكيد مش إلغاء حقوق المبدعين — بتوازن بينهم.)" data-en="✅ Answer: A — the purpose is fair use and protection of rights to serve cultural development. (Copyright does not aim to prohibit all use or sell works online, and definitely not to abolish creators' rights — it balances them.)">✅ الإجابة: <b>A</b> — هدف حقوق النشر هو الاستخدام العادل وحماية الحقوق لخدمة التطور الثقافي.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة:A — الغرض هو الاستخدام العادل وحماية الحقوق لخدمة التطوير الثقافي. (حقوق النشر مش بهدف منع كل استخدام أو بيع الأعمال أونلاين، وأكيد مش إلغاء حقوق المبدعين — بتوازن بينهم.)" data-en="✅ Answer: A — the purpose is fair use and protection of rights to serve cultural development. (Copyright does not aim to prohibit all use or sell works online, and definitely not to abolish creators' rights — it balances them.)">✅ الإجابة: <b>A</b> — هدف حقوق النشر هو الاستخدام العادل وحماية الحقوق لخدمة التطور الثقافي.</div>
           </div>
           <div class="ex-item">
-            <div class="q"><span class="q-num">2</span> <span data-ar="اتنسخت النوتة الموسيقية لحفلة عادية واتوزعت على كل أعضاء الأوركسترا الهوائية — ده تعدي على حقوق النشر (Copyright)؟" data-en="The sheet music for a regular concert was copied and distributed to all members of the wind orchestra — is this copyright infringement?">اتنسخت النوتة الموسيقية لحفلة عادية واتوزعت على كل أعضاء الأوركسترا الهوائية — ده تعدي على حقوق النشر (Copyright)؟</span></div>
+            <div class="q"><span class="q-num">2</span> <span data-ar="اتنسخت النوتة الموسيقية لحفلة عادية واتوزعت على كل أعضاء الأوركسترا الهوائية — ده تعدي على حقوق النشر؟" data-en="The sheet music for a regular concert was copied and distributed to all members of the wind orchestra — is this copyright infringement?">اتنسخت النوتة الموسيقية لحفلة عادية واتوزعت على كل أعضاء الأوركسترا الهوائية — ده تعدي على حقوق النشر؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;مش تعدي" data-en="○&nbsp;&nbsp;Not infringement">○&nbsp;&nbsp;مش انتهاك</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;تعدي" data-en="×&nbsp;&nbsp;Infringement">×&nbsp;&nbsp;انتهاك</div>
@@ -892,7 +390,7 @@ select{color:var(--text)!important}
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">3</span> <span data-ar="في مهرجان ثقافي مدرسي، فرقة التمثيل مثلت مسرحية بسيناريو من مجموعة سيناريوهات تجارية — ده تعدي على حقوق النشر (Copyright)؟" data-en="At a school cultural festival, the drama club performed a play using a script from a collection of commercially available scripts — is this copyright infringement?">في المدرسة، فرقة المسرح قدمت مسرحية باستخدام سيناريو من مجموعة سيناريوهات متاحة تجارياً — هل ده بيعتبر انتهاك لحقوق النشر؟</span></div>
+            <div class="q"><span class="q-num">3</span> <span data-ar="في مهرجان ثقافي مدرسي، فرقة التمثيل مثلت مسرحية بسيناريو من مجموعة سيناريوهات تجارية — ده تعدي على حقوق النشر؟" data-en="At a school cultural festival, the drama club performed a play using a script from a collection of commercially available scripts — is this copyright infringement?">في المدرسة، فرقة المسرح قدمت مسرحية باستخدام سيناريو من مجموعة سيناريوهات متاحة تجارياً — هل ده بيعتبر انتهاك لحقوق النشر؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;مش تعدي" data-en="○&nbsp;&nbsp;Not infringement">○&nbsp;&nbsp;مش انتهاك</div>
               <div class="ex-opt" data-ar="×&nbsp;&nbsp;تعدي" data-en="×&nbsp;&nbsp;Infringement">×&nbsp;&nbsp;انتهاك</div>
@@ -901,7 +399,7 @@ select{color:var(--text)!important}
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">4</span> <span data-ar="في تقرير لصف، طالب ذكر جزء من بيانات إحصائية من صفحة ويب — ده تعدي على حقوق النشر (Copyright)؟" data-en="In a class report, a student cited a portion of statistical data from a web page — is this copyright infringement?">نقلت جزء من بيانات إحصائية من صفحة ويب في تقرير مطلوب في الفصل — هل ده بيعتبر انتهاك لحقوق النشر؟</span></div>
+            <div class="q"><span class="q-num">4</span> <span data-ar="في تقرير لصف، طالب ذكر جزء من بيانات إحصائية من صفحة ويب — ده تعدي على حقوق النشر؟" data-en="In a class report, a student cited a portion of statistical data from a web page — is this copyright infringement?">نقلت جزء من بيانات إحصائية من صفحة ويب في تقرير مطلوب في الفصل — هل ده بيعتبر انتهاك لحقوق النشر؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ok="1" data-ar="○&nbsp;&nbsp;مش تعدي" data-en="○&nbsp;&nbsp;Not infringement">○&nbsp;&nbsp;مش انتهاك</div>
               <div class="ex-opt" data-ar="×&nbsp;&nbsp;تعدي" data-en="×&nbsp;&nbsp;Infringement">×&nbsp;&nbsp;انتهاك</div>
@@ -910,7 +408,7 @@ select{color:var(--text)!important}
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">5</span> <span data-ar="عمل إسباني كاتبه إسباني اتترجم للعربي واتنشر من غير إذن، لأن اللغات مختلفة — ده تعدي على حقوق النشر (Copyright)؟" data-en="A Spanish work written by a Spanish person was translated into Arabic and published without permission, as the languages were different — is this copyright infringement?">عمل إسباني مكتوب بإسبانية اتترجم للعربية ونُشر بدون إذن صاحب حقوق النشر، بحجة اختلاف اللغة — هل ده بيعتبر انتهاك لحقوق النشر؟</span></div>
+            <div class="q"><span class="q-num">5</span> <span data-ar="عمل إسباني كاتبه إسباني اتترجم للعربي واتنشر من غير إذن، لأن اللغات مختلفة — ده تعدي على حقوق النشر؟" data-en="A Spanish work written by a Spanish person was translated into Arabic and published without permission, as the languages were different — is this copyright infringement?">عمل إسباني مكتوب بإسبانية اتترجم للعربية ونُشر بدون إذن صاحب حقوق النشر، بحجة اختلاف اللغة — هل ده بيعتبر انتهاك لحقوق النشر؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ar="○&nbsp;&nbsp;مش تعدي" data-en="○&nbsp;&nbsp;Not infringement">○&nbsp;&nbsp;مش انتهاك</div>
               <div class="ex-opt" data-ok="1" data-ar="×&nbsp;&nbsp;تعدي" data-en="×&nbsp;&nbsp;Infringement">×&nbsp;&nbsp;انتهاك</div>
@@ -946,10 +444,10 @@ select{color:var(--text)!important}
                     <div class="ex-item">
             <div class="q"><span class="q-num">9</span> <span data-ar="في جدول تراخيص CC في كتاب Try (٤): الفراغ [١] اللي محتواه «اعرض عنوان العمل واسم المبدع» = إيه؟" data-en="In the book Try (4) CC table: blank [1] whose content is "Display the title of the work and name of the creator" = what?">في جدول تراخيص CC في كتاب Try (٤): الفراغ [١] اللي محتواه «اعرض عنوان العمل واسم المبدع» = إيه؟</span></div>
             <div class="ex-options">
-              <div class="ex-opt" data-ar="A&nbsp;&nbsp;No derivatives (ND)" data-en="A&nbsp;&nbsp;No derivatives (ND)">A&nbsp;&nbsp;No derivatives (ND)</div>
-              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Same terms for adaptations (SA)" data-en="B&nbsp;&nbsp;Same terms for adaptations (SA)">B&nbsp;&nbsp;Same terms for adaptations (SA)</div>
-              <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Credit to creator (BY)" data-en="C&nbsp;&nbsp;Credit to creator (BY)">C&nbsp;&nbsp;Credit to creator (BY)</div>
-              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Non-commercial (NC)" data-en="D&nbsp;&nbsp;Non-commercial (NC)">D&nbsp;&nbsp;Non-commercial (NC)</div>
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;No derivatives" data-en="A&nbsp;&nbsp;No derivatives (ND)">A&nbsp;&nbsp;No derivatives (ND)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Same terms for adaptations" data-en="B&nbsp;&nbsp;Same terms for adaptations (SA)">B&nbsp;&nbsp;Same terms for adaptations (SA)</div>
+              <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;Credit to creator" data-en="C&nbsp;&nbsp;Credit to creator (BY)">C&nbsp;&nbsp;Credit to creator (BY)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Non-commercial" data-en="D&nbsp;&nbsp;Non-commercial (NC)">D&nbsp;&nbsp;Non-commercial (NC)</div>
             </div>
             <div class="ex-answer" data-ar="✅ الإجابة:C — BY = الإشارة لفضل المبدع = اعرض عنوان العمل واسم المبدع. (الإجابة مشتقة من جدول الكتاب، غير مطبوعة.)" data-en="✅ Answer: C — BY = Credit to creator = display the title of the work and name of the creator. (Answer derived from the book table, not printed.)">✅ الإجابة: <b>C</b> — <span dir='ltr'>BY</span> = الإشارة لفضل المبدع.</div>
           </div>
@@ -1004,7 +502,7 @@ select{color:var(--text)!important}
 
       <!-- Exercise -->
       <div class="section-inner card" style="margin-top:24px">
-        <h3 style="color:var(--s3)" data-ar="💪 تدريب — EN PDF 23 (المطبوع 23)؛ AR 28" data-en="💪 Exercise — EN PDF 23 (printed 23); AR 28">💪 Exercise — EN PDF 23 (printed 23); AR 28</h3>
+        <h3 style="color:var(--s3)" data-ar="💪 تدريب" data-en="💪 Exercise">💪 Exercise</h3>
         <p style="font-size:.92rem" class="hint-line" data-ar="التحدي النهائي — حضّر الإجابة بنفسك وبعدين تشيك." data-en="Final challenge — build the answer by yourself then check.">تحدي ختامي — كوّن الإجابة بنفسك وبعدين تحقق.</p>
         <div style="margin-top:12px">
           <div class="ex-item">
@@ -1025,7 +523,7 @@ select{color:var(--text)!important}
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;شخصي" data-en="C&nbsp;&nbsp;Personal">C&nbsp;&nbsp;شخصي</div>
               <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;فصول دراسية" data-en="D&nbsp;&nbsp;Classes">D&nbsp;&nbsp;فصول دراسية</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة:D — فصول دراسية (Classes). (الإجابة مشتقة من سؤال الكتاب، غير مطبوعة.)" data-en="✅ Answer: D — Classes. (Answer derived from the book question, not printed.)">✅ الإجابة: <b>D</b> — فصول دراسية (Classes).</div>
+            <div class="ex-answer" data-ar="✅ الإجابة:D — فصول دراسية. (الإجابة مشتقة من سؤال الكتاب، غير مطبوعة.)" data-en="✅ Answer: D — Classes. (Answer derived from the book question, not printed.)">✅ الإجابة: <b>D</b> — فصول دراسية.</div>
           </div>
           <div class="ex-item">
             <div class="q"><span class="q-num">3</span> <span data-ar="ونفس السؤال: ([٣]) من النصوص — الفراغ [٣] = إيه؟" data-en="Same question: ([3]) from texts — blank [3] = what?">ونفس السؤال: ([٣]) من النصوص — الفراغ [٣] = إيه؟</span></div>
@@ -1035,18 +533,18 @@ select{color:var(--text)!important}
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;شخصي" data-en="C&nbsp;&nbsp;Personal">C&nbsp;&nbsp;شخصي</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;فصول دراسية" data-en="D&nbsp;&nbsp;Classes">D&nbsp;&nbsp;فصول دراسية</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة:A — اقتباس (Quotation). (الإجابة مشتقة من سؤال الكتاب، غير مطبوعة.)" data-en="✅ Answer: A — Quotation. (Answer derived from the book question, not printed.)">✅ الإجابة: <b>A</b> — اقتباس (Quotation).</div>
+            <div class="ex-answer" data-ar="✅ الإجابة:A — اقتباس. (الإجابة مشتقة من سؤال الكتاب، غير مطبوعة.)" data-en="✅ Answer: A — Quotation. (Answer derived from the book question, not printed.)">✅ الإجابة: <b>A</b> — اقتباس.</div>
           </div>
 
           <div class="ex-item">
-            <div class="q"><span class="q-num">4</span> <span data-ar="أي واحدة من A لـ D مش بتعتبر تعدي على حقوق النشر (Copyright)؟" data-en="Which does NOT constitute copyright infringement from A to D?">إيه اللي مش بيعتبر انتهاك لحقوق النشر من A لـ D؟</span></div>
+            <div class="q"><span class="q-num">4</span> <span data-ar="أي واحدة من A لـ D مش بتعتبر تعدي على حقوق النشر؟" data-en="Which does NOT constitute copyright infringement from A to D?">إيه اللي مش بيعتبر انتهاك لحقوق النشر من A لـ D؟</span></div>
             <div class="ex-options">
               <div class="ex-opt" data-ok="1" data-ar="A&nbsp;&nbsp;بسمع موسيقى بتسجيل سي ديات موسيقى تجارية اشتريتها على الموبايل" data-en="A&nbsp;&nbsp;I listen to music by recording commercial music CDs I purchased onto my smartphone">A&nbsp;&nbsp;بسمع موسيقى عن طريق تسجيل أقراص موسيقية تجارية اشتريتها على هاتفي الذكي</div>
               <div class="ex-opt" data-ar="B&nbsp;&nbsp;عملت نسخة من سي دي موسيقى تجاري واديتها لصاحبي" data-en="B&nbsp;&nbsp;I made a copy of a commercially purchased music CD and gave it to a friend">B&nbsp;&nbsp;عملت نسخة من CD موسيقي اشتريته واديتها لصاحبك</div>
-              <div class="ex-opt" data-ar="C&nbsp;&nbsp;شاركت ونشرت على السوشيال ميديا الداتا (Data) الصوتية لأغنية فنان مشهور" data-en="C&nbsp;&nbsp;I shared and disseminated on social media the audio data of a popular artist's song">C&nbsp;&nbsp;شاركت ونشرت على السوشيال ميديا البيانات الصوتية لأغنية فنان مشهور</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;شاركت ونشرت على السوشيال ميديا البيانات الصوتية لأغنية فنان مشهور" data-en="C&nbsp;&nbsp;I shared and disseminated on social media the audio data of a popular artist's song">C&nbsp;&nbsp;شاركت ونشرت على السوشيال ميديا البيانات الصوتية لأغنية فنان مشهور</div>
               <div class="ex-opt" data-ar="D&nbsp;&nbsp;نسخت رسمة اتوزعت مجاناً وبعت النسخ بسعر رخيص" data-en="D&nbsp;&nbsp;I copied an illustration distributed for free and sold the copies at a low price">D&nbsp;&nbsp;نسخت رسمة موزعة مجاناً وبعتها بوبعدينن منخفض</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة:A — تسجيل سي دي اشتريته على الموبايل عشان تسمع لوحدك هو تسجيل للاستخدام الشخصي. (إعطاء نسخة لصاحبك ومشاركة داتا (Data) أغنية على السوشيال ميديا وبيع رسمة منسوخة كلها تعديات، مش استثناءات.)" data-en="✅ Answer: A — recording a music CD you bought onto your smartphone for personal listening is private-use reproduction. (Giving a copy to a friend, sharing a song's data on social media, and selling a copied illustration are all infringements, not exceptions.)">✅ الإجابة: <b>A</b> — تسجيل قرص موسيقي اشتريته على هاتفك للاستماع الشخصي بيعتبر نسخ للاستخدام الشخصي.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة:A — تسجيل سي دي اشتريته على الموبايل عشان تسمع لوحدك هو تسجيل للاستخدام الشخصي. (إعطاء نسخة لصاحبك ومشاركة بيانات أغنية على السوشيال ميديا وبيع رسمة منسوخة كلها تعديات، مش استثناءات.)" data-en="✅ Answer: A — recording a music CD you bought onto your smartphone for personal listening is private-use reproduction. (Giving a copy to a friend, sharing a song's data on social media, and selling a copied illustration are all infringements, not exceptions.)">✅ الإجابة: <b>A</b> — تسجيل قرص موسيقي اشتريته على هاتفك للاستماع الشخصي بيعتبر نسخ للاستخدام الشخصي.</div>
           </div>
 
           <div class="ex-item">
@@ -1055,7 +553,7 @@ select{color:var(--text)!important}
               <div class="ex-opt" data-ar="A&nbsp;&nbsp;في ضرورة للاقتباس" data-en="A&nbsp;&nbsp;There is a necessity to quote">A&nbsp;&nbsp;في ضرورة للاقتباس</div>
               <div class="ex-opt" data-ar="B&nbsp;&nbsp;ماتغيرش المادة المقتبسة من غير إذن" data-en="B&nbsp;&nbsp;Do not alter quoted material without permission">B&nbsp;&nbsp;لا تعدل المادة المقتبسة بدون إذن</div>
               <div class="ex-opt" data-ar="C&nbsp;&nbsp;المصدر محدد بوضوح" data-en="C&nbsp;&nbsp;The source is clearly specified">C&nbsp;&nbsp;المصدر محدد بوضوح</div>
-              <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;مينفعش تقتبس من غير ما تاخد إذن من صاحب حقوق النشر (Copyright)" data-en="D&nbsp;&nbsp;You cannot quote without obtaining permission from the copyright holder">D&nbsp;&nbsp;مش تقدر تنقل بدون إذن صاحب حقوق النشر</div>
+              <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;مينفعش تقتبس من غير ما تاخد إذن من صاحب حقوق النشر" data-en="D&nbsp;&nbsp;You cannot quote without obtaining permission from the copyright holder">D&nbsp;&nbsp;مش تقدر تنقل بدون إذن صاحب حقوق النشر</div>
             </div>
             <div class="ex-answer" data-ar="✅ الإجابة:D — الاقتباس القانوني بيسمح بالاقتباس من غير إذن لو اتحققت القواعد الخمسة. (إنك متحتاجش تقتبس، أو تغير المادة من غير إذن، أو متحددش المصدر كلها بتخالف القواعد، فالتصريحات التانية صح مش غلط.)" data-en="✅ Answer: D — legal quotation allows quoting without permission if the five rules are met. (Not needing to quote, altering material without permission, or not identifying the source all violate the rules, so the other statements are correct, not wrong.)">✅ الإجابة: <b>D</b> — الاقتباس القانوني بيسمح بالنقل بدون إذن لو تحققت القواعد الخمسة.</div>
           </div>
@@ -1073,32 +571,32 @@ select{color:var(--text)!important}
           <div class="ex-item">
             <div class="q"><span class="q-num">7</span> <span data-ar="في جدول تراخيص CC في تمرين الكتاب (٤): الفراغ [٢] اللي محتواه «لا تستخدم لأغراض الدعاية» = إيه؟" data-en="In the book Exercise (4) CC table: blank [٢] whose content is "Do not use for commercial purposes" = what?">في جدول تراخيص CC في تمرين الكتاب (٤): الفراغ [٢] اللي محتواه «لا تستخدم لأغراض الدعاية» = إيه؟</span></div>
             <div class="ex-options">
-              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Credit to creator (BY)" data-en="A&nbsp;&nbsp;Credit to creator (BY)">A&nbsp;&nbsp;Credit to creator (BY)</div>
-              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Non-commercial (NC)" data-en="B&nbsp;&nbsp;Non-commercial (NC)">B&nbsp;&nbsp;Non-commercial (NC)</div>
-              <div class="ex-opt" data-ar="C&nbsp;&nbsp;No derivatives (ND)" data-en="C&nbsp;&nbsp;No derivatives (ND)">C&nbsp;&nbsp;No derivatives (ND)</div>
-              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Same terms for adaptations (SA)" data-en="D&nbsp;&nbsp;Same terms for adaptations (SA)">D&nbsp;&nbsp;Same terms for adaptations (SA)</div>
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Credit to creator" data-en="A&nbsp;&nbsp;Credit to creator (BY)">A&nbsp;&nbsp;Credit to creator (BY)</div>
+              <div class="ex-opt" data-ok="1" data-ar="B&nbsp;&nbsp;Non-commercial" data-en="B&nbsp;&nbsp;Non-commercial (NC)">B&nbsp;&nbsp;Non-commercial (NC)</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;No derivatives" data-en="C&nbsp;&nbsp;No derivatives (ND)">C&nbsp;&nbsp;No derivatives (ND)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Same terms for adaptations" data-en="D&nbsp;&nbsp;Same terms for adaptations (SA)">D&nbsp;&nbsp;Same terms for adaptations (SA)</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة:B — Non-commercial (NC). (الإجابة مشتقة من جدول الكتاب، غير مطبوعة.)" data-en="✅ Answer: B — Non-commercial (NC). (Answer derived from the book table, not printed.)">✅ الإجابة: <b>B</b> — <span dir='ltr'>Non-commercial (NC)</span>.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة:B — Non-commercial. (الإجابة مشتقة من جدول الكتاب، غير مطبوعة.)" data-en="✅ Answer: B — Non-commercial (NC). (Answer derived from the book table, not printed.)">✅ الإجابة: <b>B</b> — <span dir='ltr'>Non-commercial (NC)</span>.</div>
           </div>
           <div class="ex-item">
             <div class="q"><span class="q-num">8</span> <span data-ar="في جدول تراخيص CC في تمرين الكتاب (٤): الفراغ [٣] اللي محتواه «لا تعديل على العمل الأصلي المحمي بحقوق الطبع والنشر» = إيه؟" data-en="In the book Exercise (4) CC table: blank [٣] whose content is "Do not alter the original copyrighted work" = what?">في جدول تراخيص CC في تمرين الكتاب (٤): الفراغ [٣] اللي محتواه «لا تعديل على العمل الأصلي المحمي بحقوق الطبع والنشر» = إيه؟</span></div>
             <div class="ex-options">
-              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Credit to creator (BY)" data-en="A&nbsp;&nbsp;Credit to creator (BY)">A&nbsp;&nbsp;Credit to creator (BY)</div>
-              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Non-commercial (NC)" data-en="B&nbsp;&nbsp;Non-commercial (NC)">B&nbsp;&nbsp;Non-commercial (NC)</div>
-              <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;No derivatives (ND)" data-en="C&nbsp;&nbsp;No derivatives (ND)">C&nbsp;&nbsp;No derivatives (ND)</div>
-              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Same terms for adaptations (SA)" data-en="D&nbsp;&nbsp;Same terms for adaptations (SA)">D&nbsp;&nbsp;Same terms for adaptations (SA)</div>
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Credit to creator" data-en="A&nbsp;&nbsp;Credit to creator (BY)">A&nbsp;&nbsp;Credit to creator (BY)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Non-commercial" data-en="B&nbsp;&nbsp;Non-commercial (NC)">B&nbsp;&nbsp;Non-commercial (NC)</div>
+              <div class="ex-opt" data-ok="1" data-ar="C&nbsp;&nbsp;No derivatives" data-en="C&nbsp;&nbsp;No derivatives (ND)">C&nbsp;&nbsp;No derivatives (ND)</div>
+              <div class="ex-opt" data-ar="D&nbsp;&nbsp;Same terms for adaptations" data-en="D&nbsp;&nbsp;Same terms for adaptations (SA)">D&nbsp;&nbsp;Same terms for adaptations (SA)</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة:C — No derivatives (ND). (الإجابة مشتقة من جدول الكتاب، غير مطبوعة.)" data-en="✅ Answer: C — No derivatives (ND). (Answer derived from the book table, not printed.)">✅ الإجابة: <b>C</b> — <span dir='ltr'>No derivatives (ND)</span>.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة:C — No derivatives. (الإجابة مشتقة من جدول الكتاب، غير مطبوعة.)" data-en="✅ Answer: C — No derivatives (ND). (Answer derived from the book table, not printed.)">✅ الإجابة: <b>C</b> — <span dir='ltr'>No derivatives (ND)</span>.</div>
           </div>
           <div class="ex-item">
             <div class="q"><span class="q-num">9</span> <span data-ar="في جدول تراخيص CC في تمرين الكتاب (٤): الفراغ [٤] اللي محتواه «انشر تحت نفس مجموعة الرخص كما كما في العمل الأصلي» = إيه؟" data-en="In the book Exercise (4) CC table: blank [٤] whose content is "Publish under the same combination of licenses as the original work" = what?">في جدول تراخيص CC في تمرين الكتاب (٤): الفراغ [٤] اللي محتواه «انشر تحت نفس مجموعة الرخص كما كما في العمل الأصلي» = إيه؟</span></div>
             <div class="ex-options">
-              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Credit to creator (BY)" data-en="A&nbsp;&nbsp;Credit to creator (BY)">A&nbsp;&nbsp;Credit to creator (BY)</div>
-              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Non-commercial (NC)" data-en="B&nbsp;&nbsp;Non-commercial (NC)">B&nbsp;&nbsp;Non-commercial (NC)</div>
-              <div class="ex-opt" data-ar="C&nbsp;&nbsp;No derivatives (ND)" data-en="C&nbsp;&nbsp;No derivatives (ND)">C&nbsp;&nbsp;No derivatives (ND)</div>
-              <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;Same terms for adaptations (SA)" data-en="D&nbsp;&nbsp;Same terms for adaptations (SA)">D&nbsp;&nbsp;Same terms for adaptations (SA)</div>
+              <div class="ex-opt" data-ar="A&nbsp;&nbsp;Credit to creator" data-en="A&nbsp;&nbsp;Credit to creator (BY)">A&nbsp;&nbsp;Credit to creator (BY)</div>
+              <div class="ex-opt" data-ar="B&nbsp;&nbsp;Non-commercial" data-en="B&nbsp;&nbsp;Non-commercial (NC)">B&nbsp;&nbsp;Non-commercial (NC)</div>
+              <div class="ex-opt" data-ar="C&nbsp;&nbsp;No derivatives" data-en="C&nbsp;&nbsp;No derivatives (ND)">C&nbsp;&nbsp;No derivatives (ND)</div>
+              <div class="ex-opt" data-ok="1" data-ar="D&nbsp;&nbsp;Same terms for adaptations" data-en="D&nbsp;&nbsp;Same terms for adaptations (SA)">D&nbsp;&nbsp;Same terms for adaptations (SA)</div>
             </div>
-            <div class="ex-answer" data-ar="✅ الإجابة:D — Same terms for adaptations (SA). (الإجابة مشتقة من جدول الكتاب، غير مطبوعة.)" data-en="✅ Answer: D — Same terms for adaptations (SA). (Answer derived from the book table, not printed.)">✅ الإجابة: <b>D</b> — <span dir='ltr'>Same terms for adaptations (SA)</span>.</div>
+            <div class="ex-answer" data-ar="✅ الإجابة:D — Same terms for adaptations. (الإجابة مشتقة من جدول الكتاب، غير مطبوعة.)" data-en="✅ Answer: D — Same terms for adaptations (SA). (Answer derived from the book table, not printed.)">✅ الإجابة: <b>D</b> — <span dir='ltr'>Same terms for adaptations (SA)</span>.</div>
           </div>
 
           <div class="ex-item">
@@ -1135,19 +633,19 @@ select{color:var(--text)!important}
         <h3 data-ar="إيه اللي اتعلمناه النهارده؟" data-en="What did we learn today?" style="color:var(--s2)">إيه اللي اتعلمناه النهاردة؟</h3>
         <div class="journey">
           <div class="journey-item">
-            <h4 data-ar="1. غرض حقوق النشر (Copyright)" data-en="1. Purpose of copyright">1. هدف حقوق النشر</h4>
+            <h3 data-ar="1. غرض حقوق النشر" data-en="1. Purpose of copyright" class="lvl-h4 lvl-h4-2">1. هدف حقوق النشر</h3>
             <p data-ar="الموازنة بين الاستخدام العادل للأعمال وحماية حقوق المبدعين." data-en="Balancing fair use of works with protecting creators' rights.">تحقيق التوازن بين الاستخدام العادل للأعمال وحماية حقوق المبدعين.</p>
           </div>
           <div class="journey-item">
-            <h4 data-ar="2. الاستثناءات" data-en="2. Exceptions">2. الاستثناءات</h4>
+            <h3 data-ar="2. الاستثناءات" data-en="2. Exceptions" class="lvl-h4 lvl-h4-2">2. الاستثناءات</h3>
             <p data-ar="بعض الاستثناءات بتسمح باستخدام الأعمال من غير إذن — التسجيل الشخصي/التعليمي والعروض غير الهادفة للربح." data-en="Some exceptions allow using works without permission — private/educational reproduction and non-profit performances.">في استثناءات بيتم فيها استخدام الأعمال بدون إذن — زي النسخ الشخصي والتعليمي والعروض غير الهادفة للربح.</p>
           </div>
           <div class="journey-item">
-            <h4 data-ar="3. قواعد الاقتباس الخمسة" data-en="3. The five quotation rules">3. قواعد الاقتباس الخمسة</h4>
+            <h3 data-ar="3. قواعد الاقتباس الخمسة" data-en="3. The five quotation rules" class="lvl-h4 lvl-h4-2">3. قواعد الاقتباس الخمسة</h3>
             <p data-ar="شغلك إنت بيأخد الأولوية، الضرورة، التحديد الواضح، ذكر المصدر، وعدم التغيير." data-en="Your work takes precedence, necessity, clear identification, source citation, and no alteration.">عملك هو الأساس، ضرورة الاقتباس، تحديد واضح، ذكر المصدر، وعدم التعديل.</p>
           </div>
           <div class="journey-item">
-            <h4 data-ar="4. المدة والتراخيص" data-en="4. Duration and licenses">4. مدة الحماية والرخص</h4>
+            <h3 data-ar="4. المدة والتراخيص" data-en="4. Duration and licenses" class="lvl-h4 lvl-h4-2">4. مدة الحماية والرخص</h3>
             <p data-ar="الحقوق الاقتصادية للمؤلف بتنتهي 50 سنة بعد الوفاة، وتراخيص CC (BY, NC, ND, SA) بتحدد شروط الاستخدام." data-en="The author's economic rights expire 50 years after death, and CC licenses (BY, NC, ND, SA) define usage conditions.">الحقوق الاقتصادية للمؤلف بتنتهي بعد 50 سنة من وفاته، ورخص CC (BY, NC, ND, SA) بتحدد شروط الاستخدام.</p>
           </div>
         </div>
@@ -1159,7 +657,7 @@ select{color:var(--text)!important}
           <div class="card-item">
             <div class="card-icon">⚖️</div>
             <div class="card-title">Fair Use</div>
-            <div class="card-body" data-ar="غرض حقوق النشر (Copyright)" data-en="The purpose of copyright">الاستخدام العادل — الهدف من حقوق النشر</div>
+            <div class="card-body" data-ar="غرض حقوق النشر" data-en="The purpose of copyright">الاستخدام العادل — الهدف من حقوق النشر</div>
           </div>
           <div class="card-item">
             <div class="card-icon">📖</div>
@@ -1190,7 +688,7 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card" style="margin-top:24px; text-align:center">
-        <h3 data-ar="🎉 شغل عالي! خلصت درس استخدام والإفصاح عن المعلومات (Information)" data-en="🎉 Well done! You completed the Utilization and Disclosure of Information lesson" style="color:var(--success)">🎉 أحسنت! كمّلت درس استخدام المعلومات وكشفها</h3>
+        <h3 data-ar="🎉 شغل عالي! خلصت درس استخدام والإفصاح عن المعلومات" data-en="🎉 Well done! You completed the Utilization and Disclosure of Information lesson" style="color:var(--success)">🎉 أحسنت! كمّلت درس استخدام المعلومات وكشفها</h3>
         <p data-ar="افتكر دايماً: تقدر تستخدم أعمال الغير قانونياً، بس دايماً باحترام الحقوق واتباع القواعد — الاستخدام العادل مش عذر إنك تزودها!" data-en="Always remember: you can use others' works legally, but always with respect for rights and following the rules — fair use is not an excuse to overreach!">افتكر دايمًا: ممكن تستخدم أعمال غيرك بشكل قانوني، بس دايماً باحترام الحقوق واتباع القواعد — الاستخدام العادل مش عذر للتعدي!</p>
       </div>
     </section>
@@ -1208,7 +706,7 @@ select{color:var(--text)!important}
       </div>
       <div class="section-inner card">
         <p data-ar="ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق البحث." data-en="Search any term or use the filters to narrow down.">ابحث عن أي مصطلح أو استخدم التصنيفات عشان تصفّي.</p>
-        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح..." aria-label="ابحث عن مصطلح">
         <div class="glossary-filters">
           <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
           <button class="mini-btn gl-filter" data-filter="rights" data-ar="الحقوق" data-en="Rights">حقوق</button>
@@ -1217,59 +715,59 @@ select{color:var(--text)!important}
         </div>
         <div class="glossary-list">
           <div class="gl-term" data-cat="rights">
-            <h4 data-ar="حقوق النشر (Copyright)" data-en="Copyright">Copyright — حقوق النشر (Copyright) (Copyright)</h4>
+            <h3 data-ar="حقوق النشر" data-en="Copyright" class="lvl-h4 lvl-h4-3">Copyright — حقوق النشر</h3>
             <p data-ar="الحق القانوني اللي بيحمي العمل الأصلي للمبدع وبيحدد إزاي الغير ممكن يستخدموه." data-en="The legal right that protects a creator's original work and controls how other people may use it.">ده حق قانوني بيحمي شغل المبدع الأصلي وبيديك الحق تتحكم مين ببيستخدمه وإزاي.</p>
           </div>
           <div class="gl-term" data-cat="rights">
-            <h4 data-ar="الاستخدام العادل" data-en="Fair Use">Fair Use — الاستخدام العادل</h4>
+            <h3 data-ar="الاستخدام العادل" data-en="Fair Use" class="lvl-h4 lvl-h4-3">Fair Use — الاستخدام العادل</h3>
             <p data-ar="السماح القانوني باستخدام عمل محمي بطرق محدودة ومعقولة من غير إذن، زي للتدريس أو البحث." data-en="The legal allowance to use a protected work in limited, reasonable ways without permission, such as for teaching or research.">السماح القانوني اللي بيخليك تستخدم عمل محمي بطرق معقولة ومحدودة من غير إذن، زي للدراسة أو التدريس.</p>
           </div>
           <div class="gl-term" data-cat="rights">
-            <h4 data-ar="تعدي على حقوق النشر (Copyright)" data-en="Copyright Infringement">Copyright Infringement — انتهاك حقوق النشر</h4>
+            <h3 data-ar="تعدي على حقوق النشر" data-en="Copyright Infringement" class="lvl-h4 lvl-h4-3">Copyright Infringement — انتهاك حقوق النشر</h3>
             <p data-ar="استخدام أو نسخ عمل محمي من غير إذن، زي نسخ سي دي تجاري وإعطاؤه لصحابك." data-en="Using or copying a protected work without permission, like copying a commercial CD and giving it to friends.">لما تستخدم أو تنسخ عمل محمي من غير إذن صاحبه، زي ما تنسخ CD وتوزعه على أصحابك.</p>
           </div>
           <div class="gl-term" data-cat="rights">
-            <h4 data-ar="الاقتباس" data-en="Quotation">Quotation — الاقتباس</h4>
-            <p data-ar="استخدام جزء صغير من عمل حد محمي بحقوق النشر (Copyright) جوه شغلك إنت مع اتباع قواعد زي ذكر المصدر." data-en="Using a small part of someone's copyrighted work inside your own work while following rules like citing the source.">إنك تنقل جزء صغير من عمل شخص تاني جوه شغلك إنت، بشرط تحترم القواعد زي ذكر المصدر.</p>
+            <h3 data-ar="الاقتباس" data-en="Quotation" class="lvl-h4 lvl-h4-3">Quotation — الاقتباس</h3>
+            <p data-ar="استخدام جزء صغير من عمل حد محمي بحقوق النشر جوه شغلك إنت مع اتباع قواعد زي ذكر المصدر." data-en="Using a small part of someone's copyrighted work inside your own work while following rules like citing the source.">إنك تنقل جزء صغير من عمل شخص تاني جوه شغلك إنت، بشرط تحترم القواعد زي ذكر المصدر.</p>
           </div>
           <div class="gl-term" data-cat="exception">
-            <h4 data-ar="التسجيل للاستخدام الشخصي" data-en="Reproduction for Private Use">Reproduction for Private Use — النسخ للاستخدام الشخصي</h4>
+            <h3 data-ar="التسجيل للاستخدام الشخصي" data-en="Reproduction for Private Use" class="lvl-h4 lvl-h4-3">Reproduction for Private Use — النسخ للاستخدام الشخصي</h3>
             <p data-ar="استثناء مسموح بيسمح لك تنسخ محتوى لاستخدامك الشخصي، زي تسجيل سي دي اشتريته على الموبايل." data-en="An allowed exception that lets you copy content for your own personal use, like recording a CD you bought onto your phone.">استثناء مسموح بيخليك تنسخ محتوى عشان تستخدمه إنت شخصياً، زي ما تسجل CD اشتريته على موبايلك.</p>
           </div>
           <div class="gl-term" data-cat="exception">
-            <h4 data-ar="الاستخدام التعليمي" data-en="Educational Use">Educational Use — النسخ جوه المؤسسات التعليمية</h4>
+            <h3 data-ar="الاستخدام التعليمي" data-en="Educational Use" class="lvl-h4 lvl-h4-3">Educational Use — النسخ جوه المؤسسات التعليمية</h3>
             <p data-ar="استثناء مسموح بيسمح بنسخ وتوزيع المواد للتدريس جوه المدارس والمؤسسات." data-en="An allowed exception that permits copying and distributing materials for teaching inside schools and institutions.">استثناء مسموح بيسمح بالنسخ والتوزيع على الطلاب في سياق التدريس جوه المدارس.</p>
           </div>
           <div class="gl-term" data-cat="exception">
-            <h4 data-ar="عرض غير هادف للربح" data-en="Non-profit Performance">Non-profit Performance — العروض غير الهادفة للربح</h4>
+            <h3 data-ar="عرض غير هادف للربح" data-en="Non-profit Performance" class="lvl-h4 lvl-h4-3">Non-profit Performance — العروض غير الهادفة للربح</h3>
             <p data-ar="استثناء مسموح لعرض عمل من غير ما تاخد رسوم دخول أو تهدف تكسب فلوس." data-en="An allowed exception for performing a work without charging an entrance fee or aiming to make money.">استثناء مسموح للعروض اللي مش بتحصل رسوم دخول ومش بتهدف للربح.</p>
           </div>
           <div class="gl-term" data-cat="rights">
-            <h4 data-ar="المجال العام" data-en="Public Domain">Public Domain — المجال العام</h4>
-            <p data-ar="أعمال انتهت حقوق النشر (Copyright) بتاعتها، زي 50 سنة بعد وفاة المبدع، وأي حد يقدر يستخدمها بحرية." data-en="Works whose copyright has expired, like 50 years after the creator's death, and can be used freely by anyone.">الأعمال اللي حقوقها خلصت (بعد 50 سنة من وفاة المبدع) وبقت متاحة لأي حد ببيستخدمها بحرية.</p>
+            <h3 data-ar="المجال العام" data-en="Public Domain" class="lvl-h4 lvl-h4-3">Public Domain — المجال العام</h3>
+            <p data-ar="أعمال انتهت حقوق النشر بتاعتها، زي 50 سنة بعد وفاة المبدع، وأي حد يقدر يستخدمها بحرية." data-en="Works whose copyright has expired, like 50 years after the creator's death, and can be used freely by anyone.">الأعمال اللي حقوقها خلصت (بعد 50 سنة من وفاة المبدع) وبقت متاحة لأي حد ببيستخدمها بحرية.</p>
           </div>
           <div class="gl-term" data-cat="license">
-            <h4 data-ar="ترخيص Creative Commons" data-en="Creative Commons License">Creative Commons License — رخصة كرييتف كومنز</h4>
+            <h3 data-ar="ترخيص Creative Commons" data-en="Creative Commons License" class="lvl-h4 lvl-h4-3">Creative Commons License — رخصة كرييتف كومنز</h3>
             <p data-ar="علامة ترخيص عامة بتورّي الشروط اللي المبدع اختارها عشان الغير يستخدموا شغله." data-en="A public license mark that shows the conditions a creator chose for others to use their work.">رخصة عامة بتوضح شروط استخدام العمل اللي المبدع اختارها بنفسه — إيه المسموح وإيه لأ.</p>
           </div>
           <div class="gl-term" data-cat="license">
-            <h4 data-ar="BY (إسناد للمبدع)" data-en="BY (Credit to Creator)">BY (Credit to Creator) — نسبة الإبداع</h4>
+            <h3 data-ar="BY (إسناد للمبدع)" data-en="BY (Credit to Creator)" class="lvl-h4 lvl-h4-3">BY — نسبة الإبداع</h3>
             <p data-ar="شرط في Creative Commons بيتطلب من أي حد يستخدم العمل ينسبه للمبدع ويورّي العنوان." data-en="A Creative Commons condition that requires anyone using the work to credit the creator and show the title.">شرط بيخليك إجبارياً تذكر اسم المبدع وعنوان العمل لما تستخدمه.</p>
           </div>
           <div class="gl-term" data-cat="license">
-            <h4 data-ar="NC (غير تجاري)" data-en="NC (Non-commercial)">NC (Non-commercial) — غير تجاري</h4>
+            <h3 data-ar="NC (غير تجاري)" data-en="NC (Non-commercial)" class="lvl-h4 lvl-h4-3">NC — غير تجاري</h3>
             <p data-ar="شرط في Creative Commons بيمنع استخدام العمل لأغراض تجارية أو لكسب فلوس." data-en="A Creative Commons condition that forbids using the work for commercial purposes or to make money.">شرط بيقول ممنوع تستخدم العمل عشان تكسب فلوس أو لأغراض تجارية.</p>
           </div>
           <div class="gl-term" data-cat="license">
-            <h4 data-ar="ND (من غير مشتقات)" data-en="ND (No Derivatives)">ND (No Derivatives) — بدون اشتقاق</h4>
+            <h3 data-ar="ND (من غير مشتقات)" data-en="ND (No Derivatives)" class="lvl-h4 lvl-h4-3">ND — بدون اشتقاق</h3>
             <p data-ar="شرط في Creative Commons بيسمح لك تستخدم العمل زي ما هو بس، من غير ما تغيره أو تعدّله." data-en="A Creative Commons condition that lets you use the work only as it is, without changing or adapting it.">شرط بيقول تقدر تستخدم العمل زي إيه هو بس، من غير ما تعدل فيه.</p>
           </div>
           <div class="gl-term" data-cat="license">
-            <h4 data-ar="SA (شارك-زيها)" data-en="SA (Share-Alike)">SA (Share-Alike) — نفس شروط الترخيص</h4>
+            <h3 data-ar="SA (شارك-زيها)" data-en="SA (Share-Alike)" class="lvl-h4 lvl-h4-3">SA — نفس شروط الترخيص</h3>
             <p data-ar="شرط في Creative Commons بيقول أي نسخة معدّلة تعملها لازم تتشارك تحت نفس الترخيص." data-en="A Creative Commons condition that says any modified version you make must be shared under the same license.">شرط بيقول لو عدلت العمل، النسخة اللي بتعملها لازم تتبع نفس الرخصة الأصلية.</p>
           </div>
           <div class="gl-term" data-cat="rights">
-            <h4 data-ar="مدة الحماية" data-en="Duration of Protection">Duration of Protection — مدة الحماية</h4>
+            <h3 data-ar="مدة الحماية" data-en="Duration of Protection" class="lvl-h4 lvl-h4-3">Duration of Protection — مدة الحماية</h3>
             <p data-ar="المدة اللي بتفضل فيها الحقوق الاقتصادية للمبدع، واللي بتخلص 50 سنة بعد وفاة المبدع." data-en="The period a creator's economic rights last, which ends 50 years after the creator's death.">المدة اللي حقوق المبدع الاقتصادية بتفضل شغالة، وبتنتهي بعد 50 سنة من وفاته.</p>
           </div>
         </div>
@@ -1286,16 +784,16 @@ select{color:var(--text)!important}
           <button class="btn hero-btn" data-start data-ar="💡 ابدأ الاختبار" data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
           <div class="recall" id="udiRecall">
             <div class="rq" data-id="udiRq1">
-              <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه الغرض الأساسي من حقوق النشر (Copyright)؟" data-en="What is the primary purpose of copyright?">إيه هو الغرض الأساسي من حقوق التأليف والنشر؟</span></div>
+              <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه الغرض الأساسي من حقوق النشر؟" data-en="What is the primary purpose of copyright?">إيه هو الغرض الأساسي من حقوق التأليف والنشر؟</span></div>
               <div class="rq-opts">
                 <div class="rq-opt" data-key="A" data-ok="1" data-fb-ar="صح! بيسعى للمساهمة في التنمية الثقافية عبر الاستخدام العادل وحماية الحقوق." data-fb-en="Correct! It aims to contribute to cultural development via fair use and protection of rights."><span class="rq-key">A</span><span class="rq-body" data-ar="المساهمة في التطوير الثقافي (الاستخدام العادل + حماية الحقوق)" data-en="Contributing to cultural development (fair use + rights protection)">المساهمة في التنمية الثقافية (استخدام عادل + حماية حقوق)</span></div>
                 <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده استثناء مش الغرض الأساسي." data-fb-en="Not this — that is an exception, not the primary purpose."><span class="rq-key">B</span><span class="rq-body" data-ar="منع كل استخدام خالص" data-en="Banning all use entirely">منع أي استخدام نهائياً</span></div>
-                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ده جزء من قانون المعلومات مش التأليف." data-fb-en="Not this — that relates to information law, not copyright purpose."><span class="rq-key">C</span><span class="rq-body" data-ar="حماية المعلومات (Information) الشخصية" data-en="Protecting personal information">حماية المعلومات الشخصية</span></div>
+                <div class="rq-opt" data-key="C" data-ok="0" data-fb-ar="مش ده — ده جزء من قانون المعلومات مش التأليف." data-fb-en="Not this — that relates to information law, not copyright purpose."><span class="rq-key">C</span><span class="rq-body" data-ar="حماية المعلومات الشخصية" data-en="Protecting personal information">حماية المعلومات الشخصية</span></div>
               </div>
               <div class="rq-fb"></div>
             </div>
             <div class="rq" data-id="udiRq2">
-              <div class="rq-q"><span class="q-num">2</span> <span data-ar="إمتى ممكن عمل محمي بحقوق النشر (Copyright) يستخدم من غير إذن صاحبه؟" data-en="When can a copyrighted work be used without the holder's permission?">إمتى ممكن تستخدم عمل محمي من غير إذن صاحبه؟</span></div>
+              <div class="rq-q"><span class="q-num">2</span> <span data-ar="إمتى ممكن عمل محمي بحقوق النشر يستخدم من غير إذن صاحبه؟" data-en="When can a copyrighted work be used without the holder's permission?">إمتى ممكن تستخدم عمل محمي من غير إذن صاحبه؟</span></div>
               <div class="rq-opts">
                 <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — النسخ للاستخدام التجاري محتاج إذن." data-fb-en="Not this — commercial copying needs permission."><span class="rq-key">A</span><span class="rq-body" data-ar="أي غرض تجاري" data-en="For any commercial purpose">لأي غرض تجاري</span></div>
                 <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — مفيش استثناء 'لو عجبك العمل'." data-fb-en="Not this — 'if you like it' is not an exception."><span class="rq-key">B</span><span class="rq-body" data-ar="لو عجبك العمل" data-en="If you like the work">لو العمل عجبك</span></div>
@@ -1304,7 +802,7 @@ select{color:var(--text)!important}
               <div class="rq-fb"></div>
             </div>
             <div class="rq" data-id="udiRq3">
-              <div class="rq-q"><span class="q-num">3</span> <span data-ar="إيه هو 'الاقتباس' في حقوق النشر (Copyright)؟" data-en="What is 'Quotation' in copyright?">إيه هو 'الاقتباس' (Quotation) في حقوق التأليف؟</span></div>
+              <div class="rq-q"><span class="q-num">3</span> <span data-ar="إيه هو 'الاقتباس' في حقوق النشر؟" data-en="What is 'Quotation' in copyright?">إيه هو 'الاقتباس' في حقوق التأليف؟</span></div>
               <div class="rq-opts">
                 <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده نسخ كلي مش اقتباس جزء." data-fb-en="Not this — that is full copying, not quoting a portion."><span class="rq-key">A</span><span class="rq-body" data-ar="نسخ العمل كله" data-en="Copying the whole work">نسخ العمل كله</span></div>
                 <div class="rq-opt" data-key="B" data-ok="1" data-fb-ar="صح! الاقتباس هو استخدام جزء من عمل الغير في عملك مع شروط (شغلك هو الأصل). كذا ممكن من غير إذن." data-fb-en="Correct! Quotation is using a portion of another's work in your own, under conditions (your work is primary); allowed without permission."><span class="rq-key">B</span><span class="rq-body" data-ar="استخدام جزء من عمل حد تاني جوه شغلك (بشروط)، من غير إذن" data-en="Using a portion of another's work in yours (with conditions), without permission">استخدام جزء من عمل الغير في عملك (بشروط) من غير إذن</span></div>
@@ -1321,239 +819,7 @@ select{color:var(--text)!important}
   <!-- ============ FOOTER ============ -->
   <footer class="page-footer"><div class="footer-line"><img class="footer-logo" src="../../../../assets/logo-extracted.webp" alt="logo"><span data-ar="عظيم! دلوقتي تقدر تستخدم المعلومات وتبلغ عنها بشكل قانوني وأخلاقي" data-en="Great! Now you can use and disclose information legally and ethically">عظيم! دلوقتي تقدر تستخدم المعلومات وتبلغ عنها بشكل قانوني وأخلاقي</span></div></footer>
 
-  <script>
-    /* ---------- particles ---------- */
-    (function () {
-      var box = document.getElementById('particles');
-      if (!box) return; /* 'particles' removed by design - skip safely */
-      for (var i = 0; i < 30; i++) {
-        var dot = document.createElement('i');
-        dot.style.left = Math.random() * 100 + '%';
-        dot.style.animationDelay = Math.random() * 15 + 's';
-        dot.style.animationDuration = (12 + Math.random() * 8) + 's';
-        box.appendChild(dot);
-      }
-    })();
-
-    /* ---------- nav scroll ---------- */
-    function wireNav() {
-      var nav = document.getElementById('navbar');
-      var links = document.querySelectorAll('.nav-links a');
-      window.addEventListener('scroll', function () {
-        /* header slide-in:assets/js/nav.js */
-        var id = location.hash || '#intro';
-        links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === id); });
-      });
-    }
-
-    /* ---------- reveal on scroll ---------- */
-    function wireReveal() {
-      var items = document.querySelectorAll('.section-inner');
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
-      }, { threshold:0.05 });
-      items.forEach(function (el) { obs.observe(el); });
-      window.addEventListener('scroll', function () {
-        items.forEach(function (el) {
-          if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('visible');
-        });
-      });
-    }
-
-/* ---------- interactive cards ---------- */
-    function wireCards() {
-      document.querySelectorAll('.card-item[data-correct]').forEach(function (c) {
-        c.addEventListener('click', function () {
-          var ok = c.getAttribute('data-correct') === '1';
-          c.classList.add(ok ? 'ok' : 'bad');
-          c.querySelectorAll('.card-item').forEach(function (s) { if (s !== c) s.style.pointerEvents = 'none'; });
-        });
-      });
-
-      document.querySelectorAll('.card-item[data-reveal]').forEach(function (c) {
-        c.addEventListener('click', function () {
-          var fb = c.querySelector('.card-feedback');
-          if (fb) fb.style.display = fb.style.display === 'block' ? 'none' : 'block';
-        });
-      });
-    }
-
-    /* ---------- exercise reveal ---------- */
-    function wireRevealBtns() {
-      document.querySelectorAll('button[data-reveal]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var card = btn.closest('.card'); if (!card) return;
-card.querySelectorAll('.ex-opt').forEach(function (o) {
-            o.classList.remove('correct', 'wrong');
-            if (o.getAttribute('data-ok') === '1') {
-              o.classList.add('correct');
-            } else if (o.classList.contains('picked')) {
-              o.classList.add('wrong');
-            }
-          });
-          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.add('show'); });
-          var scored = 0, right = 0, noAns = 0;
-          card.querySelectorAll('.ex-item').forEach(function (item) {
-            if (!item.querySelector('.ex-opt[data-ok="1"]')) return;
-            scored++;
-            var picked = item.querySelector('.ex-opt.picked');
-            if (!picked) { noAns++; return; }
-            if (picked.getAttribute('data-ok') === '1') right++;
-          });
-          var s = card.querySelector('.ex-score');
-          if (!s) { s = document.createElement('div'); s.className = 'ex-score'; card.appendChild(s); }
-          s.innerHTML = (window.currentLang === 'en')
-            ? '✅ Your correct answers:<b>' + right + '</b> out of ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">with ' + noAns + ' question(s) you still haven\'t answered</span>' : '')
-            : '✅ إجاباتك الصحيحة: <b>' + right + '</b> من ' + scored + (noAns ? ' — <span style="color:var(--dim);font-weight:400">مع ' + noAns + ' سؤال لسه مجاوبتش</span>' : '');
-        });
-      });
-      document.querySelectorAll('.ex-opt').forEach(function (opt) {
-        opt.addEventListener('click', function () {
-          var item = opt.closest('.ex-item'); if (!item) return;
-          item.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked'); });
-          opt.classList.add('picked');
-        });
-      });
-      document.querySelectorAll('[data-hide]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var card = btn.closest('.card'); if (!card) return;
-          card.querySelectorAll('.ex-answer').forEach(function (a) { a.classList.remove('show'); });
-          card.querySelectorAll('.ex-opt').forEach(function (o) { o.classList.remove('picked', 'correct', 'wrong'); });
-          var s = card.querySelector('.ex-score'); if (s) s.remove();
-        });
-      });
-    }
-
-    /* ---------- AR/EN toggle ---------- */
-    document.addEventListener('DOMContentLoaded', function () {
-      /* ===== Recall quiz scaffold (contract:tr/recallStart/wireRecall) ===== */
-      function tr(ar, en) {
-        return (window.currentLang === 'en') ? en : ar;
-      }
-      function rqFb(el) {
-        return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
-      }
-      function recallStart(quiz) {
-        var s = quiz.querySelector('[data-start]');
-        if (!s) { var p = quiz.previousElementSibling; if (p && p.hasAttribute('data-start')) s = p; }
-        return s;
-      }
-      function wireRecall() {
-        document.querySelectorAll('.recall').forEach(function (quiz) {
-          var start = recallStart(quiz);
-          function paintQuizBtn() {
-            if (!start) return;
-            start.textContent = quiz.classList.contains('show')
-              ? tr('إخفاء الاختبار', 'Hide the quiz')
-              : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
-          }
-          if (start) start.addEventListener('click', function () { quiz.classList.toggle('show'); paintQuizBtn(); });
-          quiz.querySelectorAll('.rq').forEach(function (q) {
-            var opts = q.querySelectorAll('.rq-opt');
-            var skip = q.querySelector('.rq-skip');
-            var fb = q.querySelector('.rq-fb');
-            function lock(qq) { qq.classList.add('done'); opts.forEach(function (o){o.classList.add('disabled');}); if (skip) skip.style.display='none'; }
-            function showFb(ok, text, correctKey) {
-              fb.classList.add('show'); fb.classList.toggle('ok', ok); fb.classList.toggle('no', !ok);
-              fb.textContent = (ok ? '✅ ' : '❌ ') + (correctKey ? ((window.currentLang==='en'?'The correct answer is '+correctKey+'. ':'الإجابة الصحيحة '+correctKey+'. ')) : '') + text;
-            }
-            opts.forEach(function (o) {
-              o.addEventListener('click', function () {
-                if (q.classList.contains('done')) return;
-                var ok = o.getAttribute('data-ok') === '1';
-                opts.forEach(function (x){x.classList.remove('correct','wrong');});
-                if (ok) o.classList.add('correct');
-                else { o.classList.add('wrong'); var co=q.querySelector('.rq-opt[data-ok="1"]'); if(co) co.classList.add('correct'); }
-                lock(q);
-                showFb(ok, rqFb(o), ok ? null:(q.querySelector('.rq-opt[data-ok="1"]').getAttribute('data-key')));
-              });
-            });
-            if (skip) skip.addEventListener('click', function () {
-              if (q.classList.contains('done')) return;
-              var co=q.querySelector('.rq-opt[data-ok="1"]'); opts.forEach(function(x){x.classList.remove('correct','wrong');}); if(co) co.classList.add('correct'); lock(q);
-              showFb(true, rqFb(co), co.getAttribute('data-key'));
-            });
-          });
-        });
-      }
-      wireRecall();
-
-      var langBtn = document.getElementById('langToggle');
-      if (!langBtn) return;
-      function setLang(lang) {
-        window.currentLang = lang;
-        langBtn.setAttribute('data-current', lang);
-        langBtn.textContent = (lang === 'ar') ? 'EN' : 'AR';
-        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-        document.documentElement.setAttribute('lang', lang);
-        document.querySelectorAll('[data-ar][data-en]').forEach(function (el) {
-          var val = (lang === 'ar') ? el.getAttribute('data-ar') : el.getAttribute('data-en');
-          if (val !== null) { el.innerHTML = val; el.setAttribute('data-lang', lang); }
-        });
-        document.dispatchEvent(new CustomEvent('langChange', { detail:{ lang: lang } }));
-        localStorage.setItem('langPreference', lang);
-      }
-      var storedLang = localStorage.getItem('langPreference');
-      if (!storedLang) storedLang = 'ar';
-      setLang(storedLang);
-      langBtn.addEventListener('click', function () {
-        setLang(window.currentLang === 'ar' ? 'en' : 'ar');
-      });
-    });
-
-    /* ---------- boot ---------- */
-    document.addEventListener('DOMContentLoaded', function () {
-      wireNav();
-      wireReveal();
-      wireCards();
-      wireRevealBtns();
-    });
-    /* ---------- option key boxes ---------- */
-    function decorateOpts() {
-      document.querySelectorAll('.ex-opt').forEach(function (o) {
-        if (o.querySelector('.opt-key')) return;
-        var t = o.innerHTML;
-        var m = t.match(/^\s*((?:[A-Za-z]|[0-9]+|\[[0-9]+\]|[○×]))/);
-        if (m) {
-          o.innerHTML = '<span class="opt-key">' + m[1] + '</span>' + t.slice(m[0].length);
-        }
-      });
-    }
-    document.addEventListener('langChange', decorateOpts);
-  
-    /* ---------- glossary ---------- */
-    (function () {
-      var search = document.getElementById('glossarySearch');
-      if (!search) return;
-      var filters = document.querySelectorAll('.gl-filter');
-      var terms = Array.prototype.slice.call(document.querySelectorAll('.gl-term'));
-      var activeFilter = 'all';
-
-      function applyFilters() {
-        var q = search.value.trim().toLowerCase();
-        terms.forEach(function (t) {
-          var catOk = activeFilter === 'all' || t.getAttribute('data-cat') === activeFilter;
-          var textOk = !q || (t.textContent.toLowerCase().indexOf(q) !== -1);
-          t.classList.toggle('hidden', !(catOk && textOk));
-        });
-      }
-
-      filters.forEach(function (f) {
-        f.addEventListener('click', function () {
-          filters.forEach(function (x) { x.classList.remove('active'); });
-          f.classList.add('active');
-          activeFilter = f.getAttribute('data-filter');
-          applyFilters();
-        });
-      });
-
-      search.addEventListener('input', applyFilters);
-
-      document.addEventListener('langChange', function () {
-        search.placeholder = (window.currentLang === 'ar') ? search.getAttribute('data-ar') : search.getAttribute('data-en');
-      });
-    })();
-  </script>
+  <script src="../../../../assets/js/shared-6bfd76fb.js"></script>
 <script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script></body>
 
 </html>

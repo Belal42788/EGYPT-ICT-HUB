@@ -62,3 +62,79 @@ table.book-symbol-table tr:nth-child(even) td {
 /* the digit tables were 12px monospace; give them the site size and a little air */
 .tbl-wrap table.ascii { font-size:.82rem !important; }
 .tbl-wrap table.ascii th, .tbl-wrap table.ascii td { padding:4px 9px !important; }
+
+/* ---------- section headers: number circle must not sit on the title ---------- */
+.section-head { gap:16px; }
+.section-head > div { min-width:0; }
+.section-head > div > h2,
+.section-head > div > h3,
+.section-head .section-title {
+  white-space:normal !important;
+  overflow-wrap:anywhere;
+  max-width:100%;
+}
+.section-number { flex:0 0 auto; }
+
+/* ---------- book tables: Arabic reads right to left, every cell centred ---------- */
+.tbl-wrap table.commforms,
+.book-tbl table.bt,
+table.bt,
+table.bq-table,
+table.book-symbol-table,
+table.ascii,
+.tbl-wrap table.ascii,
+table[dir="ltr"],
+table.table { direction:rtl !important; }
+
+table th,
+table td,
+.tbl-wrap table th, .tbl-wrap table td,
+.book-tbl table th, .book-tbl table td,
+table.bt th, table.bt td,
+table.bq-table th, table.bq-table td,
+table.book-symbol-table th, table.book-symbol-table td,
+table.ascii th, table.ascii td {
+  unicode-bidi:plaintext;
+  text-align:center !important;
+}
+
+/* Bullet lists inside table cells: one marker per item, markers in a column,
+   the whole block centred in the cell. */
+.cell-list{list-style:none;margin:0;padding:0;display:inline-block;text-align:start}
+.cell-list li{position:relative;padding-inline-start:1.15em;margin:0 0 .3em}
+.cell-list li:last-child{margin-bottom:0}
+.cell-list li::before{content:"•";position:absolute;inset-inline-start:0;color:currentColor;opacity:.85}
+
+/* Heading level corrected for order while keeping the original look (12-2, 13-7) */
+h2.lvl-h3{font-size:20px;font-weight:800;color:#0b1020;line-height:1.4;margin:0 0 12px}
+h3.lvl-h4{font-size:16px;font-weight:800;color:#0b1020;line-height:1.9;margin:0 0 6px}
+
+/* R10 follow-up: simulation diagrams (SVG boxes + wires + arrows, and their HTML captions)
+   are drawn left-to-right. In the Arabic version the whole stage is mirrored so the flow
+   runs right-to-left, and each caption is mirrored back so its text stays readable. */
+[dir="rtl"] .svg-stage{transform:scaleX(-1)}
+[dir="rtl"] .svg-stage .svg-label{transform:translate(-50%,-50%) scaleX(-1) !important}
+
+/* Diagram captions: a caption belongs to the box it sits on. Give it that box's width so a
+   long caption wraps inside its own column instead of running over its neighbour. */
+.svg-stage .svg-label{max-width:25%;white-space:normal;text-align:center;line-height:1.3;font-size:.76rem;padding:5px 9px}
+
+/* Phones: the caption IS the box. The SVG frame is only 340px wide, so instead of captions
+   floating over the gray boxes the boxes stack vertically, each one holding its own text,
+   with a small arrow down to the next. Desktop layout is untouched. */
+@media (max-width:640px){
+  .svg-stage .svg-main{display:none !important}
+  [dir="rtl"] .svg-stage,[dir="ltr"] .svg-stage{transform:none !important}
+  .svg-stage{display:flex !important;flex-direction:column;align-items:stretch;gap:26px;padding:6px 2px}
+  .svg-stage .svg-label{position:static !important;left:auto !important;top:auto !important;transform:none !important;
+    max-width:none !important;width:100% !important;margin:0 !important;box-sizing:border-box !important;
+    font-size:.92rem;line-height:1.5;text-align:center;padding:12px 14px;border-radius:16px;
+    background:linear-gradient(180deg,#ffffff,#eef1fd) !important;
+    border:1.5px solid rgba(24,56,248,.28);box-shadow:0 8px 18px rgba(11,16,32,.12);color:#0b1020 !important}
+  .svg-stage .svg-label::after{content:"\25BC";position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);
+    color:#1838f8;font-size:.8rem;line-height:1}
+  .svg-stage .svg-label{position:relative !important}
+  .svg-stage .svg-label:last-of-type::after{content:none}
+  .svg-stage .svg-label::before{content:none !important}
+  [dir="rtl"] .svg-stage .svg-label,[dir="ltr"] .svg-stage .svg-label{transform:none !important}
+}

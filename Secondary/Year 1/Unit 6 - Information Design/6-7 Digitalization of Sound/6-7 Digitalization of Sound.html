@@ -10,994 +10,13 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 6-7 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap:anywhere
-    }
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/6-7-digitalization-of-sound-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="contrast-pass-3">
-/* Readability pass 3: faded component blocks and light code editors. */
-.bt,.bt-sub{opacity:1!important}
-.bt-sub{color:#2f3542!important}
-.bt-note{opacity:1!important;color:#3a4152!important}
-.email-vals{color:#1a3fd0!important}
-.chat-who{color:#3a4152!important}
-.html-edit,.js-edit,.py-edit,textarea{color:var(--text)!important}
-</style>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
-<style>/* contrast fix (a11y pass 4b) */
-b[data-ar]{color:#7a5200!important}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
+
+<link rel="stylesheet" href="../../../../assets/css/pages/6-7-digitalization-of-sound-2.css">
 </head>
 
 <body>
@@ -1019,7 +38,7 @@ b[data-ar]{color:#7a5200!important}
         <a href="#intro" data-ar="يلا نبدأ" data-en="Start">يلا نبدأ</a>
         <a href="#freq" data-ar="التردد والدورة" data-en="Frequency & Period">التردد والدورة</a>
         <a href="#pcm" data-ar="طريقة PCM" data-en="PCM Method">طريقة PCM</a>
-        <a href="#volume" data-ar="مقدار الداتا (Data)" data-en="Data Amount">مقدار الداتا (Data)</a>
+        <a href="#volume" data-ar="مقدار البيانات" data-en="Data Amount">مقدار البيانات</a>
         <a href="#theorem" data-ar="نظرية المعاينة" data-en="Sampling Theorem">نظرية المعاينة</a>
         <a href="#practice" data-ar="تمارين" data-en="Exercises">تمارين</a>
         <a href="#recap" data-ar="المراجعة" data-en="Recap">المراجعة</a>
@@ -1032,11 +51,11 @@ b[data-ar]{color:#7a5200!important}
       <div class="hero-badge" data-ar="الدرس 7 — دراسة المعلومات" data-en="Lesson 7 — Information Study">الدرس 7 — دراسة المعلومات</div>
       <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>رقمنة</span> الصوت" data-en="<span class=&quot;grad&quot;>Digitalization</span> of Sound">رقمنة <span class="grad">الصوت</span></h1>
       <p class="hero-sub"
-        data-ar="رقمنة الصوت — الصوت بيتحوّل من موجة تناظرية لداتا (Data) رقمية باستخدام طريقة PCM. النهارده هنتعلّم التردد والدورة، وخطوات المعاينة والتكميم والترميز، وحساب مقدار داتا (Data) الصوت."
+        data-ar="رقمنة الصوت — الصوت بيتحوّل من موجة تناظرية لبيانات رقمية باستخدام طريقة PCM. النهارده هنتعلّم التردد والدورة، وخطوات المعاينة والتكميم والترميز، وحساب مقدار بيانات الصوت."
         data-en="Digitalization of Sound — sound is converted from an analog wave to digital data using the PCM method. Today we learn frequency and period, the Sampling, Quantization and Encoding steps, and calculating the amount of audio data.">
         <span dir="ltr">Digitalization of Sound</span> — الصوت بيتحول من موجة تناظرية لبيانات رقمية بطريقة PCM.
-        النهارده هنتعلم التردد وزمن الدورة، وخطوات Sampling وQuantization وEncoding، وحساب حجم بيانات الصوت.</p>
-      <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="10 أسئلة" data-en="10 practice questions">10 أسئلة</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ النهارده هنتعلم التردد وزمن الدورة، وخطوات Sampling وQuantization وEncoding، وحساب حجم بيانات الصوت.</p>
+      <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="10 أسئلة" data-en="10 practice questions">10 أسئلة</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 <main>
@@ -1060,10 +79,10 @@ b[data-ar]{color:#7a5200!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الصوت طبيعته موجات تناظرية — بس الأجهزة الرقمية زي الـ CDs والـ DVDs بتخزّن الصوت رقمياً. النهارده هنتعلّم إزاي الصوت بيتحوّل من موجة تناظرية لداتا (Data) رقمية — باستخدام طريقة اسمها PCM — وإزاي نحسب حجم الداتا (Data)."
+        <p data-ar="الصوت طبيعته موجات تناظرية — بس الأجهزة الرقمية زي الـ CDs والـ DVDs بتخزّن الصوت رقمياً. النهارده هنتعلّم إزاي الصوت بيتحوّل من موجة تناظرية لبيانات رقمية — باستخدام طريقة اسمها PCM — وإزاي نحسب حجم البيانات."
           data-en="Sound is naturally analog waves — but digital devices like CDs and DVDs store sound digitally. Today we learn how sound is converted from an analog wave to digital data — using a method called PCM — and how to calculate the data volume.">
-          الصوت طبيعيته موجات متحولة — لكن الأجهزة الرقمية زي الـ CD والـ DVD بتخزّن الصوت <b>رقمياً</b>. النهارده
-          هنتعلم إزاي الصوت بيتحوّل من موجة تناظرية <span dir="ltr">(Analog)</span> لبيانات رقمية <span
+ الصوت طبيعيته موجات متحولة — لكن الأجهزة الرقمية زي الـ CD والـ DVD بتخزّن الصوت <b>رقمياً</b>. النهارده
+ هنتعلم إزاي الصوت بيتحوّل من موجة تناظرية <span dir="ltr">(Analog)</span> لبيانات رقمية <span
             dir="ltr">(Digital)</span> — بطريقة اسمها <b>PCM</b> — وإزاي نحسب حجم البيانات.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="الموجة زي خط مستمر، والكمبيوتر بياخد منها نقط على فواصل منتظمة ويحوّلها لأرقام — وده إزاي الموجة كلها بتتخزّن."
@@ -1082,7 +101,7 @@ b[data-ar]{color:#7a5200!important}
                   style="color:var(--s3)" data-ar="طريقة PCM — المعاينة والتكميم والترميز"
                   data-en="the PCM method — Sampling, Quantization and Encoding">طريقة PCM — المعاينة والتكميم والترميز</b></span></div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">📦</span><span><b
-                  style="color:var(--s4)" data-ar="حساب مقدار داتا (Data) الصوت" data-en="calculating the amount of audio data">حساب مقدار داتا (Data) الصوت</b> <b data-ar="— ونظرية المعاينة"
+                  style="color:var(--s4)" data-ar="حساب مقدار بيانات الصوت" data-en="calculating the amount of audio data">حساب مقدار بيانات الصوت</b> <b data-ar="— ونظرية المعاينة"
                   data-en="— and the Sampling theorem">— ونظرية المعاينة</b></span></div>
           </div>
           <div class="demo-panel">
@@ -1090,22 +109,22 @@ b[data-ar]{color:#7a5200!important}
             <p style="font-size:.95rem"
               data-ar="كل الأغاني والأصوات اللي بتسمعها على الموبايل والكمبيوتر متخزّنة رقمياً. لما تفهم PCM، هتفهم ليه ملفات الصوت كبيرة وإزاي بنوازن بين الجودة والحجم."
               data-en="All the songs and sounds you hear on your phone and computer are stored digitally. When you understand PCM, you will understand why audio files are big and how we balance quality and size.">
-              كل الأغاني والأصوات اللي بتسمعها على الموبايل والكمبيوتر متخزنة رقمياً. لما تفهم الـ <b>PCM</b>، هتفهم ليه
-              ملفات الصوت كبيرة وإزاي بنوازن بين الجودة والحجم.</p>
+ كل الأغاني والأصوات اللي بتسمعها على الموبايل والكمبيوتر متخزنة رقمياً. لما تفهم الـ <b>PCM</b>، هتفهم ليه
+ ملفات الصوت كبيرة وإزاي بنوازن بين الجودة والحجم.</p>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين التناظري والرقمي — الموجة اللي بتمشي في الهوا تناظرية، واللي متخزّن على الـ CD رقمي."
             data-en="Mixing up analog and digital — the wave that travels through the air is analog, and what is stored on a CD is digital.">
-            خلط التناظري <span dir="ltr">(Analog)</span> بالرقمي <span dir="ltr">(Digital)</span> — الموجة اللي بتنتقل
-            جوه الهوا تناظرية، واللي متخزن على CD رقمي.</li>
+ خلط التناظري <span dir="ltr">(Analog)</span> بالرقمي <span dir="ltr">(Digital)</span> — الموجة اللي بتنتقل
+ جوه الهوا تناظرية، واللي متخزن على CD رقمي.</li>
           <li data-ar="الخلط بين التردد والدورة — التردد هو عدد الموجات في ثانية واحدة، والدورة هي وقت الموجة الواحدة."
             data-en="Confusing frequency with period — frequency is the number of waves in one second, and period is the time of a single wave.">
-            خلط التردد بزمن الدورة — التردد <b>عدد الموجات في الثانية</b>، وزمن الدورة <b>الزمن بتاع الموجة الواحدة</b>.</li>
+ خلط التردد بزمن الدورة — التردد <b>عدد الموجات في الثانية</b>، وزمن الدورة <b>الزمن بتاع الموجة الواحدة</b>.</li>
         </ul>
       </div>
     </section>
@@ -1118,14 +137,14 @@ b[data-ar]{color:#7a5200!important}
           <div>
             <h2 data-ar="التردد والدورة" data-en="Frequency and Period">التردد وزمن الدورة <span
                 dir="ltr">(Frequency and Period)</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="مفاهيم الصوت الأساسية — EN PDF 69 (المطبوع 69)؛ AR 79"
-              data-en="basic sound concepts - English PDF 69 (printed 69); Arabic 79">مفاهيم الصوت الأساسية — EN PDF 69 (المطبوع 69)؛ AR 79</div>
+            <div class="tag" style="color:var(--s2)" data-ar="مفاهيم الصوت الأساسية"
+              data-en="basic sound concepts">مفاهيم الصوت الأساسية</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الصوت هو ظاهرة بتمشي عن طريق اهتزاز الهوا، وشكله موجة. الموجة دي داتا (Data) تناظرية — وعشان نخزّنها على CD لازم تتحوّل لداتا (Data) رقمية."
+        <p data-ar="الصوت هو ظاهرة بتمشي عن طريق اهتزاز الهوا، وشكله موجة. الموجة دي بيانات تناظرية — وعشان نخزّنها على CD لازم تتحوّل لبيانات رقمية."
           data-en="Sound is a phenomenon that travels through the vibration of air, and its shape is a wave. That wave is analog data — and to store it on a CD it must be converted to digital data.">
           <b>الصوت</b> ظاهرة بتنتقل عن طريق اهتزاز الهوا، وشكلها موجة. الموجة دي بيانات <b>تناظرية</b> <span
             dir="ltr">(Analog)</span> — ولتخزينها على CD لازم تتحول لبيانات <b>رقمية</b> <span
@@ -1133,12 +152,12 @@ b[data-ar]{color:#7a5200!important}
         <p data-ar="التردد هو عدد الموجات اللي في ثانية واحدة، ووحدته الهيرتز [Hz]. والدورة هي الوقت اللي بتاخده الموجة الواحدة عشان تنتشر، ووحدتها الثواني."
           data-en="The frequency is the number of waves contained in one second, and its unit is the hertz [Hz]. The period is the time it takes for one wave to propagate, and its unit is seconds.">
           <b>التردد <span dir="ltr">(Frequency)</span></b> هو عدد الموجات اللي موجودة في <b>ثانية واحدة</b>، ووحدته
-          الهيرتز [Hz]. و<b>زمن الدورة <span dir="ltr">(Period)</span></b> هو الزمن اللي بتاخده الموجة الواحدة عشان
-          تنتقل، ووحدته الثواني.</p>
+ الهيرتز [Hz]. و<b>زمن الدورة <span dir="ltr">(Period)</span></b> هو الزمن اللي بتاخده الموجة الواحدة عشان
+ تنتقل، ووحدته الثواني.</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
             data-ar="لما التردد يزيد، الدورة بتقل — هما أضداد."
             data-en="When the frequency increases, the period decreases — they are opposites.">لما التردد يزيد، الدورة بتقل — هما أضداد.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>أ. الصوت — (1) الصوت : هو ظاهرة تنتقل عبر اهتزاز جزيئات الهواء. البيانات الصوتية يمكن تمثيلها على شكل موجة تناظرية (Analog waveform). • بالنسبة للبيانات الصوتية على الأقراص المدمجة، وما إلى ذلك، يتم تحويل الصوت إلى بيانات رقمية (Digital data). (2) التردد : عدد الموجات التي تمر في ثانية واحدة. الوحدة هي (Hertz) [الرمز: (HZ)]. (3) الفترة : الوقت الذي تستغرقه موجة واحدة للانتشار. الوحدة هي ثانية.</p></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>أ. الصوت — (1) الصوت: هو ظاهرة تنتقل عبر اهتزاز جزيئات الهواء. البيانات الصوتية يمكن تمثيلها على شكل موجة تناظرية. • بالنسبة للبيانات الصوتية على الأقراص المدمجة، وما إلى ذلك، يتم تحويل الصوت إلى بيانات رقمية. (2) التردد: عدد الموجات التي تمر في ثانية واحدة. الوحدة هي [الرمز:]. (3) الفترة: الوقت الذي تستغرقه موجة واحدة للانتشار. الوحدة هي ثانية.</p></div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
@@ -1155,8 +174,8 @@ b[data-ar]{color:#7a5200!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="wavePrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="waveNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="wavePrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="waveNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="waveCounter">1 / 3</span>
                 <button class="mini-btn" data-id="waveReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1189,7 +208,7 @@ b[data-ar]{color:#7a5200!important}
                   class="rq-key">A</span><span class="rq-body" data-ar="عدد الموجات في ثانية واحدة"
                   data-en="the number of waves in one second">عدد الموجات في ثانية واحدة</span></div>
               <div class="rq-opt" data-id="freqRq1o2" data-key="B"
-                data-fb-ar="مش كده — ده تعريف زمن الدورة (Period)."
+                data-fb-ar="مش كده — ده تعريف زمن الدورة."
                 data-fb-en="Not quite — that is the definition of the period."><span class="rq-key">B</span><span
                   class="rq-body" data-ar="الوقت اللي بتاخده الموجة الواحدة"
                   data-en="the time a single wave takes">الوقت اللي بتاخده الموجة الواحدة</span></div>
@@ -1209,7 +228,7 @@ b[data-ar]{color:#7a5200!important}
               <div class="rq-opt" data-id="freqRq2o2" data-key="A"
                 data-fb-ar="مش كده — البايت وحدة قياس البيانات مش التردد."
                 data-fb-en="Not quite — the byte is a unit of data, not frequency."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="البايت (Byte) B" data-en="the byte B">البايت (Byte) B</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="البايت B" data-en="the byte B">البايت B</span></div>
               <div class="rq-opt" data-id="freqRq2o1" data-key="B" data-ok="1"
                 data-fb-ar="صحيح! الهيرتز [Hz] هي وحدة قياس التردد."
                 data-fb-en="Correct! The hertz [Hz] is the unit of frequency."><span class="rq-key">B</span><span
@@ -1226,10 +245,10 @@ b[data-ar]{color:#7a5200!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
-          <li data-ar="الخلط بين التردد والدورة — التردد هو عدد الموجات في الثانية (Hz)، والدورة هي وقت الموجة الواحدة (ثواني)."
-            data-en="Confusing frequency with period — frequency is the number of waves per second (Hz), and period is the time of one wave (seconds).">الخلط بين التردد والدورة — التردد هو عدد الموجات في الثانية (Hz)، والدورة هي وقت الموجة الواحدة (ثواني).</li>
+          <li data-ar="الخلط بين التردد والدورة — التردد هو عدد الموجات في الثانية، والدورة هي وقت الموجة الواحدة (ثواني)."
+            data-en="Confusing frequency with period — frequency is the number of waves per second (Hz), and period is the time of one wave (seconds).">الخلط بين التردد والدورة — التردد هو عدد الموجات في الثانية، والدورة هي وقت الموجة الواحدة (ثواني).</li>
           <li data-ar="نسيان إن التردد والدورة أضداد — لما واحد يزيد التاني بيقل."
             data-en="Forgetting that frequency and period are opposites — when one increases the other decreases.">نسيان إن التردد والدورة أضداد — لما واحد يزيد التاني بيقل.</li>
         </ul>
@@ -1244,22 +263,22 @@ b[data-ar]{color:#7a5200!important}
           <div>
             <h2 data-ar="طريقة PCM" data-en="The PCM Method">طريقة <span dir="ltr">PCM</span> <span
                 dir="ltr">(Pulse Code Modulation)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="معاينة ← تكميم ← ترميز — EN PDF 69 (المطبوع 69)؛ AR 79"
-              data-en="Sampling → Quantization → Encoding - English PDF 69 (printed 69); Arabic 79">معاينة ← تكميم ← ترميز — EN PDF 69 (المطبوع 69)؛ AR 79</div>
+            <div class="tag" style="color:var(--s3)" data-ar="معاينة → تكميم → ترميز"
+              data-en="Sampling → Quantization → Encoding">معاينة ← تكميم ← ترميز</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="طريقة PCM (الترميز النبضي بالرموز) هي طريقة لتحويل داتا (Data) الصوت التناظرية لكود ثنائي — وبتتكوّن من 3 خطوات بالترتيب."
+        <p data-ar="طريقة PCM (الترميز النبضي بالرموز) هي طريقة لتحويل بيانات الصوت التناظرية لكود ثنائي — وبتتكوّن من 3 خطوات بالترتيب."
           data-en="The Pulse Code Modulation (PCM) method is a way to convert analog audio data into a binary code — and it consists of 3 steps in order.">
           <b>طريقة تعديل نبضات الرمز <span dir="ltr">(Pulse Code Modulation — PCM)</span></b> هي طريقة تحويل البيانات
-          الصوتية التناظرية لرمز ثنائي — وتتكون من 3 خطوات <b>بالترتيب</b>.</p>
+ الصوتية التناظرية لرمز ثنائي — وتتكون من 3 خطوات <b>بالترتيب</b>.</p>
         <div class="note"><b data-ar="الخطوات بالترتيب:" data-en="The steps in order:">الخطوات بالترتيب:</b> <span
-            data-ar="① معاينة ← ② تكميم ← ③ ترميز."
+            data-ar="① معاينة → ② تكميم → ③ ترميز."
             data-en="① Sampling → ② Quantization → ③ Encoding.">① <b>Sampling</b> (أخذ العينات) → ②
-            <b>Quantization</b> (التكميم) → ③ <b>Encoding</b> (الترميز).</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>ب. رقمنة الصوت — (1) (طريقة التعديل بالنبضات الرقمية (PCM)) : طريقة لرقمنة البيانات الصوتية التناظرية. تحويل البيانات الصوتية إلى شفرة ثنائية. خطوات رقمنة الصوت باستخدام طريقة PCM:(أ) أخذ العينات (Sampling) : يتم تقسيم المحور الأفقي (الزمن) على فترات زمنية منتظمة، ويتم استخلاص ارتفاع الموجة (قوة الجهد). تُعرف النقاط المستخلصة باسم (نقاط العينة). • (فترة أخذ العينات) : الفترة الزمنية المستخدمة للتقسيم عند أخذ العينات. • (تردد أخذ العينات) : عدد العينات المأخوذة في الثانية الواحدة. (ب) التحويل الكمي (Quantization) : يتم تقسيم المحور الرأسي (الجهد) على فترات منتظمة، ويتم تحويل ارتفاعات الموجة التي تم الحصول عليها من أخذ العينات إلى أقرب القيم على المقياس الرأسي. • عمق الـbit الكمي (Quantization bit depth) : هذا يحدد عدد المستويات التي يتم تقسيم النطاق إليها أثناء التحويل الكمي. (ج) الترميز (Encoding) : يتم التعبير عن القيم المقدرة كميًا في صورة ثنائية.</p></div>
+ <b>Quantization</b> (التكميم) → ③ <b>Encoding</b> (الترميز).</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>ب. رقمنة الصوت — (1) (طريقة التعديل بالنبضات الرقمية): طريقة لرقمنة البيانات الصوتية التناظرية. تحويل البيانات الصوتية إلى شفرة ثنائية. خطوات رقمنة الصوت باستخدام طريقة PCM:(أ) أخذ العينات: يتم تقسيم المحور الأفقي (الزمن) على فترات زمنية منتظمة، ويتم استخلاص ارتفاع الموجة (قوة الجهد). تُعرف النقاط المستخلصة باسم (نقاط العينة). • (فترة أخذ العينات): الفترة الزمنية المستخدمة للتقسيم عند أخذ العينات. • (تردد أخذ العينات): عدد العينات المأخوذة في الثانية الواحدة. (ب) التحويل الكمي: يتم تقسيم المحور الرأسي (الجهد) على فترات منتظمة، ويتم تحويل ارتفاعات الموجة التي تم الحصول عليها من أخذ العينات إلى أقرب القيم على المقياس الرأسي. • عمق الـbit الكمي: هذا يحدد عدد المستويات التي يتم تقسيم النطاق إليها أثناء التحويل الكمي. (ج) الترميز: يتم التعبير عن القيم المقدرة كميًا في صورة ثنائية.</p></div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
@@ -1276,8 +295,8 @@ b[data-ar]{color:#7a5200!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="pcmPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="pcmNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="pcmPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="pcmNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="pcmCounter">1 / 3</span>
                 <button class="mini-btn" data-id="pcmReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1307,17 +326,17 @@ b[data-ar]{color:#7a5200!important}
               <div class="rq-opt" data-id="pcmRq1o2" data-key="A"
                 data-fb-ar="مش كده — الترميز بيعمل في الآخر، مش في الأول."
                 data-fb-en="Not quite — encoding happens last, not first."><span class="rq-key">A</span><span
-                  class="rq-body" data-ar="ترميز ← تكميم ← معاينة"
+                  class="rq-body" data-ar="ترميز → تكميم → معاينة"
                   data-en="Encoding → Quantization → Sampling">ترميز ← تكميم ← معاينة</span></div>
               <div class="rq-opt" data-id="pcmRq1o3" data-key="B"
                 data-fb-ar="مش كده — أخذ العينات بييجي الأول على المحور الأفقي."
                 data-fb-en="Not quite — sampling comes first on the horizontal axis."><span
-                  class="rq-key">B</span><span class="rq-body" data-ar="تكميم ← معاينة ← ترميز"
+                  class="rq-key">B</span><span class="rq-body" data-ar="تكميم → معاينة → ترميز"
                   data-en="Quantization → Sampling → Encoding">تكميم ← معاينة ← ترميز</span></div>
               <div class="rq-opt" data-id="pcmRq1o1" data-key="C" data-ok="1"
                 data-fb-ar="صحيح! أخذ العينات الأول، بعدين التكميم، بعدين الترميز."
                 data-fb-en="Correct! Sampling first, then quantization, then encoding."><span
-                  class="rq-key">C</span><span class="rq-body" data-ar="معاينة ← تكميم ← ترميز"
+                  class="rq-key">C</span><span class="rq-body" data-ar="معاينة → تكميم → ترميز"
                   data-en="Sampling → Quantization → Encoding">معاينة ← تكميم ← ترميز</span></div>
             </div>
             <div class="rq-fb"></div>
@@ -1349,7 +368,7 @@ b[data-ar]{color:#7a5200!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="عكس ترتيب الخطوات — المعاينة لازم تيجي الأول على المحور الأفقي، وبعدين التكميم على الرأسي، وبعدين الترميز."
             data-en="Reversing the order of the steps — sampling must come first on the horizontal axis, then quantization on the vertical, then encoding.">عكس ترتيب الخطوات — المعاينة لازم تيجي الأول على المحور الأفقي، وبعدين التكميم على الرأسي، وبعدين الترميز.</li>
@@ -1365,28 +384,28 @@ b[data-ar]{color:#7a5200!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
           <div>
-            <h2 data-ar="مقدار داتا (Data) الصوت" data-en="Amount of Sound Data">حساب حجم بيانات الصوت <span
+            <h2 data-ar="مقدار بيانات الصوت" data-en="Amount of Sound Data">حساب حجم بيانات الصوت <span
                 dir="ltr">(Amount of Sound Data)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="المعادلة: التردد × عمق بت التكميم × القنوات — EN PDF 70 (المطبوع 70)؛ AR 80"
-              data-en="the formula: frequency × quantization bit depth × channels - English PDF 70 (printed 70); Arabic 80">المعادلة:التردد × عمق بت التكميم × القنوات — EN PDF 70 (المطبوع 70)؛ AR 80</div>
+            <div class="tag" style="color:var(--s4)" data-ar="المعادلة: التردد × عمق بت التكميم × القنوات"
+              data-en="the formula: frequency × quantization bit depth × channels">المعادلة:التردد × عمق بت التكميم × القنوات</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="القنوات هي عدد الإشارات المستخدمة لإرسال الصوت. التشغيل بإشارة واحدة بيتسمّى مونو (Monaural)، وبإشارتين مختلفتين بيتسمّى ستيريو (Stereo)."
+        <p data-ar="القنوات هي عدد الإشارات المستخدمة لإرسال الصوت. التشغيل بإشارة واحدة بيتسمّى مونو، وبإشارتين مختلفتين بيتسمّى ستيريو."
           data-en="Channels are the number of signals used to transmit sound. Playback with a single signal is called monaural, and with two different signals it is called stereo.">
           <b>القنوات <span dir="ltr">(Channels)</span></b> هي عدد الإشارات المستخدمة في نقل الصوت. التشغيل بإشارة واحدة
-          بيسمى أحادي <span dir="ltr">(Monaural)</span>، وبإشارتين مختلفتين بيسمى ستيريو <span dir="ltr">(Stereo)</span>.</p>
+ بيسمى أحادي <span dir="ltr">(Monaural)</span>، وبإشارتين مختلفتين بيسمى ستيريو <span dir="ltr">(Stereo)</span>.</p>
         <div class="note"><b data-ar="المعادلة:" data-en="The formula:">المعادلة:</b> <span
-            data-ar="مقدار الداتا (Data) [بتّات] في الثانية = تردد المعاينة × عمق بت التكميم × عدد القنوات."
+            data-ar="مقدار البيانات [بتّات] في الثانية = تردد المعاينة × عمق بت التكميم × عدد القنوات."
             data-en="data amount [bits] per second = sampling frequency × quantization bit depth × number of channels.">حجم
-            البيانات [بت] في الثانية = <b>تردد العينات × عمق التكميم × عدد القنوات</b>.</span></div>
-        <p data-ar="زيادة تردد المعاينة وعمق بت التكميم بيقرّب الصوت للموجة الأصلية (جودة أحسن)، بس مقدار الداتا (Data) بيزيد كمان."
+ البيانات [بت] في الثانية = <b>تردد العينات × عمق التكميم × عدد القنوات</b>.</span></div>
+        <p data-ar="زيادة تردد المعاينة وعمق بت التكميم بيقرّب الصوت للموجة الأصلية (جودة أحسن)، بس مقدار البيانات بيزيد كمان."
           data-en="Increasing the sampling frequency and the quantization bit depth makes the sound closer to the original wave (better quality), but the data amount also increases.">
-          زيادة تردد العينات وعمق التكميم بتخلّي الصوت أقرب للموجة الأصلية (<b>جودة أعلى</b>)، بس كمية البيانات بتزيد
-          كمان.</p>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) الرقمنة وحجم البيانات — كلما زادت تردد أخذ العينات والتحويل الكمي، أصبح الصوت أقرب إلى الموجة التناظرية الأصلية. هذا يسبب تحسنًا في جودة الصوت؛ ومع ذلك، فإن كمية البيانات أيضًا تزيد. (3) (نظرية أخذ العينات) : إذا تجاوز تردد أخذ العينات ضعف أعلى تردد موجود في الموجة التناظرية الأصلية، يمكن إعادة بناء شكل الموجة للإشارة التناظرية الأصلية بدقة من البيانات الرقمية. ت. كمية بيانات الصوت — (1) القنوات (Channels) : عدد الإشارات المستخدمة عند نقل الصوت. تُسمى طريقة التشغيل التي تستخدم إشارة واحدة (أحادية/ Monaural)، وتُسمى طريقة التشغيل التي تستخدم إشارتين مختلفتين (مجسمة/ stereo). (2) كيفية حساب كمية البيانات الصوتية — كمية البيانات (bit) في في الثانية = (تردد أخذ العينات × عمق bit الكمي × عدد القنوات)</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) الإنجليزية تضع أرقامًا مرتفعة ¹-²³ قبل المصطلحات المميزة، والعربية بدونها. (2) تعريف الصوت: العربية «البيانات الصوتية يمكن تمثيلها على شكل موجة تناظرية (Analog waveform)» والإنجليزية &quot;Waveform (analog) data&quot;. (3) رمز التردد:الإنجليزية &quot;Hz&quot;، والعربية «(HZ)» بحرفين كبيرين والوحدة «Hertz». (4) خطوات PCM مرقمة 1)2)3) في الإنجليزية وبـ(أ)(ب)(ج) في العربية. (5) عنوان الخطوة (2) في شكل العربية «التقريب الرقمي» بينما متنها «التحويل الكمي»؛ وعنوان الخطوة 3 في شكل الإنجليزية &quot;Encording&quot; بينما متنها &quot;Encoding&quot;. (6) في معادلة العربية «كمية البيانات (bit) في في الثانية» بتكرار «في». (7) العربية «(أحادية/ Monaural)» و«(مجسمة/ stereo)». (8) مصطلح التكميم يرد في العربية بعدة صيغ عبر الدرس:التحويل الكمي / التقريب الرقمي / التكميم / التقدير الرقمي / عمق الـbit الكمي." data-en="Edition comparison: (1) English marks the highlighted terms with superscripts ¹-²³; Arabic has none. (2) Sound definition:Arabic &quot;(Analog waveform)&quot; vs English &quot;Waveform (analog) data&quot;. (3) Frequency symbol:English &quot;Hz&quot; vs Arabic &quot;(HZ)&quot; in capitals with the unit &quot;Hertz&quot;. (4) PCM steps numbered 1)2)3) in English, lettered (أ)(ب)(ج) in Arabic. (5) The Arabic step-(2) figure caption reads &quot;التقريب الرقمي&quot; while its body uses &quot;التحويل الكمي&quot;; the English step-3 figure caption reads &quot;Encording&quot; while its body reads &quot;Encoding&quot;. (6) The Arabic formula reads &quot;في في الثانية&quot; with a doubled word. (7) Arabic prints &quot;(أحادية/ Monaural)&quot; and &quot;(مجسمة/ stereo)&quot;. (8) The quantization term appears in several Arabic wordings across the lesson:التحويل الكمي / التقريب الرقمي / التكميم / التقدير الرقمي / عمق الـbit الكمي.">مقارنة النسختين: (1) الإنجليزية تضع أرقامًا مرتفعة ¹-²³ قبل المصطلحات المميزة، والعربية بدونها. (2) تعريف الصوت: العربية «البيانات الصوتية يمكن تمثيلها على شكل موجة تناظرية (Analog waveform)» والإنجليزية "Waveform (analog) data". (3) رمز التردد: الإنجليزية "Hz"، والعربية «(HZ)» بحرفين كبيرين والوحدة «Hertz». (4) خطوات PCM مرقمة 1)2)3) في الإنجليزية وبـ(أ)(ب)(ج) في العربية. (5) عنوان الخطوة (2) في شكل العربية «التقريب الرقمي» بينما متنها «التحويل الكمي»؛ وعنوان الخطوة 3 في شكل الإنجليزية "Encording" بينما متنها "Encoding". (6) في معادلة العربية «كمية البيانات (bit) في في الثانية» بتكرار «في». (7) العربية «(أحادية/ Monaural)» و«(مجسمة/ stereo)». (8) مصطلح التكميم يرد في العربية بعدة صيغ عبر الدرس: التحويل الكمي / التقريب الرقمي / التكميم / التقدير الرقمي / عمق الـbit الكمي.</div></div></div>
+ زيادة تردد العينات وعمق التكميم بتخلّي الصوت أقرب للموجة الأصلية (<b>جودة أعلى</b>)، بس كمية البيانات بتزيد
+ كمان.</p>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) الرقمنة وحجم البيانات — كلما زادت تردد أخذ العينات والتحويل الكمي، أصبح الصوت أقرب إلى الموجة التناظرية الأصلية. هذا يسبب تحسنًا في جودة الصوت؛ ومع ذلك، فإن كمية البيانات أيضًا تزيد. (3) (نظرية أخذ العينات): إذا تجاوز تردد أخذ العينات ضعف أعلى تردد موجود في الموجة التناظرية الأصلية، يمكن إعادة بناء شكل الموجة للإشارة التناظرية الأصلية بدقة من البيانات الرقمية. ت. كمية بيانات الصوت — (1) القنوات: عدد الإشارات المستخدمة عند نقل الصوت. تُسمى طريقة التشغيل التي تستخدم إشارة واحدة (أحادية/ Monaural)، وتُسمى طريقة التشغيل التي تستخدم إشارتين مختلفتين (مجسمة/ stereo). (2) كيفية حساب كمية البيانات الصوتية — كمية البيانات في في الثانية = (تردد أخذ العينات × عمق bit الكمي × عدد القنوات)</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) الإنجليزية تضع أرقامًا مرتفعة ¹-²³ قبل المصطلحات المميزة، والعربية بدونها. (2) تعريف الصوت: العربية «البيانات الصوتية يمكن تمثيلها على شكل موجة تناظرية (Analog waveform)» والإنجليزية &quot;Waveform (analog) data&quot;. (3) رمز التردد:الإنجليزية &quot;Hz&quot;، والعربية «(HZ)» بحرفين كبيرين والوحدة «Hertz». (4) خطوات PCM مرقمة 1)2)3) في الإنجليزية وبـ(أ)(ب)(ج) في العربية. (5) عنوان الخطوة (2) في شكل العربية «التقريب الرقمي» بينما متنها «التحويل الكمي»؛ وعنوان الخطوة 3 في شكل الإنجليزية &quot;Encording&quot; بينما متنها &quot;Encoding&quot;. (6) في معادلة العربية «كمية البيانات (bit) في في الثانية» بتكرار «في». (7) العربية «(أحادية/ Monaural)» و«(مجسمة/ stereo)». (8) مصطلح التكميم يرد في العربية بعدة صيغ عبر الدرس:التحويل الكمي / التقريب الرقمي / التكميم / التقدير الرقمي / عمق الـbit الكمي." data-en="Edition comparison: (1) English marks the highlighted terms with superscripts ¹-²³; Arabic has none. (2) Sound definition:Arabic &quot;(Analog waveform)&quot; vs English &quot;Waveform (analog) data&quot;. (3) Frequency symbol:English &quot;Hz&quot; vs Arabic &quot;(HZ)&quot; in capitals with the unit &quot;Hertz&quot;. (4) PCM steps numbered 1)2)3) in English, lettered (أ)(ب)(ج) in Arabic. (5) The Arabic step-(2) figure caption reads &quot;التقريب الرقمي&quot; while its body uses &quot;التحويل الكمي&quot;; the English step-3 figure caption reads &quot;Encording&quot; while its body reads &quot;Encoding&quot;. (6) The Arabic formula reads &quot;في في الثانية&quot; with a doubled word. (7) Arabic prints &quot;(أحادية/ Monaural)&quot; and &quot;(مجسمة/ stereo)&quot;. (8) The quantization term appears in several Arabic wordings across the lesson:التحويل الكمي / التقريب الرقمي / التكميم / التقدير الرقمي / عمق الـbit الكمي.">مقارنة النسختين: (1) الإنجليزية تضع أرقامًا مرتفعة ¹-²³ قبل المصطلحات المميزة، والعربية بدونها. (2) تعريف الصوت: العربية «البيانات الصوتية يمكن تمثيلها على شكل موجة تناظرية (Analog waveform)» والإنجليزية "Waveform (analog) data". (3) رمز التردد: الإنجليزية "Hz"، والعربية «(HZ)» بحرفين كبيرين والوحدة «Hertz». (4) خطوات PCM مرقمة 1)2)3) في الإنجليزية وبـ(أ)(ب)(ج) في العربية. (5) عنوان الخطوة (2) في شكل العربية «التقريب الرقمي» بينما متنها «التحويل الكمي»؛ وعنوان الخطوة 3 في شكل الإنجليزية "Encording" بينما متنها "Encoding". (6) في معادلة العربية «كمية البيانات (bit) في في الثانية» بتكرار «في». (7) العربية «(أحادية/ Monaural)» و«(مجسمة/ stereo)». (8) مصطلح التكميم يرد في العربية بعدة صيغ عبر الدرس: التحويل الكمي / التقريب الرقمي / التكميم / التقدير الرقمي / عمق الـbit الكمي.</div></div></div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
@@ -1399,12 +418,12 @@ b[data-ar]{color:#7a5200!important}
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="calc"></svg>
                 <div class="svg-label" data-fbox="mul" data-ar="بنضرب: 44100 × 16 × 2" data-en="we multiply: 44100 × 16 × 2">بنضرب: 44100 × 16 × 2</div>
                 <div class="svg-label" data-fbox="bits" data-ar="= 1,411,200 بت في الثانية" data-en="= 1,411,200 bits per second">= 1,411,200 بت في الثانية</div>
-                <div class="svg-label" data-fbox="kb" data-ar="نقسم على 8 وبعدين 1000 ← 176 KB" data-en="divide by 8 then 1000 → 176 KB">نقسم على 8 وبعدين 1000 ← 176 KB</div>
+                <div class="svg-label" data-fbox="kb" data-ar="نقسم على 8 وبعدين 1000 → 176 KB" data-en="divide by 8 then 1000 → 176 KB">نقسم على 8 وبعدين 1000 ← 176 KB</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="calcPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="calcNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="calcPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="calcNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="calcCounter">1 / 3</span>
                 <button class="mini-btn" data-id="calcReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1428,8 +447,8 @@ b[data-ar]{color:#7a5200!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="volumeRecall">
           <div class="rq" data-id="volumeRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه معادلة مقدار داتا (Data) الصوت في الثانية؟"
-                data-en="What is the formula for the audio data amount per second?">إيه معادلة مقدار داتا (Data) الصوت في الثانية؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه معادلة مقدار بيانات الصوت في الثانية؟"
+                data-en="What is the formula for the audio data amount per second?">إيه معادلة مقدار بيانات الصوت في الثانية؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="volumeRq1o2" data-key="A"
                 data-fb-ar="مش كده — المعادلة فيها ضرب مش قسمة."
@@ -1454,17 +473,17 @@ b[data-ar]{color:#7a5200!important}
                 data-en="What is playback with two different signals called?">تشغيل بإشارتين مختلفتين بيتسمّى إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="volumeRq2o2" data-key="A"
-                data-fb-ar="مش كده — أحادي (Monaural) بيستعمل إشارة واحدة بس."
+                data-fb-ar="مش كده — أحادي بيستعمل إشارة واحدة بس."
                 data-fb-en="Not quite — monaural uses only a single signal."><span class="rq-key">A</span><span
-                  class="rq-body" data-ar="مونو (Monaural)" data-en="Monaural">مونو (Monaural)</span></div>
+                  class="rq-body" data-ar="مونو" data-en="Monaural">مونو</span></div>
               <div class="rq-opt" data-id="volumeRq2o3" data-key="B"
                 data-fb-ar="مش كده — دي اسم قناة تانية مش للتشغيل بإشارتين."
                 data-fb-en="Not quite — that is another channel name, not for two-signal playback."><span
-                  class="rq-key">B</span><span class="rq-body" data-ar="بيناورال (Binaural)" data-en="Binaural">بيناورال (Binaural)</span></div>
+                  class="rq-key">B</span><span class="rq-body" data-ar="بيناورال" data-en="Binaural">بيناورال</span></div>
               <div class="rq-opt" data-id="volumeRq2o1" data-key="C" data-ok="1"
-                data-fb-ar="صحيح! بإشارتين مختلفتين بيسمى ستيريو (Stereo)."
+                data-fb-ar="صحيح! بإشارتين مختلفتين بيسمى ستيريو."
                 data-fb-en="Correct! With two different signals it is called stereo."><span
-                  class="rq-key">C</span><span class="rq-body" data-ar="ستيريو (Stereo)" data-en="Stereo">ستيريو (Stereo)</span></div>
+                  class="rq-key">C</span><span class="rq-body" data-ar="ستيريو" data-en="Stereo">ستيريو</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="volumeRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -1473,14 +492,14 @@ b[data-ar]{color:#7a5200!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
-          <li data-ar="نسيان إن النتيجة بالبتّات — عشان نحوّلها لبايت (Byte) بنقسم على 8."
+          <li data-ar="نسيان إن النتيجة بالبتّات — عشان نحوّلها لبايت بنقسم على 8."
             data-en="Forgetting that the result is in bits — to convert it to bytes we divide by 8.">
-            نسيان إن الناتج بالبت — ولتحويله لبايت بنقسم على <b>8</b>.</li>
+ نسيان إن الناتج بالبت — ولتحويله لبايت بنقسم على <b>8</b>.</li>
           <li data-ar="نسيان إننا نضرب في المدة بالثواني — لو المدة بالدقايق، بنضرب في 60."
             data-en="Forgetting to multiply by the duration in seconds — if the duration is in minutes, we multiply by 60.">
-            نسيان ضرب المدة بالثواني — لو المدة بالدقايق، بنضرب في <b>60</b>.</li>
+ نسيان ضرب المدة بالثواني — لو المدة بالدقايق، بنضرب في <b>60</b>.</li>
         </ul>
       </div>
     </section>
@@ -1493,21 +512,21 @@ b[data-ar]{color:#7a5200!important}
           <div>
             <h2 data-ar="نظرية المعاينة" data-en="The Sampling Theorem">نظرية الـ Sampling <span
                 dir="ltr">(Sampling Theorem)</span></h2>
-            <div class="tag" style="color:var(--s5)" data-ar="الشرط: تردد المعاينة بيزيد عن الضعف لأعلى تردد — EN PDF 69 (المطبوع 69)؛ AR 80"
-              data-en="the condition: the sampling frequency exceeds twice the highest frequency - English PDF 69 (printed 69); Arabic 80">الشرط:تردد المعاينة بيزيد عن الضعف لأعلى تردد — EN PDF 69 (المطبوع 69)؛ AR 80</div>
+            <div class="tag" style="color:var(--s5)" data-ar="الشرط: تردد المعاينة بيزيد عن الضعف لأعلى تردد"
+              data-en="the condition: the sampling frequency exceeds twice the highest frequency">الشرط:تردد المعاينة بيزيد عن الضعف لأعلى تردد</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="نظرية المعاينة بتقول: لو تردد المعاينة زاد عن الضعف لأعلى تردد موجود في الموجة التناظرية الأصلية، الموجة الأصلية ممكن تتعاد تشكيلها بدقّة من الداتا (Data) الرقمية."
+        <p data-ar="نظرية المعاينة بتقول: لو تردد المعاينة زاد عن الضعف لأعلى تردد موجود في الموجة التناظرية الأصلية، الموجة الأصلية ممكن تتعاد تشكيلها بدقّة من البيانات الرقمية."
           data-en="The sampling theorem says: if the sampling frequency exceeds twice the highest frequency contained in the original analog waveform, the original waveform can be accurately reconstructed from the digitized data.">
           <b>نظرية الـ Sampling <span dir="ltr">(Sampling theorem)</span></b> بتقول: لو تردد العينات عدّى <b>ضعف
-            أعلى تردد</b> موجود في الموجة التناظرية الأصلية، الموجة الأصلية ممكن تترجع تاني بدقة من البيانات الرقمية.</p>
+ أعلى تردد</b> موجود في الموجة التناظرية الأصلية، الموجة الأصلية ممكن تترجع تاني بدقة من البيانات الرقمية.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="لو أعلى تردد في الموجة 40 Hz، تردد المعاينة لازم يكون أكبر من 80 Hz عشان نعيد بناء الموجة بالظبط."
             data-en="If the highest frequency in the wave is 40 Hz, the sampling frequency must be greater than 80 Hz to reconstruct the wave exactly.">لو
-            أعلى تردد في الموجة هو 40 Hz، لازم تردد العينات يبقى أكبر من <b>80 Hz</b> عشان نرجع الموجة زي ما هي.</span></div>
+ أعلى تردد في الموجة هو 40 Hz، لازم تردد العينات يبقى أكبر من <b>80 Hz</b> عشان نرجع الموجة زي ما هي.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1525,8 +544,8 @@ b[data-ar]{color:#7a5200!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="theoryPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="theoryNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="theoryPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="theoryNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="theoryCounter">1 / 3</span>
                 <button class="mini-btn" data-id="theoryReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1596,13 +615,13 @@ b[data-ar]{color:#7a5200!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين مضاعفة التردد ومساواته — تردد المعاينة لازم أكبر من الضعف، مش بيساويه."
             data-en="Confusing doubling the frequency with equaling it — the sampling frequency must be greater than double, not equal to it.">
-            الخلط بين ضعف التردد ومساواته — لازم تردد العينات يكون <b>أكبر من</b> الضعف، مش يساويه.</li>
-          <li data-ar="نسيان إن زيادة التردد والعمق بتزوّد حجم الداتا (Data) — الجودة العالية ليها تمن."
-            data-en="Forgetting that increasing frequency and depth increases the data size — high quality has a cost.">نسيان إن زيادة التردد والعمق بتزوّد حجم الداتا (Data) — الجودة العالية ليها تمن.</li>
+ الخلط بين ضعف التردد ومساواته — لازم تردد العينات يكون <b>أكبر من</b> الضعف، مش يساويه.</li>
+          <li data-ar="نسيان إن زيادة التردد والعمق بتزوّد حجم البيانات — الجودة العالية ليها تمن."
+            data-en="Forgetting that increasing frequency and depth increases the data size — high quality has a cost.">نسيان إن زيادة التردد والعمق بتزوّد حجم البيانات — الجودة العالية ليها تمن.</li>
         </ul>
       </div>
     </section>
@@ -1614,8 +633,8 @@ b[data-ar]{color:#7a5200!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">06</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 70–72 (المطبوع 70–72)؛ AR 80–82"
-              data-en="Your book: English PDF 70-72 (printed 70-72); Arabic 80-82">الكتاب بتاعك:EN PDF 70–72 (المطبوع 70–72)؛ AR 80–82</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1638,35 +657,35 @@ b[data-ar]{color:#7a5200!important}
       <div class="section-inner card">
         <!-- TEXTBOOK-CARD-BEGIN id="book-warm" -->
         <div class="book-card">
-          <h3 data-ar="من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع</h3>
-          <p data-ar="أجب عن الأسئلة التالية. (1) اختر الإجراء المناسب لرقمنة إشارة صوتية تناظرية من الخيارات أ إلى د. (أ) أخذ العينات ← التحويل الكمي ← الترميز — (ب) الترميز ← التحويل الكمي ← أخذ العينات — (جـ) التحويل الكمي ← أخذ العينات ← الترميز — (د) التحويل الكمي ← الترميز ← أخذ العينات. (2) احسب كمية البيانات لثانية واحدة بالكيلوبايت (KB) عند رقمنة الموسيقى بتردد أخذ عينات 44,100 HZ، وعمق bit للتقدير الرقمي 16 bit، وفي استريو ثنائي القناة. ومع ذلك، افترض أن 1 KB = 1,000 B، وقرب إلى أقرب عدد صحيح. (3) احسب كمية البيانات لدقيقة واحدة بال MB (MB) عند رقمنة الموسيقى بتردد أخذ عينات 44.1 كيلو هرتز، وعمق bit للتقدير الرقمي 24 bit، وفي استريو ثنائي القناة. ومع ذلك، افترض أن 1 KB = 1,000 B، و1 MB = 1,000 KB، وقرب إلى أقرب عدد صحيح." data-en="Answer the following questions. (1) Choose the one appropriate procedure for digitizing an analog sound signal from the options A to D. A Sampling → Quantization → Encoding — B Encoding → Quantization → Sampling — C Quantization → Sampling → Encoding — D Quantization → Encoding → Sampling. (2) Calculate the data amount for 1 second in kilobytes (KB) when digitizing music at a sampling frequency of 44,100 Hz, a quantization bit depth of 16 bits, and in 2-channel stereo. However, assume that 1 KB = 1,000 B, and round off to the nearest whole number. (3) Calculate the data amount for 1 minute in megabytes (MB) when digitizing music at a sampling frequency of 44.1 kHz, a quantization bit depth of 24 bits, and in 2-channel stereo. However, assume that 1 KB = 1,000 B, and 1 MB = 1,000 KB, and round off to the nearest whole number.">أجب عن الأسئلة التالية. (1) اختر الإجراء المناسب لرقمنة إشارة صوتية تناظرية من الخيارات أ إلى د. (أ) أخذ العينات ← التحويل الكمي ← الترميز — (ب) الترميز ← التحويل الكمي ← أخذ العينات — (جـ) التحويل الكمي ← أخذ العينات ← الترميز — (د) التحويل الكمي ← الترميز ← أخذ العينات. (2) احسب كمية البيانات لثانية واحدة بالكيلوبايت (KB) عند رقمنة الموسيقى بتردد أخذ عينات 44,100 HZ، وعمق bit للتقدير الرقمي 16 bit، وفي استريو ثنائي القناة. ومع ذلك، افترض أن 1 KB = 1,000 B، وقرب إلى أقرب عدد صحيح. (3) احسب كمية البيانات لدقيقة واحدة بال MB (MB) عند رقمنة الموسيقى بتردد أخذ عينات 44.1 كيلو هرتز، وعمق bit للتقدير الرقمي 24 bit، وفي استريو ثنائي القناة. ومع ذلك، افترض أن 1 KB = 1,000 B، و1 MB = 1,000 KB، وقرب إلى أقرب عدد صحيح.</p>
-          <p data-ar="الشرح المطبوع — (1) أ. (2) كمية البيانات [bit] في الثانية = تردد العينات × ، دقة مستوى التقريب × عدد القنوات • وبالتالي، فإن كمية البيانات في الثانية هي 44,100 [هرتز] × 216 × [bit] [قناة] = 200,411,1 [bit]. نظرًا لأن 8 bit = 1 Byte، فإن [Byte] 400, 176 = [bit] ÷ 8200 ,411 ,1 — 1 كيلو Byte = 1,000 Byte، لذا 400, 176 [Byte] ÷ 1,000 = 176.4 ≈ 176 [كيلو Byte] — (الإجابة: 176 كيلو Byte). (3) 44,1 كيلو هرتز = 44,1 × 1,000 = 100,44 هرتز، وبما أن 2 دقيقة = 120 ثانية، فإن كمية البيانات في الدقيقة هي 100,44 [هرتز] × 224 [bit] [قناة] × 60 [ثانية] = 127,800,000 [bit] • وبما أن 1 Byte = 8 bit ات، فإن 8000,008,127 ÷ [bit] = 15.876,000 [Byte]. • 1 كيلو Byte = 1,000 Byte، 1 جيجا Byte = 1,000 MB، وبالتالي، ÷ [Byte] ÷ 1,000000,876,15 [MB] ≈ 16 MB 876,15 = 1,000 16 — (الإجابة: 16 MB)." data-en="Printed Explanation - (1) A. (2) Data amount [bits] per second = Sampling frequency × Quantization bit depth × Number of channels. Therefore, the amount of data per second is 44,100 [Hz] × 16 [bits] × 2 [channels] = 1,411,200 [bits]. Since 1 B = 8 bits, 1,411,200 [bits] ÷ 8 = 176,400 [B]. 1 KB = 1,000 B, so 176,400 [B] ÷ 1,000 = 176.4 ≈ 176 [KB] - (answer: 176 KB). (3) 44.1 kHz = 44.1 × 1,000 = 44,100 Hz, and since 2 minutes = 120 seconds, the data amount per minute is 44,100 [Hz] × 24 [bits] × 2 [channels] × 60 [seconds] = 127,008,000 [bits]. Since 1 B = 8 bits, 127,008,000 [bits] ÷ 8 = 15,876,000 [B]. 1 KB = 1,000 B, 1 GB = 1,000 MB, therefore, 15,876,000 [B] ÷ 1,000 ÷ 1,000 = 15.876 [MB] ≈ 16 [MB] - (answer: 16 MB).">الشرح المطبوع — (1) أ. (2) كمية البيانات [bit] في الثانية = تردد العينات × ، دقة مستوى التقريب × عدد القنوات • وبالتالي، فإن كمية البيانات في الثانية هي 44,100 [هرتز] × 216 × [bit] [قناة] = 200,411,1 [bit]. نظرًا لأن 8 bit = 1 Byte، فإن [Byte] 400, 176 = [bit] ÷ 8200 ,411 ,1 — 1 كيلو Byte = 1,000 Byte، لذا 400, 176 [Byte] ÷ 1,000 = 176.4 ≈ 176 [كيلو Byte] — (الإجابة: 176 كيلو Byte). (3) 44,1 كيلو هرتز = 44,1 × 1,000 = 100,44 هرتز، وبما أن 2 دقيقة = 120 ثانية، فإن كمية البيانات في الدقيقة هي 100,44 [هرتز] × 224 [bit] [قناة] × 60 [ثانية] = 127,800,000 [bit] • وبما أن 1 Byte = 8 bit ات، فإن 8000,008,127 ÷ [bit] = 15.876,000 [Byte]. • 1 كيلو Byte = 1,000 Byte، 1 جيجا Byte = 1,000 MB، وبالتالي، ÷ [Byte] ÷ 1,000000,876,15 [MB] ≈ 16 MB 876,15 = 1,000 16 — (الإجابة: 16 MB).</p>
+          <h3 data-ar="من الكتاب: تحدى معلوماتك مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك مع الشرح المطبوع</h3>
+          <p data-ar="أجب عن الأسئلة التالية. (1) اختر الإجراء المناسب لرقمنة إشارة صوتية تناظرية من الخيارات أ إلى د. (أ) أخذ العينات → التحويل الكمي → الترميز — (ب) الترميز → التحويل الكمي → أخذ العينات — (جـ) التحويل الكمي → أخذ العينات → الترميز — (د) التحويل الكمي → الترميز → أخذ العينات. (2) احسب كمية البيانات لثانية واحدة بالكيلوبايت عند رقمنة الموسيقى بتردد أخذ عينات 44,100 HZ، وعمق bit للتقدير الرقمي 16 bit، وفي استريو ثنائي القناة. ومع ذلك، افترض أن 1 KB = 1,000 B، وقرب إلى أقرب عدد صحيح. (3) احسب كمية البيانات لدقيقة واحدة بال MB عند رقمنة الموسيقى بتردد أخذ عينات 44.1 كيلو هرتز، وعمق bit للتقدير الرقمي 24 bit، وفي استريو ثنائي القناة. ومع ذلك، افترض أن 1 KB = 1,000 B، و1 MB = 1,000 KB، وقرب إلى أقرب عدد صحيح." data-en="Answer the following questions. (1) Choose the one appropriate procedure for digitizing an analog sound signal from the options A to D. A Sampling → Quantization → Encoding — B Encoding → Quantization → Sampling — C Quantization → Sampling → Encoding — D Quantization → Encoding → Sampling. (2) Calculate the data amount for 1 second in kilobytes (KB) when digitizing music at a sampling frequency of 44,100 Hz, a quantization bit depth of 16 bits, and in 2-channel stereo. However, assume that 1 KB = 1,000 B, and round off to the nearest whole number. (3) Calculate the data amount for 1 minute in megabytes (MB) when digitizing music at a sampling frequency of 44.1 kHz, a quantization bit depth of 24 bits, and in 2-channel stereo. However, assume that 1 KB = 1,000 B, and 1 MB = 1,000 KB, and round off to the nearest whole number.">أجب عن الأسئلة التالية. (1) اختر الإجراء المناسب لرقمنة إشارة صوتية تناظرية من الخيارات أ إلى د. (أ) أخذ العينات ← التحويل الكمي ← الترميز — (ب) الترميز ← التحويل الكمي ← أخذ العينات — (جـ) التحويل الكمي ← أخذ العينات ← الترميز — (د) التحويل الكمي ← الترميز ← أخذ العينات. (2) احسب كمية البيانات لثانية واحدة بالكيلوبايت عند رقمنة الموسيقى بتردد أخذ عينات 44,100 HZ، وعمق bit للتقدير الرقمي 16 bit، وفي استريو ثنائي القناة. ومع ذلك، افترض أن 1 KB = 1,000 B، وقرب إلى أقرب عدد صحيح. (3) احسب كمية البيانات لدقيقة واحدة بال MB عند رقمنة الموسيقى بتردد أخذ عينات 44.1 كيلو هرتز، وعمق bit للتقدير الرقمي 24 bit، وفي استريو ثنائي القناة. ومع ذلك، افترض أن 1 KB = 1,000 B، و1 MB = 1,000 KB، وقرب إلى أقرب عدد صحيح.</p>
+          <p data-ar="الشرح المطبوع — (1) أ. (2) كمية البيانات [bit] في الثانية = تردد العينات ×، دقة مستوى التقريب × عدد القنوات • وبالتالي، فإن كمية البيانات في الثانية هي 44,100 [هرتز] × 216 × [bit] [قناة] = 200,411,1 [bit]. نظرًا لأن 8 bit = 1 Byte، فإن [Byte] 400, 176 = [bit] ÷ 8200 ,411 ,1 — 1 كيلو Byte = 1,000 Byte، لذا 400, 176 [Byte] ÷ 1,000 = 176.4 ≈ 176 [كيلو Byte] — (الإجابة: 176 كيلو Byte). (3) 44,1 كيلو هرتز = 44,1 × 1,000 = 100,44 هرتز، وبما أن 2 دقيقة = 120 ثانية، فإن كمية البيانات في الدقيقة هي 100,44 [هرتز] × 224 [bit] [قناة] × 60 [ثانية] = 127,800,000 [bit] • وبما أن 1 Byte = 8 bit ات، فإن 8000,008,127 ÷ [bit] = 15.876,000 [Byte]. • 1 كيلو Byte = 1,000 Byte، 1 جيجا Byte = 1,000 MB، وبالتالي، ÷ [Byte] ÷ 1,000000,876,15 [MB] ≈ 16 MB 876,15 = 1,000 16 — (الإجابة: 16 MB)." data-en="Printed Explanation - (1) A. (2) Data amount [bits] per second = Sampling frequency × Quantization bit depth × Number of channels. Therefore, the amount of data per second is 44,100 [Hz] × 16 [bits] × 2 [channels] = 1,411,200 [bits]. Since 1 B = 8 bits, 1,411,200 [bits] ÷ 8 = 176,400 [B]. 1 KB = 1,000 B, so 176,400 [B] ÷ 1,000 = 176.4 ≈ 176 [KB] - (answer: 176 KB). (3) 44.1 kHz = 44.1 × 1,000 = 44,100 Hz, and since 2 minutes = 120 seconds, the data amount per minute is 44,100 [Hz] × 24 [bits] × 2 [channels] × 60 [seconds] = 127,008,000 [bits]. Since 1 B = 8 bits, 127,008,000 [bits] ÷ 8 = 15,876,000 [B]. 1 KB = 1,000 B, 1 GB = 1,000 MB, therefore, 15,876,000 [B] ÷ 1,000 ÷ 1,000 = 15.876 [MB] ≈ 16 [MB] - (answer: 16 MB).">الشرح المطبوع — (1) أ. (2) كمية البيانات [bit] في الثانية = تردد العينات ×، دقة مستوى التقريب × عدد القنوات • وبالتالي، فإن كمية البيانات في الثانية هي 44,100 [هرتز] × 216 × [bit] [قناة] = 200,411,1 [bit]. نظرًا لأن 8 bit = 1 Byte، فإن [Byte] 400, 176 = [bit] ÷ 8200 ,411 ,1 — 1 كيلو Byte = 1,000 Byte، لذا 400, 176 [Byte] ÷ 1,000 = 176.4 ≈ 176 [كيلو Byte] — (الإجابة: 176 كيلو Byte). (3) 44,1 كيلو هرتز = 44,1 × 1,000 = 100,44 هرتز، وبما أن 2 دقيقة = 120 ثانية، فإن كمية البيانات في الدقيقة هي 100,44 [هرتز] × 224 [bit] [قناة] × 60 [ثانية] = 127,800,000 [bit] • وبما أن 1 Byte = 8 bit ات، فإن 8000,008,127 ÷ [bit] = 15.876,000 [Byte]. • 1 كيلو Byte = 1,000 Byte، 1 جيجا Byte = 1,000 MB، وبالتالي، ÷ [Byte] ÷ 1,000000,876,15 [MB] ≈ 16 MB 876,15 = 1,000 16 — (الإجابة: 16 MB).</p>
           <p data-ar="التحقق الحسابي (من إعدادنا — غير مطبوع في الكتاب): 44,100 × 16 × 2 = 1,411,200 بت ÷ 8 = 176,400 بايت ≈ 176 KB ✓ — و44,100 × 24 × 2 × 60 = 127,008,000 بت ÷ 8 = 15,876,000 بايت ≈ 16 MB ✓." data-en="Arithmetic check (teacher-prepared - not printed in the book): 44,100 × 16 × 2 = 1,411,200 bits ÷ 8 = 176,400 B ≈ 176 KB ✓ - and 44,100 × 24 × 2 × 60 = 127,008,000 bits ÷ 8 = 15,876,000 B ≈ 16 MB ✓.">التحقق الحسابي (من إعدادنا — غير مطبوع في الكتاب): 44,100 × 16 × 2 = 1,411,200 بت ÷ 8 = 176,400 بايت ≈ 176 KB ✓ — و44,100 × 24 × 2 × 60 = 127,008,000 بت ÷ 8 = 15,876,000 بايت ≈ 16 MB ✓.</p>
-          <div class="book-diff" data-ar="مقارنة النسختين: (1) الإجابات المطبوعة متفقّة: (1) أ/A، (2) ‏176 KB، (3) ‏16 MB. (2) في سطور حساب الشرح العربي تظهر الأرقام بترتيب خانات مقلوب عند العرض — «216» اندماج 16 و2، «200,411,1» بدل 1,411,200، «8200 ,411 ,1» و«400, 176» في قسمة (2)، «44,1» بفاصلة بدل 44.1، «100,44» بدل 44,100، «224» اندماج 24 و2، «127,800,000» بدل 127,008,000، «8000,008,127» و«15.876,000» بنقطة بعد 15، و«1,000000,876,15» — النص منقول كما يظهر في المطبوع، والقيم المقصودة مطابقة للإنجليزية. (3) في شرح (2) العربي «تردد العينات × ، دقة مستوى التقريب × عدد القنوات» بفاصلة زائدة بعد علامة الضرب، ومصطلح «دقة مستوى التقريب» يقابل &quot;Quantization bit depth&quot;. (4) شرح (3) في النسختين يطبع «وبما أن 2 دقيقة = 120 ثانية» / &quot;since 2 minutes = 120 seconds&quot; بينما السؤال عن دقيقة واحدة، والحساب نفسه يستخدم 60 ثانية. (5) شرح (3) في النسختين يطبع «1 جيجا Byte = 1,000 MB» / &quot;1 GB = 1,000 MB&quot; في سطر التحويل من بايت إلى ميجابايت. (6) في العربية «وبما أن 1 Byte = 8 bit ات،» بمقطع زائد «ات». (7) خيار الإجابة الصحيحة في (1): العربية (أ) بأسهم ← ، والإنجليزية A بأسهم → ." data-en="Edition comparison:(1) The printed answers agree: (1) A, (2) 176 KB, (3) 16 MB. (2) In the Arabic explanation lines the digit groups display in flipped order - &quot;216&quot; (16 and 2 merged), &quot;200,411,1&quot; for 1,411,200, &quot;8200 ,411 ,1&quot; and &quot;400, 176&quot; in the (2) division, &quot;44,1&quot; with a comma for 44.1, &quot;100,44&quot; for 44,100, &quot;224&quot; (24 and 2 merged), &quot;127,800,000&quot; for 127,008,000, &quot;8000,008,127&quot; and &quot;15.876,000&quot; with a period after 15, and &quot;1,000000,876,15&quot; - quoted as printed; the intended values match the English. (3) The Arabic (2) formula prints a stray comma after the multiplication sign and uses the term &quot;دقة مستوى التقريب&quot; for quantization bit depth. (4) Both editions print &quot;since 2 minutes = 120 seconds&quot; while the question asks for 1 minute, and the computation itself uses 60 seconds. (5) Both editions print &quot;1 GB = 1,000 MB&quot; in the byte-to-megabyte conversion line. (6) The Arabic prints &quot;1 Byte = 8 bit ات،&quot; with a stray fragment. (7) The correct option in (1): Arabic (أ) with ← arrows, English A with → arrows.">مقارنة النسختين:(1) الإجابات المطبوعة متفقّة: (1) أ/A، (2) ‏176 KB، (3) ‏16 MB. (2) في سطور حساب الشرح العربي تظهر الأرقام بترتيب خانات مقلوب عند العرض — «216» اندماج 16 و2، «200,411,1» بدل 1,411,200، «8200 ,411 ,1» و«400, 176» في قسمة (2)، «44,1» بفاصلة بدل 44.1، «100,44» بدل 44,100، «224» اندماج 24 و2، «127,800,000» بدل 127,008,000، «8000,008,127» و«15.876,000» بنقطة بعد 15، و«1,000000,876,15» — النص منقول كما يظهر في المطبوع، والقيم المقصودة مطابقة للإنجليزية. (3) في شرح (2) العربي «تردد العينات × ، دقة مستوى التقريب × عدد القنوات» بفاصلة زائدة بعد علامة الضرب، ومصطلح «دقة مستوى التقريب» يقابل "Quantization bit depth". (4) شرح (3) في النسختين يطبع «وبما أن 2 دقيقة = 120 ثانية» / "since 2 minutes = 120 seconds" بينما السؤال عن دقيقة واحدة، والحساب نفسه يستخدم 60 ثانية. (5) شرح (3) في النسختين يطبع «1 جيجا Byte = 1,000 MB» / "1 GB = 1,000 MB" في سطر التحويل من بايت إلى ميجابايت. (6) في العربية «وبما أن 1 Byte = 8 bit ات،» بمقطع زائد «ات». (7) خيار الإجابة الصحيحة في (1): العربية (أ) بأسهم ← ، والإنجليزية A بأسهم → .</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 70 (المطبوع 70)؛ AR 80–81." data-en="The above is from the textbook. Full source: English PDF 70 (printed 70); Arabic 80-81.">النص السابق من الكتاب. المصدر الكامل:EN PDF 70 (المطبوع 70)؛ AR 80–81.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين: (1) الإجابات المطبوعة متفقّة: (1) أ/A، (2) ‏176 KB، (3) ‏16 MB. (2) في سطور حساب الشرح العربي تظهر الأرقام بترتيب خانات مقلوب عند العرض — «216» اندماج 16 و2، «200,411,1» بدل 1,411,200، «8200 ,411 ,1» و«400, 176» في قسمة (2)، «44,1» بفاصلة بدل 44.1، «100,44» بدل 44,100، «224» اندماج 24 و2، «127,800,000» بدل 127,008,000، «8000,008,127» و«15.876,000» بنقطة بعد 15، و«1,000000,876,15» — النص منقول كما يظهر في المطبوع، والقيم المقصودة مطابقة للإنجليزية. (3) في شرح (2) العربي «تردد العينات × ، دقة مستوى التقريب × عدد القنوات» بفاصلة زائدة بعد علامة الضرب، ومصطلح «دقة مستوى التقريب» يقابل &quot;Quantization bit depth&quot;. (4) شرح (3) في النسختين يطبع «وبما أن 2 دقيقة = 120 ثانية» / &quot;since 2 minutes = 120 seconds&quot; بينما السؤال عن دقيقة واحدة، والحساب نفسه يستخدم 60 ثانية. (5) شرح (3) في النسختين يطبع «1 جيجا Byte = 1,000 MB» / &quot;1 GB = 1,000 MB&quot; في سطر التحويل من بايت إلى ميجابايت. (6) في العربية «وبما أن 1 Byte = 8 bit ات،» بمقطع زائد «ات». (7) خيار الإجابة الصحيحة في (1): العربية (أ) بأسهم → ، والإنجليزية A بأسهم ← ." data-en="Edition comparison:(1) The printed answers agree: (1) A, (2) 176 KB, (3) 16 MB. (2) In the Arabic explanation lines the digit groups display in flipped order - &quot;216&quot; (16 and 2 merged), &quot;200,411,1&quot; for 1,411,200, &quot;8200 ,411 ,1&quot; and &quot;400, 176&quot; in the (2) division, &quot;44,1&quot; with a comma for 44.1, &quot;100,44&quot; for 44,100, &quot;224&quot; (24 and 2 merged), &quot;127,800,000&quot; for 127,008,000, &quot;8000,008,127&quot; and &quot;15.876,000&quot; with a period after 15, and &quot;1,000000,876,15&quot; - quoted as printed; the intended values match the English. (3) The Arabic (2) formula prints a stray comma after the multiplication sign and uses the term &quot;دقة مستوى التقريب&quot; for quantization bit depth. (4) Both editions print &quot;since 2 minutes = 120 seconds&quot; while the question asks for 1 minute, and the computation itself uses 60 seconds. (5) Both editions print &quot;1 GB = 1,000 MB&quot; in the byte-to-megabyte conversion line. (6) The Arabic prints &quot;1 Byte = 8 bit ات،&quot; with a stray fragment. (7) The correct option in (1): Arabic (أ) with ← arrows, English A with → arrows.">مقارنة النسختين:(1) الإجابات المطبوعة متفقّة: (1) أ/A، (2) ‏176 KB، (3) ‏16 MB. (2) في سطور حساب الشرح العربي تظهر الأرقام بترتيب خانات مقلوب عند العرض — «216» اندماج 16 و2، «200,411,1» بدل 1,411,200، «8200 ,411 ,1» و«400, 176» في قسمة (2)، «44,1» بفاصلة بدل 44.1، «100,44» بدل 44,100، «224» اندماج 24 و2، «127,800,000» بدل 127,008,000، «8000,008,127» و«15.876,000» بنقطة بعد 15، و«1,000000,876,15» — النص منقول كما يظهر في المطبوع، والقيم المقصودة مطابقة للإنجليزية. (3) في شرح (2) العربي «تردد العينات × ، دقة مستوى التقريب × عدد القنوات» بفاصلة زائدة بعد علامة الضرب، ومصطلح «دقة مستوى التقريب» يقابل "Quantization bit depth". (4) شرح (3) في النسختين يطبع «وبما أن 2 دقيقة = 120 ثانية» / "since 2 minutes = 120 seconds" بينما السؤال عن دقيقة واحدة، والحساب نفسه يستخدم 60 ثانية. (5) شرح (3) في النسختين يطبع «1 جيجا Byte = 1,000 MB» / "1 GB = 1,000 MB" في سطر التحويل من بايت إلى ميجابايت. (6) في العربية «وبما أن 1 Byte = 8 bit ات،» بمقطع زائد «ات». (7) خيار الإجابة الصحيحة في (1): العربية (أ) بأسهم ← ، والإنجليزية A بأسهم → .</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: جرب بنفسك (Try)" data-en="From the book: Try">من الكتاب: جرب بنفسك (Try)</h3>
+          <h3 data-ar="من الكتاب: جرب بنفسك" data-en="From the book: Try">من الكتاب: جرب بنفسك</h3>
           <p data-ar="1 أجب عن الأسئلة التالية. (1) اختر المصطلح الأنسب لملء الفراغات من [1] إلى [10] في الجمل التالية من الخيارات من أ إلى ش، وأجب باستخدام الأحرف. «الصوت ظاهرة تنتقل عبر اهتزازات الهواء. يُسمى عدد الموجات المحتواة في ثانية واحدة ([1]) ويُعبَّر عنه بوحدات ([2]). يُسمى الوقت الذي تستغرقه موجة واحدة للانتشار ([3])، ويُعبَّر عنه بالثواني. تُعتبر هذه الاهتزازات بيانات ([4]). في المقابل، تُعتبر معلومات الصوت المخزنة على أقراص DVD والأقراص المضغوطة وما إلى ذلك بيانات ([5]). بعد ذلك، اتبع هذه الخطوات لتحويل البيانات من ([4]) إلى ([5]). أولاً، تُسمى عملية تقسيم الموجات الصوتية على فترات زمنية منتظمة واستخراج قيم السعة (الجهد) لكل فترة ([6]). بعد ذلك، اقسم المحور الرأسي (الجهد) على فترات زمنية منتظمة وحدد قيم الخطوة. يُطلق على هذا ([7])، ويُطلق على المكون الذي يُحدد مستويات التقريب الرقمي ([8]). عادةً، مع n bit، يوجد 2n مستوى. وأخيرًا، يُشير ([9]) إلى تمثيل القيم التي تم الحصول عليها من خلال ([7]) في شكل ثنائي. تُسمى طريقة تحويل البيانات، مثل الصوت، إلى رموز ثنائية عن طريق استبدال القيم الرقمية في النظام الثنائي بمستويين مختلفين من الجهد (عالي ومنخفض)، طريقة ([10]).» الخيارات: (أ) التشفير (ب) أخذ العينات (ت) التكميم (ث) التردد (ج) الفترة (ح) تناظري (خ) رقمي (د) فترة أخذ العينات (ذ) دقة مستوى التقريب (ر) PCM (ز) MIDI (س) هرتز (ش) ثانية." data-en="1 Answer the following questions. (1) Choose the term that best fits into the blanks [1] to [10] in the following sentences from the options A to M below, and answer using the letters. &quot;Sound is a phenomenon that is transmitted through the vibrations of air. The number of waves contained in one second is called ([1]) and is expressed in units of ([2]). The time it takes for one wave to propagate is called the ([3]), and it is expressed in seconds. These vibrations are ([4]) data. In contrast, sound information stored on DVDs, CDs, etc. is ([5]) data. Next, follow these steps to convert the data from ([4]) to ([5]). First, the process of dividing sound waves at regular time intervals and extracting the amplitude values (voltage) for each interval is called ([6]). Next, divide the vertical axis (voltage) at regular intervals and determine the step values. This is called ([7]), and the component that determines the quantization levels is called ([8]). Typically, with n bits, there are 2ⁿ levels. Finally, ([9]) refers to the representation of values obtained through ([7]) in binary form. The method of converting information such as sound into binary codes by replacing numerical values in binary with two different voltage levels (high and low) is called the ([10]) method.&quot; Options:A Encoding — B Sampling — C Quantization — D Frequency — E Period — F Analog — G Digital — H Sampling period — I Quantization bit depth — J PCM — K MIDI — L Hertz — M Second.">1 أجب عن الأسئلة التالية. (1) اختر المصطلح الأنسب لملء الفراغات من [1] إلى [10] في الجمل التالية من الخيارات من أ إلى ش، وأجب باستخدام الأحرف. «الصوت ظاهرة تنتقل عبر اهتزازات الهواء. يُسمى عدد الموجات المحتواة في ثانية واحدة ([1]) ويُعبَّر عنه بوحدات ([2]). يُسمى الوقت الذي تستغرقه موجة واحدة للانتشار ([3])، ويُعبَّر عنه بالثواني. تُعتبر هذه الاهتزازات بيانات ([4]). في المقابل، تُعتبر معلومات الصوت المخزنة على أقراص DVD والأقراص المضغوطة وما إلى ذلك بيانات ([5]). بعد ذلك، اتبع هذه الخطوات لتحويل البيانات من ([4]) إلى ([5]). أولاً، تُسمى عملية تقسيم الموجات الصوتية على فترات زمنية منتظمة واستخراج قيم السعة (الجهد) لكل فترة ([6]). بعد ذلك، اقسم المحور الرأسي (الجهد) على فترات زمنية منتظمة وحدد قيم الخطوة. يُطلق على هذا ([7])، ويُطلق على المكون الذي يُحدد مستويات التقريب الرقمي ([8]). عادةً، مع n bit، يوجد 2n مستوى. وأخيرًا، يُشير ([9]) إلى تمثيل القيم التي تم الحصول عليها من خلال ([7]) في شكل ثنائي. تُسمى طريقة تحويل البيانات، مثل الصوت، إلى رموز ثنائية عن طريق استبدال القيم الرقمية في النظام الثنائي بمستويين مختلفين من الجهد (عالي ومنخفض)، طريقة ([10]).» الخيارات: (أ) التشفير (ب) أخذ العينات (ت) التكميم (ث) التردد (ج) الفترة (ح) تناظري (خ) رقمي (د) فترة أخذ العينات (ذ) دقة مستوى التقريب (ر) PCM (ز) MIDI (س) هرتز (ش) ثانية.</p>
           <p data-ar="(2) اختر الخيار الذي يتيح استعادة شكل الموجة الأقرب إلى الإشارة التناظرية الأصلية عند رقمنة إشارة صوتية تناظرية من الخيارات من أ إلى ث. (أ) زيادة تردد أخذ العينات وزيادة التحويل الكم. (ب) زيادة تردد أخذ العينات وتقليل التحويل الكمي. (جـ) تقليل تردد أخذ العينات وزيادة التحويل الكمي. (د) تقليل تردد أخذ العينات وتقليل التحويل الكمي." data-en="(2) Choose the one that enables waveform restoration closest to the original analog signal when digitizing an analog audio signal from the options A to D. A Increase the sampling frequency and increase the quantization bit depth. B Increase the sampling frequency and decrease the quantization bit depth. C Decrease the sampling frequency and increase the quantization bit depth. D Decrease the sampling frequency and decrease the quantization bit depth.">(2) اختر الخيار الذي يتيح استعادة شكل الموجة الأقرب إلى الإشارة التناظرية الأصلية عند رقمنة إشارة صوتية تناظرية من الخيارات من أ إلى ث. (أ) زيادة تردد أخذ العينات وزيادة التحويل الكم. (ب) زيادة تردد أخذ العينات وتقليل التحويل الكمي. (جـ) تقليل تردد أخذ العينات وزيادة التحويل الكمي. (د) تقليل تردد أخذ العينات وتقليل التحويل الكمي.</p>
-          <p data-ar="2 أجب على الأسئلة التالية. في هذه الأسئلة، افترض أن 1 كيلوبايت (KB) = 1,000 بايت (B)، و 1 MB (MB) = 1,000 كيلوبايت (KB). (1) ما هو حجم البيانات لثانية واحدة بالكيلوبايت (KB) عند رقمنة الموسيقى بتردد أخذ عينات 44,100 هرتز، والتحويل الكمي 16 bit، و بقناة أحادية الصوت (monaural)؟ قرب إجابتك إلى أقرب عدد صحيح. (2) ما هو حجم البيانات لدقيقة واحدة بالكيلوبايت (KB) عند رقمنة الموسيقى بتردد أخذ عينات 192 كيلو هرتز، وعمق الـbit الكمي 24 bit، وصوت ستيريو ثنائي القناة (stereo)؟ (3) ما هو حجم البيانات لمدة 3 دقائق بال MB (MB) عند رقمنة الموسيقى بتردد أخذ عينات 44.1 kHz، وعمق الـ bit الكمي) 16 bit صوت ستيريو ثنائي القناة (stereo)؟ إذا كان طول أغنية واحدة 3 دقائق، فكم عدد الأغاني التي يمكن تخزينها تقريبًا على قرص CD بسعة 650 MB (MB)؟ قرب إجابتك إلى أقرب عدد صحيح." data-en="2 Answer the following questions. In these questions, assume that 1 KB = 1,000 B, and 1 MB = 1,000 KB. (1) What is the data amount for 1 second in kilobytes (KB) when digitizing music at a sampling frequency of 44,100 Hz, a quantization bit depth of 16 bits, and in 1-channel monaural? Round off to the nearest whole number in your answer. (2) What is the data amount for 1 minute in KB when digitizing music at a sampling frequency of 192 kHz, a quantization bit depth of 24 bits, and in 2-channel stereo? (3) What is the data amount for 3 minutes in MB when digitizing music at a sampling frequency of 44.1 kHz, a quantization bit depth of 16 bits, and in 2-channel stereo? If the length of one song is 3 minutes, approximately how many songs can be stored on a 650 MB CD? Round off to the nearest whole number in your answer.">2 أجب على الأسئلة التالية. في هذه الأسئلة، افترض أن 1 كيلوبايت (KB) = 1,000 بايت (B)، و 1 MB (MB) = 1,000 كيلوبايت (KB). (1) ما هو حجم البيانات لثانية واحدة بالكيلوبايت (KB) عند رقمنة الموسيقى بتردد أخذ عينات 44,100 هرتز، والتحويل الكمي 16 bit، و بقناة أحادية الصوت (monaural)؟ قرب إجابتك إلى أقرب عدد صحيح. (2) ما هو حجم البيانات لدقيقة واحدة بالكيلوبايت (KB) عند رقمنة الموسيقى بتردد أخذ عينات 192 كيلو هرتز، وعمق الـbit الكمي 24 bit، وصوت ستيريو ثنائي القناة (stereo)؟ (3) ما هو حجم البيانات لمدة 3 دقائق بال MB (MB) عند رقمنة الموسيقى بتردد أخذ عينات 44.1 kHz، وعمق الـ bit الكمي) 16 bit صوت ستيريو ثنائي القناة (stereo)؟ إذا كان طول أغنية واحدة 3 دقائق، فكم عدد الأغاني التي يمكن تخزينها تقريبًا على قرص CD بسعة 650 MB (MB)؟ قرب إجابتك إلى أقرب عدد صحيح.</p>
+          <p data-ar="2 أجب على الأسئلة التالية. في هذه الأسئلة، افترض أن 1 كيلوبايت = 1,000 بايت (B)، و 1 MB = 1,000 كيلوبايت. (1) ما هو حجم البيانات لثانية واحدة بالكيلوبايت عند رقمنة الموسيقى بتردد أخذ عينات 44,100 هرتز، والتحويل الكمي 16 bit، و بقناة أحادية الصوت؟ قرب إجابتك إلى أقرب عدد صحيح. (2) ما هو حجم البيانات لدقيقة واحدة بالكيلوبايت عند رقمنة الموسيقى بتردد أخذ عينات 192 كيلو هرتز، وعمق الـbit الكمي 24 bit، وصوت ستيريو ثنائي القناة؟ (3) ما هو حجم البيانات لمدة 3 دقائق بال MB عند رقمنة الموسيقى بتردد أخذ عينات 44.1 kHz، وعمق الـ bit الكمي) 16 bit صوت ستيريو ثنائي القناة؟ إذا كان طول أغنية واحدة 3 دقائق، فكم عدد الأغاني التي يمكن تخزينها تقريبًا على قرص CD بسعة 650 MB؟ قرب إجابتك إلى أقرب عدد صحيح." data-en="2 Answer the following questions. In these questions, assume that 1 KB = 1,000 B, and 1 MB = 1,000 KB. (1) What is the data amount for 1 second in kilobytes (KB) when digitizing music at a sampling frequency of 44,100 Hz, a quantization bit depth of 16 bits, and in 1-channel monaural? Round off to the nearest whole number in your answer. (2) What is the data amount for 1 minute in KB when digitizing music at a sampling frequency of 192 kHz, a quantization bit depth of 24 bits, and in 2-channel stereo? (3) What is the data amount for 3 minutes in MB when digitizing music at a sampling frequency of 44.1 kHz, a quantization bit depth of 16 bits, and in 2-channel stereo? If the length of one song is 3 minutes, approximately how many songs can be stored on a 650 MB CD? Round off to the nearest whole number in your answer.">2 أجب على الأسئلة التالية. في هذه الأسئلة، افترض أن 1 كيلوبايت = 1,000 بايت (B)، و 1 MB = 1,000 كيلوبايت. (1) ما هو حجم البيانات لثانية واحدة بالكيلوبايت عند رقمنة الموسيقى بتردد أخذ عينات 44,100 هرتز، والتحويل الكمي 16 bit، و بقناة أحادية الصوت؟ قرب إجابتك إلى أقرب عدد صحيح. (2) ما هو حجم البيانات لدقيقة واحدة بالكيلوبايت عند رقمنة الموسيقى بتردد أخذ عينات 192 كيلو هرتز، وعمق الـbit الكمي 24 bit، وصوت ستيريو ثنائي القناة؟ (3) ما هو حجم البيانات لمدة 3 دقائق بال MB عند رقمنة الموسيقى بتردد أخذ عينات 44.1 kHz، وعمق الـ bit الكمي) 16 bit صوت ستيريو ثنائي القناة؟ إذا كان طول أغنية واحدة 3 دقائق، فكم عدد الأغاني التي يمكن تخزينها تقريبًا على قرص CD بسعة 650 MB؟ قرب إجابتك إلى أقرب عدد صحيح.</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] ث التردد (D) — [2] س هرتز (L) — [3] ج الفترة (E) — [4] ح تناظري (F) — [5] خ رقمي (G) — [6] ب أخذ العينات (B) — [7] ت التكميم (C) — [8] ذ دقة مستوى التقريب (I) — [9] أ التشفير (A) — [10] ر PCM (J). 1(2): (أ) / A — زيادة الاثنين معًا. 2(1): 44,100 × 16 × 1 = 705,600 بت ÷ 8 = 88,200 بايت = 88.2 ≈ 88 KB. 2(2): 192,000 × 24 × 2 × 60 = 552,960,000 بت ÷ 8 = 69,120,000 بايت = 69,120 KB. 2(3): 44,100 × 16 × 2 × 180 = 254,016,000 بت ÷ 8 = 31,752,000 بايت ≈ 32 MB، و650 ÷ 32 ≈ 20 أغنية." data-en="Answers not printed in the book (teacher-prepared): 1(1): [1] D Frequency — [2] L Hertz — [3] E Period — [4] F Analog — [5] G Digital — [6] B Sampling — [7] C Quantization — [8] I Quantization bit depth — [9] A Encoding — [10] J PCM. 1(2): A - increase both. 2(1): 44,100 × 16 × 1 = 705,600 bits ÷ 8 = 88,200 B = 88.2 ≈ 88 KB. 2(2): 192,000 × 24 × 2 × 60 = 552,960,000 bits ÷ 8 = 69,120,000 B = 69,120 KB. 2(3): 44,100 × 16 × 2 × 180 = 254,016,000 bits ÷ 8 = 31,752,000 B ≈ 32 MB, and 650 ÷ 32 ≈ 20 songs.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] ث التردد (D) — [2] س هرتز (L) — [3] ج الفترة (E) — [4] ح تناظري (F) — [5] خ رقمي (G) — [6] ب أخذ العينات (B) — [7] ت التكميم (C) — [8] ذ دقة مستوى التقريب (I) — [9] أ التشفير (A) — [10] ر PCM (J). 1(2): (أ) / A — زيادة الاثنين معًا. 2(1): 44,100 × 16 × 1 = 705,600 بت ÷ 8 = 88,200 بايت = 88.2 ≈ 88 KB. 2(2): 192,000 × 24 × 2 × 60 = 552,960,000 بت ÷ 8 = 69,120,000 بايت = 69,120 KB. 2(3): 44,100 × 16 × 2 × 180 = 254,016,000 بت ÷ 8 = 31,752,000 بايت ≈ 32 MB، و650 ÷ 32 ≈ 20 أغنية.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) خيارات 1(1) متطابقة المعنى بنفس الترتيب: A–M في الإنجليزية تقابل أ–ش في العربية (أ=Encoding… ش=Second). (2) في 1(2) يطبع الكتاب العربي نطاق الخيارات «من أ إلى ث» بينما الخيارات المطبوعة أربعة (أ)(ب)(جـ)(د) — منقولة كما هي دون الجزم بالاصطلاح المقصود. (3) خيار (أ) في 1(2) العربي ينتهي «وزيادة التحويل الكم.» بدون ياء — كما في المطبوع. (4) معطيات السؤال 2 في العربية: «1 كيلوبايت (KB) = 1,000 بايت (B)، و 1 MB (MB) = 1,000 كيلوبايت (KB)» — وحدة الميجابايت مطبوعة «MB (MB)». (5) في 2(3) العربي «وعمق الـ bit الكمي) 16 bit صوت ستيريو» بقوس زائد بعد «الكمي». (6) 2(2) في العربية «192 كيلو هرتز» بالحروف، وفي الإنجليزية &quot;192 kHz&quot;." data-en="Edition comparison:(1) The 1(1) options match one-to-one in order: English A-M correspond to Arabic أ-ش. (2) The Arabic 1(2) prints the option range &quot;from أ to ث&quot; while four options (أ)(ب)(جـ)(د) are printed - carried over as printed without asserting the intended convention. (3) Arabic option (أ) of 1(2) ends &quot;التحويل الكم.&quot; without the final letter - as printed. (4) The Arabic question-2 givens print the megabyte unit as &quot;MB (MB)&quot;. (5) Arabic 2(3) prints a stray closing parenthesis after &quot;الكمي&quot;. (6) Arabic 2(2) spells out &quot;192 كيلو هرتز&quot; where English prints &quot;192 kHz&quot;.">مقارنة النسختين:(1) خيارات 1(1) متطابقة المعنى بنفس الترتيب: A–M في الإنجليزية تقابل أ–ش في العربية (أ=Encoding… ش=Second). (2) في 1(2) يطبع الكتاب العربي نطاق الخيارات «من أ إلى ث» بينما الخيارات المطبوعة أربعة (أ)(ب)(جـ)(د) — منقولة كما هي دون الجزم بالاصطلاح المقصود. (3) خيار (أ) في 1(2) العربي ينتهي «وزيادة التحويل الكم.» بدون ياء — كما في المطبوع. (4) معطيات السؤال 2 في العربية: «1 كيلوبايت (KB) = 1,000 بايت (B)، و 1 MB (MB) = 1,000 كيلوبايت (KB)» — وحدة الميجابايت مطبوعة «MB (MB)». (5) في 2(3) العربي «وعمق الـ bit الكمي) 16 bit صوت ستيريو» بقوس زائد بعد «الكمي». (6) 2(2) في العربية «192 كيلو هرتز» بالحروف، وفي الإنجليزية "192 kHz".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 71 (المطبوع 71)؛ AR 81–82." data-en="The above is from the textbook. Full source: English PDF 71 (printed 71); Arabic 81-82.">النص السابق من الكتاب. المصدر الكامل:EN PDF 71 (المطبوع 71)؛ AR 81–82.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: تمرين (Exercise)" data-en="From the book: Exercise">من الكتاب: تمرين (Exercise)</h3>
-          <p data-ar="1 أجب على الأسئلة التالية. (1) اختر المصطلح الأنسب لملء الفراغات من [1] إلى [6] في الجمل التالية من الخيارات أ إلى ذ، وأجب باستخدام الأحرف. «الصوت هو بيانات تناظرية في أشكال موجية تنتقل عبر اهتزاز الهواء. تبدأ عملية التقاط أشكال الموجات الصوتية على جهاز الكمبيوتر بتقسيم أشكال الموجات على فترات زمنية منتظمة. تسمى هذه العملية ( [1] ). ويسمى عدد الأجزاء في الثانية بتردد الـ ( [1] ). بعد ذلك، يتم تحويل ارتفاعات الموجات المجزأة وتقريبها إلى رسم بياني شريطي مستمر. تسمى هذه العملية ( [2] ). وفي هذا الوقت، تسمى القيمة التي تشير إلى عدد المستويات التي يتم التعبير عنها بالأرقام بـ ( [3] ). أخيرًا، يتم إجراء ( [4] )، والذي يستخدم الأصفار والآحاد للتعبير عن القيمة بالنظام الثنائي بعد ( [2] ). تسمى هذه الطريقة لتحويل الصوت إلى بيانات رقمية بـ ( [5] ). في حالة رقمنة الصوت، ستقترب البيانات الرقمية المحولة من البيانات التناظرية من شكل الموجة الأصلي بشكل أكبر إذا كان تردد الـ ( [1] ) أعلى. علاوة على ذلك، كلما زاد ( [3] )، زادت دقة تمثيل شكل الموجة عدديًا. ومع ذلك، ونتيجة لذلك، يصبح حجم البيانات ( [6] ).» الخيارات: (أ) التشفير (ب) أخذ العينات (جـ) التحول الكمي (د) أكبر (هـ) أصغر (و) فترة أخذ العينات (ز) عمق الـbit الكمي (Quantization bit depth) (حـ) صيغة PMC (طـ) صيغة MIDI." data-en="1 Answer the following questions. (1) Choose the term that best fits into the blanks [1] to [6] in the following sentences from the options A to I below, and answer using the letters. &quot;Sound is analog data in waveforms that are transmitted through the vibration of air. The process of capturing sound waveforms on a computer begins with segmenting the waveforms at regular time intervals. This process is called ([1]). The number of partitions per second is called the ([1]) frequency. Next, convert and approximate the segmented wave heights into a continuous bar graph. This process is called ([2]). At this time, the value indicating how many levels the numbers are expressed in is called ([3]). Finally, perform ([4]), which uses 0s and 1s to express the value in binary after ([2]). This method of converting sound into digital data is called ([5]). In the case of digitizing sound, digital data converted from analog data will approximate the original waveform more closely if the ([1]) frequency is higher. Furthermore, the greater the ([3]), the more accurately the waveform can be represented numerically. However, as a result, the amount of data becomes ([6]).&quot; Options:A Encoding — B Sampling — C Quantization — D Larger — E Smaller — F Sampling period — G Quantization bit depth — H PCM method — I MIDI format.">1 أجب على الأسئلة التالية. (1) اختر المصطلح الأنسب لملء الفراغات من [1] إلى [6] في الجمل التالية من الخيارات أ إلى ذ، وأجب باستخدام الأحرف. «الصوت هو بيانات تناظرية في أشكال موجية تنتقل عبر اهتزاز الهواء. تبدأ عملية التقاط أشكال الموجات الصوتية على جهاز الكمبيوتر بتقسيم أشكال الموجات على فترات زمنية منتظمة. تسمى هذه العملية ( [1] ). ويسمى عدد الأجزاء في الثانية بتردد الـ ( [1] ). بعد ذلك، يتم تحويل ارتفاعات الموجات المجزأة وتقريبها إلى رسم بياني شريطي مستمر. تسمى هذه العملية ( [2] ). وفي هذا الوقت، تسمى القيمة التي تشير إلى عدد المستويات التي يتم التعبير عنها بالأرقام بـ ( [3] ). أخيرًا، يتم إجراء ( [4] )، والذي يستخدم الأصفار والآحاد للتعبير عن القيمة بالنظام الثنائي بعد ( [2] ). تسمى هذه الطريقة لتحويل الصوت إلى بيانات رقمية بـ ( [5] ). في حالة رقمنة الصوت، ستقترب البيانات الرقمية المحولة من البيانات التناظرية من شكل الموجة الأصلي بشكل أكبر إذا كان تردد الـ ( [1] ) أعلى. علاوة على ذلك، كلما زاد ( [3] )، زادت دقة تمثيل شكل الموجة عدديًا. ومع ذلك، ونتيجة لذلك، يصبح حجم البيانات ( [6] ).» الخيارات: (أ) التشفير (ب) أخذ العينات (جـ) التحول الكمي (د) أكبر (هـ) أصغر (و) فترة أخذ العينات (ز) عمق الـbit الكمي (Quantization bit depth) (حـ) صيغة PMC (طـ) صيغة MIDI.</p>
-          <p data-ar="(2) العبارات التالية من أ إلى ث هي حول تردد أخذ العينات وعدد مستويات التكميم. ضع علامة &quot;✓&quot; إذا كانت العبارة صحيحة، و&quot;×&quot; إذا كانت خاطئة.. (أ) يشير تردد أخذ العينات إلى عدد المرات التي يحدث فيها أخذ العينات في ثانية واحدة. (ب) كلما زاد عدد المستويات أثناء التقريب الرقمي ، زاد حجم البيانات. (جـ) إذا كنت ترغب في تقريب شكل الموجة التناظرية الأصلية بشكل أكبر، فمن الفعال زيادة تردد أخذ العينات وتقليل عدد المستويات أثناء التقريب الرقمي . (د) إذا كان التردد الأقصى لشكل الموجة التناظرية الأصلي هو 40 هرتز، فيجب عليك رقمنته بتردد أخذ عينات أكبر من 80 هرتز." data-en="(2) The following statements A to D are about the sampling frequency and the number of quantization levels. Mark &quot;○&quot; if the statement is correct, and &quot;×&quot; if it is incorrect. A Sampling frequency refers to the number of times sampling occurs in one second. B The greater the number of levels during quantization, the larger the amount of data becomes. C If you want to approximate the original analog waveform more closely, it is effective to increase the sampling frequency and reduce the number of levels during quantization. D If the maximum frequency of the original analog waveform is 40 Hz, you should digitize it with a sampling frequency greater than 80 Hz.">(2) العبارات التالية من أ إلى ث هي حول تردد أخذ العينات وعدد مستويات التكميم. ضع علامة "✓" إذا كانت العبارة صحيحة، و"×" إذا كانت خاطئة.. (أ) يشير تردد أخذ العينات إلى عدد المرات التي يحدث فيها أخذ العينات في ثانية واحدة. (ب) كلما زاد عدد المستويات أثناء التقريب الرقمي ، زاد حجم البيانات. (جـ) إذا كنت ترغب في تقريب شكل الموجة التناظرية الأصلية بشكل أكبر، فمن الفعال زيادة تردد أخذ العينات وتقليل عدد المستويات أثناء التقريب الرقمي . (د) إذا كان التردد الأقصى لشكل الموجة التناظرية الأصلي هو 40 هرتز، فيجب عليك رقمنته بتردد أخذ عينات أكبر من 80 هرتز.</p>
-          <p data-ar="3 أجب على الأسئلة التالية. في هذه الأسئلة، افترض أن 1 كيلوبايت (KB) = 1,000 بايت (B)، و 1 MB (MB) = 1,000 كيلوبايت (KB).. (1) ما هو حجم البيانات لمدة 10 ثوانٍ بالكيلوبايت (KB) عند رقمنة الموسيقى بتردد أخذ عينات 44,100 HZ، وعمق bit تكميم 16 bit، وفي قناة أحادية الصوت ة (monaural)؟ (2) ما هو حجم البيانات لمدة دقيقة واحدة بال MB (MB) عند رقمنة الموسيقى بتردد أخذ عينات 96 kHz، وعمق bit تكميم 24 bit، وستيريو ثنائي القناة (stereo)؟ قرّب إجابتك إلى أقرب عدد صحيح. (3) ما هو حجم البيانات لمدة دقيقة واحدة بال MB (MB) عند رقمنة الموسيقى بتردد أخذ عينات 44.1 kHz، وعمق bit تكمية 16 bit، وفي صوت ستيريو ثنائي القناة (stereo)؟ ما هو أقصى طول للصوت، بالدقائق، يمكن تسجيله على ذاكرة فلاش بسعة 512 MB (MB)؟ قرّب إجابتك إلى أقرب عدد صحيح." data-en="2 Answer the following questions. In these questions, assume that 1 KB = 1,000 B, and 1 MB = 1,000 KB. (1) What is the data amount for 10 seconds in kilobytes (KB) when digitizing music at a sampling frequency of 44,100 Hz, a quantization bit depth of 16 bits, and in 1-channel monaural? (2) What is the data amount for 1 minute in MB when digitizing music at a sampling frequency of 96 kHz, a quantization bit depth of 24 bits, and in 2-channel stereo? Round off to the nearest whole number in your answer. (The Arabic edition numbers this question &quot;3&quot; and adds a third part:the data amount for 1 minute at 44.1 kHz, 16 bits, stereo in MB, and the maximum recording length in minutes on a 512 MB flash memory.)">3 أجب على الأسئلة التالية. في هذه الأسئلة، افترض أن 1 كيلوبايت (KB) = 1,000 بايت (B)، و 1 MB (MB) = 1,000 كيلوبايت (KB).. (1) ما هو حجم البيانات لمدة 10 ثوانٍ بالكيلوبايت (KB) عند رقمنة الموسيقى بتردد أخذ عينات 44,100 HZ، وعمق bit تكميم 16 bit، وفي قناة أحادية الصوت ة (monaural)؟ (2) ما هو حجم البيانات لمدة دقيقة واحدة بال MB (MB) عند رقمنة الموسيقى بتردد أخذ عينات 96 kHz، وعمق bit تكميم 24 bit، وستيريو ثنائي القناة (stereo)؟ قرّب إجابتك إلى أقرب عدد صحيح. (3) ما هو حجم البيانات لمدة دقيقة واحدة بال MB (MB) عند رقمنة الموسيقى بتردد أخذ عينات 44.1 kHz، وعمق bit تكمية 16 bit، وفي صوت ستيريو ثنائي القناة (stereo)؟ ما هو أقصى طول للصوت، بالدقائق، يمكن تسجيله على ذاكرة فلاش بسعة 512 MB (MB)؟ قرّب إجابتك إلى أقرب عدد صحيح.</p>
+          <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
+          <p data-ar="1 أجب على الأسئلة التالية. (1) اختر المصطلح الأنسب لملء الفراغات من [1] إلى [6] في الجمل التالية من الخيارات أ إلى ذ، وأجب باستخدام الأحرف. «الصوت هو بيانات تناظرية في أشكال موجية تنتقل عبر اهتزاز الهواء. تبدأ عملية التقاط أشكال الموجات الصوتية على جهاز الكمبيوتر بتقسيم أشكال الموجات على فترات زمنية منتظمة. تسمى هذه العملية ( [1] ). ويسمى عدد الأجزاء في الثانية بتردد الـ ( [1] ). بعد ذلك، يتم تحويل ارتفاعات الموجات المجزأة وتقريبها إلى رسم بياني شريطي مستمر. تسمى هذه العملية ( [2] ). وفي هذا الوقت، تسمى القيمة التي تشير إلى عدد المستويات التي يتم التعبير عنها بالأرقام بـ ( [3] ). أخيرًا، يتم إجراء ( [4] )، والذي يستخدم الأصفار والآحاد للتعبير عن القيمة بالنظام الثنائي بعد ( [2] ). تسمى هذه الطريقة لتحويل الصوت إلى بيانات رقمية بـ ( [5] ). في حالة رقمنة الصوت، ستقترب البيانات الرقمية المحولة من البيانات التناظرية من شكل الموجة الأصلي بشكل أكبر إذا كان تردد الـ ( [1] ) أعلى. علاوة على ذلك، كلما زاد ( [3] )، زادت دقة تمثيل شكل الموجة عدديًا. ومع ذلك، ونتيجة لذلك، يصبح حجم البيانات ( [6] ).»الخيارات: (أ) التشفير (ب) أخذ العينات (جـ) التحول الكمي (د) أكبر (هـ) أصغر (و) فترة أخذ العينات (ز) عمق الـbit الكمي (حـ) صيغة PMC (طـ) صيغة MIDI." data-en="1 Answer the following questions. (1) Choose the term that best fits into the blanks [1] to [6] in the following sentences from the options A to I below, and answer using the letters. &quot;Sound is analog data in waveforms that are transmitted through the vibration of air. The process of capturing sound waveforms on a computer begins with segmenting the waveforms at regular time intervals. This process is called ([1]). The number of partitions per second is called the ([1]) frequency. Next, convert and approximate the segmented wave heights into a continuous bar graph. This process is called ([2]). At this time, the value indicating how many levels the numbers are expressed in is called ([3]). Finally, perform ([4]), which uses 0s and 1s to express the value in binary after ([2]). This method of converting sound into digital data is called ([5]). In the case of digitizing sound, digital data converted from analog data will approximate the original waveform more closely if the ([1]) frequency is higher. Furthermore, the greater the ([3]), the more accurately the waveform can be represented numerically. However, as a result, the amount of data becomes ([6]).&quot; Options:A Encoding — B Sampling — C Quantization — D Larger — E Smaller — F Sampling period — G Quantization bit depth — H PCM method — I MIDI format.">1 أجب على الأسئلة التالية. (1) اختر المصطلح الأنسب لملء الفراغات من [1] إلى [6] في الجمل التالية من الخيارات أ إلى ذ، وأجب باستخدام الأحرف. «الصوت هو بيانات تناظرية في أشكال موجية تنتقل عبر اهتزاز الهواء. تبدأ عملية التقاط أشكال الموجات الصوتية على جهاز الكمبيوتر بتقسيم أشكال الموجات على فترات زمنية منتظمة. تسمى هذه العملية ( [1] ). ويسمى عدد الأجزاء في الثانية بتردد الـ ( [1] ). بعد ذلك، يتم تحويل ارتفاعات الموجات المجزأة وتقريبها إلى رسم بياني شريطي مستمر. تسمى هذه العملية ( [2] ). وفي هذا الوقت، تسمى القيمة التي تشير إلى عدد المستويات التي يتم التعبير عنها بالأرقام بـ ( [3] ). أخيرًا، يتم إجراء ( [4] )، والذي يستخدم الأصفار والآحاد للتعبير عن القيمة بالنظام الثنائي بعد ( [2] ). تسمى هذه الطريقة لتحويل الصوت إلى بيانات رقمية بـ ( [5] ). في حالة رقمنة الصوت، ستقترب البيانات الرقمية المحولة من البيانات التناظرية من شكل الموجة الأصلي بشكل أكبر إذا كان تردد الـ ( [1] ) أعلى. علاوة على ذلك، كلما زاد ( [3] )، زادت دقة تمثيل شكل الموجة عدديًا. ومع ذلك، ونتيجة لذلك، يصبح حجم البيانات ( [6] ).» الخيارات: (أ) التشفير (ب) أخذ العينات (جـ) التحول الكمي (د) أكبر (هـ) أصغر (و) فترة أخذ العينات (ز) عمق الـbit الكمي (حـ) صيغة PMC (طـ) صيغة MIDI.</p>
+          <p data-ar="(2) العبارات التالية من أ إلى ث هي حول تردد أخذ العينات وعدد مستويات التكميم. ضع علامة &quot;✓&quot; إذا كانت العبارة صحيحة، و&quot;×&quot; إذا كانت خاطئة.. (أ) يشير تردد أخذ العينات إلى عدد المرات التي يحدث فيها أخذ العينات في ثانية واحدة. (ب) كلما زاد عدد المستويات أثناء التقريب الرقمي، زاد حجم البيانات. (جـ) إذا كنت ترغب في تقريب شكل الموجة التناظرية الأصلية بشكل أكبر، فمن الفعال زيادة تردد أخذ العينات وتقليل عدد المستويات أثناء التقريب الرقمي. (د) إذا كان التردد الأقصى لشكل الموجة التناظرية الأصلي هو 40 هرتز، فيجب عليك رقمنته بتردد أخذ عينات أكبر من 80 هرتز." data-en="(2) The following statements A to D are about the sampling frequency and the number of quantization levels. Mark &quot;○&quot; if the statement is correct, and &quot;×&quot; if it is incorrect. A Sampling frequency refers to the number of times sampling occurs in one second. B The greater the number of levels during quantization, the larger the amount of data becomes. C If you want to approximate the original analog waveform more closely, it is effective to increase the sampling frequency and reduce the number of levels during quantization. D If the maximum frequency of the original analog waveform is 40 Hz, you should digitize it with a sampling frequency greater than 80 Hz.">(2) العبارات التالية من أ إلى ث هي حول تردد أخذ العينات وعدد مستويات التكميم. ضع علامة "✓" إذا كانت العبارة صحيحة، و"×" إذا كانت خاطئة.. (أ) يشير تردد أخذ العينات إلى عدد المرات التي يحدث فيها أخذ العينات في ثانية واحدة. (ب) كلما زاد عدد المستويات أثناء التقريب الرقمي، زاد حجم البيانات. (جـ) إذا كنت ترغب في تقريب شكل الموجة التناظرية الأصلية بشكل أكبر، فمن الفعال زيادة تردد أخذ العينات وتقليل عدد المستويات أثناء التقريب الرقمي. (د) إذا كان التردد الأقصى لشكل الموجة التناظرية الأصلي هو 40 هرتز، فيجب عليك رقمنته بتردد أخذ عينات أكبر من 80 هرتز.</p>
+          <p data-ar="3 أجب على الأسئلة التالية. في هذه الأسئلة، افترض أن 1 كيلوبايت = 1,000 بايت (B)، و 1 MB = 1,000 كيلوبايت.. (1) ما هو حجم البيانات لمدة 10 ثوانٍ بالكيلوبايت عند رقمنة الموسيقى بتردد أخذ عينات 44,100 HZ، وعمق bit تكميم 16 bit، وفي قناة أحادية الصوت ة؟ (2) ما هو حجم البيانات لمدة دقيقة واحدة بال MB عند رقمنة الموسيقى بتردد أخذ عينات 96 kHz، وعمق bit تكميم 24 bit، وستيريو ثنائي القناة؟ قرّب إجابتك إلى أقرب عدد صحيح. (3) ما هو حجم البيانات لمدة دقيقة واحدة بال MB عند رقمنة الموسيقى بتردد أخذ عينات 44.1 kHz، وعمق bit تكمية 16 bit، وفي صوت ستيريو ثنائي القناة؟ ما هو أقصى طول للصوت، بالدقائق، يمكن تسجيله على ذاكرة فلاش بسعة 512 MB؟ قرّب إجابتك إلى أقرب عدد صحيح." data-en="2 Answer the following questions. In these questions, assume that 1 KB = 1,000 B, and 1 MB = 1,000 KB. (1) What is the data amount for 10 seconds in kilobytes (KB) when digitizing music at a sampling frequency of 44,100 Hz, a quantization bit depth of 16 bits, and in 1-channel monaural? (2) What is the data amount for 1 minute in MB when digitizing music at a sampling frequency of 96 kHz, a quantization bit depth of 24 bits, and in 2-channel stereo? Round off to the nearest whole number in your answer. (The Arabic edition numbers this question &quot;3&quot; and adds a third part:the data amount for 1 minute at 44.1 kHz, 16 bits, stereo in MB, and the maximum recording length in minutes on a 512 MB flash memory.)">3 أجب على الأسئلة التالية. في هذه الأسئلة، افترض أن 1 كيلوبايت = 1,000 بايت (B)، و 1 MB = 1,000 كيلوبايت.. (1) ما هو حجم البيانات لمدة 10 ثوانٍ بالكيلوبايت عند رقمنة الموسيقى بتردد أخذ عينات 44,100 HZ، وعمق bit تكميم 16 bit، وفي قناة أحادية الصوت ة؟ (2) ما هو حجم البيانات لمدة دقيقة واحدة بال MB عند رقمنة الموسيقى بتردد أخذ عينات 96 kHz، وعمق bit تكميم 24 bit، وستيريو ثنائي القناة؟ قرّب إجابتك إلى أقرب عدد صحيح. (3) ما هو حجم البيانات لمدة دقيقة واحدة بال MB عند رقمنة الموسيقى بتردد أخذ عينات 44.1 kHz، وعمق bit تكمية 16 bit، وفي صوت ستيريو ثنائي القناة؟ ما هو أقصى طول للصوت، بالدقائق، يمكن تسجيله على ذاكرة فلاش بسعة 512 MB؟ قرّب إجابتك إلى أقرب عدد صحيح.</p>
           <p data-ar="ملاحظة ترقيم: التمرين الحسابي مطبوع برقم «3» في العربية (ولا يوجد «2» في تمرينها) وبرقم &quot;2&quot; في الإنجليزية، وسؤاله (3) موجود في العربية فقط." data-en="Numbering note:the calculation exercise is printed as &quot;3&quot; in the Arabic edition (which has no &quot;2&quot;) and as &quot;2&quot; in English, and its part (3) exists only in Arabic.">ملاحظة ترقيم:التمرين الحسابي مطبوع برقم «3» في العربية (ولا يوجد «2» في تمرينها) وبرقم "2" في الإنجليزية، وسؤاله (3) موجود في العربية فقط.</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] ب أخذ العينات (B) — [2] جـ التحول الكمي (C) — [3] ز عمق الـbit الكمي (G) — [4] أ التشفير (A) — [5] حـ صيغة PMC كما طُبعت، وهي خيار PCM (H) — [6] د أكبر (D). 1(2): (أ) ✓ — (ب) ✓ — (جـ) × لأن التقريب الأدق يحتاج زيادة تردد أخذ العينات وزيادة عدد المستويات معًا — (د) ✓ لأن 80 = 2 × 40. 2(1): 44,100 × 16 × 1 × 10 = 7,056,000 بت ÷ 8 = 882,000 بايت = 882 KB. 2(2): 96,000 × 24 × 2 × 60 = 276,480,000 بت ÷ 8 = 34,560,000 بايت = 34.56 ≈ 35 MB. (3) العربية فقط: 44,100 × 16 × 2 × 60 = 84,672,000 بت ÷ 8 = 10,584,000 بايت ≈ 11 MB في الدقيقة، و512 ÷ 10.584 ≈ 48.4، فيمكن تسجيل نحو 48 دقيقة." data-en="Answers not printed in the book (teacher-prepared): 1(1): [1] B Sampling — [2] C Quantization — [3] G Quantization bit depth — [4] A Encoding — [5] H PCM method (printed &quot;صيغة PMC&quot; in Arabic) — [6] D Larger. 1(2): A ○ — B ○ — C × (closer approximation needs increasing both the sampling frequency and the levels) — D ○ (80 = 2 × 40). 2(1): 44,100 × 16 × 1 × 10 = 7,056,000 bits ÷ 8 = 882,000 B = 882 KB. 2(2): 96,000 × 24 × 2 × 60 = 276,480,000 bits ÷ 8 = 34,560,000 B = 34.56 ≈ 35 MB. Arabic-only (3): 44,100 × 16 × 2 × 60 = 84,672,000 bits ÷ 8 = 10,584,000 B ≈ 11 MB per minute, and 512 ÷ 10.584 ≈ 48.4, so about 48 minutes can be recorded.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] ب أخذ العينات (B) — [2] جـ التحول الكمي (C) — [3] ز عمق الـbit الكمي (G) — [4] أ التشفير (A) — [5] حـ صيغة PMC كما طُبعت، وهي خيار PCM (H) — [6] د أكبر (D). 1(2): (أ) ✓ — (ب) ✓ — (جـ) × لأن التقريب الأدق يحتاج زيادة تردد أخذ العينات وزيادة عدد المستويات معًا — (د) ✓ لأن 80 = 2 × 40. 2(1): 44,100 × 16 × 1 × 10 = 7,056,000 بت ÷ 8 = 882,000 بايت = 882 KB. 2(2): 96,000 × 24 × 2 × 60 = 276,480,000 بت ÷ 8 = 34,560,000 بايت = 34.56 ≈ 35 MB. (3) العربية فقط:44,100 × 16 × 2 × 60 = 84,672,000 بت ÷ 8 = 10,584,000 بايت ≈ 11 MB في الدقيقة، و512 ÷ 10.584 ≈ 48.4، فيمكن تسجيل نحو 48 دقيقة.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) ترتيب خيارات 1(1) متطابق: A–I تقابل أ–طـ، والإنجليزية تطبع G &quot;Quantization bit depth&quot; على سطرين بينما العربية تلحق المقابل الإنجليزي داخل الخيار (ز). (2) الخيار المقابل لـH:العربية «صيغة PMC» بحروف PMC والإنجليزية &quot;PCM method&quot; — منقول كما هو دون الجزم بالمقصود. (3) حروف خيارات 1(1) في العربية هجائية بصيغ مركبة (جـ)(حـ)(طـ)، بينما (2) تطبع «من أ إلى ث» مع خيارات تصل إلى (د) — كما في المطبوع. (4) علامة الصح:العربية «✓» والإنجليزية &quot;○&quot;. (5) عبارة (ب) في العربية «أثناء التقريب الرقمي ، زاد» بمسافة قبل الفاصلة، و(جـ) تنتهي «التقريب الرقمي .» بمسافة قبل النقطة، والتعليمات تنتهي «خاطئة..» بنقطتين. (6) 2(1) في العربية «44,100 HZ» بحرفين كبيرين و«أحادية الصوت ة» بتاء زائدة، و(3) «عمق bit تكمية» بينما (2) «تكميم». (7) معطيات العربية تنتهي «(KB)..» بنقطتين، وتطبع وحدة الميجابايت «MB (MB)». (8) شريط عنوان «تمرين» أحمر في العربية وأسود في الإنجليزية." data-en="Edition comparison:(1) The 1(1) options match in order: A-I correspond to أ-طـ; English wraps G &quot;Quantization bit depth&quot; over two lines while Arabic appends the English term inside option (ز). (2) The option matching H:Arabic prints &quot;صيغة PMC&quot; with the letters PMC vs English &quot;PCM method&quot; - carried over as printed. (3) Arabic 1(1) uses composite letters (جـ)(حـ)(طـ) while 1(2) prints a &quot;from أ to ث&quot; range with options up to (د) - as printed. (4) The correct mark:Arabic &quot;✓&quot; vs English &quot;○&quot;. (5) Arabic (ب) has a space before the comma and (جـ) a space before the final period; the instructions end with two periods &quot;خاطئة..&quot;. (6) Arabic 2(1) prints &quot;44,100 HZ&quot; in capitals and &quot;أحادية الصوت ة&quot; with a stray letter; (3) prints &quot;تكمية&quot; vs (2) &quot;تكميم&quot;. (7) The Arabic givens end &quot;(KB)..&quot; with two periods and print the megabyte unit as &quot;MB (MB)&quot;. (8) The exercise band is red in Arabic, black in English.">مقارنة النسختين:(1) ترتيب خيارات 1(1) متطابق: A–I تقابل أ–طـ، والإنجليزية تطبع G "Quantization bit depth" على سطرين بينما العربية تلحق المقابل الإنجليزي داخل الخيار (ز). (2) الخيار المقابل لـH: العربية «صيغة PMC» بحروف PMC والإنجليزية "PCM method" — منقول كما هو دون الجزم بالمقصود. (3) حروف خيارات 1(1) في العربية هجائية بصيغ مركبة (جـ)(حـ)(طـ)، بينما (2) تطبع «من أ إلى ث» مع خيارات تصل إلى (د) — كما في المطبوع. (4) علامة الصح: العربية «✓» والإنجليزية "○". (5) عبارة (ب) في العربية «أثناء التقريب الرقمي ، زاد» بمسافة قبل الفاصلة، و(جـ) تنتهي «التقريب الرقمي .» بمسافة قبل النقطة، والتعليمات تنتهي «خاطئة..» بنقطتين. (6) 2(1) في العربية «44,100 HZ» بحرفين كبيرين و«أحادية الصوت ة» بتاء زائدة، و(3) «عمق bit تكمية» بينما (2) «تكميم». (7) معطيات العربية تنتهي «(KB)..» بنقطتين، وتطبع وحدة الميجابايت «MB (MB)». (8) شريط عنوان «تمرين» أحمر في العربية وأسود في الإنجليزية.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 72 (المطبوع 72)؛ AR 82." data-en="The above is from the textbook. Full source: English PDF 72 (printed 72); Arabic 82.">النص السابق من الكتاب. المصدر الكامل:EN PDF 72 (المطبوع 72)؛ AR 82.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: ترتيب خطوات التحويل — غير مطبوعة في الكتاب"
@@ -1675,9 +694,9 @@ b[data-ar]{color:#7a5200!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه الترتيب الصح لرقمنة إشارة صوت تناظرية؟"
               data-en="What is the correct order to digitalize an analog sound signal?">إيه الترتيب الصح لرقمنة إشارة صوت تناظرية؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  ترميز ← تكميم ← معاينة" data-en="A  Encoding → Quantization → Sampling">A  <span dir="ltr">Encoding → Quantization → Sampling</span></div>
-            <div class="ex-opt" data-ar="B  تكميم ← معاينة ← ترميز" data-en="B  Quantization → Sampling → Encoding">B  <span dir="ltr">Quantization → Sampling → Encoding</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  معاينة ← تكميم ← ترميز" data-en="C  Sampling → Quantization → Encoding">C  <span dir="ltr">Sampling → Quantization → Encoding</span></div>
+            <div class="ex-opt" data-ar="A ترميز → تكميم → معاينة" data-en="A  Encoding → Quantization → Sampling">A  <span dir="ltr">Encoding → Quantization → Sampling</span></div>
+            <div class="ex-opt" data-ar="B تكميم → معاينة → ترميز" data-en="B  Quantization → Sampling → Encoding">B  <span dir="ltr">Quantization → Sampling → Encoding</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C معاينة → تكميم → ترميز" data-en="C  Sampling → Quantization → Encoding">C  <span dir="ltr">Sampling → Quantization → Encoding</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C" data-en="✅ Answer: C">✅ الإجابة: C</b> <span
               data-ar="المعاينة الأول، وبعدين التكميم، وبعدين الترميز." data-en="sampling first, then quantization, then encoding.">المعاينة الأول، وبعدين التكميم، وبعدين الترميز.</span></div>
@@ -1686,12 +705,12 @@ b[data-ar]{color:#7a5200!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="أي واحد بيسمح بأدق إعادة بناء للموجة الأصلية؟"
               data-en="Which one allows the most accurate reconstruction of the original wave?">أي واحد بيسمح بأدق إعادة بناء للموجة الأصلية؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  زيادة التردد وزيادة عمق البت"
-              data-en="A  increase frequency and increase bit depth">A  زيادة التردد وزيادة عمق البت</div>
-            <div class="ex-opt" data-ar="B  زيادة التردد وتقليل عمق البت"
-              data-en="B  increase frequency and decrease bit depth">B  زيادة التردد وتقليل عمق البت</div>
-            <div class="ex-opt" data-ar="C  تقليل التردد وزيادة عمق البت"
-              data-en="C  decrease frequency and increase bit depth">C  تقليل التردد وزيادة عمق البت</div>
+            <div class="ex-opt" data-ok="1" data-ar="A زيادة التردد وزيادة عمق البت"
+              data-en="A  increase frequency and increase bit depth">A زيادة التردد وزيادة عمق البت</div>
+            <div class="ex-opt" data-ar="B زيادة التردد وتقليل عمق البت"
+              data-en="B  increase frequency and decrease bit depth">B زيادة التردد وتقليل عمق البت</div>
+            <div class="ex-opt" data-ar="C تقليل التردد وزيادة عمق البت"
+              data-en="C  decrease frequency and increase bit depth">C تقليل التردد وزيادة عمق البت</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A" data-en="✅ Answer: A">✅ الإجابة: A</b> <span
               data-ar="زيادة التردد وعمق البت الاتنين بيدّي أقرب تمثيل للموجة الأصلية."
@@ -1704,44 +723,44 @@ b[data-ar]{color:#7a5200!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 2: حساب مقدار الداتا (Data) (ثواني) — غير مطبوعة في الكتاب"
-          data-en="✍️ Additional interactive drill 2: calculating the data amount (seconds) - not printed in the book">✍️ تدريب تفاعلي إضافي 2: حساب مقدار الداتا (Data) (ثواني) — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 2: حساب مقدار البيانات (ثواني) — غير مطبوعة في الكتاب"
+          data-en="✍️ Additional interactive drill 2: calculating the data amount (seconds) - not printed in the book">✍️ تدريب تفاعلي إضافي 2: حساب مقدار البيانات (ثواني) — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="موسيقى بـ 44,100 Hz و16 بت وقناتين — الداتا (Data) لثانية واحدة كام KB؟"
-              data-en="Music at 44,100 Hz, 16 bits, and 2 channels — the data for 1 second in KB?">موسيقى بـ 44,100 Hz و16 بت وقناتين — الداتا (Data) لثانية واحدة كام KB؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="موسيقى بـ 44,100 Hz و16 بت وقناتين — البيانات لثانية واحدة كام KB؟"
+              data-en="Music at 44,100 Hz, 16 bits, and 2 channels — the data for 1 second in KB?">موسيقى بـ 44,100 Hz و16 بت وقناتين — البيانات لثانية واحدة كام KB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  88 KB" data-en="A  88 KB">A  <span dir="ltr">88 KB</span></div>
-            <div class="ex-opt" data-ar="B  352 KB" data-en="B  352 KB">B  <span dir="ltr">352 KB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  176 KB" data-en="C  176 KB">C  <span dir="ltr">176 KB</span></div>
+            <div class="ex-opt" data-ar="A 88 KB" data-en="A  88 KB">A  <span dir="ltr">88 KB</span></div>
+            <div class="ex-opt" data-ar="B 352 KB" data-en="B  352 KB">B  <span dir="ltr">352 KB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 176 KB" data-en="C  176 KB">C  <span dir="ltr">176 KB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 176 KB" data-en="✅ Answer: C — 176 KB">✅ الإجابة: C — 176 KB</b> <span data-ar="44100 × 16 × 2 = 1,411,200 بت، ÷8 = 176,400 بايت، ÷1000 ≈ 176 KB."
               data-en="44100 × 16 × 2 = 1,411,200 bits, ÷8 = 176,400 bytes, ÷1000 ≈ 176 KB.">44100 × 16 × 2 =
-              1,411,200 بت، ÷8 = 176,400 بايت، ÷1000 ≈ <b>176 KB</b>.</span></div>
+ 1,411,200 بت، ÷8 = 176,400 بايت، ÷1000 ≈ <b>176 KB</b>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="نفس الموسيقى في قناة واحدة مونو — الداتا (Data) لثانية واحدة كام KB؟"
-              data-en="The same music in 1-channel monaural — the data for 1 second in KB?">نفس الموسيقى في قناة واحدة مونو — الداتا (Data) لثانية واحدة كام KB؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="نفس الموسيقى في قناة واحدة مونو — البيانات لثانية واحدة كام KB؟"
+              data-en="The same music in 1-channel monaural — the data for 1 second in KB?">نفس الموسيقى في قناة واحدة مونو — البيانات لثانية واحدة كام KB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  176 KB" data-en="A  176 KB">A  <span dir="ltr">176 KB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  88 KB" data-en="B  88 KB">B  <span dir="ltr">88 KB</span></div>
-            <div class="ex-opt" data-ar="C  44 KB" data-en="C  44 KB">C  <span dir="ltr">44 KB</span></div>
+            <div class="ex-opt" data-ar="A 176 KB" data-en="A  176 KB">A  <span dir="ltr">176 KB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 88 KB" data-en="B  88 KB">B  <span dir="ltr">88 KB</span></div>
+            <div class="ex-opt" data-ar="C 44 KB" data-en="C  44 KB">C  <span dir="ltr">44 KB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 88 KB" data-en="✅ Answer: B — 88 KB">✅ الإجابة: B — 88 KB</b>
             <span data-ar="44100 × 16 × 1 = 705,600 بت، ÷8 = 88,200 بايت، ÷1000 ≈ 88 KB."
               data-en="44100 × 16 × 1 = 705,600 bits, ÷8 = 88,200 bytes, ÷1000 ≈ 88 KB.">44100 × 16 × 1 = 705,600
-              بت، ÷8 = 88,200 بايت، ÷1000 ≈ <b>88 KB</b>.</span></div>
+ بت، ÷8 = 88,200 بايت، ÷1000 ≈ <b>88 KB</b>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="44,100 Hz و16 بت وقناة واحدة — الداتا (Data) لـ 10 ثواني كام KB؟"
-              data-en="44,100 Hz, 16 bits, 1 channel — the data for 10 seconds in KB?">44,100 Hz و16 بت وقناة واحدة — الداتا (Data) لـ 10 ثواني كام KB؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="44,100 Hz و16 بت وقناة واحدة — البيانات لـ 10 ثواني كام KB؟"
+              data-en="44,100 Hz, 16 bits, 1 channel — the data for 10 seconds in KB?">44,100 Hz و16 بت وقناة واحدة — البيانات لـ 10 ثواني كام KB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  882 KB" data-en="A  882 KB">A  <span dir="ltr">882 KB</span></div>
-            <div class="ex-opt" data-ar="B  8820 KB" data-en="B  8820 KB">B  <span dir="ltr">8820 KB</span></div>
-            <div class="ex-opt" data-ar="C  88 KB" data-en="C  88 KB">C  <span dir="ltr">88 KB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 882 KB" data-en="A  882 KB">A  <span dir="ltr">882 KB</span></div>
+            <div class="ex-opt" data-ar="B 8820 KB" data-en="B  8820 KB">B  <span dir="ltr">8820 KB</span></div>
+            <div class="ex-opt" data-ar="C 88 KB" data-en="C  88 KB">C  <span dir="ltr">88 KB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 882 KB" data-en="✅ Answer: A — 882 KB">✅ الإجابة: A — 882 KB</b> <span data-ar="44100 × 16 × 1 × 10 = 7,056,000 بت، ÷8 = 882,000 بايت، ÷1000 = 882 KB."
               data-en="44100 × 16 × 1 × 10 = 7,056,000 bits, ÷8 = 882,000 bytes, ÷1000 = 882 KB.">44100 × 16 × 1 × 10 =
-              7,056,000 بت، ÷8 = 882,000 بايت، ÷1000 = <b>882 KB</b>.</span></div>
+ 7,056,000 بت، ÷8 = 882,000 بايت، ÷1000 = <b>882 KB</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1750,45 +769,45 @@ b[data-ar]{color:#7a5200!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 3: حساب مقدار الداتا (Data) (دقايق) — غير مطبوعة في الكتاب"
-          data-en="✍️ Additional interactive drill 3: calculating the data amount (minutes) - not printed in the book">✍️ تدريب تفاعلي إضافي 3: حساب مقدار الداتا (Data) (دقايق) — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 3: حساب مقدار البيانات (دقايق) — غير مطبوعة في الكتاب"
+          data-en="✍️ Additional interactive drill 3: calculating the data amount (minutes) - not printed in the book">✍️ تدريب تفاعلي إضافي 3: حساب مقدار البيانات (دقايق) — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="44.1 kHz و24 بت وقناتين — الداتا (Data) لدقيقة واحدة كام MB؟"
-              data-en="44.1 kHz, 24 bits, 2 channels — the data for 1 minute in MB?">44.1 kHz و24 بت وقناتين — الداتا (Data) لدقيقة واحدة كام MB؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="44.1 kHz و24 بت وقناتين — البيانات لدقيقة واحدة كام MB؟"
+              data-en="44.1 kHz, 24 bits, 2 channels — the data for 1 minute in MB?">44.1 kHz و24 بت وقناتين — البيانات لدقيقة واحدة كام MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  8 MB" data-en="A  8 MB">A  <span dir="ltr">8 MB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  16 MB" data-en="B  16 MB">B  <span dir="ltr">16 MB</span></div>
-            <div class="ex-opt" data-ar="C  32 MB" data-en="C  32 MB">C  <span dir="ltr">32 MB</span></div>
+            <div class="ex-opt" data-ar="A 8 MB" data-en="A  8 MB">A  <span dir="ltr">8 MB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 16 MB" data-en="B  16 MB">B  <span dir="ltr">16 MB</span></div>
+            <div class="ex-opt" data-ar="C 32 MB" data-en="C  32 MB">C  <span dir="ltr">32 MB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 16 MB" data-en="✅ Answer: B — 16 MB">✅ الإجابة: B — 16 MB</b>
             <span data-ar="44100 × 24 × 2 × 60 = 127,008,000 بت، ÷8 = 15,876,000 بايت، ÷1000 ÷ 1000 ≈ 16 MB."
               data-en="44100 × 24 × 2 × 60 = 127,008,000 bits, ÷8 = 15,876,000 bytes, ÷1000 ÷ 1000 ≈ 16 MB.">44100 × 24 ×
-              2 × 60 = 127,008,000 بت، ÷8 = 15,876,000 بايت، ÷1000 ÷ 1000 ≈ <b>16 MB</b>.</span></div>
+ 2 × 60 = 127,008,000 بت، ÷8 = 15,876,000 بايت، ÷1000 ÷ 1000 ≈ <b>16 MB</b>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="192 kHz و24 بت وقناتين — الداتا (Data) لدقيقة واحدة كام KB؟"
-              data-en="192 kHz, 24 bits, 2 channels — the data for 1 minute in KB?">192 kHz و24 بت وقناتين — الداتا (Data) لدقيقة واحدة كام KB؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="192 kHz و24 بت وقناتين — البيانات لدقيقة واحدة كام KB؟"
+              data-en="192 kHz, 24 bits, 2 channels — the data for 1 minute in KB?">192 kHz و24 بت وقناتين — البيانات لدقيقة واحدة كام KB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  34,560 KB" data-en="A  34,560 KB">A  <span dir="ltr">34,560 KB</span></div>
-            <div class="ex-opt" data-ar="B  138,240 KB" data-en="B  138,240 KB">B  <span dir="ltr">138,240 KB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  69,120 KB" data-en="C  69,120 KB">C  <span dir="ltr">69,120 KB</span></div>
+            <div class="ex-opt" data-ar="A 34,560 KB" data-en="A  34,560 KB">A  <span dir="ltr">34,560 KB</span></div>
+            <div class="ex-opt" data-ar="B 138,240 KB" data-en="B  138,240 KB">B  <span dir="ltr">138,240 KB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 69,120 KB" data-en="C  69,120 KB">C  <span dir="ltr">69,120 KB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 69,120 KB" data-en="✅ Answer: C — 69,120 KB">✅ الإجابة: C — 69,120 KB</b> <span data-ar="192,000 × 24 × 2 × 60 = 552,960,000 بت، ÷8 = 69,120,000 بايت، ÷1000 = 69,120 KB."
               data-en="192,000 × 24 × 2 × 60 = 552,960,000 bits, ÷8 = 69,120,000 bytes, ÷1000 = 69,120 KB.">192,000 × 24 ×
-              2 × 60 = 552,960,000 بت، ÷8 = 69,120,000 بايت، ÷1000 = <b>69,120 KB</b>.</span></div>
+ 2 × 60 = 552,960,000 بت، ÷8 = 69,120,000 بايت، ÷1000 = <b>69,120 KB</b>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="96 kHz و24 بت وقناتين — الداتا (Data) لدقيقة واحدة كام MB؟"
-              data-en="96 kHz, 24 bits, 2 channels — the data for 1 minute in MB?">96 kHz و24 بت وقناتين — الداتا (Data) لدقيقة واحدة كام MB؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="96 kHz و24 بت وقناتين — البيانات لدقيقة واحدة كام MB؟"
+              data-en="96 kHz, 24 bits, 2 channels — the data for 1 minute in MB?">96 kHz و24 بت وقناتين — البيانات لدقيقة واحدة كام MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  70 MB" data-en="A  70 MB">A  <span dir="ltr">70 MB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  35 MB" data-en="B  35 MB">B  <span dir="ltr">35 MB</span></div>
-            <div class="ex-opt" data-ar="C  17 MB" data-en="C  17 MB">C  <span dir="ltr">17 MB</span></div>
+            <div class="ex-opt" data-ar="A 70 MB" data-en="A  70 MB">A  <span dir="ltr">70 MB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 35 MB" data-en="B  35 MB">B  <span dir="ltr">35 MB</span></div>
+            <div class="ex-opt" data-ar="C 17 MB" data-en="C  17 MB">C  <span dir="ltr">17 MB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 35 MB" data-en="✅ Answer: B — 35 MB">✅ الإجابة: B — 35 MB</b>
             <span data-ar="96,000 × 24 × 2 × 60 = 276,480,000 بت، ÷8 = 34,560,000 بايت، ÷1000 ÷ 1000 ≈ 35 MB."
               data-en="96,000 × 24 × 2 × 60 = 276,480,000 bits, ÷8 = 34,560,000 bytes, ÷1000 ÷ 1000 ≈ 35 MB.">96,000 × 24 ×
-              2 × 60 = 276,480,000 بت، ÷8 = 34,560,000 بايت، ÷1000 ÷ 1000 ≈ <b>35 MB</b>.</span></div>
+ 2 × 60 = 276,480,000 بت، ÷8 = 34,560,000 بايت، ÷1000 ÷ 1000 ≈ <b>35 MB</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1800,25 +819,25 @@ b[data-ar]{color:#7a5200!important}
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: أغاني على CD — غير مطبوعة في الكتاب"
           data-en="✍️ Additional interactive drill 4: songs on a CD - not printed in the book">✍️ تدريب تفاعلي إضافي 4: أغاني على CD — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="44.1 kHz و16 بت وقناتين — الداتا (Data) لـ 3 دقايق كام MB؟"
-              data-en="44.1 kHz, 16 bits, 2 channels — the data for 3 minutes in MB?">44.1 kHz و16 بت وقناتين — الداتا (Data) لـ 3 دقايق كام MB؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="44.1 kHz و16 بت وقناتين — البيانات لـ 3 دقايق كام MB؟"
+              data-en="44.1 kHz, 16 bits, 2 channels — the data for 3 minutes in MB?">44.1 kHz و16 بت وقناتين — البيانات لـ 3 دقايق كام MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  32 MB" data-en="A  32 MB">A  <span dir="ltr">32 MB</span></div>
-            <div class="ex-opt" data-ar="B  16 MB" data-en="B  16 MB">B  <span dir="ltr">16 MB</span></div>
-            <div class="ex-opt" data-ar="C  64 MB" data-en="C  64 MB">C  <span dir="ltr">64 MB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 32 MB" data-en="A  32 MB">A  <span dir="ltr">32 MB</span></div>
+            <div class="ex-opt" data-ar="B 16 MB" data-en="B  16 MB">B  <span dir="ltr">16 MB</span></div>
+            <div class="ex-opt" data-ar="C 64 MB" data-en="C  64 MB">C  <span dir="ltr">64 MB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 32 MB" data-en="✅ Answer: A — 32 MB">✅ الإجابة: A — 32 MB</b>
             <span data-ar="44100 × 16 × 2 × 180 = 254,016,000 بت، ÷8 = 31,752,000 بايت، ÷1000 ÷ 1000 ≈ 32 MB."
               data-en="44100 × 16 × 2 × 180 = 254,016,000 bits, ÷8 = 31,752,000 bytes, ÷1000 ÷ 1000 ≈ 32 MB.">44100 × 16 ×
-              2 × 180 = 254,016,000 بت، ÷8 = 31,752,000 بايت، ÷1000 ÷ 1000 ≈ <b>32 MB</b>.</span></div>
+ 2 × 180 = 254,016,000 بت، ÷8 = 31,752,000 بايت، ÷1000 ÷ 1000 ≈ <b>32 MB</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="كم أغنية (كل واحدة 3 دقايق) بتتحط على CD سعة 650 MB؟"
               data-en="How many songs (3 minutes each) fit on a 650 MB CD?">كم أغنية (كل واحدة 3 دقايق) بتتحط على CD سعة 650 MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  حوالي 40 أغنية" data-en="A  about 40 songs">A  حوالي 40 أغنية</div>
-            <div class="ex-opt" data-ar="B  حوالي 10 أغاني" data-en="B  about 10 songs">B  حوالي 10 أغاني</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  حوالي 20 أغنية" data-en="C  about 20 songs">C  حوالي 20 أغنية</div>
+            <div class="ex-opt" data-ar="A حوالي 40 أغنية" data-en="A  about 40 songs">A حوالي 40 أغنية</div>
+            <div class="ex-opt" data-ar="B حوالي 10 أغاني" data-en="B  about 10 songs">B حوالي 10 أغاني</div>
+            <div class="ex-opt" data-ok="1" data-ar="C حوالي 20 أغنية" data-en="C  about 20 songs">C حوالي 20 أغنية</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — حوالي 20 أغنية" data-en="✅ Answer: C — about 20 songs">✅ الإجابة: C — حوالي 20 أغنية</b> <span data-ar="650 ÷ 32 ≈ 20.3، يعني حوالي 20 أغنية."
               data-en="650 ÷ 32 ≈ 20.3, meaning about 20 songs.">650 ÷ 32 ≈ 20.3، يعني حوالي <b>20</b> أغنية.</span></div>
@@ -1851,25 +870,25 @@ b[data-ar]{color:#7a5200!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="التردد والدورة" data-en="Frequency and Period">التردد والدورة</h4>
-                  <p data-ar="التردد هو عدد الموجات في الثانية (Hz)، والدورة هي وقت الموجة الواحدة (ثواني)."
-                    data-en="frequency is the number of waves per second (Hz), and period is the time of one wave (seconds).">التردد هو عدد الموجات في الثانية (Hz)، والدورة هي وقت الموجة الواحدة (ثواني).</p>
+                  <h3 data-ar="التردد والدورة" data-en="Frequency and Period" class="lvl-h4 lvl-h4-2">التردد والدورة</h3>
+                  <p data-ar="التردد هو عدد الموجات في الثانية، والدورة هي وقت الموجة الواحدة (ثواني)."
+                    data-en="frequency is the number of waves per second (Hz), and period is the time of one wave (seconds).">التردد هو عدد الموجات في الثانية، والدورة هي وقت الموجة الواحدة (ثواني).</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="طريقة PCM" data-en="The PCM method">طريقة PCM</h4>
-                  <p data-ar="معاينة ← تكميم ← ترميز — بتحوّل الموجة التناظرية لكود ثنائي."
+                  <h3 data-ar="طريقة PCM" data-en="The PCM method" class="lvl-h4 lvl-h4-2">طريقة PCM</h3>
+                  <p data-ar="معاينة → تكميم → ترميز — بتحوّل الموجة التناظرية لكود ثنائي."
                     data-en="Sampling → Quantization → Encoding — it converts the analog wave to a binary code.">معاينة ← تكميم ← ترميز — بتحوّل الموجة التناظرية لكود ثنائي.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="مقدار الداتا (Data) والجودة" data-en="Data amount and quality">مقدار الداتا (Data) والجودة</h4>
-                  <p data-ar="التردد × عمق البت × القنوات — والجودة الأعلى محتاجة داتا (Data) أكتر."
-                    data-en="frequency × bit depth × channels — and higher quality needs more data.">التردد × عمق البت × القنوات — والجودة الأعلى محتاجة داتا (Data) أكتر.</p>
+                  <h3 data-ar="مقدار البيانات والجودة" data-en="Data amount and quality" class="lvl-h4 lvl-h4-2">مقدار البيانات والجودة</h3>
+                  <p data-ar="التردد × عمق البت × القنوات — والجودة الأعلى محتاجة بيانات أكتر."
+                    data-en="frequency × bit depth × channels — and higher quality needs more data.">التردد × عمق البت × القنوات — والجودة الأعلى محتاجة بيانات أكتر.</p>
                 </div>
               </div>
             </div>
@@ -1892,25 +911,25 @@ b[data-ar]{color:#7a5200!important}
               <div class="rq-opt" data-id="recapRq1o2" data-key="A"
                 data-fb-ar="مش كده — الترميز بييجي في الآخر."
                 data-fb-en="Not quite — encoding comes last."><span class="rq-key">A</span><span
-                  class="rq-body" data-ar="ترميز ← معاينة ← تكميم"
+                  class="rq-body" data-ar="ترميز → معاينة → تكميم"
                   data-en="Encoding → Sampling → Quantization">ترميز ← معاينة ← تكميم</span></div>
               <div class="rq-opt" data-id="recapRq1o3" data-key="B"
                 data-fb-ar="مش كده — أخذ العينات هو الخطوة الأولى."
                 data-fb-en="Not quite — sampling is the first step."><span class="rq-key">B</span><span
-                  class="rq-body" data-ar="تكميم ← ترميز ← معاينة"
+                  class="rq-body" data-ar="تكميم → ترميز → معاينة"
                   data-en="Quantization → Encoding → Sampling">تكميم ← ترميز ← معاينة</span></div>
               <div class="rq-opt" data-id="recapRq1o1" data-key="C" data-ok="1"
                 data-fb-ar="صحيح! Sampling ثم Quantization ثم Encoding."
                 data-fb-en="Correct! Sampling, then Quantization, then Encoding."><span class="rq-key">C</span><span
-                  class="rq-body" data-ar="معاينة ← تكميم ← ترميز"
+                  class="rq-body" data-ar="معاينة → تكميم → ترميز"
                   data-en="Sampling → Quantization → Encoding">معاينة ← تكميم ← ترميز</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="recapRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="recapRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="44,100 Hz و16 بت وقناتين — الداتا (Data) لثانية واحدة كام KB؟"
-                data-en="44,100 Hz, 16 bits, 2 channels — the data for 1 second in KB?">44,100 Hz و16 بت وقناتين — الداتا (Data) لثانية واحدة كام KB؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="44,100 Hz و16 بت وقناتين — البيانات لثانية واحدة كام KB؟"
+                data-en="44,100 Hz, 16 bits, 2 channels — the data for 1 second in KB?">44,100 Hz و16 بت وقناتين — البيانات لثانية واحدة كام KB؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq2o2" data-key="A"
                 data-fb-ar="مش كده — دي إجابة القناة الواحدة (أحادي)."
@@ -1954,7 +973,7 @@ b[data-ar]{color:#7a5200!important}
     </section>
     <button id="scrollTop" data-ar="↑" data-en="↑">↑</button>
   </main>
-  <footer class="page-footer"><div class="footer-line"><img class="footer-logo" src="../../../../assets/logo-extracted.webp" alt="logo"><span data-ar="عظيم! دلوقتي إنت عارف إزاي الصوت بيتحوّل لداتا رقمية" data-en="Great! Now you know how sound becomes digital data">عظيم! دلوقتي إنت عارف إزاي الصوت بيتحوّل لداتا رقمية</span></div></footer>
+  <footer class="page-footer"><div class="footer-line"><img class="footer-logo" src="../../../../assets/logo-extracted.webp" alt="logo"><span data-ar="عظيم! دلوقتي إنت عارف إزاي الصوت بيتحوّل لبيانات رقمية" data-en="Great! Now you know how sound becomes digital data">عظيم! دلوقتي إنت عارف إزاي الصوت بيتحوّل لبيانات رقمية</span></div></footer>
   <script>
     'use strict';
     var lang = localStorage.getItem('langPreference') || 'ar';
@@ -2477,30 +1496,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>

@@ -10,966 +10,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 6-5 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap:anywhere
-    }
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/6-5-numerical-calculations-1-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
 </head>
 
 <body>
@@ -1005,8 +49,8 @@ select{color:var(--text)!important}
         data-ar="حسابات رقمية [1] — الكمبيوتر بيحسب بالثنائي. النهارده هنتعلّم الجمع الثنائي والطرح الثنائي، وقواعد النقل والاستلاف، ونحل تمارين كتير."
         data-en="Numerical Calculations [1] — the computer calculates in binary. Today we learn binary addition and binary subtraction, the carry and borrow rules, and we solve many exercises.">
         <span dir="ltr">Numerical Calculations [1]</span> — الكمبيوتر بيحسب بالثنائي. النهارده هنتعلم الجمع الثنائي
-        والطرح الثنائي، وقاعدة الحمل والاستلاف، وهنحل تدريبات كتير.</p>
-      <div class="hero-stats"><span data-ar="5 أقسام" data-en="5 sections">5 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ والطرح الثنائي، وقاعدة الحمل والاستلاف، وهنحل تدريبات كتير.</p>
+      <div class="hero-stats"><span data-ar="5 أقسام" data-en="5 sections">5 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 <main>
@@ -1031,12 +75,12 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="بعد ما اتعلمنا إزاي نحوّل بين الثنائي والست عشري، النهارده هنتعلّم إزاي الكمبيوتر بيحسب بالثنائي. زي ما بنجمع ونطرح بالأرقام العادية، الكمبيوتر بيجمع ويطرح بالأرقام الثنائية — بيبع نفس القواعد بالظبط."
           data-en="After learning how to convert between binary and hexadecimal, today we will learn how the computer calculates in binary. Just as we add and subtract with ordinary numbers, the computer adds and subtracts with binary numbers — following the exact same rules.">
-          بعد ما عرفنا إزاي بنحوّل بين الثنائي والستعشري، النهارده هنتعلم إزاي الكمبيوتر بيحسب بالثنائي. زي ما بنجمع
-          ونطرح بالأرقام العادية، الكمبيوتر بيجمع ويطرح بالأرقام <b>الثنائية</b> — وبالظبط بنفس القواعد.</p>
+ بعد ما عرفنا إزاي بنحوّل بين الثنائي والستعشري، النهارده هنتعلم إزاي الكمبيوتر بيحسب بالثنائي. زي ما بنجمع
+ ونطرح بالأرقام العادية، الكمبيوتر بيجمع ويطرح بالأرقام <b>الثنائية</b> — وبالظبط بنفس القواعد.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="الجمع والطرح الثنائي بيتعملوا رقم برقم زي الحساب العادي — بس الفرق إن الخانة توصل لـ 2، مش 10."
             data-en="Binary addition and subtraction are done digit by digit just like ordinary arithmetic — but the difference is that a place reaches 2, not 10.">الجمع
-            والطرح الثنائي بيتعملوا <b>خانة بخانة</b> زي الجمع العادي — بس الفرق إن الخانة بتوصل لـ 2، مش لـ 10.</span></div>
+ والطرح الثنائي بيتعملوا <b>خانة بخانة</b> زي الجمع العادي — بس الفرق إن الخانة بتوصل لـ 2، مش لـ 10.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1060,22 +104,22 @@ select{color:var(--text)!important}
             <p style="font-size:.95rem"
               data-ar="الكمبيوتر بيخزّن كل حاجة بالثنائي، فالجمع والطرح الثنائي هما أساس كل عمليات الكمبيوتر. لما تفهمهم، هتفهم إزاي الكمبيوتر بيحسب بسرعة مذهلة."
               data-en="The computer stores everything in binary, so binary addition and subtraction are the basis of all computer operations. When you understand them, you will understand how the computer calculates at amazing speed.">
-              الكمبيوتر بيخزن كل حاجة بالثنائي، فالجمع والطرح بالثنائي هما أساس <b>عمليات الكمبيوتر كلها</b>. لما تفهمهم،
-              هتفهم إزاي الكمبيوتر بيحسب بسرعة خارقة.</p>
+ الكمبيوتر بيخزن كل حاجة بالثنائي، فالجمع والطرح بالثنائي هما أساس <b>عمليات الكمبيوتر كلها</b>. لما تفهمهم،
+ هتفهم إزاي الكمبيوتر بيحسب بسرعة خارقة.</p>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين قواعد الجمع والطرح — في الجمع بننقل لما المجموع يوصل 2، وفي الطرح بنستلف 2 لما الرقم مش كفاية."
             data-en="Mixing up addition and subtraction rules — in addition we carry when the sum reaches 2, and in subtraction we borrow 2 when the digit is insufficient.">
-            الخلط بين قاعدة الجمع وقاعدة الطرح — في الجمع بنحمل لما المجموع يوصل <b>2</b>، وفي الطرح بنستلف <b>2</b> لما
-            الرقم ما يكفيش.</li>
+ الخلط بين قاعدة الجمع وقاعدة الطرح — في الجمع بنحمل لما المجموع يوصل <b>2</b>، وفي الطرح بنستلف <b>2</b> لما
+ الرقم ما يكفيش.</li>
           <li data-ar="نسيان إن الحساب بيتعمل من أقصى يمين الرقم زي الأرقام العادية."
             data-en="Forgetting that the calculation is done from the rightmost digit just like ordinary numbers.">
-            نسيان إن الحساب بيتعمل من <b>أقصى يمين</b> الرقم زي الأرقام العادية.</li>
+ نسيان إن الحساب بيتعمل من <b>أقصى يمين</b> الرقم زي الأرقام العادية.</li>
         </ul>
       </div>
     </section>
@@ -1088,8 +132,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="جمع ثنائي" data-en="Binary Addition">الجمع الثنائي <span dir="ltr">(Binary
                 Addition)</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="مثال عملي: 0101(2) + 1001(2) — EN PDF 65 (المطبوع 65)؛ AR 74"
-              data-en="Worked example: 0101(2) + 1001(2) - English PDF 65 (printed 65); Arabic 74">مثال عملي:0101(2) + 1001(2) — EN PDF 65 (المطبوع 65)؛ AR 74</div>
+            <div class="tag" style="color:var(--s2)" data-ar="مثال عملي: 0101(2) + 1001(2)"
+              data-en="Worked example: 0101(2) + 1001(2)">مثال عملي:0101(2) + 1001(2)</div>
           </div>
         </div>
       </div>
@@ -1109,8 +153,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="addPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="addNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="addPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="addNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="addCounter">1 / 3</span>
                 <button class="mini-btn" data-id="addReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1128,16 +172,16 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="في الجمع الثنائي بنجمع الأرقام رقم برقم، والقيمة بتتنقل خانة لقدام لما المجموع يوصل 2."
           data-en="In binary addition we add the numbers digit by digit, and the value carries over by one position when the sum reaches 2.">
-          في <b>الجمع الثنائي <span dir="ltr">(Binary addition)</span></b> بنجمع الأرقام خانة بخانة، والقيمة بتتجاوز
-          بمكان واحد لما المجموع يوصل لـ <b>2</b>.</p>
+ في <b>الجمع الثنائي <span dir="ltr">(Binary addition)</span></b> بنجمع الأرقام خانة بخانة، والقيمة بتتجاوز
+ بمكان واحد لما المجموع يوصل لـ <b>2</b>.</p>
         <p data-ar="القواعد: 0(2) + 0(2) = 0، و0(2) + 1(2) = 1، و1(2) + 1(2) = 0 وننقل 1، و1(2) + 1(2) + 1(2) = 1 وننقل 1."
           data-en="The rules: 0(2) + 0(2) = 0, 0(2) + 1(2) = 1, 1(2) + 1(2) = 0 and carry 1, and 1(2) + 1(2) + 1(2) = 1 and carry 1.">
-          القواعد: <span dir="ltr">0(2) + 0(2) = 0</span>، و<span dir="ltr">0(2) + 1(2) = 1</span>، و<span dir="ltr">1(2) +
+ القواعد: <span dir="ltr">0(2) + 0(2) = 0</span>، و<span dir="ltr">0(2) + 1(2) = 1</span>، و<span dir="ltr">1(2) +
             1(2) = 0</span> ونحمل 1، و<span dir="ltr">1(2) + 1(2) + 1(2) = 1</span> ونحمل 1.</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
             data-ar="النقل بيمشي من اليمين لليسار — أول رقم هو الأقل أهمية."
             data-en="The carry moves from right to left — the first digit is the least significant.">الحمل
-            <span dir="ltr">(Carry)</span> بيمشي من اليمين لليسار — أول خانة هي الأقل قيمة.</span></div>
+ <span dir="ltr">(Carry)</span> بيمشي من اليمين لليسار — أول خانة هي الأقل قيمة.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(1) الجمع الثنائي:في الجمع الثنائي، عندما لا يمكن تمثيل نتيجة الجمع في خانة واحدة، يتم ترحيل 1 إلى الخانة الأعلى التالية. 0(2) + 0(2) = (0(2))، 0(2) + 1(2) = (1(2))، 1(2) + 1(2) = (10(2))، 1(2) + 1(2) + 1(2) = (11(2)) — مثال: جمع الأعداد الثنائية 0101-(2) + 1001-(2) — النتيجة (⁵1 1 1 0(2)). وملاحظة مطبوعة: «عندما يتم جمع 1 مع رقم 1 معًا، يتم توليد حمل بمقدار 1 إلى الرقم الأعلى التالي.»</p></div>
 
       <div class="section-inner card">
@@ -1192,14 +236,14 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="نسيان النقل لما المجموع يوصل 2 — مثلاً 1 + 1 بنكتبها 0 وننقل 1."
             data-en="Forgetting the carry when the sum reaches 2 — for example 1 + 1 is written as 0 and 1 carried.">
-            نسيان الحمل لما المجموع يوصل 2 — مثلاً 1 + 1 بتكتب <b>0</b> وتنقل <b>1</b>.</li>
+ نسيان الحمل لما المجموع يوصل 2 — مثلاً 1 + 1 بتكتب <b>0</b> وتنقل <b>1</b>.</li>
           <li data-ar="الخلط بين القيمة المنقولة والرقم المكتوب — الرقم بيتكتب في نفس الخانة، والنقل يروح للخانة اللي بعدها."
             data-en="Confusing the carried value with the written digit — the digit is written in the same place, and the carry goes to the next place.">
-            خلط ناتج الحمل بالرقم المكتوب — الرقم بيتكتب في نفس الخانة، والحمل بيروح <b>للخانة اللي بعدها</b>.</li>
+ خلط ناتج الحمل بالرقم المكتوب — الرقم بيتكتب في نفس الخانة، والحمل بيروح <b>للخانة اللي بعدها</b>.</li>
         </ul>
       </div>
     </section>
@@ -1212,8 +256,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="طرح ثنائي" data-en="Binary Subtraction">الطرح الثنائي <span dir="ltr">(Binary
                 Subtraction)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="مثال عملي: 1010(2) − 0110(2) — EN PDF 65 (المطبوع 65)؛ AR 74"
-              data-en="Worked example: 1010(2) − 0110(2) - English PDF 65 (printed 65); Arabic 74">مثال عملي:1010(2) − 0110(2) — EN PDF 65 (المطبوع 65)؛ AR 74</div>
+            <div class="tag" style="color:var(--s3)" data-ar="مثال عملي: 1010(2) − 0110(2)"
+              data-en="Worked example: 1010(2) − 0110(2)">مثال عملي:1010(2) − 0110(2)</div>
           </div>
         </div>
       </div>
@@ -1233,8 +277,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="subPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="subNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="subPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="subNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="subCounter">1 / 3</span>
                 <button class="mini-btn" data-id="subReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1252,16 +296,16 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="في الطرح الثنائي بنطرح الأرقام رقم برقم، ولما الرقم مش كفاية بنستلف قيمة 2 من الرقم الأعلى اللي بعده."
           data-en="In binary subtraction we subtract the numbers digit by digit, and when the digit is insufficient we borrow a value of 2 from the next higher digit.">
-          في <b>الطرح الثنائي <span dir="ltr">(Binary subtraction)</span></b> بنطرح الأرقام خانة بخانة، ولما الرقم ما
-          يكفيش بنستلف قيمة <b>2</b> من الخانة اللي فوقه.</p>
+ في <b>الطرح الثنائي <span dir="ltr">(Binary subtraction)</span></b> بنطرح الأرقام خانة بخانة، ولما الرقم ما
+ يكفيش بنستلف قيمة <b>2</b> من الخانة اللي فوقه.</p>
         <p data-ar="القواعد: 0(2) − 0(2) = 0، و1(2) − 0(2) = 1، و1(2) − 1(2) = 0، و10(2) − 1(2) = 1 بالاستلاف."
           data-en="The rules: 0(2) − 0(2) = 0, 1(2) − 0(2) = 1, 1(2) − 1(2) = 0, and 10(2) − 1(2) = 1 with borrowing.">
-          القواعد: <span dir="ltr">0(2) − 0(2) = 0</span>، و<span dir="ltr">1(2) − 0(2) = 1</span>، و<span dir="ltr">1(2) −
+ القواعد: <span dir="ltr">0(2) − 0(2) = 0</span>، و<span dir="ltr">1(2) − 0(2) = 1</span>، و<span dir="ltr">1(2) −
             1(2) = 0</span>، و<span dir="ltr">10(2) − 1(2) = 1</span> مع الاستلاف.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="الاستلاف يعني الرقم الأعلى بيدّي 2، فيبقى الصفر 2 والطرح يكمّل."
             data-en="Borrowing means the higher digit gives 2, so a 0 becomes 2 and the subtraction continues.">الاستلاف
-            <span dir="ltr">(Borrow)</span> معناه إن الخانة اللي فوق بتدّي 2، فأول خانة 0 بتبقى 2 وتكمل الطرح.</span></div>
+ <span dir="ltr">(Borrow)</span> معناه إن الخانة اللي فوق بتدّي 2، فأول خانة 0 بتبقى 2 وتكمل الطرح.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) الطرح الثنائي:في الطرح الثنائي، عندما لا يكون المطروح منه كافيًا، يتم استعارة قيمة 2 من الخانة الأعلى التالية. 0(2) - 0(2) = (0(2))، 1(2) ⊠ 0(2) = (1(2))، 1(2) ⊠ 1(2) = (0(2))، 10(2) ⊠ 1(2) = (1(2)) — مثال: طرح الأرقام الثنائية 1010-(2) - 0110-(2) — النتيجة (¹⁰0 1 0 0(2)). وملاحظة مطبوعة: «عندما يتم اقتراض 1 من الرقم الأعلى، يصبح هناك اثنان 1s في الرقم الأدنى.»</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) الإنجليزية تعلّم النتائج المميزة بأرقام مرتفعة ¹-¹⁰ (¹-⁴ أمثلة الجمع، ⁵ نتيجة شكل الجمع، ⁶-⁹ أمثلة الطرح، ¹⁰ نتيجة شكل الطرح)؛ العربية تحتفظ بالتظليل الأحمر لكنها تحمل ⁵ و¹⁰ فقط (نتيجتي الشكلين) وتسقط ¹-⁴ و⁶-⁹ من أمثلة المتن. (2) تعليقا الشكلين في العربية يطبعان شرطة زائدة قبل الرقم السفلي: «0101-(2)» و«1001-(2)» و«1010-(2) - 0110-(2)». (3) شكلا المثال في مربع النقاط: العربية تسمّيهما «احمل» و«يستعير» بينما الإنجليزية &quot;Carry&quot; و&quot;Borrow&quot; — لكن في الشرح المطبوع مع تحدى (انظر بطاقة تحدى) تطبع العربية الشكلين نفسيهما بالتسميتين الإنجليزيتين &quot;Carry&quot; و&quot;Borrow&quot;. (4) علامة الطرح في أمثلة العربية:العنصر الأول يطبع شرطة «-» سليمة والعناصر الثلاثة التالية تطبع مربعات فارغة ⊠ (علامة － الكاملة العرض لا تُعرض) — منقولة هنا بالرمز ⊠ كما تظهر للقارئ — بينما تطبع الإنجليزية － سليمة في كل المواضع. (5) ملاحظة الاستعارة العربية تمزج الجمع الإنجليزي: «يصبح هناك اثنان 1s في الرقم الأدنى» مقابل &quot;there are two 1s in the lower digit&quot;، وملاحظة الجمع «عندما يتم جمع 1 مع رقم 1 معًا» مقابل &quot;When two 1s are added together&quot;. (6) عنوان الدرس في الكتاب:العربية «العمليات الحسابات العددية [1]» والإنجليزية &quot;Numerical Calculations [1]&quot;." data-en="Edition comparison:(1) English marks the highlighted results with superscripts ¹-¹⁰ (¹-⁴ addition examples, ⁵ addition figure result, ⁶-⁹ subtraction examples, ¹⁰ borrow figure result); Arabic keeps the red highlight but carries only ⁵ and ¹⁰ (the two figure results), dropping ¹-⁴ and ⁶-⁹ from the body examples. (2) The Arabic figure captions print a stray hyphen before each subscript:«0101-(2)», «1001-(2)», «1010-(2) - 0110-(2)». (3) In the Point box the Arabic figures are labeled «احمل»/«يستعير» where English prints &quot;Carry&quot;/&quot;Borrow&quot; - but in the printed Explanation (see the Warm Up card) the Arabic edition prints the same figures with the English labels &quot;Carry&quot;/&quot;Borrow&quot;. (4) In the Arabic subtraction examples the first item prints a working hyphen «-» while the other three print empty boxes ⊠ (the fullwidth － does not render) - carried here as ⊠ as the reader sees them - while English prints － correctly throughout. (5) The Arabic borrow note mixes in the English plural:«يصبح هناك اثنان 1s في الرقم الأدنى» for &quot;there are two 1s in the lower digit&quot;, and the addition note reads «عندما يتم جمع 1 مع رقم 1 معًا» for &quot;When two 1s are added together&quot;. (6) Lesson title:Arabic «العمليات الحسابات العددية [1]» vs English &quot;Numerical Calculations [1]&quot;.">مقارنة النسختين:(1) الإنجليزية تعلّم النتائج المميزة بأرقام مرتفعة ¹-¹⁰ (¹-⁴ أمثلة الجمع، ⁵ نتيجة شكل الجمع، ⁶-⁹ أمثلة الطرح، ¹⁰ نتيجة شكل الطرح)؛ العربية تحتفظ بالتظليل الأحمر لكنها تحمل ⁵ و¹⁰ فقط (نتيجتي الشكلين) وتسقط ¹-⁴ و⁶-⁹ من أمثلة المتن. (2) تعليقا الشكلين في العربية يطبعان شرطة زائدة قبل الرقم السفلي: «0101-(2)» و«1001-(2)» و«1010-(2) - 0110-(2)». (3) شكلا المثال في مربع النقاط: العربية تسمّيهما «احمل» و«يستعير» بينما الإنجليزية "Carry" و"Borrow" — لكن في الشرح المطبوع مع تحدى (انظر بطاقة تحدى) تطبع العربية الشكلين نفسيهما بالتسميتين الإنجليزيتين "Carry" و"Borrow". (4) علامة الطرح في أمثلة العربية: العنصر الأول يطبع شرطة «-» سليمة والعناصر الثلاثة التالية تطبع مربعات فارغة ⊠ (علامة － الكاملة العرض لا تُعرض) — منقولة هنا بالرمز ⊠ كما تظهر للقارئ — بينما تطبع الإنجليزية － سليمة في كل المواضع. (5) ملاحظة الاستعارة العربية تمزج الجمع الإنجليزي: «يصبح هناك اثنان 1s في الرقم الأدنى» مقابل "there are two 1s in the lower digit"، وملاحظة الجمع «عندما يتم جمع 1 مع رقم 1 معًا» مقابل "When two 1s are added together". (6) عنوان الدرس في الكتاب: العربية «العمليات الحسابات العددية [1]» والإنجليزية "Numerical Calculations [1]".</div></div></div>
 
       <div class="section-inner card">
@@ -1316,14 +360,14 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="نسيان الاستلاف لما الرقم مش كفاية — مثلاً 0 − 1 محتاج نستلف 2."
             data-en="Forgetting to borrow when the digit is insufficient — for example 0 − 1 needs to borrow 2.">
-            نسيان الاستلاف لما الرقم ما يكفيش — مثلاً 0 − 1 محتاج يستلف <b>2</b>.</li>
+ نسيان الاستلاف لما الرقم ما يكفيش — مثلاً 0 − 1 محتاج يستلف <b>2</b>.</li>
           <li data-ar="نسيان إننا نقلّل الرقم اللي استلفنا منه — لما نستلف من 1 بيبقى 0."
             data-en="Forgetting to reduce the digit we borrowed from — when we borrow from 1 it becomes 0.">
-            حذف الاستلاف من الخانة اللي فوق — لما بنستلف من 1 بتبقى <b>0</b>.</li>
+ حذف الاستلاف من الخانة اللي فوق — لما بنستلف من 1 بتبقى <b>0</b>.</li>
         </ul>
       </div>
     </section>
@@ -1335,8 +379,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">04</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 66 (المطبوع 66)؛ AR 75"
-              data-en="Your book: English PDF 66 (printed 66); Arabic 75">الكتاب بتاعك:EN PDF 66 (المطبوع 66)؛ AR 75</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1359,29 +403,29 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <!-- TEXTBOOK-CARD-BEGIN id="book-warm" -->
         <div class="book-card">
-          <h3 data-ar="من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع</h3>
+          <h3 data-ar="من الكتاب: تحدى معلوماتك مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك مع الشرح المطبوع</h3>
           <p data-ar="تحدى معلوماتك — قم بإجراء العمليات الثنائية التالية. (1) 0101(2) + 1010(2) (2) 1011(2) + 0011(2) (3) 1011(2) - 0101(2) (4) 1101(2) - 1010(2)." data-en="Warm Up - Perform the following binary calculations. (1) 0101(2) + 1010(2) (2) 1011(2) + 0011(2) (3) 1011(2) － 0101(2) (4) 1101(2) － 1010(2).">تحدى معلوماتك — قم بإجراء العمليات الثنائية التالية. (1) 0101(2) + 1010(2) (2) 1011(2) + 0011(2) (3) 1011(2) - 0101(2) (4) 1101(2) - 1010(2).</p>
           <p data-ar="الشرح المطبوع — مطبوع بالإنجليزية في النسختين: (1) بشكل بعنوان &quot;Carry&quot;: Therefore, 1111(2). (2) بشكل بعنوان &quot;Carry&quot;: Therefore, 1110(2). (3) بشكل بعنوان &quot;Borrow&quot;: Therefore, 0110(2). (4) بشكل بعنوان &quot;Borrow&quot;: Therefore, 0011(2)." data-en="Printed Explanation - printed in English in both editions:(1) with a figure labeled &quot;Carry&quot;: Therefore, 1111(2). (2) with a figure labeled &quot;Carry&quot;: Therefore, 1110(2). (3) with a figure labeled &quot;Borrow&quot;: Therefore, 0110(2). (4) with a figure labeled &quot;Borrow&quot;: Therefore, 0011(2).">الشرح المطبوع — مطبوع بالإنجليزية في النسختين:(1) بشكل بعنوان "Carry": Therefore, 1111(2). (2) بشكل بعنوان "Carry": Therefore, 1110(2). (3) بشكل بعنوان "Borrow": Therefore, 0110(2). (4) بشكل بعنوان "Borrow": Therefore, 0011(2).</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) الإجابات المطبوعة متفقّة: (1) ‏1111(2) (2) ‏1110(2) (3) ‏0110(2) (4) ‏0011(2). (2) الشرح كله مطبوع بالإنجليزية في النسخة العربية أيضًا — شريط «الشرح» عربي لكن تسميات الشكلين &quot;Carry&quot;/&quot;Borrow&quot; والجمل &quot;Therefore, …&quot; كلها إنجليزية كما في النسخة الإنجليزية، بينما شكلا مربع النقاط في العربية يحملان «احمل»/«يستعير». (3) علامة الطرح في سؤالي تحدى (3)(4) تطبع شرطة «-» سليمة في العربية، بينما تطبع الأسئلة نفسها في حاول بنفسك وتمرين بمربعات ⊠ — ثلاث معالجات لعلامة الطرح في الصفحتين. (4) صيغة الأمر في تحدى «قم بإجراء العمليات الثنائية التالية.» بينما حاول بنفسك وتمرين «قم بإجراء الحسابات الثنائية التالية.»." data-en="Edition comparison:(1) The printed answers agree: (1) 1111(2) (2) 1110(2) (3) 0110(2) (4) 0011(2). (2) The whole Explanation is printed in English in the Arabic edition too - the «الشرح» band is Arabic, but the figure labels &quot;Carry&quot;/&quot;Borrow&quot; and the &quot;Therefore, …&quot; sentences are all English, matching the English edition, while the Arabic Point figures carry «احمل»/«يستعير». (3) The minus in Warm Up questions (3)(4) prints as a working hyphen «-» in Arabic, while the same operation in Try and Exercise prints as ⊠ boxes - three renderings of the minus sign across the two pages. (4) The Warm Up instruction reads «قم بإجراء العمليات الثنائية التالية.» while Try and Exercise read «قم بإجراء الحسابات الثنائية التالية.».">مقارنة النسختين:(1) الإجابات المطبوعة متفقّة: (1) ‏1111(2) (2) ‏1110(2) (3) ‏0110(2) (4) ‏0011(2). (2) الشرح كله مطبوع بالإنجليزية في النسخة العربية أيضًا — شريط «الشرح» عربي لكن تسميات الشكلين "Carry"/"Borrow" والجمل "Therefore, …" كلها إنجليزية كما في النسخة الإنجليزية، بينما شكلا مربع النقاط في العربية يحملان «احمل»/«يستعير». (3) علامة الطرح في سؤالي تحدى (3)(4) تطبع شرطة «-» سليمة في العربية، بينما تطبع الأسئلة نفسها في حاول بنفسك وتمرين بمربعات ⊠ — ثلاث معالجات لعلامة الطرح في الصفحتين. (4) صيغة الأمر في تحدى «قم بإجراء العمليات الثنائية التالية.» بينما حاول بنفسك وتمرين «قم بإجراء الحسابات الثنائية التالية.».</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 65 (المطبوع 65)؛ AR 74–75." data-en="The above is from the textbook. Full source: English PDF 65 (printed 65); Arabic 74-75.">النص السابق من الكتاب. المصدر الكامل:EN PDF 65 (المطبوع 65)؛ AR 74–75.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: حاول بنفسك (Try)" data-en="From the book: Try">من الكتاب: حاول بنفسك (Try)</h3>
+          <h3 data-ar="من الكتاب: حاول بنفسك" data-en="From the book: Try">من الكتاب: حاول بنفسك</h3>
           <p data-ar="حاول بنفسك — قم بإجراء الحسابات الثنائية التالية. (1) 0101(2) + 0110(2) (2) 1101(2) + 0010(2) (3) 1101(2) ⊠ 0010(2) (4) 1010(2) ⊠ 0101(2)." data-en="Try - Perform the following binary calculations. (1) 0101(2) + 0110(2) (2) 1101(2) + 0010(2) (3) 1101(2) － 0010(2) (4) 1010(2) － 0101(2).">حاول بنفسك — قم بإجراء الحسابات الثنائية التالية. (1) 0101(2) + 0110(2) (2) 1101(2) + 0010(2) (3) 1101(2) ⊠ 0010(2) (4) 1010(2) ⊠ 0101(2).</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) ‏1011(2) (2) ‏1111(2) (3) ‏1011(2) (4) ‏0101(2)." data-en="Answers not printed in the book (teacher-prepared): (1) 1011(2) (2) 1111(2) (3) 1011(2) (4) 0101(2).">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) ‏1011(2) (2) ‏1111(2) (3) ‏1011(2) (4) ‏0101(2).</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) قسم المحاولة يُعنون في العربية هنا «حاول بنفسك» (بينما درس 6-6 طبع «جرب بنفسك»). (2) علامة الطرح في (3)(4) تظهر ⊠ في العربية بينما تطبع الإنجليزية － سليمة. (3) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا." data-en="Edition comparison: (1) The Try section is titled «حاول بنفسك» in this lesson's Arabic edition (lesson 6-6 printed «جرب بنفسك»). (2) The minus in (3)(4) displays as ⊠ in Arabic while English prints － correctly. (3) The answers are not printed in either edition - the answers above are teacher-prepared.">مقارنة النسختين: (1) قسم المحاولة يُعنون في العربية هنا «حاول بنفسك» (بينما درس 6-6 طبع «جرب بنفسك»). (2) علامة الطرح في (3)(4) تظهر ⊠ في العربية بينما تطبع الإنجليزية － سليمة. (3) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 66 (المطبوع 66)؛ AR 75." data-en="The above is from the textbook. Full source: English PDF 66 (printed 66); Arabic 75.">النص السابق من الكتاب. المصدر الكامل:EN PDF 66 (المطبوع 66)؛ AR 75.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: تمرين (Exercise)" data-en="From the book: Exercise">من الكتاب: تمرين (Exercise)</h3>
+          <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
           <p data-ar="تمرين 1 — قم بإجراء الحسابات الثنائية التالية. (1) 0011(2) + 1100(2) (2) 1001(2) + 0101(2) (3) 0111(2) + 0001(2) (4) 1010(2) + 0101(2) (5) 1101(2) ⊠ 1100(2) (6) 1011(2) ⊠ 0110(2) (7) 1001(2) ⊠ 0110(2) (8) 1010(2) ⊠ 1010(2)." data-en="Exercise 1 - Perform the following binary calculations. (1) 0011(2) + 1100(2) (2) 1001(2) + 0101(2) (3) 0111(2) + 0001(2) (4) 1010(2) + 0101(2) (5) 1101(2) － 1100(2) (6) 1011(2) － 0110(2) (7) 1001(2) － 0110(2) (8) 1010(2) － 1010(2).">تمرين 1 — قم بإجراء الحسابات الثنائية التالية. (1) 0011(2) + 1100(2) (2) 1001(2) + 0101(2) (3) 0111(2) + 0001(2) (4) 1010(2) + 0101(2) (5) 1101(2) ⊠ 1100(2) (6) 1011(2) ⊠ 0110(2) (7) 1001(2) ⊠ 0110(2) (8) 1010(2) ⊠ 1010(2).</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) ‏1111(2) (2) ‏1110(2) (3) ‏1000(2) (4) ‏1111(2) (5) ‏0001(2) (6) ‏0101(2) (7) ‏0011(2) (8) ‏0000(2)." data-en="Answers not printed in the book (teacher-prepared): (1) 1111(2) (2) 1110(2) (3) 1000(2) (4) 1111(2) (5) 0001(2) (6) 0101(2) (7) 0011(2) (8) 0000(2).">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) ‏1111(2) (2) ‏1110(2) (3) ‏1000(2) (4) ‏1111(2) (5) ‏0001(2) (6) ‏0101(2) (7) ‏0011(2) (8) ‏0000(2).</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) شريط عنوان «تمرين» أحمر في العربية وأسود في الإنجليزية. (2) علامة الطرح في (5)-(8) تظهر ⊠ في العربية. (3) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا." data-en="Edition comparison: (1) The &quot;تمرين/Exercise&quot; band is red in Arabic and black in English. (2) The minus in (5)-(8) displays as ⊠ in Arabic. (3) The answers are not printed in either edition - the answers above are teacher-prepared.">مقارنة النسختين:(1) شريط عنوان «تمرين» أحمر في العربية وأسود في الإنجليزية. (2) علامة الطرح في (5)-(8) تظهر ⊠ في العربية. (3) الإجابات غير مطبوعة في أي من النسختين — الإجابات أعلاه من إعدادنا.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 66 (المطبوع 66)؛ AR 75." data-en="The above is from the textbook. Full source: English PDF 66 (printed 66); Arabic 75.">النص السابق من الكتاب. المصدر الكامل:EN PDF 66 (المطبوع 66)؛ AR 75.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
       </div>
@@ -1393,9 +437,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه 0101(2) + 0110(2)؟"
               data-en="What is 0101(2) + 0110(2)?">إيه 0101(2) + 0110(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  1110(2)" data-en="A  1110(2)">A  <span dir="ltr">1110(2)</span></div>
-            <div class="ex-opt" data-ar="B  1100(2)" data-en="B  1100(2)">B  <span dir="ltr">1100(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  1011(2)" data-en="C  1011(2)">C  <span dir="ltr">1011(2)</span></div>
+            <div class="ex-opt" data-ar="A 1110(2)" data-en="A  1110(2)">A  <span dir="ltr">1110(2)</span></div>
+            <div class="ex-opt" data-ar="B 1100(2)" data-en="B  1100(2)">B  <span dir="ltr">1100(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 1011(2)" data-en="C  1011(2)">C  <span dir="ltr">1011(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 1011(2)" data-en="✅ Answer: C — 1011(2)">✅ الإجابة: C — 1011(2)</b> <span data-ar="5 + 6 = 11 = 1011(2)."
               data-en="5 + 6 = 11 = 1011(2).">5 + 6 = 11 = <b>1011(2)</b>.</span></div>
@@ -1404,9 +448,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه 1101(2) + 0010(2)؟"
               data-en="What is 1101(2) + 0010(2)?">إيه 1101(2) + 0010(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  1011(2)" data-en="A  1011(2)">A  <span dir="ltr">1011(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  1111(2)" data-en="B  1111(2)">B  <span dir="ltr">1111(2)</span></div>
-            <div class="ex-opt" data-ar="C  1101(2)" data-en="C  1101(2)">C  <span dir="ltr">1101(2)</span></div>
+            <div class="ex-opt" data-ar="A 1011(2)" data-en="A  1011(2)">A  <span dir="ltr">1011(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 1111(2)" data-en="B  1111(2)">B  <span dir="ltr">1111(2)</span></div>
+            <div class="ex-opt" data-ar="C 1101(2)" data-en="C  1101(2)">C  <span dir="ltr">1101(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 1111(2)" data-en="✅ Answer: B — 1111(2)">✅ الإجابة: B — 1111(2)</b> <span data-ar="13 + 2 = 15 = 1111(2)."
               data-en="13 + 2 = 15 = 1111(2).">13 + 2 = 15 = <b>1111(2)</b>.</span></div>
@@ -1415,9 +459,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه 0011(2) + 1100(2)؟"
               data-en="What is 0011(2) + 1100(2)?">إيه 0011(2) + 1100(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  1111(2)" data-en="A  1111(2)">A  <span dir="ltr">1111(2)</span></div>
-            <div class="ex-opt" data-ar="B  1100(2)" data-en="B  1100(2)">B  <span dir="ltr">1100(2)</span></div>
-            <div class="ex-opt" data-ar="C  1001(2)" data-en="C  1001(2)">C  <span dir="ltr">1001(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 1111(2)" data-en="A  1111(2)">A  <span dir="ltr">1111(2)</span></div>
+            <div class="ex-opt" data-ar="B 1100(2)" data-en="B  1100(2)">B  <span dir="ltr">1100(2)</span></div>
+            <div class="ex-opt" data-ar="C 1001(2)" data-en="C  1001(2)">C  <span dir="ltr">1001(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 1111(2)" data-en="✅ Answer: A — 1111(2)">✅ الإجابة: A — 1111(2)</b> <span data-ar="3 + 12 = 15 = 1111(2)."
               data-en="3 + 12 = 15 = 1111(2).">3 + 12 = 15 = <b>1111(2)</b>.</span></div>
@@ -1426,9 +470,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">4</span> <span data-ar="إيه 1001(2) + 0101(2)؟"
               data-en="What is 1001(2) + 0101(2)?">إيه 1001(2) + 0101(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  1100(2)" data-en="A  1100(2)">A  <span dir="ltr">1100(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  1110(2)" data-en="B  1110(2)">B  <span dir="ltr">1110(2)</span></div>
-            <div class="ex-opt" data-ar="C  1010(2)" data-en="C  1010(2)">C  <span dir="ltr">1010(2)</span></div>
+            <div class="ex-opt" data-ar="A 1100(2)" data-en="A  1100(2)">A  <span dir="ltr">1100(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 1110(2)" data-en="B  1110(2)">B  <span dir="ltr">1110(2)</span></div>
+            <div class="ex-opt" data-ar="C 1010(2)" data-en="C  1010(2)">C  <span dir="ltr">1010(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 1110(2)" data-en="✅ Answer: B — 1110(2)">✅ الإجابة: B — 1110(2)</b> <span data-ar="9 + 5 = 14 = 1110(2)."
               data-en="9 + 5 = 14 = 1110(2).">9 + 5 = 14 = <b>1110(2)</b>.</span></div>
@@ -1446,9 +490,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه 1101(2) − 0010(2)؟"
               data-en="What is 1101(2) − 0010(2)?">إيه 1101(2) − 0010(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  1011(2)" data-en="A  1011(2)">A  <span dir="ltr">1011(2)</span></div>
-            <div class="ex-opt" data-ar="B  1101(2)" data-en="B  1101(2)">B  <span dir="ltr">1101(2)</span></div>
-            <div class="ex-opt" data-ar="C  1001(2)" data-en="C  1001(2)">C  <span dir="ltr">1001(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 1011(2)" data-en="A  1011(2)">A  <span dir="ltr">1011(2)</span></div>
+            <div class="ex-opt" data-ar="B 1101(2)" data-en="B  1101(2)">B  <span dir="ltr">1101(2)</span></div>
+            <div class="ex-opt" data-ar="C 1001(2)" data-en="C  1001(2)">C  <span dir="ltr">1001(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 1011(2)" data-en="✅ Answer: A — 1011(2)">✅ الإجابة: A — 1011(2)</b> <span data-ar="13 − 2 = 11 = 1011(2)."
               data-en="13 − 2 = 11 = 1011(2).">13 − 2 = 11 = <b>1011(2)</b>.</span></div>
@@ -1457,9 +501,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه 1010(2) − 0101(2)؟"
               data-en="What is 1010(2) − 0101(2)?">إيه 1010(2) − 0101(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  0110(2)" data-en="A  0110(2)">A  <span dir="ltr">0110(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  0101(2)" data-en="B  0101(2)">B  <span dir="ltr">0101(2)</span></div>
-            <div class="ex-opt" data-ar="C  0011(2)" data-en="C  0011(2)">C  <span dir="ltr">0011(2)</span></div>
+            <div class="ex-opt" data-ar="A 0110(2)" data-en="A  0110(2)">A  <span dir="ltr">0110(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 0101(2)" data-en="B  0101(2)">B  <span dir="ltr">0101(2)</span></div>
+            <div class="ex-opt" data-ar="C 0011(2)" data-en="C  0011(2)">C  <span dir="ltr">0011(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 0101(2)" data-en="✅ Answer: B — 0101(2)">✅ الإجابة: B — 0101(2)</b> <span data-ar="10 − 5 = 5 = 0101(2)."
               data-en="10 − 5 = 5 = 0101(2).">10 − 5 = 5 = <b>0101(2)</b>.</span></div>
@@ -1468,9 +512,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه 1101(2) − 1100(2)؟"
               data-en="What is 1101(2) − 1100(2)?">إيه 1101(2) − 1100(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  0010(2)" data-en="A  0010(2)">A  <span dir="ltr">0010(2)</span></div>
-            <div class="ex-opt" data-ar="B  0000(2)" data-en="B  0000(2)">B  <span dir="ltr">0000(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  0001(2)" data-en="C  0001(2)">C  <span dir="ltr">0001(2)</span></div>
+            <div class="ex-opt" data-ar="A 0010(2)" data-en="A  0010(2)">A  <span dir="ltr">0010(2)</span></div>
+            <div class="ex-opt" data-ar="B 0000(2)" data-en="B  0000(2)">B  <span dir="ltr">0000(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 0001(2)" data-en="C  0001(2)">C  <span dir="ltr">0001(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 0001(2)" data-en="✅ Answer: C — 0001(2)">✅ الإجابة: C — 0001(2)</b> <span data-ar="13 − 12 = 1 = 0001(2)."
               data-en="13 − 12 = 1 = 0001(2).">13 − 12 = 1 = <b>0001(2)</b>.</span></div>
@@ -1479,9 +523,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">4</span> <span data-ar="إيه 1011(2) − 0110(2)؟"
               data-en="What is 1011(2) − 0110(2)?">إيه 1011(2) − 0110(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  0101(2)" data-en="A  0101(2)">A  <span dir="ltr">0101(2)</span></div>
-            <div class="ex-opt" data-ar="B  0110(2)" data-en="B  0110(2)">B  <span dir="ltr">0110(2)</span></div>
-            <div class="ex-opt" data-ar="C  0100(2)" data-en="C  0100(2)">C  <span dir="ltr">0100(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 0101(2)" data-en="A  0101(2)">A  <span dir="ltr">0101(2)</span></div>
+            <div class="ex-opt" data-ar="B 0110(2)" data-en="B  0110(2)">B  <span dir="ltr">0110(2)</span></div>
+            <div class="ex-opt" data-ar="C 0100(2)" data-en="C  0100(2)">C  <span dir="ltr">0100(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 0101(2)" data-en="✅ Answer: A — 0101(2)">✅ الإجابة: A — 0101(2)</b> <span data-ar="11 − 6 = 5 = 0101(2)."
               data-en="11 − 6 = 5 = 0101(2).">11 − 6 = 5 = <b>0101(2)</b>.</span></div>
@@ -1499,9 +543,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه 0111(2) + 0001(2)؟"
               data-en="What is 0111(2) + 0001(2)?">إيه 0111(2) + 0001(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  0111(2)" data-en="A  0111(2)">A  <span dir="ltr">0111(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  1000(2)" data-en="B  1000(2)">B  <span dir="ltr">1000(2)</span></div>
-            <div class="ex-opt" data-ar="C  1010(2)" data-en="C  1010(2)">C  <span dir="ltr">1010(2)</span></div>
+            <div class="ex-opt" data-ar="A 0111(2)" data-en="A  0111(2)">A  <span dir="ltr">0111(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 1000(2)" data-en="B  1000(2)">B  <span dir="ltr">1000(2)</span></div>
+            <div class="ex-opt" data-ar="C 1010(2)" data-en="C  1010(2)">C  <span dir="ltr">1010(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 1000(2)" data-en="✅ Answer: B — 1000(2)">✅ الإجابة: B — 1000(2)</b> <span data-ar="7 + 1 = 8 = 1000(2)."
               data-en="7 + 1 = 8 = 1000(2).">7 + 1 = 8 = <b>1000(2)</b>.</span></div>
@@ -1510,9 +554,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه 1010(2) + 0101(2)؟"
               data-en="What is 1010(2) + 0101(2)?">إيه 1010(2) + 0101(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  1111(2)" data-en="A  1111(2)">A  <span dir="ltr">1111(2)</span></div>
-            <div class="ex-opt" data-ar="B  1100(2)" data-en="B  1100(2)">B  <span dir="ltr">1100(2)</span></div>
-            <div class="ex-opt" data-ar="C  1011(2)" data-en="C  1011(2)">C  <span dir="ltr">1011(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 1111(2)" data-en="A  1111(2)">A  <span dir="ltr">1111(2)</span></div>
+            <div class="ex-opt" data-ar="B 1100(2)" data-en="B  1100(2)">B  <span dir="ltr">1100(2)</span></div>
+            <div class="ex-opt" data-ar="C 1011(2)" data-en="C  1011(2)">C  <span dir="ltr">1011(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 1111(2)" data-en="✅ Answer: A — 1111(2)">✅ الإجابة: A — 1111(2)</b> <span data-ar="10 + 5 = 15 = 1111(2)."
               data-en="10 + 5 = 15 = 1111(2).">10 + 5 = 15 = <b>1111(2)</b>.</span></div>
@@ -1530,9 +574,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه 1001(2) − 0110(2)؟"
               data-en="What is 1001(2) − 0110(2)?">إيه 1001(2) − 0110(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  0100(2)" data-en="A  0100(2)">A  <span dir="ltr">0100(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  0011(2)" data-en="B  0011(2)">B  <span dir="ltr">0011(2)</span></div>
-            <div class="ex-opt" data-ar="C  0001(2)" data-en="C  0001(2)">C  <span dir="ltr">0001(2)</span></div>
+            <div class="ex-opt" data-ar="A 0100(2)" data-en="A  0100(2)">A  <span dir="ltr">0100(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 0011(2)" data-en="B  0011(2)">B  <span dir="ltr">0011(2)</span></div>
+            <div class="ex-opt" data-ar="C 0001(2)" data-en="C  0001(2)">C  <span dir="ltr">0001(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 0011(2)" data-en="✅ Answer: B — 0011(2)">✅ الإجابة: B — 0011(2)</b> <span data-ar="9 − 6 = 3 = 0011(2)."
               data-en="9 − 6 = 3 = 0011(2).">9 − 6 = 3 = <b>0011(2)</b>.</span></div>
@@ -1541,9 +585,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه 1010(2) − 1010(2)؟"
               data-en="What is 1010(2) − 1010(2)?">إيه 1010(2) − 1010(2)؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  0010(2)" data-en="A  0010(2)">A  <span dir="ltr">0010(2)</span></div>
-            <div class="ex-opt" data-ar="B  0101(2)" data-en="B  0101(2)">B  <span dir="ltr">0101(2)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  0000(2)" data-en="C  0000(2)">C  <span dir="ltr">0000(2)</span></div>
+            <div class="ex-opt" data-ar="A 0010(2)" data-en="A  0010(2)">A  <span dir="ltr">0010(2)</span></div>
+            <div class="ex-opt" data-ar="B 0101(2)" data-en="B  0101(2)">B  <span dir="ltr">0101(2)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 0000(2)" data-en="C  0000(2)">C  <span dir="ltr">0000(2)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 0000(2)" data-en="✅ Answer: C — 0000(2)">✅ الإجابة: C — 0000(2)</b> <span data-ar="10 − 10 = 0 = 0000(2)."
               data-en="10 − 10 = 0 = 0000(2).">10 − 10 = 0 = <b>0000(2)</b>.</span></div>
@@ -1576,28 +620,28 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="الجمع الثنائي" data-en="Binary addition">الجمع الثنائي</h4>
+                  <h3 data-ar="الجمع الثنائي" data-en="Binary addition" class="lvl-h4 lvl-h4-2">الجمع الثنائي</h3>
                   <p data-ar="بننقل 1 لما المجموع يوصل 2 — 1 + 1 = 0 وننقل."
                     data-en="we carry 1 when the sum reaches 2 — 1 + 1 = 0 and carry.">بنحمل 1 لما المجموع يوصل
-                    <b>2</b> — 1 + 1 = 0 ونحمل.</p>
+ <b>2</b> — 1 + 1 = 0 ونحمل.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="الطرح الثنائي" data-en="Binary subtraction">الطرح الثنائي</h4>
+                  <h3 data-ar="الطرح الثنائي" data-en="Binary subtraction" class="lvl-h4 lvl-h4-2">الطرح الثنائي</h3>
                   <p data-ar="بنستلف 2 لما الرقم مش كفاية — 0 − 1 = 1 بالاستلاف."
                     data-en="we borrow 2 when the digit is insufficient — 0 − 1 = 1 with borrowing.">بنستلف 2 لما الرقم
-                    ما يكفيش — 0 − 1 = <b>1</b> مع الاستلاف.</p>
+ ما يكفيش — 0 − 1 = <b>1</b> مع الاستلاف.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="حساب رقم برقم" data-en="digit-by-digit calculation">حساب رقم برقم</h4>
+                  <h3 data-ar="حساب رقم برقم" data-en="digit-by-digit calculation" class="lvl-h4 lvl-h4-2">حساب رقم برقم</h3>
                   <p data-ar="بنبدأ من أقصى يمين الرقم ونتحرك لليسار."
                     data-en="we start from the rightmost digit and move left.">نبدأ من <b>أقصى يمين</b> الرقم ونمشي
-                    لليسار.</p>
+ لليسار.</p>
                 </div>
               </div>
             </div>

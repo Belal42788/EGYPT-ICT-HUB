@@ -10,982 +10,12 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح Development of Communication Methods — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 20s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 15s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:70px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:30px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:24px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:26px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:26px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }code.inline{
-      background:rgba(24, 56, 248, .15);
-      border:1px solid rgba(24, 56, 248, .3);
-      color:#2d56fb;
-      padding:2px 8px;
-      border-radius:6px;
-      font-size:.85em;
-      font-family:'Consolas', 'Courier New', monospace
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:26px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.tl{
-      position:relative
-    }.tl-track{
-      display:flex;
-      justify-content:space-between;
-      margin-bottom:22px;
-      position:relative
-    }.tl-track::before{
-      content:"";
-      position:absolute;
-      top:10px;
-      right:12px;
-      left:12px;
-      height:3px;
-      background:rgba(11, 16, 32, 0.08);
-      border-radius:3px
-    }.tl-dot{
-      width:22px;
-      height:22px;
-      border-radius:50%;
-      background:var(--card);
-      border:2px solid rgba(11, 16, 32, 0.15);
-      position:relative;
-      z-index:2;
-      transition:.25s
-    }.tl-dot.done{
-      background:linear-gradient(135deg, var(--primary), var(--accent));
-      border-color:transparent;
-      box-shadow:0 0 14px rgba(24, 56, 248, .5)
-    }.tl-view{
-      position:relative;
-      min-height:210px
-    }.tl-step{
-      display:none;
-      animation:fadeIn .35s ease
-    }.tl-step.active{
-      display:block
-    }@keyframes fadeIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:none
-      }
-    }.tl-step .prop{
-      font-size:2.6rem;
-      text-align:center;
-      margin-bottom:10px
-    }.tl-year{
-      display:inline-block;
-      font-weight:800;
-      color:var(--bg);
-      background:linear-gradient(135deg, var(--s2), #f7f3eb);
-      border-radius:10px;
-      padding:2px 14px;
-      font-size:.9rem;
-      margin-bottom:8px
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.1rem;
-      margin-bottom:6px
-    }.tl-desc{
-      font-size:.95rem
-    }.tl-ctl{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      justify-content:center;
-      margin-top:18px;
-      flex-wrap:wrap
-    }.tl-count{
-      font-family:'Consolas', monospace;
-      color:var(--dim);
-      font-weight:700;
-      min-width:60px;
-      text-align:center
-    }.flow-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-top:10px
-    }.flow-node{
-      text-align:center;
-      background:rgba(24, 56, 248, .08);
-      border:1px solid rgba(24, 56, 248, .35);
-      border-radius:16px;
-      padding:14px 18px;
-      min-width:130px
-    }.flow-node.mini{
-      min-width:96px;
-      padding:10px 12px
-    }.flow-emoji{
-      font-size:2rem;
-      margin-bottom:6px
-    }.flow-sub{
-      display:block;
-      font-size:.78rem;
-      color:var(--dim)
-    }.flow-fan{
-      display:flex;
-      flex-direction:column;
-      gap:8px
-    }.arrow-flip{
-      display:inline-flex;
-      color:var(--accent);
-      transform:scaleX(-1);
-      flex-shrink:0
-    }.sig-cells{
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:14px
-    }.sig-cell{
-      width:44px;
-      height:44px;
-      border-radius:12px;
-      border:1px solid rgba(11, 16, 32, 0.12);
-      background:rgba(11, 16, 32, 0.04);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:.85rem;
-      color:var(--dim);
-      font-weight:700;
-      transition:.2s
-    }.sig-cell.long{
-      width:68px
-    }.sig-cell.lit{
-      background:rgba(24, 56, 248, .2);
-      border-color:var(--accent);
-      color:var(--accent);
-      box-shadow:0 0 18px rgba(24, 56, 248, .35)
-    }.sig-out{
-      min-height:40px;
-      margin-top:12px;
-      text-align:center;
-      color:var(--accent);
-      font-weight:800;
-      font-size:1.05rem
-    }.net-wrap{
-      position:relative;
-      max-width:640px;
-      margin:0 auto;
-      padding:30px 0 10px
-    }.net-svg{
-      width:100%;
-      height:auto;
-      display:block
-    }.net-node{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      width:120px;
-      text-align:center;
-      font-weight:700;
-      font-size:.82rem;
-      color:var(--text)
-    }.net-node .dot{
-      display:block;
-      width:16px;
-      height:16px;
-      margin:0 auto 6px;
-      border-radius:50%;
-      background:linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow:0 0 14px rgba(24, 56, 248, .6);
-      transition:.3s
-    }.net-node.lit .dot{
-      background:var(--accent);
-      box-shadow:0 0 22px rgba(24, 56, 248, .9)
-    }.net-node .lab{
-      display:block
-    }.quiz-idle .quiz-q{
-      display:none
-    }.quiz-q{
-      animation:fadeIn .4s ease
-    }.quiz-q+.quiz-q{
-      margin-top:20px;
-      padding-top:20px;
-      border-top:1px dashed rgba(11, 16, 32, 0.1)
-    }.quiz-q .q{
-      font-weight:800;
-      color:var(--text);
-      margin-bottom:10px
-    }.quiz-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.quiz-options{
-        grid-template-columns:1fr
-      }
-    }.quiz-opt{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      border-radius:10px;
-      padding:10px 14px;
-      font-family:inherit;
-      font-size:.92rem;
-      color:var(--text);
-      cursor:pointer;
-      text-align:right;
-      transition:.15s
-    }.quiz-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.quiz-opt.right{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.quiz-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.quiz-why{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.quiz-why.show{
-      display:block
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      font-family:'Consolas', monospace;
-      direction:ltr;
-      text-align:left;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.85rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:14px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-opt.correct .ex-key{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .15);
-      color:var(--success)
-    }.ex-opt.wrong .ex-key{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .15);
-      color:var(--danger)
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.opt-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      padding:0 7px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:var(--primary);
-      font-weight:800;
-      font-size:.82rem;
-      margin-inline-end:8px;
-      flex-shrink:0
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s1), var(--s2), var(--s3), var(--s4))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:0 8px;
-      font-size:.78rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:10px
-    }.table th,
-    .table td{
-      text-align:right;
-      padding:10px 14px;
-      font-size:.95rem;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.table th{
-      color:var(--text);
-      font-weight:700;
-      background:rgba(24, 56, 248, .12)
-    }.table td{
-      color:var(--dim)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.emoji-walk{
-      display:inline-block;
-      animation:ew 4s ease-in-out infinite
-    }@keyframes ew{
-      0% {
-        transform:translateX(0)
-      }
-
-      50% {
-        transform:translateX(-12px)
-      }
-
-      100% {
-        transform:translateX(0)
-      }
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.fill{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      margin-bottom:16px;
-      transition:all 0.3s ease;
-    }.fill-label{
-      font-size:15px;
-      font-weight:700;
-      margin-bottom:12px;
-      color:var(--s6);
-    }.fill-passage{
-      font-size:0.93rem;
-      line-height:2.1;
-      color:var(--text);
-      background:rgba(0, 0, 0, 0.25);
-      border-radius:12px;
-      padding:14px;
-    }.slot{
-      display:inline-block;
-      min-width:34px;
-      padding:2px 10px;
-      margin:0 4px;
-      border:2px dashed var(--s6);
-      border-radius:8px;
-      text-align:center;
-      font-weight:700;
-      font-size:0.9rem;
-      cursor:pointer;
-      color:var(--dim);
-      background:rgba(11, 16, 32, 0.05);
-      transition:all 0.25s ease;
-      vertical-align:middle;
-      line-height:1.6;
-    }.slot:hover{
-      border-color:var(--s6);
-      background:rgba(215, 38, 61, 0.15);
-    }.slot.sel{
-      border-style:solid;
-      border-color:var(--s6);
-      background:rgba(215, 38, 61, 0.25);
-      color:var(--text);
-      box-shadow:0 0 0 3px rgba(215, 38, 61, 0.15);
-    }.slot.filled{
-      border-style:solid;
-      border-color:var(--s3);
-      color:var(--text);
-      background:rgba(24, 56, 248, 0.15);
-      cursor:default;
-    }.slot.correct{
-      border-color:var(--s4);
-      color:var(--s4);
-      background:rgba(13, 158, 86, 0.15);
-    }.slot.wrong{
-      border-color:var(--s6);
-      color:var(--s6);
-      background:rgba(215, 38, 61, 0.15);
-    }.fill-bank{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:12px;
-    }.fill-opt{
-      padding:8px 14px;
-      border-radius:10px;
-      border:1px solid rgba(11, 16, 32, 0.12);
-      background:var(--card);
-      color:var(--text);
-      font-size:0.85rem;
-      font-weight:600;
-      cursor:pointer;
-      transition:all 0.25s ease;
-    }.fill-opt:hover{
-      border-color:var(--s3);
-      background:var(--card-hover);
-    }.fill-opt:disabled{
-      opacity:0.45;
-      cursor:not-allowed;
-    }.fill-opt.used{
-      display:none;
-    }.fill-score{
-      margin-top:10px;
-      padding:8px 12px;
-      border-radius:10px;
-      font-size:0.85rem;
-      font-weight:700;
-    }.fill-score.all{
-      background:rgba(13, 158, 86, 0.15);
-      color:var(--s4);
-      border:1px solid rgba(13, 158, 86, 0.35);
-    }.fill-score.partial{
-      background:rgba(245, 158, 11, 0.12);
-      color:var(--s2);
-      border:1px solid rgba(245, 158, 11, 0.35);
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap:anywhere
-    }
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/pment-of-communication-methods--5-1-development-of-communication-methods-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="contrast-pass-3">
-/* Readability pass 3: faded component blocks and light code editors. */
-.bt,.bt-sub{opacity:1!important}
-.bt-sub{color:#2f3542!important}
-.bt-note{opacity:1!important;color:#3a4152!important}
-.email-vals{color:#1a3fd0!important}
-.chat-who{color:#3a4152!important}
-.html-edit,.js-edit,.py-edit,textarea{color:var(--text)!important}
-</style>
-<style>/* contrast fix (a11y pass 4) */
-.fill-label{color:#b31f33!important}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
+<link rel="stylesheet" href="../../../../assets/css/pages/pment-of-communication-methods--5-1-development-of-communication-methods-2.css">
 </head>
 
 <body>
@@ -1016,8 +46,8 @@ select{color:var(--text)!important}
       <p class="hero-sub"
         data-ar="رحلة من نيران الإشارة والطبول للشبكة اللي بتربطنا كلنا — إزاي وصلنا للإنترنت؟"
         data-en="A journey from signal fires and drums to the network that connects us all — how did we reach the internet?">
-        رحلة من إشارات النار والطبول لحد الشبكة اللي بتوصلنا كلنا — <span dir="ltr">Development of Communication Methods</span> — إزاي وصلنا للإنترنت؟</p>
-      <div class="hero-stats"><span data-ar="9 أقسام" data-en="9 sections">9 أقسام</span><span data-ar="15 مصطلحًا" data-en="15 glossary terms">15 مصطلحًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ رحلة من إشارات النار والطبول لحد الشبكة اللي بتوصلنا كلنا — <span dir="ltr">Development of Communication Methods</span> — إزاي وصلنا للإنترنت؟</p>
+      <div class="hero-stats"><span data-ar="9 أقسام" data-en="9 sections">9 أقسام</span><span data-ar="15 مصطلحًا" data-en="15 glossary terms">15 مصطلحًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 
@@ -1040,15 +70,15 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="التواصل حاجة بنعملها طول اليوم — بنبعت و بنستقبل معلومات (Information) طول الوقت. بس طريقة تواصلنا اتغيّرت جذرياً عبر الزمن. النهارده هنمشي في رحلة وسائل الاتصال من نيران الإشارة والطبول، للورق والبريد، للتليفون والراديو والتليفزيون، وفي الآخر الإنترنت."
+        <p data-ar="التواصل حاجة بنعملها طول اليوم — بنبعت و بنستقبل معلومات طول الوقت. بس طريقة تواصلنا اتغيّرت جذرياً عبر الزمن. النهارده هنمشي في رحلة وسائل الاتصال من نيران الإشارة والطبول، للورق والبريد، للتليفون والراديو والتليفزيون، وفي الآخر الإنترنت."
           data-en="Communication is something we do all day long — we constantly send and receive information. But the way we communicate has changed dramatically over time. Today we'll follow the journey of communication media from signal fires and drums, to paper and mail, to the telephone, radio and television, and finally the internet.">
-          التواصل <b>(<span dir="ltr">communication</span>)</b> حاجة إحنا بنعملها طول اليوم — إحنا بنبعت وبنستقبل معلومات <b>(<span dir="ltr">information</span>)</b> باستمرار. بس الطريقة اللي بنتواصل بيها اتغيّرت جداً على مر الزمن. النهارده هنتابع <b>رحلة وسائل الاتصال <span dir="ltr">(communication media)</span></b> من أول إشارات النار والطبول، لحد الورق والبريد، لحد الهاتف والراديو والتلفزيون، وأخيراً الإنترنت <b>(<span dir="ltr">internet</span>)</b>.</p>
+ التواصل <b>(<span dir="ltr">communication</span>)</b> حاجة إحنا بنعملها طول اليوم — إحنا بنبعت وبنستقبل معلومات <b>(<span dir="ltr">information</span>)</b> باستمرار. بس الطريقة اللي بنتواصل بيها اتغيّرت جداً على مر الزمن. النهارده هنتابع <b>رحلة وسائل الاتصال <span dir="ltr">(communication media)</span></b> من أول إشارات النار والطبول، لحد الورق والبريد، لحد الهاتف والراديو والتلفزيون، وأخيراً الإنترنت <b>(<span dir="ltr">internet</span>)</b>.</p>
         <p data-ar="هنتعلّم 4 مراحل: الاتصال قبل الاتصالات، بداية الاتصالات، البث الجماهيري، وتطوّر الإنترنت — كل مرحلة ليها ناس واختراعات بتاعتها."
           data-en="We'll learn four stages: communication before telecommunications, the beginning of telecommunications, mass communication, and the development of the internet — each stage has its own people and inventions.">
-          هنتعلم <b>أربع مراحل</b>: قبل الاتصالات عن بُعد، بداية الاتصالات عن بُعد، الاتصال الجماهيري <b>(<span dir="ltr">mass communication</span>)</b>، وتطور الإنترنت — وكل مرحلة ليها شخصياتها واختراعاتها.</p>
+ هنتعلم <b>أربع مراحل</b>: قبل الاتصالات عن بُعد، بداية الاتصالات عن بُعد، الاتصال الجماهيري <b>(<span dir="ltr">mass communication</span>)</b>، وتطور الإنترنت — وكل مرحلة ليها شخصياتها واختراعاتها.</p>
         <p data-ar="الدرس ده مبني على كتاب الـ ICT، صفحات 46 لـ 47، وهو الأساس اللي الدروس الجاية عن أشكال الاتصال هتبني عليه."
           data-en="This lesson is based on the ICT textbook, pages 46 to 47, and it's the foundation the next lessons on forms of communication will build on.">
-          الدرس ده مبني على كتاب <span dir="ltr">ICT</span> من صفحة 46 لحد 47، وهو الأساس اللي الدروس الجاية عن أشكال الاتصال هتبني عليه.</p>
+ الدرس ده مبني على كتاب <span dir="ltr">ICT</span> من لحد 47، وهو الأساس اللي الدروس الجاية عن أشكال الاتصال هتبني عليه.</p>
       </div>
 
       <div class="section-inner">
@@ -1058,7 +88,7 @@ select{color:var(--text)!important}
               data-en="Our journey today has 4 stations">رحلتنا النهارده فيها 4 محطات</div>
             <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">🔥</span><span><b
                   style="color:var(--s1)" data-ar="قبل الاتصالات" data-en="Before Telecoms">قبل الاتصالات <span dir="ltr">Before Telecoms</span></b> <b
-                  data-ar="— نيران الإشارة والطبول ← الورق والبريد"
+                  data-ar="— نيران الإشارة والطبول → الورق والبريد"
                   data-en="— signal fires and drums → paper and mail">— نيران الإشارة والطبول ← الورق والبريد</b></span></div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">📡</span><span><b
                   style="color:var(--s2)" data-ar="بداية الاتصالات" data-en="Beginning of Telecoms">بداية الاتصالات <span dir="ltr">Beginning of Telecoms</span></b> <b
@@ -1073,27 +103,27 @@ select{color:var(--text)!important}
           <div class="demo-panel">
             <div class="demo-label" data-ar="ليه الاتصال مهم جداً؟" data-en="Why is communication so important?">ليه الاتصال مهم جداً؟</div>
             <p style="font-size:.95rem"
-              data-ar="أي مجتمع محتاج يبعت معلومات (Information) — أخبار عاجلة، رسالة، معرفة، طلب. والمشكلة اللي كل وسيلة اتعملت عشان تحلها بسيطة: المعلومات (Information) لازم توصل لأكبر عدد ممكن، بأسرع وقت، بأقل مجهود."
+              data-ar="أي مجتمع محتاج يبعت معلومات — أخبار عاجلة، رسالة، معرفة، طلب. والمشكلة اللي كل وسيلة اتعملت عشان تحلها بسيطة: المعلومات لازم توصل لأكبر عدد ممكن، بأسرع وقت، بأقل مجهود."
               data-en="Any society needs to send information — breaking news, a message, knowledge, a request. And the problem every medium was built to solve is simple: information needs to reach as many people as possible, as fast as possible, with the least effort.">
-              أي مجتمع محتاج يبعت معلومات — خبر عاجل، رسالة، معلومة، طلب. والمشكلة اللي كل وسيلة <b>(<span dir="ltr">medium</span>)</b> اتعملت عشان تحلها بسيطة: <b>المعلومة محتاجة توصل بأسرع وقت وبأقل مجهود لأكبر عدد ممكن من الناس.</b></p>
+ أي مجتمع محتاج يبعت معلومات — خبر عاجل، رسالة، معلومة، طلب. والمشكلة اللي كل وسيلة <b>(<span dir="ltr">medium</span>)</b> اتعملت عشان تحلها بسيطة: <b>المعلومة محتاجة توصل بأسرع وقت وبأقل مجهود لأكبر عدد ممكن من الناس.</b></p>
             <div class="note" style="margin-top:8px"><b data-ar="تحدّي النهارده:" data-en="Today's challenge:">تحدّي النهارده:</b> <span
-                data-ar="إزاي كل اختراع في الرحلة حسّن المدى، أو السرعة، أو عدد الناس اللي المعلومات (Information) بتوصلهم."
+                data-ar="إزاي كل اختراع في الرحلة حسّن المدى، أو السرعة، أو عدد الناس اللي المعلومات بتوصلهم."
                 data-en="how each invention along the journey improved the range, the speed, or the number of people the information reaches.">إزاي كل اختراع في الرحلة كان بيحسّن <b>المدى</b> أو <b>السرعة</b> أو <b>عدد الناس</b> اللي بتوصلهم المعلومة.</span></div>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="إنك تفتكر الاتصال ممكن يحصل من غير وسيلة نقل — لا، أي اتصال محتاج مرسل ووسيط ومستقبِل."
             data-en="Assuming communication can happen without a transmission medium — no, any communication needs a sender, a medium and a receiver.">
-            الافتراض إن التواصل ممكن يحصل من غير وسيلة نقل — <b>لا، أي تواصل محتاج مرسل ووسيلة ومستقبل.</b></li>
+ الافتراض إن التواصل ممكن يحصل من غير وسيلة نقل — <b>لا، أي تواصل محتاج مرسل ووسيلة ومستقبل.</b></li>
           <li data-ar="الخلط بين الإرسال الفردي والبث لعدد كبير — لكل واحد شكله اللي هنتعلّمه."
             data-en="Confusing one-to-one sending with broadcasting to a large number — each has its own form we'll learn.">الخلط بين الإرسال الفردي والبث لعدد كبير — لكل واحد شكله اللي هنتعلّمه.</li>
           <li data-ar="إنك تتخيّل التكنولوجيا ظهرت مرّة واحدة — لا، كل اختراع ظهر في مرحلة وبني على اللي قبله."
             data-en="Imagining technology appeared all at once — no, each invention appeared in a stage and built on the one before it.">
-            تخيل إن التكنولوجيا ظهرت كلها دفعة واحدة — <b>لا، كل اختراع ظهر في مرحلة وبنى على اللي قبله.</b></li>
+ تخيل إن التكنولوجيا ظهرت كلها دفعة واحدة — <b>لا، كل اختراع ظهر في مرحلة وبنى على اللي قبله.</b></li>
         </ul>
       </div>
     </section>
@@ -1113,12 +143,12 @@ select{color:var(--text)!important}
 
       <div class="section-inner card">
         <h3 data-ar="من غير كهربا، من غير تليفون — يبقى إزاي؟" data-en="No electricity, no phone — so how?">من غير كهربا، من غير تليفون — يبقى إزاي؟</h3>
-        <p data-ar="في الزمن القديم مكانش فيه تليفون ولا رسايل ولا إنترنت. الناس كانت محتاجة توصّل معلومات (Information) بسيطة، وكانت بتستخدم أسهل حاجة موجودة: نيران إشارة أو ضرب طبول. بعد ما اتطوّرت الكتابة، كانوا بيكتبوا رسايل على ورق ويوصّلوها بعَدّائين أو حمام زاجل."
+        <p data-ar="في الزمن القديم مكانش فيه تليفون ولا رسايل ولا إنترنت. الناس كانت محتاجة توصّل معلومات بسيطة، وكانت بتستخدم أسهل حاجة موجودة: نيران إشارة أو ضرب طبول. بعد ما اتطوّرت الكتابة، كانوا بيكتبوا رسايل على ورق ويوصّلوها بعَدّائين أو حمام زاجل."
           data-en="In ancient times there was no phone, no text messages and no internet. People needed to get simple information across, and they used the easiest things available: signal fires or beating drums. After writing was developed, they wrote messages on paper and delivered them using messengers or carrier pigeons.">
-          في الزمن القديم مفيش تليفون ولا رسايل نصية ولا إنترنت. الناس كانوا محتاجين يوصلوا معلومة بسيطة لبعض، واستخدموا أسهل حاجة قدامهم: <b>إشارات النار <span dir="ltr">(signal fires)</span></b> أو <b>قرع الطبول <span dir="ltr">(beating drums)</span></b>. وبعد ما اتعرفت الكتابة، كتبوا الرسايل على الورق <b>(<span dir="ltr">paper</span>)</b> وبعتوها <b>بالرسل</b> أو <b>بالحمام الزاجل <span dir="ltr">(carrier pigeons)</span></b>.</p>
+ في الزمن القديم مفيش تليفون ولا رسايل نصية ولا إنترنت. الناس كانوا محتاجين يوصلوا معلومة بسيطة لبعض، واستخدموا أسهل حاجة قدامهم: <b>إشارات النار <span dir="ltr">(signal fires)</span></b> أو <b>قرع الطبول <span dir="ltr">(beating drums)</span></b>. وبعد ما اتعرفت الكتابة، كتبوا الرسايل على الورق <b>(<span dir="ltr">paper</span>)</b> وبعتوها <b>بالرسل</b> أو <b>بالحمام الزاجل <span dir="ltr">(carrier pigeons)</span></b>.</p>
         <p data-ar="دي 3 محطات — تحرّك بالأسهم واتفرّج على الرحلة خطوة بخطوة."
           data-en="These are three stations — move with the arrows and watch the journey step by step.">دي 3 محطات — تحرّك بالأسهم واتفرّج على الرحلة خطوة بخطوة.</p>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(1) الاتصال وتطوره — [1] وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية: • في العصور القديمة، تم نقل المعلومات الأساسية بإشعال نيران الإشارة (signal fires) أو ضرب الطبول. • بعد تطوير الكتابة، كُتبت الرسائل على الورق (paper) وتم تسليمها باستخدام الرسل أو الحمام الزاجل. • تم إنشاء نظام البريد الحديث (modern postal system) في عام 1840.</p></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(1) الاتصال وتطوره — [1] وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية: • في العصور القديمة، تم نقل المعلومات الأساسية بإشعال نيران الإشارة أو ضرب الطبول. • بعد تطوير الكتابة، كُتبت الرسائل على الورق وتم تسليمها باستخدام الرسل أو الحمام الزاجل. • تم إنشاء نظام البريد الحديث في عام 1840.</p></div>
 
       <div class="section-inner diagram-wrap">
         <span class="topbar"></span>
@@ -1134,15 +164,15 @@ select{color:var(--text)!important}
                 <div class="prop"><span class="emoji-pulse">🔥</span><span class="emoji-pulse" style="animation-delay:.6s">🥁</span></div>
                 <div class="tl-year" data-ar="الزمن القديم" data-en="Ancient times">الزمن القديم</div>
                 <div class="tl-title" data-ar="نيران الإشارة والطبول" data-en="Signal fires and drums">نيران الإشارة والطبول</div>
-                <p class="tl-desc" data-ar="أول وسائل الاتصال كانت إشارات بصرية زي النيران، أو إشارات صوتية زي الطبول — عشان توصّل معلومات (Information) بسيطة لعدد صغير من الناس القريبين."
-                  data-en="The first means of communication were visual signals like fires, or sound signals like drums — to get simple information to a small number of people nearby.">أول وسائل الاتصال كانت إشارات بصرية زي النيران، أو إشارات صوتية زي الطبول — عشان توصّل معلومات (Information) بسيطة لعدد صغير من الناس القريبين.</p>              </div>
+                <p class="tl-desc" data-ar="أول وسائل الاتصال كانت إشارات بصرية زي النيران، أو إشارات صوتية زي الطبول — عشان توصّل معلومات بسيطة لعدد صغير من الناس القريبين."
+                  data-en="The first means of communication were visual signals like fires, or sound signals like drums — to get simple information to a small number of people nearby.">أول وسائل الاتصال كانت إشارات بصرية زي النيران، أو إشارات صوتية زي الطبول — عشان توصّل معلومات بسيطة لعدد صغير من الناس القريبين.</p>              </div>
               <div class="tl-step">
                 <div class="prop"><span class="emoji-float">📜</span><span class="emoji-walk">🕊️</span></div>
                 <div class="tl-year" data-ar="بعد الكتابة" data-en="After writing">بعد الكتابة</div>
                 <div class="tl-title" data-ar="الورق والعَدّائين وحمام الزاجل" data-en="Paper, messengers and carrier pigeons">الورق والعَدّائين وحمام الزاجل</div>
                 <p class="tl-desc" data-ar="بعد ما اتطوّرت الكتابة، كانوا بيكتبوا حروف ورموز على ورق ويوصّلوها بعَدّائين بيمشوا، أو حمام زاجل بيحمل الرسالة في الهوا."
                   data-en="After writing was developed, letters and symbols were written on paper and delivered by messengers who walked, or by carrier pigeons that carried the message through the air.">
-                  بعد ما اتعرفت الكتابة، اتنكتبت الرسايل والرموز على الورق، واتوصلت <b>بالرسل</b> اللي بيمشوا أو <b>بالحمام الزاجل <span dir="ltr">(carrier pigeons)</span></b> اللي بينقل الرسالة في الهواء.</p>
+ بعد ما اتعرفت الكتابة، اتنكتبت الرسايل والرموز على الورق، واتوصلت <b>بالرسل</b> اللي بيمشوا أو <b>بالحمام الزاجل <span dir="ltr">(carrier pigeons)</span></b> اللي بينقل الرسالة في الهواء.</p>
               </div>
               <div class="tl-step">
                 <div class="prop"><span class="emoji-float">✉️</span></div>
@@ -1150,13 +180,13 @@ select{color:var(--text)!important}
                 <div class="tl-title" data-ar="نظام البريد الحديث" data-en="The modern postal system">نظام البريد الحديث</div>
                 <p class="tl-desc" data-ar="في 1840 اتأسّس نظام البريد الحديث — سيستم منظّم لنقل الخطابات بين الناس، بدل ما نعتمد على عَدّائين أفراد."
                   data-en="In 1840 the modern postal system was established — an organized system for moving letters between people, instead of relying on individual messengers.">
-                  في <b>1840</b> اتأسس <b>نظام البريد الحديث <span dir="ltr">(modern postal system)</span></b> — نظام منظم لنقل الرسايل بين الناس، بدل ما تعتمد على رسل فرادى.</p>
+ في <b>1840</b> اتأسس <b>نظام البريد الحديث <span dir="ltr">(modern postal system)</span></b> — نظام منظم لنقل الرسايل بين الناس، بدل ما تعتمد على رسل فرادى.</p>
               </div>
             </div>
             <div class="tl-ctl">
-              <button class="mini-btn" data-id="tl1Prev" data-ar="← السابق" data-en="← Previous">← السابق</button>
+              <button class="mini-btn" data-id="tl1Prev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
               <span class="tl-count" data-id="tl1Count">1 / 3</span>
-              <button class="mini-btn" data-id="tl1Next" data-ar="التالي →" data-en="Next →">التالي →</button>
+              <button class="mini-btn" data-id="tl1Next" data-ar="التالي ←" data-en="Next →">التالي →</button>
               <button class="btn" data-id="tl1Replay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
             </div>
           </div>
@@ -1168,17 +198,17 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="مش كل الوسائل القديمة ليها نفس المدى — نيران الإشارة والطبول مداها قصير جداً، بينما الورق والبريد مداهم أطول."
             data-en="Not every old medium has the same range — signal fires and drums have a very short range, while paper and mail have a longer one.">
-            مش كل وسيلة قديمة ليها نفس المدى — إشارات النار والطبول مداها <b>قصير جداً</b>، الورق والبريد مداها أطول.</li>
-          <li data-ar="الخلط بين ناقل المعلومات (Information) ومصدرها — حمام الزاجل بينقل الرسالة، مش بيكتبها."
+ مش كل وسيلة قديمة ليها نفس المدى — إشارات النار والطبول مداها <b>قصير جداً</b>، الورق والبريد مداها أطول.</li>
+          <li data-ar="الخلط بين ناقل المعلومات ومصدرها — حمام الزاجل بينقل الرسالة، مش بيكتبها."
             data-en="Confusing the carrier of the information with its source — the carrier pigeon transports the message, it doesn't write it.">
-            الخلط بين ناقل المعلومة ومصدرها — الحمام الزاجل <b>بينقل</b> الرسالة، مش اللي كتبها.</li>
+ الخلط بين ناقل المعلومة ومصدرها — الحمام الزاجل <b>بينقل</b> الرسالة، مش اللي كتبها.</li>
           <li data-ar="نظام البريد الحديث اتأسّس في 1840 — مش في نفس عصر نيران الإشارة."
             data-en="The modern postal system was established in 1840 — not in the same era as signal fires.">
-            نظام البريد الحديث اتعمل في <b>1840</b> — مش في نفس زمن إشارات النار.</li>
+ نظام البريد الحديث اتعمل في <b>1840</b> — مش في نفس زمن إشارات النار.</li>
         </ul>
       </div>
     </section>
@@ -1197,11 +227,11 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="الاتصالات: إرسال المعلومات (Information) من بعيد" data-en="Telecommunications: sending information remotely">التلكميونيكيشنز <span dir="ltr">(telecommunications)</span>: إرسال المعلومة عن بُعد</h3>
-        <p data-ar="الاتصالات يعني إرسال المعلومات (Information) من مكان لمكان تاني باستخدام التكنولوجيا. كله بدأ باختراعات متتابعة في القرن الـ 19: التلغراف والتليفون واللاسلكي وبعدين الموبايل."
+        <h3 data-ar="الاتصالات: إرسال المعلومات من بعيد" data-en="Telecommunications: sending information remotely">التلكميونيكيشنز <span dir="ltr">(telecommunications)</span>: إرسال المعلومة عن بُعد</h3>
+        <p data-ar="الاتصالات يعني إرسال المعلومات من مكان لمكان تاني باستخدام التكنولوجيا. كله بدأ باختراعات متتابعة في القرن الـ 19: التلغراف والتليفون واللاسلكي وبعدين الموبايل."
           data-en="Telecommunications means sending information from one place to another using technology. It all started with consecutive inventions in the 19th century: the telegraph, the telephone, the wireless, and then the cellular phone.">
-          الاتصالات عن بُعد <b>(<span dir="ltr">telecommunications</span>)</b> معناها إرسال المعلومة من مكان لمكان آخر عن طريق التكنولوجيا. كل ده بدأ باختراعات متتالية في القرن الـ19: <b>التلغراف <span dir="ltr">(telegraph)</span></b>، <b>الهاتف <span dir="ltr">(telephone)</span></b>، <b>اللاسلكي <span dir="ltr">(wireless telegraph)</span></b>، وبعدين <b>الهاتف الخلوي <span dir="ltr">(cellular phone)</span></b>.</p>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>[2] بداية الاتصالات السلكية واللاسلكية: • في عام 1837، اخترع أمريكي يدعى مورس (Morse) تلغراف مورس ((Morse telegraph) لإرسال واستقبال الرموز عبر الاتصالات السلكية واللاسلكية). • في عام 1876، اخترع أمريكي يدعى Bill الهاتف (telephone). • في عام 1895، اخترع إيطالي يدعى Marcony التلغراف اللاسلكي (Wireless telegraph). • في عام 1946، بدأ استخدام خدمة الهاتف المحمول (الهواتف الخلوية - cellular phones) في الولايات المتحدة.</p></div>
+ الاتصالات عن بُعد <b>(<span dir="ltr">telecommunications</span>)</b> معناها إرسال المعلومة من مكان لمكان آخر عن طريق التكنولوجيا. كل ده بدأ باختراعات متتالية في القرن الـ19: <b>التلغراف <span dir="ltr">(telegraph)</span></b>، <b>الهاتف <span dir="ltr">(telephone)</span></b>، <b>اللاسلكي <span dir="ltr">(wireless telegraph)</span></b>، وبعدين <b>الهاتف الخلوي <span dir="ltr">(cellular phone)</span></b>.</p>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>[2] بداية الاتصالات السلكية واللاسلكية: • في عام 1837، اخترع أمريكي يدعى مورس تلغراف مورس ( لإرسال واستقبال الرموز عبر الاتصالات السلكية واللاسلكية). • في عام 1876، اخترع أمريكي يدعى Bill الهاتف. • في عام 1895، اخترع إيطالي يدعى Marcony التلغراف اللاسلكي. • في عام 1946، بدأ استخدام خدمة الهاتف المحمول (الهواتف الخلوية - cellular phones) في الولايات المتحدة.</p></div>
 
       <div class="section-inner diagram-wrap">
         <span class="topbar"></span>
@@ -1220,7 +250,7 @@ select{color:var(--text)!important}
                 <div class="tl-title" data-ar="مورس والتلغراف" data-en="Morse and the telegraph">مورس والتلغراف</div>
                 <p class="tl-desc" data-ar="أمريكي اسمه مورس اخترع التلغراف — جهاز لإرسال واستقبال الأكواد (زي شفرة مورس) عبر الاتصالات."
                   data-en="An American named Morse invented the telegraph — a device for sending and receiving codes (like Morse code) through telecommunications.">
-                  أمريكي اسمه <b>مورس</b> اخترع <b>التلغراف <span dir="ltr">(telegraph)</span></b> — جهاز بيبعت ويستقبل رموز (زي إشارة مورس) عن طريق الاتصالات عن بُعد.</p>
+ أمريكي اسمه <b>مورس</b> اخترع <b>التلغراف <span dir="ltr">(telegraph)</span></b> — جهاز بيبعت ويستقبل رموز (زي إشارة مورس) عن طريق الاتصالات عن بُعد.</p>
               </div>
               <div class="tl-step">
                 <div class="prop"><span class="emoji-float">☎️</span></div>
@@ -1228,7 +258,7 @@ select{color:var(--text)!important}
                 <div class="tl-title" data-ar="بيل والتليفون" data-en="Bell and the telephone">بيل والتليفون</div>
                 <p class="tl-desc" data-ar="في 1876، المخترع الأمريكي بيل اخترع التليفون — أول وسيلة بتخلّي صوتك يوصل لشخص تاني في مكان تاني."
                   data-en="In 1876, the American inventor Bell invented the telephone — the first medium that lets your voice reach another person in another place.">
-                  في <b>1876</b>، المخترع الأمريكي <b>بيل</b> اخترع <b>الهاتف <span dir="ltr">(telephone)</span></b> — أول وسيلة تخلي صوتك يوصل لشخص تاني في مكان تاني.</p>
+ في <b>1876</b>، المخترع الأمريكي <b>بيل</b> اخترع <b>الهاتف <span dir="ltr">(telephone)</span></b> — أول وسيلة تخلي صوتك يوصل لشخص تاني في مكان تاني.</p>
               </div>
               <div class="tl-step">
                 <div class="prop"><span class="emoji-float">📻</span></div>
@@ -1236,7 +266,7 @@ select{color:var(--text)!important}
                 <div class="tl-title" data-ar="ماركوني والتلغراف اللاسلكي" data-en="Marconi and the wireless telegraph">ماركوني والتلغراف اللاسلكي</div>
                 <p class="tl-desc" data-ar="في 1895، الإيطالي ماركوني اخترع التلغراف اللاسلكي — بيبعت إشارات من غير أسلاك، وده اللي بعدين تطوّر لراديو."
                   data-en="In 1895, the Italian Marconi invented the wireless telegraph — it sends signals without wires, and that's what later developed into radios.">
-                  في <b>1895</b>، الإيطالي <b>ماركوني</b> اخترع <b>التلغراف اللاسلكي <span dir="ltr">(wireless telegraph)</span></b> — بيبعت إشارات من غير أسلاك، وده اللي اتطور بعدين للراديو.</p>
+ في <b>1895</b>، الإيطالي <b>ماركوني</b> اخترع <b>التلغراف اللاسلكي <span dir="ltr">(wireless telegraph)</span></b> — بيبعت إشارات من غير أسلاك، وده اللي اتطور بعدين للراديو.</p>
               </div>
               <div class="tl-step">
                 <div class="prop"><span class="emoji-float">📱</span></div>
@@ -1244,13 +274,13 @@ select{color:var(--text)!important}
                 <div class="tl-title" data-ar="الموبايلات" data-en="Cellular phones">الموبايلات</div>
                 <p class="tl-desc" data-ar="في 1946 بدأ استخدام خدمة التليفون المحمول (الخلوي) في أمريكا — بداية الموبايل اللي في إيدك النهارده."
                   data-en="In 1946 the mobile (cellular) phone service began to be used in the United States — the beginning of the mobile phone in your hand today.">
-                  في <b>1946</b> بدأ استخدام خدمة الهاتف المحمول (الخلوي) <b><span dir="ltr">(cellular phone)</span></b> في الولايات المتحدة — بداية الموبايل اللي في إيدك النهارده.</p>
+ في <b>1946</b> بدأ استخدام خدمة الهاتف المحمول (الخلوي) <b><span dir="ltr">(cellular phone)</span></b> في الولايات المتحدة — بداية الموبايل اللي في إيدك النهارده.</p>
               </div>
             </div>
             <div class="tl-ctl">
-              <button class="mini-btn" data-id="tl2Prev" data-ar="← السابق" data-en="← Previous">← السابق</button>
+              <button class="mini-btn" data-id="tl2Prev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
               <span class="tl-count" data-id="tl2Count">1 / 4</span>
-              <button class="mini-btn" data-id="tl2Next" data-ar="التالي →" data-en="Next →">التالي →</button>
+              <button class="mini-btn" data-id="tl2Next" data-ar="التالي ←" data-en="Next →">التالي →</button>
               <button class="btn" data-id="tl2Replay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
             </div>
           </div>
@@ -1261,7 +291,7 @@ select{color:var(--text)!important}
         <h3 data-ar="جرّب: شفرة مورس بتشتغل إزاي؟" data-en="Try it: how does Morse code work?">جرّب: شفرة مورس بتشتغل إزاي؟</h3>
         <p style="font-size:.95rem" data-ar="التلغراف بيفرّق بين إشارة قصيرة (نقطة) وإشارة طويلة (خط). كود النداء SOS هو: 3 نقط، 3 خطوط، 3 نقط."
           data-en="The telegraph distinguished a short signal (a dot) from a long signal (a dash). The SOS call code is: 3 dots, 3 dashes, 3 dots.">
-          التلغراف كان بيفرّق بين إشارة قصيرة (نقطة) وإشارة طويلة (شرطة). كود النداء <span dir="ltr">SOS</span> بيبقى: <b>3 نقط، 3 شرطات، 3 نقط</b>.</p>
+ التلغراف كان بيفرّق بين إشارة قصيرة (نقطة) وإشارة طويلة (شرطة). كود النداء <span dir="ltr">SOS</span> بيبقى: <b>3 نقط، 3 شرطات، 3 نقط</b>.</p>
         <div class="sig-cells">
           <div class="sig-cell">•</div>
           <div class="sig-cell">•</div>
@@ -1286,17 +316,17 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين المخترعين — مورس عمل التلغراف، وبيل عمل التليفون، وماركوني عمل اللاسلكي."
             data-en="Confusing the inventors — Morse made the telegraph, Bell made the telephone, and Marconi made the wireless.">
-            خلط المخترعين — <b>مورس</b> عمل التلغراف، <b>بيل</b> عمل الهاتف، و<b>ماركوني</b> عمل اللاسلكي.</li>
+ خلط المخترعين — <b>مورس</b> عمل التلغراف، <b>بيل</b> عمل الهاتف، و<b>ماركوني</b> عمل اللاسلكي.</li>
           <li data-ar="مورس مش مخترع التلغراف اللاسلكي — ده ماركوني، وحصل سنين بعد مورس."
             data-en="Morse is not the inventor of the wireless telegraph — that's Marconi, and it happened years after Morse.">
-            مورس مش مخترع التلغراف اللاسلكي — <b>ده ماركوني</b>، وده حصل بعد مورس بسنين.</li>
+ مورس مش مخترع التلغراف اللاسلكي — <b>ده ماركوني</b>، وده حصل بعد مورس بسنين.</li>
           <li data-ar="الموبايل بدأ استخدامه في 1946 في أمريكا — مش في أوروبا."
             data-en="The cellular phone began to be used in 1946 in the United States — not in Europe.">
-            الهاتف الخلوي بدأ استخدامه في <b>1946 في الولايات المتحدة</b> — مش في أوروبا.</li>
+ الهاتف الخلوي بدأ استخدامه في <b>1946 في الولايات المتحدة</b> — مش في أوروبا.</li>
         </ul>
       </div>
     </section>
@@ -1308,23 +338,23 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
           <div>
             <h2 data-ar="البث الجماهيري وتطوّره" data-en="Mass Communication and Its Development">البث الجماهيري وتطوّره</h2>
-            <div class="tag" style="color:var(--s4)" data-ar="المعلومات (Information) توصل لعدد كبير مرة واحدة"
-              data-en="information reaches a large number at once">المعلومات (Information) توصل لعدد كبير مرة واحدة</div>
+            <div class="tag" style="color:var(--s4)" data-ar="المعلومات توصل لعدد كبير مرة واحدة"
+              data-en="information reaches a large number at once">المعلومات توصل لعدد كبير مرة واحدة</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
         <h3 data-ar="البث الجماهيري: واحد بيتكلم، الكل بيسمع" data-en="Mass communication: one speaks, everyone hears">الـ <span dir="ltr">Mass communication</span>: واحد بيتكلم، الكل بيسمع</h3>
-        <p data-ar="البث الجماهيري (وده كمان بيتسمّى الإعلام الجماهيري) = وسيلة لإرسال معلومات (Information) لعدد كبير جداً من الناس في نفس الوقت. الفكرة الأساسية: الإرسال من مصدر واحد لجمهور كبير — إرسال باتجاه واحد من المرسل للمستقبِل، مش كلام مباشر من طرفين."
+        <p data-ar="البث الجماهيري (وده كمان بيتسمّى الإعلام الجماهيري) = وسيلة لإرسال معلومات لعدد كبير جداً من الناس في نفس الوقت. الفكرة الأساسية: الإرسال من مصدر واحد لجمهور كبير — إرسال باتجاه واحد من المرسل للمستقبِل، مش كلام مباشر من طرفين."
           data-en="Mass communication (also called mass media) = a means of sending information to a very large number of people at the same time. The core idea: sending from one source to a large audience — one-way transmission from sender to receiver, not a two-way conversation.">
-          الاتصال الجماهيري (واسمه كمان <span dir="ltr">Mass media</span>) = وسيلة إرسال المعلومة لعدد كبير جداً من الناس في نفس الوقت. الفكرة الأساسية: <b>إرسال من مصدر واحد لجمهور كبير <span dir="ltr">(one-to-many)</span></b> — يعني اتجاه واحد من المرسل للمستقبل، مش محادثة متبادلة.</p>
+ الاتصال الجماهيري (واسمه كمان <span dir="ltr">Mass media</span>) = وسيلة إرسال المعلومة لعدد كبير جداً من الناس في نفس الوقت. الفكرة الأساسية: <b>إرسال من مصدر واحد لجمهور كبير <span dir="ltr">(one-to-many)</span></b> — يعني اتجاه واحد من المرسل للمستقبل، مش محادثة متبادلة.</p>
 
         <div class="flow-row">
           <div class="flow-node">
             <div class="flow-emoji"><span class="emoji-pulse">📢</span></div>
             <b data-ar="المرسل" data-en="Sender">المرسل</b>
-            <span class="flow-sub" data-ar="مصدر المعلومات (Information)" data-en="the information source">مصدر المعلومات (Information)</span>
+            <span class="flow-sub" data-ar="مصدر المعلومات" data-en="the information source">مصدر المعلومات</span>
           </div>
           <span class="arrow-flip">
             <svg width="44" height="18" viewBox="0 0 60 20" fill="none" aria-hidden="true">
@@ -1353,7 +383,7 @@ select{color:var(--text)!important}
           <span><i style="background:var(--accent)"></i> <span data-ar="اتجاه واحد — من المرسل للمستقبِل" data-en="one direction — from sender to receiver">اتجاه واحد — من المرسل للمستقبِل</span></span>
           <span><i style="background:var(--s4)"></i> <span data-ar="جمهور كبير بيستقبل في نفس الوقت" data-en="a large audience receiving at the same time">جمهور كبير بيستقبل في نفس الوقت</span></span>
         </div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) الاتصال الجماهيري (وسائل الاتصال الجماهيري) ((Mass communication (Mass media))) : وسيلة لإرسال المعلومات إلى عدد كبير من الناس في وقت واحد. &lt;أمثلة&gt; الصحف والمجلات، البث الإذاعي والتلفزيوني، إلخ.</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(3) تطور الاتصال الجماهيري: • في منتصف القرن الخامس عشر، اخترع ألماني يدعى غوتنبرغ (Gutenberg) طابعة الحروف المتحركة (Movable-type printing press). • في عام 1906، تم إجراء أول بث تجريبي لـ الراديو (radio) في الولايات المتحدة. • في عام 1928، تم إجراء أول بث تجريبي لـ التلفزيون (Television) في الولايات المتحدة.</p></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) الاتصال الجماهيري (وسائل الاتصال الجماهيري) ((Mass communication)): وسيلة لإرسال المعلومات إلى عدد كبير من الناس في وقت واحد. &lt;أمثلة&gt; الصحف والمجلات، البث الإذاعي والتلفزيوني، إلخ.</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(3) تطور الاتصال الجماهيري: • في منتصف القرن الخامس عشر، اخترع ألماني يدعى غوتنبرغ طابعة الحروف المتحركة. • في عام 1906، تم إجراء أول بث تجريبي لـ الراديو في الولايات المتحدة. • في عام 1928، تم إجراء أول بث تجريبي لـ التلفزيون في الولايات المتحدة.</p></div>
 
       <div class="section-inner diagram-wrap">
         <span class="topbar"></span>
@@ -1371,9 +401,9 @@ select{color:var(--text)!important}
                 <div class="prop"><span class="emoji-pulse">🖨️</span></div>
                 <div class="tl-year" data-ar="منتصف القرن الـ 15" data-en="Mid-15th century">منتصف القرن الـ 15</div>
                 <div class="tl-title" data-ar="جوتنبرج والمطبعة ذات الحروف المتحركة" data-en="Gutenberg and the movable-type printing press">جوتنبرج والمطبعة ذات الحروف المتحركة</div>
-                <p class="tl-desc" data-ar="المخترع الألماني جوتنبرج اخترع المطبعة ذات الحروف المتحركة، وده خلّى تكثير كميات ضخمة من المعلومات (Information) سهل — اتنشرت جرايد وكتب ووصلت المعلومات (Information) لعدد كبير من الناس."
+                <p class="tl-desc" data-ar="المخترع الألماني جوتنبرج اخترع المطبعة ذات الحروف المتحركة، وده خلّى تكثير كميات ضخمة من المعلومات سهل — اتنشرت جرايد وكتب ووصلت المعلومات لعدد كبير من الناس."
                   data-en="The German inventor Gutenberg invented the movable-type printing press, making it easy to reproduce huge amounts of information — newspapers and books were published and information reached a large number of people.">
-                  المخترع الألماني <b>جوتنبرج</b> اخترع <b>المطبعة ذات الحروف المتحركة <span dir="ltr">(movable-type printing press)</span></b>، فبقى ممكن إعادة إنتاج كميات ضخمة من المعلومات بسهولة — الصحف والكتب اتنشرت والمعلومة وصلت لعدد كبير من الناس.</p>
+ المخترع الألماني <b>جوتنبرج</b> اخترع <b>المطبعة ذات الحروف المتحركة <span dir="ltr">(movable-type printing press)</span></b>، فبقى ممكن إعادة إنتاج كميات ضخمة من المعلومات بسهولة — الصحف والكتب اتنشرت والمعلومة وصلت لعدد كبير من الناس.</p>
               </div>
               <div class="tl-step">
                 <div class="prop"><span class="emoji-float">📻</span></div>
@@ -1381,7 +411,7 @@ select{color:var(--text)!important}
                 <div class="tl-title" data-ar="أول بث راديو تجريبي" data-en="The first experimental radio broadcast">أول بث راديو تجريبي</div>
                 <p class="tl-desc" data-ar="في 1906 اتعمل أول بث راديو تجريبي في أمريكا — الراديو بدأ يوصّل الصوت لعشرات الآلاف في نفس اللحظة."
                   data-en="In 1906 the first experimental radio broadcast was conducted in the United States — radio started delivering sound to tens of thousands at the same moment.">
-                  في <b>1906</b> اتعمل أول بث إذاعي تجريبي في الولايات المتحدة — الراديو <span dir="ltr">(radio)</span> بدأ يوصّل الصوت لعشرات الآلاف في نفس اللحظة.</p>
+ في <b>1906</b> اتعمل أول بث إذاعي تجريبي في الولايات المتحدة — الراديو <span dir="ltr">(radio)</span> بدأ يوصّل الصوت لعشرات الآلاف في نفس اللحظة.</p>
               </div>
               <div class="tl-step">
                 <div class="prop"><span class="emoji-float">📺</span></div>
@@ -1389,13 +419,13 @@ select{color:var(--text)!important}
                 <div class="tl-title" data-ar="أول بث تليفزيون تجريبي" data-en="The first experimental television broadcast">أول بث تليفزيون تجريبي</div>
                 <p class="tl-desc" data-ar="في 1928 اتعمل أول بث تليفزيون تجريبي في أمريكا — صورة وصوت مع بعض، وده بداية التليفزيون اللي إحنا نعرفه."
                   data-en="In 1928 the first experimental television broadcast was conducted in the United States — image and sound together, and that's the beginning of the television we know.">
-                  في <b>1928</b> اتعمل أول بث تلفزيوني تجريبي في الولايات المتحدة — الصورة والصوت مع بعض، وده بداية التلفزيون <span dir="ltr">(television)</span> اللي نعرفه.</p>
+ في <b>1928</b> اتعمل أول بث تلفزيوني تجريبي في الولايات المتحدة — الصورة والصوت مع بعض، وده بداية التلفزيون <span dir="ltr">(television)</span> اللي نعرفه.</p>
               </div>
             </div>
             <div class="tl-ctl">
-              <button class="mini-btn" data-id="tl3Prev" data-ar="← السابق" data-en="← Previous">← السابق</button>
+              <button class="mini-btn" data-id="tl3Prev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
               <span class="tl-count" data-id="tl3Count">1 / 3</span>
-              <button class="mini-btn" data-id="tl3Next" data-ar="التالي →" data-en="Next →">التالي →</button>
+              <button class="mini-btn" data-id="tl3Next" data-ar="التالي ←" data-en="Next →">التالي →</button>
               <button class="btn" data-id="tl3Replay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
             </div>
           </div>
@@ -1403,17 +433,17 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="البث الجماهيري غالباً باتجاه واحد (من المرسل للمستقبِل) — مش كلام مباشر من طرفين."
             data-en="Mass communication is usually one-way (sender to receiver) — not a two-way conversation.">
-            الاتصال الجماهيري بيبقى <b>اتجاه واحد</b> غالباً (من المرسل للمستقبل) — مش محادثة متبادلة.</li>
+ الاتصال الجماهيري بيبقى <b>اتجاه واحد</b> غالباً (من المرسل للمستقبل) — مش محادثة متبادلة.</li>
           <li data-ar="جوتنبرج اخترع المطبعة، مش التليفزيون — وده حصل قرون قبل التليفزيون."
             data-en="Gutenberg invented the printing press, not the television — and that happened centuries before television.">
-            جوتنبرج مخترع <b>المطبعة</b>، مش التلفزيون — وده حصل قبل اختراع التلفزيون بقرون.</li>
+ جوتنبرج مخترع <b>المطبعة</b>، مش التلفزيون — وده حصل قبل اختراع التلفزيون بقرون.</li>
           <li data-ar="الترتيب الزمني: الراديو (1906) جه قبل التليفزيون (1928)."
             data-en="The chronological order: radio (1906) came before television (1928).">
-            الترتيب الزمني: <b>الراديو (1906)</b> سبق <b>التلفزيون (1928)</b>.</li>
+ الترتيب الزمني: <b>الراديو (1906)</b> سبق <b>التلفزيون (1928)</b>.</li>
         </ul>
       </div>
     </section>
@@ -1435,8 +465,8 @@ select{color:var(--text)!important}
         <h3 data-ar="الإنترنت بدأ كـ ARPANET" data-en="The internet started as ARPANET">الإنترنت بدأ باسم <span dir="ltr">ARPANET</span></h3>
         <p data-ar="الإنترنت اللي قدامك النهارده بدأ كتجربة صغيرة في 1969 اسمها ARPANET، بدعم من وزارة الدفاع الأمريكية. في الأول الشبكة كانت بتستخدمها جهات البحث، وبعدين تطوّرت واتعرفت بالإنترنت وبدأت تنتشر بين الناس في التسعينيات."
           data-en="The internet in front of you today started as a small experiment in 1969 called ARPANET, supported by the United States Department of Defense. At first the network was used by research institutions, then it evolved, became known as the internet, and began to spread among the general public in the 1990s.">
-          الإنترنت اللي قدامك النهارده بدأ بتجربة صغيرة في <b>1969</b> باسم <span dir="ltr">ARPANET</span> بدعم من <b>وزارة الدفاع الأمريكية <span dir="ltr">(Department of Defense)</span></b>. في الأول كانت الشبكة مستخدمة من <b>المؤسسات البحثية <span dir="ltr">(research institutions)</span></b>، وبعدين اتطورت واتعرفت بالإنترنت وبدأت تنتشر بين الجمهور في التسعينيات.</p>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(4) تطور الإنترنت: • في عام 1969، بدعم من وزارة الدفاع الأمريكية، تم إجراء تجربة على شبكة كمبيوتر تسمى أربانت (ARPANET). في البداية، تم استخدامها بشكل رئيسي من قبل مؤسسات البحث (Research institutions). ومع ذلك، أصبحت في النهاية معروفة باسم الإنترنت (Internet) وبدأت في الانتشار بين عامة الناس.</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) عنوان صندوق النقاط: الإنجليزية &quot;Media and Its Evolution&quot; مقابل العربية «تطوير وسائل الاتصال». (2) عنوانا [1] و[2]: العربية تفصّل «الاتصالات» إلى «الاتصالات السلكية واللاسلكية» («وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية» و«بداية الاتصالات السلكية واللاسلكية») بينما الإنجليزية تطبع &quot;Communication Before Telecommunications&quot; و&quot;The Beginning of Telecommunications&quot;. (3) نبذة 1876:العربية تطبع «يدعى Bill» بينما الإنجليزية &quot;named Bell&quot;. (4) نبذة 1895:العربية تطبع «Marcony» و«(Wireless telegraph)» بحرف W كبير، بينما الإنجليزية &quot;Marconi&quot; و&quot;(⁷wireless telegraph)&quot;. (5) نبذة 1946:قوس العربية «(الهواتف الخلوية - cellular phones)» بشرطة بينما الإنجليزية &quot;(⁸cellular phones)&quot; فقط. (6) تعريف (2): العربية بأقواس مضاعفة «((Mass communication (Mass media)))» وعنوان الأمثلة «&lt;أمثلة>» بينما الإنجليزية &quot;&lt;Examples>&quot;. (7) العربية تطبع «(Television)» و«(Internet)» و«(Research institutions)» بحروف أولى كبيرة بينما الإنجليزية &quot;(¹³television)&quot; و&quot;(¹⁶internet)&quot; و&quot;(¹⁵research institutions)&quot;. (8) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁶ بينما العربية تكتفي بالتظليل الأحمر. (9) الإنجليزية بها أيقونتا سماعة (بعد نبذة cellular phones وفي نهاية الفقرة (4)) بينما صفحة العربية بلا أيقونات." data-en="Edition comparison:(1) The Point box heading: English &quot;Media and Its Evolution&quot; vs Arabic «تطوير وسائل الاتصال». (2) Headings [1] and [2]: Arabic expands telecommunications into «الاتصالات السلكية واللاسلكية» (&quot;wired and wireless communications&quot;) while English prints &quot;Communication Before Telecommunications&quot; and &quot;The Beginning of Telecommunications&quot;. (3) The 1876 bullet:Arabic prints «يدعى Bill» while English prints &quot;named Bell&quot;. (4) The 1895 bullet:Arabic prints «Marcony» and «(Wireless telegraph)» with a capital W, while English prints &quot;Marconi&quot; and &quot;(⁷wireless telegraph)&quot;. (5) The 1946 bullet:the Arabic bracket «(الهواتف الخلوية - cellular phones)» carries a hyphen, while English prints only &quot;(⁸cellular phones)&quot;. (6) Definition (2): Arabic prints doubled parentheses «((Mass communication (Mass media)))» and the examples heading «&lt;أمثلة>» where English prints &quot;&lt;Examples>&quot;. (7) Arabic prints «(Television)», «(Internet)» and «(Research institutions)» with initial capitals where English prints &quot;(¹³television)&quot;, &quot;(¹⁶internet)&quot; and &quot;(¹⁵research institutions)&quot;. (8) English marks terms with superscripts ¹-¹⁶ while Arabic uses only the red highlight. (9) English has two speaker icons (after the cellular phones bullet and at the end of paragraph (4)); the Arabic page has none.">مقارنة النسختين:(1) عنوان صندوق النقاط: الإنجليزية "Media and Its Evolution" مقابل العربية «تطوير وسائل الاتصال». (2) عنوانا [1] و[2]: العربية تفصّل «الاتصالات» إلى «الاتصالات السلكية واللاسلكية» («وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية» و«بداية الاتصالات السلكية واللاسلكية») بينما الإنجليزية تطبع "Communication Before Telecommunications" و"The Beginning of Telecommunications". (3) نبذة 1876: العربية تطبع «يدعى Bill» بينما الإنجليزية "named Bell". (4) نبذة 1895: العربية تطبع «Marcony» و«(Wireless telegraph)» بحرف W كبير، بينما الإنجليزية "Marconi" و"(⁷wireless telegraph)". (5) نبذة 1946: قوس العربية «(الهواتف الخلوية - cellular phones)» بشرطة بينما الإنجليزية "(⁸cellular phones)" فقط. (6) تعريف (2): العربية بأقواس مضاعفة «((Mass communication (Mass media)))» وعنوان الأمثلة «&lt;أمثلة&gt;» بينما الإنجليزية "&lt;Examples&gt;". (7) العربية تطبع «(Television)» و«(Internet)» و«(Research institutions)» بحروف أولى كبيرة بينما الإنجليزية "(¹³television)" و"(¹⁶internet)" و"(¹⁵research institutions)". (8) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁶ بينما العربية تكتفي بالتظليل الأحمر. (9) الإنجليزية بها أيقونتا سماعة (بعد نبذة cellular phones وفي نهاية الفقرة (4)) بينما صفحة العربية بلا أيقونات.</div></div></div>
+ الإنترنت اللي قدامك النهارده بدأ بتجربة صغيرة في <b>1969</b> باسم <span dir="ltr">ARPANET</span> بدعم من <b>وزارة الدفاع الأمريكية <span dir="ltr">(Department of Defense)</span></b>. في الأول كانت الشبكة مستخدمة من <b>المؤسسات البحثية <span dir="ltr">(research institutions)</span></b>، وبعدين اتطورت واتعرفت بالإنترنت وبدأت تنتشر بين الجمهور في التسعينيات.</p>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(4) تطور الإنترنت: • في عام 1969، بدعم من وزارة الدفاع الأمريكية، تم إجراء تجربة على شبكة كمبيوتر تسمى أربانت. في البداية، تم استخدامها بشكل رئيسي من قبل مؤسسات البحث. ومع ذلك، أصبحت في النهاية معروفة باسم الإنترنت وبدأت في الانتشار بين عامة الناس.</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) عنوان صندوق النقاط: الإنجليزية &quot;Media and Its Evolution&quot; مقابل العربية «تطوير وسائل الاتصال». (2) عنوانا [1] و[2]: العربية تفصّل «الاتصالات» إلى «الاتصالات السلكية واللاسلكية» («وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية» و«بداية الاتصالات السلكية واللاسلكية») بينما الإنجليزية تطبع &quot;Communication Before Telecommunications&quot; و&quot;The Beginning of Telecommunications&quot;. (3) نبذة 1876:العربية تطبع «يدعى Bill» بينما الإنجليزية &quot;named Bell&quot;. (4) نبذة 1895:العربية تطبع «Marcony» و«(Wireless telegraph)» بحرف W كبير، بينما الإنجليزية &quot;Marconi&quot; و&quot;(⁷wireless telegraph)&quot;. (5) نبذة 1946:قوس العربية «(الهواتف الخلوية - cellular phones)» بشرطة بينما الإنجليزية &quot;(⁸cellular phones)&quot; فقط. (6) تعريف (2): العربية بأقواس مضاعفة «((Mass communication (Mass media)))» وعنوان الأمثلة «&lt;أمثلة>» بينما الإنجليزية &quot;&lt;Examples>&quot;. (7) العربية تطبع «(Television)» و«(Internet)» و«(Research institutions)» بحروف أولى كبيرة بينما الإنجليزية &quot;(¹³television)&quot; و&quot;(¹⁶internet)&quot; و&quot;(¹⁵research institutions)&quot;. (8) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁶ بينما العربية تكتفي بالتظليل الأحمر. (9) الإنجليزية بها أيقونتا سماعة (بعد نبذة cellular phones وفي نهاية الفقرة (4)) بينما صفحة العربية بلا أيقونات." data-en="Edition comparison:(1) The Point box heading: English &quot;Media and Its Evolution&quot; vs Arabic «تطوير وسائل الاتصال». (2) Headings [1] and [2]: Arabic expands telecommunications into «الاتصالات السلكية واللاسلكية» (&quot;wired and wireless communications&quot;) while English prints &quot;Communication Before Telecommunications&quot; and &quot;The Beginning of Telecommunications&quot;. (3) The 1876 bullet:Arabic prints «يدعى Bill» while English prints &quot;named Bell&quot;. (4) The 1895 bullet:Arabic prints «Marcony» and «(Wireless telegraph)» with a capital W, while English prints &quot;Marconi&quot; and &quot;(⁷wireless telegraph)&quot;. (5) The 1946 bullet:the Arabic bracket «(الهواتف الخلوية - cellular phones)» carries a hyphen, while English prints only &quot;(⁸cellular phones)&quot;. (6) Definition (2): Arabic prints doubled parentheses «((Mass communication (Mass media)))» and the examples heading «&lt;أمثلة>» where English prints &quot;&lt;Examples>&quot;. (7) Arabic prints «(Television)», «(Internet)» and «(Research institutions)» with initial capitals where English prints &quot;(¹³television)&quot;, &quot;(¹⁶internet)&quot; and &quot;(¹⁵research institutions)&quot;. (8) English marks terms with superscripts ¹-¹⁶ while Arabic uses only the red highlight. (9) English has two speaker icons (after the cellular phones bullet and at the end of paragraph (4)); the Arabic page has none.">مقارنة النسختين:(1) عنوان صندوق النقاط: الإنجليزية "Media and Its Evolution" مقابل العربية «تطوير وسائل الاتصال». (2) عنوانا [1] و[2]: العربية تفصّل «الاتصالات» إلى «الاتصالات السلكية واللاسلكية» («وسائل الاتصال قبل وجود الاتصالات السلكية واللاسلكية» و«بداية الاتصالات السلكية واللاسلكية») بينما الإنجليزية تطبع "Communication Before Telecommunications" و"The Beginning of Telecommunications". (3) نبذة 1876: العربية تطبع «يدعى Bill» بينما الإنجليزية "named Bell". (4) نبذة 1895: العربية تطبع «Marcony» و«(Wireless telegraph)» بحرف W كبير، بينما الإنجليزية "Marconi" و"(⁷wireless telegraph)". (5) نبذة 1946: قوس العربية «(الهواتف الخلوية - cellular phones)» بشرطة بينما الإنجليزية "(⁸cellular phones)" فقط. (6) تعريف (2): العربية بأقواس مضاعفة «((Mass communication (Mass media)))» وعنوان الأمثلة «&lt;أمثلة&gt;» بينما الإنجليزية "&lt;Examples&gt;". (7) العربية تطبع «(Television)» و«(Internet)» و«(Research institutions)» بحروف أولى كبيرة بينما الإنجليزية "(¹³television)" و"(¹⁶internet)" و"(¹⁵research institutions)". (8) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁶ بينما العربية تكتفي بالتظليل الأحمر. (9) الإنجليزية بها أيقونتا سماعة (بعد نبذة cellular phones وفي نهاية الفقرة (4)) بينما صفحة العربية بلا أيقونات.</div></div></div>
 
       <div class="section-inner diagram-wrap">
         <span class="topbar"></span>
@@ -1462,7 +492,7 @@ select{color:var(--text)!important}
             </div>
             <div class="net-node" data-node="a" style="left:50%;top:50%">
               <span class="dot"></span>
-              <span class="lab" data-ar="ARPANET ← الإنترنت" data-en="ARPANET → Internet"><span dir="ltr">ARPANET</span> → الإنترنت</span>
+              <span class="lab" data-ar="ARPANET → الإنترنت" data-en="ARPANET → Internet"><span dir="ltr">ARPANET</span> → الإنترنت</span>
             </div>
             <div class="net-node" data-node="c" style="left:78%;top:50%">
               <span class="dot"></span>
@@ -1496,7 +526,7 @@ select{color:var(--text)!important}
                 <div class="tl-title" data-ar="تجربة ARPANET" data-en="The ARPANET experiment">تجربة <span dir="ltr">ARPANET</span></div>
                 <p class="tl-desc" data-ar="في 1969، بدعم من وزارة الدفاع الأمريكية، اتعملت تجربة على شبكة كمبيوترات اسمها ARPANET — أول نواة للشبكة العالمية."
                   data-en="In 1969, with the support of the US Department of Defense, an experiment was conducted on a computer network called ARPANET — the first core of the global network.">
-                  في <b>1969</b>، بدعم من وزارة الدفاع الأمريكية، اتعملت تجربة على شبكة كمبيوتر اسمها <span dir="ltr">ARPANET</span> — أول نواة للشبكة العالمية.</p>
+ في <b>1969</b>، بدعم من وزارة الدفاع الأمريكية، اتعملت تجربة على شبكة كمبيوتر اسمها <span dir="ltr">ARPANET</span> — أول نواة للشبكة العالمية.</p>
               </div>
               <div class="tl-step">
                 <div class="prop"><span class="emoji-float">🏛️</span></div>
@@ -1504,7 +534,7 @@ select{color:var(--text)!important}
                 <div class="tl-title" data-ar="كانت بتستخدمها جهات البحث" data-en="Used by research institutions">كانت بتستخدمها جهات البحث</div>
                 <p class="tl-desc" data-ar="في الأول الشبكة كانت بتستخدمها جهات البحث أساساً — وعدد المستخدمين كان محدود."
                   data-en="At first the network was mainly used by research institutions — the number of users was limited.">
-                  في البداية استخدموا الشبكة <b>المؤسسات البحثية <span dir="ltr">(research institutions)</span></b> بشكل أساسي — عدد المستخدمين كان محدود.</p>
+ في البداية استخدموا الشبكة <b>المؤسسات البحثية <span dir="ltr">(research institutions)</span></b> بشكل أساسي — عدد المستخدمين كان محدود.</p>
               </div>
               <div class="tl-step">
                 <div class="prop"><span class="emoji-float">🌐</span></div>
@@ -1512,13 +542,13 @@ select{color:var(--text)!important}
                 <div class="tl-title" data-ar="من ARPANET للإنترنت" data-en="From ARPANET to the internet">من <span dir="ltr">ARPANET</span> للإنترنت</div>
                 <p class="tl-desc" data-ar="مع الوقت الشبكة بقت معروفة بالإنترنت وبدأت تنتشر بكثرة بين الناس في التسعينيات — لحد ما وصلت كل بيت."
                   data-en="Over time the network became known as the internet and began to spread widely among the public in the 1990s — until it reached every home.">
-                  مع الوقت الشبكة اتعرفت <b>بالإنترنت <span dir="ltr">(internet)</span></b> وبدأت تنتشر بين الجمهور بشكل واسع في التسعينيات — لحد ما وصلت لكل بيت.</p>
+ مع الوقت الشبكة اتعرفت <b>بالإنترنت <span dir="ltr">(internet)</span></b> وبدأت تنتشر بين الجمهور بشكل واسع في التسعينيات — لحد ما وصلت لكل بيت.</p>
               </div>
             </div>
             <div class="tl-ctl">
-              <button class="mini-btn" data-id="tl4Prev" data-ar="← السابق" data-en="← Previous">← السابق</button>
+              <button class="mini-btn" data-id="tl4Prev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
               <span class="tl-count" data-id="tl4Count">1 / 3</span>
-              <button class="mini-btn" data-id="tl4Next" data-ar="التالي →" data-en="Next →">التالي →</button>
+              <button class="mini-btn" data-id="tl4Next" data-ar="التالي ←" data-en="Next →">التالي →</button>
               <button class="btn" data-id="tl4Replay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
             </div>
           </div>
@@ -1526,17 +556,17 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الإنترنت متبنيش كامل من الأول — بدأ كتجربة اسمها ARPANET في 1969."
             data-en="The internet wasn't built fully from the start — it began as an experiment called ARPANET in 1969.">
-            الإنترنت مش اتعمل كاملاً من أول مرة — <b>بدأ تجربة اسمها <span dir="ltr">ARPANET</span> سنة 1969</b>.</li>
+ الإنترنت مش اتعمل كاملاً من أول مرة — <b>بدأ تجربة اسمها <span dir="ltr">ARPANET</span> سنة 1969</b>.</li>
           <li data-ar="ARPANET اتبنت بدعم من وزارة الدفاع الأمريكية، مش شركة خاصة."
             data-en="ARPANET was built with the support of the US Department of Defense, not a private company.">
             <span dir="ltr">ARPANET</span> اتعمل بدعم من <b>وزارة الدفاع الأمريكية</b>، مش شركة خاصة.</li>
           <li data-ar="انتشار الإنترنت الواسع بين الناس حصل في التسعينيات، مش من لحظة الاختراع."
             data-en="The wide spread of the internet among the public happened in the 1990s, not from the moment of invention.">
-            الانتشار الواسع للإنترنت بين الجمهور حصل في <b>التسعينيات</b>، مش من لحظة الاختراع.</li>
+ الانتشار الواسع للإنترنت بين الجمهور حصل في <b>التسعينيات</b>، مش من لحظة الاختراع.</li>
         </ul>
       </div>
     </section>
@@ -1548,7 +578,7 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#b91c1c)">06</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s6)" data-ar="الكتاب بتاعك: EN PDF 46 – 47 (المطبوع 46 – 47)؛ AR 54 – 55" data-en="Your book: English PDF 46 - 47 (printed 46 - 47); Arabic 54 - 55">الكتاب بتاعك:EN PDF 46 – 47 (المطبوع 46 – 47)؛ AR 54 – 55</div>
+            <div class="tag" style="color:var(--s6)" data-ar="الكتاب بتاعك" data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1556,32 +586,32 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <!-- TEXTBOOK-CARD-BEGIN id="book-warm" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع</h3>
+          <h3 data-ar="من الكتاب: تحدى معلوماتك مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك مع الشرح المطبوع</h3>
           <p data-ar="تحدى معلوماتك — اختر المصطلحات التي تناسب الفراغات [1] إلى [4] من الخيارات أ إلى ث. [1] في منتصف القرن الخامس عشر، اخترع Gutenberg.. [2] في عام 1837، اخترع مورس.. [3] في عام 1876، اخترع بيل Bill.. [4] في عام 1895، اخترع.. — المصطلحات: (أ) التلغراف اللاسلكي (ب) التلغراف المورسي (ت) طابعة الحروف المتحركة (ث) الهاتف." data-en="Warm Up - Choose the terms that best fit into the blanks [1] to [4] from the options A to D. • In the mid-15th century, Gutenberg invented the ( [1] ). • In 1837, Morse invented the ( [2] ). • In 1876, Bell invented the ( [3] ). • In 1895, Marconi invented the ( [4] ). A Wireless telegraph, B Morse telegraph, C Movable-type printing press, D Telephone.">تحدى معلوماتك — اختر المصطلحات التي تناسب الفراغات [1] إلى [4] من الخيارات أ إلى ث. [1] في منتصف القرن الخامس عشر، اخترع Gutenberg.. [2] في عام 1837، اخترع مورس.. [3] في عام 1876، اخترع بيل Bill.. [4] في عام 1895، اخترع.. — المصطلحات: (أ) التلغراف اللاسلكي (ب) التلغراف المورسي (ت) طابعة الحروف المتحركة (ث) الهاتف.</p>
           <p data-ar="الشرح المطبوع — [1] ت [2] ب [3] ث [4] أ." data-en="Printed Explanation - [1] C [2] B [3] D [4] A.">الشرح المطبوع — [1] ت [2] ب [3] ث [4] أ.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) الفراغات في العربية نقاط «..» بينما الإنجليزية تطبع «( [1] )» وما شابه. (2) الجملة [1] في العربية تطبع الاسم ثم الفراغ «اخترع Gutenberg..» بينما الإنجليزية &quot;Gutenberg invented the ( [1] )&quot;. (3) الجملة [4] في العربية «في عام 1895، اخترع..» دون ذكر اسم المخترع بينما الإنجليزية &quot;In 1895, Marconi invented the ( [4] )&quot;. (4) الجملة [3] في العربية «اخترع بيل Bill..» تطبع «Bill» بينما الإنجليزية &quot;Bell&quot;. (5) خيارات العربية تحت عنوان «المصطلحات:» ولا يوجد مقابل لها في الإنجليزية، والخيار (ب) يطبع «التلغراف المورسي» بينما تطبع النقاط الرئيسية «تلغراف مورس» و«جرب بنفسك» «تليغراف مورس». (6) الشرح مطبوع في النسختين ومتفق على نفس الترتيب المعنوي: [1] طابعة الحروف المتحركة، [2] التلغراف المورسي، [3] الهاتف، [4] التلغراف اللاسلكي." data-en="Edition comparison: (1) The Arabic blanks print as dots «..» where English prints &quot;( [1] )&quot; and so on. (2) Sentence [1] in Arabic prints the name then the blank («اخترع Gutenberg..») where English prints &quot;Gutenberg invented the ( [1] )&quot;. (3) Sentence [4] in Arabic («في عام 1895، اخترع..») names no inventor, where English prints &quot;In 1895, Marconi invented the ( [4] )&quot;. (4) Sentence [3] in Arabic («اخترع بيل Bill..») prints «Bill» where English prints &quot;Bell&quot;. (5) The Arabic options sit under a «المصطلحات:» heading with no English counterpart, and option (ب) prints «التلغراف المورسي» while the Point box prints «تلغراف مورس» and the Try section prints «تليغراف مورس». (6) The Explanation is printed in both editions and agrees on the same mapping: [1] movable-type printing press, [2] Morse telegraph, [3] telephone, [4] wireless telegraph.">مقارنة النسختين: (1) الفراغات في العربية نقاط «..» بينما الإنجليزية تطبع «( [1] )» وما شابه. (2) الجملة [1] في العربية تطبع الاسم ثم الفراغ «اخترع Gutenberg..» بينما الإنجليزية "Gutenberg invented the ( [1] )". (3) الجملة [4] في العربية «في عام 1895، اخترع..» دون ذكر اسم المخترع بينما الإنجليزية "In 1895, Marconi invented the ( [4] )". (4) الجملة [3] في العربية «اخترع بيل Bill..» تطبع «Bill» بينما الإنجليزية "Bell". (5) خيارات العربية تحت عنوان «المصطلحات:» ولا يوجد مقابل لها في الإنجليزية، والخيار (ب) يطبع «التلغراف المورسي» بينما تطبع النقاط الرئيسية «تلغراف مورس» و«جرب بنفسك» «تليغراف مورس». (6) الشرح مطبوع في النسختين ومتفق على نفس الترتيب المعنوي: [1] طابعة الحروف المتحركة، [2] التلغراف المورسي، [3] الهاتف، [4] التلغراف اللاسلكي.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 46 (المطبوع 46)؛ AR 54." data-en="The above is from the textbook. Full source: English PDF 46 (printed 46); Arabic 54.">النص السابق من الكتاب. المصدر الكامل:EN PDF 46 (المطبوع 46)؛ AR 54.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: جرب بنفسك (Try)" data-en="From the book: Try">من الكتاب: جرب بنفسك (Try)</h3>
+          <h3 data-ar="من الكتاب: جرب بنفسك" data-en="From the book: Try">من الكتاب: جرب بنفسك</h3>
           <p data-ar="جرب بنفسك — (أ) أجب على الأسئلة التالية. (1) اختر المصطلحات التي تناسب الفراغات من [1] إلى [9] من الخيارات أ إلى س: في العصور القديمة، كان الناس ينقلون المعلومات بإشعال [1] أو ضرب الطبول لتوصيل معلومات أساسية إلى الآخرين. في النهاية، تم حمل الأحرف والرموز على وسط يسمى [2] وتسليمها باستخدام الرسل أو الحمام الزاجل. في منتصف القرن الخامس عشر، بفضل [3] الذي اخترع [4]، أصبح من الممكن بسهولة إعادة إنتاج كميات كبيرة من المعلومات كمواد مطبوعة. نتيجة لذلك، يمكن نشر الصحف والكتب، مما جعل من الممكن نقل المعلومات إلى عدد كبير من الناس. في القرن التاسع عشر، اخترع أمريكي يدعى [5] [6]، وهي تكنولوجيا لإرسال واستقبال الرموز عبر الاتصالات السلكية واللاسلكية. في نفس الوقت تقريبًا، اخترع بيل [7]. علاوة على ذلك، في نهاية القرن التاسع عشر، اخترع إيطالي يدعى ماركوني [8]، الذي تطور لاحقًا إلى أجهزة الراديو، و[9]، والهواتف المحمولة." data-en="Try - Answer the following questions. (1) Choose the terms that best fit into the blanks [1] to [9] from the options A to L. In ancient times, people would convey information by lighting ( [1] ) or beating drums to communicate basic information to others. Eventually, letters and symbols were carried on a medium called ( [2] ) and delivered using messengers or carrier pigeons. In the mid-15th century, thanks to ( [3] ) inventing the ( [4] ), it became possible to easily reproduce large amounts of information as printed materials. As a result, newspapers and books could be published, thereby making it possible to convey information to a large number of people. In the 19th century, an American named ( [5] ) invented the ( [6] ), a technology for sending and receiving codes through telecommunications. Around the same time, Bell invented ( [7] ). Furthermore, at the end of the 19th century, an Italian named Marconi invented the ( [8] ), which later developed into radios, ( [9] ), and mobile phones.">جرب بنفسك — (أ) أجب على الأسئلة التالية. (1) اختر المصطلحات التي تناسب الفراغات من [1] إلى [9] من الخيارات أ إلى س: في العصور القديمة، كان الناس ينقلون المعلومات بإشعال [1] أو ضرب الطبول لتوصيل معلومات أساسية إلى الآخرين. في النهاية، تم حمل الأحرف والرموز على وسط يسمى [2] وتسليمها باستخدام الرسل أو الحمام الزاجل. في منتصف القرن الخامس عشر، بفضل [3] الذي اخترع [4]، أصبح من الممكن بسهولة إعادة إنتاج كميات كبيرة من المعلومات كمواد مطبوعة. نتيجة لذلك، يمكن نشر الصحف والكتب، مما جعل من الممكن نقل المعلومات إلى عدد كبير من الناس. في القرن التاسع عشر، اخترع أمريكي يدعى [5] [6]، وهي تكنولوجيا لإرسال واستقبال الرموز عبر الاتصالات السلكية واللاسلكية. في نفس الوقت تقريبًا، اخترع بيل [7]. علاوة على ذلك، في نهاية القرن التاسع عشر، اخترع إيطالي يدعى ماركوني [8]، الذي تطور لاحقًا إلى أجهزة الراديو، و[9]، والهواتف المحمولة.</p>
           <p data-ar="الخيارات المطبوعة: (أ) طابعة الحروف المتحركة (ب) التلفزيون (ت) نيران الإشارة (ث) الورق (ج) تليغراف مورس (ح) التلغراف اللاسلكي (خ) الهاتف (د) فونوجراف (ذ) غوتنبرج (ر) أديسون (ز) مورس (س) واطسون." data-en="Printed options: A Movable-type printing press, B Television, C Signal fires, D Paper, E Morse telegraph, F Wireless telegraph, G Telephone, H Phonograph, I Gutenberg, J Edison, K Morse, L Watson.">الخيارات المطبوعة: (أ) طابعة الحروف المتحركة (ب) التلفزيون (ت) نيران الإشارة (ث) الورق (ج) تليغراف مورس (ح) التلغراف اللاسلكي (خ) الهاتف (د) فونوجراف (ذ) غوتنبرج (ر) أديسون (ز) مورس (س) واطسون.</p>
           <p data-ar="(2) أكمل الجمل التالية بملء الفراغات [1] و [2] بالمصطلحات المناسبة. تطور الإنترنت من [1] التي تم إنشاؤها بواسطة وزارة الدفاع الأمريكية في عام 1969، إلى شبكة كمبيوتر عالمية. في البداية، تم استخدامها بشكل رئيسي بواسطة [2]، ولكن بحلول التسعينيات، بدأت في الانتشار على نطاق واسع بين عامة الناس." data-en="(2) Complete the following sentences by filling in the blanks [1] and [2] with the appropriate terms. The internet developed from ( [1] ), which was created by the United States Department of Defense in 1969, into a global computer network. Initially, it was mainly used by ( [2] ), but by the 1990s, it began to spread widely among the general public.">(2) أكمل الجمل التالية بملء الفراغات [1] و [2] بالمصطلحات المناسبة. تطور الإنترنت من [1] التي تم إنشاؤها بواسطة وزارة الدفاع الأمريكية في عام 1969، إلى شبكة كمبيوتر عالمية. في البداية، تم استخدامها بشكل رئيسي بواسطة [2]، ولكن بحلول التسعينيات، بدأت في الانتشار على نطاق واسع بين عامة الناس.</p>
-          <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ت: نيران الإشارة [2] ث: الورق [3] ذ: غوتنبرج [4] أ: طابعة الحروف المتحركة [5] ز: مورس [6] ج: تليغراف مورس [7] خ: الهاتف [8] ح: التلغراف اللاسلكي [9] ب: التلفزيون. (2) [1] أربانت (ARPANET) [2] مؤسسات البحث (Research institutions)." data-en="Answers not printed in the book (teacher-prepared): (1) [1] C signal fires [2] D paper [3] I Gutenberg [4] A movable-type printing press [5] K Morse [6] E Morse telegraph [7] G telephone [8] F wireless telegraph [9] B television. (2) [1] ARPANET [2] research institutions.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ت: نيران الإشارة [2] ث: الورق [3] ذ: غوتنبرج [4] أ: طابعة الحروف المتحركة [5] ز: مورس [6] ج: تليغراف مورس [7] خ: الهاتف [8] ح: التلغراف اللاسلكي [9] ب: التلفزيون. (2) [1] أربانت (ARPANET) [2] مؤسسات البحث (Research institutions).</p>
+          <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ت: نيران الإشارة [2] ث: الورق [3] ذ: غوتنبرج [4] أ: طابعة الحروف المتحركة [5] ز: مورس [6] ج: تليغراف مورس [7] خ: الهاتف [8] ح: التلغراف اللاسلكي [9] ب: التلفزيون. (2) [1] أربانت [2] مؤسسات البحث." data-en="Answers not printed in the book (teacher-prepared): (1) [1] C signal fires [2] D paper [3] I Gutenberg [4] A movable-type printing press [5] K Morse [6] E Morse telegraph [7] G telephone [8] F wireless telegraph [9] B television. (2) [1] ARPANET [2] research institutions.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ت: نيران الإشارة [2] ث: الورق [3] ذ: غوتنبرج [4] أ: طابعة الحروف المتحركة [5] ز: مورس [6] ج: تليغراف مورس [7] خ: الهاتف [8] ح: التلغراف اللاسلكي [9] ب: التلفزيون. (2) [1] أربانت [2] مؤسسات البحث.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) العربية ترقّم التعليمة «(أ) أجب على الأسئلة التالية.» بينما الإنجليزية &quot;Answer the following questions.&quot; بلا ترقيم. (2) خيارات العربية أ إلى س (12 خيارًا) مقابل A إلى L في الإنجليزية بنفس الترتيب المعنوي. (3) الخيار (ج) يطبع «تليغراف مورس» والخيار (ذ) «غوتنبرج» بينما تطبع النقاط الرئيسية «تلغراف مورس» و«غوتنبرغ». (4) إجابات الجرب بنفسك غير مطبوعة في أي من النسختين." data-en="Edition comparison:(1) Arabic numbers the instruction «(أ) أجب على الأسئلة التالية.» where English prints &quot;Answer the following questions.&quot; unnumbered. (2) The Arabic options run أ to س (12 options) vs A to L in English, in the same semantic order. (3) Option (ج) prints «تليغراف مورس» and option (ذ) «غوتنبرج» where the Point box prints «تلغراف مورس» and «غوتنبرغ». (4) The Try answers are not printed in either edition.">مقارنة النسختين:(1) العربية ترقّم التعليمة «(أ) أجب على الأسئلة التالية.» بينما الإنجليزية "Answer the following questions." بلا ترقيم. (2) خيارات العربية أ إلى س (12 خيارًا) مقابل A إلى L في الإنجليزية بنفس الترتيب المعنوي. (3) الخيار (ج) يطبع «تليغراف مورس» والخيار (ذ) «غوتنبرج» بينما تطبع النقاط الرئيسية «تلغراف مورس» و«غوتنبرغ». (4) إجابات الجرب بنفسك غير مطبوعة في أي من النسختين.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 47 (المطبوع 47)؛ AR 55." data-en="The above is from the textbook. Full source: English PDF 47 (printed 47); Arabic 55.">النص السابق من الكتاب. المصدر الكامل:EN PDF 47 (المطبوع 47)؛ AR 55.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: تمرين (Exercise)" data-en="From the book: Exercise">من الكتاب: تمرين (Exercise)</h3>
+          <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
           <p data-ar="تمرين — 1 أجب عن الأسئلة التالية. (1) اختر المصطلحات التي تناسب الفراغات [1] إلى [6] من الخيارات أ إلى ح: يطلق على تبادل المعلومات اسم [1]. من بين هذه الوسائل فإن وسيلة إرسال المعلومات إلى عدد كبير من الناس في وقت واحد يشار إليها باسم [2]. على غرار [3] و[4]، فإن [2] تسهل بشكل رئيسي نقل المعلومات في اتجاه واحد من المرسل إلى المستقبل. في المقابل، فإن [5] و[6] هما طريقتا اتصال معلوماتي تمكنان تبادل المعلومات في اتجاهين. — الخيارات المطبوعة: (أ) الاتصال (ب) وسائل الاتصال الجماهيري (ت) الصحف (ج) الهاتف (ج) الإنترنت (ح) التلفزيون." data-en="Exercise - 1 Answer the following questions. (1) Choose the terms that best fit into the blanks [1] to [6] from the options A to F. The act of exchanging information is called ( [1] ). Among these, the means of sending information to a large number of people at once is referred to as ( [2] ). Similar to ( [3] ) and ( [4] ), ([2]) primarily facilitates one-way information transmission from sender to receiver. In contrast, ( [5] ) and ( [6] ) are information communication methods that enable two-way information exchange. A Communication, B Mass communication, C Newspapers, D Telephone, E The internet, F Television.">تمرين — 1 أجب عن الأسئلة التالية. (1) اختر المصطلحات التي تناسب الفراغات [1] إلى [6] من الخيارات أ إلى ح: يطلق على تبادل المعلومات اسم [1]. من بين هذه الوسائل فإن وسيلة إرسال المعلومات إلى عدد كبير من الناس في وقت واحد يشار إليها باسم [2]. على غرار [3] و[4]، فإن [2] تسهل بشكل رئيسي نقل المعلومات في اتجاه واحد من المرسل إلى المستقبل. في المقابل، فإن [5] و[6] هما طريقتا اتصال معلوماتي تمكنان تبادل المعلومات في اتجاهين. — الخيارات المطبوعة: (أ) الاتصال (ب) وسائل الاتصال الجماهيري (ت) الصحف (ج) الهاتف (ج) الإنترنت (ح) التلفزيون.</p>
-          <p data-ar="(2) في الخيارات التالية من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف. (أ) تم اختراع الهاتف. (ب) تم إنشاء نظام البريد الحديث. (ت) تم نقل المعلومات بإشعال نيران الإشارة أو ضرب الطبول. (ث) أصبحت الهواتف الخلوية، التي هي نوع من خدمة الاتصال المتنقلة، منتشرة." data-en="(2) A to D describe events regarding communication. Place these events in chronological order, and answer using the letters. A The telephone was invented. B The modern postal system was established. C Information was conveyed by lighting signal fires or beating drums. D Cellular phones, which are a type of mobile communication service, have become widespread.">(2) في الخيارات التالية من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف. (أ) تم اختراع الهاتف. (ب) تم إنشاء نظام البريد الحديث. (ت) تم نقل المعلومات بإشعال نيران الإشارة أو ضرب الطبول. (ث) أصبحت الهواتف الخلوية، التي هي نوع من خدمة الاتصال المتنقلة، منتشرة.</p>
+          <p data-ar="(2) في الخيارات التالية من أ إلى ث: ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف. (أ) تم اختراع الهاتف. (ب) تم إنشاء نظام البريد الحديث. (ت) تم نقل المعلومات بإشعال نيران الإشارة أو ضرب الطبول. (ث) أصبحت الهواتف الخلوية، التي هي نوع من خدمة الاتصال المتنقلة، منتشرة." data-en="(2) A to D describe events regarding communication. Place these events in chronological order, and answer using the letters. A The telephone was invented. B The modern postal system was established. C Information was conveyed by lighting signal fires or beating drums. D Cellular phones, which are a type of mobile communication service, have become widespread.">(2) في الخيارات التالية من أ إلى ث: ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف. (أ) تم اختراع الهاتف. (ب) تم إنشاء نظام البريد الحديث. (ت) تم نقل المعلومات بإشعال نيران الإشارة أو ضرب الطبول. (ث) أصبحت الهواتف الخلوية، التي هي نوع من خدمة الاتصال المتنقلة، منتشرة.</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] أ: الاتصال [2] ب: وسائل الاتصال الجماهيري [3] ت: الصحف [4] ح: التلفزيون [5] الهاتف [6] الإنترنت. (2) الترتيب الزمني: ت ثم ب ثم أ ثم ث." data-en="Answers not printed in the book (teacher-prepared): (1) [1] A communication [2] B mass communication [3] C newspapers [4] F television [5] D telephone [6] E the internet. (2) Chronological order: C, B, A, D.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] أ: الاتصال [2] ب: وسائل الاتصال الجماهيري [3] ت: الصحف [4] ح: التلفزيون [5] الهاتف [6] الإنترنت. (2) الترتيب الزمني: ت ثم ب ثم أ ثم ث.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) خيارات التمرين (1) في العربية مطبوعة بتكرار الحرف (ج) على خيارين: «(ج) الهاتف» و«(ج) الإنترنت»، مع «(ت) الصحف» و«(ح) التلفزيون» — والترتيب الأبجدي كان سيتوقع «(ث) الهاتف» — بينما الإنجليزية تطبع A إلى F دون تكرار. (2) تعليمة (2) في العربية «من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف.» (بمسافة قبل النقطتين) بينما الإنجليزية &quot;A to D describe events regarding communication. Place these events in chronological order, and answer using the letters.&quot; (3) الإجابات غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما." data-en="Edition comparison:(1) The Arabic Exercise (1) options print the letter (ج) twice - «(ج) الهاتف» and «(ج) الإنترنت» - with «(ت) الصحف» and «(ح) التلفزيون», where the abjad sequence would expect «(ث) الهاتف»; English prints A to F with no duplication. (2) Instruction (2) in Arabic:«من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف.» (with a space before the colon) vs English &quot;A to D describe events regarding communication. Place these events in chronological order, and answer using the letters.&quot; (3) The answers are not printed in either edition, and the derived results agree across both.">مقارنة النسختين:(1) خيارات التمرين (1) في العربية مطبوعة بتكرار الحرف (ج) على خيارين: «(ج) الهاتف» و«(ج) الإنترنت»، مع «(ت) الصحف» و«(ح) التلفزيون» — والترتيب الأبجدي كان سيتوقع «(ث) الهاتف» — بينما الإنجليزية تطبع A إلى F دون تكرار. (2) تعليمة (2) في العربية «من أ إلى ث : ضع هذه الأحداث في ترتيبها الزمني، وأجب باستخدام الحروف.» (بمسافة قبل النقطتين) بينما الإنجليزية "A to D describe events regarding communication. Place these events in chronological order, and answer using the letters." (3) الإجابات غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 47 (المطبوع 47)؛ AR 55." data-en="The above is from the textbook. Full source: English PDF 47 (printed 47); Arabic 55.">النص السابق من الكتاب. المصدر الكامل:EN PDF 47 (المطبوع 47)؛ AR 55.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
       </div>
@@ -1594,8 +624,8 @@ select{color:var(--text)!important}
 
           <div class="fill" data-id="fill1" data-key="C B D A">
             <div class="fill-label"><span class="q-num">1</span> <span
-                data-ar="اختار الكلمة الصح لكل اختراع — من الكتاب: EN PDF 46 (المطبوع 46)؛ AR 54."
-                data-en="Choose the right word for each invention - from the book: English PDF 46 (printed 46); Arabic 54.">اختار الكلمة الصح لكل اختراع — من الكتاب:EN PDF 46 (المطبوع 46)؛ AR 54.</span></div>
+                data-ar="اختار الكلمة الصح لكل اختراع — من الكتاب"
+                data-en="Choose the right word for each invention - from the book">اختار الكلمة الصح لكل اختراع — من الكتاب</span></div>
             <div class="fill-passage">
               <span data-ar="جوتنبرج اخترع ( " data-en="Gutenberg invented ( ">جوتنبرج اخترع ( </span><span class="slot" data-n="1">[1]</span><span data-ar=" ) في منتصف القرن الـ 15." data-en=" ) in the mid-15th century."> ) في منتصف القرن الـ 15.</span><br>
               <span data-ar="مورس اخترع ( " data-en="Morse invented ( ">مورس اخترع ( </span><span class="slot" data-n="2">[2]</span><span data-ar=" ) في 1837." data-en=" ) in 1837."> ) في 1837.</span><br>
@@ -1620,7 +650,7 @@ select{color:var(--text)!important}
                 data-ar="اختار المصطلحات اللي بتناسب الفراغات [1] لـ [9] من الخيارات A لـ L."
                 data-en="Choose the terms that best fit into the blanks [1] to [9] from the options A to L.">اختيار المصطلح المناسب للفراغات <b>[1]</b> إلى <b>[9]</b> من الخيارات A إلى L.</span></div>
             <div class="fill-passage">
-              <span data-ar="في الزمن القديم، الناس كانت بتوصّل المعلومات (Information) بإيقاد ( " data-en="In ancient times, people conveyed information by lighting ( ">في الزمن القديم، الناس كانت بتوصّل المعلومات (Information) بإيقاد ( </span><span class="slot" data-n="1">[1]</span><span data-ar=" ) أو ضرب طبول عشان توصّل معلومات (Information) أساسية. في الآخر، الحروف والرموز كانت بتتحط على وسيلة اسمها ( " data-en=" ) or beating drums to communicate basic information. Eventually, letters and symbols were carried on a medium called ( "> ) أو ضرب طبول عشان توصّل معلومات (Information) أساسية. في الآخر، الحروف والرموز كانت بتتحط على وسيلة اسمها ( </span><span class="slot" data-n="2">[2]</span><span data-ar=" ) وتتوصّل بعَدّائين أو حمام زاجل. في منتصف القرن الـ 15، بفضل ( " data-en=" ) and delivered using messengers or carrier pigeons. In the mid-15th century, thanks to ( "> ) وتتوصّل بعَدّائين أو حمام زاجل. في منتصف القرن الـ 15، بفضل ( </span><span class="slot" data-n="3">[3]</span><span data-ar=" ) اللي اخترع ( " data-en=" ) who invented the ( "> ) اللي اخترع ( </span><span class="slot" data-n="4">[4]</span><span data-ar=" )، بقى ممكن تتكاثر كميات كبيرة من المعلومات (Information) كمطبوعات بسهولة. ونتيجة لده، اتنشرت جرايد وكتب. في القرن الـ 19، أمريكي اسمه ( " data-en=" ), it became possible to easily reproduce large amounts of information as printed materials. As a result, newspapers and books were published. In the 19th century, an American named ( "> )، بقى ممكن تتكاثر كميات كبيرة من المعلومات (Information) كمطبوعات بسهولة. ونتيجة لده، اتنشرت جرايد وكتب. في القرن الـ 19، أمريكي اسمه ( </span><span class="slot" data-n="5">[5]</span><span data-ar=" ) اخترع ( " data-en=" ) invented the ( "> ) اخترع ( </span><span class="slot" data-n="6">[6]</span><span data-ar=" )، تكنولوجيا لإرسال واستقبال الأكواد عبر الاتصالات. في نفس الوقت تقريباً، بيل اخترع ( " data-en=" ), a technology for sending and receiving codes through telecommunications. Around the same time, Bell invented ( "> ) — تكنولوجيا لإرسال واستقبال الرموز عن طريق الاتصالات عن بُعد <span dir="ltr">(telecommunications)</span>. وفي نفس الفترة تقريباً بيل اخترع ( </span><span class="slot" data-n="7">[7]</span><span data-ar=" ). وكمان، في آخر القرن الـ 19، الإيطالي ماركوني اخترع ( " data-en=" ). Also, at the end of the 19th century, the Italian Marconi invented the ( "> ). وكمان، في آخر القرن الـ 19، الإيطالي ماركوني اخترع ( </span><span class="slot" data-n="8">[8]</span><span data-ar=" )، اللي بعدين تطوّر لراديو و( " data-en=" ), which later developed into radios and ( "> )، اللي بعدين تطوّر لراديو و( </span><span class="slot" data-n="9">[9]</span><span data-ar=" ) وموبايلات." data-en=" ) and mobile phones."> ) وموبايلات.</span>
+              <span data-ar="في الزمن القديم، الناس كانت بتوصّل المعلومات بإيقاد (" data-en="In ancient times, people conveyed information by lighting ( ">في الزمن القديم، الناس كانت بتوصّل المعلومات بإيقاد ( </span><span class="slot" data-n="1">[1]</span><span data-ar=") أو ضرب طبول عشان توصّل معلومات أساسية. في الآخر، الحروف والرموز كانت بتتحط على وسيلة اسمها (" data-en=" ) or beating drums to communicate basic information. Eventually, letters and symbols were carried on a medium called ( "> ) أو ضرب طبول عشان توصّل معلومات أساسية. في الآخر، الحروف والرموز كانت بتتحط على وسيلة اسمها ( </span><span class="slot" data-n="2">[2]</span><span data-ar=" ) وتتوصّل بعَدّائين أو حمام زاجل. في منتصف القرن الـ 15، بفضل ( " data-en=" ) and delivered using messengers or carrier pigeons. In the mid-15th century, thanks to ( "> ) وتتوصّل بعَدّائين أو حمام زاجل. في منتصف القرن الـ 15، بفضل ( </span><span class="slot" data-n="3">[3]</span><span data-ar=" ) اللي اخترع ( " data-en=" ) who invented the ( "> ) اللي اخترع ( </span><span class="slot" data-n="4">[4]</span><span data-ar=")، بقى ممكن تتكاثر كميات كبيرة من المعلومات كمطبوعات بسهولة. ونتيجة لده، اتنشرت جرايد وكتب. في القرن الـ 19، أمريكي اسمه (" data-en=" ), it became possible to easily reproduce large amounts of information as printed materials. As a result, newspapers and books were published. In the 19th century, an American named ( "> )، بقى ممكن تتكاثر كميات كبيرة من المعلومات كمطبوعات بسهولة. ونتيجة لده، اتنشرت جرايد وكتب. في القرن الـ 19، أمريكي اسمه ( </span><span class="slot" data-n="5">[5]</span><span data-ar=" ) اخترع ( " data-en=" ) invented the ( "> ) اخترع ( </span><span class="slot" data-n="6">[6]</span><span data-ar=" )، تكنولوجيا لإرسال واستقبال الأكواد عبر الاتصالات. في نفس الوقت تقريباً، بيل اخترع ( " data-en=" ), a technology for sending and receiving codes through telecommunications. Around the same time, Bell invented ( "> ) — تكنولوجيا لإرسال واستقبال الرموز عن طريق الاتصالات عن بُعد <span dir="ltr">(telecommunications)</span>. وفي نفس الفترة تقريباً بيل اخترع ( </span><span class="slot" data-n="7">[7]</span><span data-ar=" ). وكمان، في آخر القرن الـ 19، الإيطالي ماركوني اخترع ( " data-en=" ). Also, at the end of the 19th century, the Italian Marconi invented the ( "> ). وكمان، في آخر القرن الـ 19، الإيطالي ماركوني اخترع ( </span><span class="slot" data-n="8">[8]</span><span data-ar=" )، اللي بعدين تطوّر لراديو و( " data-en=" ), which later developed into radios and ( "> )، اللي بعدين تطوّر لراديو و( </span><span class="slot" data-n="9">[9]</span><span data-ar=" ) وموبايلات." data-en=" ) and mobile phones."> ) وموبايلات.</span>
             </div>
             <div class="fill-bank">
               <button class="fill-opt" data-v="A" data-ar="A&nbsp;&nbsp;المطبعة ذات الحروف المتحركة" data-en="A&nbsp;&nbsp;the movable-type printing press">A&nbsp;&nbsp;المطبعة ذات الحروف المتحركة (<span dir="ltr">movable-type printing press</span>)</button>
@@ -1668,7 +698,7 @@ select{color:var(--text)!important}
                 data-ar="اختار المصطلحات اللي بتناسب الفراغات [1] لـ [6] من الخيارات A لـ F."
                 data-en="Choose the terms that best fit into the blanks [1] to [6] from the options A to F.">اختيار المصطلح المناسب للفراغات <b>[1]</b> إلى <b>[6]</b> من الخيارات A إلى F.</span></div>
             <div class="fill-passage">
-              <span data-ar="عملية تبادل المعلومات (Information) بتتسمى ( " data-en="The act of exchanging information is called ( ">عملية تبادل المعلومات (Information) بتتسمى ( </span><span class="slot" data-n="1">[1]</span><span data-ar=" ). ووسيلة إرسال المعلومات (Information) لعدد كبير من الناس مرة واحدة هي ( " data-en=" ). The means of sending information to a large number of people at once is ( "> ). ووسيلة إرسال المعلومات (Information) لعدد كبير من الناس مرة واحدة هي ( </span><span class="slot" data-n="2">[2]</span><span data-ar=" ). زي ( " data-en=" ). Like ( "> ). زي ( </span><span class="slot" data-n="3">[3]</span><span data-ar=" ) و( " data-en=" ) and ( "> ) و( </span><span class="slot" data-n="4">[4]</span><span data-ar=" )، ([2]) بتوفّر إرسال باتجاه واحد من المرسل للمستقبِل. في المقابل، ( " data-en=" ), ([2]) provides one-way transmission from sender to receiver. In contrast, ( "> )، ([2]) بيوفر إرسال المعلومة في اتجاه واحد <span dir="ltr">(one-way)</span> من المرسل للمستقبل. بالعكس، ( </span><span class="slot" data-n="5">[5]</span><span data-ar=" ) و( " data-en=" ) and ( "> ) و( </span><span class="slot" data-n="6">[6]</span><span data-ar=" ) طرق اتصال بتتيح تبادل المعلومات (Information) في الاتجّين." data-en=" ) are communication methods that enable two-way information exchange."> ) طرق اتصال بتخلي تبادل المعلومات في اتجاهين <span dir="ltr">(two-way)</span>.</span>
+              <span data-ar="عملية تبادل المعلومات بتتسمى (" data-en="The act of exchanging information is called ( ">عملية تبادل المعلومات بتتسمى ( </span><span class="slot" data-n="1">[1]</span><span data-ar="). ووسيلة إرسال المعلومات لعدد كبير من الناس مرة واحدة هي (" data-en=" ). The means of sending information to a large number of people at once is ( "> ). ووسيلة إرسال المعلومات لعدد كبير من الناس مرة واحدة هي ( </span><span class="slot" data-n="2">[2]</span><span data-ar=" ). زي ( " data-en=" ). Like ( "> ). زي ( </span><span class="slot" data-n="3">[3]</span><span data-ar=" ) و( " data-en=" ) and ( "> ) و( </span><span class="slot" data-n="4">[4]</span><span data-ar=" )، ([2]) بتوفّر إرسال باتجاه واحد من المرسل للمستقبِل. في المقابل، ( " data-en=" ), ([2]) provides one-way transmission from sender to receiver. In contrast, ( "> )، ([2]) بيوفر إرسال المعلومة في اتجاه واحد <span dir="ltr">(one-way)</span> من المرسل للمستقبل. بالعكس، ( </span><span class="slot" data-n="5">[5]</span><span data-ar=" ) و( " data-en=" ) and ( "> ) و( </span><span class="slot" data-n="6">[6]</span><span data-ar=") طرق اتصال بتتيح تبادل المعلومات في الاتجّين." data-en=" ) are communication methods that enable two-way information exchange."> ) طرق اتصال بتخلي تبادل المعلومات في اتجاهين <span dir="ltr">(two-way)</span>.</span>
             </div>
             <div class="fill-bank">
               <button class="fill-opt" data-v="A" data-ar="A&nbsp;&nbsp;اتصال" data-en="A&nbsp;&nbsp;communication">A&nbsp;&nbsp;التواصل (<span dir="ltr">communication</span>)</button>
@@ -1695,7 +725,7 @@ select{color:var(--text)!important}
             <div class="fill-bank">
               <button class="fill-opt" data-v="A" data-ar="A&nbsp;&nbsp;اتاخترع التليفون." data-en="A&nbsp;&nbsp;The telephone was invented.">A&nbsp;&nbsp;الهاتف اتعمل (<span dir="ltr">telephone</span>).</button>
               <button class="fill-opt" data-v="B" data-ar="B&nbsp;&nbsp;اتأسّس نظام البريد الحديث." data-en="B&nbsp;&nbsp;The modern postal system was established.">B&nbsp;&nbsp;نظام البريد الحديث اتأسس (<span dir="ltr">modern postal system</span>).</button>
-              <button class="fill-opt" data-v="C" data-ar="C&nbsp;&nbsp;المعلومات (Information) كانت بتتوصّل بإيقاد نيران الإشارة أو ضرب الطبول." data-en="C&nbsp;&nbsp;Information was conveyed by lighting signal fires or beating drums.">C&nbsp;&nbsp;المعلومة كانت بتوصل بإشعال النار وقرع الطبول (<span dir="ltr">signal fires</span>).</button>
+              <button class="fill-opt" data-v="C" data-ar="C&nbsp;&nbsp;المعلومات كانت بتتوصّل بإيقاد نيران الإشارة أو ضرب الطبول." data-en="C&nbsp;&nbsp;Information was conveyed by lighting signal fires or beating drums.">C&nbsp;&nbsp;المعلومة كانت بتوصل بإشعال النار وقرع الطبول (<span dir="ltr">signal fires</span>).</button>
               <button class="fill-opt" data-v="D" data-ar="D&nbsp;&nbsp;الموبايلات انتشرت." data-en="D&nbsp;&nbsp;Cellular phones became widespread.">D&nbsp;&nbsp;الهواتف الخلوية انتشرت (<span dir="ltr">cellular phones</span>).</button>
             </div>
             <div class="btn-row" style="margin-top:12px">
@@ -1727,7 +757,7 @@ select{color:var(--text)!important}
               <div class="j-dot" style="background:var(--s1)"></div>
               <div class="j-body">
                 <div class="t" data-ar="1. قبل الاتصالات" data-en="1. Before telecommunications">1. قبل الاتصالات</div>
-                <div class="d" data-ar="نيران الإشارة والطبول ← الورق والعَدّائين ← نظام البريد الحديث (1840)."
+                <div class="d" data-ar="نيران الإشارة والطبول → الورق والعَدّائين → نظام البريد الحديث (1840)."
                   data-en="Signal fires and drums → paper and messengers → the modern postal system (1840).">نيران الإشارة والطبول ← الورق والعَدّائين ← نظام البريد الحديث (1840).</div>
               </div>
             </div>
@@ -1735,7 +765,7 @@ select{color:var(--text)!important}
               <div class="j-dot" style="background:var(--s2)"></div>
               <div class="j-body">
                 <div class="t" data-ar="2. بداية الاتصالات" data-en="2. The beginning of telecommunications">2. بداية الاتصالات</div>
-                <div class="d" data-ar="مورس والتلغراف (1837) ← بيل والتليفون (1876) ← ماركوني واللاسلكي (1895) ← الموبايل (1946)."
+                <div class="d" data-ar="مورس والتلغراف (1837) → بيل والتليفون (1876) → ماركوني واللاسلكي (1895) → الموبايل (1946)."
                   data-en="Morse and the telegraph (1837) → Bell and the telephone (1876) → Marconi and the wireless (1895) → the cellular phone (1946).">مورس والتلغراف (1837) ← بيل والتليفون (1876) ← ماركوني واللاسلكي (1895) ← الموبايل (1946).</div>
               </div>
             </div>
@@ -1743,15 +773,15 @@ select{color:var(--text)!important}
               <div class="j-dot" style="background:var(--s3)"></div>
               <div class="j-body">
                 <div class="t" data-ar="3. البث الجماهيري" data-en="3. Mass communication">3. البث الجماهيري</div>
-                <div class="d" data-ar="المطبعة (جوتنبرج) ← الراديو (1906) ← التليفزيون (1928): معلومات (Information) لعدد كبير مرة واحدة، اتجاه واحد."
-                  data-en="The printing press (Gutenberg) → radio (1906) → television (1928): information to a large number at once, one direction.">المطبعة (جوتنبرج) ← الراديو (1906) ← التليفزيون (1928): معلومات (Information) لعدد كبير مرة واحدة، اتجاه واحد.</div>
+                <div class="d" data-ar="المطبعة (جوتنبرج) → الراديو (1906) → التليفزيون (1928): معلومات لعدد كبير مرة واحدة، اتجاه واحد."
+                  data-en="The printing press (Gutenberg) → radio (1906) → television (1928): information to a large number at once, one direction.">المطبعة (جوتنبرج) ← الراديو (1906) ← التليفزيون (1928): معلومات لعدد كبير مرة واحدة، اتجاه واحد.</div>
               </div>
             </div>
             <div class="j-node">
               <div class="j-dot" style="background:var(--s4)"></div>
               <div class="j-body">
                 <div class="t" data-ar="4. تطوّر الإنترنت" data-en="4. The development of the internet">4. تطوّر الإنترنت</div>
-                <div class="d" data-ar="تجربة ARPANET (1969) ← جهات البحث ← الشبكة العالمية اللي انتشرت بين الناس في التسعينيات."
+                <div class="d" data-ar="تجربة ARPANET (1969) → جهات البحث → الشبكة العالمية اللي انتشرت بين الناس في التسعينيات."
                   data-en="The ARPANET experiment (1969) → research institutions → the global network that spread among the public in the 1990s.">تجربة <span dir="ltr">ARPANET</span> (1969) → المؤسسات البحثية → الشبكة العالمية اللي انتشرت بين الجمهور في التسعينيات.</div>
               </div>
             </div>
@@ -1762,9 +792,9 @@ select{color:var(--text)!important}
       <div class="section-inner card" style="margin-top:24px">
         <h3 data-ar="رسالة النهارده" data-en="Today's Message">رسالة النهارده</h3>
         <p style="font-size:1.05rem"
-          data-ar="كل وسيلة في الرحلة اتاخترعت عشان تحل مشكلة واحدة: المعلومات (Information) لازم توصّل. من النيران والطبول، للورق والبريد، للتليفون والراديو والتليفزيون، لحد الإنترنت — المدى بقى أطول، والسرعة بقت أعلى، وعدد الناس اللي بيوصلوا كبر."
+          data-ar="كل وسيلة في الرحلة اتاخترعت عشان تحل مشكلة واحدة: المعلومات لازم توصّل. من النيران والطبول، للورق والبريد، للتليفون والراديو والتليفزيون، لحد الإنترنت — المدى بقى أطول، والسرعة بقت أعلى، وعدد الناس اللي بيوصلوا كبر."
           data-en="Every medium along the journey was invented to solve one problem: information needs to get through. From fires and drums, to paper and mail, to the telephone, radio and television, all the way to the internet — the range grew longer, the speed grew higher, and the number of people reached grew larger.">
-          كل وسيلة <b>(<span dir="ltr">medium</span>)</b> في الرحلة اتاخترعت عشان تحل مشكلة واحدة: <b>المعلومة محتاجة توصل</b>. من النار والطبول، للورق والبريد، للهاتف والراديو والتلفزيون، وصولاً للإنترنت — المدى بقى أطول، والسرعة بقيت أعلى، وعدد الناس اللي بتوصلهم المعلومة بقى أكبر.</p>
+ كل وسيلة <b>(<span dir="ltr">medium</span>)</b> في الرحلة اتاخترعت عشان تحل مشكلة واحدة: <b>المعلومة محتاجة توصل</b>. من النار والطبول، للورق والبريد، للهاتف والراديو والتلفزيون، وصولاً للإنترنت — المدى بقى أطول، والسرعة بقيت أعلى، وعدد الناس اللي بتوصلهم المعلومة بقى أكبر.</p>
       </div>
 
       <div class="section-inner card">
@@ -1783,7 +813,7 @@ select{color:var(--text)!important}
               </div>
               <div class="quiz-why"><span data-ar="✅ بيل هو مخترع التليفون — مورس عمل التلغراف وماركوني عمل اللاسلكي."
                   data-en="✅ Bell is the inventor of the telephone — Morse made the telegraph and Marconi made the wireless.">✅ بيل هو مخترع التليفون — مورس عمل التلغراف وماركوني عمل اللاسلكي.</span></div>
-              <button class="mini-btn" data-id="rq1Skip" data-skip data-ar="تخطّي ←" data-en="Skip ←" style="margin-top:10px">تخطّي ←</button>
+              <button class="mini-btn" data-id="rq1Skip" data-skip data-ar="تخطّي →" data-en="Skip ←" style="margin-top:10px">تخطّي ←</button>
             </div>
             <div class="quiz-q">
               <div class="q"><span class="q-num">2</span> <span data-ar="الإنترنت تطوّر من إيه؟"
@@ -1796,20 +826,20 @@ select{color:var(--text)!important}
               </div>
               <div class="quiz-why"><span data-ar="✅ الإنترنت بدأ كتجربة اسمها ARPANET في 1969، بدعم من وزارة الدفاع الأمريكية."
                   data-en="✅ The internet began as an experiment called ARPANET in 1969, supported by the US Department of Defense.">✅ الإنترنت بدأ تجربة اسمها <span dir="ltr">ARPANET</span> سنة 1969 بدعم من وزارة الدفاع الأمريكية.</span></div>
-              <button class="mini-btn" data-id="rq2Skip" data-skip data-ar="تخطّي ←" data-en="Skip ←" style="margin-top:10px">تخطّي ←</button>
+              <button class="mini-btn" data-id="rq2Skip" data-skip data-ar="تخطّي →" data-en="Skip ←" style="margin-top:10px">تخطّي ←</button>
             </div>
             <div class="quiz-q">
               <div class="q"><span class="q-num">3</span> <span data-ar="البث الجماهيري يعني إيه؟"
                   data-en="What does mass communication mean?">البث الجماهيري يعني إيه؟</span></div>
               <div class="quiz-options">
-                <button class="quiz-opt" data-id="rq3o1" data-ar="إرسال معلومات (Information) من شخص لشخص" data-en="Sending information from one person to another">إرسال معلومات (Information) من شخص لشخص</button>
-                <button class="quiz-opt" data-id="rq3o2" data-ok="1" data-ar="إرسال معلومات (Information) لعدد كبير في نفس الوقت" data-en="Sending information to a large number at the same time">إرسال معلومات (Information) لعدد كبير في نفس الوقت</button>
-                <button class="quiz-opt" data-id="rq3o3" data-ar="تخزين المعلومات (Information)" data-en="Storing information">تخزين المعلومات (Information)</button>
+                <button class="quiz-opt" data-id="rq3o1" data-ar="إرسال معلومات من شخص لشخص" data-en="Sending information from one person to another">إرسال معلومات من شخص لشخص</button>
+                <button class="quiz-opt" data-id="rq3o2" data-ok="1" data-ar="إرسال معلومات لعدد كبير في نفس الوقت" data-en="Sending information to a large number at the same time">إرسال معلومات لعدد كبير في نفس الوقت</button>
+                <button class="quiz-opt" data-id="rq3o3" data-ar="تخزين المعلومات" data-en="Storing information">تخزين المعلومات</button>
                 <button class="quiz-opt" data-id="rq3o4" data-ar="طباعة الكتب" data-en="Printing books">طباعة الكتب</button>
               </div>
-              <div class="quiz-why"><span data-ar="✅ البث الجماهيري وسيلة لإرسال معلومات (Information) لعدد كبير جداً من الناس مرة واحدة — زي الراديو والتليفزيون."
-                  data-en="✅ Mass communication is a means of sending information to a very large number of people at once — like radio and television.">✅ البث الجماهيري وسيلة لإرسال معلومات (Information) لعدد كبير جداً من الناس مرة واحدة — زي الراديو والتليفزيون.</span></div>
-              <button class="mini-btn" data-id="rq3Skip" data-skip data-ar="تخطّي ←" data-en="Skip ←" style="margin-top:10px">تخطّي ←</button>
+              <div class="quiz-why"><span data-ar="✅ البث الجماهيري وسيلة لإرسال معلومات لعدد كبير جداً من الناس مرة واحدة — زي الراديو والتليفزيون."
+                  data-en="✅ Mass communication is a means of sending information to a very large number of people at once — like radio and television.">✅ البث الجماهيري وسيلة لإرسال معلومات لعدد كبير جداً من الناس مرة واحدة — زي الراديو والتليفزيون.</span></div>
+              <button class="mini-btn" data-id="rq3Skip" data-skip data-ar="تخطّي →" data-en="Skip ←" style="margin-top:10px">تخطّي ←</button>
             </div>
           </div>
         </div>
@@ -1829,7 +859,7 @@ select{color:var(--text)!important}
       </div>
       <div class="section-inner card">
         <p data-ar="ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق البحث." data-en="Search any term or use the filters to narrow down.">ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق البحث.</p>
-        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح..." aria-label="ابحث عن مصطلح">
         <div class="glossary-filters">
           <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
           <button class="mini-btn gl-filter" data-filter="before" data-ar="قديم" data-en="Ancient">قديم</button>
@@ -1839,63 +869,63 @@ select{color:var(--text)!important}
         </div>
         <div class="glossary-list">
           <div class="gl-term" data-cat="before">
-            <h4 data-ar="اتصال" data-en="Communication">اتصال</h4>
-            <p data-ar="عملية تبادل المعلومات (Information) بين الناس — مرسل ووسيط ومستقبِل." data-en="The act of exchanging information between people — a sender, a medium and a receiver.">عملية تبادل المعلومات (Information) بين الناس — مرسل ووسيط ومستقبِل.</p>
+            <h3 data-ar="اتصال" data-en="Communication" class="lvl-h4 lvl-h4-2">اتصال</h3>
+            <p data-ar="عملية تبادل المعلومات بين الناس — مرسل ووسيط ومستقبِل." data-en="The act of exchanging information between people — a sender, a medium and a receiver.">عملية تبادل المعلومات بين الناس — مرسل ووسيط ومستقبِل.</p>
           </div>
           <div class="gl-term" data-cat="before">
-            <h4 data-ar="نيران الإشارة" data-en="Signal fires">نيران الإشارة</h4>
-            <p data-ar="إشارات بصرية بتتعمل بالنار كانت بتوصّل معلومات (Information) بسيطة لعدد قليل من الناس القريبين." data-en="Visual signals made with fire that delivered simple information to a few nearby people.">إشارات بصرية بتتعمل بالنار كانت بتوصّل معلومات (Information) بسيطة لعدد قليل من الناس القريبين.</p>
+            <h3 data-ar="نيران الإشارة" data-en="Signal fires" class="lvl-h4 lvl-h4-2">نيران الإشارة</h3>
+            <p data-ar="إشارات بصرية بتتعمل بالنار كانت بتوصّل معلومات بسيطة لعدد قليل من الناس القريبين." data-en="Visual signals made with fire that delivered simple information to a few nearby people.">إشارات بصرية بتتعمل بالنار كانت بتوصّل معلومات بسيطة لعدد قليل من الناس القريبين.</p>
           </div>
           <div class="gl-term" data-cat="before">
-            <h4 data-ar="ورق" data-en="Paper">ورق</h4>
+            <h3 data-ar="ورق" data-en="Paper" class="lvl-h4 lvl-h4-2">ورق</h3>
             <p data-ar="الوسيلة اللي كانت بتتكتب عليها الرسايل بعد ما اتطوّرت الكتابة، وكانت بتتوصّل بعَدّائين أو حمام زاجل." data-en="The medium messages were written on after writing was developed, delivered by messengers or carrier pigeons.">الوسيلة اللي كانت بتتكتب عليها الرسايل بعد ما اتطوّرت الكتابة، وكانت بتتوصّل بعَدّائين أو حمام زاجل.</p>
           </div>
           <div class="gl-term" data-cat="before">
-            <h4 data-ar="نظام البريد الحديث" data-en="Modern postal system">نظام البريد الحديث</h4>
+            <h3 data-ar="نظام البريد الحديث" data-en="Modern postal system" class="lvl-h4 lvl-h4-2">نظام البريد الحديث</h3>
             <p data-ar="سيستم منظّم لنقل الخطابات بين الناس، اتأسّس في 1840." data-en="An organized system for moving letters between people, established in 1840.">سيستم منظّم لنقل الخطابات بين الناس، اتأسّس في 1840.</p>
           </div>
           <div class="gl-term" data-cat="telecom">
-            <h4 data-ar="اتصالات" data-en="Telecommunications">اتصالات</h4>
-            <p data-ar="إرسال واستقبال المعلومات (Information) من بعيد باستخدام التكنولوجيا." data-en="Sending and receiving information remotely using technology.">إرسال واستقبال المعلومات (Information) من بعيد باستخدام التكنولوجيا.</p>
+            <h3 data-ar="اتصالات" data-en="Telecommunications" class="lvl-h4 lvl-h4-2">اتصالات</h3>
+            <p data-ar="إرسال واستقبال المعلومات من بعيد باستخدام التكنولوجيا." data-en="Sending and receiving information remotely using technology.">إرسال واستقبال المعلومات من بعيد باستخدام التكنولوجيا.</p>
           </div>
           <div class="gl-term" data-cat="telecom">
-            <h4 data-ar="تلغراف مورس" data-en="Morse telegraph">تلغراف مورس</h4>
+            <h3 data-ar="تلغراف مورس" data-en="Morse telegraph" class="lvl-h4 lvl-h4-2">تلغراف مورس</h3>
             <p data-ar="جهاز اخترعه مورس في 1837 لإرسال واستقبال الأكواد عبر الاتصالات." data-en="A device invented by Morse in 1837 for sending and receiving codes through telecommunications.">جهاز اخترعه مورس في 1837 لإرسال واستقبال الأكواد عبر الاتصالات.</p>
           </div>
           <div class="gl-term" data-cat="telecom">
-            <h4 data-ar="تليفون" data-en="Telephone">تليفون</h4>
+            <h3 data-ar="تليفون" data-en="Telephone" class="lvl-h4 lvl-h4-2">تليفون</h3>
             <p data-ar="اخترعه بيل في 1876 — أول وسيلة بتخلّي الصوت يوصل لشخص تاني في مكان تاني." data-en="Invented by Bell in 1876 — the first medium that lets the voice reach another person in another place.">اخترعه بيل في 1876 — أول وسيلة بتخلّي الصوت يوصل لشخص تاني في مكان تاني.</p>
           </div>
           <div class="gl-term" data-cat="telecom">
-            <h4 data-ar="تلغراف لاسلكي" data-en="Wireless telegraph">تلغراف لاسلكي</h4>
+            <h3 data-ar="تلغراف لاسلكي" data-en="Wireless telegraph" class="lvl-h4 lvl-h4-2">تلغراف لاسلكي</h3>
             <p data-ar="اخترعه ماركوني في 1895 — بيبعت إشارات من غير أسلاك، وبعدين تطوّر لراديو." data-en="Invented by Marconi in 1895 — sends signals without wires, later developed into radio.">اخترعه ماركوني في 1895 — بيبعت إشارات من غير أسلاك، وبعدين تطوّر لراديو.</p>
           </div>
           <div class="gl-term" data-cat="telecom">
-            <h4 data-ar="الموبايلات" data-en="Cellular phones">الموبايلات</h4>
+            <h3 data-ar="الموبايلات" data-en="Cellular phones" class="lvl-h4 lvl-h4-2">الموبايلات</h3>
             <p data-ar="خدمة الموبايل اللي بدأ استخدامها في أمريكا في 1946." data-en="The mobile phone service that began to be used in the United States in 1946.">خدمة الموبايل اللي بدأ استخدامها في أمريكا في 1946.</p>
           </div>
           <div class="gl-term" data-cat="mass">
-            <h4 data-ar="بث جماهيري" data-en="Mass communication">بث جماهيري</h4>
-            <p data-ar="وسيلة لإرسال معلومات (Information) لعدد كبير جداً من الناس مرة واحدة، غالباً باتجاه واحد." data-en="A means of sending information to a very large number of people at once, usually one-way.">وسيلة لإرسال معلومات (Information) لعدد كبير جداً من الناس مرة واحدة، غالباً باتجاه واحد.</p>
+            <h3 data-ar="بث جماهيري" data-en="Mass communication" class="lvl-h4 lvl-h4-2">بث جماهيري</h3>
+            <p data-ar="وسيلة لإرسال معلومات لعدد كبير جداً من الناس مرة واحدة، غالباً باتجاه واحد." data-en="A means of sending information to a very large number of people at once, usually one-way.">وسيلة لإرسال معلومات لعدد كبير جداً من الناس مرة واحدة، غالباً باتجاه واحد.</p>
           </div>
           <div class="gl-term" data-cat="mass">
-            <h4 data-ar="المطبعة ذات الحروف المتحركة" data-en="Movable-type printing press">المطبعة ذات الحروف المتحركة</h4>
+            <h3 data-ar="المطبعة ذات الحروف المتحركة" data-en="Movable-type printing press" class="lvl-h4 lvl-h4-2">المطبعة ذات الحروف المتحركة</h3>
             <p data-ar="اخترعها جوتنبرج في منتصف القرن الـ 15 — وده خلّى تكثير المطبوعات بكميات كبيرة ممكن." data-en="Invented by Gutenberg in the mid-15th century — made reproducing printed materials in large quantities possible.">اخترعها جوتنبرج في منتصف القرن الـ 15 — وده خلّى تكثير المطبوعات بكميات كبيرة ممكن.</p>
           </div>
           <div class="gl-term" data-cat="mass">
-            <h4 data-ar="راديو" data-en="Radio">راديو</h4>
+            <h3 data-ar="راديو" data-en="Radio" class="lvl-h4 lvl-h4-2">راديو</h3>
             <p data-ar="أول بث راديو تجريبي اتعمل في أمريكا في 1906." data-en="The first experimental radio broadcast was conducted in the United States in 1906.">أول بث راديو تجريبي اتعمل في أمريكا في 1906.</p>
           </div>
           <div class="gl-term" data-cat="mass">
-            <h4 data-ar="تليفزيون" data-en="Television">تليفزيون</h4>
+            <h3 data-ar="تليفزيون" data-en="Television" class="lvl-h4 lvl-h4-2">تليفزيون</h3>
             <p data-ar="أول بث تليفزيون تجريبي اتعمل في أمريكا في 1928 — صورة وصوت مع بعض." data-en="The first experimental television broadcast was conducted in the United States in 1928 — image and sound together.">أول بث تليفزيون تجريبي اتعمل في أمريكا في 1928 — صورة وصوت مع بعض.</p>
           </div>
           <div class="gl-term" data-cat="internet">
-            <h4 data-ar="ARPANET" data-en="ARPANET">ARPANET — <span dir="ltr">ARPANET</span></h4>
+            <h3 data-ar="ARPANET" data-en="ARPANET" class="lvl-h4 lvl-h4-2">ARPANET — <span dir="ltr">ARPANET</span></h3>
             <p data-ar="تجربة شبكة كمبيوترات في 1969 بدعم من وزارة الدفاع الأمريكية — أول نواة للإنترنت." data-en="A computer network experiment in 1969 supported by the US Department of Defense — the first core of the internet.">تجربة شبكة كمبيوترات في 1969 بدعم من وزارة الدفاع الأمريكية — أول نواة للإنترنت.</p>
           </div>
           <div class="gl-term" data-cat="internet">
-            <h4 data-ar="إنترنت" data-en="Internet">إنترنت</h4>
+            <h3 data-ar="إنترنت" data-en="Internet" class="lvl-h4 lvl-h4-2">إنترنت</h3>
             <p data-ar="الشبكة العالمية اللي جت بعد ARPANET وبدأت تنتشر بين الناس في التسعينيات." data-en="The global network that followed ARPANET and began to spread among the public in the 1990s.">الشبكة العالمية اللي اتعرفت بعد <span dir="ltr">ARPANET</span> وبدأت تنتشر بين الجمهور في التسعينيات.</p>
           </div>
         </div>
@@ -1933,7 +963,7 @@ select{color:var(--text)!important}
               <div class="rq-q"><span class="q-num">3</span> <span data-ar="إيه هو 'البث الجماهيري / الإعلام الجماهيري'؟" data-en="What is 'Mass communication / Mass media'?">إيه هو 'البث الجماهيري / الإعلام الجماهيري'؟</span></div>
               <div class="rq-opts">
                 <div class="rq-opt" data-key="A" data-ok="0" data-fb-ar="مش ده — ده توصيل لشخص واحد (1-1)." data-fb-en="Not this — that is one-to-one communication."><span class="rq-key">A</span><span class="rq-body" data-ar="إرسال لمستقبِل واحد" data-en="Sending to a single recipient">إرسال لمستقبِل واحد</span></div>
-                <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده استقبال من مصادر كتير (many-to-one)." data-fb-en="Not this — that is many-to-one (e.g. surveys)."><span class="rq-key">B</span><span class="rq-body" data-ar="استقبال من مصادر كتير" data-en="Receiving from many sources">استقبال من مصادر كتير</span></div>
+                <div class="rq-opt" data-key="B" data-ok="0" data-fb-ar="مش ده — ده استقبال من مصادر كتير." data-fb-en="Not this — that is many-to-one (e.g. surveys)."><span class="rq-key">B</span><span class="rq-body" data-ar="استقبال من مصادر كتير" data-en="Receiving from many sources">استقبال من مصادر كتير</span></div>
                 <div class="rq-opt" data-key="C" data-ok="1" data-fb-ar="صح! الوسائط الجماهيرية بتوصل المعلومة لعدد كبير من الناس مرة واحدة." data-fb-en="Correct! Mass media sends information to a large number of people at once."><span class="rq-key">C</span><span class="rq-body" data-ar="إرسال لمجموعة كبيرة مرة واحدة" data-en="Sending to a large group at once">إرسال لمجموعة كبيرة مرة واحدة</span></div>
               </div>
               <div class="rq-fb"></div>

@@ -10,981 +10,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 7-2 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }
-
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/omputers-7-2-computer-software--7-2-computer-software-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
 </head>
 
 <body>
@@ -1004,11 +34,11 @@ select{color:var(--text)!important}
       <a href="../../../../index.html" aria-label="الرئيسية"><img class="nav-logo" src="../../../../assets/logo-extracted.webp" alt="logo"></a>
       <div class="nav-links" id="navLinks">
         <a href="#intro" data-ar="يلا نبدأ" data-en="Start">يلا نبدأ</a>
-        <a href="#software" data-ar="السوفتوير (Software)" data-en="Software">السوفتوير (Software)</a>
+        <a href="#software" data-ar="السوفتوير" data-en="Software">السوفتوير</a>
         <a href="#system" data-ar="نظام" data-en="System">نظام</a>
-        <a href="#os" data-ar="نظام التشغيل (OS)" data-en="OS">نظام التشغيل (OS)</a>
+        <a href="#os" data-ar="نظام التشغيل" data-en="OS">نظام التشغيل</a>
         <a href="#application" data-ar="تطبيقات" data-en="Apps">تطبيقات</a>
-        <a href="#driver" data-ar="تعريف (Driver)" data-en="Driver">تعريف (Driver)</a>
+        <a href="#driver" data-ar="تعريف" data-en="Driver">تعريف</a>
         <a href="#practice" data-ar="تمارين" data-en="Exercises">تمارين</a>
         <a href="#recap" data-ar="المراجعة" data-en="Recap">المراجعة</a>
       </div>
@@ -1020,12 +50,12 @@ select{color:var(--text)!important}
       <div class="hero-badge" data-ar="الدرس 2 — سوفتوير الكمبيوتر" data-en="Lesson 2 — Computer Software">الدرس 2 — سوفتوير الكمبيوتر</div>
       <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>برمجيات</span> الكمبيوتر" data-en="<span class=&quot;grad&quot;>Computer</span> Software">برمجيات <span class="grad">الكمبيوتر</span></h1>
       <p class="hero-sub"
-        data-ar="سوفتوير (Software) الكمبيوتر — السوفتوير (Software) هو البرامج والداتا (Data) اللي بتشتغل على الهاردوير (Hardware). النهارده هنتعلّم السوفتوير (Software) وأنواعه، والسوفتوير (Software) النظامي، ونظام التشغيل OS، والسوفتوير (Software) التطبيقي، وتعريف الجهاز (Device driver)."
+        data-ar="سوفتوير الكمبيوتر — السوفتوير هو البرامج والبيانات اللي بتشتغل على الهاردوير. النهارده هنتعلّم السوفتوير وأنواعه، والسوفتوير النظامي، ونظام التشغيل OS، والسوفتوير التطبيقي، وتعريف الجهاز."
         data-en="Computer Software — software is the programs and data that operate on the hardware. Today we learn the Software and its types, System software, the Operating System OS, Application software, and the Device driver.">
         <span dir="ltr">Computer Software</span> — البرمجيات هي البرامج والبيانات اللي بتشتغل على العتاد. النهارده
-        هنتعلم البرمجيات Software وأنواعها، وبرمجيات النظام، ونظام التشغيل OS، وبرمجيات التطبيقات، وبرنامج التحكم Device
-        driver.</p>
-      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ هنتعلم البرمجيات Software وأنواعها، وبرمجيات النظام، ونظام التشغيل OS، وبرمجيات التطبيقات، وبرنامج التحكم Device
+ driver.</p>
+      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 <main>
@@ -1043,21 +73,21 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#1440c9)">01</div>
           <div>
             <h2 data-ar="إيه اللي هنتعلّمه النهارده؟" data-en="What will we learn today?">إيه اللي هنتعلّمه النهارده؟</h2>
-            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — سوفتوير (Software) الكمبيوتر"
-              data-en="Lesson introduction — Computer Software">مقدمة الدرس — سوفتوير (Software) الكمبيوتر</div>
+            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — سوفتوير الكمبيوتر"
+              data-en="Lesson introduction — Computer Software">مقدمة الدرس — سوفتوير الكمبيوتر</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="في الدرس اللي فات اتعلمنا عن الهاردوير (Hardware)، بس الكمبيوتر مش بيشتغل من غير سوفتوير (Software). النهارده هنتعلّم إيه هو السوفتوير (Software)، وأنواعه، ونظام التشغيل OS، والسوفتوير (Software) التطبيقي، وتعريف الجهاز (Device driver)."
+        <p data-ar="في الدرس اللي فات اتعلمنا عن الهاردوير، بس الكمبيوتر مش بيشتغل من غير سوفتوير. النهارده هنتعلّم إيه هو السوفتوير، وأنواعه، ونظام التشغيل OS، والسوفتوير التطبيقي، وتعريف الجهاز."
           data-en="In the previous lesson we learned about Hardware, but a computer does not work without Software. Today we learn what Software is, its types, the Operating System OS, Application software, and the Device driver.">
-          في الدرس اللي فات عرفنا العتاد <span dir="ltr">(Hardware)</span> وهو الأجهزة، لكن الكمبيوتر مش شغال بمن غير
-          <b>البرمجيات <span dir="ltr">(Software)</span></b>. النهارده هنتعلم إيه هي البرمجيات، وأنواعها، ونظام التشغيل OS،
-          وبرمجيات التطبيقات، وبرنامج التحكم Device driver.</p>
+ في الدرس اللي فات عرفنا العتاد <span dir="ltr">(Hardware)</span> وهو الأجهزة، لكن الكمبيوتر مش شغال بمن غير
+ <b>البرمجيات <span dir="ltr">(Software)</span></b>. النهارده هنتعلم إيه هي البرمجيات، وأنواعها، ونظام التشغيل OS،
+ وبرمجيات التطبيقات، وبرنامج التحكم Device driver.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="الهاردوير (Hardware) هو جسم الكمبيوتر، والسوفتوير (Software) هو العقل والأفكار اللي بتخلّيه يشتغل — من غيره الجهاز مبيحسش."
-            data-en="Hardware is the computer's body, and Software is the mind and ideas that make it work — without it the device is lifeless.">الهاردوير (Hardware) هو جسم الكمبيوتر، والسوفتوير (Software) هو العقل والأفكار اللي بتخلّيه يشتغل — من غيره الجهاز مبيحسش.</span></div>
+            data-ar="الهاردوير هو جسم الكمبيوتر، والسوفتوير هو العقل والأفكار اللي بتخلّيه يشتغل — من غيره الجهاز مبيحسش."
+            data-en="Hardware is the computer's body, and Software is the mind and ideas that make it work — without it the device is lifeless.">الهاردوير هو جسم الكمبيوتر، والسوفتوير هو العقل والأفكار اللي بتخلّيه يشتغل — من غيره الجهاز مبيحسش.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1066,39 +96,39 @@ select{color:var(--text)!important}
             <div class="demo-label" data-ar="النهارده هنتعلّم 5 حاجات"
               data-en="Today we'll learn 5 things">النهارده هنتعلّم 5 حاجات</div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">💻</span><span><b
-                  style="color:var(--s2)" data-ar="مفهوم السوفتوير (Software) وأنواعه"
-                  data-en="the Software concept and its types">مفهوم السوفتوير (Software) وأنواعه</b></span></div>
+                  style="color:var(--s2)" data-ar="مفهوم السوفتوير وأنواعه"
+                  data-en="the Software concept and its types">مفهوم السوفتوير وأنواعه</b></span></div>
             <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">🔧</span><span><b
-                  style="color:var(--s3)" data-ar="السوفتوير (Software) النظامي"
-                  data-en="System software">السوفتوير (Software) النظامي</b></span></div>
+                  style="color:var(--s3)" data-ar="السوفتوير النظامي"
+                  data-en="System software">السوفتوير النظامي</b></span></div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🪟</span><span><b
-                  style="color:var(--s4)" data-ar="نظام التشغيل (OS)"
-                  data-en="the Operating system (OS)">نظام التشغيل (OS)</b></span></div>
+                  style="color:var(--s4)" data-ar="نظام التشغيل"
+                  data-en="the Operating system (OS)">نظام التشغيل</b></span></div>
             <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">📊</span><span><b
-                  style="color:var(--s5)" data-ar="السوفتوير (Software) التطبيقي"
-                  data-en="Application software">السوفتوير (Software) التطبيقي</b></span></div>
+                  style="color:var(--s5)" data-ar="السوفتوير التطبيقي"
+                  data-en="Application software">السوفتوير التطبيقي</b></span></div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🖨️</span><span><b
-                  style="color:var(--s6)" data-ar="تعريف الجهاز (Device driver)"
-                  data-en="the Device driver">تعريف الجهاز (Device driver)</b></span></div>
+                  style="color:var(--s6)" data-ar="تعريف الجهاز"
+                  data-en="the Device driver">تعريف الجهاز</b></span></div>
           </div>
           <div class="demo-panel">
             <div class="demo-label" data-ar="ليه بنتعلم ده؟" data-en="Why do we learn this?">ليه بنتعلم ده؟</div>
             <p style="font-size:.95rem"
-              data-ar="لما تفهم الفرق بين السوفتوير (Software) النظامي والتطبيقي ونظام التشغيل، هتفهم ليه الجهاز محتاج OS عشان يشتغل، وليه التطبيقات مش بتشتغل من غيره — وهتحل تمارين التصنيف بسهولة."
-              data-en="When you understand the difference between system software, application software, and the operating system, you will understand why a device needs the OS to work, and why applications do not run without it — and you will solve classification exercises easily.">لما تفهم الفرق بين السوفتوير (Software) النظامي والتطبيقي ونظام التشغيل، هتفهم ليه الجهاز محتاج OS عشان يشتغل، وليه التطبيقات مش بتشتغل من غيره — وهتحل تمارين التصنيف بسهولة.</p>
+              data-ar="لما تفهم الفرق بين السوفتوير النظامي والتطبيقي ونظام التشغيل، هتفهم ليه الجهاز محتاج OS عشان يشتغل، وليه التطبيقات مش بتشتغل من غيره — وهتحل تمارين التصنيف بسهولة."
+              data-en="When you understand the difference between system software, application software, and the operating system, you will understand why a device needs the OS to work, and why applications do not run without it — and you will solve classification exercises easily.">لما تفهم الفرق بين السوفتوير النظامي والتطبيقي ونظام التشغيل، هتفهم ليه الجهاز محتاج OS عشان يشتغل، وليه التطبيقات مش بتشتغل من غيره — وهتحل تمارين التصنيف بسهولة.</p>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
-          <li data-ar="الخلط بين الهاردوير (Hardware) والسوفتوير (Software) — الأول أجهزة، والتاني برامج وداتا (Data)."
+          <li data-ar="الخلط بين الهاردوير والسوفتوير — الأول أجهزة، والتاني برامج وبيانات."
             data-en="Confusing Hardware with Software — the first is devices, the second is programs and data.">
-            خلط العتاد <span dir="ltr">(Hardware)</span> بالبرمجيات <span dir="ltr">(Software)</span> — الأول أجهزة
-            والتاني برامج وبيانات.</li>
-          <li data-ar="الخلط بين نظام التشغيل OS والسوفتوير (Software) التطبيقي — الأول نظام أساسي والتاني بيشتغل فوقه."
-            data-en="Confusing the Operating System OS with Application software — the first is a base system and the second runs on top of it.">الخلط بين نظام التشغيل OS والسوفتوير (Software) التطبيقي — الأول نظام أساسي والتاني بيشتغل فوقه.</li>
+ خلط العتاد <span dir="ltr">(Hardware)</span> بالبرمجيات <span dir="ltr">(Software)</span> — الأول أجهزة
+ والتاني برامج وبيانات.</li>
+          <li data-ar="الخلط بين نظام التشغيل OS والسوفتوير التطبيقي — الأول نظام أساسي والتاني بيشتغل فوقه."
+            data-en="Confusing the Operating System OS with Application software — the first is a base system and the second runs on top of it.">الخلط بين نظام التشغيل OS والسوفتوير التطبيقي — الأول نظام أساسي والتاني بيشتغل فوقه.</li>
         </ul>
       </div>
     </section>
@@ -1109,47 +139,47 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">02</div>
           <div>
-            <h2 data-ar="مفهوم السوفتوير (Software)" data-en="The Software Concept">مفهوم البرمجيات <span dir="ltr">(Software)</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="البرامج والداتا (Data) اللي بتشتغل على الهاردوير (Hardware) — صفحة 89 بالكتاب"
-              data-en="programs and data that operate on the hardware — book page 89">البرامج والداتا (Data) اللي بتشتغل على الهاردوير (Hardware) — صفحة 89 بالكتاب</div>
+            <h2 data-ar="مفهوم السوفتوير" data-en="The Software Concept">مفهوم البرمجيات <span dir="ltr">(Software)</span></h2>
+            <div class="tag" style="color:var(--s2)" data-ar="البرامج والبيانات اللي بتشتغل على الهاردوير — بالكتاب"
+              data-en="programs and data that operate on the hardware — book">البرامج والبيانات اللي بتشتغل على الهاردوير — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الهاردوير (Hardware) هو الأجهزة زي الوحدة الرئيسية للكمبيوتر والأجهزة الطرفية — من أمثلتها CPU والذاكرة والتخزين."
+        <p data-ar="الهاردوير هو الأجهزة زي الوحدة الرئيسية للكمبيوتر والأجهزة الطرفية — من أمثلتها CPU والذاكرة والتخزين."
           data-en="Hardware is the devices such as the main computer unit and peripheral devices — examples include the CPU, memory, and storage.">
           <b>العتاد <span dir="ltr">(Hardware)</span></b> هو الأجهزة زي وحدة الكمبيوتر الرئيسية والأجهزة الطرفية — من
-          أمثلته الـ CPU والذاكرة والتخزين.</p>
-        <p data-ar="السوفتوير (Software) هو البرامج والداتا (Data) اللي بتشتغل على الهاردوير (Hardware) — من غيره مفيش حاجة بتحصل."
+ أمثلته الـ CPU والذاكرة والتخزين.</p>
+        <p data-ar="السوفتوير هو البرامج والبيانات اللي بتشتغل على الهاردوير — من غيره مفيش حاجة بتحصل."
           data-en="Software is the programs and data that operate on the hardware — without it nothing happens.">
-          و<b>البرمجيات <span dir="ltr">(Software)</span></b> هي البرامج والبيانات اللي بتشتغل على العتاد — وبدونها مش
-          هيحصل أي شغل.</p>
+ و<b>البرمجيات <span dir="ltr">(Software)</span></b> هي البرامج والبيانات اللي بتشتغل على العتاد — وبدونها مش
+ هيحصل أي شغل.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="الهاردوير (Hardware) هو المطبخ (البوتوجاز والأدوات)، والسوفتوير (Software) هو الوصفة اللي بتقول يعمل إيه — هما محتاجين بعض."
-            data-en="Hardware is the kitchen (stove and tools), and Software is the recipe telling what to do — they need each other.">الهاردوير (Hardware) هو المطبخ (البوتوجاز والأدوات)، والسوفتوير (Software) هو الوصفة اللي بتقول يعمل إيه — هما محتاجين بعض.</span></div>
+            data-ar="الهاردوير هو المطبخ (البوتوجاز والأدوات)، والسوفتوير هو الوصفة اللي بتقول يعمل إيه — هما محتاجين بعض."
+            data-en="Hardware is the kitchen (stove and tools), and Software is the recipe telling what to do — they need each other.">الهاردوير هو المطبخ (البوتوجاز والأدوات)، والسوفتوير هو الوصفة اللي بتقول يعمل إيه — هما محتاجين بعض.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«(1) الأجهزة (Hardware): أجهزة مثل وحدة الكمبيوتر الرئيسية والأجهزة الطرفية. &lt;أمثلة&gt; CPU، الذاكرة، التخزين، إلخ. (2) البرمجيات (Software) : البرامج والبيانات التي تعمل على العتاد. [1] (برمجيات النظام) : البرامج اللازمة لتشغيل العتاد. [2] برنامج النظام (Operating system (OS)) : نوع من برامج النظام مسؤول عن الوظائف الأساسية للكمبيوتر. يمتلك نظام التشغيل وظائف إدارة مثل إدارة المهام، إدارة الذاكرة، وإدارة الملفات. &lt;أمثلة&gt; Window ، macOS، Android OS ، إلخ. [3] برنامج التطبيق (Application software) : البرامج التي تعمل فوق برنامج النظام. يُعرف أيضًا باسم برنامج التطبيق. &lt;أمثلة&gt; برامج معالجة النصوص، برامج الجداول الحسابية، إلخ. (3) برنامج تشغيل الجهاز (Device driver) : هو برنامج يتحكم في عملية الاتصال بين الجهاز المتصل (Connected Device) والبرمجيات (Software) على الحاسب. يُعرف أيضًا ببساطة باسم &quot;برنامج التشغيل Driver&quot;.»</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العربية تطبع في أمثلة نظام التشغيل «Window» بلا s، والإنجليزية &quot;Windows&quot;. العربية «يُعرف أيضًا باسم برنامج التطبيق» تطابق الإنجليزية &quot;Also known as application software.&quot; كما طُبعتا رغم التكرار. العربية تفصّل «الجهاز المتصل (Connected Device) والبرمجيات (Software)» وتختم بـ«&quot;برنامج التشغيل Driver&quot;»؛ الإنجليزية &quot;a connected device and software&quot; وتختم بـ&quot;a “driver.”&quot; مع أيقونة سماعة. الإنجليزية تعلّم المصطلحات الخمسة بأرقام مرتفعة ¹-⁵ لا تطبعها العربية. النقطتان في (1) ملتصقتان «(Hardware):» ومتباعدتان في البنود الأخرى «(Software) :» كما طُبع." data-en="Edition comparison (verified from the printed page images): Arabic prints the OS examples with &quot;Window&quot; (no s) vs English &quot;Windows&quot;. Arabic «يُعرف أيضًا باسم برنامج التطبيق» mirrors the printed English &quot;Also known as application software.&quot;, repetition included. Arabic spells out &quot;(Connected Device)&quot;/&quot;(Software)&quot; and closes with «&quot;برنامج التشغيل Driver&quot;» vs English &quot;a “driver.”&quot; with a headphone icon. English marks the five terms with superscript numerals 1-5 that Arabic does not print. Colon spacing differs inside the Arabic box as printed («(Hardware):» vs «(Software) :»).">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العربية تطبع في أمثلة نظام التشغيل «Window» بلا s، والإنجليزية &quot;Windows&quot;. العربية «يُعرف أيضًا باسم برنامج التطبيق» تطابق الإنجليزية &quot;Also known as application software.&quot; كما طُبعتا رغم التكرار. العربية تفصّل «الجهاز المتصل (Connected Device) والبرمجيات (Software)» وتختم بـ«&quot;برنامج التشغيل Driver&quot;»؛ الإنجليزية &quot;a connected device and software&quot; وتختم بـ&quot;a “driver.”&quot; مع أيقونة سماعة. الإنجليزية تعلّم المصطلحات الخمسة بأرقام مرتفعة ¹-⁵ لا تطبعها العربية. النقطتان في (1) ملتصقتان «(Hardware):» ومتباعدتان في البنود الأخرى «(Software) :» كما طُبع.</div></div></div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
-            <div class="demo-label" data-ar="الهاردوير (Hardware) والسوفتوير (Software) بيشتغلوا مع بعض"
-              data-en="hardware and software working together">الهاردوير (Hardware) والسوفتوير (Software) بيشتغلوا مع بعض</div>
+            <div class="demo-label" data-ar="الهاردوير والسوفتوير بيشتغلوا مع بعض"
+              data-en="hardware and software working together">الهاردوير والسوفتوير بيشتغلوا مع بعض</div>
             <div class="flow-card" data-id="software">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="software"></svg>
-                <div class="svg-label" data-fbox="hw" data-ar="الهاردوير (Hardware) — CPU وذاكرة وتخزين"
-                  data-en="the Hardware — CPU, memory, storage">الهاردوير (Hardware) — CPU وذاكرة وتخزين</div>
-                <div class="svg-label" data-fbox="sw" data-ar="السوفتوير (Software) — برامج وداتا (Data)"
-                  data-en="the Software — programs and data">السوفتوير (Software) — برامج وداتا (Data)</div>
+                <div class="svg-label" data-fbox="hw" data-ar="الهاردوير — CPU وذاكرة وتخزين"
+                  data-en="the Hardware — CPU, memory, storage">الهاردوير — CPU وذاكرة وتخزين</div>
+                <div class="svg-label" data-fbox="sw" data-ar="السوفتوير — برامج وبيانات"
+                  data-en="the Software — programs and data">السوفتوير — برامج وبيانات</div>
                 <div class="svg-label" data-fbox="run" data-ar="الجهاز بيشتغل وينفّذ مهام"
                   data-en="the device works and performs tasks">الجهاز بيشتغل وينفّذ مهام</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="softwarePrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="softwareNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="softwarePrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="softwareNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="softwareCounter">1 / 3</span>
                 <button class="mini-btn" data-id="softwareReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1173,14 +203,14 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="softwareRecall">
           <div class="rq" data-id="softwareRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو السوفتوير (Software)؟"
-                data-en="What is Software?">إيه هو السوفتوير (Software)؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو السوفتوير؟"
+                data-en="What is Software?">إيه هو السوفتوير؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="softwareRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! البرمجيات هي البرامج والبيانات اللي بتشتغل على العتاد."
                 data-fb-en="Correct! Software is the programs and data that operate on the hardware."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="برامج وداتا (Data) بتشتغل على الهاردوير (Hardware)"
-                  data-en="programs and data that operate on the hardware">برامج وداتا (Data) بتشتغل على الهاردوير (Hardware)</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="برامج وبيانات بتشتغل على الهاردوير"
+                  data-en="programs and data that operate on the hardware">برامج وبيانات بتشتغل على الهاردوير</span></div>
               <div class="rq-opt" data-id="softwareRq1o2" data-key="B"
                 data-fb-ar="مش كده — دي هي العتاد Hardware." data-fb-en="Not quite — that is the Hardware."><span
                   class="rq-key">B</span><span class="rq-body" data-ar="أجهزة زي الوحدة الرئيسية للكمبيوتر"
@@ -1194,8 +224,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="softwareRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="softwareRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه من ده هاردوير (Hardware)؟"
-                data-en="Which of these is Hardware?">إيه من ده هاردوير (Hardware)؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه من ده هاردوير؟"
+                data-en="Which of these is Hardware?">إيه من ده هاردوير؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="softwareRq2o2" data-key="A"
                 data-fb-ar="مش كده — ويندوز نظام تشغيل (برمجيات)." data-fb-en="Not quite — Windows is an operating system (software)."><span
@@ -1223,45 +253,45 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#1838f8)">03</div>
           <div>
-            <h2 data-ar="السوفتوير (Software) النظامي" data-en="System Software">برمجيات النظام <span dir="ltr">(System Software)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="السوفتوير (Software) الضروري عشان الهاردوير (Hardware) يشتغل — صفحة 89 بالكتاب"
-              data-en="the software necessary for operating the hardware — book page 89">السوفتوير (Software) الضروري عشان الهاردوير (Hardware) يشتغل — صفحة 89 بالكتاب</div>
+            <h2 data-ar="السوفتوير النظامي" data-en="System Software">برمجيات النظام <span dir="ltr">(System Software)</span></h2>
+            <div class="tag" style="color:var(--s3)" data-ar="السوفتوير الضروري عشان الهاردوير يشتغل — بالكتاب"
+              data-en="the software necessary for operating the hardware — book">السوفتوير الضروري عشان الهاردوير يشتغل — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="السوفتوير (Software) النظامي هو السوفتوير (Software) اللي محتاجينه عشان الهاردوير (Hardware) يشتغل — ونظام التشغيل OS مثال مهم عليه."
+        <p data-ar="السوفتوير النظامي هو السوفتوير اللي محتاجينه عشان الهاردوير يشتغل — ونظام التشغيل OS مثال مهم عليه."
           data-en="System software is the software we need to operate the hardware — the Operating System OS is an important example of it.">
           <b>برمجيات النظام <span dir="ltr">(System software)</span></b> هي البرمجيات اللي بنحتاجها عشان العتاد يشتغل — ونظام
-          التشغيل OS مثال مهم منها.</p>
+ التشغيل OS مثال مهم منها.</p>
         <p data-ar="من غيره الجهاز مش بيقدر يفتح أو يشتغل — ده الأساس اللي كل حاجة تانية بتشتغل فوقه."
           data-en="Without it the device cannot turn on or work — it is the foundation everything else runs on.">من غيره الجهاز مش بيقدر يفتح أو يشتغل — ده الأساس اللي كل حاجة تانية بتشتغل فوقه.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="السوفتوير (Software) النظامي زي الأكسجين — عشان جسمك (الهاردوير) يعيش، لازم الأكسجين يوجد الأول."
-            data-en="System software is like oxygen — for your body (hardware) to live, oxygen must exist first.">السوفتوير (Software) النظامي زي الأكسجين — عشان جسمك (الهاردوير) يعيش، لازم الأكسجين يوجد الأول.</span></div>
+            data-ar="السوفتوير النظامي زي الأكسجين — عشان جسمك (الهاردوير) يعيش، لازم الأكسجين يوجد الأول."
+            data-en="System software is like oxygen — for your body (hardware) to live, oxygen must exist first.">السوفتوير النظامي زي الأكسجين — عشان جسمك (الهاردوير) يعيش، لازم الأكسجين يوجد الأول.</span></div>
       </div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
-            <div class="demo-label" data-ar="السوفتوير (Software) النظامي هو الأساس"
-              data-en="system software is the foundation">السوفتوير (Software) النظامي هو الأساس</div>
+            <div class="demo-label" data-ar="السوفتوير النظامي هو الأساس"
+              data-en="system software is the foundation">السوفتوير النظامي هو الأساس</div>
             <div class="flow-card" data-id="system">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="system"></svg>
-                <div class="svg-label" data-fbox="ssw" data-ar="السوفتوير (Software) النظامي"
-                  data-en="System software">السوفتوير (Software) النظامي</div>
+                <div class="svg-label" data-fbox="ssw" data-ar="السوفتوير النظامي"
+                  data-en="System software">السوفتوير النظامي</div>
                 <div class="svg-label" data-fbox="sos" data-ar="نظام التشغيل OS — مثال مهم"
                   data-en="the Operating System OS — an important example">نظام التشغيل OS — مثال مهم</div>
-                <div class="svg-label" data-fbox="shw" data-ar="الهاردوير (Hardware) — بيشتغل عليه"
-                  data-en="the Hardware — it operates on it">الهاردوير (Hardware) — بيشتغل عليه</div>
+                <div class="svg-label" data-fbox="shw" data-ar="الهاردوير — بيشتغل عليه"
+                  data-en="the Hardware — it operates on it">الهاردوير — بيشتغل عليه</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="systemPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="systemNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="systemPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="systemNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="systemCounter">1 / 3</span>
                 <button class="mini-btn" data-id="systemReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1285,8 +315,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="systemRecall">
           <div class="rq" data-id="systemRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="السوفتوير (Software) النظامي محتاج لإيه؟"
-                data-en="What is System software needed for?">السوفتوير (Software) النظامي محتاج لإيه؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="السوفتوير النظامي محتاج لإيه؟"
+                data-en="What is System software needed for?">السوفتوير النظامي محتاج لإيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="systemRq1o2" data-key="A"
                 data-fb-ar="مش كده — دي وظيفة برمجيات التطبيقات."
@@ -1296,8 +326,8 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="systemRq1o1" data-key="B" data-ok="1"
                 data-fb-ar="صحيح! برمجيات النظام ضرورية لتشغيل العتاد."
                 data-fb-en="Correct! System software is necessary for operating the hardware."><span
-                  class="rq-key">B</span><span class="rq-body" data-ar="عشان تشغيل الهاردوير (Hardware)"
-                  data-en="for operating the hardware">عشان تشغيل الهاردوير (Hardware)</span></div>
+                  class="rq-key">B</span><span class="rq-body" data-ar="عشان تشغيل الهاردوير"
+                  data-en="for operating the hardware">عشان تشغيل الهاردوير</span></div>
               <div class="rq-opt" data-id="systemRq1o3" data-key="C"
                 data-fb-ar="مش كده — الكابلات جزء من العتاد." data-fb-en="Not quite — cables are part of the hardware."><span
                   class="rq-key">C</span><span class="rq-body" data-ar="عشان توصيل الكابلات"
@@ -1307,8 +337,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="systemRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="systemRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه مثال على السوفتوير (Software) النظامي؟"
-                data-en="Which is an example of system software?">إيه مثال على السوفتوير (Software) النظامي؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه مثال على السوفتوير النظامي؟"
+                data-en="Which is an example of system software?">إيه مثال على السوفتوير النظامي؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="systemRq2o2" data-key="A"
                 data-fb-ar="مش كده — وورد برنامج معالجة نصوص (تطبيقات)."
@@ -1337,21 +367,21 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
           <div>
             <h2 data-ar="نظام التشغيل" data-en="The Operating System">نظام التشغيل <span dir="ltr">(OS)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="مسؤول عن الوظائف الأساسية — صفحة 89 بالكتاب"
-              data-en="responsible for the basic functions — book page 89">مسؤول عن الوظائف الأساسية — صفحة 89 بالكتاب</div>
+            <div class="tag" style="color:var(--s4)" data-ar="مسؤول عن الوظائف الأساسية — بالكتاب"
+              data-en="responsible for the basic functions — book">مسؤول عن الوظائف الأساسية — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="نظام التشغيل (OS) هو نوع من السوفتوير (Software) النظامي مسؤول عن الوظائف الأساسية للكمبيوتر."
+        <p data-ar="نظام التشغيل هو نوع من السوفتوير النظامي مسؤول عن الوظائف الأساسية للكمبيوتر."
           data-en="The Operating System (OS) is a type of system software responsible for the basic functions of a computer.">
           <b>نظام التشغيل <span dir="ltr">(Operating system / OS)</span></b> هو نوع من برمجيات النظام مسؤول عن الوظائف
-          الأساسية للكمبيوتر.</p>
+ الأساسية للكمبيوتر.</p>
         <p data-ar="عنده وظائف إدارة: إدارة المهام وإدارة الذاكرة وإدارة الملفات — ومن أمثلته Windows وmacOS وAndroid OS."
           data-en="It has management functions: task management, memory management, and file management — examples are Windows, macOS, and Android OS.">
-          عنده وظائف إدارة: <b>إدارة المهام</b>، و<b>إدارة الذاكرة</b>، و<b>إدارة الملفات</b> — وأمثلته ويندوز وmacOS و
-          Android OS.</p>
+ عنده وظائف إدارة: <b>إدارة المهام</b>، و<b>إدارة الذاكرة</b>، و<b>إدارة الملفات</b> — وأمثلته ويندوز وmacOS و
+ Android OS.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="OS زي مدير العمارة — بيدير الشقق (المهام) والكهربا والمية (الذاكرة) والملفات والدوكومنتات."
             data-en="The OS is like a building manager — manages the apartments (tasks), electricity and water (memory), and files and documents.">OS زي مدير العمارة — بيدير الشقق (المهام) والكهربا والمية (الذاكرة) والملفات والدوكومنتات.</span></div>
@@ -1375,8 +405,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="osPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="osNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="osPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="osNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="osCounter">1 / 3</span>
                 <button class="mini-btn" data-id="osReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1450,25 +480,25 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
           <div>
-            <h2 data-ar="السوفتوير (Software) التطبيقي" data-en="Application Software">برمجيات التطبيقات <span dir="ltr">(Application
+            <h2 data-ar="السوفتوير التطبيقي" data-en="Application Software">برمجيات التطبيقات <span dir="ltr">(Application
                 Software)</span></h2>
-            <div class="tag" style="color:var(--s5)" data-ar="بيشتغل فوق السوفتوير (Software) النظامي — صفحة 89 بالكتاب"
-              data-en="operates on top of system software — book page 89">بيشتغل فوق السوفتوير (Software) النظامي — صفحة 89 بالكتاب</div>
+            <div class="tag" style="color:var(--s5)" data-ar="بيشتغل فوق السوفتوير النظامي — بالكتاب"
+              data-en="operates on top of system software — book">بيشتغل فوق السوفتوير النظامي — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="السوفتوير (Software) التطبيقي بيشتغل فوق السوفتوير (Software) النظامي — وبيحنا ننفّذ مهام محددة."
+        <p data-ar="السوفتوير التطبيقي بيشتغل فوق السوفتوير النظامي — وبيحنا ننفّذ مهام محددة."
           data-en="Application software operates on top of system software — and helps us perform specific tasks.">
           <b>برمجيات التطبيقات <span dir="ltr">(Application software)</span></b> هي برمجيات بتشتغل فوق برمجيات النظام — وبتساعدنا
-          نعمل مهام محددة.</p>
-        <p data-ar="من أمثلته سوفتوير (Software) معالجة الكلمات وسوفتوير (Software) الجداول."
+ نعمل مهام محددة.</p>
+        <p data-ar="من أمثلته سوفتوير معالجة الكلمات وسوفتوير الجداول."
           data-en="Examples include word processing software and spreadsheet software.">من أمثلتها <b>برمجيات معالجة النصوص</b> و
-          <b>برمجيات الجداول الإلكترونية</b>.</p>
+ <b>برمجيات الجداول الإلكترونية</b>.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="السوفتوير (Software) التطبيقي زي العربيات اللي بتمشي على الطريق — والطريق نفسه هو نظام التشغيل."
-            data-en="Application software is like cars traveling on the road — the road itself is the operating system.">السوفتوير (Software) التطبيقي زي العربيات اللي بتمشي على الطريق — والطريق نفسه هو نظام التشغيل.</span></div>
+            data-ar="السوفتوير التطبيقي زي العربيات اللي بتمشي على الطريق — والطريق نفسه هو نظام التشغيل."
+            data-en="Application software is like cars traveling on the road — the road itself is the operating system.">السوفتوير التطبيقي زي العربيات اللي بتمشي على الطريق — والطريق نفسه هو نظام التشغيل.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1480,17 +510,17 @@ select{color:var(--text)!important}
             <div class="flow-card" data-id="application">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="application"></svg>
-                <div class="svg-label" data-fbox="sos" data-ar="السوفتوير (Software) النظامي وOS"
-                  data-en="system software and the OS">السوفتوير (Software) النظامي وOS</div>
-                <div class="svg-label" data-fbox="app" data-ar="السوفتوير (Software) التطبيقي — بيشتغل فوق"
-                  data-en="Application software — runs on top">السوفتوير (Software) التطبيقي — بيشتغل فوق</div>
+                <div class="svg-label" data-fbox="sos" data-ar="السوفتوير النظامي وOS"
+                  data-en="system software and the OS">السوفتوير النظامي وOS</div>
+                <div class="svg-label" data-fbox="app" data-ar="السوفتوير التطبيقي — بيشتغل فوق"
+                  data-en="Application software — runs on top">السوفتوير التطبيقي — بيشتغل فوق</div>
                 <div class="svg-label" data-fbox="use" data-ar="المستخدم بيستخدمهم لمهام محددة"
                   data-en="the user uses them for specific tasks">المستخدم بيستخدمهم لمهام محددة</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="applicationPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="applicationNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="applicationPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="applicationNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="applicationCounter">1 / 3</span>
                 <button class="mini-btn" data-id="applicationReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1514,14 +544,14 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="applicationRecall">
           <div class="rq" data-id="applicationRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="السوفتوير (Software) التطبيقي بيشتغل فوق إيه؟"
-                data-en="What do application software run on top of?">السوفتوير (Software) التطبيقي بيشتغل فوق إيه؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="السوفتوير التطبيقي بيشتغل فوق إيه؟"
+                data-en="What do application software run on top of?">السوفتوير التطبيقي بيشتغل فوق إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="applicationRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! التطبيقات بتشتغل فوق برمجيات النظام ونظام التشغيل."
                 data-fb-en="Correct! Applications run on top of system software and the OS."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="السوفتوير (Software) النظامي وOS"
-                  data-en="system software and the OS">السوفتوير (Software) النظامي وOS</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="السوفتوير النظامي وOS"
+                  data-en="system software and the OS">السوفتوير النظامي وOS</span></div>
               <div class="rq-opt" data-id="applicationRq1o2" data-key="B"
                 data-fb-ar="مش كده — الكابلات جزء من العتاد." data-fb-en="Not quite — cables are part of hardware."><span
                   class="rq-key">B</span><span class="rq-body" data-ar="كابلات ووصلات"
@@ -1535,8 +565,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="applicationRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="applicationRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه مثال على السوفتوير (Software) التطبيقي؟"
-                data-en="Which is an application software example?">إيه مثال على السوفتوير (Software) التطبيقي؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه مثال على السوفتوير التطبيقي؟"
+                data-en="Which is an application software example?">إيه مثال على السوفتوير التطبيقي؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="applicationRq2o2" data-key="A"
                 data-fb-ar="مش كده — ويندوز نظام تشغيل." data-fb-en="Not quite — Windows is an operating system."><span
@@ -1562,45 +592,45 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#b91c1c)">06</div>
           <div>
-            <h2 data-ar="تعريف الجهاز (Device driver)" data-en="The Device Driver">برنامج التحكم <span dir="ltr">(Device driver)</span></h2>
-            <div class="tag" style="color:var(--s6)" data-ar="بيتحكّم في التواصل مع الأجهزة الموصولة — صفحة 89 بالكتاب"
-              data-en="controls communication with connected devices — book page 89">بيتحكّم في التواصل مع الأجهزة الموصولة — صفحة 89 بالكتاب</div>
+            <h2 data-ar="تعريف الجهاز" data-en="The Device Driver">برنامج التحكم <span dir="ltr">(Device driver)</span></h2>
+            <div class="tag" style="color:var(--s6)" data-ar="بيتحكّم في التواصل مع الأجهزة الموصولة — بالكتاب"
+              data-en="controls communication with connected devices — book">بيتحكّم في التواصل مع الأجهزة الموصولة — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="تعريف الجهاز (Device driver) هو برنامج بيتحكّم في التواصل بين جهاز موصول والسوفتوير (Software) على الكمبيوتر — وبيتمّى ببساطة درايفر (driver)."
+        <p data-ar="تعريف الجهاز هو برنامج بيتحكّم في التواصل بين جهاز موصول والسوفتوير على الكمبيوتر — وبيتمّى ببساطة درايفر."
           data-en="A Device driver is a program that controls communication between a connected device and software on a computer — also known simply as a driver.">
           <b>برنامج التحكم <span dir="ltr">(Device driver)</span></b> هو برنامج بيسيطر على <b>التواصل بين الجهاز المتصل</b> و
-          <b>البرمجيات</b> على الكمبيوتر — وبيتسمى ببساطة <span dir="ltr">driver</span>.</p>
-        <p data-ar="لما توصّل طابعة أو كيبورد، الدرايفر (driver) هو اللي بيخلّي الجهاز والسوفتوير (Software) يفهموا بعض."
-          data-en="When you connect a printer or keyboard, the driver is what makes the device and the software understand each other.">لما توصّل طابعة أو كيبورد، الدرايفر (driver) هو اللي بيخلّي الجهاز والسوفتوير (Software) يفهموا بعض.</p>
+ <b>البرمجيات</b> على الكمبيوتر — وبيتسمى ببساطة <span dir="ltr">driver</span>.</p>
+        <p data-ar="لما توصّل طابعة أو كيبورد، الدرايفر هو اللي بيخلّي الجهاز والسوفتوير يفهموا بعض."
+          data-en="When you connect a printer or keyboard, the driver is what makes the device and the software understand each other.">لما توصّل طابعة أو كيبورد، الدرايفر هو اللي بيخلّي الجهاز والسوفتوير يفهموا بعض.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="الدرايفر (driver) زي مترجم بين اتنين بيتكلموا لغات مختلفة — الجهاز والسوفتوير (Software) — عشان يفهموا بعض."
-            data-en="A driver is like a translator between two people speaking different languages — the device and the software — so they understand each other.">الدرايفر (driver) زي مترجم بين اتنين بيتكلموا لغات مختلفة — الجهاز والسوفتوير (Software) — عشان يفهموا بعض.</span></div>
+            data-ar="الدرايفر زي مترجم بين اتنين بيتكلموا لغات مختلفة — الجهاز والسوفتوير — عشان يفهموا بعض."
+            data-en="A driver is like a translator between two people speaking different languages — the device and the software — so they understand each other.">الدرايفر زي مترجم بين اتنين بيتكلموا لغات مختلفة — الجهاز والسوفتوير — عشان يفهموا بعض.</span></div>
       </div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
-            <div class="demo-label" data-ar="الدرايفر (driver) بيوصّل الجهاز بالسوفتوير (Software)"
-              data-en="the driver connects the device to software">الدرايفر (driver) بيوصّل الجهاز بالسوفتوير (Software)</div>
+            <div class="demo-label" data-ar="الدرايفر بيوصّل الجهاز بالسوفتوير"
+              data-en="the driver connects the device to software">الدرايفر بيوصّل الجهاز بالسوفتوير</div>
             <div class="flow-card" data-id="driver">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="driver"></svg>
                 <div class="svg-label" data-fbox="dev" data-ar="جهاز موصول — طابعة أو كيبورد"
                   data-en="a connected device — printer or keyboard">جهاز موصول — طابعة أو كيبورد</div>
-                <div class="svg-label" data-fbox="drv" data-ar="تعريف الجهاز (Device driver)"
-                  data-en="the Device driver">تعريف الجهاز (Device driver)</div>
-                <div class="svg-label" data-fbox="soft" data-ar="السوفتوير (Software) على الكمبيوتر"
-                  data-en="the software on the computer">السوفتوير (Software) على الكمبيوتر</div>
+                <div class="svg-label" data-fbox="drv" data-ar="تعريف الجهاز"
+                  data-en="the Device driver">تعريف الجهاز</div>
+                <div class="svg-label" data-fbox="soft" data-ar="السوفتوير على الكمبيوتر"
+                  data-en="the software on the computer">السوفتوير على الكمبيوتر</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="driverPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="driverNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="driverPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="driverNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="driverCounter">1 / 3</span>
                 <button class="mini-btn" data-id="driverReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1624,14 +654,14 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="driverRecall">
           <div class="rq" data-id="driverRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="تعريف الجهاز (driver) بيتحكّم في إيه؟"
-                data-en="What does a Device driver control?">تعريف الجهاز (driver) بيتحكّم في إيه؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="تعريف الجهاز بيتحكّم في إيه؟"
+                data-en="What does a Device driver control?">تعريف الجهاز بيتحكّم في إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="driverRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! برنامج التحكم بيسيطر على التواصل بين الجهاز المتصل والبرمجيات."
                 data-fb-en="Correct! A driver controls communication between the connected device and the software."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="التواصل بين الجهاز الموصول والسوفتوير (Software)"
-                  data-en="communication between the connected device and the software">التواصل بين الجهاز الموصول والسوفتوير (Software)</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="التواصل بين الجهاز الموصول والسوفتوير"
+                  data-en="communication between the connected device and the software">التواصل بين الجهاز الموصول والسوفتوير</span></div>
               <div class="rq-opt" data-id="driverRq1o2" data-key="B"
                 data-fb-ar="مش كده — دي وظيفة برمجيات التطبيقات."
                 data-fb-en="Not quite — that is application software's job."><span class="rq-key">B</span><span
@@ -1646,8 +676,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="driverRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="driverRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="تعريف الجهاز (driver) بيتسمّى كمان إيه؟"
-                data-en="What is a device driver also called?">تعريف الجهاز (driver) بيتسمّى كمان إيه؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="تعريف الجهاز بيتسمّى كمان إيه؟"
+                data-en="What is a device driver also called?">تعريف الجهاز بيتسمّى كمان إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="driverRq2o2" data-key="A"
                 data-fb-ar="مش كده — ده اسم برمجية تطبيق." data-fb-en="Not quite — that is an application software name."><span
@@ -1658,7 +688,7 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="driverRq2o1" data-key="C" data-ok="1"
                 data-fb-ar="صحيح! برنامج التحكم بيتسمى ببساطة driver."
                 data-fb-en="Correct! A device driver is also called simply a driver."><span class="rq-key">C</span><span
-                  class="rq-body" data-ar="درايفر (driver)" data-en="a driver">درايفر (driver)</span></div>
+                  class="rq-body" data-ar="درايفر" data-en="a driver">درايفر</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="driverRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -1674,8 +704,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">07</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 89–90 (المطبوع 89–90)؛ AR 101–102"
-              data-en="Your book: EN PDF 89–90 (printed 89–90); AR 101–102">الكتاب بتاعك:EN PDF 89–90 (المطبوع 89–90)؛ AR 101–102</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1702,7 +732,7 @@ select{color:var(--text)!important}
           <p data-ar="«بالنسبة للعبارات التالية من أ إلى ث عن نظام التشغيل، ضع علامة صح &quot;✓&quot; إذا كان البيان مناسبًا، و خطأ &quot;x&quot; إذا كان غير مناسب. (أ) البرمجيات تستخدم لأداء مهام محددة. (ب) الهواتف الذكية لا تأتي مجهزة بنظام تشغيل. (ت) نوع من برامج النظام ضروري لتشغيل العتاد. (ث) لا يمكن لبرنامج التطبيق أن يعمل بدون برنامج النظام.»" data-en="&quot;For the following statements A to D about an OS, mark “○” if the statement is appropriate, and “×” if it is inappropriate. A Software used to perform specific tasks. B Smartphones do not come equipped with an OS. C A type of system software essential for operating the hardware. D Application software cannot run without system software.&quot;">«بالنسبة للعبارات التالية من أ إلى ث عن نظام التشغيل، ضع علامة صح &quot;✓&quot; إذا كان البيان مناسبًا، و خطأ &quot;x&quot; إذا كان غير مناسب. (أ) البرمجيات تستخدم لأداء مهام محددة. (ب) الهواتف الذكية لا تأتي مجهزة بنظام تشغيل. (ت) نوع من برامج النظام ضروري لتشغيل العتاد. (ث) لا يمكن لبرنامج التطبيق أن يعمل بدون برنامج النظام.»</p>
           <p data-ar="«الشرح» المطبوع:«(أ): شرح حول برامج التطبيق. لذلك ، خطأ (ب): الهواتف الذكية مزودة بنظام تشغيل. على سبيل المثال ، تم تجهيز أجهزة iPhone بنظام iOS ، بينما تعمل الهواتف بنظام التشغيل Android. لذلك ، خطأ (ت): نظام التشغيل هو نوع من برامج النظام المسؤولة عن الوظائف الأساسية للكمبيوتر. لذلك ، صح (ث): برنامج التطبيق هو برنامج يعمل فوق برامج النظام. لذلك ، صح»" data-en="&quot;Printed Explanation:A: An explanation about application software. Therefore, ×. B: Smartphones are equipped with an OS. For example, iPhones are equipped with iOS, while Android phones run on Android OS. Therefore, ×. C: An OS is a type of system software responsible for the basic functions of a computer. Therefore, ○. D: Application software is software that operates on top of system software. Therefore, ○.&quot;">«الشرح» المطبوع:«(أ): شرح حول برامج التطبيق. لذلك ، خطأ (ب): الهواتف الذكية مزودة بنظام تشغيل. على سبيل المثال ، تم تجهيز أجهزة iPhone بنظام iOS ، بينما تعمل الهواتف بنظام التشغيل Android. لذلك ، خطأ (ت): نظام التشغيل هو نوع من برامج النظام المسؤولة عن الوظائف الأساسية للكمبيوتر. لذلك ، صح (ث): برنامج التطبيق هو برنامج يعمل فوق برامج النظام. لذلك ، صح»</p>
           <div class="book-diff" data-ar="مقارنة النسختين: المدى العربي «من أ إلى ث» مع أربع عبارات (أ)(ب)(ت)(ث) متسق؛ الإنجليزي &quot;A to D&quot;. علامتا العربية صح &quot;✓&quot; / خطأ &quot;x&quot; مقابل &quot;○&quot; / &quot;×&quot; في الإنجليزية، والإجابات المطبوعة متطابقة المعنى:(أ) خطأ/×، (ب) خطأ/×، (ت) صح/○، (ث) صح/○. شرح (ب) العربي يختم «بينما تعمل الهواتف بنظام التشغيل Android.» مقابل &quot;while Android phones run on Android OS&quot;." data-en="Edition comparison:the Arabic range «من أ إلى ث» with four statements (أ)(ب)(ت)(ث) is consistent; English &quot;A to D&quot;. Arabic marks صح &quot;✓&quot; / خطأ &quot;x&quot; vs English &quot;○&quot; / &quot;×&quot;, and the printed answers match in meaning:wrong, wrong, right, right. The Arabic (ب) explanation closes with «بنظام التشغيل Android.» vs English &quot;run on Android OS&quot;.">مقارنة النسختين:المدى العربي «من أ إلى ث» مع أربع عبارات (أ)(ب)(ت)(ث) متسق؛ الإنجليزي &quot;A to D&quot;. علامتا العربية صح &quot;✓&quot; / خطأ &quot;x&quot; مقابل &quot;○&quot; / &quot;×&quot; في الإنجليزية، والإجابات المطبوعة متطابقة المعنى:(أ) خطأ/×، (ب) خطأ/×، (ت) صح/○، (ث) صح/○. شرح (ب) العربي يختم «بينما تعمل الهواتف بنظام التشغيل Android.» مقابل &quot;while Android phones run on Android OS&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 89 (المطبوع 89)؛ AR 101." data-en="The text above is from the book. Full source: English PDF 89 (printed 89); Arabic 101.">النص السابق من الكتاب. المصدر الكامل:EN PDF 89 (المطبوع 89)؛ AR 101.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
@@ -1710,9 +740,9 @@ select{color:var(--text)!important}
           <h3 data-ar="من الكتاب: جرب بنفسك — والإجابات التالية غير مطبوعة" data-en="From the book: Try — the answers below are not printed">من الكتاب: جرب بنفسك — والإجابات التالية غير مطبوعة</h3>
           <p data-ar="«(أ)جب عن الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغات من [1] إلى [3] بالمصطلحات المناسبة.» والجملة داخل الإطار كما طُبعت: «تشمل أنواع البرامج برامج ( [1] ) و ( [2] ) البرامج. ( [1] ) يتضمن البرنامج ( [3] ). في حالة أجهزة الكمبيوتر ، ومن الأمثلة على ذلك Windows و macOS. بالإضافة إلى ذلك ، يتضمن البرنامج ( [2] ) كلمة برامج المعالجة وبرامج جداول البيانات.»" data-en="&quot;Answer the following questions. (1) Complete the following sentences by filling in the blanks [1] to [3] with the appropriate terms.&quot; The boxed sentence as printed:&quot;Types of software include ( [1] ) software and ( [2] ) software. ([1]) software includes ( [3] ). In the case of computers, examples are Windows and macOS. Additionally, ([2]) software includes word processing software and spreadsheet software.&quot;">«(أ)جب عن الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغات من [1] إلى [3] بالمصطلحات المناسبة.» والجملة داخل الإطار كما طُبعت:«تشمل أنواع البرامج برامج ( [1] ) و ( [2] ) البرامج. ( [1] ) يتضمن البرنامج ( [3] ). في حالة أجهزة الكمبيوتر ، ومن الأمثلة على ذلك Windows و macOS. بالإضافة إلى ذلك ، يتضمن البرنامج ( [2] ) كلمة برامج المعالجة وبرامج جداول البيانات.»</p>
           <p data-ar="«(2) ما هو مصطلح البرامج المستخدمة للتحكم في الأجهزة المتصلة بجهاز كمبيوتر وتشغيلها؟ (3) بالنسبة للعبارات التالية من أ إلى ث، أجب ب &quot;أ&quot; إذا كان البيان يتعلق بأنظمة التشغيل أو &quot;ب&quot; إذا كان البيان يتعلق ببرامج التطبيق. (أ) برنامج يتم تنفيذه على جهاز كمبيوتر مصمم لغرض معين. (ب) برنامج يتحكم في البرامج والأجهزة على نظام الكمبيوتر. (ت) يتضمن برامج معالجة النصوص وبرامج جداول البيانات. (ث) مشول في برنامج النظام.»" data-en="&quot;(2) What is the term for software that is used to control and operate devices connected to a computer? (3) For the following statements A to D, answer with “a” if the statement is about operating systems or “b” if the statement is about application software. A A program executed on a computer that is designed for a specific purpose. B A program that controls software and hardware on a computer system. C Includes word processing software and spreadsheet software. D Included in the system software.&quot;">«(2) ما هو مصطلح البرامج المستخدمة للتحكم في الأجهزة المتصلة بجهاز كمبيوتر وتشغيلها؟ (3) بالنسبة للعبارات التالية من أ إلى ث، أجب ب &quot;أ&quot; إذا كان البيان يتعلق بأنظمة التشغيل أو &quot;ب&quot; إذا كان البيان يتعلق ببرامج التطبيق. (أ) برنامج يتم تنفيذه على جهاز كمبيوتر مصمم لغرض معين. (ب) برنامج يتحكم في البرامج والأجهزة على نظام الكمبيوتر. (ت) يتضمن برامج معالجة النصوص وبرامج جداول البيانات. (ث) مشول في برنامج النظام.»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1): [1] = النظام (system)؛ [2] = التطبيق (application)؛ [3] = نظام التشغيل (operating system). (2) = برنامج تشغيل الجهاز (device driver). (3): (أ) → ب (برامج التطبيق)؛ (ب) → أ (أنظمة التشغيل)؛ (ت) → ب؛ (ث) → أ." data-en="Answers not printed in the book (teacher-prepared): (1) [1] = system; [2] = application; [3] = operating systems. (2) device driver. (3) A → b; B → a; C → b; D → a.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1): [1] = النظام (system)؛ [2] = التطبيق (application)؛ [3] = نظام التشغيل (operating system). (2) = برنامج تشغيل الجهاز (device driver). (3): (أ) → ب (برامج التطبيق)؛ (ب) → أ (أنظمة التشغيل)؛ (ت) → ب؛ (ث) → أ.</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1): [1] = النظام؛ [2] = التطبيق؛ [3] = نظام التشغيل. (2) = برنامج تشغيل الجهاز. (3): (أ) ← ب (برامج التطبيق)؛ (ب) ← أ (أنظمة التشغيل)؛ (ت) ← ب؛ (ث) ← أ." data-en="Answers not printed in the book (teacher-prepared): (1) [1] = system; [2] = application; [3] = operating systems. (2) device driver. (3) A → b; B → a; C → b; D → a.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1): [1] = النظام؛ [2] = التطبيق؛ [3] = نظام التشغيل. (2) = برنامج تشغيل الجهاز. (3): (أ) → ب (برامج التطبيق)؛ (ب) → أ (أنظمة التشغيل)؛ (ت) → ب؛ (ث) → أ.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «جرب بنفسك» العربية مطبوعة «(أ)جب عن الأسئلة التالية.» بالألف ملتصقة. في (1) تطبع العربية داخل الإطار «كلمة برامج المعالجة وبرامج جداول البيانات» مقابل &quot;word processing software and spreadsheet software&quot; في الإنجليزية، بينما صفحة النقاط العربية تطبع «برامج معالجة النصوص، برامج الجداول الحسابية». في (3) تطبع العربية (ث) «مشول في برنامج النظام.» كما وردت مقابل &quot;Included in the system software.&quot; الإنجليزية. المدى «من أ إلى ث» مع أربع عبارات متسق في العربية؛ &quot;A to D&quot; في الإنجليزية." data-en="Edition comparison (verified from the printed page images): the Arabic Try intro prints «(أ)جب» with the alif glued. In (1) the Arabic box prints «كلمة برامج المعالجة وبرامج جداول البيانات» vs English &quot;word processing software and spreadsheet software&quot;, while the Arabic Point page prints «برامج معالجة النصوص، برامج الجداول الحسابية». In (3) Arabic option (ث) prints «مشول في برنامج النظام.» as printed, vs English &quot;Included in the system software.&quot; The Arabic range «من أ إلى ث» with four statements is consistent; English &quot;A to D&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): مقدمة «جرب بنفسك» العربية مطبوعة «(أ)جب عن الأسئلة التالية.» بالألف ملتصقة. في (1) تطبع العربية داخل الإطار «كلمة برامج المعالجة وبرامج جداول البيانات» مقابل &quot;word processing software and spreadsheet software&quot; في الإنجليزية، بينما صفحة النقاط العربية تطبع «برامج معالجة النصوص، برامج الجداول الحسابية». في (3) تطبع العربية (ث) «مشول في برنامج النظام.» كما وردت مقابل &quot;Included in the system software.&quot; الإنجليزية. المدى «من أ إلى ث» مع أربع عبارات متسق في العربية؛ &quot;A to D&quot; في الإنجليزية.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 90 (المطبوع 90)؛ AR 102." data-en="The text above is from the book. Full source: English PDF 90 (printed 90); Arabic 102.">النص السابق من الكتاب. المصدر الكامل:EN PDF 90 (المطبوع 90)؛ AR 102.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
@@ -1722,49 +752,49 @@ select{color:var(--text)!important}
           <p data-ar="«(2) اختر عبارة واحدة صحيحة فيما يتعلق ببرامج تشغيل الأجهزة من الخيارات من أ إلى ث ، وأجب باستخدام الرسالة. (أ) نوع من برامج النظام. تشمل الأمثلة ، Windows و macOS وما إلى ذلك. (ب) يشار إليه أيضا باسم برنامج التطبيق. (ت) برنامج يتحكم في الاتصال بين الأجهزة المتصلة بجهاز كمبيوتر وبرمجيات. (ث) البرنامج اللازم لتشغيل الأجهزة.»" data-en="&quot;(2) Choose one correct statement regarding device drivers from the options A to D below, and answer using the letter. A A type of system software. Examples include, Windows, macOS, etc. B Also referred to as application software. C A program that controls communication between the devices connected to a computer and the software. D The software necessary for operating hardware.&quot;">«(2) اختر عبارة واحدة صحيحة فيما يتعلق ببرامج تشغيل الأجهزة من الخيارات من أ إلى ث ، وأجب باستخدام الرسالة. (أ) نوع من برامج النظام. تشمل الأمثلة ، Windows و macOS وما إلى ذلك. (ب) يشار إليه أيضا باسم برنامج التطبيق. (ت) برنامج يتحكم في الاتصال بين الأجهزة المتصلة بجهاز كمبيوتر وبرمجيات. (ث) البرنامج اللازم لتشغيل الأجهزة.»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1): [1] نظام التشغيل = (ت) Windows و(ث) macOS؛ [2] الأجهزة = (أ) Memory و(ج) CPU؛ [3] برامج التطبيقات = (ب) Spreadsheet software و(ح) Document processing software. (2) = (ت)." data-en="Answers not printed in the book (teacher-prepared): (1) [1] = C, D; [2] = A, E; [3] = B, F. (2) = C.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1): [1] نظام التشغيل = (ت) Windows و(ث) macOS؛ [2] الأجهزة = (أ) Memory و(ج) CPU؛ [3] برامج التطبيقات = (ب) Spreadsheet software و(ح) Document processing software. (2) = (ت).</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): في (1) المدى المطبوع «(أ) إلى (و)» بينما تسميات الخيارات الستة (أ)(ب)(ت)(ث)(ج)(ح) — نحفظ النص كما طُبع دون الجزم بالاصطلاح الأبجدي المقصود؛ الإنجليزية &quot;A to F&quot; مع ستة خيارات متسقة. في (2) تطبع العربية «وأجب باستخدام الرسالة.» كما وردت مقابل &quot;answer using the letter.&quot;، والمدى «من أ إلى ث» مع أربعة خيارات متسق. الخيارات نفسها مطبوعة بالإنجليزية في النسختين. (أ) في (2) مطبوعة «تشمل الأمثلة ، Windows» بمسافة قبل الفاصلة، مقابل &quot;Examples include, Windows&quot; بالفاصلة بعد include." data-en="Edition comparison (verified from the printed page images): in (1) the printed range is «(أ) إلى (و)» while the six option labels run (أ)(ب)(ت)(ث)(ج)(ح) — preserved as printed without asserting which alphabetic convention is intended; English &quot;A to F&quot; with six consistent options. In (2) Arabic prints «وأجب باستخدام الرسالة.» as printed vs English &quot;answer using the letter.&quot;; the range «من أ إلى ث» with four options is consistent. Option terms are printed in English in both editions. (2)A prints «تشمل الأمثلة ، Windows» with a space before the comma, vs English &quot;Examples include, Windows&quot; with the comma after include.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): في (1) المدى المطبوع «(أ) إلى (و)» بينما تسميات الخيارات الستة (أ)(ب)(ت)(ث)(ج)(ح) — نحفظ النص كما طُبع دون الجزم بالاصطلاح الأبجدي المقصود؛ الإنجليزية &quot;A to F&quot; مع ستة خيارات متسقة. في (2) تطبع العربية «وأجب باستخدام الرسالة.» كما وردت مقابل &quot;answer using the letter.&quot;، والمدى «من أ إلى ث» مع أربعة خيارات متسق. الخيارات نفسها مطبوعة بالإنجليزية في النسختين. (أ) في (2) مطبوعة «تشمل الأمثلة ، Windows» بمسافة قبل الفاصلة، مقابل &quot;Examples include, Windows&quot; بالفاصلة بعد include.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 90 (المطبوع 90)؛ AR 102." data-en="The text above is from the book. Full source: English PDF 90 (printed 90); Arabic 102.">النص السابق من الكتاب. المصدر الكامل:EN PDF 90 (المطبوع 90)؛ AR 102.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: الهاردوير (Hardware) والسوفتوير (Software) — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 1: hardware and software - not printed in the book">✍️ تدريب تفاعلي إضافي 1: الهاردوير (Hardware) والسوفتوير (Software) — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: الهاردوير والسوفتوير — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 1: hardware and software - not printed in the book">✍️ تدريب تفاعلي إضافي 1: الهاردوير والسوفتوير — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="السوفتوير (Software) هو...؟"
-              data-en="Software is...?">السوفتوير (Software) هو...؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="السوفتوير هو...؟"
+              data-en="Software is...?">السوفتوير هو...؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  أجهزة زي الوحدة الرئيسية للكمبيوتر" data-en="A  devices like the main computer unit">A  أجهزة زي الوحدة الرئيسية للكمبيوتر</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  برامج وداتا (Data) بتشتغل على الهاردوير (Hardware)"
-              data-en="B  programs and data that operate on the hardware">B  برامج وداتا (Data) بتشتغل على الهاردوير (Hardware)</div>
-            <div class="ex-opt" data-ar="C  كابلات ووصلات" data-en="C  cables and connectors">C  كابلات ووصلات</div>
+            <div class="ex-opt" data-ar="A أجهزة زي الوحدة الرئيسية للكمبيوتر" data-en="A  devices like the main computer unit">A أجهزة زي الوحدة الرئيسية للكمبيوتر</div>
+            <div class="ex-opt" data-ok="1" data-ar="B برامج وبيانات بتشتغل على الهاردوير"
+              data-en="B  programs and data that operate on the hardware">B برامج وبيانات بتشتغل على الهاردوير</div>
+            <div class="ex-opt" data-ar="C كابلات ووصلات" data-en="C  cables and connectors">C كابلات ووصلات</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — برامج وداتا (Data) بتشتغل على الهاردوير (Hardware)"
-              data-en="✅ Answer: B — programs and data that operate on the hardware">✅ الإجابة: B — برامج وداتا (Data) بتشتغل على الهاردوير (Hardware)</b> <span data-ar="السوفتوير (Software) هو البرامج والداتا (Data) اللي بتشتغل على الهاردوير (Hardware)."
-              data-en="Software is the programs and data that operate on the hardware.">السوفتوير (Software) هو البرامج والداتا (Data) اللي بتشتغل على الهاردوير (Hardware).</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — برامج وبيانات بتشتغل على الهاردوير"
+              data-en="✅ Answer: B — programs and data that operate on the hardware">✅ الإجابة: B — برامج وبيانات بتشتغل على الهاردوير</b> <span data-ar="السوفتوير هو البرامج والبيانات اللي بتشتغل على الهاردوير."
+              data-en="Software is the programs and data that operate on the hardware.">السوفتوير هو البرامج والبيانات اللي بتشتغل على الهاردوير.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="إيه من ده هاردوير (Hardware)؟"
-              data-en="Which of these is Hardware?">إيه من ده هاردوير (Hardware)؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="إيه من ده هاردوير؟"
+              data-en="Which of these is Hardware?">إيه من ده هاردوير؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  Windows" data-en="A  Windows">A  Windows</div>
-            <div class="ex-opt" data-ar="B  Excel" data-en="B  Excel">B  Excel</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  CPU والذاكرة والتخزين" data-en="C  the CPU, memory, and storage">C  CPU والذاكرة والتخزين</div>
+            <div class="ex-opt" data-ar="A Windows" data-en="A  Windows">A  Windows</div>
+            <div class="ex-opt" data-ar="B Excel" data-en="B  Excel">B  Excel</div>
+            <div class="ex-opt" data-ok="1" data-ar="C CPU والذاكرة والتخزين" data-en="C  the CPU, memory, and storage">C CPU والذاكرة والتخزين</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — CPU والذاكرة والتخزين"
               data-en="✅ Answer: C — the CPU, memory, and storage">✅ الإجابة: C — CPU والذاكرة والتخزين</b> <span
-              data-ar="CPU والذاكرة والتخزين كلهم أمثلة على الهاردوير (Hardware)."
-              data-en="The CPU, memory, and storage are all examples of hardware.">CPU والذاكرة والتخزين كلهم أمثلة على الهاردوير (Hardware).</span></div>
+              data-ar="CPU والذاكرة والتخزين كلهم أمثلة على الهاردوير."
+              data-en="The CPU, memory, and storage are all examples of hardware.">CPU والذاكرة والتخزين كلهم أمثلة على الهاردوير.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="الهاردوير (Hardware) هو...؟"
-              data-en="Hardware is...?">الهاردوير (Hardware) هو...؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="الهاردوير هو...؟"
+              data-en="Hardware is...?">الهاردوير هو...؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  برامج وداتا (Data)" data-en="A  programs and data">A  برامج وداتا (Data)</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  أجهزة زي الوحدة الرئيسية للكمبيوتر والأجهزة الطرفية"
-              data-en="B  devices such as the main computer unit and peripheral devices">B  أجهزة زي الوحدة الرئيسية للكمبيوتر والأجهزة الطرفية</div>
-            <div class="ex-opt" data-ar="C  نظام تشغيل" data-en="C  an operating system">C  نظام تشغيل</div>
+            <div class="ex-opt" data-ar="A برامج وبيانات" data-en="A  programs and data">A برامج وبيانات</div>
+            <div class="ex-opt" data-ok="1" data-ar="B أجهزة زي الوحدة الرئيسية للكمبيوتر والأجهزة الطرفية"
+              data-en="B  devices such as the main computer unit and peripheral devices">B أجهزة زي الوحدة الرئيسية للكمبيوتر والأجهزة الطرفية</div>
+            <div class="ex-opt" data-ar="C نظام تشغيل" data-en="C  an operating system">C نظام تشغيل</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — الأجهزة"
               data-en="✅ Answer: B — the devices">✅ الإجابة: B — الأجهزة</b> <span
-              data-ar="الهاردوير (Hardware) هو الأجهزة زي الوحدة الرئيسية للكمبيوتر والأجهزة الطرفية."
-              data-en="Hardware is the devices such as the main computer unit and peripheral devices.">الهاردوير (Hardware) هو الأجهزة زي الوحدة الرئيسية للكمبيوتر والأجهزة الطرفية.</span></div>
+              data-ar="الهاردوير هو الأجهزة زي الوحدة الرئيسية للكمبيوتر والأجهزة الطرفية."
+              data-en="Hardware is the devices such as the main computer unit and peripheral devices.">الهاردوير هو الأجهزة زي الوحدة الرئيسية للكمبيوتر والأجهزة الطرفية.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1778,33 +808,33 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه من ده وظيفة إدارة في OS؟"
               data-en="Which of these is an OS management function?">إيه من ده وظيفة إدارة في OS؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  إدارة المهام" data-en="A  task management">A  إدارة المهام</div>
-            <div class="ex-opt" data-ar="B  إدارة الألوان" data-en="B  managing colors">B  إدارة الألوان</div>
-            <div class="ex-opt" data-ar="C  إدارة الكابلات" data-en="C  managing cables">C  إدارة الكابلات</div>
+            <div class="ex-opt" data-ok="1" data-ar="A إدارة المهام" data-en="A  task management">A إدارة المهام</div>
+            <div class="ex-opt" data-ar="B إدارة الألوان" data-en="B  managing colors">B إدارة الألوان</div>
+            <div class="ex-opt" data-ar="C إدارة الكابلات" data-en="C  managing cables">C إدارة الكابلات</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — إدارة المهام" data-en="✅ Answer: A — task management">✅ الإجابة: A — إدارة المهام</b> <span data-ar="وظائف OS بتشمل إدارة المهام والذاكرة والملفات."
               data-en="OS functions include task, memory, and file management.">وظائف OS بتشمل إدارة المهام والذاكرة والملفات.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="إيه نوع السوفتوير (Software) اللي OS؟"
-              data-en="What type of software is the OS?">إيه نوع السوفتوير (Software) اللي OS؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="إيه نوع السوفتوير اللي OS؟"
+              data-en="What type of software is the OS?">إيه نوع السوفتوير اللي OS؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  سوفتوير (Software) تطبيقي" data-en="A  application software">A  سوفتوير (Software) تطبيقي</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  سوفتوير (Software) نظامي" data-en="B  system software">B  سوفتوير (Software) نظامي</div>
-            <div class="ex-opt" data-ar="C  الهاردوير (Hardware)" data-en="C  the hardware">C  الهاردوير (Hardware)</div>
+            <div class="ex-opt" data-ar="A سوفتوير تطبيقي" data-en="A  application software">A سوفتوير تطبيقي</div>
+            <div class="ex-opt" data-ok="1" data-ar="B سوفتوير نظامي" data-en="B  system software">B سوفتوير نظامي</div>
+            <div class="ex-opt" data-ar="C الهاردوير" data-en="C  the hardware">C الهاردوير</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — سوفتوير (Software) نظامي"
-              data-en="✅ Answer: B — system software">✅ الإجابة: B — سوفتوير (Software) نظامي</b> <span
-              data-ar="OS هو نوع من السوفتوير (Software) النظامي مسؤول عن الوظائف الأساسية."
-              data-en="The OS is a type of system software responsible for the basic functions.">OS هو نوع من السوفتوير (Software) النظامي مسؤول عن الوظائف الأساسية.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — سوفتوير نظامي"
+              data-en="✅ Answer: B — system software">✅ الإجابة: B — سوفتوير نظامي</b> <span
+              data-ar="OS هو نوع من السوفتوير النظامي مسؤول عن الوظائف الأساسية."
+              data-en="The OS is a type of system software responsible for the basic functions.">OS هو نوع من السوفتوير النظامي مسؤول عن الوظائف الأساسية.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه من ده مثال على OS؟"
               data-en="Which of these is an OS example?">إيه من ده مثال على OS؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  Word" data-en="A  Word">A  Word</div>
-            <div class="ex-opt" data-ar="B  Excel" data-en="B  Excel">B  Excel</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  Android OS" data-en="C  Android OS">C  Android OS</div>
+            <div class="ex-opt" data-ar="A Word" data-en="A  Word">A  Word</div>
+            <div class="ex-opt" data-ar="B Excel" data-en="B  Excel">B  Excel</div>
+            <div class="ex-opt" data-ok="1" data-ar="C Android OS" data-en="C  Android OS">C  Android OS</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — Android OS" data-en="✅ Answer: C — Android OS">✅ الإجابة: C — Android OS</b> <span data-ar="من أمثلة أنظمة التشغيل Windows وmacOS وAndroid OS."
               data-en="Examples of operating systems include Windows, macOS, and Android OS.">من أمثلة أنظمة التشغيل Windows وmacOS وAndroid OS.</span></div>
@@ -1816,44 +846,44 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 3: السوفتوير (Software) التطبيقي — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 3: application software - not printed in the book">✍️ تدريب تفاعلي إضافي 3: السوفتوير (Software) التطبيقي — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 3: السوفتوير التطبيقي — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 3: application software - not printed in the book">✍️ تدريب تفاعلي إضافي 3: السوفتوير التطبيقي — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="سوفتوير (Software) معالجة الكلمات والجداول — إيه هما؟"
-              data-en="Word processing software and spreadsheet software — what are they?">سوفتوير (Software) معالجة الكلمات والجداول — إيه هما؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="سوفتوير معالجة الكلمات والجداول — إيه هما؟"
+              data-en="Word processing software and spreadsheet software — what are they?">سوفتوير معالجة الكلمات والجداول — إيه هما؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  سوفتوير (Software) تطبيقي" data-en="A  application software">A  سوفتوير (Software) تطبيقي</div>
-            <div class="ex-opt" data-ar="B  سوفتوير (Software) نظامي" data-en="B  system software">B  سوفتوير (Software) نظامي</div>
-            <div class="ex-opt" data-ar="C  الهاردوير (Hardware)" data-en="C  the hardware">C  الهاردوير (Hardware)</div>
+            <div class="ex-opt" data-ok="1" data-ar="A سوفتوير تطبيقي" data-en="A  application software">A سوفتوير تطبيقي</div>
+            <div class="ex-opt" data-ar="B سوفتوير نظامي" data-en="B  system software">B سوفتوير نظامي</div>
+            <div class="ex-opt" data-ar="C الهاردوير" data-en="C  the hardware">C الهاردوير</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: A — سوفتوير (Software) تطبيقي"
-              data-en="✅ Answer: A — application software">✅ الإجابة: A — سوفتوير (Software) تطبيقي</b> <span
-              data-ar="معالجة الكلمات والجداول أمثلة على السوفتوير (Software) التطبيقي."
-              data-en="Word processing and spreadsheets are examples of application software.">معالجة الكلمات والجداول أمثلة على السوفتوير (Software) التطبيقي.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — سوفتوير تطبيقي"
+              data-en="✅ Answer: A — application software">✅ الإجابة: A — سوفتوير تطبيقي</b> <span
+              data-ar="معالجة الكلمات والجداول أمثلة على السوفتوير التطبيقي."
+              data-en="Word processing and spreadsheets are examples of application software.">معالجة الكلمات والجداول أمثلة على السوفتوير التطبيقي.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="السوفتوير (Software) التطبيقي بيشتغل فوق إيه؟"
-              data-en="What do application software run on top of?">السوفتوير (Software) التطبيقي بيشتغل فوق إيه؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="السوفتوير التطبيقي بيشتغل فوق إيه؟"
+              data-en="What do application software run on top of?">السوفتوير التطبيقي بيشتغل فوق إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  كابلات" data-en="A  cables">A  كابلات</div>
-            <div class="ex-opt" data-ar="B  أجهزة طرفية" data-en="B  peripheral devices">B  أجهزة طرفية</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  سوفتوير (Software) نظامي" data-en="C  system software">C  سوفتوير (Software) نظامي</div>
+            <div class="ex-opt" data-ar="A كابلات" data-en="A  cables">A كابلات</div>
+            <div class="ex-opt" data-ar="B أجهزة طرفية" data-en="B  peripheral devices">B أجهزة طرفية</div>
+            <div class="ex-opt" data-ok="1" data-ar="C سوفتوير نظامي" data-en="C  system software">C سوفتوير نظامي</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: C — سوفتوير (Software) نظامي"
-              data-en="✅ Answer: C — system software">✅ الإجابة: C — سوفتوير (Software) نظامي</b> <span
-              data-ar="السوفتوير (Software) التطبيقي بيشتغل فوق السوفتوير (Software) النظامي."
-              data-en="Application software operates on top of system software.">السوفتوير (Software) التطبيقي بيشتغل فوق السوفتوير (Software) النظامي.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — سوفتوير نظامي"
+              data-en="✅ Answer: C — system software">✅ الإجابة: C — سوفتوير نظامي</b> <span
+              data-ar="السوفتوير التطبيقي بيشتغل فوق السوفتوير النظامي."
+              data-en="Application software operates on top of system software.">السوفتوير التطبيقي بيشتغل فوق السوفتوير النظامي.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="إيه من ده سوفتوير (Software) تطبيقي؟"
-              data-en="Which of these is an application software?">إيه من ده سوفتوير (Software) تطبيقي؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="إيه من ده سوفتوير تطبيقي؟"
+              data-en="Which of these is an application software?">إيه من ده سوفتوير تطبيقي؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  Windows" data-en="A  Windows">A  Windows</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  Word" data-en="B  Word">B  Word</div>
-            <div class="ex-opt" data-ar="C  macOS" data-en="C  macOS">C  macOS</div>
+            <div class="ex-opt" data-ar="A Windows" data-en="A  Windows">A  Windows</div>
+            <div class="ex-opt" data-ok="1" data-ar="B Word" data-en="B  Word">B  Word</div>
+            <div class="ex-opt" data-ar="C macOS" data-en="C  macOS">C  macOS</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — Word" data-en="✅ Answer: B — Word">✅ الإجابة: B — Word</b>
-            <span data-ar="Word برنامج معالجة كلمات — سوفتوير (Software) تطبيقي."
-              data-en="Word is a word processing program — an application software.">Word برنامج معالجة كلمات — سوفتوير (Software) تطبيقي.</span></div>
+            <span data-ar="Word برنامج معالجة كلمات — سوفتوير تطبيقي."
+              data-en="Word is a word processing program — an application software.">Word برنامج معالجة كلمات — سوفتوير تطبيقي.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1862,44 +892,44 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: تعريف الجهاز (driver) — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 4: the device driver - not printed in the book">✍️ تدريب تفاعلي إضافي 4: تعريف الجهاز (driver) — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: تعريف الجهاز — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 4: the device driver - not printed in the book">✍️ تدريب تفاعلي إضافي 4: تعريف الجهاز — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="تعريف الجهاز (driver) بيتحكّم في إيه؟"
-              data-en="What does a Device driver control?">تعريف الجهاز (driver) بيتحكّم في إيه؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="تعريف الجهاز بيتحكّم في إيه؟"
+              data-en="What does a Device driver control?">تعريف الجهاز بيتحكّم في إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  التواصل بين الجهاز الموصول والسوفتوير (Software)"
-              data-en="A  communication between the connected device and the software">A  التواصل بين الجهاز الموصول والسوفتوير (Software)</div>
-            <div class="ex-opt" data-ar="B  إدارة الذاكرة" data-en="B  memory management">B  إدارة الذاكرة</div>
-            <div class="ex-opt" data-ar="C  إدارة المهام" data-en="C  task management">C  إدارة المهام</div>
+            <div class="ex-opt" data-ok="1" data-ar="A التواصل بين الجهاز الموصول والسوفتوير"
+              data-en="A  communication between the connected device and the software">A التواصل بين الجهاز الموصول والسوفتوير</div>
+            <div class="ex-opt" data-ar="B إدارة الذاكرة" data-en="B  memory management">B إدارة الذاكرة</div>
+            <div class="ex-opt" data-ar="C إدارة المهام" data-en="C  task management">C إدارة المهام</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: A — التواصل بين الجهاز والسوفتوير (Software)"
-              data-en="✅ Answer: A — communication between the device and the software">✅ الإجابة: A — التواصل بين الجهاز والسوفتوير (Software)</b> <span data-ar="الدرايفر (driver) بيتحكّم في التواصل بين الجهاز الموصول والسوفتوير (Software)."
-              data-en="A driver controls communication between the connected device and the software.">الدرايفر (driver) بيتحكّم في التواصل بين الجهاز الموصول والسوفتوير (Software).</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — التواصل بين الجهاز والسوفتوير"
+              data-en="✅ Answer: A — communication between the device and the software">✅ الإجابة: A — التواصل بين الجهاز والسوفتوير</b> <span data-ar="الدرايفر بيتحكّم في التواصل بين الجهاز الموصول والسوفتوير."
+              data-en="A driver controls communication between the connected device and the software.">الدرايفر بيتحكّم في التواصل بين الجهاز الموصول والسوفتوير.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="تعريف الجهاز (driver) بيتسمّى كمان إيه؟"
-              data-en="What is a device driver also called?">تعريف الجهاز (driver) بيتسمّى كمان إيه؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="تعريف الجهاز بيتسمّى كمان إيه؟"
+              data-en="What is a device driver also called?">تعريف الجهاز بيتسمّى كمان إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  نظام تشغيل" data-en="A  an operating system">A  نظام تشغيل</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  درايفر (driver)" data-en="B  a driver">B  درايفر (driver)</div>
-            <div class="ex-opt" data-ar="C  سوفتوير (Software) تطبيقي" data-en="C  an application software">C  سوفتوير (Software) تطبيقي</div>
+            <div class="ex-opt" data-ar="A نظام تشغيل" data-en="A  an operating system">A نظام تشغيل</div>
+            <div class="ex-opt" data-ok="1" data-ar="B درايفر" data-en="B  a driver">B درايفر</div>
+            <div class="ex-opt" data-ar="C سوفتوير تطبيقي" data-en="C  an application software">C سوفتوير تطبيقي</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — درايفر (driver)" data-en="✅ Answer: B — a driver">✅ الإجابة: B — درايفر (driver)</b> <span data-ar="تعريف الجهاز (device driver) بيتسمّى كمان ببساطة درايفر (driver)."
-              data-en="A device driver is also called simply a driver.">تعريف الجهاز (device driver) بيتسمّى كمان ببساطة درايفر (driver).</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — درايفر" data-en="✅ Answer: B — a driver">✅ الإجابة: B — درايفر</b> <span data-ar="تعريف الجهاز بيتسمّى كمان ببساطة درايفر."
+              data-en="A device driver is also called simply a driver.">تعريف الجهاز بيتسمّى كمان ببساطة درايفر.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="تعريف الجهاز (driver) مابيعملش إيه؟"
-              data-en="What does a device driver NOT do?">تعريف الجهاز (driver) مابيعملش إيه؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="تعريف الجهاز مابيعملش إيه؟"
+              data-en="What does a device driver NOT do?">تعريف الجهاز مابيعملش إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  عمل مهام محددة زي الكتابة"
-              data-en="A  performing specific tasks like writing">A  عمل مهام محددة زي الكتابة</div>
-            <div class="ex-opt" data-ar="B  توصيل الجهاز بالسوفتوير (Software)" data-en="B  connecting the device to the software">B  توصيل الجهاز بالسوفتوير (Software)</div>
-            <div class="ex-opt" data-ar="C  تسهيل التواصل بين الجهاز والكمبيوتر"
-              data-en="C  easing communication between the device and the computer">C  تسهيل التواصل بين الجهاز والكمبيوتر</div>
+            <div class="ex-opt" data-ok="1" data-ar="A عمل مهام محددة زي الكتابة"
+              data-en="A  performing specific tasks like writing">A عمل مهام محددة زي الكتابة</div>
+            <div class="ex-opt" data-ar="B توصيل الجهاز بالسوفتوير" data-en="B  connecting the device to the software">B توصيل الجهاز بالسوفتوير</div>
+            <div class="ex-opt" data-ar="C تسهيل التواصل بين الجهاز والكمبيوتر"
+              data-en="C  easing communication between the device and the computer">C تسهيل التواصل بين الجهاز والكمبيوتر</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — عمل مهام محددة زي الكتابة"
-              data-en="✅ Answer: A — performing specific tasks like writing">✅ الإجابة: A — عمل مهام محددة زي الكتابة</b> <span data-ar="عمل مهام محددة زي الكتابة شغل السوفتوير (Software) التطبيقي — مش الدرايفر (driver)."
-              data-en="Performing specific tasks like writing is an application software job — not a driver.">عمل مهام محددة زي الكتابة شغل السوفتوير (Software) التطبيقي — مش الدرايفر (driver).</span></div>
+              data-en="✅ Answer: A — performing specific tasks like writing">✅ الإجابة: A — عمل مهام محددة زي الكتابة</b> <span data-ar="عمل مهام محددة زي الكتابة شغل السوفتوير التطبيقي — مش الدرايفر."
+              data-en="Performing specific tasks like writing is an application software job — not a driver.">عمل مهام محددة زي الكتابة شغل السوفتوير التطبيقي — مش الدرايفر.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1929,23 +959,23 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="السوفتوير (Software)" data-en="Software">السوفتوير (Software)</h4>
-                  <p data-ar="برامج وداتا (Data) بتشتغل على الهاردوير (Hardware) — أنواعه السوفتوير (Software) النظامي والتطبيقي."
-                    data-en="programs and data that operate on the hardware — its types are system software and application software.">برامج وداتا (Data) بتشتغل على الهاردوير (Hardware) — أنواعه السوفتوير (Software) النظامي والتطبيقي.</p>
+                  <h3 data-ar="السوفتوير" data-en="Software" class="lvl-h4 lvl-h4-2">السوفتوير</h3>
+                  <p data-ar="برامج وبيانات بتشتغل على الهاردوير — أنواعه السوفتوير النظامي والتطبيقي."
+                    data-en="programs and data that operate on the hardware — its types are system software and application software.">برامج وبيانات بتشتغل على الهاردوير — أنواعه السوفتوير النظامي والتطبيقي.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="السوفتوير (Software) النظامي" data-en="System software">السوفتوير (Software) النظامي</h4>
-                  <p data-ar="السوفتوير (Software) الضروري عشان الهاردوير (Hardware) يشتغل — OS مثال مهم."
-                    data-en="the software necessary for operating the hardware — the OS is an important example.">السوفتوير (Software) الضروري عشان الهاردوير (Hardware) يشتغل — OS مثال مهم.</p>
+                  <h3 data-ar="السوفتوير النظامي" data-en="System software" class="lvl-h4 lvl-h4-2">السوفتوير النظامي</h3>
+                  <p data-ar="السوفتوير الضروري عشان الهاردوير يشتغل — OS مثال مهم."
+                    data-en="the software necessary for operating the hardware — the OS is an important example.">السوفتوير الضروري عشان الهاردوير يشتغل — OS مثال مهم.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="نظام التشغيل OS" data-en="The Operating System OS">نظام التشغيل OS</h4>
+                  <h3 data-ar="نظام التشغيل OS" data-en="The Operating System OS" class="lvl-h4 lvl-h4-2">نظام التشغيل OS</h3>
                   <p data-ar="مسؤول عن الوظائف الأساسية — إدارة المهام والذاكرة والملفات — زي Windows وmacOS وAndroid."
                     data-en="responsible for the basic functions — task, memory, and file management — like Windows, macOS, and Android.">مسؤول عن الوظائف الأساسية — إدارة المهام والذاكرة والملفات — زي Windows وmacOS وAndroid.</p>
                 </div>
@@ -1953,9 +983,9 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">04</span>
                 <div>
-                  <h4 data-ar="التطبيقات والدرايفر (driver)" data-en="Applications and the driver">التطبيقات والدرايفر (driver)</h4>
-                  <p data-ar="التطبيقات بتشتغل فوق النظام — والدرايفر (driver) بيتحكّم في التواصل بين الجهاز والسوفتوير (Software)."
-                    data-en="applications run on top of the system — and the driver controls communication between the device and the software.">التطبيقات بتشتغل فوق النظام — والدرايفر (driver) بيتحكّم في التواصل بين الجهاز والسوفتوير (Software).</p>
+                  <h3 data-ar="التطبيقات والدرايفر" data-en="Applications and the driver" class="lvl-h4 lvl-h4-2">التطبيقات والدرايفر</h3>
+                  <p data-ar="التطبيقات بتشتغل فوق النظام — والدرايفر بيتحكّم في التواصل بين الجهاز والسوفتوير."
+                    data-en="applications run on top of the system — and the driver controls communication between the device and the software.">التطبيقات بتشتغل فوق النظام — والدرايفر بيتحكّم في التواصل بين الجهاز والسوفتوير.</p>
                 </div>
               </div>
             </div>
@@ -1972,27 +1002,27 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="recapRecall">
           <div class="rq" data-id="recapRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه نوع السوفتوير (Software) اللي OS؟"
-                data-en="What type of software is the OS?">إيه نوع السوفتوير (Software) اللي OS؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه نوع السوفتوير اللي OS؟"
+                data-en="What type of software is the OS?">إيه نوع السوفتوير اللي OS؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! نظام التشغيل نوع من برمجيات النظام."
                 data-fb-en="Correct! The OS is a type of system software."><span class="rq-key">A</span><span
-                  class="rq-body" data-ar="السوفتوير (Software) النظامي" data-en="system software">السوفتوير (Software) النظامي</span></div>
+                  class="rq-body" data-ar="السوفتوير النظامي" data-en="system software">السوفتوير النظامي</span></div>
               <div class="rq-opt" data-id="recapRq1o2" data-key="B"
                 data-fb-ar="مش كده — دي برمجيات التطبيقات."
                 data-fb-en="Not quite — that is application software."><span class="rq-key">B</span><span
-                  class="rq-body" data-ar="السوفتوير (Software) التطبيقي" data-en="application software">السوفتوير (Software) التطبيقي</span></div>
+                  class="rq-body" data-ar="السوفتوير التطبيقي" data-en="application software">السوفتوير التطبيقي</span></div>
               <div class="rq-opt" data-id="recapRq1o3" data-key="C"
                 data-fb-ar="مش كده — العتاد هو الأجهزة." data-fb-en="Not quite — hardware is the devices."><span
-                  class="rq-key">C</span><span class="rq-body" data-ar="الهاردوير (Hardware)" data-en="the hardware">الهاردوير (Hardware)</span></div>
+                  class="rq-key">C</span><span class="rq-body" data-ar="الهاردوير" data-en="the hardware">الهاردوير</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="recapRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="recapRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه من ده سوفتوير (Software) تطبيقي؟"
-                data-en="Which of these is an application software?">إيه من ده سوفتوير (Software) تطبيقي؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه من ده سوفتوير تطبيقي؟"
+                data-en="Which of these is an application software?">إيه من ده سوفتوير تطبيقي؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq2o2" data-key="A"
                 data-fb-ar="مش كده — ويندوز نظام تشغيل." data-fb-en="Not quite — Windows is an operating system."><span
@@ -2009,8 +1039,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="recapRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="recapRq3">
-            <div class="rq-q"><span class="q-num">3</span> <span data-ar="تعريف الجهاز (driver) بيتحكّم في إيه؟"
-                data-en="What does a Device driver control?">تعريف الجهاز (driver) بيتحكّم في إيه؟</span></div>
+            <div class="rq-q"><span class="q-num">3</span> <span data-ar="تعريف الجهاز بيتحكّم في إيه؟"
+                data-en="What does a Device driver control?">تعريف الجهاز بيتحكّم في إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq3o2" data-key="A"
                 data-fb-ar="مش كده — دي وظيفة نظام التشغيل." data-fb-en="Not quite — that is the OS's job."><span
@@ -2019,8 +1049,8 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="recapRq3o1" data-key="B" data-ok="1"
                 data-fb-ar="صحيح! برنامج التحكم بيسيطر على التواصل بين الجهاز المتصل والبرمجيات."
                 data-fb-en="Correct! A driver controls communication between the connected device and the software."><span
-                  class="rq-key">B</span><span class="rq-body" data-ar="التواصل بين الجهاز الموصول والسوفتوير (Software)"
-                  data-en="communication between the connected device and the software">التواصل بين الجهاز الموصول والسوفتوير (Software)</span></div>
+                  class="rq-key">B</span><span class="rq-body" data-ar="التواصل بين الجهاز الموصول والسوفتوير"
+                  data-en="communication between the connected device and the software">التواصل بين الجهاز الموصول والسوفتوير</span></div>
               <div class="rq-opt" data-id="recapRq3o3" data-key="C"
                 data-fb-ar="مش كده — دي وظيفة برمجيات التطبيقات."
                 data-fb-en="Not quite — that is application software's job."><span class="rq-key">C</span><span
@@ -2577,30 +1607,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>

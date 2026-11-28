@@ -4,1177 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application of Programming [1] (Python) — البرمجة التطبيقية [1]</title>
+  <title>Application of Programming [1] — البرمجة التطبيقية [1]</title>
   <link rel="icon" type="image/x-icon" href="../../../../assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../../../assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 12-4 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 20s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 15s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:70px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:30px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:24px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:26px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:26px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }code.inline{
-      background:rgba(24, 56, 248, .15);
-      border:1px solid rgba(24, 56, 248, .3);
-      color:#2d56fb;
-      padding:2px 8px;
-      border-radius:6px;
-      font-size:.85em;
-      font-family:'Consolas', 'Courier New', monospace
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:26px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.op-gallery{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0, 1fr));
-      gap:14px
-    }@media(max-width:960px){.op-gallery{
-        grid-template-columns:repeat(2, minmax(0, 1fr))
-      }
-    }@media(max-width:560px){.op-gallery{
-        grid-template-columns:1fr
-      }
-    }.op-chip{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:18px 12px;
-      text-align:center;
-      cursor:pointer;
-      transition:.2s;
-      position:relative
-    }.op-chip:hover,
-    .op-chip.active{
-      background:var(--card-hover);
-      border-color:var(--s3);
-      transform:translateY(-3px)
-    }.op-chip .sym{
-      display:block;
-      font-family:'Consolas', monospace;
-      font-size:1.6rem;
-      font-weight:700;
-      color:var(--s3);
-      direction:ltr
-    }.op-chip .name{
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      display:block;
-      margin-top:6px
-    }.op-detail{
-      margin-top:14px;
-      border-radius:12px;
-      overflow:hidden
-    }.op-detail:empty{
-      display:none
-    }.op-detail .body{
-      padding:16px 18px;
-      background:rgba(24, 56, 248, .08);
-      border:1px solid rgba(24, 56, 248, .3)
-    }.op-detail .exp{
-      font-family:'Consolas', monospace;
-      direction:ltr;
-      text-align:left;
-      font-size:.95rem;
-      color:#8e26fc;
-      margin-top:6px
-    }.op-detail .out{
-      margin-top:6px;
-      color:var(--accent);
-      direction:ltr;
-      font-family:'Consolas', monospace;
-      font-size:.95rem
-    }.op-choice{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:8px
-    }.op-opt{
-      flex:1;
-      min-width:52px;
-      padding:10px 8px;
-      font-family:'Consolas', monospace;
-      direction:ltr;
-      font-size:1.05rem;
-      font-weight:700;
-      color:#2d56fb;
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      border-radius:10px;
-      cursor:pointer;
-      transition:.18s
-    }.op-opt:hover{
-      border-color:rgba(24, 56, 248, .5)
-    }.op-opt.active{
-      border-color:var(--accent);
-      background:rgba(24, 56, 248, .18);
-      color:var(--accent);
-      box-shadow:0 0 0 1px var(--accent)
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }.activity-grid .demo-panel{
-        order:1
-      }.activity-grid .code-panel{
-        order:2
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.activity-grid .demo-panel input,
-    .activity-grid .demo-panel select{
-      width:100%;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      color:var(--text);
-      border-radius:8px;
-      padding:8px 12px;
-      font-family:inherit;
-      color-scheme:dark
-    }.activity-grid .demo-panel select option{
-      background:#f6f8ff;
-      color:var(--text)
-    }.activity-grid .demo-panel input:focus,
-    .activity-grid .demo-panel select:focus{
-      outline:none;
-      border-color:var(--primary)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.big-num{
-      font-family:'Consolas', monospace;
-      font-size:2.2rem;
-      font-weight:700;
-      color:var(--accent);
-      text-align:center;
-      direction:ltr;
-      background:#ebebec;
-      border-radius:14px;
-      padding:18px;
-      border:1px solid rgba(24, 56, 248, .25)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.code-panel{
-      border-radius:16px;
-      overflow:hidden;
-      background:#ececee;
-      border:1px solid rgba(11, 16, 32, 0.09)
-    }.code-panel .code-header{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      font-size:.8rem;
-      color:var(--dim);
-      border-bottom:1px solid rgba(24, 56, 248, .2)
-    }.code-panel .code-header::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:var(--accent);
-      flex-shrink:0
-    }.code-panel,
-    .code-panel .code-body,
-    .code-panel .code-header{
-      direction:ltr;
-      text-align:left;
-      unicode-bidi:isolate
-    }.py-edit,
-    .py-edit:focus{
-      display:block;
-      width:100%;
-      background:transparent;
-      border:none;
-      outline:none;
-      padding:14px;
-      font-family:'Consolas', 'Courier New', monospace;
-      font-size:.88rem;
-      line-height:1.7;
-      color:#2b3041;
-      resize:none;
-      overflow:hidden;
-      height:auto;
-      min-height:56px;
-      direction:ltr;
-      text-align:left;
-      white-space:pre;
-      overflow-wrap:normal;
-      box-sizing:border-box
-    }.py-ctl{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:8px 14px;
-      border-top:1px solid rgba(24, 56, 248, .15)
-    }.py-ctl .hint{
-      color:var(--dim);
-      font-size:.75rem;
-      margin-left:auto
-    }.term{
-      background:#ebebec;
-      border:1px solid rgba(24, 56, 248, .25);
-      border-radius:12px;
-      padding:14px;
-      font-family:Consolas, monospace;
-      font-size:.85rem;
-      min-height:60px;
-      margin:10px 0;
-      direction:ltr;
-      text-align:left;
-      display:none
-    }.term .out-line{
-      color:var(--accent);
-      opacity:0;
-      transform:translateY(4px);
-      animation:lineIn .3s forwards
-    }@keyframes lineIn{
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.py-err{
-      background:#edebec;
-      border:1px solid rgba(215, 38, 61, .45);
-      border-radius:12px;
-      color:#2f2e3c;
-      padding:14px 16px;
-      margin:8px 14px;
-      direction:ltr;
-      text-align:left;
-      line-height:1.6;
-      animation:errIn .25s ease;
-      display:none
-    }@keyframes errIn{
-      from {
-        opacity:0;
-        transform:translateY(-4px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.py-err .errtag .errbadge{
-      background:rgba(215, 38, 61, .18);
-      border:1px solid rgba(215, 38, 61, .4);
-      border-radius:6px;
-      padding:2px 8px;
-      font-weight:700;
-      font-size:.8rem;
-      color:#d50016;
-      text-transform:uppercase;
-      letter-spacing:.3px
-    }.py-err .errmain{
-      font-family:Consolas, monospace;
-      font-size:.92rem;
-      color:#fff;
-      margin-top:8px
-    }.py-err .errctx{
-      margin-top:10px;
-      padding-top:10px;
-      border-top:1px solid rgba(215, 38, 61, .2);
-      color:var(--dim);
-      font-size:.8rem
-    }.py-err .errline{
-      background:rgba(215, 38, 61, .12);
-      border-radius:6px;
-      padding:6px 10px;
-      margin-top:6px;
-      font-family:Consolas, monospace;
-      color:#302e3c;
-      font-size:.8rem;
-      white-space:pre;
-      overflow-x:auto
-    }.py-err .errline .ln{
-      display:inline-block;
-      min-width:2.2em;
-      color:#d50010;
-      margin-right:8px;
-      user-select:none
-    }.var-anim{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-      justify-content:center;
-      position:relative
-    }.var-fly{
-      position:absolute;
-      font-family:'Consolas', monospace;
-      font-weight:700;
-      color:var(--accent);
-      direction:ltr;
-      font-size:1.15rem;
-      z-index:5;
-      pointer-events:none;
-      transition:all .55s cubic-bezier(.5, 0, .3, 1)
-    }.var-src{
-      background:none;
-      border:none;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-family:'Consolas', monospace;
-      font-weight:700;
-      color:var(--accent);
-      direction:ltr;
-      font-size:1.15rem
-    }.var-box{
-      width:160px;
-      height:116px;
-      border-radius:18px;
-      background:var(--card);
-      border:2px dashed var(--s3);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:4px;
-      transition:.35s;
-      position:relative
-    }.var-box .vname{
-      font-family:'Consolas', monospace;
-      font-weight:700;
-      color:var(--s3);
-      font-size:1.05rem;
-      direction:ltr
-    }.var-box .v-val{
-      font-family:'Consolas', monospace;
-      color:#2b3041;
-      font-size:1.4rem;
-      font-weight:700;
-      direction:ltr;
-      min-height:1.8rem
-    }.var-box.live{
-      background:#eceef4;
-      border-color:var(--success);
-      box-shadow:0 0 34px rgba(13, 158, 86, .25)
-    }.var-box.live .v-val{
-      color:var(--success)
-    }.seq-card{
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(11, 16, 32, 0.08);
-      background:#ececee
-    }.seq-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:12px 16px;
-      background:#ebecee;
-      gap:10px;
-      flex-wrap:wrap
-    }.seq-lines{
-      direction:ltr;
-      text-align:left;
-      font-family:'Consolas', monospace;
-      font-size:.9rem;
-      line-height:2.1;
-      padding:8px 0
-    }.seq-lines .sl{
-      display:flex;
-      padding:0 16px;
-      transition:.15s;
-      border-right:3px solid transparent
-    }.seq-lines .sl .ln{
-      width:34px;
-      color:#3d4a7a;
-      flex-shrink:0;
-      text-align:left;
-      user-select:none
-    }.seq-lines .sl .src{
-      white-space:pre;
-      color:#2c55ff
-    }.seq-lines .sl.run{
-      background:rgba(24, 56, 248, .12);
-      border-right-color:var(--accent)
-    }.seq-lines .sl.run .src{
-      color:var(--accent)
-    }.seq-term{
-      background:#ebebec;
-      border:1px solid rgba(24, 56, 248, .25);
-      border-radius:12px;
-      margin:0 16px 16px;
-      padding:12px;
-      font-family:Consolas, monospace;
-      direction:ltr;
-      text-align:left;
-      font-size:.85rem;
-      min-height:56px;
-      color:var(--accent)
-    }.seq-term .out-line{
-      opacity:0;
-      transform:translateY(4px);
-      animation:lineIn .3s forwards
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.opt-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      padding:0 7px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:var(--primary);
-      font-weight:800;
-      font-size:.82rem;
-      margin-inline-end:8px;
-      flex-shrink:0
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.opt-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      padding:0 7px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:var(--primary);
-      font-weight:800;
-      font-size:.82rem;
-      margin-inline-end:8px;
-      flex-shrink:0
-    }.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      font-family:'Consolas', monospace;
-      direction:ltr;
-      text-align:left;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.85rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:14px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-opt.correct .ex-key{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .15);
-      color:var(--success)
-    }.ex-opt.wrong .ex-key{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .15);
-      color:var(--danger)
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s1), var(--s2), var(--s3), var(--s4))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:0 8px;
-      font-size:.78rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:10px
-    }.table th,
-    .table td{
-      text-align:right;
-      padding:10px 14px;
-      font-size:.95rem;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.table th{
-      color:var(--text);
-      font-weight:700;
-      background:rgba(24, 56, 248, .12)
-    }.table td{
-      color:var(--dim)
-    }.table code{
-      direction:ltr;
-      font-family:'Consolas', monospace;
-      color:#8c28fc
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-top{
-      height:4px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-body{
-      padding:22px;
-      overflow-x:auto
-    }.outcome-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:16px;
-      margin:18px 0
-    }@media(max-width:760px){.outcome-grid{
-        grid-template-columns:1fr
-      }
-    }.outcome-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:20px;
-      padding:20px;
-      transition:.3s;
-      border-top:3px solid var(--sc)
-    }.outcome-card:hover{
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3);
-      background:var(--card-hover)
-    }.oc-ic{
-      font-size:2rem;
-      margin-bottom:8px
-    }.outcome-card h4{
-      font-weight:800;
-      margin-bottom:6px;
-      color:var(--text)
-    }.outcome-card p{
-      font-size:.88rem;
-      color:var(--dim)
-    }.list-rows{
-      display:grid;
-      gap:10px;
-      min-width:320px
-    }.lrow{
-      display:grid;
-      grid-template-columns:64px 1fr;
-      gap:8px;
-      align-items:center
-    }.lbl{
-      font-weight:800;
-      color:var(--accent);
-      font-size:.82rem;
-      direction:ltr;
-      text-align:left
-    }.lrow .cells{
-      display:flex;
-      gap:8px
-    }.cell{
-      flex:1;
-      min-width:46px;
-      text-align:center;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:#2b3041;
-      border-radius:10px;
-      padding:10px 6px;
-      font-weight:800;
-      direction:ltr
-    }.cell.hl{
-      background:rgba(24, 56, 248, .16);
-      border-color:var(--accent);
-      color:var(--accent);
-      box-shadow:0 0 14px rgba(24, 56, 248, .25)
-    }.twod-grid{
-      display:grid;
-      gap:8px;
-      min-width:320px
-    }.tw-row{
-      display:flex;
-      gap:8px;
-      align-items:center
-    }.tw-h{
-      width:34px;
-      text-align:center;
-      font-weight:800;
-      color:var(--dim);
-      font-size:.8rem
-    }.tw-c{
-      flex:1;
-      min-width:40px;
-      text-align:center;
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .4);
-      color:#2d3141;
-      border-radius:10px;
-      padding:10px 6px;
-      font-weight:800
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.section-inner,.card,.ex-item,.code-panel{min-width:0;max-width:100%;}.textbook-code{display:block;direction:ltr;text-align:left;unicode-bidi:isolate;white-space:pre;overflow-x:auto;max-width:100%;padding:14px;border:1px solid #34416b;border-radius:10px;background:#ebecee;color:#2b3041;font:14px/1.75 Consolas,monospace;margin:10px 0;}.source-note{padding:12px;border-inline-start:3px solid var(--accent);background:#ecedef;border-radius:8px;margin:12px 0;line-height:1.8;}.blank-grid,.game-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:12px 0;}.blank-label,.game-controls label{display:flex;flex-direction:column;gap:5px;max-width:100%;}.blank-grid .blank-label{flex:1 1 90px;}.blank-label input,.game-controls input{min-width:0;width:100%;max-width:220px;padding:9px;background:#ebeced;color:#fff;border:1px solid #425b8a;border-radius:8px;font:16px Consolas,monospace;}.game-controls label{width:110px;}.self-check{margin-top:10px;}.ex-answer[hidden]{display:none!important;}.ex-answer.show{min-width:0;}.py-edit{overflow-x:auto;overflow-y:hidden;white-space:pre;}.py-ctl{flex-wrap:wrap;}.py-ctl .btn{flex-shrink:0;width:auto;min-width:78px;}.py-ctl .hint{flex:1 1 140px;}.list-rows{direction:ltr;}.lrow{grid-template-columns:64px repeat(5,minmax(40px,1fr));}.twod-grid{direction:ltr;}#grid-cells{display:grid;grid-template-columns:repeat(3,minmax(40px,1fr));gap:8px;max-width:360px;}#grid-cells button{padding:14px;color:#fff;background:#eceef1;border:1px solid #4969a0;border-radius:10px;font:700 18px Consolas,monospace;cursor:pointer;}#grid-cells button:focus-visible{outline:3px solid var(--accent);}.lesson-game{margin-bottom:18px;}.lesson-game [aria-live]{min-height:2.5em;}.gl-term a{display:inline-block;color:var(--accent);margin-top:8px;}.gl-term.hidden{display:none;}.pan-cue{font-size:12px;color:#4769a6;display:none;margin:4px 0;}.pan-cue.visible{display:block;}.game-controls select{background:#ebeced;color:#fff;border:1px solid #425b8a;border-radius:8px;padding:9px;max-width:100%;font:14px/1.5 inherit;}.game-controls:has(#trace-mode) label{width:160px;}.btn:disabled{opacity:.5;cursor:default;}</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/cation-of-programming-1-python--12-4-application-of-programming-1-python-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="contrast-pass-3">
-/* Readability pass 3: faded component blocks and light code editors. */
-.bt,.bt-sub{opacity:1!important}
-.bt-sub{color:#2f3542!important}
-.bt-note{opacity:1!important;color:#3a4152!important}
-.email-vals{color:#1a3fd0!important}
-.chat-who{color:#3a4152!important}
-.html-edit,.js-edit,.py-edit,textarea{color:var(--text)!important}
-</style>
-<style>/* contrast fix (a11y pass 4) */
-input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1020!important;background:#fff!important}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
+<link rel="stylesheet" href="../../../../assets/css/pages/cation-of-programming-1-python--12-4-application-of-programming-1-python-2.css">
 </head>
 
 <body>
@@ -1187,12 +28,12 @@ input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1
           alt="logo"></a>
       <div class="nav-links" id="navLinks">
         <a href="#intro" data-ar="يلا نبدأ" data-en="Start">يلا نبدأ</a>
-        <a href="#list" data-ar="القائمة (List)" data-en="List">القائمة (List)</a>
+        <a href="#list" data-ar="القائمة" data-en="List">القائمة</a>
         <a href="#element" data-ar="العنصر والرقم (Element &amp; Index)" data-en="Element &amp; Index">العنصر والرقم (Element &amp; Index)</a>
         <a href="#twod" data-ar="قائمة ثنائية الأبعاد (2D List)" data-en="2D List">قائمة ثنائية الأبعاد (2D List)</a>
         <a href="#practice" data-ar="تمارين" data-en="Exercises">تمارين</a>
         <a href="#recap" data-ar="المراجعة" data-en="Recap">المراجعة</a>
-        <a href="#glossary" data-ar="قاموس المصطلحات (Glossary)" data-en="Glossary">قاموس المصطلحات (Glossary)</a>
+        <a href="#glossary" data-ar="قاموس المصطلحات" data-en="Glossary">قاموس المصطلحات</a>
       </div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
@@ -1206,8 +47,8 @@ input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1
       <p class="hero-sub"
         data-ar="القوائم — النهارده هنخزّن أكتر من قيمة في متغيّر واحد وندور عليهم بحلقة for"
         data-en="Lists — today we store more than one value in a single variable and go over them with a for loop">
-        القوائم — هنخزّن النهارده أكتر من قيمة في متغير واحد ونعدّي عليها بحلقة <span dir="ltr">for</span></p>
-      <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="11 سؤالًا" data-en="11 practice questions">11 سؤالًا</span><span data-ar="14 مصطلحًا" data-en="14 glossary terms">14 مصطلحًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ القوائم — هنخزّن النهارده أكتر من قيمة في متغير واحد ونعدّي عليها بحلقة <span dir="ltr">for</span></p>
+      <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="11 سؤالًا" data-en="11 practice questions">11 سؤالًا</span><span data-ar="14 مصطلحًا" data-en="14 glossary terms">14 مصطلحًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 
@@ -1221,24 +62,24 @@ input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1
           <h2 data-ar="إيه اللي هنتعلّمه النهارده؟" data-en="What are we learning today?">إيه اللي هنتعلّمه النهارده؟</h2>
         </div>
         <p class="lead"
-          data-ar="النهارده هنتكلم عن القوائم (Lists) في بايثون (Python) — اللي بتخزّن أكتر من قيمة في متغيّر واحد، وبتسيب البرنامج يمسك داتا (Data) كتير ويعالجها بسهولة."
+          data-ar="النهارده هنتكلم عن القوائم في بايثون — اللي بتخزّن أكتر من قيمة في متغيّر واحد، وبتسيب البرنامج يمسك بيانات كتير ويعالجها بسهولة."
           data-en="Today we talk about Lists in Python — the thing that stores more than one value in a single variable, and lets the program hold lots of data and process it easily.">
-          النهارده هنتكلم عن <b>القوائم (Lists)</b> في بايثون — دي الحاجة اللي بتحفظ أكتر من قيمة في متغير واحد،
-          وتخلي البرنامج يشيل بيانات كتير ويفصل فيها بسهولة.</p>
+ النهارده هنتكلم عن <b>القوائم</b> في بايثون — دي الحاجة اللي بتحفظ أكتر من قيمة في متغير واحد،
+ وتخلي البرنامج يشيل بيانات كتير ويفصل فيها بسهولة.</p>
         <div class="outcome-grid">
           <div class="outcome-card" style="--sc:var(--s1)">
             <div class="oc-ic">📚</div>
-            <h4 data-ar="القائمة (List) هي إيه" data-en="What is a List">القائمة (List) هي إيه</h4>
-            <p data-ar="مجموعة مرتّبة من عناصر الداتا (Data) المتحفوظة في متغيّر واحد." data-en="An ordered collection of data items kept in one variable.">مجموعة مرتّبة من عناصر الداتا (Data) المتحفوظة في متغيّر واحد.</p>
+            <h3 data-ar="القائمة هي إيه" data-en="What is a List" class="lvl-h4 lvl-h4-1">القائمة هي إيه</h3>
+            <p data-ar="مجموعة مرتّبة من عناصر البيانات المتحفوظة في متغيّر واحد." data-en="An ordered collection of data items kept in one variable.">مجموعة مرتّبة من عناصر البيانات المتحفوظة في متغيّر واحد.</p>
           </div>
           <div class="outcome-card" style="--sc:var(--s2)">
             <div class="oc-ic">🔢</div>
-            <h4 data-ar="العنصر والرقم (Element and Index)" data-en="Element and Index">العنصر والرقم (Element and Index)</h4>
-            <p data-ar="كل قيمة في القائمة ليها رقم موقع (index) بيبدأ من الصفر." data-en="Each value in the list has a position number (index) that starts from zero.">كل قيمة في القائمة ليها رقم موقع (index) بيبدأ من الصفر.</p>
+            <h3 data-ar="العنصر والرقم" data-en="Element and Index" class="lvl-h4 lvl-h4-1">العنصر والرقم</h3>
+            <p data-ar="كل قيمة في القائمة ليها رقم موقع بيبدأ من الصفر." data-en="Each value in the list has a position number (index) that starts from zero.">كل قيمة في القائمة ليها رقم موقع بيبدأ من الصفر.</p>
           </div>
           <div class="outcome-card" style="--sc:var(--s3)">
             <div class="oc-ic">🧱</div>
-            <h4 data-ar="قائمة ثنائية الأبعاد (Two-dimensional list)" data-en="Two-dimensional list">قائمة ثنائية الأبعاد (Two-dimensional list)</h4>
+            <h3 data-ar="قائمة ثنائية الأبعاد" data-en="Two-dimensional list" class="lvl-h4 lvl-h4-1">قائمة ثنائية الأبعاد</h3>
             <p data-ar="قائمة جوه قائمة؛ وبنوصل لعنصر بـ a[i][j]." data-en="A list inside a list; we reach an element with a[i][j].">قائمة جوهها قوائم، بنوصل للعنصر بـ <span dir="ltr">a[i][j]</span>.</p>
           </div>
         </div>
@@ -1257,12 +98,12 @@ input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1
       <div class="section-inner">
         <div class="section-head">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s1),var(--s4))">2</div>
-          <h2 data-ar="مفهوم القائمة (List)" data-en="The List concept">مفهوم <span dir="ltr">List</span></h2>
+          <h2 data-ar="مفهوم القائمة" data-en="The List concept">مفهوم <span dir="ltr">List</span></h2>
         </div>
         <div class="diagram-wrap" data-id="listVis">
           <div class="diagram-top"></div>
           <div class="diagram-body">
-            <p data-ar="مصطلحات الكتاب: النسخة العربية بتستخدم Array / مصفوفة (list)، والإنجليزية بتستخدم List. النوع هنا في بايثون هو list، مش النوع المنفصل array.array. الرمز [] أقواس مربعة. ممكن القائمة تفضل فاضية، والإضافة اختيارية." data-en="Book terminology: the Arabic edition uses Array / مصفوفة (list); the English edition uses List. The Python type here is list, not the separate array.array type. [] are square brackets. A list can stay empty; appending is optional." class="source-note">مصطلحات الكتاب:النسخة العربية بتستخدم Array / مصفوفة (list)، والإنجليزية بتستخدم List. النوع هنا في بايثون هو list، مش النوع المنفصل array.array. الرمز [] أقواس مربعة. ممكن القائمة تفضل فاضية، والإضافة اختيارية.</p><div class="list-rows" data-id="listVisRows">
+            <p data-ar="مصطلحات الكتاب: النسخة العربية بتستخدم Array / مصفوفة، والإنجليزية بتستخدم List. النوع هنا في بايثون هو list، مش النوع المنفصل array.array. الرمز [] أقواس مربعة. ممكن القائمة تفضل فاضية، والإضافة اختيارية." data-en="Book terminology: the Arabic edition uses Array / مصفوفة (list); the English edition uses List. The Python type here is list, not the separate array.array type. [] are square brackets. A list can stay empty; appending is optional." class="source-note">مصطلحات الكتاب:النسخة العربية بتستخدم Array / مصفوفة، والإنجليزية بتستخدم List. النوع هنا في بايثون هو list، مش النوع المنفصل array.array. الرمز [] أقواس مربعة. ممكن القائمة تفضل فاضية، والإضافة اختيارية.</p><div class="list-rows" data-id="listVisRows">
               <div class="lrow"><span class="lbl">index</span><span class="cell">0</span><span class="cell">1</span><span class="cell">2</span><span class="cell">3</span><span class="cell">4</span></div>
               <div class="lrow"><span class="lbl">a</span><span class="cell">7</span><span class="cell">22</span><span class="cell">11</span><span class="cell">34</span><span class="cell">17</span></div>
             </div>
@@ -1272,13 +113,13 @@ input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1
           </div>
         </div>
         <p
-          data-ar="القائمة (List) هي مجموعة من عناصر الداتا (Data) مرتّبة بالتسلسل، ونقدر ندير كل الداتا (Data) سوا كمجموعة واحدة. وبنعرّفها بكتابة اسم القائمة وعلامة يساوي والأقواس المربّعة [] بالقيم جوّها، مفصولة بفواصل."
+          data-ar="القائمة هي مجموعة من عناصر البيانات مرتّبة بالتسلسل، ونقدر ندير كل البيانات سوا كمجموعة واحدة. وبنعرّفها بكتابة اسم القائمة وعلامة يساوي والأقواس المربّعة [] بالقيم جوّها، مفصولة بفواصل."
           data-en="A List is a collection of data items arranged in sequence, and we can manage all the data together as one group. We define it by writing the list name, an equals sign, and square brackets [] with the values inside, separated by commas.">
-          القائمة <b>(List)</b> هي مجموعة من عناصر البيانات مرتبة في تسلسل، وبنقدر ندير البيانات كلها مع بعض كمجموعة
-          واحدة. بنعرّفها بإننا نكتب اسم القائمة وعلامة <span dir="ltr">=</span> ودي الأقواس الحاضنة
-          <span dir="ltr">[]</span> ونحط جواها القيم مفصولة بفواصل.</p>
-        <p data-ar="المحررات نموذج تعليمي محدود، مش بايثون كاملة. بتدعم أمثلة الدرس: قوائم متداخلة، append، فهرسة، حلقات وشرط وطباعة. مفيش استيراد أو تعديل عنصر بـ a[i] = ... هنا. الحد 2000 عنصر للقائمة أو range و20000 خطوة. لو تجاوزته صغّر المثال أو استخدم بايثون كاملة." data-en="The editors use a bounded teaching model, not full Python. They support the lesson examples: nested lists, append, indexing, loops, conditions and output. Imports and a[i] = ... assignment are not supported here. Limits: 2,000 items per list or range and 20,000 steps. Reduce large examples or use full Python." class="source-note">المحررات نموذج تعليمي محدود، مش بايثون كاملة. بتدعم أمثلة الدرس: قوائم متداخلة، append، فهرسة، حلقات وشرط وطباعة. مفيش استيراد أو تعديل عنصر بـ a[i] = ... هنا. الحد 2000 عنصر للقائمة أو range و20000 خطوة. لو تجاوزته صغّر المثال أو استخدم بايثون كاملة.</p><div class="code-panel" data-id="listPy">
-          <textarea class="py-edit" spellcheck="false">week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+ القائمة <b>(List)</b> هي مجموعة من عناصر البيانات مرتبة في تسلسل، وبنقدر ندير البيانات كلها مع بعض كمجموعة
+ واحدة. بنعرّفها بإننا نكتب اسم القائمة وعلامة <span dir="ltr">=</span> ودي الأقواس الحاضنة
+ <span dir="ltr">[]</span> ونحط جواها القيم مفصولة بفواصل.</p>
+        <p data-ar="المحررات نموذج تعليمي محدود، مش بايثون كاملة. بتدعم أمثلة الدرس: قوائم متداخلة، append، فهرسة، حلقات وشرط وطباعة. مفيش استيراد أو تعديل عنصر بـ a[i] =... هنا. الحد 2000 عنصر للقائمة أو range و20000 خطوة. لو تجاوزته صغّر المثال أو استخدم بايثون كاملة." data-en="The editors use a bounded teaching model, not full Python. They support the lesson examples: nested lists, append, indexing, loops, conditions and output. Imports and a[i] = ... assignment are not supported here. Limits: 2,000 items per list or range and 20,000 steps. Reduce large examples or use full Python." class="source-note">المحررات نموذج تعليمي محدود، مش بايثون كاملة. بتدعم أمثلة الدرس: قوائم متداخلة، append، فهرسة، حلقات وشرط وطباعة. مفيش استيراد أو تعديل عنصر بـ a[i] =... هنا. الحد 2000 عنصر للقائمة أو range و20000 خطوة. لو تجاوزته صغّر المثال أو استخدم بايثون كاملة.</p><div class="code-panel" data-id="listPy">
+          <textarea class="py-edit" spellcheck="false" aria-label="محرر كود بايثون">week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 number = [7, 22, 11, 34, 17]
 print(week)
 print(number)
@@ -1295,7 +136,7 @@ print(number[0])</textarea>
           <div class="err-head"><span>⚠️</span><b data-ar="أخطاء شائعة" data-en="Common mistakes">أخطاء شائعة</b></div>
           <ul>
             <li data-ar="النسيان إن في أقواس مربّعة [] أو فاصلة بين القيم — القائمة مش هتتعَرّف صح." data-en="Forgetting the [] brackets or the comma between values — the list won't be defined correctly.">نسيان الأقواس <span dir="ltr">[]</span> أو الفاصلة بين القيم — القائمة مش هتتعرّف صح.</li>
-            <li data-ar="في بايثون (Python) بنكتب True وFalse بحروف كابيتال، والقيم النصية بين علامات اقتباس." data-en="In Python we write True and False with capital letters, and text values between quotation marks.">القيم النصية بين علامتي اقتباس <span dir="ltr">'...'</span>.</li>
+            <li data-ar="في بايثون بنكتب True وFalse بحروف كابيتال، والقيم النصية بين علامات اقتباس." data-en="In Python we write True and False with capital letters, and text values between quotation marks.">القيم النصية بين علامتي اقتباس <span dir="ltr">'...'</span>.</li>
           </ul>
         </div>
         <button class="btn" data-id="listQuizStart" data-start data-ar="جرّب نفسك" data-en="Test yourself">جرّب نفسك</button>
@@ -1329,7 +170,7 @@ print(number[0])</textarea>
       <div class="section-inner"><div class="card lesson-game" id="list-game"><h3 data-ar="معمل القائمة: توقّع العنصر" data-en="List lab: predict the element" >معمل القائمة: توقّع العنصر</h3><p data-ar="اختار الفهرس، توقّع القيمة، وبعدين اكشفها. جرّب الإضافة وشوف الفهرس الجديد." data-en="Choose an index, predict its value, then reveal it. Append a value and inspect its new index." >اختار الفهرس، توقّع القيمة، وبعدين اكشفها. جرّب الإضافة وشوف الفهرس الجديد.</p><pre id="list-state" class="textbook-code" dir="ltr"></pre><div class="game-controls"><label><span data-ar="الفهرس" data-en="Index" >الفهرس</span><input id="list-index" type="number" value="0" step="1"></label><button class="btn small" id="list-reveal"><span data-ar="اكشف العنصر" data-en="Reveal element" >اكشف العنصر</span></button><label><span data-ar="قيمة جديدة" data-en="New value" >قيمة جديدة</span><input id="list-add" type="number" value="9" step="1"></label><button class="btn small" id="list-append">append</button><button class="btn small" id="list-reset"><span data-ar="إعادة" data-en="Reset" >إعادة</span></button></div><p id="list-result" aria-live="polite"></p></div>
         <div class="section-head">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),var(--s5))">3</div>
-          <h2 data-ar="مفهوم العنصر والرقم (index)" data-en="The Element concept and index">مفهوم <span dir="ltr">Element</span> والفهرس</h2>
+          <h2 data-ar="مفهوم العنصر والرقم" data-en="The Element concept and index">مفهوم <span dir="ltr">Element</span> والفهرس</h2>
         </div>
         <div class="diagram-wrap" data-id="elemVis">
           <div class="diagram-top"></div>
@@ -1342,18 +183,18 @@ print(number[0])</textarea>
               <div class="lrow"><span class="lbl">a[4]</span><span class="cell">17</span></div>
             </div>
             <div class="legend">
-              <span data-ar="كل عنصر له رقم (index) بيدّي موقعه، والرقم بيبدأ من الصفر." data-en="Each element has an index giving its position, and the index starts from zero.">كل عنصر ليها فهرس <b>(Index)</b> بيدّي مكانها، والفهرس بيبدأ من <b>صفر</b>.</span>
+              <span data-ar="كل عنصر له رقم بيدّي موقعه، والرقم بيبدأ من الصفر." data-en="Each element has an index giving its position, and the index starts from zero.">كل عنصر ليها فهرس <b>(Index)</b> بيدّي مكانها، والفهرس بيبدأ من <b>صفر</b>.</span>
             </div>
           </div>
         </div>
         <p
-          data-ar="العنصر (Element) هو كل قيمة جوه القائمة، وبنوصل له بكتابة اسم القائمة ورقم موقعه (الرقم/index) بين أقواس زي a[2]. لاحظ الرقم بيبدأ من الصفر مش واحد. ونتقدر نضيف عناصر آخر القائمة بـ append."
+          data-ar="العنصر هو كل قيمة جوه القائمة، وبنوصل له بكتابة اسم القائمة ورقم موقعه (الرقم/index) بين أقواس زي a[2]. لاحظ الرقم بيبدأ من الصفر مش واحد. ونتقدر نضيف عناصر آخر القائمة بـ append."
           data-en="An Element is each value inside the list, and we reach it by writing the list name and its position number (the index) in brackets like a[2]. Note the index starts from zero, not one. And we can add elements to the end of the list with append.">
-          العنصر <b>(Element)</b> هو كل قيمة موجودة جوه القائمة، وبنوصل له بكتابة اسم القائمة ورقم مكانه
-          <b>(الفهرس Index)</b> بين أقواس <span dir="ltr">[]</span> زي <span dir="ltr">a[2]</span>. لاحظ إن الفهرس
-          بيبدأ من <b>صفر</b> مش من واحد. وبنقدر نضيف عناصر في آخر القائمة بأمر <span dir="ltr">append</span>.</p>
+ العنصر <b>(Element)</b> هو كل قيمة موجودة جوه القائمة، وبنوصل له بكتابة اسم القائمة ورقم مكانه
+ <b>(الفهرس Index)</b> بين أقواس <span dir="ltr">[]</span> زي <span dir="ltr">a[2]</span>. لاحظ إن الفهرس
+ بيبدأ من <b>صفر</b> مش من واحد. وبنقدر نضيف عناصر في آخر القائمة بأمر <span dir="ltr">append</span>.</p>
         <div class="code-panel" data-id="elemPy">
-          <textarea class="py-edit" spellcheck="false">a = [7, 22, 11, 34, 17]
+          <textarea class="py-edit" spellcheck="false" aria-label="محرر كود بايثون">a = [7, 22, 11, 34, 17]
 for i in range(0, 5, 1):
     print(a[i])</textarea>
           <div class="py-ctl">
@@ -1365,7 +206,7 @@ for i in range(0, 5, 1):
           <div class="py-err"></div>
         </div>
         <div class="code-panel" data-id="appendPy">
-          <textarea class="py-edit" spellcheck="false">a = [ ]
+          <textarea class="py-edit" spellcheck="false" aria-label="محرر كود بايثون">a = [ ]
 a.append(1)
 a.append(4)
 a.append(9)
@@ -1416,7 +257,7 @@ print(a)</textarea>
       <div class="section-inner"><div class="card lesson-game" id="grid-game"><h3 data-ar="تحدّي الصف والعمود" data-en="Row and column challenge" >تحدّي الصف والعمود</h3><p data-ar="الصف الأول فهرسه 0، والعمود الأول فهرسه 0. اختار العنصر المطلوب من الشبكة." data-en="The first row is 0 and the first column is 0. Choose the requested element in the grid." >الصف الأول فهرسه 0، والعمود الأول فهرسه 0. اختار العنصر المطلوب من الشبكة.</p><p id="grid-target" dir="ltr"></p><div id="grid-cells" dir="ltr"></div><p id="grid-result" aria-live="polite"></p><button class="btn small" id="grid-next"><span data-ar="التالي" data-en="Next" >التالي</span></button></div>
         <div class="section-head">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s3),var(--s6))">4</div>
-          <h2 data-ar="قائمة ثنائية الأبعاد (Two-dimensional list)" data-en="Two-dimensional list">قائمة ثنائية الأبعاد (Two-dimensional list)</h2>
+          <h2 data-ar="قائمة ثنائية الأبعاد" data-en="Two-dimensional list">قائمة ثنائية الأبعاد</h2>
         </div>
         <div class="diagram-wrap" data-id="twodVis">
           <div class="diagram-top"></div>
@@ -1426,18 +267,18 @@ print(a)</textarea>
               <div class="tw-row"><span class="tw-h">1</span><span class="tw-c">D</span><span class="tw-c">E</span><span class="tw-c">F</span></div>
             </div>
             <div class="legend">
-              <span data-ar="القائمة ثنائية الأبعاد بتدير الداتا (Data) برقم صف ورقم عمود: a[i][j]." data-en="A two-dimensional list manages data with a row index and a column index: a[i][j].">القائمة ثنائية الأبعاد بتدير البيانات بفهرس <b>صف</b> وفهرس <b>عمود</b>: <span dir="ltr">a[i][j]</span>.</span>
+              <span data-ar="القائمة ثنائية الأبعاد بتدير البيانات برقم صف ورقم عمود: a[i][j]." data-en="A two-dimensional list manages data with a row index and a column index: a[i][j].">القائمة ثنائية الأبعاد بتدير البيانات بفهرس <b>صف</b> وفهرس <b>عمود</b>: <span dir="ltr">a[i][j]</span>.</span>
             </div>
           </div>
         </div>
         <p
-          data-ar="القائمة ثنائية الأبعاد هي قائمة جوه قائمة، بتخزّن الداتا (Data) في صفوف وأعمدة. وبنعرّفها بكتابة قوائم جوه القائمة الكبيرة، وبنوصل للعنصر في الصف i والعمود j بـ a[i][j]."
+          data-ar="القائمة ثنائية الأبعاد هي قائمة جوه قائمة، بتخزّن البيانات في صفوف وأعمدة. وبنعرّفها بكتابة قوائم جوه القائمة الكبيرة، وبنوصل للعنصر في الصف i والعمود j بـ a[i][j]."
           data-en="A two-dimensional list is a list inside a list, storing data in rows and columns. We define it by writing lists inside the big list, and we reach the element in row i and column j with a[i][j].">
-          القائمة ثنائية الأبعاد هي <b>قائمة جوهها قوائم</b>، بتخزّن البيانات في صفوف وأعمدة. بنعرّفها بإننا نكتب
-          قوائم جوه القائمة الكبيرة، وبنوصل للعنصر الموجود في الصف <span dir="ltr">i</span> والعمود
-          <span dir="ltr">j</span> بالصيغة <span dir="ltr">a[i][j]</span>.</p>
+ القائمة ثنائية الأبعاد هي <b>قائمة جوهها قوائم</b>، بتخزّن البيانات في صفوف وأعمدة. بنعرّفها بإننا نكتب
+ قوائم جوه القائمة الكبيرة، وبنوصل للعنصر الموجود في الصف <span dir="ltr">i</span> والعمود
+ <span dir="ltr">j</span> بالصيغة <span dir="ltr">a[i][j]</span>.</p>
         <div class="code-panel" data-id="twodPy">
-          <textarea class="py-edit" spellcheck="false">a = [['A', 'B', 'C'], ['D', 'E', 'F']]
+          <textarea class="py-edit" spellcheck="false" aria-label="محرر كود بايثون">a = [['A', 'B', 'C'], ['D', 'E', 'F']]
 print(a[0][0])
 print(a[1][2])</textarea>
           <div class="py-ctl">
@@ -1482,8 +323,8 @@ print(a[1][2])</textarea>
     </section>
 
     <!-- ============ 05 PRACTICE ============ -->
-    <section class="section" id="practice"><div class="section-inner"><div class="section-head"><div class="section-number">5</div><h2 data-ar="تمارين الكتاب" data-en="Textbook exercises" >تمارين الكتاب</h2></div><p data-ar="اكتب إجابتك الأول، وبعدين افتح الحل للمقارنة. دي تمارين ناتج وفراغات، مش اختيار من متعدد ومش درجة آلية. الحل بيعرض إجابة مناسبة؛ ممكن تعبير مكافئ يشتغل برضه." data-en="Write your answer first, then reveal the solution to compare. These are output and fill-in self-checks, not multiple-choice or automatic scores. The solution shows a suitable answer; equivalent expressions may also work." class="source-note">اكتب إجابتك الأول، وبعدين افتح الحل للمقارنة. دي تمارين ناتج وفراغات، مش اختيار من متعدد ومش درجة آلية. الحل بيعرض إجابة مناسبة؛ ممكن تعبير مكافئ يشتغل برضه.</p><p data-ar="أسماء min وmax وsum في الكتاب متغيرات، وبتحجب الدوال المدمجة بنفس الاسم. خارج أمثلة الكتاب، أسماء زي minimum وmaximum وtotal أوضح." data-en="The book uses min, max and sum as variables, shadowing built-in functions with those names. In your own programs, minimum, maximum and total are clearer." class="source-note">أسماء min وmax وsum في الكتاب متغيرات، وبتحجب الدوال المدمجة بنفس الاسم. خارج أمثلة الكتاب، أسماء زي minimum وmaximum وtotal أوضح.</p><div class="card source-group"><h3 data-ar="إحماء | عربي 183–184 · إنجليزي 169" data-en="Warm Up | EN 169 · AR 183–184" >إحماء | عربي 183–184 · إنجليزي 169</h3><article class="ex-item" data-source-id="warm-1" id="warm-1"><div class="q"><span class="q-num">1</span><span data-ar="اكتب ناتج كل برنامج." data-en="Write the output of each program." >اكتب ناتج كل برنامج.</span></div><h4 dir="ltr">A</h4><pre class="textbook-code" dir="ltr" tabindex="0">a = [57, 16, 29, 44]
-print(a[2])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> A<input data-output="A" autocomplete="off" spellcheck="false" dir="ltr" aria-label="warm 1 output A"></label><h4 dir="ltr">B</h4><pre class="textbook-code" dir="ltr" tabindex="0">a = [[1, 2, 3],
+    <section class="section" id="practice"><div class="section-inner"><div class="section-head"><div class="section-number">5</div><h2 data-ar="تمارين الكتاب" data-en="Textbook exercises" >تمارين الكتاب</h2></div><p data-ar="اكتب إجابتك الأول، وبعدين افتح الحل للمقارنة. دي تمارين ناتج وفراغات، مش اختيار من متعدد ومش درجة آلية. الحل بيعرض إجابة مناسبة؛ ممكن تعبير مكافئ يشتغل برضه." data-en="Write your answer first, then reveal the solution to compare. These are output and fill-in self-checks, not multiple-choice or automatic scores. The solution shows a suitable answer; equivalent expressions may also work." class="source-note">اكتب إجابتك الأول، وبعدين افتح الحل للمقارنة. دي تمارين ناتج وفراغات، مش اختيار من متعدد ومش درجة آلية. الحل بيعرض إجابة مناسبة؛ ممكن تعبير مكافئ يشتغل برضه.</p><p data-ar="أسماء min وmax وsum في الكتاب متغيرات، وبتحجب الدوال المدمجة بنفس الاسم. خارج أمثلة الكتاب، أسماء زي minimum وmaximum وtotal أوضح." data-en="The book uses min, max and sum as variables, shadowing built-in functions with those names. In your own programs, minimum, maximum and total are clearer." class="source-note">أسماء min وmax وsum في الكتاب متغيرات، وبتحجب الدوال المدمجة بنفس الاسم. خارج أمثلة الكتاب، أسماء زي minimum وmaximum وtotal أوضح.</p><div class="card source-group"><h3 data-ar="إحماء | عربي 183–184 · إنجليزي 169" data-en="Warm Up–184" >إحماء | عربي 183–184 · إنجليزي 169</h3><article class="ex-item" data-source-id="warm-1" id="warm-1"><div class="q"><span class="q-num">1</span><span data-ar="اكتب ناتج كل برنامج." data-en="Write the output of each program." >اكتب ناتج كل برنامج.</span></div><h3 dir="ltr" class="lvl-h4 lvl-h4-2">A</h3><pre class="textbook-code" dir="ltr" tabindex="0">a = [57, 16, 29, 44]
+print(a[2])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> A<input data-output="A" autocomplete="off" spellcheck="false" dir="ltr" aria-label="warm 1 output A"></label><h3 dir="ltr" class="lvl-h4 lvl-h4-2">B</h3><pre class="textbook-code" dir="ltr" tabindex="0">a = [[1, 2, 3],
      [4, 5, 6],
      [7, 8, 9]]
 print(a[2][1])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> B<input data-output="B" autocomplete="off" spellcheck="false" dir="ltr" aria-label="warm 1 output B"></label><button type="button" class="btn small self-check" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><div dir="ltr">A:</div><pre class="textbook-code" dir="ltr" tabindex="0">29</pre><div dir="ltr">B:</div><pre class="textbook-code" dir="ltr" tabindex="0">8</pre></div></article><article class="ex-item" data-source-id="warm-2" id="warm-2"><div class="q"><span class="q-num">2</span><span data-ar="كمّل برنامج إيجاد أصغر قيمة." data-en="Complete the minimum-value program." >كمّل برنامج إيجاد أصغر قيمة.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">a = [34, 52, 11, 40, 17]
@@ -1516,11 +357,11 @@ D
 E
 F
 G
-H</pre></div></article></div><div class="card source-group"><h3 data-ar="جرّب بنفسك | عربي 184 · إنجليزي 170" data-en="Try | EN 170 · AR 184" >جرّب بنفسك | عربي 184 · إنجليزي 170</h3><article class="ex-item" data-source-id="try-1" id="try-1"><div class="q"><span class="q-num">1</span><span data-ar="اكتب ناتج كل برنامج." data-en="Write the output of each program." >اكتب ناتج كل برنامج.</span></div><h4 dir="ltr">A</h4><pre class="textbook-code" dir="ltr" tabindex="0">a = [1, 4, 9, 16, 25]
-print(a[3])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> A<input data-output="A" autocomplete="off" spellcheck="false" dir="ltr" aria-label="try 1 output A"></label><h4 dir="ltr">B</h4><pre class="textbook-code" dir="ltr" tabindex="0">a = []
+H</pre></div></article></div><div class="card source-group"><h3 data-ar="جرّب بنفسك | عربي 184 · إنجليزي 170" data-en="Try" >جرّب بنفسك | عربي 184 · إنجليزي 170</h3><article class="ex-item" data-source-id="try-1" id="try-1"><div class="q"><span class="q-num">1</span><span data-ar="اكتب ناتج كل برنامج." data-en="Write the output of each program." >اكتب ناتج كل برنامج.</span></div><h3 dir="ltr" class="lvl-h4 lvl-h4-2">A</h3><pre class="textbook-code" dir="ltr" tabindex="0">a = [1, 4, 9, 16, 25]
+print(a[3])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> A<input data-output="A" autocomplete="off" spellcheck="false" dir="ltr" aria-label="try 1 output A"></label><h3 dir="ltr" class="lvl-h4 lvl-h4-2">B</h3><pre class="textbook-code" dir="ltr" tabindex="0">a = []
 a.append(8)
 a.append(28)
-print(a[1])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> B<input data-output="B" autocomplete="off" spellcheck="false" dir="ltr" aria-label="try 1 output B"></label><h4 dir="ltr">C</h4><pre class="textbook-code" dir="ltr" tabindex="0">a = [[&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;],
+print(a[1])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> B<input data-output="B" autocomplete="off" spellcheck="false" dir="ltr" aria-label="try 1 output B"></label><h3 dir="ltr" class="lvl-h4 lvl-h4-2">C</h3><pre class="textbook-code" dir="ltr" tabindex="0">a = [[&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;],
      [&#x27;F&#x27;, &#x27;G&#x27;, &#x27;H&#x27;, &#x27;I&#x27;, &#x27;J&#x27;],
      [&#x27;K&#x27;, &#x27;L&#x27;, &#x27;M&#x27;, &#x27;N&#x27;, &#x27;O&#x27;]]
 print(a[2][1])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> C<input data-output="C" autocomplete="off" spellcheck="false" dir="ltr" aria-label="try 1 output C"></label><button type="button" class="btn small self-check" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><div dir="ltr">A:</div><pre class="textbook-code" dir="ltr" tabindex="0">16</pre><div dir="ltr">B:</div><pre class="textbook-code" dir="ltr" tabindex="0">28</pre><div dir="ltr">C:</div><pre class="textbook-code" dir="ltr" tabindex="0">L</pre></div></article><article class="ex-item" data-source-id="try-2" id="try-2"><div class="q"><span class="q-num">2</span><span data-ar="كمّل برنامج مجموع العناصر." data-en="Complete the sum-of-elements program." >كمّل برنامج مجموع العناصر.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -1566,11 +407,11 @@ F
 G
 H
 I
-J</pre></div></article></div><div class="card source-group"><h3 data-ar="تمرين | عربي 185 · إنجليزي 171" data-en="Exercise | EN 171 · AR 185" >تمرين | عربي 185 · إنجليزي 171</h3><article class="ex-item" data-source-id="exercise-1" id="exercise-1"><div class="q"><span class="q-num">1</span><span data-ar="اكتب ناتج كل برنامج." data-en="Write the output of each program." >اكتب ناتج كل برنامج.</span></div><h4 dir="ltr">A</h4><pre class="textbook-code" dir="ltr" tabindex="0">a = [0, 1, 2, 3]
-print(a[1])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> A<input data-output="A" autocomplete="off" spellcheck="false" dir="ltr" aria-label="exercise 1 output A"></label><h4 dir="ltr">B</h4><pre class="textbook-code" dir="ltr" tabindex="0">a = [&#x27;A&#x27;]
+J</pre></div></article></div><div class="card source-group"><h3 data-ar="تمرين | عربي 185 · إنجليزي 171" data-en="Exercise" >تمرين | عربي 185 · إنجليزي 171</h3><article class="ex-item" data-source-id="exercise-1" id="exercise-1"><div class="q"><span class="q-num">1</span><span data-ar="اكتب ناتج كل برنامج." data-en="Write the output of each program." >اكتب ناتج كل برنامج.</span></div><h3 dir="ltr" class="lvl-h4 lvl-h4-2">A</h3><pre class="textbook-code" dir="ltr" tabindex="0">a = [0, 1, 2, 3]
+print(a[1])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> A<input data-output="A" autocomplete="off" spellcheck="false" dir="ltr" aria-label="exercise 1 output A"></label><h3 dir="ltr" class="lvl-h4 lvl-h4-2">B</h3><pre class="textbook-code" dir="ltr" tabindex="0">a = [&#x27;A&#x27;]
 a.append(&#x27;B&#x27;)
 a.append(&#x27;C&#x27;)
-print(a[1])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> B<input data-output="B" autocomplete="off" spellcheck="false" dir="ltr" aria-label="exercise 1 output B"></label><h4 dir="ltr">C</h4><pre class="textbook-code" dir="ltr" tabindex="0">a = [[&#x27;Japanese&#x27;, &#x27;Mathematics&#x27;, &#x27;English&#x27;],
+print(a[1])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> B<input data-output="B" autocomplete="off" spellcheck="false" dir="ltr" aria-label="exercise 1 output B"></label><h3 dir="ltr" class="lvl-h4 lvl-h4-2">C</h3><pre class="textbook-code" dir="ltr" tabindex="0">a = [[&#x27;Japanese&#x27;, &#x27;Mathematics&#x27;, &#x27;English&#x27;],
      [&#x27;Social studies&#x27;, &#x27;Science&#x27;, &#x27;Information studies&#x27;]]
 print(a[1][2])</pre><label class="blank-label"><span data-ar="الناتج" data-en="Output" >الناتج</span> C<input data-output="C" autocomplete="off" spellcheck="false" dir="ltr" aria-label="exercise 1 output C"></label><button type="button" class="btn small self-check" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><div dir="ltr">A:</div><pre class="textbook-code" dir="ltr" tabindex="0">1</pre><div dir="ltr">B:</div><pre class="textbook-code" dir="ltr" tabindex="0">B</pre><div dir="ltr">C:</div><pre class="textbook-code" dir="ltr" tabindex="0">Information studies</pre></div></article><article class="ex-item" data-source-id="exercise-2" id="exercise-2"><div class="q"><span class="q-num">2</span><span data-ar="كمّل برنامج إيجاد أصغر قيمة." data-en="Complete the minimum-value program." >كمّل برنامج إيجاد أصغر قيمة.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">a = [24, 43, 9, 25, 17]
 min = [A]
@@ -1616,8 +457,8 @@ Information studies</pre></div></article></div></div></section>
           <h2 data-ar="المراجعة" data-en="Recap">المراجعة</h2>
         </div>
         <div class="journey" data-id="recapJourney">
-          <div class="jp" data-step="1"><span class="jp-n">1</span><span data-ar="القائمة هي مجموعة مرتّبة من الداتا (Data) في []." data-en="A list is an ordered collection of data in [].">القائمة مجموعة بيانات مرتبة بين <span dir="ltr">[]</span>.</span></div>
-          <div class="jp" data-step="2"><span class="jp-n">2</span><span data-ar="الرقم (index) بيدّي موقع العنصر وبيبدأ من الصفر." data-en="The index gives an element's position and starts from zero.">الرقم (index) بيدّي موقع العنصر وبيبدأ من الصفر.</span></div>
+          <div class="jp" data-step="1"><span class="jp-n">1</span><span data-ar="القائمة هي مجموعة مرتّبة من البيانات في []." data-en="A list is an ordered collection of data in [].">القائمة مجموعة بيانات مرتبة بين <span dir="ltr">[]</span>.</span></div>
+          <div class="jp" data-step="2"><span class="jp-n">2</span><span data-ar="الرقم بيدّي موقع العنصر وبيبدأ من الصفر." data-en="The index gives an element's position and starts from zero.">الرقم بيدّي موقع العنصر وبيبدأ من الصفر.</span></div>
           <div class="jp" data-step="3"><span class="jp-n">3</span><span data-ar="append بتضيف عنصر آخر القائمة." data-en="append adds an element to the end of the list."><span dir="ltr">append</span> بيضيف عنصر في آخر القائمة.</span></div>
           <div class="jp" data-step="4"><span class="jp-n">4</span><span data-ar="القائمة ثنائية الأبعاد ليها قوائم جوه وبنوصل لها بـ a[i][j]." data-en="A 2D list has lists inside and we reach with a[i][j].">القائمة ثنائية الأبعاد جواها قوائم وبنوصل بـ <span dir="ltr">a[i][j]</span>.</span></div>
           <div class="jp" data-step="5"><span class="jp-n">5</span><span data-ar="نتقدر نعدّي على العناصر بحلقة for ورقم متغيّر." data-en="We can go over elements with a for loop and a variable index.">بنقدر نعدّي على العناصر بحلقة <span dir="ltr">for</span> وفهرس متغير.</span></div>
@@ -1659,7 +500,7 @@ Information studies</pre></div></article></div></div></section>
     </section>
 
     <!-- ============ 07 GLOSSARY ============ -->
-    <section class="section" id="glossary"><div class="section-inner"><div class="section-head"><div class="section-number">7</div><h2 data-ar="قاموس وتجارب" data-en="Glossary and experiments" >قاموس وتجارب</h2></div><label data-ar="ابحث بالعربي أو الإنجليزي" data-en="Search in Arabic or English" for="glossarySearch">ابحث بالعربي أو الإنجليزي</label><input class="glossary-search" id="glossarySearch" type="search"><div class="glossary-list"><article class="gl-term" data-search="List / Array / قائمة / مصفوفة مجموعة مرتبة قابلة للتغيير. نوعها هنا list؛ راجع معمل القائمة. An ordered, mutable collection. Its type here is list; try the list lab."><h4>List / Array / قائمة / مصفوفة</h4><p data-ar="مجموعة مرتبة قابلة للتغيير. نوعها هنا list؛ راجع معمل القائمة." data-en="An ordered, mutable collection. Its type here is list; try the list lab." >مجموعة مرتبة قابلة للتغيير. نوعها هنا list؛ راجع معمل القائمة.</p><a href="#list-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Element / عنصر قيمة داخل القائمة. اكشف عنصرًا في المعمل. A value inside a list. Reveal one in the lab."><h4>Element / عنصر</h4><p data-ar="قيمة داخل القائمة. اكشف عنصرًا في المعمل." data-en="A value inside a list. Reveal one in the lab." >قيمة داخل القائمة. اكشف عنصرًا في المعمل.</p><a href="#list-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Index / فهرس موضع العنصر؛ أول موضع 0. جرّب الفهرس -1 لآخر عنصر. Element position; the first is 0. Try -1 for the last element."><h4>Index / فهرس</h4><p data-ar="موضع العنصر؛ أول موضع 0. جرّب الفهرس -1 لآخر عنصر." data-en="Element position; the first is 0. Try -1 for the last element." >موضع العنصر؛ أول موضع 0. جرّب الفهرس -1 لآخر عنصر.</p><a href="#list-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="append / إضافة طريقة تضيف عنصرًا واحدًا للنهاية وتعيد None. جرّب زر append. A method that adds one item at the end and returns None. Try append."><h4>append / إضافة</h4><p data-ar="طريقة تضيف عنصرًا واحدًا للنهاية وتعيد None. جرّب زر append." data-en="A method that adds one item at the end and returns None. Try append." >طريقة تضيف عنصرًا واحدًا للنهاية وتعيد None. جرّب زر append.</p><a href="#list-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Empty list / قائمة فارغة [] قائمة بلا عناصر. مش لازم نضيف لها. جرّب [] في المحرر. [] is a list with no elements. Appending is optional. Try [] in the editor."><h4>Empty list / قائمة فارغة</h4><p data-ar="[] قائمة بلا عناصر. مش لازم نضيف لها. جرّب [] في المحرر." data-en="[] is a list with no elements. Appending is optional. Try [] in the editor." >[] قائمة بلا عناصر. مش لازم نضيف لها. جرّب [] في المحرر.</p><a href="#list"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Two-dimensional list / مصفوفة ثنائية الأبعاد قائمة تحتوي قوائم. a[i][j] يحدد الصف ثم العمود. A list containing lists. a[i][j] selects row then column."><h4>Two-dimensional list / مصفوفة ثنائية الأبعاد</h4><p data-ar="قائمة تحتوي قوائم. a[i][j] يحدد الصف ثم العمود." data-en="A list containing lists. a[i][j] selects row then column." >قائمة تحتوي قوائم. a[i][j] يحدد الصف ثم العمود.</p><a href="#grid-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Row / صف القائمة الداخلية؛ فهرسها i في المثال. The inner list; its index is i in the example."><h4>Row / صف</h4><p data-ar="القائمة الداخلية؛ فهرسها i في المثال." data-en="The inner list; its index is i in the example." >القائمة الداخلية؛ فهرسها i في المثال.</p><a href="#grid-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Column / عمود موضع داخل الصف؛ فهرسه j في المثال. A position within a row; its index is j in the example."><h4>Column / عمود</h4><p data-ar="موضع داخل الصف؛ فهرسه j في المثال." data-en="A position within a row; its index is j in the example." >موضع داخل الصف؛ فهرسه j في المثال.</p><a href="#grid-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="range / تتابع قيم صحيحة بحد توقف غير شامل. جرّب حلقة المحرر. Integers with an exclusive stop. Try the editor loop."><h4>range / تتابع</h4><p data-ar="قيم صحيحة بحد توقف غير شامل. جرّب حلقة المحرر." data-en="Integers with an exclusive stop. Try the editor loop." >قيم صحيحة بحد توقف غير شامل. جرّب حلقة المحرر.</p><a href="#element"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Traversal / مرور على العناصر حلقة تمر على العناصر. الحلقات المتداخلة تعرض الصفوف ثم الأعمدة. A loop visits elements. Nested loops visit rows then columns."><h4>Traversal / مرور على العناصر</h4><p data-ar="حلقة تمر على العناصر. الحلقات المتداخلة تعرض الصفوف ثم الأعمدة." data-en="A loop visits elements. Nested loops visit rows then columns." >حلقة تمر على العناصر. الحلقات المتداخلة تعرض الصفوف ثم الأعمدة.</p><a href="#exercise-4"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Minimum / أصغر قيمة ابدأ بأول عنصر في قائمة غير فارغة، ثم قارن. Start with the first item of a nonempty list, then compare."><h4>Minimum / أصغر قيمة</h4><p data-ar="ابدأ بأول عنصر في قائمة غير فارغة، ثم قارن." data-en="Start with the first item of a nonempty list, then compare." >ابدأ بأول عنصر في قائمة غير فارغة، ثم قارن.</p><a href="#trace-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Maximum / أكبر قيمة ابدأ بأول عنصر لو القيم ممكن تكون سالبة. Start with the first item when values may be negative."><h4>Maximum / أكبر قيمة</h4><p data-ar="ابدأ بأول عنصر لو القيم ممكن تكون سالبة." data-en="Start with the first item when values may be negative." >ابدأ بأول عنصر لو القيم ممكن تكون سالبة.</p><a href="#trace-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Sum / مجموع ابدأ بـ 0، وأضف كل عنصر للمجموع. Start at 0, add each item to the running total."><h4>Sum / مجموع</h4><p data-ar="ابدأ بـ 0، وأضف كل عنصر للمجموع." data-en="Start at 0, add each item to the running total." >ابدأ بـ 0، وأضف كل عنصر للمجموع.</p><a href="#trace-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Count / عدّ ابدأ بـ 0، وزوّد 1 لكل عنصر يحقق الشرط. Start at 0, add 1 for each item matching the condition."><h4>Count / عدّ</h4><p data-ar="ابدأ بـ 0، وزوّد 1 لكل عنصر يحقق الشرط." data-en="Start at 0, add 1 for each item matching the condition." >ابدأ بـ 0، وزوّد 1 لكل عنصر يحقق الشرط.</p><a href="#trace-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article></div></div></section>
+    <section class="section" id="glossary"><div class="section-inner"><div class="section-head"><div class="section-number">7</div><h2 data-ar="قاموس وتجارب" data-en="Glossary and experiments" >قاموس وتجارب</h2></div><label data-ar="ابحث بالعربي أو الإنجليزي" data-en="Search in Arabic or English" for="glossarySearch">ابحث بالعربي أو الإنجليزي</label><input class="glossary-search" id="glossarySearch" type="search" aria-label="ابحث عن مصطلح"><div class="glossary-list"><article class="gl-term" data-search="List / Array / قائمة / مصفوفة مجموعة مرتبة قابلة للتغيير. نوعها هنا list؛ راجع معمل القائمة. An ordered, mutable collection. Its type here is list; try the list lab."><h3 class="lvl-h4 lvl-h4-3">List / Array / قائمة / مصفوفة</h3><p data-ar="مجموعة مرتبة قابلة للتغيير. نوعها هنا list؛ راجع معمل القائمة." data-en="An ordered, mutable collection. Its type here is list; try the list lab." >مجموعة مرتبة قابلة للتغيير. نوعها هنا list؛ راجع معمل القائمة.</p><a href="#list-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Element / عنصر قيمة داخل القائمة. اكشف عنصرًا في المعمل. A value inside a list. Reveal one in the lab."><h3 class="lvl-h4 lvl-h4-3">Element / عنصر</h3><p data-ar="قيمة داخل القائمة. اكشف عنصرًا في المعمل." data-en="A value inside a list. Reveal one in the lab." >قيمة داخل القائمة. اكشف عنصرًا في المعمل.</p><a href="#list-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Index / فهرس موضع العنصر؛ أول موضع 0. جرّب الفهرس -1 لآخر عنصر. Element position; the first is 0. Try -1 for the last element."><h3 class="lvl-h4 lvl-h4-3">Index / فهرس</h3><p data-ar="موضع العنصر؛ أول موضع 0. جرّب الفهرس -1 لآخر عنصر." data-en="Element position; the first is 0. Try -1 for the last element." >موضع العنصر؛ أول موضع 0. جرّب الفهرس -1 لآخر عنصر.</p><a href="#list-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="append / إضافة طريقة تضيف عنصرًا واحدًا للنهاية وتعيد None. جرّب زر append. A method that adds one item at the end and returns None. Try append."><h3 class="lvl-h4 lvl-h4-3">append / إضافة</h3><p data-ar="طريقة تضيف عنصرًا واحدًا للنهاية وتعيد None. جرّب زر append." data-en="A method that adds one item at the end and returns None. Try append." >طريقة تضيف عنصرًا واحدًا للنهاية وتعيد None. جرّب زر append.</p><a href="#list-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Empty list / قائمة فارغة [] قائمة بلا عناصر. مش لازم نضيف لها. جرّب [] في المحرر. [] is a list with no elements. Appending is optional. Try [] in the editor."><h3 class="lvl-h4 lvl-h4-3">Empty list / قائمة فارغة</h3><p data-ar="[] قائمة بلا عناصر. مش لازم نضيف لها. جرّب [] في المحرر." data-en="[] is a list with no elements. Appending is optional. Try [] in the editor." >[] قائمة بلا عناصر. مش لازم نضيف لها. جرّب [] في المحرر.</p><a href="#list"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Two-dimensional list / مصفوفة ثنائية الأبعاد قائمة تحتوي قوائم. a[i][j] يحدد الصف ثم العمود. A list containing lists. a[i][j] selects row then column."><h3 class="lvl-h4 lvl-h4-3">Two-dimensional list / مصفوفة ثنائية الأبعاد</h3><p data-ar="قائمة تحتوي قوائم. a[i][j] يحدد الصف ثم العمود." data-en="A list containing lists. a[i][j] selects row then column." >قائمة تحتوي قوائم. a[i][j] يحدد الصف ثم العمود.</p><a href="#grid-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Row / صف القائمة الداخلية؛ فهرسها i في المثال. The inner list; its index is i in the example."><h3 class="lvl-h4 lvl-h4-3">Row / صف</h3><p data-ar="القائمة الداخلية؛ فهرسها i في المثال." data-en="The inner list; its index is i in the example." >القائمة الداخلية؛ فهرسها i في المثال.</p><a href="#grid-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Column / عمود موضع داخل الصف؛ فهرسه j في المثال. A position within a row; its index is j in the example."><h3 class="lvl-h4 lvl-h4-3">Column / عمود</h3><p data-ar="موضع داخل الصف؛ فهرسه j في المثال." data-en="A position within a row; its index is j in the example." >موضع داخل الصف؛ فهرسه j في المثال.</p><a href="#grid-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="range / تتابع قيم صحيحة بحد توقف غير شامل. جرّب حلقة المحرر. Integers with an exclusive stop. Try the editor loop."><h3 class="lvl-h4 lvl-h4-3">range / تتابع</h3><p data-ar="قيم صحيحة بحد توقف غير شامل. جرّب حلقة المحرر." data-en="Integers with an exclusive stop. Try the editor loop." >قيم صحيحة بحد توقف غير شامل. جرّب حلقة المحرر.</p><a href="#element"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Traversal / مرور على العناصر حلقة تمر على العناصر. الحلقات المتداخلة تعرض الصفوف ثم الأعمدة. A loop visits elements. Nested loops visit rows then columns."><h3 class="lvl-h4 lvl-h4-3">Traversal / مرور على العناصر</h3><p data-ar="حلقة تمر على العناصر. الحلقات المتداخلة تعرض الصفوف ثم الأعمدة." data-en="A loop visits elements. Nested loops visit rows then columns." >حلقة تمر على العناصر. الحلقات المتداخلة تعرض الصفوف ثم الأعمدة.</p><a href="#exercise-4"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Minimum / أصغر قيمة ابدأ بأول عنصر في قائمة غير فارغة، ثم قارن. Start with the first item of a nonempty list, then compare."><h3 class="lvl-h4 lvl-h4-3">Minimum / أصغر قيمة</h3><p data-ar="ابدأ بأول عنصر في قائمة غير فارغة، ثم قارن." data-en="Start with the first item of a nonempty list, then compare." >ابدأ بأول عنصر في قائمة غير فارغة، ثم قارن.</p><a href="#trace-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Maximum / أكبر قيمة ابدأ بأول عنصر لو القيم ممكن تكون سالبة. Start with the first item when values may be negative."><h3 class="lvl-h4 lvl-h4-3">Maximum / أكبر قيمة</h3><p data-ar="ابدأ بأول عنصر لو القيم ممكن تكون سالبة." data-en="Start with the first item when values may be negative." >ابدأ بأول عنصر لو القيم ممكن تكون سالبة.</p><a href="#trace-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Sum / مجموع ابدأ بـ 0، وأضف كل عنصر للمجموع. Start at 0, add each item to the running total."><h3 class="lvl-h4 lvl-h4-3">Sum / مجموع</h3><p data-ar="ابدأ بـ 0، وأضف كل عنصر للمجموع." data-en="Start at 0, add each item to the running total." >ابدأ بـ 0، وأضف كل عنصر للمجموع.</p><a href="#trace-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Count / عدّ ابدأ بـ 0، وزوّد 1 لكل عنصر يحقق الشرط. Start at 0, add 1 for each item matching the condition."><h3 class="lvl-h4 lvl-h4-3">Count / عدّ</h3><p data-ar="ابدأ بـ 0، وزوّد 1 لكل عنصر يحقق الشرط." data-en="Start at 0, add 1 for each item matching the condition." >ابدأ بـ 0، وزوّد 1 لكل عنصر يحقق الشرط.</p><a href="#trace-game"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article></div></div></section>
 
   </main>
 

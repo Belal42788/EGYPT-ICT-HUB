@@ -10,981 +10,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 6-10 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }
-
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/6-10-information-design-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
 </head>
 
 <body>
@@ -1004,11 +34,11 @@ select{color:var(--text)!important}
       <a href="../../../../index.html" aria-label="الرئيسية"><img class="nav-logo" src="../../../../assets/logo-extracted.webp" alt="logo"></a>
       <div class="nav-links" id="navLinks">
         <a href="#intro" data-ar="يلا نبدأ" data-en="Start">يلا نبدأ</a>
-        <a href="#info" data-ar="تصميم المعلومات (Information)" data-en="Information Design">تصميم المعلومات (Information)</a>
+        <a href="#info" data-ar="تصميم المعلومات" data-en="Information Design">تصميم المعلومات</a>
         <a href="#ui" data-ar="واجهة المستخدم" data-en="User Interface">واجهة المستخدم</a>
         <a href="#ux" data-ar="تجربة المستخدم" data-en="User Experience">تجربة المستخدم</a>
-        <a href="#afford" data-ar="القدرة على الاستخدام (Affordance)" data-en="Affordance">القدرة على الاستخدام (Affordance)</a>
-        <a href="#sign" data-ar="المؤشّر (Signifier)" data-en="Signifier">المؤشّر (Signifier)</a>
+        <a href="#afford" data-ar="القدرة على الاستخدام" data-en="Affordance">القدرة على الاستخدام</a>
+        <a href="#sign" data-ar="المؤشّر" data-en="Signifier">المؤشّر</a>
         <a href="#practice" data-ar="تمارين" data-en="Exercises">تمارين</a>
         <a href="#recap" data-ar="المراجعة" data-en="Recap">المراجعة</a>
       </div>
@@ -1020,11 +50,11 @@ select{color:var(--text)!important}
       <div class="hero-badge" data-ar="الدرس 10 — دراسة المعلومات" data-en="Lesson 10 — Information Study">الدرس 10 — دراسة المعلومات</div>
       <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>تصميم</span> المعلومات" data-en="<span class=&quot;grad&quot;>Information</span> Design">تصميم <span class="grad">المعلومات</span></h1>
       <p class="hero-sub"
-        data-ar="تصميم المعلومات (Information) — تنظيم والتعبير الإبداعي عن المعلومات (Information) حسب الغرض منها. النهارده هنتعلّم طرق تصميم المعلومات (Information)، وواجهة المستخدم UI، وتجربة المستخدم UX، والقدرة على الاستخدام (Affordance) والمؤشّر (Signifier)."
+        data-ar="تصميم المعلومات — تنظيم والتعبير الإبداعي عن المعلومات حسب الغرض منها. النهارده هنتعلّم طرق تصميم المعلومات، وواجهة المستخدم UI، وتجربة المستخدم UX، والقدرة على الاستخدام والمؤشّر."
         data-en="Information Design — organizing and creatively expressing information according to its purpose. Today we learn the Information Design methods, the User Interface UI, the User Experience UX, and Affordance and Signifier.">
         <span dir="ltr">Information Design</span> — تنظيم المعلومات والتعبير عنها بشكل إبداعي حسب هدفها. النهارده
-        هنتعلم طرق تصميم المعلومات، وواجهة المستخدم UI، وتجربة المستخدم UX، والاستطاعة والمؤشر.</p>
-      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ هنتعلم طرق تصميم المعلومات، وواجهة المستخدم UI، وتجربة المستخدم UX، والاستطاعة والمؤشر.</p>
+      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 <main>
@@ -1042,18 +72,18 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#1440c9)">01</div>
           <div>
             <h2 data-ar="إيه اللي هنتعلّمه النهارده؟" data-en="What will we learn today?">إيه اللي هنتعلّمه النهارده؟</h2>
-            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — تصميم المعلومات (Information)"
-              data-en="Lesson introduction — Information Design">مقدمة الدرس — تصميم المعلومات (Information)</div>
+            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — تصميم المعلومات"
+              data-en="Lesson introduction — Information Design">مقدمة الدرس — تصميم المعلومات</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="المواقع والتطبيقات اللي بنستخدمها كل يوم مش بتظهر بالصدفة — ورا كل تصميم فيه قرارات عشان الرسالة توصّل صح. النهارده هنتعلّم تصميم المعلومات (Information) وإزاي ننظّم ونعبّر عن المعلومات (Information)، وإزاي الأجهزة بتتبادلها معانا (UI) وإزاي بنحس بيها (UX)."
-          data-en="The websites and apps we use every day do not appear by accident — behind every design there are decisions to deliver the message correctly. Today we learn Information Design and how to organize and express information, how devices exchange it with us (UI) and how we feel it (UX).">المواقع والتطبيقات اللي بنستخدمها كل يوم مش بتظهر بالصدفة — ورا كل تصميم فيه قرارات عشان الرسالة توصّل صح. النهارده هنتعلّم تصميم المعلومات (Information) وإزاي ننظّم ونعبّر عن المعلومات (Information)، وإزاي الأجهزة بتتبادلها معانا (UI) وإزاي بنحس بيها (UX).</p>
+        <p data-ar="المواقع والتطبيقات اللي بنستخدمها كل يوم مش بتظهر بالصدفة — ورا كل تصميم فيه قرارات عشان الرسالة توصّل صح. النهارده هنتعلّم تصميم المعلومات وإزاي ننظّم ونعبّر عن المعلومات، وإزاي الأجهزة بتتبادلها معانا وإزاي بنحس بيها."
+          data-en="The websites and apps we use every day do not appear by accident — behind every design there are decisions to deliver the message correctly. Today we learn Information Design and how to organize and express information, how devices exchange it with us (UI) and how we feel it (UX).">المواقع والتطبيقات اللي بنستخدمها كل يوم مش بتظهر بالصدفة — ورا كل تصميم فيه قرارات عشان الرسالة توصّل صح. النهارده هنتعلّم تصميم المعلومات وإزاي ننظّم ونعبّر عن المعلومات، وإزاي الأجهزة بتتبادلها معانا وإزاي بنحس بيها.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="تصميم المعلومات (Information) هو إنك تحط المعلومات (Information) الصح في الشكل الصح — زي لافتة في محطة المترو مش ممكن تكون نص طويل، لازم تكون رمز واضح أي حد يفهمه."
-            data-en="Information Design is putting the right information in the right form — like a sign at a metro station that cannot be a long text, it must be a clear symbol everyone understands.">تصميم المعلومات (Information) هو إنك تحط المعلومات (Information) الصح في الشكل الصح — زي لافتة في محطة المترو مش ممكن تكون نص طويل، لازم تكون رمز واضح أي حد يفهمه.</span></div>
+            data-ar="تصميم المعلومات هو إنك تحط المعلومات الصح في الشكل الصح — زي لافتة في محطة المترو مش ممكن تكون نص طويل، لازم تكون رمز واضح أي حد يفهمه."
+            data-en="Information Design is putting the right information in the right form — like a sign at a metro station that cannot be a long text, it must be a clear symbol everyone understands.">تصميم المعلومات هو إنك تحط المعلومات الصح في الشكل الصح — زي لافتة في محطة المترو مش ممكن تكون نص طويل، لازم تكون رمز واضح أي حد يفهمه.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1062,8 +92,8 @@ select{color:var(--text)!important}
             <div class="demo-label" data-ar="النهارده هنتعلّم 5 مفاهيم"
               data-en="Today we'll learn 5 concepts">النهارده هنتعلّم 5 مفاهيم</div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">📊</span><span><b
-                  style="color:var(--s2)" data-ar="تصميم المعلومات (Information) وطرقه — التجريد والتصوير الهيكلي والتنظيم"
-                  data-en="Information Design and its methods — Abstraction, Visualization and Structuring">تصميم المعلومات (Information) وطرقه — التجريد والتصوير الهيكلي والتنظيم</b></span></div>
+                  style="color:var(--s2)" data-ar="تصميم المعلومات وطرقه — التجريد والتصوير الهيكلي والتنظيم"
+                  data-en="Information Design and its methods — Abstraction, Visualization and Structuring">تصميم المعلومات وطرقه — التجريد والتصوير الهيكلي والتنظيم</b></span></div>
             <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">🖥️</span><span><b
                   style="color:var(--s3)" data-ar="واجهة المستخدم UI — وكمان CUI وGUI"
                   data-en="the User Interface UI — plus CUI and GUI">واجهة المستخدم UI — وكمان CUI وGUI</b></span></div>
@@ -1071,8 +101,8 @@ select{color:var(--text)!important}
                   style="color:var(--s4)" data-ar="تجربة المستخدم UX"
                   data-en="the User Experience UX">تجربة المستخدم UX</b></span></div>
             <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">🧭</span><span><b
-                  style="color:var(--s5)" data-ar="القدرة على الاستخدام (Affordance) والمؤشّر (Signifier)"
-                  data-en="Affordance and Signifier">القدرة على الاستخدام (Affordance) والمؤشّر (Signifier)</b></span></div>
+                  style="color:var(--s5)" data-ar="القدرة على الاستخدام والمؤشّر"
+                  data-en="Affordance and Signifier">القدرة على الاستخدام والمؤشّر</b></span></div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🛡️</span><span><b
                   style="color:var(--s6)" data-ar="سهولة الاستخدام وإمكانية الوصول والتصميم الشامل"
                   data-en="Usability, Accessibility and Universal design">سهولة الاستخدام وإمكانية الوصول والتصميم الشامل</b></span></div>
@@ -1080,19 +110,19 @@ select{color:var(--text)!important}
           <div class="demo-panel">
             <div class="demo-label" data-ar="ليه بنتعلم ده؟" data-en="Why do we learn this?">ليه بنتعلم ده؟</div>
             <p style="font-size:.95rem"
-              data-ar="لما تفهم إزاي المعلومات (Information) بتتنظّم وإزاي الواجهات بتشتغل، هتفهم ليه مواقع سهلة وتانية محيّرة — وتقدر تصمّم واجهات واضحة بنفسك."
-              data-en="When you understand how information is organized and how interfaces work, you will understand why some sites are easy and others confusing — and you can design clear interfaces yourself.">لما تفهم إزاي المعلومات (Information) بتتنظّم وإزاي الواجهات بتشتغل، هتفهم ليه مواقع سهلة وتانية محيّرة — وتقدر تصمّم واجهات واضحة بنفسك.</p>
+              data-ar="لما تفهم إزاي المعلومات بتتنظّم وإزاي الواجهات بتشتغل، هتفهم ليه مواقع سهلة وتانية محيّرة — وتقدر تصمّم واجهات واضحة بنفسك."
+              data-en="When you understand how information is organized and how interfaces work, you will understand why some sites are easy and others confusing — and you can design clear interfaces yourself.">لما تفهم إزاي المعلومات بتتنظّم وإزاي الواجهات بتشتغل، هتفهم ليه مواقع سهلة وتانية محيّرة — وتقدر تصمّم واجهات واضحة بنفسك.</p>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين UI وUX — الأول هي الواجهة اللي بتتعامل معاها، والتاني هو التجربة والإحساس اللي بتاخدهم من استخدامها."
             data-en="Confusing UI with UX — the first is the interface you interact with, the second is the experience and feeling you get from using it.">الخلط بين UI وUX — الأول هي الواجهة اللي بتتعامل معاها، والتاني هو التجربة والإحساس اللي بتاخدهم من استخدامها.</li>
-          <li data-ar="الخلط بين القدرة على الاستخدام (Affordance) والمؤشّر (Signifier) — الأول هي الأفعال الممكنة على شيء، والتاني هو الدليل اللي بيخليك تعرف إنك تقدر تعمل الفعل."
-            data-en="Confusing Affordance with Signifier — the first is the possible actions on an object, the second is the cue that lets you know you can do the action.">الخلط بين القدرة على الاستخدام (Affordance) والمؤشّر (Signifier) — الأول هي الأفعال الممكنة على شيء، والتاني هو الدليل اللي بيخليك تعرف إنك تقدر تعمل الفعل.</li>
+          <li data-ar="الخلط بين القدرة على الاستخدام والمؤشّر — الأول هي الأفعال الممكنة على شيء، والتاني هو الدليل اللي بيخليك تعرف إنك تقدر تعمل الفعل."
+            data-en="Confusing Affordance with Signifier — the first is the possible actions on an object, the second is the cue that lets you know you can do the action.">الخلط بين القدرة على الاستخدام والمؤشّر — الأول هي الأفعال الممكنة على شيء، والتاني هو الدليل اللي بيخليك تعرف إنك تقدر تعمل الفعل.</li>
         </ul>
       </div>
     </section>
@@ -1103,22 +133,22 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">02</div>
           <div>
-            <h2 data-ar="تصميم المعلومات (Information)" data-en="Information Design">تصميم المعلومات <span dir="ltr">(Information
+            <h2 data-ar="تصميم المعلومات" data-en="Information Design">تصميم المعلومات <span dir="ltr">(Information
                 Design)</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="طرقه التلاتة — صفحة 81 بالكتاب"
-              data-en="its three methods — book page 81">طرقه التلاتة — صفحة 81 بالكتاب</div>
+            <div class="tag" style="color:var(--s2)" data-ar="طرقه التلاتة — بالكتاب"
+              data-en="its three methods — book">طرقه التلاتة — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="تصميم المعلومات (Information) هو عملية تنظيم والتعبير الإبداعي عن المعلومات (Information) حسب الغرض منها، وبكده نضمن إن الرسالة المقصودة بتوصّل صح للجمهور المستهدف."
+        <p data-ar="تصميم المعلومات هو عملية تنظيم والتعبير الإبداعي عن المعلومات حسب الغرض منها، وبكده نضمن إن الرسالة المقصودة بتوصّل صح للجمهور المستهدف."
           data-en="Information Design is the process of organizing and creatively expressing information according to its purpose, thereby ensuring that the intended message is correctly conveyed to the target audience.">
           <b>تصميم المعلومات <span dir="ltr">(Information Design)</span></b> هو عملية تنظيم المعلومات والتعبير عنها بشكل
-          إبداعي حسب هدفها، بحيث تتأكد إن الرسالة المقصودة بتتوصّل صح للجمهور المستهدف.</p>
-        <p data-ar="في طرق أساسية بتستخدم في تصميم المعلومات (Information): التجريد والتصوير الهيكلي والتنظيم."
-          data-en="There are basic methods used in Information Design: Abstraction, Visualization, and Structuring.">في طرق أساسية بتستخدم في تصميم المعلومات (Information): التجريد والتصوير الهيكلي والتنظيم.</p>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«1. تصميم البيانات (1) تصميم البيانات (Information design) : عملية تنظيم والتعبير الإبداعي عن البيانات وفقًا لغرضها، مما يضمن أن الرسالة المقصودة تُنقل بشكل صحيح إلى الجمهور المستهدف. (2) طرق تصميم البيانات [1] التجريد (Abstraction) : نقل البيانات المقصودة ببساطة من داخل كمية كبيرة من البيانات. [2] الرسم التصويري (Pictogram) : رمز تصويري مصمم لغرض نقل البيانات دون استخدام الكلمات. يتم استخدامه للعلامات معلومات في المحطات والمطارات. [3] أيقونة (Icon) : تمثيل لمحتوى البرنامج على كمبيوتر أو هاتف ذكي depicted through الصور أو الرسوم التوضيحية. • التصور (Visualization) : تمثيل البيانات بصريا لجعلها أكثر قابلية للفهم. <أمثلة> الجداول، الرسوم البيانية، إلخ. • الهيكلة (Structuring) : التنظيم والتعبير عن البيانات بوضوح وترتيبها وفقا للعلاقات، الاتصالات، المستويات، المراحل، الترتيب، إلخ. <أمثلة> القوائم hierarchical على صفحات الويب، خرائط المتاجر الكبيرة، إلخ.»</p></div>
+ إبداعي حسب هدفها، بحيث تتأكد إن الرسالة المقصودة بتتوصّل صح للجمهور المستهدف.</p>
+        <p data-ar="في طرق أساسية بتستخدم في تصميم المعلومات: التجريد والتصوير الهيكلي والتنظيم."
+          data-en="There are basic methods used in Information Design: Abstraction, Visualization, and Structuring.">في طرق أساسية بتستخدم في تصميم المعلومات: التجريد والتصوير الهيكلي والتنظيم.</p>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«1. تصميم البيانات (1) تصميم البيانات: عملية تنظيم والتعبير الإبداعي عن البيانات وفقًا لغرضها، مما يضمن أن الرسالة المقصودة تُنقل بشكل صحيح إلى الجمهور المستهدف. (2) طرق تصميم البيانات [1] التجريد: نقل البيانات المقصودة ببساطة من داخل كمية كبيرة من البيانات. [2] الرسم التصويري: رمز تصويري مصمم لغرض نقل البيانات دون استخدام الكلمات. يتم استخدامه للعلامات معلومات في المحطات والمطارات. [3] أيقونة: تمثيل لمحتوى البرنامج على كمبيوتر أو هاتف ذكي depicted through الصور أو الرسوم التوضيحية. • التصور: تمثيل البيانات بصريا لجعلها أكثر قابلية للفهم. <أمثلة> الجداول، الرسوم البيانية، إلخ. • الهيكلة: التنظيم والتعبير عن البيانات بوضوح وترتيبها وفقا للعلاقات، الاتصالات، المستويات، المراحل، الترتيب، إلخ. <أمثلة> القوائم hierarchical على صفحات الويب، خرائط المتاجر الكبيرة، إلخ.»</p></div>
 
       <div class="section-inner card">
         <div class="concept-block" style="--c:var(--s2)">
@@ -1127,14 +157,14 @@ select{color:var(--text)!important}
             <div>
               <div class="concept-title" data-ar="التجريد" data-en="Abstraction">التجريد <span
                   dir="ltr">(Abstraction)</span></div>
-              <div class="tag" style="color:var(--s2)" data-ar="إيصال المعلومات (Information) المقصودة ببساطة من جوه كمية كبيرة من الداتا (Data)"
-                data-en="conveying the intended information simply from within a large amount of data">إيصال المعلومات (Information) المقصودة ببساطة من جوه كمية كبيرة من الداتا (Data)</div>
+              <div class="tag" style="color:var(--s2)" data-ar="إيصال المعلومات المقصودة ببساطة من جوه كمية كبيرة من البيانات"
+                data-en="conveying the intended information simply from within a large amount of data">إيصال المعلومات المقصودة ببساطة من جوه كمية كبيرة من البيانات</div>
             </div>
           </div>
-          <p data-ar="بنلخّص ونستخرج بس العناصر المهمة، ونتعبّر عنها برموز — من أهم رموزها: البيكتوجرام (Pictogram)، وهو رمز صوري بيوصّل المعلومات (Information) من غير كلام بيتستخدم في اللافتات في المحطات والمطارات، والآيقونة (Icon)، وهي تمثيل لمحتوى برنامج على الكمبيوتر أو الموبايل عن طريق صور أو رسومات."
+          <p data-ar="بنلخّص ونستخرج بس العناصر المهمة، ونتعبّر عنها برموز — من أهم رموزها: البيكتوجرام، وهو رمز صوري بيوصّل المعلومات من غير كلام بيتستخدم في اللافتات في المحطات والمطارات، والآيقونة، وهي تمثيل لمحتوى برنامج على الكمبيوتر أو الموبايل عن طريق صور أو رسومات."
             data-en="We summarize and extract only the important elements, and express them with symbols — among its most important symbols: the Pictogram, a pictorial symbol that conveys information without words used for signs at stations and airports, and the Icon, a representation of a program's content on a computer or smartphone through images or illustrations.">
-            بنلخّص ونستخرج العناصر المهمة بس، وبنعبّر عنها برموز — ومن أهم رموزها: <b>البكتوغرام <span dir="ltr">(Pictogram)</span></b>
-            وهو رمز مصوّر بيتوصّل المعلومة من غير كلام وبنستخدمه في اللافتات بالمحطات والمطارات، و<b>الأيقونة <span
+ بنلخّص ونستخرج العناصر المهمة بس، وبنعبّر عنها برموز — ومن أهم رموزها: <b>البكتوغرام <span dir="ltr">(Pictogram)</span></b>
+ وهو رمز مصوّر بيتوصّل المعلومة من غير كلام وبنستخدمه في اللافتات بالمحطات والمطارات، و<b>الأيقونة <span
               dir="ltr">(Icon)</span></b> وهي تمثيل لمحتوى برنامج على الكمبيوتر أو الموبايل بالصور أو الرسوم.</p>
         </div>
         <div class="concept-block" style="--c:var(--s3)">
@@ -1142,14 +172,14 @@ select{color:var(--text)!important}
             <span class="chip-num">٢</span>
             <div>
               <div class="concept-title" data-ar="التصوير الهيكلي" data-en="Visualization">التصوير البصري
-                <span dir="ltr">(Visualization)</span></div>
-              <div class="tag" style="color:var(--s3)" data-ar="تمثيل المعلومات (Information) بصرياً عشان تبقى أوضح"
-                data-en="visually representing information to make it more understandable">تمثيل المعلومات (Information) بصرياً عشان تبقى أوضح</div>
+ <span dir="ltr">(Visualization)</span></div>
+              <div class="tag" style="color:var(--s3)" data-ar="تمثيل المعلومات بصرياً عشان تبقى أوضح"
+                data-en="visually representing information to make it more understandable">تمثيل المعلومات بصرياً عشان تبقى أوضح</div>
             </div>
           </div>
-          <p data-ar="بنحوّل المعلومات (Information) لصور ورسومات وجداول — زي جداول الداتا (Data) والرسوم البيانية."
+          <p data-ar="بنحوّل المعلومات لصور ورسومات وجداول — زي جداول البيانات والرسوم البيانية."
             data-en="We convert information into pictures, drawings, and tables — like data tables and graphs.">بنحوّل
-            المعلومات لصور ورسوم وجداول — زي جداول البيانات والرسوم البيانية <span dir="ltr">(Graphs)</span>.</p>
+ المعلومات لصور ورسوم وجداول — زي جداول البيانات والرسوم البيانية <span dir="ltr">(Graphs)</span>.</p>
         </div>
         <div class="concept-block" style="--c:var(--s4)">
           <div class="concept-head">
@@ -1157,12 +187,12 @@ select{color:var(--text)!important}
             <div>
               <div class="concept-title" data-ar="التنظيم" data-en="Structuring">الهيكلة <span
                   dir="ltr">(Structuring)</span></div>
-              <div class="tag" style="color:var(--s4)" data-ar="تنظيم المعلومات (Information) حسب العلاقات والروابط والمستويات والمراحل والترتيب وهكذا"
-                data-en="organizing information by relationships, connections, levels, stages, order, etc.">تنظيم المعلومات (Information) حسب العلاقات والروابط والمستويات والمراحل والترتيب وهكذا</div>
+              <div class="tag" style="color:var(--s4)" data-ar="تنظيم المعلومات حسب العلاقات والروابط والمستويات والمراحل والترتيب وهكذا"
+                data-en="organizing information by relationships, connections, levels, stages, order, etc.">تنظيم المعلومات حسب العلاقات والروابط والمستويات والمراحل والترتيب وهكذا</div>
             </div>
           </div>
-          <p data-ar="بنرتّب المعلومات (Information) في مجموعات ومستويات — زي القوائم الهرمية في صفحات الويب، وخرائط أدوار محلات البيع."
-            data-en="We arrange information into groups and levels — like hierarchical menus on web pages, and department store floor maps.">بنرتّب المعلومات (Information) في مجموعات ومستويات — زي القوائم الهرمية في صفحات الويب، وخرائط أدوار محلات البيع.</p>
+          <p data-ar="بنرتّب المعلومات في مجموعات ومستويات — زي القوائم الهرمية في صفحات الويب، وخرائط أدوار محلات البيع."
+            data-en="We arrange information into groups and levels — like hierarchical menus on web pages, and department store floor maps.">بنرتّب المعلومات في مجموعات ومستويات — زي القوائم الهرمية في صفحات الويب، وخرائط أدوار محلات البيع.</p>
         </div>
       </div>
 
@@ -1170,8 +200,8 @@ select{color:var(--text)!important}
         <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
-            <div class="demo-label" data-ar="طرق تصميم المعلومات (Information)"
-              data-en="the methods of Information Design">طرق تصميم المعلومات (Information)</div>
+            <div class="demo-label" data-ar="طرق تصميم المعلومات"
+              data-en="the methods of Information Design">طرق تصميم المعلومات</div>
             <div class="flow-card" data-id="info">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="info"></svg>
@@ -1184,8 +214,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="infoPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="infoNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="infoPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="infoNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="infoCounter">1 / 3</span>
                 <button class="mini-btn" data-id="infoReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1209,18 +239,18 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="infoRecall">
           <div class="rq" data-id="infoRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه الرمز الصوري اللي بيوصّل المعلومات (Information) من غير كلام وبيستخدم في المحطات والمطارات؟"
-                data-en="What is the pictorial symbol that conveys information without words and is used at stations and airports?">إيه الرمز الصوري اللي بيوصّل المعلومات (Information) من غير كلام وبيستخدم في المحطات والمطارات؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه الرمز الصوري اللي بيوصّل المعلومات من غير كلام وبيستخدم في المحطات والمطارات؟"
+                data-en="What is the pictorial symbol that conveys information without words and is used at stations and airports?">إيه الرمز الصوري اللي بيوصّل المعلومات من غير كلام وبيستخدم في المحطات والمطارات؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="infoRq1o2" data-key="A"
                 data-fb-ar="مش كده — الأيقونة بتمثّل محتوى برنامج على الجهاز." data-fb-en="Not quite — an Icon represents a program's content on a device."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="الآيقونة (Icon)"
-                  data-en="the Icon">الآيقونة (Icon)</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="الآيقونة"
+                  data-en="the Icon">الآيقونة</span></div>
               <div class="rq-opt" data-id="infoRq1o1" data-key="B" data-ok="1"
-                data-fb-ar="صحيح! البكتوغرام (Pictogram) هو الرمز المصوّر اللي بيتوصّل المعلومة من غير كلام."
+                data-fb-ar="صحيح! البكتوغرام هو الرمز المصوّر اللي بيتوصّل المعلومة من غير كلام."
                 data-fb-en="Correct! A Pictogram is the pictorial symbol that conveys information without words."><span
-                  class="rq-key">B</span><span class="rq-body" data-ar="البيكتوجرام (Pictogram)"
-                  data-en="the Pictogram">البيكتوجرام (Pictogram)</span></div>
+                  class="rq-key">B</span><span class="rq-body" data-ar="البيكتوجرام"
+                  data-en="the Pictogram">البيكتوجرام</span></div>
               <div class="rq-opt" data-id="infoRq1o3" data-key="C"
                 data-fb-ar="مش كده — الجدول من أمثلة التصوير البصري مش الرمز المصوّر." data-fb-en="Not quite — a table is a Visualization example, not a pictorial symbol."><span
                   class="rq-key">C</span><span class="rq-body" data-ar="الجدول"
@@ -1230,8 +260,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="infoRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="infoRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه طريقة تصميم المعلومات (Information) اللي بتسرّح المعلومات (Information) في قوائم هرمية زي صفحات الويب؟"
-                data-en="Which Information Design method arranges information into hierarchical menus like on web pages?">إيه طريقة تصميم المعلومات (Information) اللي بتسرّح المعلومات (Information) في قوائم هرمية زي صفحات الويب؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه طريقة تصميم المعلومات اللي بتسرّح المعلومات في قوائم هرمية زي صفحات الويب؟"
+                data-en="Which Information Design method arranges information into hierarchical menus like on web pages?">إيه طريقة تصميم المعلومات اللي بتسرّح المعلومات في قوائم هرمية زي صفحات الويب؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="infoRq2o2" data-key="A"
                 data-fb-ar="مش كده — التجريد بيستخرج المهم من كمية كبيرة." data-fb-en="Not quite — Abstraction extracts what matters from a large amount."><span
@@ -1243,7 +273,7 @@ select{color:var(--text)!important}
                   class="rq-key">B</span><span class="rq-body" data-ar="التصوير الهيكلي"
                   data-en="Visualization">التصوير الهيكلي</span></div>
               <div class="rq-opt" data-id="infoRq2o1" data-key="C" data-ok="1"
-                data-fb-ar="صحيح! الهيكلة (Structuring) بتنظم المعلومات حسب العلاقات والمستويات."
+                data-fb-ar="صحيح! الهيكلة بتنظم المعلومات حسب العلاقات والمستويات."
                 data-fb-en="Correct! Structuring organizes information by relationships and levels."><span
                   class="rq-key">C</span><span class="rq-body" data-ar="التنظيم"
                   data-en="Structuring">التنظيم</span></div>
@@ -1263,26 +293,26 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="واجهة المستخدم" data-en="The User Interface">واجهة المستخدم <span dir="ltr">(User Interface —
                 UI)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="الوسيط بين البشر والأجهزة — صفحة 81 بالكتاب"
-              data-en="the medium between humans and devices — book page 81">الوسيط بين البشر والأجهزة — صفحة 81 بالكتاب</div>
+            <div class="tag" style="color:var(--s3)" data-ar="الوسيط بين البشر والأجهزة — بالكتاب"
+              data-en="the medium between humans and devices — book">الوسيط بين البشر والأجهزة — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="واجهة المستخدم (UI) هي نظام لنقل المعلومات (Information) بين البشر والأجهزة."
+        <p data-ar="واجهة المستخدم هي نظام لنقل المعلومات بين البشر والأجهزة."
           data-en="A User Interface (UI) is a system for transferring information between humans and devices.">
           <b>واجهة المستخدم <span dir="ltr">(User Interface — UI)</span></b> هي نظام لنقل المعلومات بين البشر والأجهزة.</p>
-        <p data-ar="في نوعين أساسيين: واجهة المستخدم بالأحرف (CUI) اللي بتتعامل بإدخال أوامر عن طريق الكيبورد، وواجهة المستخدم الرسومية (GUI) اللي بتسمح للمستخدم يدي أوامر ببديهية باستخدام الآيقونات والأزرار."
+        <p data-ar="في نوعين أساسيين: واجهة المستخدم بالأحرف اللي بتتعامل بإدخال أوامر عن طريق الكيبورد، وواجهة المستخدم الرسومية اللي بتسمح للمستخدم يدي أوامر ببديهية باستخدام الآيقونات والأزرار."
           data-en="There are two main types: the Character User Interface (CUI) operated by entering commands via a keyboard, and the Graphical User Interface (GUI) that allows users to issue commands intuitively using icons and buttons.">
-          وعندنا نوعين أساسيين: <b>واجهة الأوامر النصية <span dir="ltr">(CUI)</span></b> اللي بتشتغل بإدخال أوامر من
-          الكيبورد، و<b>الواجهة الرسومية <span dir="ltr">(GUI)</span></b> اللي بتسمح للمستخدم يعلّم على الأيقونات والأزرار
-          بشكل بديهي وسهل.</p>
+ وعندنا نوعين أساسيين: <b>واجهة الأوامر النصية <span dir="ltr">(CUI)</span></b> اللي بتشتغل بإدخال أوامر من
+ الكيبورد، و<b>الواجهة الرسومية <span dir="ltr">(GUI)</span></b> اللي بتسمح للمستخدم يعلّم على الأيقونات والأزرار
+ بشكل بديهي وسهل.</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
             data-ar="الكمبيوترات القديمة كانت بتستخدم CUI بالنصوص، بينما الحديثة بتستخدم GUI بالآيقونات والماوس."
             data-en="early computers used CUI with text, while current ones use GUI with icons and a mouse.">الكمبيوترات
-            <b>القديمة</b> كانت بتستخدم CUI بالنصوص، أما <b>الحالية</b> فبتستخدم GUI بالأيقونات والفأرة.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«2. تقنيات التصميم لسهولة الفهم (1) واجهة المستخدم (UI) : نظام لنقل البيانات بين البشر والأجهزة <أمثلة> إدخال الصوت، الشاشة التي تعمل باللمس، لوحة المفاتيح، إلخ. [1] واجهة سطر الأوامر (CUI) : واجهة مستخدم حيث يتم تشغيل الجهاز بإدخال أوامر عن طريق لوحة المفاتيح. [2] واجهة المستخدم الرسومية (GUI) : واجهة مستخدم تسمح للمستخدمين بإصدار أوامر بديهية و طريقة سهلة الفهم باستخدام الرموز والأزرار. (2) تجربة المستخدم ((User experience (UX)) : الخبرة أو التأثير العاطفي ذلك يكتسبه المستخدمون من التفاعل مع منتج أو خدمة. (3) (الإمكانية:Affordance :) : الإجراءات أو العمليات التي يمكن تنفيذها على كائن. (4) (دلالة : Signifier :) : إشارات تدفع المستخدمين إلى اتخاذ إجراء . (5) (قابلية الاستخدام : Usability :) : مقياس يستخدم للإشارة إلى مدى سهولة وقابلية الفهم من أجل المستخدمين. (6) (إمكانية الوصول : Accessibility :) : سهولة الوصول إلى البيانات والخدمات لمجموعة واسعة من الأشخاص. (7) (التصميم الشامل : Universal design :) : تصميم يتم إنشاؤه بشكل مدروس مع هدف أن جميع الناس، بغض النظر عن العمر أو اللغة أو الجنسية أو القدرة الجسدية، يمكنهم استخدامه بدون صعوبة.»</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«مبدأ LATCH لتنظيم وعرض البيانات بطريقة تسهِّل على المستخدم الفهم 1. الموقع (Location): يعتمد التصنيف على الموقع الفعلي. 2. الأبجدية (Alphabet): يعتمد التصنيف على الترتيب الأبجدي أو البياني. 3. الوقت (Time): يعتمد التصنيف على تسلسل الأحداث من حيث الوقت. 4. الفئة (Category): يعتمد التصنيف على الفروقات بين الأشياء ويُستخدم كمعيار لتمييز المجالات. 5. الهرمية (Hierarchy): يعتمد التصنيف على التغيرات الكمية مثل الحجم، المستوى، الدرجة.»</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإنجليزية ترقّم المصطلحات الستة عشر بأرقام مرتفعة ¹-¹⁶ وتقسمها إلى ثلاثة أقسام مرقمة؛ العربية تقسمها إلى قسمين مرقمين «1. تصميم البيانات» و«2. تقنيات التصميم لسهولة الفهم» بلا أرقام مرتفعة، ويأتي مبدأ LATCH فيها بلا رقم قسم وبنقاط «1.»-«5.» بينما تسرده الإنجليزية بنقاط نقطية. ترتيب عناصر «طرق التصميم» يختلف:العربية ترقّم [1] التجريد و[2] الرسم التصويري و[3] أيقونة ثم تسرد التصور والهيكلة نقطتين نقطيتين، والإنجليزية ترقّم [1] Abstraction (وبنقطتين Pictogram وIcon) ثم [2] Visualization و[3] Structuring. تعريف الأيقونة العربي يطبع كلمتين إنجليزيتين كما وردتا: «تمثيل لمحتوى البرنامج على كمبيوتر أو هاتف ذكي depicted through الصور أو الرسوم التوضيحية». وأمثلة الهيكلة تطبع «القوائم hierarchical على صفحات الويب» كما وردت. تعريف الرسم التصويري العربي «يتم استخدامه للعلامات معلومات في المحطات والمطارات» كما ورد، والإنجليزية &quot;used for information signs at stations and airports&quot;. تعريف UX العربي «الخبرة أو التأثير العاطفي ذلك يكتسبه المستخدمون» كما ورد. تعريف GUI العربي «بإصدار أوامر بديهية و طريقة سهلة الفهم» كما ورد، والإنجليزية &quot;in an intuitive and easy-to-understand way&quot;. تنسيق البنود (3)-(7) في العربية «(الإمكانية:Affordance :) :» بنقطتين رأسيتين داخل القوسين كما طُبع، بينما (1) «واجهة المستخدم (UI) :» و(2) «تجربة المستخدم ((User experience (UX))» بقوسين مزدوجين. العربية تستخدم «البيانات» حيث تستخدم الإنجليزية &quot;information&quot;، ومنها عنوان الدرس «تصميم البيانات» مقابل &quot;Information Design&quot;. بند Alphabet العربي «الترتيب الأبجدي أو البياني» مقابل &quot;alphabetical or syllabary order&quot;، وبند Hierarchy «مثل الحجم، المستوى، الدرجة» مقابل &quot;such as size, level, etc.&quot;." data-en="Edition comparison (verified from the printed page images): English numbers the sixteen terms with superscripts 1-16 in three numbered sections; Arabic prints two numbered sections with no superscripts, and its LATCH block has no section number and items &quot;1.&quot;-&quot;5.&quot; with periods vs English bullets. The methods order differs:Arabic numbers [1] Abstraction, [2] Pictogram, [3] Icon and then lists Visualization and Structuring as bullets, while English numbers [1] Abstraction (with Pictogram and Icon as bullets), [2] Visualization, [3] Structuring. The Arabic icon definition prints two English words as printed: &quot;depicted through&quot;. The Arabic structuring examples print &quot;hierarchical&quot; in Latin letters as printed. The Arabic pictogram definition prints «للعلامات معلومات» in that word order vs English &quot;information signs&quot;. The Arabic UX definition prints «العاطفي ذلك يكتسبه» as printed, and the GUI definition «أوامر بديهية و طريقة سهلة الفهم» as printed vs English &quot;in an intuitive and easy-to-understand way&quot;. Arabic items (3)-(7) print colons inside the parentheses «(الإمكانية:Affordance :) :» as printed, while (1) is «واجهة المستخدم (UI) :» and (2) prints doubled parentheses «((User experience (UX))». Arabic uses «البيانات» (data) where English uses &quot;information&quot;, including the lesson title «تصميم البيانات» vs &quot;Information Design&quot;. Arabic Alphabet &quot;الأبجدي أو البياني&quot; vs English &quot;alphabetical or syllabary order&quot;; Arabic Hierarchy &quot;الحجم، المستوى، الدرجة&quot; vs English &quot;size, level, etc.&quot;">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإنجليزية ترقّم المصطلحات الستة عشر بأرقام مرتفعة ¹-¹⁶ وتقسمها إلى ثلاثة أقسام مرقمة؛ العربية تقسمها إلى قسمين مرقمين «1. تصميم البيانات» و«2. تقنيات التصميم لسهولة الفهم» بلا أرقام مرتفعة، ويأتي مبدأ LATCH فيها بلا رقم قسم وبنقاط «1.»-«5.» بينما تسرده الإنجليزية بنقاط نقطية. ترتيب عناصر «طرق التصميم» يختلف:العربية ترقّم [1] التجريد و[2] الرسم التصويري و[3] أيقونة ثم تسرد التصور والهيكلة نقطتين نقطيتين، والإنجليزية ترقّم [1] Abstraction (وبنقطتين Pictogram وIcon) ثم [2] Visualization و[3] Structuring. تعريف الأيقونة العربي يطبع كلمتين إنجليزيتين كما وردتا: «تمثيل لمحتوى البرنامج على كمبيوتر أو هاتف ذكي depicted through الصور أو الرسوم التوضيحية». وأمثلة الهيكلة تطبع «القوائم hierarchical على صفحات الويب» كما وردت. تعريف الرسم التصويري العربي «يتم استخدامه للعلامات معلومات في المحطات والمطارات» كما ورد، والإنجليزية &quot;used for information signs at stations and airports&quot;. تعريف UX العربي «الخبرة أو التأثير العاطفي ذلك يكتسبه المستخدمون» كما ورد. تعريف GUI العربي «بإصدار أوامر بديهية و طريقة سهلة الفهم» كما ورد، والإنجليزية &quot;in an intuitive and easy-to-understand way&quot;. تنسيق البنود (3)-(7) في العربية «(الإمكانية:Affordance :) :» بنقطتين رأسيتين داخل القوسين كما طُبع، بينما (1) «واجهة المستخدم (UI) :» و(2) «تجربة المستخدم ((User experience (UX))» بقوسين مزدوجين. العربية تستخدم «البيانات» حيث تستخدم الإنجليزية &quot;information&quot;، ومنها عنوان الدرس «تصميم البيانات» مقابل &quot;Information Design&quot;. بند Alphabet العربي «الترتيب الأبجدي أو البياني» مقابل &quot;alphabetical or syllabary order&quot;، وبند Hierarchy «مثل الحجم، المستوى، الدرجة» مقابل &quot;such as size, level, etc.&quot;.</div></div></div>
+ <b>القديمة</b> كانت بتستخدم CUI بالنصوص، أما <b>الحالية</b> فبتستخدم GUI بالأيقونات والفأرة.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«2. تقنيات التصميم لسهولة الفهم (1) واجهة المستخدم: نظام لنقل البيانات بين البشر والأجهزة <أمثلة> إدخال الصوت، الشاشة التي تعمل باللمس، لوحة المفاتيح، إلخ. [1] واجهة سطر الأوامر: واجهة مستخدم حيث يتم تشغيل الجهاز بإدخال أوامر عن طريق لوحة المفاتيح. [2] واجهة المستخدم الرسومية: واجهة مستخدم تسمح للمستخدمين بإصدار أوامر بديهية و طريقة سهلة الفهم باستخدام الرموز والأزرار. (2) تجربة المستخدم ((User experience): الخبرة أو التأثير العاطفي ذلك يكتسبه المستخدمون من التفاعل مع منتج أو خدمة. (3) (الإمكانية:Affordance:): الإجراءات أو العمليات التي يمكن تنفيذها على كائن. (4) (دلالة: Signifier:): إشارات تدفع المستخدمين إلى اتخاذ إجراء. (5) (قابلية الاستخدام: Usability:): مقياس يستخدم للإشارة إلى مدى سهولة وقابلية الفهم من أجل المستخدمين. (6) (إمكانية الوصول: Accessibility:): سهولة الوصول إلى البيانات والخدمات لمجموعة واسعة من الأشخاص. (7) (التصميم الشامل: Universal design:): تصميم يتم إنشاؤه بشكل مدروس مع هدف أن جميع الناس، بغض النظر عن العمر أو اللغة أو الجنسية أو القدرة الجسدية، يمكنهم استخدامه بدون صعوبة.»</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«مبدأ LATCH لتنظيم وعرض البيانات بطريقة تسهِّل على المستخدم الفهم 1. الموقع (Location): يعتمد التصنيف على الموقع الفعلي. 2. الأبجدية (Alphabet): يعتمد التصنيف على الترتيب الأبجدي أو البياني. 3. الوقت (Time): يعتمد التصنيف على تسلسل الأحداث من حيث الوقت. 4. الفئة (Category): يعتمد التصنيف على الفروقات بين الأشياء ويُستخدم كمعيار لتمييز المجالات. 5. الهرمية (Hierarchy): يعتمد التصنيف على التغيرات الكمية مثل الحجم، المستوى، الدرجة.»</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإنجليزية ترقّم المصطلحات الستة عشر بأرقام مرتفعة ¹-¹⁶ وتقسمها إلى ثلاثة أقسام مرقمة؛ العربية تقسمها إلى قسمين مرقمين «1. تصميم البيانات» و«2. تقنيات التصميم لسهولة الفهم» بلا أرقام مرتفعة، ويأتي مبدأ LATCH فيها بلا رقم قسم وبنقاط «1.»-«5.» بينما تسرده الإنجليزية بنقاط نقطية. ترتيب عناصر «طرق التصميم» يختلف:العربية ترقّم [1] التجريد و[2] الرسم التصويري و[3] أيقونة ثم تسرد التصور والهيكلة نقطتين نقطيتين، والإنجليزية ترقّم [1] Abstraction (وبنقطتين Pictogram وIcon) ثم [2] Visualization و[3] Structuring. تعريف الأيقونة العربي يطبع كلمتين إنجليزيتين كما وردتا: «تمثيل لمحتوى البرنامج على كمبيوتر أو هاتف ذكي depicted through الصور أو الرسوم التوضيحية». وأمثلة الهيكلة تطبع «القوائم hierarchical على صفحات الويب» كما وردت. تعريف الرسم التصويري العربي «يتم استخدامه للعلامات معلومات في المحطات والمطارات» كما ورد، والإنجليزية &quot;used for information signs at stations and airports&quot;. تعريف UX العربي «الخبرة أو التأثير العاطفي ذلك يكتسبه المستخدمون» كما ورد. تعريف GUI العربي «بإصدار أوامر بديهية و طريقة سهلة الفهم» كما ورد، والإنجليزية &quot;in an intuitive and easy-to-understand way&quot;. تنسيق البنود (3)-(7) في العربية «(الإمكانية:Affordance :) :» بنقطتين رأسيتين داخل القوسين كما طُبع، بينما (1) «واجهة المستخدم (UI) :» و(2) «تجربة المستخدم ((User experience (UX))» بقوسين مزدوجين. العربية تستخدم «البيانات» حيث تستخدم الإنجليزية &quot;information&quot;، ومنها عنوان الدرس «تصميم البيانات» مقابل &quot;Information Design&quot;. بند Alphabet العربي «الترتيب الأبجدي أو البياني» مقابل &quot;alphabetical or syllabary order&quot;، وبند Hierarchy «مثل الحجم، المستوى، الدرجة» مقابل &quot;such as size, level, etc.&quot;." data-en="Edition comparison (verified from the printed page images): English numbers the sixteen terms with superscripts 1-16 in three numbered sections; Arabic prints two numbered sections with no superscripts, and its LATCH block has no section number and items &quot;1.&quot;-&quot;5.&quot; with periods vs English bullets. The methods order differs:Arabic numbers [1] Abstraction, [2] Pictogram, [3] Icon and then lists Visualization and Structuring as bullets, while English numbers [1] Abstraction (with Pictogram and Icon as bullets), [2] Visualization, [3] Structuring. The Arabic icon definition prints two English words as printed: &quot;depicted through&quot;. The Arabic structuring examples print &quot;hierarchical&quot; in Latin letters as printed. The Arabic pictogram definition prints «للعلامات معلومات» in that word order vs English &quot;information signs&quot;. The Arabic UX definition prints «العاطفي ذلك يكتسبه» as printed, and the GUI definition «أوامر بديهية و طريقة سهلة الفهم» as printed vs English &quot;in an intuitive and easy-to-understand way&quot;. Arabic items (3)-(7) print colons inside the parentheses «(الإمكانية:Affordance :) :» as printed, while (1) is «واجهة المستخدم (UI) :» and (2) prints doubled parentheses «((User experience (UX))». Arabic uses «البيانات» (data) where English uses &quot;information&quot;, including the lesson title «تصميم البيانات» vs &quot;Information Design&quot;. Arabic Alphabet &quot;الأبجدي أو البياني&quot; vs English &quot;alphabetical or syllabary order&quot;; Arabic Hierarchy &quot;الحجم، المستوى، الدرجة&quot; vs English &quot;size, level, etc.&quot;">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإنجليزية ترقّم المصطلحات الستة عشر بأرقام مرتفعة ¹-¹⁶ وتقسمها إلى ثلاثة أقسام مرقمة؛ العربية تقسمها إلى قسمين مرقمين «1. تصميم البيانات» و«2. تقنيات التصميم لسهولة الفهم» بلا أرقام مرتفعة، ويأتي مبدأ LATCH فيها بلا رقم قسم وبنقاط «1.»-«5.» بينما تسرده الإنجليزية بنقاط نقطية. ترتيب عناصر «طرق التصميم» يختلف:العربية ترقّم [1] التجريد و[2] الرسم التصويري و[3] أيقونة ثم تسرد التصور والهيكلة نقطتين نقطيتين، والإنجليزية ترقّم [1] Abstraction (وبنقطتين Pictogram وIcon) ثم [2] Visualization و[3] Structuring. تعريف الأيقونة العربي يطبع كلمتين إنجليزيتين كما وردتا: «تمثيل لمحتوى البرنامج على كمبيوتر أو هاتف ذكي depicted through الصور أو الرسوم التوضيحية». وأمثلة الهيكلة تطبع «القوائم hierarchical على صفحات الويب» كما وردت. تعريف الرسم التصويري العربي «يتم استخدامه للعلامات معلومات في المحطات والمطارات» كما ورد، والإنجليزية &quot;used for information signs at stations and airports&quot;. تعريف UX العربي «الخبرة أو التأثير العاطفي ذلك يكتسبه المستخدمون» كما ورد. تعريف GUI العربي «بإصدار أوامر بديهية و طريقة سهلة الفهم» كما ورد، والإنجليزية &quot;in an intuitive and easy-to-understand way&quot;. تنسيق البنود (3)-(7) في العربية «(الإمكانية:Affordance :) :» بنقطتين رأسيتين داخل القوسين كما طُبع، بينما (1) «واجهة المستخدم (UI) :» و(2) «تجربة المستخدم ((User experience (UX))» بقوسين مزدوجين. العربية تستخدم «البيانات» حيث تستخدم الإنجليزية &quot;information&quot;، ومنها عنوان الدرس «تصميم البيانات» مقابل &quot;Information Design&quot;. بند Alphabet العربي «الترتيب الأبجدي أو البياني» مقابل &quot;alphabetical or syllabary order&quot;، وبند Hierarchy «مثل الحجم، المستوى، الدرجة» مقابل &quot;such as size, level, etc.&quot;.</div></div></div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
@@ -1293,8 +323,8 @@ select{color:var(--text)!important}
             <div class="flow-card" data-id="ui">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="ui"></svg>
-                <div class="svg-label" data-fbox="transfer" data-ar="UI — نظام لنقل المعلومات (Information) بين البشر والأجهزة"
-                  data-en="UI — a system for transferring information between humans and devices">UI — نظام لنقل المعلومات (Information) بين البشر والأجهزة</div>
+                <div class="svg-label" data-fbox="transfer" data-ar="UI — نظام لنقل المعلومات بين البشر والأجهزة"
+                  data-en="UI — a system for transferring information between humans and devices">UI — نظام لنقل المعلومات بين البشر والأجهزة</div>
                 <div class="svg-label" data-fbox="cui" data-ar="CUI — أوامر نصية من الكيبورد"
                   data-en="CUI — text commands from a keyboard">CUI — أوامر نصية من الكيبورد</div>
                 <div class="svg-label" data-fbox="gui" data-ar="GUI — آيقونات وأزرار بالماوس"
@@ -1302,8 +332,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="uiPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="uiNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="uiPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="uiNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="uiCounter">1 / 3</span>
                 <button class="mini-btn" data-id="uiReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1377,17 +407,17 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="تجربة المستخدم" data-en="The User Experience">تجربة المستخدم <span dir="ltr">(User Experience —
                 UX)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="التجربة والمشاعر — صفحة 81 بالكتاب"
-              data-en="the experience and feelings — book page 81">التجربة والمشاعر — صفحة 81 بالكتاب</div>
+            <div class="tag" style="color:var(--s4)" data-ar="التجربة والمشاعر — بالكتاب"
+              data-en="the experience and feelings — book">التجربة والمشاعر — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="تجربة المستخدم (UX) هي التجربة أو الأثر العاطفي اللي بياخده المستخدمين من التعامل مع منتج أو خدمة."
+        <p data-ar="تجربة المستخدم هي التجربة أو الأثر العاطفي اللي بياخده المستخدمين من التعامل مع منتج أو خدمة."
           data-en="The User Experience (UX) is the experience or emotional impact that users gain from interacting with a product or service.">
           <b>تجربة المستخدم <span dir="ltr">(User Experience — UX)</span></b> هي التجربة أو الأثر العاطفي اللي بيحصل عليه
-          المستخدم من التفاعل مع منتج أو خدمة.</p>
+ المستخدم من التفاعل مع منتج أو خدمة.</p>
         <p data-ar="الهدف مش بس سهولة الاستخدام، كمان الإحساس بالراحة — وده بيتحقق بتسهيل الواجهة، واختيار ألوان بتراعي فروق الإدراك، وإضافة معلومات نصية مفيدة."
           data-en="The aim is not just ease of use, but also a sense of comfort — achieved by simplifying the interface, choosing colors with consideration for differences in perception, and adding helpful textual information.">الهدف مش بس سهولة الاستخدام، كمان الإحساس بالراحة — وده بيتحقق بتسهيل الواجهة، واختيار ألوان بتراعي فروق الإدراك، وإضافة معلومات نصية مفيدة.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
@@ -1413,8 +443,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="uxPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="uxNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="uxPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="uxNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="uxCounter">1 / 3</span>
                 <button class="mini-btn" data-id="uxReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1438,13 +468,13 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="uxRecall">
           <div class="rq" data-id="uxRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه بالظبط تجربة المستخدم (UX)؟"
-                data-en="What exactly is the User Experience (UX)?">إيه بالظبط تجربة المستخدم (UX)؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه بالظبط تجربة المستخدم؟"
+                data-en="What exactly is the User Experience (UX)?">إيه بالظبط تجربة المستخدم؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="uxRq1o2" data-key="A"
                 data-fb-ar="مش كده — ده تعريف واجهة المستخدم UI." data-fb-en="Not quite — that is the UI definition."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="نظام لنقل المعلومات (Information) بين البشر والأجهزة"
-                  data-en="a system for transferring information between humans and devices">نظام لنقل المعلومات (Information) بين البشر والأجهزة</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="نظام لنقل المعلومات بين البشر والأجهزة"
+                  data-en="a system for transferring information between humans and devices">نظام لنقل المعلومات بين البشر والأجهزة</span></div>
               <div class="rq-opt" data-id="uxRq1o1" data-key="B" data-ok="1"
                 data-fb-ar="صحيح! UX هي التجربة أو الأثر العاطفي اللي بيكسبه المستخدم من التفاعل."
                 data-fb-en="Correct! UX is the experience or emotional impact gained from interacting."><span
@@ -1490,22 +520,22 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
           <div>
-            <h2 data-ar="القدرة على الاستخدام (Affordance)" data-en="Affordance">الاستطاعة <span dir="ltr">(Affordance)</span></h2>
-            <div class="tag" style="color:var(--s5)" data-ar="الأفعال الممكنة على شيء — صفحة 81 بالكتاب"
-              data-en="the possible actions on an object — book page 81">الأفعال الممكنة على شيء — صفحة 81 بالكتاب</div>
+            <h2 data-ar="القدرة على الاستخدام" data-en="Affordance">الاستطاعة <span dir="ltr">(Affordance)</span></h2>
+            <div class="tag" style="color:var(--s5)" data-ar="الأفعال الممكنة على شيء — بالكتاب"
+              data-en="the possible actions on an object — book">الأفعال الممكنة على شيء — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="القدرة على الاستخدام (Affordance) هي الأفعال أو العمليات اللي ممكن تتعمل على شيء."
+        <p data-ar="القدرة على الاستخدام هي الأفعال أو العمليات اللي ممكن تتعمل على شيء."
           data-en="Affordance is the actions or operations that can be performed on an object.">
           <b>الاستطاعة <span dir="ltr">(Affordance)</span></b> هي الأفعال أو العمليات اللي ممكن تنفّذ على شيء ما.</p>
         <p data-ar="يعني شكل الشيء بيوحي بإمكانياته: زر بارز بيدّي إيحاء إنه يتضغط، ومقبض بيدّي إيحاء إنه يتسحب أو يتدفع، وحقل نص بيدّي إيحاء إنك تكتب فيه."
           data-en="So the shape of an object hints at its possibilities: a raised button suggests it can be pressed, a handle suggests pulling or pushing, and a text field suggests typing into it.">يعني شكل الشيء بيوحي بإمكانياته: زر بارز بيدّي إيحاء إنه يتضغط، ومقبض بيدّي إيحاء إنه يتسحب أو يتدفع، وحقل نص بيدّي إيحاء إنك تكتب فيه.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="شكل الكرسي نفسه بيدّي إيحاء إنك تقدر تقعد عليه — وده القدرة على الاستخدام (Affordance). وفي التصميم ده بخص الأشياء اللي شكلها بيوحي باستخدامها من غير ما تقرأ كتالوج."
-            data-en="The shape of a chair itself suggests you can sit on it — that is affordance. In design it is about things whose shape hints at their use without reading a manual.">شكل الكرسي نفسه بيدّي إيحاء إنك تقدر تقعد عليه — وده القدرة على الاستخدام (Affordance). وفي التصميم ده بخص الأشياء اللي شكلها بيوحي باستخدامها من غير ما تقرأ كتالوج.</span></div>
+            data-ar="شكل الكرسي نفسه بيدّي إيحاء إنك تقدر تقعد عليه — وده القدرة على الاستخدام. وفي التصميم ده بخص الأشياء اللي شكلها بيوحي باستخدامها من غير ما تقرأ كتالوج."
+            data-en="The shape of a chair itself suggests you can sit on it — that is affordance. In design it is about things whose shape hints at their use without reading a manual.">شكل الكرسي نفسه بيدّي إيحاء إنك تقدر تقعد عليه — وده القدرة على الاستخدام. وفي التصميم ده بخص الأشياء اللي شكلها بيوحي باستخدامها من غير ما تقرأ كتالوج.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1517,17 +547,17 @@ select{color:var(--text)!important}
             <div class="flow-card" data-id="afford">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="afford"></svg>
-                <div class="svg-label" data-fbox="btn" data-ar="زر بارز ← بيدّي إيحاء بالضغط"
+                <div class="svg-label" data-fbox="btn" data-ar="زر بارز → بيدّي إيحاء بالضغط"
                   data-en="a raised button → suggests pressing">زر بارز ← بيدّي إيحاء بالضغط</div>
-                <div class="svg-label" data-fbox="handle" data-ar="مقبض ← بيدّي إيحاء بالسحب أو الدفع"
+                <div class="svg-label" data-fbox="handle" data-ar="مقبض → بيدّي إيحاء بالسحب أو الدفع"
                   data-en="a handle → suggests pulling or pushing">مقبض ← بيدّي إيحاء بالسحب أو الدفع</div>
-                <div class="svg-label" data-fbox="act" data-ar="القدرة على الاستخدام (Affordance) — الأفعال الممكنة على شيء"
-                  data-en="Affordance — the actions possible on an object">القدرة على الاستخدام (Affordance) — الأفعال الممكنة على شيء</div>
+                <div class="svg-label" data-fbox="act" data-ar="القدرة على الاستخدام — الأفعال الممكنة على شيء"
+                  data-en="Affordance — the actions possible on an object">القدرة على الاستخدام — الأفعال الممكنة على شيء</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="affordPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="affordNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="affordPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="affordNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="affordCounter">1 / 3</span>
                 <button class="mini-btn" data-id="affordReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1551,8 +581,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="affordRecall">
           <div class="rq" data-id="affordRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هي القدرة على الاستخدام (Affordance)؟"
-                data-en="What is Affordance?">إيه هي القدرة على الاستخدام (Affordance)؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هي القدرة على الاستخدام؟"
+                data-en="What is Affordance?">إيه هي القدرة على الاستخدام؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="affordRq1o2" data-key="A"
                 data-fb-ar="مش كده — دي الإشارات اللي بتدفع المستخدم للفعل."
@@ -1573,8 +603,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="affordRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="affordRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه مثال على القدرة على الاستخدام (Affordance)؟"
-                data-en="Which is an example of Affordance?">إيه مثال على القدرة على الاستخدام (Affordance)؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه مثال على القدرة على الاستخدام؟"
+                data-en="Which is an example of Affordance?">إيه مثال على القدرة على الاستخدام؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="affordRq2o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! شكل الزر المرفوع بيلوّح إنه قابل للضغط — دي استطاعة."
@@ -1587,8 +617,8 @@ select{color:var(--text)!important}
                   data-en="a glowing arrow indicating the scroll direction">سهم متوهّج بيدّي اتجاه التمرير</span></div>
               <div class="rq-opt" data-id="affordRq2o3" data-key="C"
                 data-fb-ar="مش كده — ده مثال على التصوير البصري." data-fb-en="Not quite — that is an example of Visualization."><span
-                  class="rq-key">C</span><span class="rq-body" data-ar="جدول داتا (Data) بيلخّص النتايج"
-                  data-en="a data table summarizing results">جدول داتا (Data) بيلخّص النتايج</span></div>
+                  class="rq-key">C</span><span class="rq-body" data-ar="جدول بيانات بيلخّص النتايج"
+                  data-en="a data table summarizing results">جدول بيانات بيلخّص النتايج</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="affordRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -1603,22 +633,22 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#b91c1c)">06</div>
           <div>
-            <h2 data-ar="المؤشّر (Signifier)" data-en="The Signifier">المؤشر <span dir="ltr">(Signifier)</span></h2>
-            <div class="tag" style="color:var(--s6)" data-ar="الأدلة اللي بتخلي المستخدم يتحرك — صفحة 81 بالكتاب"
-              data-en="the cues that prompt users to take action — book page 81">الأدلة اللي بتخلي المستخدم يتحرك — صفحة 81 بالكتاب</div>
+            <h2 data-ar="المؤشّر" data-en="The Signifier">المؤشر <span dir="ltr">(Signifier)</span></h2>
+            <div class="tag" style="color:var(--s6)" data-ar="الأدلة اللي بتخلي المستخدم يتحرك — بالكتاب"
+              data-en="the cues that prompt users to take action — book">الأدلة اللي بتخلي المستخدم يتحرك — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="المؤشّر (Signifier) هو الأدلة اللي بتخلي المستخدم يتحرك."
+        <p data-ar="المؤشّر هو الأدلة اللي بتخلي المستخدم يتحرك."
           data-en="The Signifier is the cues that prompt users to take action.">
           <b>المؤشر <span dir="ltr">(Signifier)</span></b> هو الإشارات اللي بتدفع المستخدم لاتخاذ إجراء.</p>
-        <p data-ar="لو القدرة على الاستخدام (Affordance) إن الزر يتضغط، يبقى المؤشّر (Signifier) هو اللي بيخليك تلاحظ إنه يتضغط — زي سهم متوهّج بيدّي اتجاه التمرير، أو لون مميّز، أو نص بيقول 'اضغط هنا'."
-          data-en="If affordance is that a button can be pressed, then the signifier is what makes you notice it can be pressed — like a glowing arrow showing the scroll direction, a distinctive color, or text saying 'click here'.">لو القدرة على الاستخدام (Affordance) إن الزر يتضغط، يبقى المؤشّر (Signifier) هو اللي بيخليك تلاحظ إنه يتضغط — زي سهم متوهّج بيدّي اتجاه التمرير، أو لون مميّز، أو نص بيقول 'اضغط هنا'.</p>
+        <p data-ar="لو القدرة على الاستخدام إن الزر يتضغط، يبقى المؤشّر هو اللي بيخليك تلاحظ إنه يتضغط — زي سهم متوهّج بيدّي اتجاه التمرير، أو لون مميّز، أو نص بيقول 'اضغط هنا'."
+          data-en="If affordance is that a button can be pressed, then the signifier is what makes you notice it can be pressed — like a glowing arrow showing the scroll direction, a distinctive color, or text saying 'click here'.">لو القدرة على الاستخدام إن الزر يتضغط، يبقى المؤشّر هو اللي بيخليك تلاحظ إنه يتضغط — زي سهم متوهّج بيدّي اتجاه التمرير، أو لون مميّز، أو نص بيقول 'اضغط هنا'.</p>
         <div class="note"><b data-ar="الفرق ببساطة:" data-en="The difference simply:">الفرق ببساطة:</b> <span
-            data-ar="القدرة على الاستخدام (Affordance) = الفعل الممكن (الزر يتضغط). والمؤشّر (Signifier) = الدليل اللي بيقولك تعمله (الشكل اللي بيخليك تعرف)."
-            data-en="Affordance = the possible action (the button can be pressed). Signifier = the cue telling you to do it (the shape that lets you know).">القدرة على الاستخدام (Affordance) = الفعل الممكن (الزر يتضغط). والمؤشّر (Signifier) = الدليل اللي بيقولك تعمله (الشكل اللي بيخليك تعرف).</span></div>
+            data-ar="القدرة على الاستخدام = الفعل الممكن (الزر يتضغط). والمؤشّر = الدليل اللي بيقولك تعمله (الشكل اللي بيخليك تعرف)."
+            data-en="Affordance = the possible action (the button can be pressed). Signifier = the cue telling you to do it (the shape that lets you know).">القدرة على الاستخدام = الفعل الممكن (الزر يتضغط). والمؤشّر = الدليل اللي بيقولك تعمله (الشكل اللي بيخليك تعرف).</span></div>
       </div>
 
       <div class="section-inner">
@@ -1630,17 +660,17 @@ select{color:var(--text)!important}
             <div class="flow-card" data-id="sign">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="sign"></svg>
-                <div class="svg-label" data-fbox="cue" data-ar="سهم متوهّج ← بيدّي اتجاه التمرير"
+                <div class="svg-label" data-fbox="cue" data-ar="سهم متوهّج → بيدّي اتجاه التمرير"
                   data-en="a glowing arrow → indicates the scroll direction">سهم متوهّج ← بيدّي اتجاه التمرير</div>
                 <div class="svg-label" data-fbox="notice" data-ar="المستخدم بيلاحظ فعل ممكن"
                   data-en="the user notices a possible action">المستخدم بيلاحظ فعل ممكن</div>
-                <div class="svg-label" data-fbox="sign" data-ar="المؤشّر (Signifier) — الأدلة اللي بتخليك تتحرك"
-                  data-en="Signifier — the cues that prompt action">المؤشّر (Signifier) — الأدلة اللي بتخليك تتحرك</div>
+                <div class="svg-label" data-fbox="sign" data-ar="المؤشّر — الأدلة اللي بتخليك تتحرك"
+                  data-en="Signifier — the cues that prompt action">المؤشّر — الأدلة اللي بتخليك تتحرك</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="signPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="signNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="signPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="signNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="signCounter">1 / 3</span>
                 <button class="mini-btn" data-id="signReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1664,8 +694,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="signRecall">
           <div class="rq" data-id="signRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو المؤشّر (Signifier)؟"
-                data-en="What is the Signifier?">إيه هو المؤشّر (Signifier)؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو المؤشّر؟"
+                data-en="What is the Signifier?">إيه هو المؤشّر؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="signRq1o2" data-key="A"
                 data-fb-ar="مش كده — دي الاستطاعة." data-fb-en="Not quite — that is Affordance."><span
@@ -1685,8 +715,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="signRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="signRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه مثال على المؤشّر (Signifier)؟"
-                data-en="Which is an example of a Signifier?">إيه مثال على المؤشّر (Signifier)؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="إيه مثال على المؤشّر؟"
+                data-en="Which is an example of a Signifier?">إيه مثال على المؤشّر؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="signRq2o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! السهم المضيء بيوصّلك إن في إجراء ممكن."
@@ -1717,8 +747,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">07</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 81–84 (المطبوع 81–84)؛ AR 92–95"
-              data-en="Your book: EN PDF 81–84 (printed 81–84); AR 92–95">الكتاب بتاعك:EN PDF 81–84 (المطبوع 81–84)؛ AR 92–95</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1747,7 +777,7 @@ select{color:var(--text)!important}
           <p data-ar="«(3) ما هو المصطلح الذي يُطلق على تصميم يتم إنشاؤه بشكل مدروس مسبقًا للسماح لجميع الأفراد، بغض النظر عن الجنسية أو الجنس أو العمر أو القدرة الجسدية,باستخدامه بدون صعوبة؟ اختر واحد من الخيارات من أ إلى ث ، وأجب باستخدام الحرف. (أ) قابلية الاستخدام (ب) التصميم الشامل (ت) المُشير (ث) واجهة المستخدم»" data-en="&quot;(3) What is the term for a design that is thoughtfully created in advance to allow all individuals, regardless of nationality, gender, age, or physical ability, to use it without difficulty? Choose one from the options A to D below, and answer using the letter. A Usability B Universal design C Signifier D User interface&quot;">«(3) ما هو المصطلح الذي يُطلق على تصميم يتم إنشاؤه بشكل مدروس مسبقًا للسماح لجميع الأفراد، بغض النظر عن الجنسية أو الجنس أو العمر أو القدرة الجسدية,باستخدامه بدون صعوبة؟ اختر واحد من الخيارات من أ إلى ث ، وأجب باستخدام الحرف. (أ) قابلية الاستخدام (ب) التصميم الشامل (ت) المُشير (ث) واجهة المستخدم»</p>
           <p data-ar="«الشرح» المطبوع:«(1) أ هو مثال على التجريد، ب على الهيكلة، ت على التصور، و ث على الهيكلة. لذلك، ت. لذلك، (جـ) (2) [1]: (ب) [2]: (أ) (3) (ب)»" data-en="&quot;Printed Explanation:(1) A is an example of abstraction, B of structuring, C of visualization, and D of structuring. Therefore, C (2) [1]: B [2]: A (3) B&quot;">«الشرح» المطبوع:«(1) أ هو مثال على التجريد، ب على الهيكلة، ت على التصور، و ث على الهيكلة. لذلك، ت. لذلك، (جـ) (2) [1]: (ب) [2]: (أ) (3) (ب)»</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإجابات مطبوعة في قسم «الشرح» في النسختين والقيم متطابقة (ت = C، [1]: ب = B، [2]: أ = A، (3): ب = B). الخيار (ت) في (1) يطبع كلمة إنجليزية كما وردت: «تم تجميع نتائج الاستبيان into جداول ورسوم بيانية». مقدمة (2) العربية تسقط «وأجب باستخدام الحرف» الموجودة في (1) و(3) وفي الإنجليزية، وتستخدم أرقامًا عربية مشرقية للفراغين [١] و [٢]، وجملتها تنتهي «من لوحة مفاتيح» بلا نقطة و«أجهزة الكمبيوتر المبكرة باستخدام ( [٢] )» و«بمعالجة معلومات المعروضة بيانيا» كما وردت. في (3) تطبع العربية «الجسدية,باستخدامه» بفاصلة لاتينية ملتصقة، والخيار (ت) «المُشير» بالتشكيل بينما مصطلح النقاط الرئيسية «دلالة». الخيارات العربية مترجمة مع الاختصار بين قوسين «واجهة سطر الأوامر (CUI)» والإنجليزية تطبع الاختصارات فقط. «الشرح» العربي يطبع بعد «لذلك، ت.» سطرًا ختاميًا ثانيًا «لذلك، (جـ)» كما ورد، مع أن (جـ) ليست من الخيارات أ-ث؛ نُقل كما طُبع دون الجزم بسببه. عنوان القسم في هذه الصفحة «تحدى معلوماتك» بالألف المقصورة." data-en="Edition comparison (verified from the printed page images): the answers are printed in the Explanation in both editions and the values match (ت = C, [1]: ب = B, [2]: أ = A, (3): ب = B). Option (ت) of (1) prints one English word as printed: &quot;into&quot; in «نتائج الاستبيان into جداول ورسوم بيانية». The Arabic (2) intro drops &quot;and answer using the letter(s)&quot; (present in (1), (3) and English), uses Arabic-Indic numerals for the blanks [١] [٢], its sentence ends without a period, and prints «المبكرة باستخدام» and «معلومات المعروضة بيانيا» as printed. In (3) Arabic prints «الجسدية,باستخدامه» with a Latin comma, and option (ت) is the vocalized «المُشير» while the Point term is «دلالة». Arabic options are glossed in Arabic with the acronym in parentheses; English prints bare acronyms. After &quot;Therefore, ت.&quot; the Arabic Explanation prints a second concluding line «لذلك، (جـ)» as printed, although (جـ) is not among options أ-ث; preserved without asserting why. The section heading on this page is «تحدى معلوماتك» with an alef maqsura.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإجابات مطبوعة في قسم «الشرح» في النسختين والقيم متطابقة (ت = C، [1]: ب = B، [2]: أ = A، (3): ب = B). الخيار (ت) في (1) يطبع كلمة إنجليزية كما وردت:«تم تجميع نتائج الاستبيان into جداول ورسوم بيانية». مقدمة (2) العربية تسقط «وأجب باستخدام الحرف» الموجودة في (1) و(3) وفي الإنجليزية، وتستخدم أرقامًا عربية مشرقية للفراغين [١] و [٢]، وجملتها تنتهي «من لوحة مفاتيح» بلا نقطة و«أجهزة الكمبيوتر المبكرة باستخدام ( [٢] )» و«بمعالجة معلومات المعروضة بيانيا» كما وردت. في (3) تطبع العربية «الجسدية,باستخدامه» بفاصلة لاتينية ملتصقة، والخيار (ت) «المُشير» بالتشكيل بينما مصطلح النقاط الرئيسية «دلالة». الخيارات العربية مترجمة مع الاختصار بين قوسين «واجهة سطر الأوامر (CUI)» والإنجليزية تطبع الاختصارات فقط. «الشرح» العربي يطبع بعد «لذلك، ت.» سطرًا ختاميًا ثانيًا «لذلك، (جـ)» كما ورد، مع أن (جـ) ليست من الخيارات أ-ث؛ نُقل كما طُبع دون الجزم بسببه. عنوان القسم في هذه الصفحة «تحدى معلوماتك» بالألف المقصورة.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 82 (المطبوع 82)؛ AR 93." data-en="The text above is from the book. Full source: English PDF 82 (printed 82); Arabic 93.">النص السابق من الكتاب. المصدر الكامل:EN PDF 82 (المطبوع 82)؛ AR 93.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
@@ -1760,7 +790,7 @@ select{color:var(--text)!important}
           <p data-ar="«(2) اختر المصطلح الأنسب لملء الفراغات من [1] إلى [3] في الجمل التالية من الخيارات أ إلى ح ، وأجب باستخدام الأحرف. بغض النظر عن مستوى تطور الوظائف التي يقدمها الكمبيوتر، لا يمكن تطبيق هذه الوظائف بفعالية في الحياة الواقعية إذا كان من الصعب استخدامها. يُشار إلى سهولة استخدام هذه الأجهزة باسم ( [1] )، وتختلف ([1]) حسب المستخدم. من ناحية أخرى، يُشار إلى سهولة الاستخدام لمجموعة واسعة من الأشخاص، بغض النظر عن قدراتهم أو ظروفهم، باسم ( [2] ). ويشير مصطلح ( [3] ) إلى التصميم الذي يتيح سهولة الاستخدام للجميع، بغض النظر عن العمر أو اللغة أو الجنسية أو القدرة البدنية. (أ) إمكانية الوصول (ب) قابلية الاستخدام (ت) الإيحاء (ث) التصميم الشامل (ج) واجهة المستخدم (ح) إزالة الحواجز»" data-en="&quot;(2) Choose the term that best fits into the blanks [1] to [3] in the following sentences from the options A to F below, and answer using the letters. Regardless of the level of advancement for functions offered by a computer, those functions cannot be effectively applied in real life if they are difficult to use. The ease of use of such devices is referred to as ( [1] ), and ([1]) varies depending on the user. On the other hand, ease of use for a wide range of people, regardless of their abilities or conditions, is referred to as ( [2] ). The term ( [3] ) refers to design that enables ease of use for everyone, regardless of age, language, nationality, or physical ability. A Accessibility B Usability C Affordance D Universal design E User interface F Barrier-free&quot;">«(2) اختر المصطلح الأنسب لملء الفراغات من [1] إلى [3] في الجمل التالية من الخيارات أ إلى ح ، وأجب باستخدام الأحرف. بغض النظر عن مستوى تطور الوظائف التي يقدمها الكمبيوتر، لا يمكن تطبيق هذه الوظائف بفعالية في الحياة الواقعية إذا كان من الصعب استخدامها. يُشار إلى سهولة استخدام هذه الأجهزة باسم ( [1] )، وتختلف ([1]) حسب المستخدم. من ناحية أخرى، يُشار إلى سهولة الاستخدام لمجموعة واسعة من الأشخاص، بغض النظر عن قدراتهم أو ظروفهم، باسم ( [2] ). ويشير مصطلح ( [3] ) إلى التصميم الذي يتيح سهولة الاستخدام للجميع، بغض النظر عن العمر أو اللغة أو الجنسية أو القدرة البدنية. (أ) إمكانية الوصول (ب) قابلية الاستخدام (ت) الإيحاء (ث) التصميم الشامل (ج) واجهة المستخدم (ح) إزالة الحواجز»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (هـ) الهيكلة، [2] (جـ) التصور، [3] (ب) التجريد. 1(2): الخيار (1) — رسوم الفصول التوضيحية (مثال التجريد كما في «الشرح» المطبوع لتحدى معلوماتك). 1(3): (د) الرسم التوضيحي. 2(1): [1] (ت) تجربة المستخدم، [2] (ث) واجهة المستخدم. 2(2): [1] (ب) قابلية الاستخدام، [2] (أ) إمكانية الوصول، [3] (ث) التصميم الشامل." data-en="Answers not printed in the book (teacher-prepared): 1(1): [1]: E Structuring, [2]: C Visualization, [3]: B Abstraction. 1(2): A - the classroom pictograms (the abstraction example per the printed Warm Up Explanation). 1(3): D Pictogram. 2(1): [1]: C UX, [2]: D UI. 2(2): [1]: B Usability, [2]: A Accessibility, [3]: D Universal design.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (هـ) الهيكلة، [2] (جـ) التصور، [3] (ب) التجريد. 1(2): الخيار (1) — رسوم الفصول التوضيحية (مثال التجريد كما في «الشرح» المطبوع لتحدى معلوماتك). 1(3): (د) الرسم التوضيحي. 2(1): [1] (ت) تجربة المستخدم، [2] (ث) واجهة المستخدم. 2(2): [1] (ب) قابلية الاستخدام، [2] (أ) إمكانية الوصول، [3] (ث) التصميم الشامل.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): لا تطبع أي من النسختين إجابات «جرب بنفسك»، والإجابات أعلاه من إعداد المعلم. مقدمة (1) العربية «من الخيارات أ إلى ج» مع خمسة خيارات مطبوعة (أ، ب، جـ، د، هـ)؛ الإنجليزية &quot;A to E&quot; مع خمسة خيارات؛ نُقل النص كما طُبع دون الجزم بالاتفاقية المقصودة. مقدمة (2) العربية «من الخيارات أ إلى ج» و«أجب باستخدام الحرف» بينما خياراتها مرقمة (1)-(4) لا مسماة بالأحرف؛ الإنجليزية &quot;A to D&quot; بأحرف؛ نُقل كما طُبع. خيارات (3) العربية تتبع كل مصطلح قوسين فارغين «()» كما طُبعت؛ الإنجليزية بلا أقواس. مصطلحا (ب) «الإيحاء» و(جـ) «الدال» يقابلان Affordance وSignifier بينما النقاط الرئيسية تستخدم «الإمكانية» و«دلالة». خيارات (2) العربية تعيد صياغة خيارات تحدى معلوماتك باختلافات:«رسوم توضيحية» مقابل «صور توضيحية»، و«الاستطلاع» مقابل «الاستبيان»، و«في نقاط» مقابل «في نقاط نقطية». في 2(1) الخيار (ب) «واجهة المستخدم النصية» يقابل CUI. مقدمة 2(2) «أ إلى ح» تطابق خياراتها الستة (EN &quot;A to F&quot;)، وجملتها تطبع «القدرة البدنية» بينما النقاط الرئيسية «القدرة الجسدية»." data-en="Edition comparison (verified from the printed page images): neither edition prints the Try answers; the answers above are teacher-prepared. The Arabic (1) intro says «أ إلى ج» while five options are printed (أ to هـ); English prints &quot;A to E&quot; with five options; the text is preserved as printed without asserting the intended convention. The Arabic (2) intro says «أ إلى ج» and &quot;answer using the letter&quot; while its options are numbered (1)-(4); English prints lettered A-D; preserved as printed. Arabic (3) options each carry empty parentheses «()» as printed; English prints none. The Arabic terms (ب) «الإيحاء» and (جـ) «الدال» correspond to Affordance and Signifier while the Point box uses «الإمكانية» and «دلالة». The Arabic (2) options rephrase the Warm Up options with differences:«رسوم توضيحية» vs «صور توضيحية», «الاستطلاع» vs «الاستبيان», and «في نقاط» vs «في نقاط نقطية». In 2(1) option (ب) «واجهة المستخدم النصية» corresponds to CUI. The 2(2) intro «أ إلى ح» matches its six options (EN &quot;A to F&quot;), and its sentence prints «القدرة البدنية» while the Point box prints «القدرة الجسدية».">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): لا تطبع أي من النسختين إجابات «جرب بنفسك»، والإجابات أعلاه من إعداد المعلم. مقدمة (1) العربية «من الخيارات أ إلى ج» مع خمسة خيارات مطبوعة (أ، ب، جـ، د، هـ)؛ الإنجليزية &quot;A to E&quot; مع خمسة خيارات؛ نُقل النص كما طُبع دون الجزم بالاتفاقية المقصودة. مقدمة (2) العربية «من الخيارات أ إلى ج» و«أجب باستخدام الحرف» بينما خياراتها مرقمة (1)-(4) لا مسماة بالأحرف؛ الإنجليزية &quot;A to D&quot; بأحرف؛ نُقل كما طُبع. خيارات (3) العربية تتبع كل مصطلح قوسين فارغين «()» كما طُبعت؛ الإنجليزية بلا أقواس. مصطلحا (ب) «الإيحاء» و(جـ) «الدال» يقابلان Affordance وSignifier بينما النقاط الرئيسية تستخدم «الإمكانية» و«دلالة». خيارات (2) العربية تعيد صياغة خيارات تحدى معلوماتك باختلافات:«رسوم توضيحية» مقابل «صور توضيحية»، و«الاستطلاع» مقابل «الاستبيان»، و«في نقاط» مقابل «في نقاط نقطية». في 2(1) الخيار (ب) «واجهة المستخدم النصية» يقابل CUI. مقدمة 2(2) «أ إلى ح» تطابق خياراتها الستة (EN &quot;A to F&quot;)، وجملتها تطبع «القدرة البدنية» بينما النقاط الرئيسية «القدرة الجسدية».</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 83 (المطبوع 83)؛ AR 94." data-en="The text above is from the book. Full source: English PDF 83 (printed 83); Arabic 94.">النص السابق من الكتاب. المصدر الكامل:EN PDF 83 (المطبوع 83)؛ AR 94.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
@@ -1771,55 +801,55 @@ select{color:var(--text)!important}
           <p data-ar="«(2) ما هو المصطلح الذي يطلق على الرموز المستخدمة في المرافق العامة مثل محطات القطار والمطارات لنقل الانتباه أو البيانات للآخرين بصريًا، كما هو موضح في الرسم التوضيحي على اليمين؟ [رسم مطبوع:علامة خضراء لشخص يمشي - بكتغرام]»" data-en="&quot;(2) What is the term for symbols used in public facilities like train stations and airports to visually convey attention or information to others, as shown in the diagram on the right? [printed figure:green exit-style pictogram of a walking person]&quot;">«(2) ما هو المصطلح الذي يطلق على الرموز المستخدمة في المرافق العامة مثل محطات القطار والمطارات لنقل الانتباه أو البيانات للآخرين بصريًا، كما هو موضح في الرسم التوضيحي على اليمين؟ [رسم مطبوع:علامة خضراء لشخص يمشي - بكتغرام]»</p>
           <p data-ar="«2 أجب على الأسئلة التالية. (1) اختر المصطلح الأنسب لملء الفراغات من [1] إلى [3] في الجمل التالية من الخيارات أ إلى ث ، وأجب باستخدام الأحرف. ( [1] ): نظام لنقل البيانات بين البشر والأجهزة. ( [2] ): ( [1] ) من خلال النص. يتم تشغيل كل شيء من لوحة المفاتيح. ( [3] ): ( [1] ) من خلال المرئيات. التشغيل السهل ممكن باستخدام أجهزة مثل الفأرة (الماوس). (أ) واجهة المستخدم الرسومية (ب) واجهة المستخدم النصية (ت) تجربة المستخدم (د) واجهة المستخدم»" data-en="&quot;2 Answer the following questions. (1) Choose the term that best fits into the blanks [1] to [3] in the following sentences from the options A to D below, and answer using the letters. ( [1] ): A system for transferring information between humans and devices. ( [2] ): ([1]) through text. Operate everything from the keyboard. ( [3] ): ([1]) through visuals. Intuitive operation is possible using devices like a mouse. A GUI B CUI C UX D UI&quot;">«2 أجب على الأسئلة التالية. (1) اختر المصطلح الأنسب لملء الفراغات من [1] إلى [3] في الجمل التالية من الخيارات أ إلى ث ، وأجب باستخدام الأحرف. ( [1] ): نظام لنقل البيانات بين البشر والأجهزة. ( [2] ): ( [1] ) من خلال النص. يتم تشغيل كل شيء من لوحة المفاتيح. ( [3] ): ( [1] ) من خلال المرئيات. التشغيل السهل ممكن باستخدام أجهزة مثل الفأرة (الماوس). (أ) واجهة المستخدم الرسومية (ب) واجهة المستخدم النصية (ت) تجربة المستخدم (د) واجهة المستخدم»</p>
           <p data-ar="«(2) اختر الشرح الأنسب لمصطلح &quot;الدال&quot; (signifier) من الخيارات أ إلى ث ، وأجب باستخدام الحرف. (أ) مقياس يستخدم للإشارة إلى مدى سهولة الأمر للمستخدمين ومدى قابليته للفهم. (ب) تصميم تم إنشاؤه بعناية مع افتراض أن الجميع يمكنهم استخدامه دون صعوبة. (ت) حالة يمكن الوصول إليها بسهولة لمجموعة واسعة من الناس. (ث) إشارات تدفع المستخدمين لاتخاذ إجراء.»" data-en="&quot;(2) Choose the most appropriate explanation of a signifier from the options A to D below, and answer using the letter. A A measure used to indicate how easy and understandable it is for users. B Design that is thoughtfully created with the assumption that everyone can use it without difficulty. C A state that is easily accessible to a wide range of people. D Cues that prompt users to take action.&quot;">«(2) اختر الشرح الأنسب لمصطلح &quot;الدال&quot; (signifier) من الخيارات أ إلى ث ، وأجب باستخدام الحرف. (أ) مقياس يستخدم للإشارة إلى مدى سهولة الأمر للمستخدمين ومدى قابليته للفهم. (ب) تصميم تم إنشاؤه بعناية مع افتراض أن الجميع يمكنهم استخدامه دون صعوبة. (ت) حالة يمكن الوصول إليها بسهولة لمجموعة واسعة من الناس. (ث) إشارات تدفع المستخدمين لاتخاذ إجراء.»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1)[1]: (ث) — «تمثيل البيانات بصريًا». 1(1)[2]: (أ) و(ث) — القوائم الهرمية وقائمة أحداث اليوم كلاهما هيكلة؛ (ب) تصور، و(ت) رسم تصويري. 1(2): الرسم التصويري (Pictogram). 2(1): [1] (د) واجهة المستخدم، [2] (ب) واجهة المستخدم النصية، [3] (أ) واجهة المستخدم الرسومية. 2(2): (ث) — «إشارات تدفع المستخدمين لاتخاذ إجراء»." data-en="Answers not printed in the book (teacher-prepared): 1(1)[1]: D - &quot;Representing information visually&quot;. 1(1)[2]: A and D - the hierarchical menus and the day-summary list are both structuring; B is visualization and C is a pictogram. 1(2): Pictogram. 2(1): [1]: D UI, [2]: B CUI, [3]: A GUI. 2(2): D - &quot;Cues that prompt users to take action&quot;.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1)[1]: (ث) — «تمثيل البيانات بصريًا». 1(1)[2]: (أ) و(ث) — القوائم الهرمية وقائمة أحداث اليوم كلاهما هيكلة؛ (ب) تصور، و(ت) رسم تصويري. 1(2): الرسم التصويري (Pictogram). 2(1): [1] (د) واجهة المستخدم، [2] (ب) واجهة المستخدم النصية، [3] (أ) واجهة المستخدم الرسومية. 2(2): (ث) — «إشارات تدفع المستخدمين لاتخاذ إجراء».</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1)[1]: (ث) — «تمثيل البيانات بصريًا». 1(1)[2]: (أ) و(ث) — القوائم الهرمية وقائمة أحداث اليوم كلاهما هيكلة؛ (ب) تصور، و(ت) رسم تصويري. 1(2): الرسم التصويري. 2(1): [1] (د) واجهة المستخدم، [2] (ب) واجهة المستخدم النصية، [3] (أ) واجهة المستخدم الرسومية. 2(2): (ث) —«إشارات تدفع المستخدمين لاتخاذ إجراء»." data-en="Answers not printed in the book (teacher-prepared): 1(1)[1]: D - &quot;Representing information visually&quot;. 1(1)[2]: A and D - the hierarchical menus and the day-summary list are both structuring; B is visualization and C is a pictogram. 1(2): Pictogram. 2(1): [1]: D UI, [2]: B CUI, [3]: A GUI. 2(2): D - &quot;Cues that prompt users to take action&quot;.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1)[1]: (ث) — «تمثيل البيانات بصريًا». 1(1)[2]: (أ) و(ث) — القوائم الهرمية وقائمة أحداث اليوم كلاهما هيكلة؛ (ب) تصور، و(ت) رسم تصويري. 1(2): الرسم التصويري. 2(1): [1] (د) واجهة المستخدم، [2] (ب) واجهة المستخدم النصية، [3] (أ) واجهة المستخدم الرسومية. 2(2): (ث) — «إشارات تدفع المستخدمين لاتخاذ إجراء».</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): لا تطبع أي من النسختين إجابات «تمرين»، والإجابات أعلاه من إعداد المعلم. شريط «تمرين» في الصفحة العربية مطبوع بالأحمر وبقية أشرطة الدرس زرقاء. مقدمة [2] العربية «من الخيارات أ إلى د» مع أربعة خيارات مطبوعة (أ، ب، ت، ث)؛ الإنجليزية &quot;A to D&quot; بأربعة خيارات؛ نُقل النص كما طُبع دون الجزم بالاتفاقية المقصودة. الشروح العربية للمصطلحات هنا بأحرف لاتينية صغيرة «(visualization)» و«(structure)» و«(signifier)» بينما النقاط الرئيسية تكتبها مبدوءة بحرف كبير. سؤال 2(2) العربي يسأل عن «&quot;الدال&quot;» بتنصيص مستقيم — ثالث مصطلح عربي لـSignifier في الدرس («دلالة» في النقاط، «المُشير» في تحدى معلوماتك، «الدال» هنا وفي جرب بنفسك) — وخياره (ث) «إشارات تدفع المستخدمين لاتخاذ إجراء» بينما النقاط الرئيسية «إلى اتخاذ إجراء .» بمسافة قبل النقطة. خيار (أ) في 2(2) يعيد صياغة تعريف قابلية الاستخدام «مدى سهولة الأمر للمستخدمين ومدى قابليته للفهم». سؤال 1(2) العربي «يطلق على الرموز» بلا تاء مسبوقة بينما تحدى معلوماتك (3) «يُطلق». جملتا ( [2] ) و( [3] ) في 2(1) تعيدان ذكر ( [1] ) داخلهما كما في الإنجليزية." data-en="Edition comparison (verified from the printed page images): neither edition prints the Exercise answers; the answers above are teacher-prepared. The Arabic Exercise band is printed red while the other bands of the lesson are blue. The Arabic [2] intro says «أ إلى د» while four options are printed (أ to ث); English prints &quot;A to D&quot; with four options; preserved as printed without asserting the intended convention. The Arabic term glosses here are lowercase &quot;(visualization)&quot;, &quot;(structure)&quot;, &quot;(signifier)&quot; while the Point box capitalizes them. The Arabic 2(2) asks about «&quot;الدال&quot;» in straight quotes - the third Arabic term for Signifier in this lesson («دلالة» in the Point box, «المُشير» in Warm Up, «الدال» here and in Try) - and its option (ث) prints «إشارات تدفع المستخدمين لاتخاذ إجراء» while the Point box prints «إلى اتخاذ إجراء .» with a space before the period. Option (أ) of 2(2) rephrases the usability definition. The Arabic 1(2) prints «يطلق على الرموز» vs Warm Up (3) «يُطلق». The ( [2] ) and ( [3] ) sentences of 2(1) self-reference ( [1] ) as in English.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): لا تطبع أي من النسختين إجابات «تمرين»، والإجابات أعلاه من إعداد المعلم. شريط «تمرين» في الصفحة العربية مطبوع بالأحمر وبقية أشرطة الدرس زرقاء. مقدمة [2] العربية «من الخيارات أ إلى د» مع أربعة خيارات مطبوعة (أ، ب، ت، ث)؛ الإنجليزية &quot;A to D&quot; بأربعة خيارات؛ نُقل النص كما طُبع دون الجزم بالاتفاقية المقصودة. الشروح العربية للمصطلحات هنا بأحرف لاتينية صغيرة «(visualization)» و«(structure)» و«(signifier)» بينما النقاط الرئيسية تكتبها مبدوءة بحرف كبير. سؤال 2(2) العربي يسأل عن «&quot;الدال&quot;» بتنصيص مستقيم — ثالث مصطلح عربي لـSignifier في الدرس («دلالة» في النقاط، «المُشير» في تحدى معلوماتك، «الدال» هنا وفي جرب بنفسك) — وخياره (ث) «إشارات تدفع المستخدمين لاتخاذ إجراء» بينما النقاط الرئيسية «إلى اتخاذ إجراء .» بمسافة قبل النقطة. خيار (أ) في 2(2) يعيد صياغة تعريف قابلية الاستخدام «مدى سهولة الأمر للمستخدمين ومدى قابليته للفهم». سؤال 1(2) العربي «يطلق على الرموز» بلا تاء مسبوقة بينما تحدى معلوماتك (3) «يُطلق». جملتا ( [2] ) و( [3] ) في 2(1) تعيدان ذكر ( [1] ) داخلهما كما في الإنجليزية.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 84 (المطبوع 84)؛ AR 95." data-en="The text above is from the book. Full source: English PDF 84 (printed 84); Arabic 95.">النص السابق من الكتاب. المصدر الكامل:EN PDF 84 (المطبوع 84)؛ AR 95.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: طرق تصميم المعلومات (Information) — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 1: Information Design methods - not printed in the book">✍️ تدريب تفاعلي إضافي 1: طرق تصميم المعلومات (Information) — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: طرق تصميم المعلومات — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 1: Information Design methods - not printed in the book">✍️ تدريب تفاعلي إضافي 1: طرق تصميم المعلومات — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="إيه أنسب مثال على التجريد كطريقة من طرق تصميم المعلومات (Information)؟"
-              data-en="Which is the most appropriate example of Abstraction as a method of Information Design?">إيه أنسب مثال على التجريد كطريقة من طرق تصميم المعلومات (Information)؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="إيه أنسب مثال على التجريد كطريقة من طرق تصميم المعلومات؟"
+              data-en="Which is the most appropriate example of Abstraction as a method of Information Design?">إيه أنسب مثال على التجريد كطريقة من طرق تصميم المعلومات؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  صفحة ويب متنظّمة بقوائم لكل تسلسل هرمي"
-              data-en="A  a web page organized with menus for each hierarchy">A  صفحة ويب متنظّمة بقوائم لكل تسلسل هرمي</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  اتعملت بيكتوجرامات لكل فصل عشان تدل الناس في المدرسة"
-              data-en="B  pictograms were created for each classroom to guide people around the school">B  اتعملت بيكتوجرامات لكل فصل عشان تدل الناس في المدرسة</div>
-            <div class="ex-opt" data-ar="C  نتايج الاستبيان اتجمّعت في جداول ورسوم بيانية"
-              data-en="C  survey results were compiled into tables and graphs">C  نتايج الاستبيان اتجمّعت في جداول ورسوم بيانية</div>
+            <div class="ex-opt" data-ar="A صفحة ويب متنظّمة بقوائم لكل تسلسل هرمي"
+              data-en="A  a web page organized with menus for each hierarchy">A صفحة ويب متنظّمة بقوائم لكل تسلسل هرمي</div>
+            <div class="ex-opt" data-ok="1" data-ar="B اتعملت بيكتوجرامات لكل فصل عشان تدل الناس في المدرسة"
+              data-en="B  pictograms were created for each classroom to guide people around the school">B اتعملت بيكتوجرامات لكل فصل عشان تدل الناس في المدرسة</div>
+            <div class="ex-opt" data-ar="C نتايج الاستبيان اتجمّعت في جداول ورسوم بيانية"
+              data-en="C  survey results were compiled into tables and graphs">C نتايج الاستبيان اتجمّعت في جداول ورسوم بيانية</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B" data-en="✅ Answer: B">✅ الإجابة: B</b> <span
-              data-ar="البيكتوجرامات رموز صورية بيلخّصوا المعلومات (Information) ببساطة — وده التجريد. والصفحة الهرمية هي التنظيم، والجداول هي التصوير الهيكلي."
-              data-en="Pictograms are pictorial symbols that simply summarize information — that is Abstraction. The hierarchical page is Structuring, and tables are Visualization.">البيكتوجرامات رموز صورية بيلخّصوا المعلومات (Information) ببساطة — وده التجريد. والصفحة الهرمية هي التنظيم، والجداول هي التصوير الهيكلي.</span></div>
+              data-ar="البيكتوجرامات رموز صورية بيلخّصوا المعلومات ببساطة — وده التجريد. والصفحة الهرمية هي التنظيم، والجداول هي التصوير الهيكلي."
+              data-en="Pictograms are pictorial symbols that simply summarize information — that is Abstraction. The hierarchical page is Structuring, and tables are Visualization.">البيكتوجرامات رموز صورية بيلخّصوا المعلومات ببساطة — وده التجريد. والصفحة الهرمية هي التنظيم، والجداول هي التصوير الهيكلي.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه أنسب مثال على التصوير الهيكلي؟"
               data-en="Which is the most appropriate example of Visualization?">إيه أنسب مثال على التصوير الهيكلي؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  نص بيلخّص حاجات متعددة في نقط"
-              data-en="A  text summarizing multiple matters in bullet points">A  نص بيلخّص حاجات متعددة في نقط</div>
-            <div class="ex-opt" data-ar="B  صفحة ويب متنظّمة بقوائم لكل تسلسل هرمي"
-              data-en="B  a web page organized with menus for each hierarchy">B  صفحة ويب متنظّمة بقوائم لكل تسلسل هرمي</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  نتايج الاستبيان اتجمّعت في جداول ورسوم بيانية"
-              data-en="C  survey results were compiled into tables and graphs">C  نتايج الاستبيان اتجمّعت في جداول ورسوم بيانية</div>
+            <div class="ex-opt" data-ar="A نص بيلخّص حاجات متعددة في نقط"
+              data-en="A  text summarizing multiple matters in bullet points">A نص بيلخّص حاجات متعددة في نقط</div>
+            <div class="ex-opt" data-ar="B صفحة ويب متنظّمة بقوائم لكل تسلسل هرمي"
+              data-en="B  a web page organized with menus for each hierarchy">B صفحة ويب متنظّمة بقوائم لكل تسلسل هرمي</div>
+            <div class="ex-opt" data-ok="1" data-ar="C نتايج الاستبيان اتجمّعت في جداول ورسوم بيانية"
+              data-en="C  survey results were compiled into tables and graphs">C نتايج الاستبيان اتجمّعت في جداول ورسوم بيانية</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C" data-en="✅ Answer: C">✅ الإجابة: C</b> <span
-              data-ar="الجداول والرسوم البيانية أمثلة على التصوير الهيكلي — تمثيل المعلومات (Information) بصرياً."
-              data-en="Tables and graphs are examples of Visualization — visually representing information.">الجداول والرسوم البيانية أمثلة على التصوير الهيكلي — تمثيل المعلومات (Information) بصرياً.</span></div>
+              data-ar="الجداول والرسوم البيانية أمثلة على التصوير الهيكلي — تمثيل المعلومات بصرياً."
+              data-en="Tables and graphs are examples of Visualization — visually representing information.">الجداول والرسوم البيانية أمثلة على التصوير الهيكلي — تمثيل المعلومات بصرياً.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="إيه المصطلح اللي بيكمّل: 'طريقة لاستخراج العناصر الضرورية بس من كمية كبيرة من المعلومات (Information)'؟"
-              data-en="Which term fits: 'a method for extracting only the necessary elements from a large amount of information'?">إيه المصطلح اللي بيكمّل: 'طريقة لاستخراج العناصر الضرورية بس من كمية كبيرة من المعلومات (Information)'؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="إيه المصطلح اللي بيكمّل: 'طريقة لاستخراج العناصر الضرورية بس من كمية كبيرة من المعلومات'؟"
+              data-en="Which term fits: 'a method for extracting only the necessary elements from a large amount of information'?">إيه المصطلح اللي بيكمّل: 'طريقة لاستخراج العناصر الضرورية بس من كمية كبيرة من المعلومات'؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  التجريد" data-en="A  Abstraction">A  التجريد
-              <span dir="ltr">(Abstraction)</span></div>
-            <div class="ex-opt" data-ar="B  التنظيم" data-en="B  Structuring">B  الهيكلة <span
+            <div class="ex-opt" data-ok="1" data-ar="A التجريد" data-en="A  Abstraction">A التجريد
+ <span dir="ltr">(Abstraction)</span></div>
+            <div class="ex-opt" data-ar="B التنظيم" data-en="B  Structuring">B الهيكلة <span
                 dir="ltr">(Structuring)</span></div>
-            <div class="ex-opt" data-ar="C  التصوير الهيكلي" data-en="C  Visualization">C  التصوير البصري
-              <span dir="ltr">(Visualization)</span></div>
+            <div class="ex-opt" data-ar="C التصوير الهيكلي" data-en="C  Visualization">C التصوير البصري
+ <span dir="ltr">(Visualization)</span></div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: A — التجريد" data-en="✅ Answer: A — Abstraction">✅ الإجابة: A — التجريد</b> <span data-ar="التجريد بيوصّل المعلومات (Information) المقصودة ببساطة من جوه كمية كبيرة من الداتا (Data)."
-              data-en="Abstraction conveys the intended information simply from within a large amount of data.">التجريد بيوصّل المعلومات (Information) المقصودة ببساطة من جوه كمية كبيرة من الداتا (Data).</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — التجريد" data-en="✅ Answer: A — Abstraction">✅ الإجابة: A — التجريد</b> <span data-ar="التجريد بيوصّل المعلومات المقصودة ببساطة من جوه كمية كبيرة من البيانات."
+              data-en="Abstraction conveys the intended information simply from within a large amount of data.">التجريد بيوصّل المعلومات المقصودة ببساطة من جوه كمية كبيرة من البيانات.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1833,11 +863,11 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="الكمبيوترات الحديثة بتستخدم على نطاق واسع (...) اللي بتتعامل بآيقونات بالماوس، بينما القديمة كانت بتستخدم (...) بأوامر نصية."
               data-en="Current computers widely use (...) which handles icons with a mouse, while early computers used (...) with text commands.">الكمبيوترات الحديثة بتستخدم على نطاق واسع (...) اللي بتتعامل بآيقونات بالماوس، بينما القديمة كانت بتستخدم (...) بأوامر نصية.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  [1] CUI، [2] GUI" data-en="A  [1] CUI, [2] GUI">A  <span
+            <div class="ex-opt" data-ar="A [1] CUI، [2] GUI" data-en="A  [1] CUI, [2] GUI">A  <span
                 dir="ltr">[1] CUI</span> ، <span dir="ltr">[2] GUI</span></div>
-            <div class="ex-opt" data-ar="B  [1] UX، [2] UI" data-en="B  [1] UX, [2] UI">B  <span
+            <div class="ex-opt" data-ar="B [1] UX، [2] UI" data-en="B  [1] UX, [2] UI">B  <span
                 dir="ltr">[1] UX</span> ، <span dir="ltr">[2] UI</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  [1] GUI، [2] CUI" data-en="C  [1] GUI, [2] CUI">C  <span
+            <div class="ex-opt" data-ok="1" data-ar="C [1] GUI، [2] CUI" data-en="C  [1] GUI, [2] CUI">C  <span
                 dir="ltr">[1] GUI</span> ، <span dir="ltr">[2] CUI</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C" data-en="✅ Answer: C">✅ الإجابة: C</b> <span
@@ -1848,11 +878,11 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="'التجربة أو الأثر العاطفي اللي بياخده المستخدمين من التعامل مع منتج أو خدمة' هو تعريف إيه؟"
               data-en="'The experience or emotional impact that users gain from interacting with a product or service' is the definition of?">'التجربة أو الأثر العاطفي اللي بياخده المستخدمين من التعامل مع منتج أو خدمة' هو تعريف إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  تجربة المستخدم (UX)" data-en="A  User Experience (UX)">B  تجربة
-              المستخدم <span dir="ltr">(UX)</span></div>
-            <div class="ex-opt" data-ar="B  واجهة المستخدم (UI)" data-en="B  User Interface (UI)">A  واجهة المستخدم
-              <span dir="ltr">(UI)</span></div>
-            <div class="ex-opt" data-ar="C  القدرة على الاستخدام (Affordance)" data-en="C  Affordance">C  الاستطاعة <span
+            <div class="ex-opt" data-ok="1" data-ar="A تجربة المستخدم" data-en="A  User Experience (UX)">B تجربة
+ المستخدم <span dir="ltr">(UX)</span></div>
+            <div class="ex-opt" data-ar="B واجهة المستخدم" data-en="B  User Interface (UI)">A واجهة المستخدم
+ <span dir="ltr">(UI)</span></div>
+            <div class="ex-opt" data-ar="C القدرة على الاستخدام" data-en="C  Affordance">C الاستطاعة <span
                 dir="ltr">(Affordance)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — UX" data-en="✅ Answer: A — UX">✅ الإجابة: A — UX</b> <span
@@ -1860,16 +890,16 @@ select{color:var(--text)!important}
               data-en="UX is the experience and emotional impact from interacting — not the interface itself.">UX هي التجربة والأثر العاطفي من التفاعل — مش الواجهة نفسها.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="النظام لنقل المعلومات (Information) بين البشر والأجهزة — ده (...) واجهة المستخدم؟"
-              data-en="The system for transferring information between humans and devices — this is the (...) User Interface?">النظام لنقل المعلومات (Information) بين البشر والأجهزة — ده (...) واجهة المستخدم؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="النظام لنقل المعلومات بين البشر والأجهزة — ده (...) واجهة المستخدم؟"
+              data-en="The system for transferring information between humans and devices — this is the (...) User Interface?">النظام لنقل المعلومات بين البشر والأجهزة — ده (...) واجهة المستخدم؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  UX" data-en="A  UX">A  <span dir="ltr">UX</span></div>
-            <div class="ex-opt" data-ar="B  CUI" data-en="B  CUI">B  <span dir="ltr">CUI</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  UI" data-en="C  UI">C  <span dir="ltr">UI</span></div>
+            <div class="ex-opt" data-ar="A UX" data-en="A  UX">A  <span dir="ltr">UX</span></div>
+            <div class="ex-opt" data-ar="B CUI" data-en="B  CUI">B  <span dir="ltr">CUI</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C UI" data-en="C  UI">C  <span dir="ltr">UI</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — UI" data-en="✅ Answer: C — UI">✅ الإجابة: C — UI</b> <span
-              data-ar="UI هو النظام لنقل المعلومات (Information) بين البشر والأجهزة."
-              data-en="UI is the system for transferring information between humans and devices.">UI هو النظام لنقل المعلومات (Information) بين البشر والأجهزة.</span></div>
+              data-ar="UI هو النظام لنقل المعلومات بين البشر والأجهزة."
+              data-en="UI is the system for transferring information between humans and devices.">UI هو النظام لنقل المعلومات بين البشر والأجهزة.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1878,49 +908,49 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 3: القدرة على الاستخدام (Affordance) والمؤشّر (Signifier) — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 3: Affordance and Signifier - not printed in the book">✍️ تدريب تفاعلي إضافي 3: القدرة على الاستخدام (Affordance) والمؤشّر (Signifier) — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 3: القدرة على الاستخدام والمؤشّر — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 3: Affordance and Signifier - not printed in the book">✍️ تدريب تفاعلي إضافي 3: القدرة على الاستخدام والمؤشّر — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
           <div class="q"><span class="q-num">1</span> <span data-ar="الأفعال أو العمليات اللي ممكن تتعمل على شيء — ده تعريف إيه؟"
               data-en="The actions or operations that can be performed on an object — what is the definition?">الأفعال أو العمليات اللي ممكن تتعمل على شيء — ده تعريف إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  القدرة على الاستخدام (Affordance)" data-en="A  Affordance">B  الاستطاعة
-              <span dir="ltr">(Affordance)</span></div>
-            <div class="ex-opt" data-ar="B  المؤشّر (Signifier)" data-en="B  Signifier">B  المؤشر <span
+            <div class="ex-opt" data-ok="1" data-ar="A القدرة على الاستخدام" data-en="A  Affordance">B الاستطاعة
+ <span dir="ltr">(Affordance)</span></div>
+            <div class="ex-opt" data-ar="B المؤشّر" data-en="B  Signifier">B المؤشر <span
                 dir="ltr">(Signifier)</span></div>
-            <div class="ex-opt" data-ar="C  سهولة الاستخدام" data-en="C  Usability">C  قابلية الاستخدام
-              <span dir="ltr">(Usability)</span></div>
+            <div class="ex-opt" data-ar="C سهولة الاستخدام" data-en="C  Usability">C قابلية الاستخدام
+ <span dir="ltr">(Usability)</span></div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: A — القدرة على الاستخدام (Affordance)" data-en="✅ Answer: A — Affordance">✅ الإجابة: A — القدرة على الاستخدام (Affordance)</b> <span data-ar="القدرة على الاستخدام (Affordance) هي الأفعال أو العمليات الممكنة على شيء."
-              data-en="Affordance is the actions or operations possible on an object.">القدرة على الاستخدام (Affordance) هي الأفعال أو العمليات الممكنة على شيء.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — القدرة على الاستخدام" data-en="✅ Answer: A — Affordance">✅ الإجابة: A — القدرة على الاستخدام</b> <span data-ar="القدرة على الاستخدام هي الأفعال أو العمليات الممكنة على شيء."
+              data-en="Affordance is the actions or operations possible on an object.">القدرة على الاستخدام هي الأفعال أو العمليات الممكنة على شيء.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="الأدلة اللي بتخلي المستخدم يتحرك — ده تعريف إيه؟"
               data-en="The cues that prompt users to take action — what is the definition?">الأدلة اللي بتخلي المستخدم يتحرك — ده تعريف إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  القدرة على الاستخدام (Affordance)" data-en="A  Affordance">A  الاستطاعة <span
+            <div class="ex-opt" data-ar="A القدرة على الاستخدام" data-en="A  Affordance">A الاستطاعة <span
                 dir="ltr">(Affordance)</span></div>
-            <div class="ex-opt" data-ar="B  تجربة المستخدم (UX)" data-en="B  User Experience (UX)">B  تجربة المستخدم
-              <span dir="ltr">(UX)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  المؤشّر (Signifier)" data-en="C  Signifier">C  المؤشر <span
+            <div class="ex-opt" data-ar="B تجربة المستخدم" data-en="B  User Experience (UX)">B تجربة المستخدم
+ <span dir="ltr">(UX)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C المؤشّر" data-en="C  Signifier">C المؤشر <span
                 dir="ltr">(Signifier)</span></div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: C — المؤشّر (Signifier)" data-en="✅ Answer: C — Signifier">✅ الإجابة: C — المؤشّر (Signifier)</b> <span data-ar="المؤشّر (Signifier) هو الأدلة اللي بتخلي المستخدم يتحرك."
-              data-en="The Signifier is the cues that prompt users to take action.">المؤشّر (Signifier) هو الأدلة اللي بتخلي المستخدم يتحرك.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — المؤشّر" data-en="✅ Answer: C — Signifier">✅ الإجابة: C — المؤشّر</b> <span data-ar="المؤشّر هو الأدلة اللي بتخلي المستخدم يتحرك."
+              data-en="The Signifier is the cues that prompt users to take action.">المؤشّر هو الأدلة اللي بتخلي المستخدم يتحرك.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="إيه مثال على المؤشّر (Signifier)؟"
-              data-en="Which is an example of a Signifier?">إيه مثال على المؤشّر (Signifier)؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="إيه مثال على المؤشّر؟"
+              data-en="Which is an example of a Signifier?">إيه مثال على المؤشّر؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  سهم متوهّج بيدّي اتجاه التمرير"
-              data-en="A  a glowing arrow indicating the scroll direction">A  سهم متوهّج بيدّي اتجاه التمرير</div>
-            <div class="ex-opt" data-ar="B  زر بارز شكله بيدّي إيحاء بالضغط"
-              data-en="B  a raised button whose shape suggests pressing">B  زر بارز شكله بيدّي إيحاء بالضغط</div>
-            <div class="ex-opt" data-ar="C  حقل نص شكله بيدّي إيحاء بالكتابة"
-              data-en="C  a text field whose shape suggests typing">C  حقل نص شكله بيدّي إيحاء بالكتابة</div>
+            <div class="ex-opt" data-ok="1" data-ar="A سهم متوهّج بيدّي اتجاه التمرير"
+              data-en="A  a glowing arrow indicating the scroll direction">A سهم متوهّج بيدّي اتجاه التمرير</div>
+            <div class="ex-opt" data-ar="B زر بارز شكله بيدّي إيحاء بالضغط"
+              data-en="B  a raised button whose shape suggests pressing">B زر بارز شكله بيدّي إيحاء بالضغط</div>
+            <div class="ex-opt" data-ar="C حقل نص شكله بيدّي إيحاء بالكتابة"
+              data-en="C  a text field whose shape suggests typing">C حقل نص شكله بيدّي إيحاء بالكتابة</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A" data-en="✅ Answer: A">✅ الإجابة: A</b> <span
-              data-ar="السهم المتوهّج دليل بيقولك فيه فعل ممكن — بينما شكل الزر والحقل هما القدرة على الاستخدام (Affordance)."
-              data-en="a glowing arrow is a cue telling you an action is possible — while the button's and field's shapes are affordance.">السهم المتوهّج دليل بيقولك فيه فعل ممكن — بينما شكل الزر والحقل هما القدرة على الاستخدام (Affordance).</span></div>
+              data-ar="السهم المتوهّج دليل بيقولك فيه فعل ممكن — بينما شكل الزر والحقل هما القدرة على الاستخدام."
+              data-en="a glowing arrow is a cue telling you an action is possible — while the button's and field's shapes are affordance.">السهم المتوهّج دليل بيقولك فيه فعل ممكن — بينما شكل الزر والحقل هما القدرة على الاستخدام.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1929,14 +959,14 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: تنظيم المعلومات (Information) والتصميم الشامل — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 4: organizing information and universal design - not printed in the book">✍️ تدريب تفاعلي إضافي 4: تنظيم المعلومات (Information) والتصميم الشامل — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: تنظيم المعلومات والتصميم الشامل — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 4: organizing information and universal design - not printed in the book">✍️ تدريب تفاعلي إضافي 4: تنظيم المعلومات والتصميم الشامل — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="المبدأ اللي بينظّم المعلومات (Information) حسب المكان والأبجدية والوقت والفئة والتسلسل الهرمي بيتسمّى إيه؟"
-              data-en="The principle that organizes information by Location, Alphabet, Time, Category, and Hierarchy is called?">المبدأ اللي بينظّم المعلومات (Information) حسب المكان والأبجدية والوقت والفئة والتسلسل الهرمي بيتسمّى إيه؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="المبدأ اللي بينظّم المعلومات حسب المكان والأبجدية والوقت والفئة والتسلسل الهرمي بيتسمّى إيه؟"
+              data-en="The principle that organizes information by Location, Alphabet, Time, Category, and Hierarchy is called?">المبدأ اللي بينظّم المعلومات حسب المكان والأبجدية والوقت والفئة والتسلسل الهرمي بيتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  طريقة RUN" data-en="A  the RUN method">A  طريقة RUN</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  طريقة LATCH" data-en="B  the LATCH method">B  طريقة LATCH</div>
-            <div class="ex-opt" data-ar="C  طريقة CUI" data-en="C  the CUI method">C  طريقة CUI</div>
+            <div class="ex-opt" data-ar="A طريقة RUN" data-en="A  the RUN method">A طريقة RUN</div>
+            <div class="ex-opt" data-ok="1" data-ar="B طريقة LATCH" data-en="B  the LATCH method">B طريقة LATCH</div>
+            <div class="ex-opt" data-ar="C طريقة CUI" data-en="C  the CUI method">C طريقة CUI</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — LATCH" data-en="✅ Answer: B — LATCH">✅ الإجابة: B — LATCH</b>
             <span data-ar="LATCH بيمثّل خمس معايير: المكان والأبجدية والوقت والفئة والتسلسل الهرمي."
@@ -1946,12 +976,12 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="'تصميم متعمول بعناية عشان أي حد يقدر يستخدمه من غير صعوبة، بغض النظر عن السن أو اللغة أو الجنسية أو القدرة الجسدية' هو تعريف إيه؟"
               data-en="'Design thoughtfully created so everyone can use it without difficulty, regardless of age, language, nationality, or physical ability' is the definition of?">'تصميم متعمول بعناية عشان أي حد يقدر يستخدمه من غير صعوبة، بغض النظر عن السن أو اللغة أو الجنسية أو القدرة الجسدية' هو تعريف إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  سهولة الاستخدام" data-en="A  Usability">A  قابلية الاستخدام
-              <span dir="ltr">(Usability)</span></div>
-            <div class="ex-opt" data-ar="B  إمكانية الوصول" data-en="B  Accessibility">C  سهولة الوصول
-              <span dir="ltr">(Accessibility)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  التصميم الشامل" data-en="C  Universal design">B
-              التصميم الشامل <span dir="ltr">(Universal design)</span></div>
+            <div class="ex-opt" data-ar="A سهولة الاستخدام" data-en="A  Usability">A قابلية الاستخدام
+ <span dir="ltr">(Usability)</span></div>
+            <div class="ex-opt" data-ar="B إمكانية الوصول" data-en="B  Accessibility">C سهولة الوصول
+ <span dir="ltr">(Accessibility)</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C التصميم الشامل" data-en="C  Universal design">B
+ التصميم الشامل <span dir="ltr">(Universal design)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — التصميم الشامل" data-en="✅ Answer: C — Universal design">✅ الإجابة: C — التصميم الشامل</b> <span
               data-ar="التصميم الشامل متعمول بعناية عشان كل الناس تقدر تستخدمه من غير صعوبة."
@@ -1961,11 +991,11 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="مقياس بيتستخدم عشان يوضّح قد إيه سهل وواضح للمستخدمين — ده تعريف إيه؟"
               data-en="A measure used to indicate how easy and understandable it is for users — what is the definition?">مقياس بيتستخدم عشان يوضّح قد إيه سهل وواضح للمستخدمين — ده تعريف إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  القدرة على الاستخدام (Affordance)" data-en="A  Affordance">A  الاستطاعة <span
+            <div class="ex-opt" data-ar="A القدرة على الاستخدام" data-en="A  Affordance">A الاستطاعة <span
                 dir="ltr">(Affordance)</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  سهولة الاستخدام" data-en="B  Usability">B  قابلية
-              الاستخدام <span dir="ltr">(Usability)</span></div>
-            <div class="ex-opt" data-ar="C  المؤشّر (Signifier)" data-en="C  Signifier">C  المؤشر <span
+            <div class="ex-opt" data-ok="1" data-ar="B سهولة الاستخدام" data-en="B  Usability">B قابلية
+ الاستخدام <span dir="ltr">(Usability)</span></div>
+            <div class="ex-opt" data-ar="C المؤشّر" data-en="C  Signifier">C المؤشر <span
                 dir="ltr">(Signifier)</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — سهولة الاستخدام" data-en="✅ Answer: B — Usability">✅ الإجابة: B — سهولة الاستخدام</b> <span data-ar="سهولة الاستخدام هي مقياس لدرجة السهولة والوضوح."
@@ -1999,23 +1029,23 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="تصميم المعلومات (Information)" data-en="Information Design">تصميم المعلومات (Information)</h4>
-                  <p data-ar="تنظيم والتعبير الإبداعي عن المعلومات (Information) حسب الغرض منها — عن طريق التجريد والتصوير الهيكلي والتنظيم."
-                    data-en="organizing and creatively expressing information according to its purpose — via Abstraction, Visualization, and Structuring.">تنظيم والتعبير الإبداعي عن المعلومات (Information) حسب الغرض منها — عن طريق التجريد والتصوير الهيكلي والتنظيم.</p>
+                  <h3 data-ar="تصميم المعلومات" data-en="Information Design" class="lvl-h4 lvl-h4-2">تصميم المعلومات</h3>
+                  <p data-ar="تنظيم والتعبير الإبداعي عن المعلومات حسب الغرض منها — عن طريق التجريد والتصوير الهيكلي والتنظيم."
+                    data-en="organizing and creatively expressing information according to its purpose — via Abstraction, Visualization, and Structuring.">تنظيم والتعبير الإبداعي عن المعلومات حسب الغرض منها — عن طريق التجريد والتصوير الهيكلي والتنظيم.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="واجهة المستخدم UI" data-en="The User Interface UI">واجهة المستخدم UI</h4>
-                  <p data-ar="نظام لنقل المعلومات (Information) بين البشر والأجهزة — بنوعين: النصي CUI والرسوم.(GUI) الرسومي."
-                    data-en="a system for transferring information between humans and devices — with two types: text CUI and graphical GUI.">نظام لنقل المعلومات (Information) بين البشر والأجهزة — بنوعين: النصي CUI والرسوم.(GUI) الرسومي.</p>
+                  <h3 data-ar="واجهة المستخدم UI" data-en="The User Interface UI" class="lvl-h4 lvl-h4-2">واجهة المستخدم UI</h3>
+                  <p data-ar="نظام لنقل المعلومات بين البشر والأجهزة — بنوعين: النصي CUI والرسوم. الرسومي."
+                    data-en="a system for transferring information between humans and devices — with two types: text CUI and graphical GUI.">نظام لنقل المعلومات بين البشر والأجهزة — بنوعين: النصي CUI والرسوم. الرسومي.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="تجربة المستخدم UX" data-en="The User Experience UX">تجربة المستخدم UX</h4>
+                  <h3 data-ar="تجربة المستخدم UX" data-en="The User Experience UX" class="lvl-h4 lvl-h4-2">تجربة المستخدم UX</h3>
                   <p data-ar="التجربة والأثر العاطفي من التفاعل — الهدف مش بس السهولة كمان الراحة."
                     data-en="the experience and emotional impact from interacting — the aim is not only ease but also comfort.">التجربة والأثر العاطفي من التفاعل — الهدف مش بس السهولة كمان الراحة.</p>
                 </div>
@@ -2023,15 +1053,15 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">04</span>
                 <div>
-                  <h4 data-ar="القدرة على الاستخدام (Affordance) والمؤشّر (Signifier)" data-en="Affordance and Signifier">القدرة على الاستخدام (Affordance) والمؤشّر (Signifier)</h4>
-                  <p data-ar="القدرة على الاستخدام (Affordance) هي الأفعال الممكنة على شيء، والمؤشّر (Signifier) هو الأدلة اللي بتخلي المستخدم يتحرك."
-                    data-en="Affordance is the possible actions on an object, and the Signifier is the cues that prompt the user to act.">القدرة على الاستخدام (Affordance) هي الأفعال الممكنة على شيء، والمؤشّر (Signifier) هو الأدلة اللي بتخلي المستخدم يتحرك.</p>
+                  <h3 data-ar="القدرة على الاستخدام والمؤشّر" data-en="Affordance and Signifier" class="lvl-h4 lvl-h4-2">القدرة على الاستخدام والمؤشّر</h3>
+                  <p data-ar="القدرة على الاستخدام هي الأفعال الممكنة على شيء، والمؤشّر هو الأدلة اللي بتخلي المستخدم يتحرك."
+                    data-en="Affordance is the possible actions on an object, and the Signifier is the cues that prompt the user to act.">القدرة على الاستخدام هي الأفعال الممكنة على شيء، والمؤشّر هو الأدلة اللي بتخلي المستخدم يتحرك.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">05</span>
                 <div>
-                  <h4 data-ar="سهولة الاستخدام وإمكانية الوصول" data-en="Usability and Accessibility">سهولة الاستخدام وإمكانية الوصول</h4>
+                  <h3 data-ar="سهولة الاستخدام وإمكانية الوصول" data-en="Usability and Accessibility" class="lvl-h4 lvl-h4-2">سهولة الاستخدام وإمكانية الوصول</h3>
                   <p data-ar="سهولة الاستخدام هي مقياس للسهولة، وإمكانية الوصول هي سهولة الوصول للكل، والتصميم الشامل متعمول عمداً لكل الناس من غير صعوبة."
                     data-en="Usability is a measure of ease, Accessibility is ease of access for everyone, and Universal design is intentionally created for all people without difficulty.">سهولة الاستخدام هي مقياس للسهولة، وإمكانية الوصول هي سهولة الوصول للكل، والتصميم الشامل متعمول عمداً لكل الناس من غير صعوبة.</p>
                 </div>
@@ -2050,8 +1080,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="recapRecall">
           <div class="rq" data-id="recapRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه الطريقة اللي بتعبّر عن المعلومات (Information) بصرياً زي الجداول والرسوم البيانية؟"
-                data-en="Which method expresses information visually like tables and graphs?">إيه الطريقة اللي بتعبّر عن المعلومات (Information) بصرياً زي الجداول والرسوم البيانية؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه الطريقة اللي بتعبّر عن المعلومات بصرياً زي الجداول والرسوم البيانية؟"
+                data-en="Which method expresses information visually like tables and graphs?">إيه الطريقة اللي بتعبّر عن المعلومات بصرياً زي الجداول والرسوم البيانية؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq1o2" data-key="A"
                 data-fb-ar="مش كده — التجريد بيستخرج المهم ببساطة." data-fb-en="Not quite — Abstraction extracts what matters simply."><span
@@ -2097,8 +1127,8 @@ select{color:var(--text)!important}
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq3o2" data-key="A"
                 data-fb-ar="مش كده — المؤشر هو الإشارة اللي بتدفع للفعل." data-fb-en="Not quite — the Signifier is the cue that prompts action."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="المؤشّر (Signifier)"
-                  data-en="the Signifier">المؤشّر (Signifier)</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="المؤشّر"
+                  data-en="the Signifier">المؤشّر</span></div>
               <div class="rq-opt" data-id="recapRq3o3" data-key="B"
                 data-fb-ar="مش كده — دي مقياس سهولة الاستخدام."
                 data-fb-en="Not quite — that is a measure of ease of use."><span class="rq-key">B</span><span
@@ -2106,8 +1136,8 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="recapRq3o1" data-key="C" data-ok="1"
                 data-fb-ar="صحيح! شكل الزر بيوحي بالفعل الممكن — دي استطاعة."
                 data-fb-en="Correct! The button's shape hints at the possible action — that is affordance."><span
-                  class="rq-key">C</span><span class="rq-body" data-ar="القدرة على الاستخدام (Affordance)"
-                  data-en="Affordance">القدرة على الاستخدام (Affordance)</span></div>
+                  class="rq-key">C</span><span class="rq-body" data-ar="القدرة على الاستخدام"
+                  data-en="Affordance">القدرة على الاستخدام</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="recapRq3Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -2658,30 +1688,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>

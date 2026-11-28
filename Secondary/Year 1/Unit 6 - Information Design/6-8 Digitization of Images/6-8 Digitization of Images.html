@@ -10,982 +10,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 6-8 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap:anywhere
-    }
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/6-8-digitization-of-images-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
 </head>
 
 <body>
@@ -1007,7 +36,7 @@ select{color:var(--text)!important}
         <a href="#intro" data-ar="يلا نبدأ" data-en="Start">يلا نبدأ</a>
         <a href="#pixel" data-ar="البيكسل والدقة" data-en="Pixel & Resolution">البيكسل والدقة</a>
         <a href="#dig" data-ar="خطوات الرقمنة" data-en="Digitization Steps">خطوات الرقمنة</a>
-        <a href="#amount" data-ar="مقدار الداتا (Data)" data-en="Data Amount">مقدار الداتا (Data)</a>
+        <a href="#amount" data-ar="مقدار البيانات" data-en="Data Amount">مقدار البيانات</a>
         <a href="#format" data-ar="الصيغ والألوان" data-en="Formats & Colors">الصيغ والألوان</a>
         <a href="#practice" data-ar="تمارين" data-en="Exercises">تمارين</a>
         <a href="#recap" data-ar="المراجعة" data-en="Recap">المراجعة</a>
@@ -1020,11 +49,11 @@ select{color:var(--text)!important}
       <div class="hero-badge" data-ar="الدرس 8 — دراسة المعلومات" data-en="Lesson 8 — Information Study">الدرس 8 — دراسة المعلومات</div>
       <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>رقمنة</span> الصور" data-en="<span class=&quot;grad&quot;>Digitization</span> of Images">رقمنة <span class="grad">الصور</span></h1>
       <p class="hero-sub"
-        data-ar="رقمنة الصور — الصور بتتخزّن كبكسلات. النهارده هنتعلّم البكسل والدقة، وخطوات المعاينة والتكميم والترميز، وحساب مقدار داتا (Data) الصورة، وصيغ Raster وVector، والألوان."
+        data-ar="رقمنة الصور — الصور بتتخزّن كبكسلات. النهارده هنتعلّم البكسل والدقة، وخطوات المعاينة والتكميم والترميز، وحساب مقدار بيانات الصورة، وصيغ Raster وVector، والألوان."
         data-en="Digitization of Images — images are stored as pixels. Today we learn pixels and resolution, the Sampling, Quantization and Encoding steps, calculating the image data amount, the Raster and Vector formats, and colors.">
         <span dir="ltr">Digitization of Images</span> — الصور بتتخزن كبكسلات. النهارده هنتعلم البكسل والدقة، وخطوات
-        Sampling وQuantization وEncoding، وحساب حجم بيانات الصورة، وتنسيقي Raster وVector والألوان.</p>
-      <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="13 سؤالًا" data-en="13 practice questions">13 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ Sampling وQuantization وEncoding، وحساب حجم بيانات الصورة، وتنسيقي Raster وVector والألوان.</p>
+      <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="13 سؤالًا" data-en="13 practice questions">13 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 <main>
@@ -1048,12 +77,12 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="زي ما الصوت بيتحوّل لداتا (Data) رقمية، الصور كمان. النهارده هنتعلّم إزاي صورة مأخوذة بالكاميرا أو السكانر بتتحوّل لأرقام ثنائية — وإزاي نحسب حجم داتا (Data) بتاعتها، والفرق بين صيغتين مهمّين."
-          data-en="Just as sound is converted to digital data, so are images. Today we learn how an image taken by a camera or scanner is converted to binary numbers — and how to calculate its data size, and the difference between two important formats.">زي ما الصوت بيتحوّل لداتا (Data) رقمية، الصور كمان. النهارده هنتعلّم إزاي صورة مأخوذة بالكاميرا أو السكانر بتتحوّل لأرقام ثنائية — وإزاي نحسب حجم داتا (Data) بتاعتها، والفرق بين صيغتين مهمّين.</p>
+        <p data-ar="زي ما الصوت بيتحوّل لبيانات رقمية، الصور كمان. النهارده هنتعلّم إزاي صورة مأخوذة بالكاميرا أو السكانر بتتحوّل لأرقام ثنائية — وإزاي نحسب حجم بيانات بتاعتها، والفرق بين صيغتين مهمّين."
+          data-en="Just as sound is converted to digital data, so are images. Today we learn how an image taken by a camera or scanner is converted to binary numbers — and how to calculate its data size, and the difference between two important formats.">زي ما الصوت بيتحوّل لبيانات رقمية، الصور كمان. النهارده هنتعلّم إزاي صورة مأخوذة بالكاميرا أو السكانر بتتحوّل لأرقام ثنائية — وإزاي نحسب حجم بيانات بتاعتها، والفرق بين صيغتين مهمّين.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="الصورة في الكمبيوتر ماهي إلا شبكة من نقط صغيرة اسمها بكسلات، وكل نقطة ليها رقم بيعبّر عن لونها."
             data-en="An image in the computer is nothing more than a grid of tiny dots called pixels, and each dot has a number expressing its color.">الصورة
-            في الكمبيوتر مش أكتر من شبكة نقاط صغيرة اسمها <b>بكسلات</b>، وكل نقطة ليها رقم بيعبّر عن لونها.</span></div>
+ في الكمبيوتر مش أكتر من شبكة نقاط صغيرة اسمها <b>بكسلات</b>، وكل نقطة ليها رقم بيعبّر عن لونها.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1082,12 +111,12 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين الدقة والتدرّج — الأول هو عدد البكسلات، والتاني هو عدد مستويات اللون لكل بكسل."
             data-en="Confusing resolution with gradation — the first is the number of pixels, the second is the number of color levels per pixel.">
-            خلط الدقة <span dir="ltr">(Resolution)</span> بعمق اللون <span dir="ltr">(Gradation)</span> — الأول عدد
-            البكسلات، والتاني عدد مستويات اللون لكل بكسل.</li>
+ خلط الدقة <span dir="ltr">(Resolution)</span> بعمق اللون <span dir="ltr">(Gradation)</span> — الأول عدد
+ البكسلات، والتاني عدد مستويات اللون لكل بكسل.</li>
           <li data-ar="الخلط بين صيغة Raster وVector — الأول مكوّن من بكسلات وبيبان مفصّص لما يتكبّر، والتاني بيستخدم إحداثيات وبيبان ناعم."
             data-en="Confusing the Raster format with Vector — the first is made of pixels and looks jagged when enlarged, the second uses coordinates and looks smooth.">الخلط بين صيغة Raster وVector — الأول مكوّن من بكسلات وبيبان مفصّص لما يتكبّر، والتاني بيستخدم إحداثيات وبيبان ناعم.</li>
         </ul>
@@ -1102,25 +131,25 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="البيكسل والدقة" data-en="Pixel and Resolution">البكسل والدقة <span dir="ltr">(Pixel and
                 Resolution)</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="أصغر وحدة في الصورة — صفحة 73 بالكتاب"
-              data-en="the smallest unit of an image — book page 73">أصغر وحدة في الصورة — صفحة 73 بالكتاب</div>
+            <div class="tag" style="color:var(--s2)" data-ar="أصغر وحدة في الصورة — بالكتاب"
+              data-en="the smallest unit of an image — book">أصغر وحدة في الصورة — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="البيكسل (Pixel) هو أصغر وحدة بيتركّب منها الصورة. الصورة الرقمية بتمثّل بترتيب بكسلات — وكل بكسل له لون وقيمة."
+        <p data-ar="البيكسل هو أصغر وحدة بيتركّب منها الصورة. الصورة الرقمية بتمثّل بترتيب بكسلات — وكل بكسل له لون وقيمة."
           data-en="A pixel is the smallest unit that composes an image. A digital image is represented by an arrangement of pixels — and each pixel has a color and a value.">
           <b>البكسل <span dir="ltr">(Pixel)</span></b> هو أصغر وحدة بتكوّن الصورة. الصورة الرقمية بتتمثل في ترتيب من
-          البكسلات — وكل بكسل ليه لون وليها قيمة.</p>
+ البكسلات — وكل بكسل ليه لون وليها قيمة.</p>
         <p data-ar="الدقة هي درجة نعومة البكسلات وقت المعاينة، ووحدتها dpi، وأحياناً بتتعبّر بكسلات رأسية × بكسلات أفقية."
           data-en="The resolution is the degree of fineness of pixels when sampling, and its unit is dpi, and it is sometimes expressed as vertical pixels × horizontal pixels.">
           <b>الدقة <span dir="ltr">(Resolution)</span></b> هي درجة نعومة البكسلات عند أخذ العينات، ووحدتها <b>dpi</b>،
-          وبنتكتب أحياناً بكسلات رأسية × بكسلات أفقية.</p>
+ وبنتكتب أحياناً بكسلات رأسية × بكسلات أفقية.</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
-            data-ar="الدقة والتدرّج ليهم علاقة بمقدار داتا (Data) الصورة — كل ما يزيدوا، الحجم يكبر."
+            data-ar="الدقة والتدرّج ليهم علاقة بمقدار بيانات الصورة — كل ما يزيدوا، الحجم يكبر."
             data-en="resolution and gradation relate to the image data amount — the more they increase, the bigger the size.">الدقة
-            والعُمق <span dir="ltr">(Gradation)</span> ليهم علاقة بحجم بيانات الصورة — كل ما زادوا، زاد الحجم.</span></div>
+ والعُمق <span dir="ltr">(Gradation)</span> ليهم علاقة بحجم بيانات الصورة — كل ما زادوا، زاد الحجم.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1138,8 +167,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="pixelPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="pixelNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="pixelPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="pixelNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="pixelCounter">1 / 3</span>
                 <button class="mini-btn" data-id="pixelReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1163,8 +192,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="pixelRecall">
           <div class="rq" data-id="pixelRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو البكسل (Pixel)؟"
-                data-en="What is a pixel?">إيه هو البكسل (Pixel)؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو البكسل؟"
+                data-en="What is a pixel?">إيه هو البكسل؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="pixelRq1o2" data-key="A"
                 data-fb-ar="مش كده — التردد بيخص الصوت مش الصور."
@@ -1209,12 +238,12 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين الدقة والتدرّج — الدقة هي عدد البكسلات، والتدرّج هو عدد المستويات لكل بكسل."
             data-en="Confusing resolution with gradation — resolution is the number of pixels, and gradation is the number of levels per pixel.">الخلط بين الدقة والتدرّج — الدقة هي عدد البكسلات، والتدرّج هو عدد المستويات لكل بكسل.</li>
-          <li data-ar="نسيان إن زيادة الدقة بتزوّد حجم داتا (Data) الصورة."
-            data-en="Forgetting that increasing the resolution increases the image data size.">نسيان إن زيادة الدقة بتزوّد حجم داتا (Data) الصورة.</li>
+          <li data-ar="نسيان إن زيادة الدقة بتزوّد حجم بيانات الصورة."
+            data-en="Forgetting that increasing the resolution increases the image data size.">نسيان إن زيادة الدقة بتزوّد حجم بيانات الصورة.</li>
         </ul>
       </div>
     </section>
@@ -1226,8 +255,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#1838f8)">03</div>
           <div>
             <h2 data-ar="إجراء رقمنة الصور" data-en="Procedure for Digitization of Images">إجراء رقمنة الصور</h2>
-            <div class="tag" style="color:var(--s3)" data-ar="معاينة ← تكميم ← ترميز — صفحة 73 بالكتاب"
-              data-en="Sampling → Quantization → Encoding — book page 73">معاينة ← تكميم ← ترميز — صفحة 73 بالكتاب</div>
+            <div class="tag" style="color:var(--s3)" data-ar="معاينة → تكميم → ترميز — بالكتاب"
+              data-en="Sampling → Quantization → Encoding — book">معاينة ← تكميم ← ترميز — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1235,10 +264,10 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="الصورة المأخوذة بالكاميرا الرقمية أو السكانر بتتحوّل لرقمي في 3 خطوات: تقسيم الصورة لبيكسلات، تحويل سطوع كل بكسل لأرقام، وترميز الأرقام بالثنائي."
           data-en="An image captured by a digital camera or scanner is converted to digital in 3 steps: dividing the image into pixels, converting each pixel's brightness to numbers, and encoding the numbers in binary.">
-          الصورة اللي بتاخدها بالكاميرا الرقمية أو الـ Scanner بتتحول لرقمي على <b>3 خطوات</b>: تقسيم الصورة لبكسلات،
-          تحويل سطوع كل بكسل لأرقام، وترميز الأرقام بالثنائي.</p>
+ الصورة اللي بتاخدها بالكاميرا الرقمية أو الـ Scanner بتتحول لرقمي على <b>3 خطوات</b>: تقسيم الصورة لبكسلات،
+ تحويل سطوع كل بكسل لأرقام، وترميز الأرقام بالثنائي.</p>
         <div class="note"><b data-ar="الخطوات بالترتيب:" data-en="The steps in order:">الخطوات بالترتيب:</b> <span
-            data-ar="① معاينة ← ② تكميم ← ③ ترميز."
+            data-ar="① معاينة → ② تكميم → ③ ترميز."
             data-en="① Sampling → ② Quantization → ③ Encoding.">① <b>Sampling</b> → ② <b>Quantization</b> → ③
             <b>Encoding</b>.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«النقاط الرئيسية. 1. رقمنة الصور (1) البكسل (Pixel) : أصغر وحدة تشكل صورة. يتم تمثيل الصورة الرقمية بترتيب ..Pixeles (2) إجراءات رقمنة الصور يتم رقمنة الصور التي يتم التقاطها بالكاميرات الرقمية أو ماسحات الصور واستيرادها إلى الكمبيوتر من خلال العملية التالية. (1) أخذ العينات (Sampling) : يتم تقسيم الصورة إلى Pixeles ويتم استخراج مستوى السطوع الممثل لكل Pixeles. • الدقة (Resolution) : هي درجة دقة ووضوح Pixeles عند إجراء عملية أخذ العينات. وحدة قياس الدقة هي عدد النقاط في كل بوصة (Dots Per Inch). وحدة الدقة هي (dpi). يتم التعبير عنها أحيانًا Pixeles رأسي × Pixeles أفقي (2) التقدير الرقمي (Quantization) : يحول سطوع كل Pixel إلى قيم رقمية مقسمة إلى عدة مستويات. • التدرج (Gradation) : قيمة المستوى التي تمثل كثافة اللون لكل بكسل. يتم تحديد التدرج حسب عدد bits المخصصة لكل Pixel. &lt;مثال> عند 256 تدرجًا (8 bit)، تمثل 256 مستوى من 0 إلى 255. (3) الترميز (Encoding) : التعبير عن القيم الكمية في أرقام ثنائية (0 و 1). [رسم مطبوع:الصورة الأصلية ثم (1) المعاينة ثم (2) التكميم ثم (3) الترميز — شبكة سطوع 4 5 6 7 / 3 4 5 6 / 2 3 4 5 / 1 2 3 4، وشبكة ثنائية 100 101 110 111 / 011 100 101 110 / 010 011 100 101 / 001 010 011 100]»</p></div>
@@ -1258,8 +287,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="digPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="digNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="digPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="digNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="digCounter">1 / 3</span>
                 <button class="mini-btn" data-id="digReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1289,17 +318,17 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="digRq1o2" data-key="A"
                 data-fb-ar="مش كده — الترميز بييجي في الآخر."
                 data-fb-en="Not quite — encoding comes last."><span class="rq-key">A</span><span
-                  class="rq-body" data-ar="تكميم ← ترميز ← معاينة"
+                  class="rq-body" data-ar="تكميم → ترميز → معاينة"
                   data-en="Quantization → Encoding → Sampling">تكميم ← ترميز ← معاينة</span></div>
               <div class="rq-opt" data-id="digRq1o3" data-key="B"
                 data-fb-ar="مش كده — تقسيم الصورة هو الخطوة الأولى."
                 data-fb-en="Not quite — dividing the image is the first step."><span class="rq-key">B</span><span
-                  class="rq-body" data-ar="ترميز ← تكميم ← معاينة"
+                  class="rq-body" data-ar="ترميز → تكميم → معاينة"
                   data-en="Encoding → Quantization → Sampling">ترميز ← تكميم ← معاينة</span></div>
               <div class="rq-opt" data-id="digRq1o1" data-key="C" data-ok="1"
                 data-fb-ar="صحيح! Sampling الأول، بعدين Quantization، بعدين Encoding."
                 data-fb-en="Correct! Sampling first, then Quantization, then Encoding."><span
-                  class="rq-key">C</span><span class="rq-body" data-ar="معاينة ← تكميم ← ترميز"
+                  class="rq-key">C</span><span class="rq-body" data-ar="معاينة → تكميم → ترميز"
                   data-en="Sampling → Quantization → Encoding">معاينة ← تكميم ← ترميز</span></div>
             </div>
             <div class="rq-fb"></div>
@@ -1331,7 +360,7 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="عكس ترتيب الخطوات — الصورة لازم تتقسّم الأول، وبعدين السطوع يتحوّل، وبعدين يتشفّر."
             data-en="Reversing the order of the steps — the image must be divided first, then brightness converted, then encoded.">عكس ترتيب الخطوات — الصورة لازم تتقسّم الأول، وبعدين السطوع يتحوّل، وبعدين يتشفّر.</li>
@@ -1347,27 +376,27 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
           <div>
-            <h2 data-ar="مقدار داتا (Data) الصورة" data-en="Data Amount of an Image">حساب حجم بيانات الصورة <span
+            <h2 data-ar="مقدار بيانات الصورة" data-en="Data Amount of an Image">حساب حجم بيانات الصورة <span
                 dir="ltr">(Data Amount of an Image)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="المعادلة: عدد البكسلات × بتّات اللون — صفحة 73 بالكتاب"
-              data-en="the formula: number of pixels × bits of color — book page 73">المعادلة: عدد البكسلات × بتّات اللون — صفحة 73 بالكتاب</div>
+            <div class="tag" style="color:var(--s4)" data-ar="المعادلة: عدد البكسلات × بتّات اللون — بالكتاب"
+              data-en="the formula: number of pixels × bits of color — book">المعادلة: عدد البكسلات × بتّات اللون — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="مقدار داتا (Data) الصورة بالبتّات = عدد البكسلات (رأسي × أفقي) × عدد البتّات لمعلومات اللون."
+        <p data-ar="مقدار بيانات الصورة بالبتّات = عدد البكسلات (رأسي × أفقي) × عدد البتّات لمعلومات اللون."
           data-en="The data amount of an image in bits = number of pixels (vertical × horizontal) × the number of bits for color information.">
-          حجم بيانات الصورة [بت] = <b>عدد البكسلات <span dir="ltr">(رأسي × أفقي)</span> × عدد البتات اللي بتعبّر عن
-            معلومات اللون</b>.</p>
-        <p data-ar="كل ما الدقة وقيم التدرّج أعلى، الصورة أنعم والجودة أحسن — بس مقدار الداتا (Data) بيزيد."
+ حجم بيانات الصورة [بت] = <b>عدد البكسلات <span dir="ltr">(رأسي × أفقي)</span> × عدد البتات اللي بتعبّر عن
+ معلومات اللون</b>.</p>
+        <p data-ar="كل ما الدقة وقيم التدرّج أعلى، الصورة أنعم والجودة أحسن — بس مقدار البيانات بيزيد."
           data-en="The higher the resolution and gradation values, the smoother the image and the better the quality — but the data amount increases.">
-          كل ما زادت الدقة وعمق اللون، الصورة بتبقى أنعم وجودتها بتتحسن — بس <b>حجم البيانات بيزيد</b>.</p>
+ كل ما زادت الدقة وعمق اللون، الصورة بتبقى أنعم وجودتها بتتحسن — بس <b>حجم البيانات بيزيد</b>.</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
             data-ar="في اللون الكامل 24 بت، كل من الأحمر والأخضر والأزرق بياخد 8 بتّات، يعني 24 بت إجمالاً."
             data-en="In 24-bit full color, each of red, green and blue takes 8 bits, meaning 24 bits in total.">في الصورة
-            الملونة الكاملة <span dir="ltr">24-bit full color</span>، كل لون من الأحمر والأخضر والأزرق بياخد 8 بتات،
-            يعني <b>24 بت</b> في المجمل.</span></div>
+ الملونة الكاملة <span dir="ltr">24-bit full color</span>، كل لون من الأحمر والأخضر والأزرق بياخد 8 بتات،
+ يعني <b>24 بت</b> في المجمل.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«(3) الرقمنة وحجم البيانات [1] حجم بيانات الصورة [bit] = (عدد pixels الرأسي × pixels الأفقي) × عدد bits لمعلومات اللون [2] كلما ارتفعت قيم الدقة والتدرج، كلما أصبحت الصورة التي يتم الحصول عليها أكثر سلاسة وتحسنت جودة الصورة، ولكن زادت حجم البيانات. (4) تنسيق النقطي وتنسيق المتجه [1] (التنسيق النقطي) : طريقة لتمثيل النصوص أو الأشكال باستخدام شبكة من النقاط (pixels) عند تكبير الصورة تظهر متكسّرة أو متعرجة وهذا يُسمى التعرجات (Jaggies) يتم رسم الصور باستخدام ( برنامج تلوين ). مثل photoshop [2] تنسيق المتجهات:(Vector format) تمثيل يتضمن معلومات عن إحداثيات النقاط المكونة للصورة، بالإضافة إلى زوايا وسمك الخطوط التي تربط بينها. يتم رسم الصور باستخدام (برنامج رسم) مثل illustrator»</p></div>
 
       <div class="section-inner">
@@ -1381,12 +410,12 @@ select{color:var(--text)!important}
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="calc"></svg>
                 <div class="svg-label" data-fbox="mul" data-ar="بنضرب: 1280 × 720 × 24" data-en="we multiply: 1280 × 720 × 24">بنضرب: 1280 × 720 × 24</div>
                 <div class="svg-label" data-fbox="bits" data-ar="= 22,118,400 بت" data-en="= 22,118,400 bits">= 22,118,400 بت</div>
-                <div class="svg-label" data-fbox="mb" data-ar="نقسم على 8 وبعدين 1000 ← 2.76 MB" data-en="divide by 8 then 1000 → 2.76 MB">نقسم على 8 وبعدين 1000 ← 2.76 MB</div>
+                <div class="svg-label" data-fbox="mb" data-ar="نقسم على 8 وبعدين 1000 → 2.76 MB" data-en="divide by 8 then 1000 → 2.76 MB">نقسم على 8 وبعدين 1000 ← 2.76 MB</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="calcPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="calcNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="calcPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="calcNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="calcCounter">1 / 3</span>
                 <button class="mini-btn" data-id="calcReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1410,8 +439,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="amountRecall">
           <div class="rq" data-id="amountRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه معادلة مقدار داتا (Data) الصورة؟"
-                data-en="What is the formula for the image data amount?">إيه معادلة مقدار داتا (Data) الصورة؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه معادلة مقدار بيانات الصورة؟"
+                data-en="What is the formula for the image data amount?">إيه معادلة مقدار بيانات الصورة؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="amountRq1o2" data-key="A"
                 data-fb-ar="مش كده — المعادلة بتاع الصورة بتبقى ضرب مش جمع."
@@ -1456,11 +485,11 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
-          <li data-ar="نسيان إن النتيجة بالبتّات — عشان نحوّلها لبايت (Byte) بنقسم على 8."
+          <li data-ar="نسيان إن النتيجة بالبتّات — عشان نحوّلها لبايت بنقسم على 8."
             data-en="Forgetting that the result is in bits — to convert to bytes we divide by 8.">
-            نسيان إن الناتج بالبت — ولتحويله لبايت بنقسم على <b>8</b>.</li>
+ نسيان إن الناتج بالبت — ولتحويله لبايت بنقسم على <b>8</b>.</li>
           <li data-ar="نسيان إننا نضرب البكسلات الرأسية × الأفقية — مش نجمعهم."
             data-en="Forgetting to multiply the vertical × horizontal pixels — not add them.">نسيان إننا نضرب البكسلات الرأسية × الأفقية — مش نجمعهم.</li>
         </ul>
@@ -1475,8 +504,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="الصيغ والألوان" data-en="Formats and Colors">التنسيقات والألوان <span dir="ltr">(Raster,
                 Vector and Colors)</span></h2>
-            <div class="tag" style="color:var(--s5)" data-ar="Raster وVector، والألوان الأساسية التلاتة — EN PDF 73–74 (المطبوع 73–74)؛ AR 83–84"
-              data-en="Raster and Vector, and the three primary colors - English PDF 73-74 (printed 73-74); Arabic 83-84">Raster وVector، والألوان الأساسية التلاتة — EN PDF 73–74 (المطبوع 73–74)؛ AR 83–84</div>
+            <div class="tag" style="color:var(--s5)" data-ar="Raster وVector، والألوان الأساسية التلاتة"
+              data-en="Raster and Vector, and the three primary colors">Raster وVector، والألوان الأساسية التلاتة</div>
           </div>
         </div>
       </div>
@@ -1484,15 +513,15 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="في صيغة Raster، الصورة ترتيب بكسلات وبتبان مفصّصة لما تتكبّر، وبتتعمَل ببرنامج تلوين. وفي صيغة Vector، الصورة فيها معلومات عن إحداثيات النقط وزوايا وسمك الخطوط اللي بتوصّل بينهم، وبتتعمَل ببرنامج رسم."
           data-en="In the Raster format, the image is an arrangement of pixels and appears jagged (jaggies) when enlarged, and it is drawn with painting software. In the Vector format, the image contains information about the coordinates of points and the angles and thickness of the connecting lines, and it is drawn with drawing software.">
-          في تنسيق <b>Raster</b>، الصورة عبارة عن ترتيب بكسلات وبتظهر مسنّنة <span dir="ltr">(jaggies)</span> عند
-          التكبير، وبتترسم ببرامج الرسم <span dir="ltr">(Painting software)</span>. في تنسيق <b>Vector</b>، الصورة بتحتوي
-          معلومات إحداثيات النقاط وزوايا وسماكة الخطوط، وبتترسم ببرامج الرسم الهندسي <span dir="ltr">(Drawing
+ في تنسيق <b>Raster</b>، الصورة عبارة عن ترتيب بكسلات وبتظهر مسنّنة <span dir="ltr">(jaggies)</span> عند
+ التكبير، وبتترسم ببرامج الرسم <span dir="ltr">(Painting software)</span>. في تنسيق <b>Vector</b>، الصورة بتحتوي
+ معلومات إحداثيات النقاط وزوايا وسماكة الخطوط، وبتترسم ببرامج الرسم الهندسي <span dir="ltr">(Drawing
             software)</span>.</p>
         <p data-ar="الألوان الأساسية للضوء هي الأحمر والأخضر والأزرق — خلطهم بيزوّد السطوع ويوصّل للأبيض، وبيستخدموا في شاشات الكمبيوتر (خلط إضافي). والألوان الأساسية للصبغة هي السماوي والأرجواني والأصفر — خلطهم بيوصّل للأسود، وبيستخدموا في الطابعات (خلط طرحي)."
           data-en="The three primary colors of light are red, green and blue — mixing them increases brightness and approaches white, and they are used in computer displays (additive mixing). The three primary colors of pigment are cyan, magenta and yellow — mixing them approaches black, and they are used in printers (subtractive mixing).">
-          الألوان الثلاثة <b>للضوء</b> هي الأحمر والأخضر والأزرق — وخلطهم بزود اللمعان ويقرب للون <b>الأبيض</b>،
-          وبيستخدموا في شاشات الكمبيوتر (خلط جمعي <span dir="ltr">Additive</span>). الألوان الثلاثة <b>للصبغة</b> هي
-          السماوي والأرجواني والأصفر — وخلطهم بيقرب <b>للأسود</b>، وبيستخدموا في الطابعات (خلط طرحي <span
+ الألوان الثلاثة <b>للضوء</b> هي الأحمر والأخضر والأزرق — وخلطهم بزود اللمعان ويقرب للون <b>الأبيض</b>،
+ وبيستخدموا في شاشات الكمبيوتر (خلط جمعي <span dir="ltr">Additive</span>). الألوان الثلاثة <b>للصبغة</b> هي
+ السماوي والأرجواني والأصفر — وخلطهم بيقرب <b>للأسود</b>، وبيستخدموا في الطابعات (خلط طرحي <span
             dir="ltr">Subtractive</span>).</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
             data-ar="في اللون الكامل 24 بت، كل لون من RGB بياخد 8 بتّات: 8 × 3 = 24 بت."
@@ -1515,8 +544,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="formatPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="formatNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="formatPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="formatNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="formatCounter">1 / 3</span>
                 <button class="mini-btn" data-id="formatReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1546,7 +575,7 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="formatRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! بتبان حواف مسنّنة اسمها jaggies."
                 data-fb-en="Correct! It shows jagged edges called jaggies."><span class="rq-key">A</span><span
-                  class="rq-body" data-ar="مفصّصة (jaggies)" data-en="jagged (jaggies)">مفصّصة (jaggies)</span></div>
+                  class="rq-body" data-ar="مفصّصة" data-en="jagged (jaggies)">مفصّصة</span></div>
               <div class="rq-opt" data-id="formatRq1o2" data-key="B"
                 data-fb-ar="مش كده — النعومة عند التكبير بتاع الـ Vector."
                 data-fb-en="Not quite — smoothness when enlarged is for Vector."><span class="rq-key">B</span><span
@@ -1569,7 +598,7 @@ select{color:var(--text)!important}
                   class="rq-key">A</span><span class="rq-body" data-ar="خلط طرحي"
                   data-en="subtractive mixing">خلط طرحي</span></div>
               <div class="rq-opt" data-id="formatRq2o1" data-key="B" data-ok="1"
-                data-fb-ar="صحيح! بتستخدم الخلط الجمعي (Additive) بالألوان الثلاثة للضوء."
+                data-fb-ar="صحيح! بتستخدم الخلط الجمعي بالألوان الثلاثة للضوء."
                 data-fb-en="Correct! They use additive mixing with the three primary colors of light."><span
                   class="rq-key">B</span><span class="rq-body" data-ar="خلط إضافي"
                   data-en="additive mixing">خلط إضافي</span></div>
@@ -1585,7 +614,7 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين ألوان الضوء وألوان الصبغة — الأول RGB وبيوصّل للأبيض، والتاني CMY وبيوصّل للأسود."
             data-en="Confusing light colors with pigment colors — the first is RGB and approaches white, the second is CMY and approaches black.">الخلط بين ألوان الضوء وألوان الصبغة — الأول RGB وبيوصّل للأبيض، والتاني CMY وبيوصّل للأسود.</li>
@@ -1602,8 +631,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">06</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 74–76 (المطبوع 74–76)؛ AR 84–86"
-              data-en="Your book: English PDF 74-76 (printed 74-76); Arabic 84-86">الكتاب بتاعك:EN PDF 74–76 (المطبوع 74–76)؛ AR 84–86</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1628,9 +657,9 @@ select{color:var(--text)!important}
         <div class="book-card">
           <h3 data-ar="من الكتاب: تحدى معلوماتك — والإجابات مطبوعة في «الشرح»" data-en="From the book: Warm Up - the answers are printed in the Explanation">من الكتاب: تحدى معلوماتك — والإجابات مطبوعة في «الشرح»</h3>
           <p data-ar="«تحدى معلوماتك. أجب على الأسئلة التالية. (1) أعد ترتيب الخطوات التالية من أ إلى ت بترتيب تحويل الصورة إلى بيانات رقمية. (أ) استبدال مستويات السطوع لكل منطقة بقيم صحيحة طبقًا لقاعدة ثابتة. (ب) تقسيم الصورة إلى أقسام شبكية متباعدة بشكل متساوي. (ت) تمثيل الأعداد الصحيحة في النظام الثنائي. (2) اختر جميع العبارات التي تصف بشكل صحيح التمثيل الرقمي للصور من الخيارات من أ إلى ث. (أ) يظهر تنسيق الصورة النقطية كما وجود حواف متعرجة بشكل ملحوظ عند تكبير الصورة. (ب) تنسيق الصورة النقطية مناسب للتعبير عن الصور ذات ملامح واضحة، مثل الشعارات. (ت) يمثل تنسيق المتجهات الصور من خلال دمج البيانات مثل إحداثيات النقاط وسماكة الخطوط. (ث) يتم استخدام برنامج الرسم لإنشاء رسومات متجهية. (3) ما هو حجم بيانات صورة 24 bit لون كامل بدقة 720 × 1,280 بكسل بالميغابايت pixles MB؟ لهذا السؤال، افترض أن 1 KB = 1,000 B و 1 MB = 1,000 KB، وقرب إجابتك إلى منزلتين عشريتين.»" data-en="&quot;Warm Up. Answer the following questions. (1) Rearrange the following steps A to C in the order of converting an image into digital data. A Replace the brightness levels of each region with integer values according to a fixed rule. B Divide the image into evenly spaced grid sections. C Represent integers in binary. (2) Choose all statements that correctly describe the digital representation of images from the options A to D, and answer using the letters. A The raster format appears as having noticeably jagged edges when the image is enlarged. B The raster format is suitable for expressing images with clear contours, such as logos. C Vector format represents images by incorporating information such as the coordinates of points and the thickness of lines. D Painting software is used to create vector graphics. (3) What is the data amount of a 24-bit full-color image with a resolution of 1,280 × 720 pixels in megabytes? For this question, assume that 1 KB = 1,000 B and 1 MB = 1,000 KB, and round your answer to two decimal places.&quot;">«تحدى معلوماتك. أجب على الأسئلة التالية. (1) أعد ترتيب الخطوات التالية من أ إلى ت بترتيب تحويل الصورة إلى بيانات رقمية. (أ) استبدال مستويات السطوع لكل منطقة بقيم صحيحة طبقًا لقاعدة ثابتة. (ب) تقسيم الصورة إلى أقسام شبكية متباعدة بشكل متساوي. (ت) تمثيل الأعداد الصحيحة في النظام الثنائي. (2) اختر جميع العبارات التي تصف بشكل صحيح التمثيل الرقمي للصور من الخيارات من أ إلى ث. (أ) يظهر تنسيق الصورة النقطية كما وجود حواف متعرجة بشكل ملحوظ عند تكبير الصورة. (ب) تنسيق الصورة النقطية مناسب للتعبير عن الصور ذات ملامح واضحة، مثل الشعارات. (ت) يمثل تنسيق المتجهات الصور من خلال دمج البيانات مثل إحداثيات النقاط وسماكة الخطوط. (ث) يتم استخدام برنامج الرسم لإنشاء رسومات متجهية. (3) ما هو حجم بيانات صورة 24 bit لون كامل بدقة 720 × 1,280 بكسل بالميغابايت pixles MB؟ لهذا السؤال، افترض أن 1 KB = 1,000 B و 1 MB = 1,000 KB، وقرب إجابتك إلى منزلتين عشريتين.»</p>
-          <p data-ar="«الشرح المطبوع:(1) ب ← أ ← ث (2) أ , ت (3) حجم البيانات في الصورة هو، 24×720×1,280 [bit بت] = 22,118,400 [bit بت] [سطر المعادلة مطبوع متداخلًا ومكررًا جزئيًا في النسخة العربية] بما أن 1 B يساوي 8 bit، فإن 22،118،400 ÷ 8 = 2،764،800 [B]. 1 KB = 1,000 B، 1 MB = 1,000 KB لذلك، 2,764,800 [B] ÷ 1,000 ÷ 1,000 = 2.7648 [MB] ≈ 2.76 [MB] [السطر الأخير مطبوع متداخلًا ومكررًا جزئيًا أيضًا] والناتج المطبوع 2,76MB»" data-en="&quot;Printed Explanation:(1) B → A → C (2) A, C (3) The amount of data in the image is, 1,280 × 720 × 24 [bits] = 22,118,400 [bits] Since 1 B equals 8 bits, 22,118,400 ÷ 8 = 2,764,800 [B]. 1 KB = 1,000 B, 1 MB = 1,000 KB, therefore, 2,764,800 [B] ÷ 1,000 ÷ 1,000 = 2.7648 [MB] ≈ 2.76 [MB] 2.76 MB&quot;">«الشرح المطبوع:(1) ب ← أ ← ث (2) أ , ت (3) حجم البيانات في الصورة هو، 24×720×1,280 [bit بت] = 22,118,400 [bit بت] [سطر المعادلة مطبوع متداخلًا ومكررًا جزئيًا في النسخة العربية] بما أن 1 B يساوي 8 bit، فإن 22،118،400 ÷ 8 = 2،764،800 [B]. 1 KB = 1,000 B، 1 MB = 1,000 KB لذلك، 2,764,800 [B] ÷ 1,000 ÷ 1,000 = 2.7648 [MB] ≈ 2.76 [MB] [السطر الأخير مطبوع متداخلًا ومكررًا جزئيًا أيضًا] والناتج المطبوع 2,76MB»</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإجابات مطبوعة في «الشرح» في النسختين. (1) الإنجليزية &quot;B → A → C&quot;؛ العربية تطبع «ب ← أ ← ث» والحرف ث ليس من الخيارات المطبوعة (أ، ب، ت) — نُقل كما ورد دون تأويل. (2) &quot;A, C&quot; يقابلها «أ , ت». (3) الناتج 2.76 MB في النسختين (العربية تطبع «2,76MB»). العربية (2)(ث) تطبع «برنامج الرسم» بينما الإنجليزية D تطبع &quot;Painting software&quot;، والإجابة المطبوعة «أ , ت» مطابقة لـ A,C — نُقلت كما وردت. العربية (3) تطبع «بالميغابايت pixles MB» بكلمة &quot;pixles&quot; زائدة. العربية (2)(أ) تطبع «كما وجود حواف متعرجة». سطرا الحساب في «الشرح» العربي مطبوعان متداخلين ومكررين جزئيًا؛ الإنجليزية نظيفة." data-en="Edition comparison (verified from printed page images): the answers are printed in the Explanation in both editions. (1) English &quot;B → A → C&quot;; Arabic prints «ب ← أ ← ث», where ث is not among the printed options (أ، ب، ت) - preserved as printed, no convention asserted. (2) &quot;A, C&quot; matches «أ , ت». (3) 2.76 MB in both (Arabic prints «2,76MB»). Arabic (2)(ث) prints «برنامج الرسم» (drawing software) where English D prints &quot;Painting software&quot;, and the printed answer «أ , ت» matches A,C - preserved as printed. Arabic (3) prints «بالميغابايت pixles MB» with a stray &quot;pixles&quot;. Arabic (2)(أ) prints «كما وجود حواف متعرجة». The two computation lines in the Arabic Explanation are printed overlapping and partially duplicated; the English is clean.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإجابات مطبوعة في «الشرح» في النسختين. (1) الإنجليزية "B → A → C"؛ العربية تطبع «ب ← أ ← ث» والحرف ث ليس من الخيارات المطبوعة (أ، ب، ت) — نُقل كما ورد دون تأويل. (2) "A, C" يقابلها «أ , ت». (3) الناتج 2.76 MB في النسختين (العربية تطبع «2,76MB»). العربية (2)(ث) تطبع «برنامج الرسم» بينما الإنجليزية D تطبع "Painting software"، والإجابة المطبوعة «أ , ت» مطابقة لـ A,C — نُقلت كما وردت. العربية (3) تطبع «بالميغابايت pixles MB» بكلمة "pixles" زائدة. العربية (2)(أ) تطبع «كما وجود حواف متعرجة». سطرا الحساب في «الشرح» العربي مطبوعان متداخلين ومكررين جزئيًا؛ الإنجليزية نظيفة.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 74 (المطبوع 74)؛ AR 84." data-en="The text above is from the book. Full source: English PDF 74 (printed 74); Arabic 84.">النص السابق من الكتاب. المصدر الكامل:EN PDF 74 (المطبوع 74)؛ AR 84.</span>
+          <p data-ar="«الشرح المطبوع:(1) ب → أ → ث (2) أ , ت (3) حجم البيانات في الصورة هو، 24×720×1,280 [bit بت] = 22,118,400 [bit بت] [سطر المعادلة مطبوع متداخلًا ومكررًا جزئيًا في النسخة العربية] بما أن 1 B يساوي 8 bit، فإن 22،118،400 ÷ 8 = 2،764،800 [B]. 1 KB = 1,000 B، 1 MB = 1,000 KB لذلك، 2,764,800 [B] ÷ 1,000 ÷ 1,000 = 2.7648 [MB] ≈ 2.76 [MB] [السطر الأخير مطبوع متداخلًا ومكررًا جزئيًا أيضًا] والناتج,76MB»" data-en="&quot;Printed Explanation:(1) B → A → C (2) A, C (3) The amount of data in the image is, 1,280 × 720 × 24 [bits] = 22,118,400 [bits] Since 1 B equals 8 bits, 22,118,400 ÷ 8 = 2,764,800 [B]. 1 KB = 1,000 B, 1 MB = 1,000 KB, therefore, 2,764,800 [B] ÷ 1,000 ÷ 1,000 = 2.7648 [MB] ≈ 2.76 [MB] 2.76 MB&quot;">«الشرح المطبوع:(1) ب ← أ ← ث (2) أ , ت (3) حجم البيانات في الصورة هو، 24×720×1,280 [bit بت] = 22,118,400 [bit بت] [سطر المعادلة مطبوع متداخلًا ومكررًا جزئيًا في النسخة العربية] بما أن 1 B يساوي 8 bit، فإن 22،118،400 ÷ 8 = 2،764،800 [B]. 1 KB = 1,000 B، 1 MB = 1,000 KB لذلك، 2,764,800 [B] ÷ 1,000 ÷ 1,000 = 2.7648 [MB] ≈ 2.76 [MB] [السطر الأخير مطبوع متداخلًا ومكررًا جزئيًا أيضًا] والناتج,76MB»</p>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإجابات مطبوعة في «الشرح» في النسختين. (1) الإنجليزية &quot;B ← A ← C&quot;؛ العربية تطبع «ب → أ → ث» والحرف ث ليس من الخيارات المطبوعة (أ، ب، ت) — نُقل كما ورد دون تأويل. (2) &quot;A, C&quot; يقابلها «أ , ت». (3) الناتج 2.76 MB في النسختين (العربية تطبع «2,76MB»). العربية (2)(ث) تطبع «برنامج الرسم» بينما الإنجليزية D تطبع &quot;Painting software&quot;، والإجابة المطبوعة «أ , ت» مطابقة لـ A,C — نُقلت كما وردت. العربية (3) تطبع «بالميغابايت pixles MB» بكلمة &quot;pixles&quot; زائدة. العربية (2)(أ) تطبع «كما وجود حواف متعرجة». سطرا الحساب في «الشرح» العربي مطبوعان متداخلين ومكررين جزئيًا؛ الإنجليزية نظيفة." data-en="Edition comparison (verified from printed page images): the answers are printed in the Explanation in both editions. (1) English &quot;B → A → C&quot;; Arabic prints «ب ← أ ← ث», where ث is not among the printed options (أ، ب، ت) - preserved as printed, no convention asserted. (2) &quot;A, C&quot; matches «أ , ت». (3) 2.76 MB in both (Arabic prints «2,76MB»). Arabic (2)(ث) prints «برنامج الرسم» (drawing software) where English D prints &quot;Painting software&quot;, and the printed answer «أ , ت» matches A,C - preserved as printed. Arabic (3) prints «بالميغابايت pixles MB» with a stray &quot;pixles&quot;. Arabic (2)(أ) prints «كما وجود حواف متعرجة». The two computation lines in the Arabic Explanation are printed overlapping and partially duplicated; the English is clean.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإجابات مطبوعة في «الشرح» في النسختين. (1) الإنجليزية "B → A → C"؛ العربية تطبع «ب ← أ ← ث» والحرف ث ليس من الخيارات المطبوعة (أ، ب، ت) — نُقل كما ورد دون تأويل. (2) "A, C" يقابلها «أ , ت». (3) الناتج 2.76 MB في النسختين (العربية تطبع «2,76MB»). العربية (2)(ث) تطبع «برنامج الرسم» بينما الإنجليزية D تطبع "Painting software"، والإجابة المطبوعة «أ , ت» مطابقة لـ A,C — نُقلت كما وردت. العربية (3) تطبع «بالميغابايت pixles MB» بكلمة "pixles" زائدة. العربية (2)(أ) تطبع «كما وجود حواف متعرجة». سطرا الحساب في «الشرح» العربي مطبوعان متداخلين ومكررين جزئيًا؛ الإنجليزية نظيفة.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
@@ -1639,35 +668,35 @@ select{color:var(--text)!important}
           <p data-ar="«جرب بنفسك. 1 توضح الرسوم البيانية التالية عملية تحويل صورة أحادية اللون إلى بيانات رقمية. اختر العمليات المناسبة للخطوات من [1] إلى [3] من [المجموعة أ] ، ثم اختر اسم كل عملية من [المجموعة ب] . أجب باستخدام الأرقام. [رسم مطبوع: صورة متدرجة ثم [1] ثم شبكة 4×4 ثم [2] ثم شبكة أعداد 6 5 4 3 / 5 4 3 2 / 4 3 2 1 / 3 2 1 0 ثم [3] ثم شبكة ثنائية 110 101 100 011 / 101 100 011 010 / 100 011 010 001 / 011 010 001 000] [المجموعة أ] (أ) استبدال مستويات السطوع لكل منطقة بقيم عددية صحيحة وفقًا لقاعدة ثابتة. (ب) تقسيم الصورة إلى أقسام شبكية متباعدة بالتساوي. (ت) تمثيل الأعداد الصحيحة في نظام ثنائي. [مجموعة ب] (أ) التحول الكمي (ب) التشفير (جـ) أخذ العينات»" data-en="&quot;Try 1 The following diagram illustrates the process of converting a monochrome image into digital data. Choose the appropriate operations for steps [1] to [3] from [Group A], and then choose the name of each operation from [Group B]. Answer using the numbers. [Printed figure:gradient image, then [1], then a 4×4 grid, then [2], then a number grid 6 5 4 3 / 5 4 3 2 / 4 3 2 1 / 3 2 1 0, then [3], then a binary grid 110 101 100 011 / 101 100 011 010 / 100 011 010 001 / 011 010 001 000] [Group A] A Replace the brightness levels of each region with integer values according to a fixed rule. B Divide the image into evenly spaced grid sections. C Represent integers in binary. [Group B] A Quantization B Encoding C Sampling&quot;">«جرب بنفسك. 1 توضح الرسوم البيانية التالية عملية تحويل صورة أحادية اللون إلى بيانات رقمية. اختر العمليات المناسبة للخطوات من [1] إلى [3] من [المجموعة أ] ، ثم اختر اسم كل عملية من [المجموعة ب] . أجب باستخدام الأرقام. [رسم مطبوع:صورة متدرجة ثم [1] ثم شبكة 4×4 ثم [2] ثم شبكة أعداد 6 5 4 3 / 5 4 3 2 / 4 3 2 1 / 3 2 1 0 ثم [3] ثم شبكة ثنائية 110 101 100 011 / 101 100 011 010 / 100 011 010 001 / 011 010 001 000] [المجموعة أ] (أ) استبدال مستويات السطوع لكل منطقة بقيم عددية صحيحة وفقًا لقاعدة ثابتة. (ب) تقسيم الصورة إلى أقسام شبكية متباعدة بالتساوي. (ت) تمثيل الأعداد الصحيحة في نظام ثنائي. [مجموعة ب] (أ) التحول الكمي (ب) التشفير (جـ) أخذ العينات»</p>
           <p data-ar="«2 أجب على الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغات [1] و [2] بالمصطلح والعدد المناسبين. لتمثيل الألوان، تستخدم شاشة الكمبيوتر مزيجًا من النقاط باللون الأحمر والأخضر والأزرق. تُعرف هذه الألوان باسم ( [1] ). ويتم التعبير عن شدة كل لون من الألوان الأساسية بتدرجات. عند تمثيل لون واحد بـ 8 بت bit ، يوجد ( [2] ) تدرجًا (2) أكمل الجمل التالية بملء الفراغات [1] و [2] بالمصطلحين المناسبين. يمكن تقسيم الصور التي تعالجها أجهزة الكمبيوتر إلى صيغتين: صيغة ( [1] )، التي تعامل الصورة كمجموعة من النقاط الصغيرة، وصيغة ( [2] )، التي تستخدم مزيجًا من التعبيرات الرياضية لتمثيل إحداثيات النقاط، والخطوط والأسطح التي تربط بينها، ومعلومات الألوان (3) اختر عبارة واحدة غير صحيحة كتفسير للتمثيل الرقمي للصور من الخيارات أ إلى ث (أ) وحدة dpi تمثل درجة كثافة البكسل pixel. (ب) عدد التدرجات يعتمد على عدد البتات bits المخصصة لكل بكسل pixel. (ت) كلما كانت قيم الدقة والتدرج أصغر، كانت الصورة الناتجة أكثر سلاسة. (ث) التدرج يشير إلى عدد خطوات أو مستويات اللون أو السطوع.»" data-en="&quot;2 Answer the following questions. (1) Complete the following sentences by filling in the blanks [1] and [2] with the appropriate term and number. To represent colors, a computer display uses a combination of dots in red, green, and blue. These are known as the ( [1] ). The intensity of each of the primary colors is expressed in gradations. When representing one color with 8 bits, there are ( [2] ) gradients. (2) Complete the following sentences by filling in the blanks [1] and [2] with the appropriate terms. Images processed by computers can be divided into two formats:the ( [1] ) format, which treats the image as a collection of tiny dots, and the ( [2] ) format, which uses a combination of mathematical expressions to represent the coordinates of points, lines and surfaces connecting them, and color information. (3) Choose one statement that is incorrect as an explanation of the digital representation of images from the options A to D. A The unit dpi represents the degree of pixel density. B The number of gradations depends on the number of bits allocated per pixel. C The smaller the resolution and gradation values, the smoother the image obtained. D Gradation indicates the number of steps or levels of color or brightness.&quot;">«2 أجب على الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغات [1] و [2] بالمصطلح والعدد المناسبين. لتمثيل الألوان، تستخدم شاشة الكمبيوتر مزيجًا من النقاط باللون الأحمر والأخضر والأزرق. تُعرف هذه الألوان باسم ( [1] ). ويتم التعبير عن شدة كل لون من الألوان الأساسية بتدرجات. عند تمثيل لون واحد بـ 8 بت bit ، يوجد ( [2] ) تدرجًا (2) أكمل الجمل التالية بملء الفراغات [1] و [2] بالمصطلحين المناسبين. يمكن تقسيم الصور التي تعالجها أجهزة الكمبيوتر إلى صيغتين:صيغة ( [1] )، التي تعامل الصورة كمجموعة من النقاط الصغيرة، وصيغة ( [2] )، التي تستخدم مزيجًا من التعبيرات الرياضية لتمثيل إحداثيات النقاط، والخطوط والأسطح التي تربط بينها، ومعلومات الألوان (3) اختر عبارة واحدة غير صحيحة كتفسير للتمثيل الرقمي للصور من الخيارات أ إلى ث (أ) وحدة dpi تمثل درجة كثافة البكسل pixel. (ب) عدد التدرجات يعتمد على عدد البتات bits المخصصة لكل بكسل pixel. (ت) كلما كانت قيم الدقة والتدرج أصغر، كانت الصورة الناتجة أكثر سلاسة. (ث) التدرج يشير إلى عدد خطوات أو مستويات اللون أو السطوع.»</p>
           <p data-ar="«3 أجب على الأسئلة التالية: افترض أن 1 Byte = 8 bits و 1 KB = 1000 Byte و 1 MB = 1000 KB و 1 GB = 1000 MB (1) ما هو حجم بيانات صورة بالكيلوبايت بدقة 600 × 800 بكسل، حيث يحتوي كل بكسل على 8 bit؟ (2) ما هو حجم بيانات صورة ملونة بالكامل (24 bit) بدقة 480 × 720 بكسل بالميجابايت؟ قرّب إجابتك إلى منزلتين عشريتين. (3) ما هو حجم بيانات صورة ملونة بالكامل (24 bit) بدقة 2,160 × 3,820 بكسل بالميجابايت؟ قرّب إجابتك إلى منزلتين عشريتين.»" data-en="&quot;3 Answer the following questions. In these questions, assume that 1 KB = 1,000 B, and 1 MB = 1,000 KB. (1) What is the data amount of an image in kilobytes with a resolution of 800 × 600 pixels, where each pixel has 8 bits? (2) What is the data amount of a 24-bit full-color image with a resolution of 720 × 480 pixels in megabytes? Round your answer to two decimal places. (3) What is the data amount of a 24-bit full-color image with a resolution of 3,820 × 2,160 pixels in megabytes? Round your answer to two decimal places.&quot;">«3 أجب على الأسئلة التالية:افترض أن 1 Byte = 8 bits و 1 KB = 1000 Byte و 1 MB = 1000 KB و 1 GB = 1000 MB (1) ما هو حجم بيانات صورة بالكيلوبايت بدقة 600 × 800 بكسل، حيث يحتوي كل بكسل على 8 bit؟ (2) ما هو حجم بيانات صورة ملونة بالكامل (24 bit) بدقة 480 × 720 بكسل بالميجابايت؟ قرّب إجابتك إلى منزلتين عشريتين. (3) ما هو حجم بيانات صورة ملونة بالكامل (24 bit) بدقة 2,160 × 3,820 بكسل بالميجابايت؟ قرّب إجابتك إلى منزلتين عشريتين.»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1: [1] (ب) من المجموعة أ واسمه (جـ) أخذ العينات من مجموعة ب؛ [2] (أ) من المجموعة أ واسمه (أ) التحول الكمي؛ [3] (ت) من المجموعة أ واسمه (ب) التشفير. 2(1): [1] الألوان الأساسية الثلاثة للضوء، [2] 256. 2(2): [1] النقطي (raster)، [2] المتجه (vector). 2(3): (ت). 3(1): 800 × 600 × 8 = 3,840,000 بت ÷ 8 = 480,000 B = 480 KB. 3(2): 720 × 480 × 24 = 8,294,400 بت ÷ 8 = 1,036,800 B = 1.0368 MB ≈ 1.04 MB. 3(3): 3,820 × 2,160 × 24 = 198,028,800 بت ÷ 8 = 24,753,600 B = 24.7536 MB ≈ 24.75 MB." data-en="Answers not printed in the book (teacher-prepared): 1: [1] B from Group A, named Sampling (C in Group B); [2] A from Group A, named Quantization (A); [3] C from Group A, named Encoding (B). 2(1): [1] three primary colors of light, [2] 256. 2(2): [1] raster, [2] vector. 2(3): C. 3(1): 800 × 600 × 8 = 3,840,000 bits ÷ 8 = 480,000 B = 480 KB. 3(2): 720 × 480 × 24 = 8,294,400 bits ÷ 8 = 1,036,800 B = 1.0368 MB ≈ 1.04 MB. 3(3): 3,820 × 2,160 × 24 = 198,028,800 bits ÷ 8 = 24,753,600 B = 24.7536 MB ≈ 24.75 MB.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1:[1] (ب) من المجموعة أ واسمه (جـ) أخذ العينات من مجموعة ب؛ [2] (أ) من المجموعة أ واسمه (أ) التحول الكمي؛ [3] (ت) من المجموعة أ واسمه (ب) التشفير. 2(1): [1] الألوان الأساسية الثلاثة للضوء، [2] 256. 2(2): [1] النقطي (raster)، [2] المتجه (vector). 2(3): (ت). 3(1): 800 × 600 × 8 = 3,840,000 بت ÷ 8 = 480,000 B = 480 KB. 3(2): 720 × 480 × 24 = 8,294,400 بت ÷ 8 = 1,036,800 B = 1.0368 MB ≈ 1.04 MB. 3(3): 3,820 × 2,160 × 24 = 198,028,800 بت ÷ 8 = 24,753,600 B = 24.7536 MB ≈ 24.75 MB.</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1: [1] (ب) من المجموعة أ واسمه (جـ) أخذ العينات من مجموعة ب؛ [2] (أ) من المجموعة أ واسمه (أ) التحول الكمي؛ [3] (ت) من المجموعة أ واسمه (ب) التشفير. 2(1): [1] الألوان الأساسية الثلاثة للضوء، [2] 256. 2(2): [1] النقطي، [2] المتجه. 2(3): (ت). 3(1): 800 × 600 × 8 = 3,840,000 بت ÷ 8 = 480,000 B = 480 KB. 3(2): 720 × 480 × 24 = 8,294,400 بت ÷ 8 = 1,036,800 B = 1.0368 MB ≈ 1.04 MB. 3(3): 3,820 × 2,160 × 24 = 198,028,800 بت ÷ 8 = 24,753,600 B = 24.7536 MB ≈ 24.75 MB." data-en="Answers not printed in the book (teacher-prepared): 1: [1] B from Group A, named Sampling (C in Group B); [2] A from Group A, named Quantization (A); [3] C from Group A, named Encoding (B). 2(1): [1] three primary colors of light, [2] 256. 2(2): [1] raster, [2] vector. 2(3): C. 3(1): 800 × 600 × 8 = 3,840,000 bits ÷ 8 = 480,000 B = 480 KB. 3(2): 720 × 480 × 24 = 8,294,400 bits ÷ 8 = 1,036,800 B = 1.0368 MB ≈ 1.04 MB. 3(3): 3,820 × 2,160 × 24 = 198,028,800 bits ÷ 8 = 24,753,600 B = 24.7536 MB ≈ 24.75 MB.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1:[1] (ب) من المجموعة أ واسمه (جـ) أخذ العينات من مجموعة ب؛ [2] (أ) من المجموعة أ واسمه (أ) التحول الكمي؛ [3] (ت) من المجموعة أ واسمه (ب) التشفير. 2(1): [1] الألوان الأساسية الثلاثة للضوء، [2] 256. 2(2): [1] النقطي، [2] المتجه. 2(3): (ت). 3(1): 800 × 600 × 8 = 3,840,000 بت ÷ 8 = 480,000 B = 480 KB. 3(2): 720 × 480 × 24 = 8,294,400 بت ÷ 8 = 1,036,800 B = 1.0368 MB ≈ 1.04 MB. 3(3): 3,820 × 2,160 × 24 = 198,028,800 بت ÷ 8 = 24,753,600 B = 24.7536 MB ≈ 24.75 MB.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): لا تطبع أي من النسختين إجابات «جرب بنفسك»، والإجابات أعلاه من إعداد المعلم. [مجموعة أ] مرقمة (أ)(ب)(ت) بينما [مجموعة ب] مرقمة (أ)(ب)(جـ) في نفس السؤال — نُقلت كما وردت. مقدمة السؤال 1 تطلب «أجب باستخدام الأرقام» في النسختين بينما الخيارات بالحروف. النسخة العربية في السؤال 3 تضيف للمعطيات «1 Byte = 8 bits» و«1 GB = 1000 MB» غير الموجودتين في الإنجليزية. أبعاد الدقة في أسئلة الحساب مطبوعة في العربية بترتيب «رأسي × أفقي» (600 × 800) وفي الإنجليزية «800 × 600» — نفس القيم، علمًا أن النقاط الرئيسية في النسختين تصف الترتيب «رأسي × أفقي». النسختان تطبعان «3,820» في 3(3) كما وردت. العربية 2(3)(أ) تطبع «البكسل pixel»." data-en="Edition comparison (verified from printed page images): neither edition prints the Try answers; the answers above are teacher-prepared. [Group A] is lettered (أ)(ب)(ت) while [Group B] is lettered (أ)(ب)(جـ) within the same question - preserved as printed. The question 1 instruction says &quot;Answer using the numbers&quot; in both editions while the options are lettered. The Arabic question 3 adds &quot;1 Byte = 8 bits&quot; and &quot;1 GB = 1000 MB&quot; to the givens, absent in English. The computation questions print the resolution vertical-first in Arabic (600 × 800) and horizontal-first in English (&quot;800 × 600&quot;) - same values, though the Point box in both editions describes the order as vertical × horizontal. Both editions print &quot;3,820&quot; in 3(3) as shown. Arabic 2(3)(أ) prints «البكسل pixel».">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): لا تطبع أي من النسختين إجابات «جرب بنفسك»، والإجابات أعلاه من إعداد المعلم. [مجموعة أ] مرقمة (أ)(ب)(ت) بينما [مجموعة ب] مرقمة (أ)(ب)(جـ) في نفس السؤال — نُقلت كما وردت. مقدمة السؤال 1 تطلب «أجب باستخدام الأرقام» في النسختين بينما الخيارات بالحروف. النسخة العربية في السؤال 3 تضيف للمعطيات «1 Byte = 8 bits» و«1 GB = 1000 MB» غير الموجودتين في الإنجليزية. أبعاد الدقة في أسئلة الحساب مطبوعة في العربية بترتيب «رأسي × أفقي» (600 × 800) وفي الإنجليزية «800 × 600» — نفس القيم، علمًا أن النقاط الرئيسية في النسختين تصف الترتيب «رأسي × أفقي». النسختان تطبعان «3,820» في 3(3) كما وردت. العربية 2(3)(أ) تطبع «البكسل pixel».</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 75 (المطبوع 75)؛ AR 85." data-en="The text above is from the book. Full source: English PDF 75 (printed 75); Arabic 85.">النص السابق من الكتاب. المصدر الكامل:EN PDF 75 (المطبوع 75)؛ AR 85.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
         <div class="book-card try">
           <h3 data-ar="من الكتاب: تمرين — والإجابات التالية غير مطبوعة" data-en="From the book: Exercise - the answers below are not printed">من الكتاب: تمرين — والإجابات التالية غير مطبوعة</h3>
-          <p data-ar="«تمرين 1 أجب عن الأسئلة التالية. (1) اختر التدفق الصحيح لرقمنة صورة التقطتها كاميرا رقمية من الخيارات أ إلى ث، وأجب باستخدام الحرف. (أ) التحول الكمي ← التشفير ← أخذ العينات (ب) التحول الكمي ← أخذ العينات ← التشفير (جـ) التشفير ← التحول الكمي ← أخذ العينات (د) أخذ العينات ← التحول الكمي ← التشفير»" data-en="&quot;Exercise 1 Answer the following questions. (1) Choose the correct flow for digitizing an image captured by a digital camera from the options A to D, and answer using the letter. A Quantization → Encoding → Sampling B Quantization → Sampling → Encoding C Encoding → Quantization → Sampling D Sampling → Quantization → Encoding&quot;">«تمرين 1 أجب عن الأسئلة التالية. (1) اختر التدفق الصحيح لرقمنة صورة التقطتها كاميرا رقمية من الخيارات أ إلى ث، وأجب باستخدام الحرف. (أ) التحول الكمي ← التشفير ← أخذ العينات (ب) التحول الكمي ← أخذ العينات ← التشفير (جـ) التشفير ← التحول الكمي ← أخذ العينات (د) أخذ العينات ← التحول الكمي ← التشفير»</p>
+          <p data-ar="«تمرين 1 أجب عن الأسئلة التالية. (1) اختر التدفق الصحيح لرقمنة صورة التقطتها كاميرا رقمية من الخيارات أ إلى ث، وأجب باستخدام الحرف. (أ) التحول الكمي → التشفير → أخذ العينات (ب) التحول الكمي → أخذ العينات → التشفير (جـ) التشفير → التحول الكمي → أخذ العينات (د) أخذ العينات → التحول الكمي → التشفير»" data-en="&quot;Exercise 1 Answer the following questions. (1) Choose the correct flow for digitizing an image captured by a digital camera from the options A to D, and answer using the letter. A Quantization → Encoding → Sampling B Quantization → Sampling → Encoding C Encoding → Quantization → Sampling D Sampling → Quantization → Encoding&quot;">«تمرين 1 أجب عن الأسئلة التالية. (1) اختر التدفق الصحيح لرقمنة صورة التقطتها كاميرا رقمية من الخيارات أ إلى ث، وأجب باستخدام الحرف. (أ) التحول الكمي ← التشفير ← أخذ العينات (ب) التحول الكمي ← أخذ العينات ← التشفير (جـ) التشفير ← التحول الكمي ← أخذ العينات (د) أخذ العينات ← التحول الكمي ← التشفير»</p>
           <p data-ar="«2 يوضح الرسم البياني التالي عملية تحويل الصورة الأصلية إلى بيانات رقمية. اختر الرسم البياني الذي يناسب الفراغات [١] إلى [٣] من الخيارات من أ إلى ث، وأجب باستخدام الحروف. [رسم مطبوع:الصورة الأصلية ثم [1] ثم [2] ثم [3]، والخيارات: A صورة متدرجة، B شبكة أعداد 0 0 0 0 0 0 0 0 / 0 1 1 1 1 1 1 0 / 0 1 2 2 2 2 1 0 / 0 1 2 3 3 2 1 0 / 0 1 2 3 3 2 1 0 / 0 1 2 2 2 2 1 0 / 0 1 1 1 1 1 1 0 / 0 0 0 0 0 0 0 0، C شبكة أزواج ثنائية 00..00 / 00 01..01 00 / 00 01 10 10 10 10 01 00 / 00 01 10 11 11 10 01 00 / 00 01 10 11 11 10 01 00 / 00 01 10 10 10 10 01 00 / 00 01..01 00 / 00..00، D صورة مبكسلة]»" data-en="&quot;(2) The following diagram illustrates the process of converting the original image into digital data. Choose the diagram that best fits into the blanks [1] to [3] from the options A to D, and answer using the letters. [Printed figure:Original Image, then [1], then [2], then [3]; the options:A gradient image, B a number grid 0 0 0 0 0 0 0 0 / 0 1 1 1 1 1 1 0 / 0 1 2 2 2 2 1 0 / 0 1 2 3 3 2 1 0 / 0 1 2 3 3 2 1 0 / 0 1 2 2 2 2 1 0 / 0 1 1 1 1 1 1 0 / 0 0 0 0 0 0 0 0, C a binary-pair grid 00..00 / 00 01..01 00 / 00 01 10 10 10 10 01 00 / 00 01 10 11 11 10 01 00 / 00 01 10 11 11 10 01 00 / 00 01 10 10 10 10 01 00 / 00 01..01 00 / 00..00, D a pixelated image]&quot;">«2 يوضح الرسم البياني التالي عملية تحويل الصورة الأصلية إلى بيانات رقمية. اختر الرسم البياني الذي يناسب الفراغات [١] إلى [٣] من الخيارات من أ إلى ث، وأجب باستخدام الحروف. [رسم مطبوع:الصورة الأصلية ثم [1] ثم [2] ثم [3]، والخيارات: A صورة متدرجة، B شبكة أعداد 0 0 0 0 0 0 0 0 / 0 1 1 1 1 1 1 0 / 0 1 2 2 2 2 1 0 / 0 1 2 3 3 2 1 0 / 0 1 2 3 3 2 1 0 / 0 1 2 2 2 2 1 0 / 0 1 1 1 1 1 1 0 / 0 0 0 0 0 0 0 0، C شبكة أزواج ثنائية 00..00 / 00 01..01 00 / 00 01 10 10 10 10 01 00 / 00 01 10 11 11 10 01 00 / 00 01 10 11 11 10 01 00 / 00 01 10 10 10 10 01 00 / 00 01..01 00 / 00..00، D صورة مبكسلة]»</p>
           <p data-ar="«3 اختر المصطلح الأنسب لملء الفراغات من [1] إلى [3] في الجمل التالية من الخيارات أ إلى ث. في الطابعات الملونة، يتم التعبير عن مجموعة متنوعة من الألوان عن طريق دمج الألوان الثلاثة: السماوي والأرجواني والأصفر، والتي تُعرف باسم ( [1] ). عندما تُخلط هذه الألوان معًا، فإنها تقترب من اللون ( [2] ). من ناحية أخرى، تمثل شاشات الكمبيوتر جميع الألوان عن طريق دمج الأحمر والأخضر والأزرق، والتي تُعرف باسم ( [3] ) (أ) الألوان الأولية الثلاثة للضوء (ب) الألوان الأولية الثلاثة للصباغ (جـ) الأبيض (د) الأسود»" data-en="&quot;2 Choose the term that best fits into the blanks [1] to [3] in the following sentences from the options A to D below. In color printers, a variety of colors are expressed by combining the three colors of cyan, magenta, and yellow, which are the ( [1] ). When these colors are mixed together, they approach the color ( [2] ). On the other hand, computer displays represent all colors by combining red, green, and blue, which are the ( [3] ). A Three primary colors of light B Three primary colors of pigment C White D Black&quot;">«3 اختر المصطلح الأنسب لملء الفراغات من [1] إلى [3] في الجمل التالية من الخيارات أ إلى ث. في الطابعات الملونة، يتم التعبير عن مجموعة متنوعة من الألوان عن طريق دمج الألوان الثلاثة:السماوي والأرجواني والأصفر، والتي تُعرف باسم ( [1] ). عندما تُخلط هذه الألوان معًا، فإنها تقترب من اللون ( [2] ). من ناحية أخرى، تمثل شاشات الكمبيوتر جميع الألوان عن طريق دمج الأحمر والأخضر والأزرق، والتي تُعرف باسم ( [3] ) (أ) الألوان الأولية الثلاثة للضوء (ب) الألوان الأولية الثلاثة للصباغ (جـ) الأبيض (د) الأسود»</p>
           <p data-ar="«4 أجب على الأسئلة التالية. فيأجب على الأسئلة التالية. في هذه الأسئلة، افترض أن 1 كيلوبايت (KB) = 1,000 بايت (B)، و 1 ميجابايت (MB) = 1,000 كيلوبايت (KB).. (1) ما هو حجم بيانات صورة بالكيلوبايت بدقة 720 × 1,080 بكسل pixel حيث يحتوي كل بكسل على 8 bit؟ قرّب إجابتك إلى أقرب عدد صحيح. (2) ما هو حجم بيانات صورة ملونة بالكامل (24 bit) بدقة 320 × 480 بكسل pixel بالكيلوبايت KB؟ قرّب إجابتك إلى أقرب عدد صحيح. (3) ما هو حجم بيانات صورة ملونة بالكامل (24 bit) بدقة 1,080 × 1,920 بكسل pixel بال MB MB؟ قرّب إجابتك إلى منزلتين عشريتين.»" data-en="&quot;3 Answer the following questions. In these questions, assume that 1 KB = 1,000 B, and 1 MB = 1,000 KB. (1) What is the data amount of an image in kilobytes with a resolution of 1,080 × 720 pixels, where each pixel has 8 bits? Round your answer to the nearest whole number. (2) What is the data amount of a 24-bit full-color image with a resolution of 320 × 480 pixels in kilobytes? Round your answer to the nearest whole number. (3) What is the data amount of a 24-bit full-color image with a resolution of 1,920 × 1,080 pixels in megabytes? Round your answer to two decimal places.&quot;">«4 أجب على الأسئلة التالية. فيأجب على الأسئلة التالية. في هذه الأسئلة، افترض أن 1 كيلوبايت (KB) = 1,000 بايت (B)، و 1 ميجابايت (MB) = 1,000 كيلوبايت (KB).. (1) ما هو حجم بيانات صورة بالكيلوبايت بدقة 720 × 1,080 بكسل pixel حيث يحتوي كل بكسل على 8 bit؟ قرّب إجابتك إلى أقرب عدد صحيح. (2) ما هو حجم بيانات صورة ملونة بالكامل (24 bit) بدقة 320 × 480 بكسل pixel بالكيلوبايت KB؟ قرّب إجابتك إلى أقرب عدد صحيح. (3) ما هو حجم بيانات صورة ملونة بالكامل (24 bit) بدقة 1,080 × 1,920 بكسل pixel بال MB MB؟ قرّب إجابتك إلى منزلتين عشريتين.»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): (د) أخذ العينات ← التحول الكمي ← التشفير. 2:[1] D (الصورة المبكسلة)، [2] B (شبكة الأعداد)، [3] C (الشبكة الثنائية). 3: [1] (ب)، [2] (د)، [3] (أ). 4(1): 1,080 × 720 × 8 = 6,220,800 بت ÷ 8 = 777,600 B = 777.6 KB ≈ 778 KB. 4(2): 320 × 480 × 24 = 3,686,400 بت ÷ 8 = 460,800 B = 460.8 KB ≈ 461 KB. 4(3): 1,920 × 1,080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 B = 6.2208 MB ≈ 6.22 MB." data-en="Answers not printed in the book (teacher-prepared): 1(1): D Sampling → Quantization → Encoding. 2: [1] D (the pixelated image), [2] B (the number grid), [3] C (the binary grid). 3: [1] B, [2] D, [3] A. 4(1): 1,080 × 720 × 8 = 6,220,800 bits ÷ 8 = 777,600 B = 777.6 KB ≈ 778 KB. 4(2): 320 × 480 × 24 = 3,686,400 bits ÷ 8 = 460,800 B = 460.8 KB ≈ 461 KB. 4(3): 1,920 × 1,080 × 24 = 49,766,400 bits ÷ 8 = 6,220,800 B = 6.2208 MB ≈ 6.22 MB.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): (د) أخذ العينات ← التحول الكمي ← التشفير. 2: [1] D (الصورة المبكسلة)، [2] B (شبكة الأعداد)، [3] C (الشبكة الثنائية). 3: [1] (ب)، [2] (د)، [3] (أ). 4(1): 1,080 × 720 × 8 = 6,220,800 بت ÷ 8 = 777,600 B = 777.6 KB ≈ 778 KB. 4(2): 320 × 480 × 24 = 3,686,400 بت ÷ 8 = 460,800 B = 460.8 KB ≈ 461 KB. 4(3): 1,920 × 1,080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 B = 6.2208 MB ≈ 6.22 MB.</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): (د) أخذ العينات → التحول الكمي → التشفير. 2:[1] D (الصورة المبكسلة)، [2] B (شبكة الأعداد)، [3] C (الشبكة الثنائية). 3: [1] (ب)، [2] (د)، [3] (أ). 4(1): 1,080 × 720 × 8 = 6,220,800 بت ÷ 8 = 777,600 B = 777.6 KB ≈ 778 KB. 4(2): 320 × 480 × 24 = 3,686,400 بت ÷ 8 = 460,800 B = 460.8 KB ≈ 461 KB. 4(3): 1,920 × 1,080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 B = 6.2208 MB ≈ 6.22 MB." data-en="Answers not printed in the book (teacher-prepared): 1(1): D Sampling → Quantization → Encoding. 2: [1] D (the pixelated image), [2] B (the number grid), [3] C (the binary grid). 3: [1] B, [2] D, [3] A. 4(1): 1,080 × 720 × 8 = 6,220,800 bits ÷ 8 = 777,600 B = 777.6 KB ≈ 778 KB. 4(2): 320 × 480 × 24 = 3,686,400 bits ÷ 8 = 460,800 B = 460.8 KB ≈ 461 KB. 4(3): 1,920 × 1,080 × 24 = 49,766,400 bits ÷ 8 = 6,220,800 B = 6.2208 MB ≈ 6.22 MB.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): (د) أخذ العينات ← التحول الكمي ← التشفير. 2: [1] D (الصورة المبكسلة)، [2] B (شبكة الأعداد)، [3] C (الشبكة الثنائية). 3: [1] (ب)، [2] (د)، [3] (أ). 4(1): 1,080 × 720 × 8 = 6,220,800 بت ÷ 8 = 777,600 B = 777.6 KB ≈ 778 KB. 4(2): 320 × 480 × 24 = 3,686,400 بت ÷ 8 = 460,800 B = 460.8 KB ≈ 461 KB. 4(3): 1,920 × 1,080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 B = 6.2208 MB ≈ 6.22 MB.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): لا تطبع أي من النسختين إجابات «تمرين»، والإجابات أعلاه من إعداد المعلم. العربية تقسم التمرين إلى أربعة أسئلة مرقمة (1(1)، 2 الرسم، 3 الألوان، 4 الحسابات) بينما الإنجليزية ثلاثة (1(1)، 1(2) الرسم، 2 الألوان، 3 الحسابات). سؤال الرسم العربي يقول «من الخيارات من أ إلى ث» بينما أشكال الخيارات المطبوعة موسومة بالأحرف اللاتينية A/B/C/D — نُقلت كما وردت دون تأويل. العربية 3(ب) تطبع «الألوان الأولية الثلاثة للصباغ» بينما النقاط الرئيسية «الأساسية الثلاثة للصبغة»؛ الإنجليزية &quot;Three primary colors of pigment&quot; في الموضعين. مقدمة السؤال 4 العربية مطبوعة مكررة «أجب على الأسئلة التالية. فيأجب على الأسئلة التالية. في هذه الأسئلة»، وتنتهي المعطيات بنقطتين زائدتين «(KB)..». العربية تطبع «بكسل pixel» في الأسئلة 4(1)(2)(3) و«بال MB MB» في 4(3) و«720بكسل» ملتصقة في 4(1). شريط «تمرين» مطبوع بالأحمر في العربية بينما أشرطة الدرس الأخرى زرقاء." data-en="Edition comparison (verified from printed page images): neither edition prints the Exercise answers; the answers above are teacher-prepared. Arabic splits the exercise into four numbered questions (1(1), 2 diagram, 3 colors, 4 computations) where English has three (1(1), 1(2) diagram, 2 colors, 3 computations). The Arabic diagram question says «from the options أ to ث» while the printed option figures are labeled with Latin A/B/C/D - preserved as printed, no convention asserted. Arabic 3(ب) prints «الأولية الثلاثة للصباغ» where the Point box has «الأساسية الثلاثة للصبغة»; English prints &quot;Three primary colors of pigment&quot; in both places. The Arabic question 4 instruction is printed duplicated «أجب على الأسئلة التالية. فيأجب على الأسئلة التالية. في هذه الأسئلة», and the givens end with two stray dots «(KB)..». Arabic prints «بكسل pixel» in 4(1)(2)(3), «بال MB MB» in 4(3), and glued «720بكسل» in 4(1). The Exercise band is printed red in the Arabic edition while the lesson's other bands are blue.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): لا تطبع أي من النسختين إجابات «تمرين»، والإجابات أعلاه من إعداد المعلم. العربية تقسم التمرين إلى أربعة أسئلة مرقمة (1(1)، 2 الرسم، 3 الألوان، 4 الحسابات) بينما الإنجليزية ثلاثة (1(1)، 1(2) الرسم، 2 الألوان، 3 الحسابات). سؤال الرسم العربي يقول «من الخيارات من أ إلى ث» بينما أشكال الخيارات المطبوعة موسومة بالأحرف اللاتينية A/B/C/D — نُقلت كما وردت دون تأويل. العربية 3(ب) تطبع «الألوان الأولية الثلاثة للصباغ» بينما النقاط الرئيسية «الأساسية الثلاثة للصبغة»؛ الإنجليزية "Three primary colors of pigment" في الموضعين. مقدمة السؤال 4 العربية مطبوعة مكررة «أجب على الأسئلة التالية. فيأجب على الأسئلة التالية. في هذه الأسئلة»، وتنتهي المعطيات بنقطتين زائدتين «(KB)..». العربية تطبع «بكسل pixel» في الأسئلة 4(1)(2)(3) و«بال MB MB» في 4(3) و«720بكسل» ملتصقة في 4(1). شريط «تمرين» مطبوع بالأحمر في العربية بينما أشرطة الدرس الأخرى زرقاء.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 76 (المطبوع 76)؛ AR 86." data-en="The text above is from the book. Full source: English PDF 76 (printed 76); Arabic 86.">النص السابق من الكتاب. المصدر الكامل:EN PDF 76 (المطبوع 76)؛ AR 86.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: الترتيب والصيغ — غير مطبوعة في الكتاب"
           data-en="✍️ Additional interactive drill 1: order and formats - not printed in the book">✍️ تدريب تفاعلي إضافي 1: الترتيب والصيغ — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="إيه الترتيب الصح لتحويل صورة لداتا (Data) رقمية؟"
-              data-en="What is the correct order to convert an image into digital data?">إيه الترتيب الصح لتحويل صورة لداتا (Data) رقمية؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="إيه الترتيب الصح لتحويل صورة لبيانات رقمية؟"
+              data-en="What is the correct order to convert an image into digital data?">إيه الترتيب الصح لتحويل صورة لبيانات رقمية؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  ترميز ← تقسيم الصورة ← تحويل السطوع"
-              data-en="A  encode → divide the image → convert brightness">A  ترميز ← تقسيم الصورة ← تحويل السطوع</div>
-            <div class="ex-opt" data-ar="B  تحويل السطوع ← ترميز ← تقسيم الصورة"
-              data-en="B  convert brightness → encode → divide the image">B  تحويل السطوع ← ترميز ← تقسيم الصورة</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  تقسيم الصورة ← تحويل السطوع لأرقام ← ترميز ثنائي"
-              data-en="C  divide the image → convert brightness to numbers → encode in binary">C  تقسيم الصورة ← تحويل السطوع لأرقام ← ترميز ثنائي</div>
+            <div class="ex-opt" data-ar="A ترميز → تقسيم الصورة → تحويل السطوع"
+              data-en="A  encode → divide the image → convert brightness">A ترميز ← تقسيم الصورة ← تحويل السطوع</div>
+            <div class="ex-opt" data-ar="B تحويل السطوع → ترميز → تقسيم الصورة"
+              data-en="B  convert brightness → encode → divide the image">B تحويل السطوع ← ترميز ← تقسيم الصورة</div>
+            <div class="ex-opt" data-ok="1" data-ar="C تقسيم الصورة → تحويل السطوع لأرقام → ترميز ثنائي"
+              data-en="C  divide the image → convert brightness to numbers → encode in binary">C تقسيم الصورة ← تحويل السطوع لأرقام ← ترميز ثنائي</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C" data-en="✅ Answer: C">✅ الإجابة: C</b> <span
               data-ar="بنقسّم الصورة الأول (معاينة)، وبعدين نحوّل السطوع لأرقام (تكميم)، وبعدين نشفّر (ترميز)."
@@ -1677,12 +706,12 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه العبارات الصح عن التمثيل الرقمي للصور؟"
               data-en="Which statements are correct about the digital representation of images?">إيه العبارات الصح عن التمثيل الرقمي للصور؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  Raster مناسب للوجوه (logos) بحدود واضحة"
-              data-en="A  Raster is suitable for logos with clear contours">A  Raster مناسب للوجوه (logos) بحدود واضحة</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  Raster بيبان مفصّص لما يتكبّر، وVector بيستخدم إحداثيات النقط"
-              data-en="B  Raster looks jagged when enlarged, and Vector uses point coordinates">B  Raster بيبان مفصّص لما يتكبّر، وVector بيستخدم إحداثيات النقط</div>
-            <div class="ex-opt" data-ar="C  برنامج التلوين بيعمل جرافيكس Vector"
-              data-en="C  painting software creates Vector graphics">C  برنامج التلوين بيعمل جرافيكس Vector</div>
+            <div class="ex-opt" data-ar="A Raster مناسب للوجوه بحدود واضحة"
+              data-en="A  Raster is suitable for logos with clear contours">A Raster مناسب للوجوه بحدود واضحة</div>
+            <div class="ex-opt" data-ok="1" data-ar="B Raster بيبان مفصّص لما يتكبّر، وVector بيستخدم إحداثيات النقط"
+              data-en="B  Raster looks jagged when enlarged, and Vector uses point coordinates">B Raster بيبان مفصّص لما يتكبّر، وVector بيستخدم إحداثيات النقط</div>
+            <div class="ex-opt" data-ar="C برنامج التلوين بيعمل جرافيكس Vector"
+              data-en="C  painting software creates Vector graphics">C برنامج التلوين بيعمل جرافيكس Vector</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B" data-en="✅ Answer: B">✅ الإجابة: B</b> <span
               data-ar="Raster بيبان مفصّص لما يتكبّر، وVector بيخزّن إحداثيات النقط وسمك الخط."
@@ -1700,9 +729,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="تمثيل لون واحد بـ 8 بتّات بيدّي كام مستوى؟"
               data-en="Representing one color with 8 bits gives how many levels?">تمثيل لون واحد بـ 8 بتّات بيدّي كام مستوى؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  256 مستوى" data-en="A  256 levels">A  256 مستوى</div>
-            <div class="ex-opt" data-ar="B  24 مستوى" data-en="B  24 levels">B  24 مستوى</div>
-            <div class="ex-opt" data-ar="C  8 مستويات" data-en="C  8 levels">C  8 مستويات</div>
+            <div class="ex-opt" data-ok="1" data-ar="A 256 مستوى" data-en="A  256 levels">A 256 مستوى</div>
+            <div class="ex-opt" data-ar="B 24 مستوى" data-en="B  24 levels">B 24 مستوى</div>
+            <div class="ex-opt" data-ar="C 8 مستويات" data-en="C  8 levels">C 8 مستويات</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 256 مستوى" data-en="✅ Answer: A — 256 levels">✅ الإجابة: A — 256 مستوى</b> <span data-ar="2 أس 8 = 256 مستوى، من 0 لـ 255."
               data-en="2 to the power of 8 = 256 levels, from 0 to 255.">2 أس 8 = <b>256</b> مستوى، من 0 لـ 255.</span></div>
@@ -1711,9 +740,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="الصيغة اللي بتخزّن إحداثيات النقط والخطوط بتتسمّى إيه؟"
               data-en="The format that stores point coordinates and lines is called?">الصيغة اللي بتخزّن إحداثيات النقط والخطوط بتتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  صيغة Raster" data-en="A  Raster format">A  صيغة Raster</div>
-            <div class="ex-opt" data-ar="B  صيغة Pixel" data-en="B  Pixel format">B  صيغة Pixel</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  صيغة Vector" data-en="C  Vector format">C  صيغة Vector</div>
+            <div class="ex-opt" data-ar="A صيغة Raster" data-en="A  Raster format">A صيغة Raster</div>
+            <div class="ex-opt" data-ar="B صيغة Pixel" data-en="B  Pixel format">B صيغة Pixel</div>
+            <div class="ex-opt" data-ok="1" data-ar="C صيغة Vector" data-en="C  Vector format">C صيغة Vector</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — صيغة Vector" data-en="✅ Answer: C — Vector format">✅ الإجابة: C — صيغة Vector</b> <span data-ar="Vector بيستخدم تعبيرات رياضية وإحداثيات النقط والخطوط."
               data-en="Vector uses mathematical expressions and the coordinates of points and lines.">Vector بيستخدم تعبيرات رياضية وإحداثيات النقط والخطوط.</span></div>
@@ -1722,17 +751,17 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه العبارة الغلط؟"
               data-en="Which statement is incorrect?">إيه العبارة الغلط؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  كل ما الدقة والتدرّج أصغر، الصورة أنعم"
-              data-en="A  the smaller the resolution and gradation, the smoother the image">A  كل ما الدقة والتدرّج أصغر، الصورة أنعم</div>
-            <div class="ex-opt" data-ar="B  وحدة dpi بيعبّر عن درجة كثافة البكسلات"
-              data-en="B  the dpi unit expresses the degree of pixel density">B  وحدة dpi بيعبّر عن درجة كثافة البكسلات</div>
-            <div class="ex-opt" data-ar="C  التدرّج بيتحدّد بعدد البتّات المخصّصة لكل بكسل"
-              data-en="C  gradation is determined by the number of bits allocated per pixel">C  التدرّج بيتحدّد بعدد البتّات المخصّصة لكل بكسل</div>
+            <div class="ex-opt" data-ok="1" data-ar="A كل ما الدقة والتدرّج أصغر، الصورة أنعم"
+              data-en="A  the smaller the resolution and gradation, the smoother the image">A كل ما الدقة والتدرّج أصغر، الصورة أنعم</div>
+            <div class="ex-opt" data-ar="B وحدة dpi بيعبّر عن درجة كثافة البكسلات"
+              data-en="B  the dpi unit expresses the degree of pixel density">B وحدة dpi بيعبّر عن درجة كثافة البكسلات</div>
+            <div class="ex-opt" data-ar="C التدرّج بيتحدّد بعدد البتّات المخصّصة لكل بكسل"
+              data-en="C  gradation is determined by the number of bits allocated per pixel">C التدرّج بيتحدّد بعدد البتّات المخصّصة لكل بكسل</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A" data-en="✅ Answer: A">✅ الإجابة: A</b> <span
               data-ar="العكس هو الصح: كل ما الدقة والتدرّج أعلى، الصورة أنعم."
               data-en="the opposite is true: the higher the resolution and gradation, the smoother the image.">العكس صح:
-              كل ما <b>زادت</b> الدقة وعمق اللون، الصورة بتبقى أنعم.</span></div>
+ كل ما <b>زادت</b> الدقة وعمق اللون، الصورة بتبقى أنعم.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1741,55 +770,55 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <h3 data-ar="✍️ تدريب تفاعلي إضافي 3: حساب داتا (Data) الصورة — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 3: calculating image data - not printed in the book">✍️ تدريب تفاعلي إضافي 3: حساب داتا (Data) الصورة — غير مطبوعة في الكتاب</h3>
+        <h3 data-ar="✍️ تدريب تفاعلي إضافي 3: حساب بيانات الصورة — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 3: calculating image data - not printed in the book">✍️ تدريب تفاعلي إضافي 3: حساب بيانات الصورة — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
           <div class="q"><span class="q-num">1</span> <span data-ar="صورة 800 × 600 بلون 8 بت — حجمها كام KB؟"
               data-en="An 800 × 600 image with 8-bit color — its size in KB?">صورة 800 × 600 بلون 8 بت — حجمها كام KB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  240 KB" data-en="A  240 KB">A  <span dir="ltr">240 KB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  480 KB" data-en="B  480 KB">B  <span dir="ltr">480 KB</span></div>
-            <div class="ex-opt" data-ar="C  960 KB" data-en="C  960 KB">C  <span dir="ltr">960 KB</span></div>
+            <div class="ex-opt" data-ar="A 240 KB" data-en="A  240 KB">A  <span dir="ltr">240 KB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 480 KB" data-en="B  480 KB">B  <span dir="ltr">480 KB</span></div>
+            <div class="ex-opt" data-ar="C 960 KB" data-en="C  960 KB">C  <span dir="ltr">960 KB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 480 KB" data-en="✅ Answer: B — 480 KB">✅ الإجابة: B — 480 KB</b>
             <span data-ar="800 × 600 × 8 = 3,840,000 بت، ÷8 = 480,000 بايت، ÷1000 = 480 KB."
               data-en="800 × 600 × 8 = 3,840,000 bits, ÷8 = 480,000 bytes, ÷1000 = 480 KB.">800 × 600 × 8 =
-              3,840,000 بت، ÷8 = 480,000 بايت، ÷1000 = <b>480 KB</b>.</span></div>
+ 3,840,000 بت، ÷8 = 480,000 بايت، ÷1000 = <b>480 KB</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="صورة 1,280 × 720 بلون 24 بت — حجمها كام MB؟"
               data-en="A 1,280 × 720 image in 24-bit color — its size in MB?">صورة 1,280 × 720 بلون 24 بت — حجمها كام MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  2.76 MB" data-en="A  2.76 MB">A  <span dir="ltr">2.76 MB</span></div>
-            <div class="ex-opt" data-ar="B  5.52 MB" data-en="B  5.52 MB">B  <span dir="ltr">5.52 MB</span></div>
-            <div class="ex-opt" data-ar="C  1.38 MB" data-en="C  1.38 MB">C  <span dir="ltr">1.38 MB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 2.76 MB" data-en="A  2.76 MB">A  <span dir="ltr">2.76 MB</span></div>
+            <div class="ex-opt" data-ar="B 5.52 MB" data-en="B  5.52 MB">B  <span dir="ltr">5.52 MB</span></div>
+            <div class="ex-opt" data-ar="C 1.38 MB" data-en="C  1.38 MB">C  <span dir="ltr">1.38 MB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 2.76 MB" data-en="✅ Answer: A — 2.76 MB">✅ الإجابة: A — 2.76 MB</b> <span data-ar="1280 × 720 × 24 = 22,118,400 بت، ÷8 = 2,764,800 بايت، ÷1000 ÷ 1000 ≈ 2.76 MB."
               data-en="1280 × 720 × 24 = 22,118,400 bits, ÷8 = 2,764,800 bytes, ÷1000 ÷ 1000 ≈ 2.76 MB.">1280 × 720 × 24
-              = 22,118,400 بت، ÷8 = 2,764,800 بايت، ÷1000 ÷ 1000 ≈ <b>2.76 MB</b>.</span></div>
+ = 22,118,400 بت، ÷8 = 2,764,800 بايت، ÷1000 ÷ 1000 ≈ <b>2.76 MB</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="صورة 720 × 480 بلون 24 بت — حجمها كام MB؟"
               data-en="A 720 × 480 image in 24-bit color — its size in MB?">صورة 720 × 480 بلون 24 بت — حجمها كام MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  2.07 MB" data-en="A  2.07 MB">A  <span dir="ltr">2.07 MB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  1.04 MB" data-en="B  1.04 MB">B  <span dir="ltr">1.04 MB</span></div>
-            <div class="ex-opt" data-ar="C  0.52 MB" data-en="C  0.52 MB">C  <span dir="ltr">0.52 MB</span></div>
+            <div class="ex-opt" data-ar="A 2.07 MB" data-en="A  2.07 MB">A  <span dir="ltr">2.07 MB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 1.04 MB" data-en="B  1.04 MB">B  <span dir="ltr">1.04 MB</span></div>
+            <div class="ex-opt" data-ar="C 0.52 MB" data-en="C  0.52 MB">C  <span dir="ltr">0.52 MB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 1.04 MB" data-en="✅ Answer: B — 1.04 MB">✅ الإجابة: B — 1.04 MB</b> <span data-ar="720 × 480 × 24 = 8,294,400 بت، ÷8 = 1,036,800 بايت، ÷1000 ÷ 1000 ≈ 1.04 MB."
               data-en="720 × 480 × 24 = 8,294,400 bits, ÷8 = 1,036,800 bytes, ÷1000 ÷ 1000 ≈ 1.04 MB.">720 × 480 × 24 =
-              8,294,400 بت، ÷8 = 1,036,800 بايت، ÷1000 ÷ 1000 ≈ <b>1.04 MB</b>.</span></div>
+ 8,294,400 بت، ÷8 = 1,036,800 بايت، ÷1000 ÷ 1000 ≈ <b>1.04 MB</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">4</span> <span data-ar="صورة 3,820 × 2,160 بلون 24 بت — حجمها كام MB؟"
               data-en="A 3,820 × 2,160 image in 24-bit color — its size in MB?">صورة 3,820 × 2,160 بلون 24 بت — حجمها كام MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  12.38 MB" data-en="A  12.38 MB">A  <span dir="ltr">12.38 MB</span></div>
-            <div class="ex-opt" data-ar="B  49.50 MB" data-en="B  49.50 MB">B  <span dir="ltr">49.50 MB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  24.75 MB" data-en="C  24.75 MB">C  <span dir="ltr">24.75 MB</span></div>
+            <div class="ex-opt" data-ar="A 12.38 MB" data-en="A  12.38 MB">A  <span dir="ltr">12.38 MB</span></div>
+            <div class="ex-opt" data-ar="B 49.50 MB" data-en="B  49.50 MB">B  <span dir="ltr">49.50 MB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 24.75 MB" data-en="C  24.75 MB">C  <span dir="ltr">24.75 MB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 24.75 MB" data-en="✅ Answer: C — 24.75 MB">✅ الإجابة: C — 24.75 MB</b> <span data-ar="3820 × 2160 × 24 = 198,028,800 بت، ÷8 = 24,753,600 بايت، ÷1000 ÷ 1000 ≈ 24.75 MB."
               data-en="3820 × 2160 × 24 = 198,028,800 bits, ÷8 = 24,753,600 bytes, ÷1000 ÷ 1000 ≈ 24.75 MB.">3820 × 2160 ×
-              24 = 198,028,800 بت، ÷8 = 24,753,600 بايت، ÷1000 ÷ 1000 ≈ <b>24.75 MB</b>.</span></div>
+ 24 = 198,028,800 بت، ÷8 = 24,753,600 بايت، ÷1000 ÷ 1000 ≈ <b>24.75 MB</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1803,12 +832,12 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="في الطابعات، الألوان الأساسية للصبغة هما إيه؟"
               data-en="In printers, the three primary colors of pigment are?">في الطابعات، الألوان الأساسية للصبغة هما إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  الأحمر والأخضر والأزرق — بيوصّلوا للأبيض"
-              data-en="A  red, green, blue — approaching white">A  الأحمر والأخضر والأزرق — بيوصّلوا للأبيض</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  السماوي والأرجواني والأصفر — بيوصّلوا للأسود"
-              data-en="B  cyan, magenta, yellow — approaching black">B  السماوي والأرجواني والأصفر — بيوصّلوا للأسود</div>
-            <div class="ex-opt" data-ar="C  السماوي والأرجواني والأصفر — بيوصّلوا للأبيض"
-              data-en="C  cyan, magenta, yellow — approaching white">C  السماوي والأرجواني والأصفر — بيوصّلوا للأبيض</div>
+            <div class="ex-opt" data-ar="A الأحمر والأخضر والأزرق — بيوصّلوا للأبيض"
+              data-en="A  red, green, blue — approaching white">A الأحمر والأخضر والأزرق — بيوصّلوا للأبيض</div>
+            <div class="ex-opt" data-ok="1" data-ar="B السماوي والأرجواني والأصفر — بيوصّلوا للأسود"
+              data-en="B  cyan, magenta, yellow — approaching black">B السماوي والأرجواني والأصفر — بيوصّلوا للأسود</div>
+            <div class="ex-opt" data-ar="C السماوي والأرجواني والأصفر — بيوصّلوا للأبيض"
+              data-en="C  cyan, magenta, yellow — approaching white">C السماوي والأرجواني والأصفر — بيوصّلوا للأبيض</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B" data-en="✅ Answer: B">✅ الإجابة: B</b> <span
               data-ar="ألوان الصبغة هي CMY، وخلطهم بيوصّل للأسود — خلط طرحي."
@@ -1818,39 +847,39 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="صورة 1,080 × 720 بلون 8 بت — حجمها كام KB؟"
               data-en="A 1,080 × 720 image with 8-bit color — its size in KB?">صورة 1,080 × 720 بلون 8 بت — حجمها كام KB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  389 KB" data-en="A  389 KB">A  <span dir="ltr">389 KB</span></div>
-            <div class="ex-opt" data-ar="B  1555 KB" data-en="B  1555 KB">B  <span dir="ltr">1555 KB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  778 KB" data-en="C  778 KB">C  <span dir="ltr">778 KB</span></div>
+            <div class="ex-opt" data-ar="A 389 KB" data-en="A  389 KB">A  <span dir="ltr">389 KB</span></div>
+            <div class="ex-opt" data-ar="B 1555 KB" data-en="B  1555 KB">B  <span dir="ltr">1555 KB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 778 KB" data-en="C  778 KB">C  <span dir="ltr">778 KB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 778 KB" data-en="✅ Answer: C — 778 KB">✅ الإجابة: C — 778 KB</b>
             <span data-ar="1080 × 720 × 8 = 6,220,800 بت، ÷8 = 777,600 بايت، ÷1000 ≈ 778 KB."
               data-en="1080 × 720 × 8 = 6,220,800 bits, ÷8 = 777,600 bytes, ÷1000 ≈ 778 KB.">1080 × 720 × 8 =
-              6,220,800 بت، ÷8 = 777,600 بايت، ÷1000 ≈ <b>778 KB</b>.</span></div>
+ 6,220,800 بت، ÷8 = 777,600 بايت، ÷1000 ≈ <b>778 KB</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="صورة 320 × 480 بلون 24 بت — حجمها كام KB؟"
               data-en="A 320 × 480 image in 24-bit color — its size in KB?">صورة 320 × 480 بلون 24 بت — حجمها كام KB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  461 KB" data-en="A  461 KB">A  <span dir="ltr">461 KB</span></div>
-            <div class="ex-opt" data-ar="B  922 KB" data-en="B  922 KB">B  <span dir="ltr">922 KB</span></div>
-            <div class="ex-opt" data-ar="C  230 KB" data-en="C  230 KB">C  <span dir="ltr">230 KB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 461 KB" data-en="A  461 KB">A  <span dir="ltr">461 KB</span></div>
+            <div class="ex-opt" data-ar="B 922 KB" data-en="B  922 KB">B  <span dir="ltr">922 KB</span></div>
+            <div class="ex-opt" data-ar="C 230 KB" data-en="C  230 KB">C  <span dir="ltr">230 KB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 461 KB" data-en="✅ Answer: A — 461 KB">✅ الإجابة: A — 461 KB</b>
             <span data-ar="320 × 480 × 24 = 3,686,400 بت، ÷8 = 460,800 بايت، ÷1000 ≈ 461 KB."
               data-en="320 × 480 × 24 = 3,686,400 bits, ÷8 = 460,800 bytes, ÷1000 ≈ 461 KB.">320 × 480 × 24 =
-              3,686,400 بت، ÷8 = 460,800 بايت، ÷1000 ≈ <b>461 KB</b>.</span></div>
+ 3,686,400 بت، ÷8 = 460,800 بايت، ÷1000 ≈ <b>461 KB</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">4</span> <span data-ar="صورة 1,920 × 1,080 بلون 24 بت — حجمها كام MB؟"
               data-en="A 1,920 × 1,080 image in 24-bit color — its size in MB?">صورة 1,920 × 1,080 بلون 24 بت — حجمها كام MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  3.11 MB" data-en="A  3.11 MB">A  <span dir="ltr">3.11 MB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  6.22 MB" data-en="B  6.22 MB">B  <span dir="ltr">6.22 MB</span></div>
-            <div class="ex-opt" data-ar="C  12.44 MB" data-en="C  12.44 MB">C  <span dir="ltr">12.44 MB</span></div>
+            <div class="ex-opt" data-ar="A 3.11 MB" data-en="A  3.11 MB">A  <span dir="ltr">3.11 MB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 6.22 MB" data-en="B  6.22 MB">B  <span dir="ltr">6.22 MB</span></div>
+            <div class="ex-opt" data-ar="C 12.44 MB" data-en="C  12.44 MB">C  <span dir="ltr">12.44 MB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 6.22 MB" data-en="✅ Answer: B — 6.22 MB">✅ الإجابة: B — 6.22 MB</b> <span data-ar="1920 × 1080 × 24 = 49,766,400 بت، ÷8 = 6,220,800 بايت، ÷1000 ÷ 1000 ≈ 6.22 MB."
               data-en="1920 × 1080 × 24 = 49,766,400 bits, ÷8 = 6,220,800 bytes, ÷1000 ÷ 1000 ≈ 6.22 MB.">1920 × 1080 × 24
-              = 49,766,400 بت، ÷8 = 6,220,800 بايت، ÷1000 ÷ 1000 ≈ <b>6.22 MB</b>.</span></div>
+ = 49,766,400 بت، ÷8 = 6,220,800 بايت، ÷1000 ÷ 1000 ≈ <b>6.22 MB</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1880,23 +909,23 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="البيكسل والدقة" data-en="Pixel and Resolution">البيكسل والدقة</h4>
-                  <p data-ar="البيكسل (Pixel) هو أصغر وحدة في الصورة، والدقة بتقيس نعومة البكسلات بـ dpi."
-                    data-en="a pixel is the smallest unit of an image, and resolution measures pixel fineness in dpi.">البيكسل (Pixel) هو أصغر وحدة في الصورة، والدقة بتقيس نعومة البكسلات بـ dpi.</p>
+                  <h3 data-ar="البيكسل والدقة" data-en="Pixel and Resolution" class="lvl-h4 lvl-h4-2">البيكسل والدقة</h3>
+                  <p data-ar="البيكسل هو أصغر وحدة في الصورة، والدقة بتقيس نعومة البكسلات بـ dpi."
+                    data-en="a pixel is the smallest unit of an image, and resolution measures pixel fineness in dpi.">البيكسل هو أصغر وحدة في الصورة، والدقة بتقيس نعومة البكسلات بـ dpi.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="خطوات التحويل" data-en="The conversion steps">خطوات التحويل</h4>
-                  <p data-ar="معاينة ← تكميم ← ترميز — والصورة بتتحوّل أرقام ثنائية."
+                  <h3 data-ar="خطوات التحويل" data-en="The conversion steps" class="lvl-h4 lvl-h4-2">خطوات التحويل</h3>
+                  <p data-ar="معاينة → تكميم → ترميز — والصورة بتتحوّل أرقام ثنائية."
                     data-en="Sampling → Quantization → Encoding — and the image becomes binary numbers.">معاينة ← تكميم ← ترميز — والصورة بتتحوّل أرقام ثنائية.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="الحجم والألوان" data-en="Size and colors">الحجم والألوان</h4>
+                  <h3 data-ar="الحجم والألوان" data-en="Size and colors" class="lvl-h4 lvl-h4-2">الحجم والألوان</h3>
                   <p data-ar="الحجم = بكسلات × بتّات اللون، وشاشات RGB مقابل طابعات CMY."
                     data-en="size = pixels × color bits, and RGB screens versus CMY printers.">الحجم = بكسلات × بتّات اللون، وشاشات RGB مقابل طابعات CMY.</p>
                 </div>
@@ -1915,8 +944,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="recapRecall">
           <div class="rq" data-id="recapRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو البكسل (Pixel)؟"
-                data-en="What is a pixel?">إيه هو البكسل (Pixel)؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو البكسل؟"
+                data-en="What is a pixel?">إيه هو البكسل؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! البكسل هو أصغر وحدة بتكوّن الصورة."
@@ -1985,7 +1014,7 @@ select{color:var(--text)!important}
     </section>
     <button id="scrollTop" data-ar="↑" data-en="↑">↑</button>
   </main>
-  <footer class="page-footer"><div class="footer-line"><img class="footer-logo" src="../../../../assets/logo-extracted.webp" alt="logo"><span data-ar="عظيم! دلوقتي إنت عارف إزاي الصور بتتحوّل لداتا رقمية" data-en="Great! Now you know how images become digital data">عظيم! دلوقتي إنت عارف إزاي الصور بتتحوّل لداتا رقمية</span></div></footer>
+  <footer class="page-footer"><div class="footer-line"><img class="footer-logo" src="../../../../assets/logo-extracted.webp" alt="logo"><span data-ar="عظيم! دلوقتي إنت عارف إزاي الصور بتتحوّل لبيانات رقمية" data-en="Great! Now you know how images become digital data">عظيم! دلوقتي إنت عارف إزاي الصور بتتحوّل لبيانات رقمية</span></div></footer>
   <script>
     'use strict';
     var lang = localStorage.getItem('langPreference') || 'ar';
@@ -2508,30 +1537,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>

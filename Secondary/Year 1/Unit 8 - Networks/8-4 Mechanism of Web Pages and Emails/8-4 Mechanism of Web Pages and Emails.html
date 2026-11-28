@@ -10,967 +10,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 8-4 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }
-
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/hanism-of-web-pages-and-emails--8-4-mechanism-of-web-pages-and-emails-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
 </head>
 
 <body>
@@ -1006,15 +49,15 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
       <div class="hero-badge" data-ar="الدرس 4 — آلية صفحات الويب والإيميل"
         data-en="Lesson 4 — Mechanism of Web Pages and Emails">الدرس 4 — آلية صفحات الويب والإيميل</div>
       <h1 class="hero-title" data-ar="آلية صفحات <span class=&quot;grad&quot;>الويب</span> والإيميلات"
-        data-en="<span class=&quot;grad&quot;>Mechanism</span> of Web Pages and Emails">آلية صفحات <span
+ data-en="<span class=&quot;grad&quot;>Mechanism</span> of Web Pages and Emails">آلية صفحات <span
           class="grad">الويب</span> والإيميلات</h1>
       <p class="hero-sub"
         data-ar="آلية صفحات الويب والإيميل — لما تكتب موقع أو تبعت إيميل، بيحصل كتير ورا الكواليس. النهارده هنتعلّم WWW وHTML وURL، وخطوات تصفّح صفحة ويب، وآلية الإيميل وبنية عنوانه، وبروتوكولات الإرسال والاستقبال SMTP وPOP وIMAP."
         data-en="Mechanism of Web Pages and Emails — when you type a site or send an email, a lot happens behind the scenes. Today we learn the WWW, HTML, and URL, the steps of browsing a web page, the email mechanism and its address structure, and the sending and receiving protocols SMTP, POP, and IMAP.">
         <span dir="ltr">Mechanism of Web Pages and Emails</span> — لما تكتب موقع أو تبعت إيميل بيحصل ورا الكواليس شغل
-        كتير. النهارده هنتعلم الـ WWW والـ HTML والـ URL، وخطوات تصفح صفحة الويب، وآلية الإيميل وتركيب عنوانه،
-        وبروتوكولات الإرسال والاستقبال SMTP وPOP وIMAP.</p>
-      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ كتير. النهارده هنتعلم الـ WWW والـ HTML والـ URL، وخطوات تصفح صفحة الويب، وآلية الإيميل وتركيب عنوانه،
+ وبروتوكولات الإرسال والاستقبال SMTP وPOP وIMAP.</p>
+      <div class="hero-stats"><span data-ar="8 أقسام" data-en="8 sections">8 أقسام</span><span data-ar="12 سؤالًا" data-en="12 practice questions">12 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 <main>
@@ -1034,9 +77,9 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
       <div class="section-inner card">
         <p data-ar="لما تكتب عنوان موقع وتدوس Enter، الصفحة بتبان قدامك إزاي؟ ولما تبعت إيميل، بيوصل للشخص الصح إزاي؟ النهارده هنتعلّم WWW وHTML وURL، وخطوات تصفّح صفحة ويب، وبنية عنوان الإيميل، وبروتوكولات الإرسال والاستقبال SMTP وPOP وIMAP."
           data-en="When you type a website address and press Enter, how does the page appear in front of you? And when you send an email, how does it reach the right person? Today we learn WWW, HTML, and URL, the steps of browsing a web page, the structure of an email address, and the sending and receiving protocols SMTP, POP, and IMAP.">
-          لما تكتب عنوان موقع وتدوس Enter، إزاي الصفحة بتظهر قدامك؟ ولما تبعت إيميل، إزاي بيوصل للشخص الصح؟ النهارده
-          هنتعلم الـ <b>WWW</b> والـ <b>HTML</b> والـ <b>URL</b>، وخطوات تصفح صفحة الويب، وتركيب عنوان الإيميل،
-          وبروتوكولات الإرسال والاستقبال <b>SMTP</b> و<b>POP</b> و<b>IMAP</b>.</p>
+ لما تكتب عنوان موقع وتدوس Enter، إزاي الصفحة بتظهر قدامك؟ ولما تبعت إيميل، إزاي بيوصل للشخص الصح؟ النهارده
+ هنتعلم الـ <b>WWW</b> والـ <b>HTML</b> والـ <b>URL</b>، وخطوات تصفح صفحة الويب، وتركيب عنوان الإيميل،
+ وبروتوكولات الإرسال والاستقبال <b>SMTP</b> و<b>POP</b> و<b>IMAP</b>.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="URL زي عنوان بيت فيه شارع ومدينة، وDNS زي دليل بيوصّلك هناك، والإيميل زي جواب ورقي فيه عنوان مرسل ومستقبل."
             data-en="A URL is like a house address with street and city, DNS is like a directory that gets you there, and an email is like a paper letter with a sender and recipient address.">URL زي عنوان بيت فيه شارع ومدينة، وDNS زي دليل بيوصّلك هناك، والإيميل زي جواب ورقي فيه عنوان مرسل ومستقبل.</span></div>
@@ -1073,10 +116,10 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
-          <li data-ar="الخلط بين URL واسم النطاق (Domain name) — URL بيمثّل مكان الصفحة كامل وطريقة الاتصال، واسم النطاق (Domain name) جزء من URL."
-            data-en="Confusing the URL with the Domain name — the URL represents the full page location and communication method, and the Domain name is a part of the URL.">الخلط بين URL واسم النطاق (Domain name) — URL بيمثّل مكان الصفحة كامل وطريقة الاتصال، واسم النطاق (Domain name) جزء من URL.</li>
+          <li data-ar="الخلط بين URL واسم النطاق — URL بيمثّل مكان الصفحة كامل وطريقة الاتصال، واسم النطاق جزء من URL."
+            data-en="Confusing the URL with the Domain name — the URL represents the full page location and communication method, and the Domain name is a part of the URL.">الخلط بين URL واسم النطاق — URL بيمثّل مكان الصفحة كامل وطريقة الاتصال، واسم النطاق جزء من URL.</li>
           <li data-ar="الخلط بين بروتوكولات الإيميل — SMTP للإرسال، وPOP بيحمّل ويمسح من السيرفر، وIMAP بيدخل على الإيميلات المخزّنة على السيرفر."
             data-en="Confusing the email protocols — SMTP is for sending, POP downloads and deletes from the server, and IMAP accesses emails stored on the server.">الخلط بين بروتوكولات الإيميل — SMTP للإرسال، وPOP بيحمّل ويمسح من السيرفر، وIMAP بيدخل على الإيميلات المخزّنة على السيرفر.</li>
         </ul>
@@ -1097,20 +140,20 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">02</div>
           <div>
             <h2 data-ar="WWW وHTML" data-en="The WWW and HTML">WWW وHTML</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="نظام الويب ولغة الصفحة — صفحة 105 بالكتاب"
-              data-en="the Web system and the page language — book page 105">نظام الويب ولغة الصفحة — صفحة 105 بالكتاب</div>
+            <div class="tag" style="color:var(--s2)" data-ar="نظام الويب ولغة الصفحة — بالكتاب"
+              data-en="the Web system and the page language — book">نظام الويب ولغة الصفحة — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="WWW هو نظام بيربط قطع محتوى لا تحصى على الإنترنت، ومن خلاله المستخدمين يقدروا يتصفّحوا صفحات ويب بتبجمع داتا (Data) مختلفة — وده اللي بنسميه عادةً الويب (Web)."
+        <p data-ar="WWW هو نظام بيربط قطع محتوى لا تحصى على الإنترنت، ومن خلاله المستخدمين يقدروا يتصفّحوا صفحات ويب بتبجمع بيانات مختلفة — وده اللي بنسميه عادةً الويب."
           data-en="The WWW is a system that links countless pieces of content on the Internet, and through it users can browse web pages that compile various data — commonly referred to as the Web.">
-          الـ <b>WWW</b> هو نظام بيربط <b>محتوى لا يُعد ولا يُحصى</b> على الإنترنت، ويقدر المستخدم من خلاله يتصفح
-          <b>صفحات الويب</b> اللي بتجمع بيانات متنوعة — وبيتعرف عليه باسم الـ <b>Web</b>.</p>
+ الـ <b>WWW</b> هو نظام بيربط <b>محتوى لا يُعد ولا يُحصى</b> على الإنترنت، ويقدر المستخدم من خلاله يتصفح
+ <b>صفحات الويب</b> اللي بتجمع بيانات متنوعة — وبيتعرف عليه باسم الـ <b>Web</b>.</p>
         <p data-ar="HTML هي اللغة المستخدمة لإنشاء صفحات الويب."
           data-en="HTML is the language used for creating web pages.">
-          الـ <b>HTML</b> هو اللغة المستخدمة <b>لإنشاء صفحات الويب</b>.</p>
+ الـ <b>HTML</b> هو اللغة المستخدمة <b>لإنشاء صفحات الويب</b>.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="WWW زي مكتبة ضخمة شايلة كل المواقع، وHTML زي لغة الكتابة اللي كل صفحة في المكتبة مكتوبة بيها."
             data-en="The WWW is like a huge library holding all the sites, and HTML is like the writing language every page in the library is written in.">WWW زي مكتبة ضخمة شايلة كل المواقع، وHTML زي لغة الكتابة اللي كل صفحة في المكتبة مكتوبة بيها.</span></div>
@@ -1129,13 +172,13 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
                   data-en="the WWW — a system linking content">WWW — نظام بيربط المحتوى</div>
                 <div class="svg-label" data-fbox="whtml" data-ar="HTML — لغة إنشاء الصفحات"
                   data-en="the HTML — the page creation language">HTML — لغة إنشاء الصفحات</div>
-                <div class="svg-label" data-fbox="wuse" data-ar="المستخدم بيتصفّح صفحات بتبجمع الداتا (Data)"
-                  data-en="the user browses pages that compile the data">المستخدم بيتصفّح صفحات بتبجمع الداتا (Data)</div>
+                <div class="svg-label" data-fbox="wuse" data-ar="المستخدم بيتصفّح صفحات بتبجمع البيانات"
+                  data-en="the user browses pages that compile the data">المستخدم بيتصفّح صفحات بتبجمع البيانات</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="wwwPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="wwwNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="wwwPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="wwwNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="wwwCounter">1 / 3</span>
                 <button class="mini-btn" data-id="wwwReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1210,8 +253,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div>
             <h2 data-ar="URL وبنيته" data-en="The URL and Its Structure">الـ URL وتركيبه <span
                 dir="ltr">(URL)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="مكان الصفحة وطريقة الاتصال — صفحة 105 بالكتاب"
-              data-en="the page location and communication method — book page 105">مكان الصفحة وطريقة الاتصال — صفحة 105 بالكتاب</div>
+            <div class="tag" style="color:var(--s3)" data-ar="مكان الصفحة وطريقة الاتصال — بالكتاب"
+              data-en="the page location and communication method — book">مكان الصفحة وطريقة الاتصال — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1219,14 +262,13 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
       <div class="section-inner card">
         <p data-ar="URL بيمثّل مكان صفحة ويب وطريقة الاتصال — زي https://www.mext.go.jp/index.html."
           data-en="A URL represents the location of a web page and the method of communication — like https://www.mext.go.jp/index.html.">
-          الـ <b>URL</b> بيمثل <b>موقع صفحة الويب</b> و<b>طريقة الاتصال</b> — زي <span dir="ltr">https://www.mext.go.jp/index.html</span>.</p>
-        <p data-ar="بنية URL بتشمل: اسم النظام (Scheme) (بروتوكول زي https)، واسم الهوست (Host) (اسم السيرفر)، واسم المؤسسة، ونوع المؤسسة، واسم البلد، واسم الملف."
+ الـ <b>URL</b> بيمثل <b>موقع صفحة الويب</b> و<b>طريقة الاتصال</b> — زي <span dir="ltr">https://www.mext.go.jp/index.html</span>.</p>
+        <p data-ar="بنية URL بتشمل: اسم النظام (بروتوكول زي https)، واسم الهوست (اسم السيرفر)، واسم المؤسسة، ونوع المؤسسة، واسم البلد، واسم الملف."
           data-en="A URL structure includes: the Scheme name (protocol like https), the Host name (server name), the name of organization, the type of organization, the country name, and the File name.">
-          تركيب الـ URL بيشمل: اسم المخطط <b>Scheme name</b> (البروتوكول زي https)، واسم المضيف <b>Host name</b>
-          (server name)، و<b>اسم المنظمة</b>، و<b>نوع المنظمة</b>، و<b>اسم الدولة</b>، و<b>اسم الملف</b> File name.</p>
+ تركيب الـ URL بيشمل: اسم المخطط <b>Scheme name</b> (البروتوكول زي https)، واسم المضيف <b>Host name</b>، و<b>اسم المنظمة</b>، و<b>نوع المنظمة</b>، و<b>اسم الدولة</b>، و<b>اسم الملف</b> File name.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="URL زي عنوان مفصّل: طريقة التوصيل (https)، والمبنى (www)، والشركة (mext)، ونوعها (go حكومي)، والبلد (jp اليابان)، والصفحة المطلوبة (index.html)."
-            data-en="A URL is like a detailed address: the delivery method (https), the building (www), the company (mext), its type (go government), the country (jp Japan), and the requested page (index.html).">URL زي عنوان مفصّل: طريقة التوصيل (https)، والمبنى (www)، والشركة (mext)، ونوعها (go حكومي)، والبلد (jp اليابان)، والصفحة المطلوبة (index.html).</span></div>
+            data-ar="URL زي عنوان مفصّل: طريقة التوصيل، والمبنى، والشركة، ونوعها (go حكومي)، والبلد (jp اليابان)، والصفحة المطلوبة."
+            data-en="A URL is like a detailed address: the delivery method (https), the building (www), the company (mext), its type (go government), the country (jp Japan), and the requested page (index.html).">URL زي عنوان مفصّل: طريقة التوصيل، والمبنى، والشركة، ونوعها (go حكومي)، والبلد (jp اليابان)، والصفحة المطلوبة.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>الشكل المطبوع «<هيكل عنوان URL>»: https://www.mext.go.jp/index.html مع قوس «اسم النطاق»، والتسميات: (اسم المخطط) (اسم البروتوكول) Scheme name, Protocol name — (اسم السيرفر) (اسم المضيف) Hostname Servername — (اسم المؤسسة) Name of organization — (نوع المنظمة) Type of organization — (اسم الدولة) Country name — (اسم الملف) File name. الجدولان المطبوعان «<أمثلة على أنواع المنظمات>»: gov وكالة حكومية، co شركة، edu مدرسة (الابتدائية، الإعدادية، والثانوية)، ac جامعة / مؤسسة تعليمية؛ و«<أمثلة على رموز الدول>»: jp اليابان، eg مصر، kr كوريا الجنوبية، cn الصين.</p></div>
 
       <div class="section-inner">
@@ -1247,8 +289,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="urlPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="urlNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="urlPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="urlNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="urlCounter">1 / 3</span>
                 <button class="mini-btn" data-id="urlReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1299,7 +341,7 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="rq-opt" data-id="urlRq2o2" data-key="A"
                 data-fb-ar="مش كده — www هو اسم المضيف."
                 data-fb-en="Not quite — www is the hostname."><span class="rq-key">A</span><span
-                  class="rq-body" data-ar="اسم الهوست (Host)" data-en="the Host name">اسم الهوست (Host)</span></div>
+                  class="rq-body" data-ar="اسم الهوست" data-en="the Host name">اسم الهوست</span></div>
               <div class="rq-opt" data-id="urlRq2o3" data-key="B"
                 data-fb-ar="مش كده — اسم الدولة زي jp."
                 data-fb-en="Not quite — the country name is like jp."><span class="rq-key">B</span><span
@@ -1307,7 +349,7 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="rq-opt" data-id="urlRq2o1" data-key="C" data-ok="1"
                 data-fb-ar="صحيح! https هو اسم المخطط Scheme name (البروتوكول)."
                 data-fb-en="Correct! https is the Scheme name (protocol)."><span class="rq-key">C</span><span
-                  class="rq-body" data-ar="اسم النظام (Scheme)" data-en="the Scheme name">اسم النظام (Scheme)</span></div>
+                  class="rq-body" data-ar="اسم النظام" data-en="the Scheme name">اسم النظام</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="urlRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -1323,8 +365,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
           <div>
             <h2 data-ar="خطوات تصفّح صفحات الويب" data-en="Process of Browsing Web Pages">خطوات تصفّح صفحات الويب</h2>
-            <div class="tag" style="color:var(--s4)" data-ar="من استعلام DNS لعرض الصفحة — صفحة 105 بالكتاب"
-              data-en="from the DNS query to displaying the page — book page 105">من استعلام DNS لعرض الصفحة — صفحة 105 بالكتاب</div>
+            <div class="tag" style="color:var(--s4)" data-ar="من استعلام DNS لعرض الصفحة — بالكتاب"
+              data-en="from the DNS query to displaying the page — book">من استعلام DNS لعرض الصفحة — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1332,8 +374,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
       <div class="section-inner card">
         <p data-ar="خطوات عرض صفحة ويب: (1) نستعلم من خادم DNS عن عنوان IP المطابق لاسم النطاق، (2) خادم DNS يرجّع عنوان IP، (3) ندخل عن طريق عنوان IP، (4) خادم الويب بيعرض الصفحة."
           data-en="The steps of displaying a web page: (1) query the DNS server for the IP address corresponding to the domain name, (2) the DNS server returns the IP address, (3) access via the IP address, (4) the web server displays the page.">
-          خطوات عرض صفحة ويب: (1) <b>استعلم من خادم الـ DNS</b> عن عنوان الـ IP المقابل لاسم النطاق، (2) يرجع خادم الـ
-          DNS <b>عنوان الـ IP</b>، (3) <b>نصل عبر عنوان الـ IP</b>، (4) يعرض خادم الويب الصفحة.</p>
+ خطوات عرض صفحة ويب: (1) <b>استعلم من خادم الـ DNS</b> عن عنوان الـ IP المقابل لاسم النطاق، (2) يرجع خادم الـ
+ DNS <b>عنوان الـ IP</b>، (3) <b>نصل عبر عنوان الـ IP</b>، (4) يعرض خادم الويب الصفحة.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="زي ما تطلب عنوان صاحب بيت من دليل، وبعدين تروح هناك بنفسك — DNS هو الدليل وIP هو العنوان."
             data-en="Like asking for a house owner's address from a directory, then going there yourself — DNS is the directory and IP is the address.">زي ما تطلب عنوان صاحب بيت من دليل، وبعدين تروح هناك بنفسك — DNS هو الدليل وIP هو العنوان.</span></div>
@@ -1357,8 +399,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="browsePrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="browseNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="browsePrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="browseNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="browseCounter">1 / 3</span>
                 <button class="mini-btn" data-id="browseReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1433,24 +475,24 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
           <div>
             <h2 data-ar="آلية الإيميل وبنية العنوان" data-en="Email Mechanism and Address Structure">آلية الإيميل وبنية العنوان</h2>
-            <div class="tag" style="color:var(--s5)" data-ar="نظام لتبادل الرسايل — صفحة 105 بالكتاب"
-              data-en="a system for exchanging messages — book page 105">نظام لتبادل الرسايل — صفحة 105 بالكتاب</div>
+            <div class="tag" style="color:var(--s5)" data-ar="نظام لتبادل الرسايل — بالكتاب"
+              data-en="a system for exchanging messages — book">نظام لتبادل الرسايل — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الإيميل هو نظام لتبادل الرسايل والداتا (Data) مع مستخدمين محددين عبر الإنترنت — لما تبعت إيميل، بتستخدم عنوان إيميل."
+        <p data-ar="الإيميل هو نظام لتبادل الرسايل والبيانات مع مستخدمين محددين عبر الإنترنت — لما تبعت إيميل، بتستخدم عنوان إيميل."
           data-en="Email is a system for exchanging messages and data with specific users via the Internet — when sending an email, you use an email address.">
-          الإيميل <b>Email</b> هو نظام لتبادل <b>الرسائل والبيانات</b> مع مستخدمين محددين عبر الإنترنت — ووقت إرسال
-          إيميل بتستخدم <b>عنوان إيميل</b> (email address).</p>
-        <p data-ar="بنية عنوان الإيميل: اسم المستخدم (Username) (بيمثّل المستخدم اللي بيميّز المستقبل) + @ + اسم النطاق (Domain name) (بيميّز خادم الميل اللي المستقبل بيستخدمه) — زي hanako@example.co.jp."
+ الإيميل <b>Email</b> هو نظام لتبادل <b>الرسائل والبيانات</b> مع مستخدمين محددين عبر الإنترنت — ووقت إرسال
+ إيميل بتستخدم <b>عنوان إيميل</b> (email address).</p>
+        <p data-ar="بنية عنوان الإيميل: اسم المستخدم (بيمثّل المستخدم اللي بيميّز المستقبل) + @ + اسم النطاق (بيميّز خادم الميل اللي المستقبل بيستخدمه) — زي hanako@example.co.jp."
           data-en="An email address structure: Username (representing the user who identifies the recipient) + @ + Domain name (identifying the mail server the recipient uses) — like hanako@example.co.jp.">
-          تركيب عنوان الإيميل: <b>Username</b> (بيمثل اسم المستخدم اللي بيحدد المستقبِل) + علامة <b>@</b> + <b>Domain
+ تركيب عنوان الإيميل: <b>Username</b> (بيمثل اسم المستخدم اللي بيحدد المستقبِل) + علامة <b>@</b> + <b>Domain
           name</b> (بيحدد الـ mail server اللي بيستخدمه المستقبِل) — زي <span dir="ltr">hanako@example.co.jp</span>.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="اسم المستخدم (Username) زي اسم صاحبها، و@ زي كلمة 'عند/at'، واسم النطاق (Domain name) زي اسم المدينة والمبنى اللي هي موجودة فيهم."
-            data-en="The Username is like the owner's name, @ is like the word 'at', and the Domain name is like the city and building name where they are.">اسم المستخدم (Username) زي اسم صاحبها، و@ زي كلمة 'عند/at'، واسم النطاق (Domain name) زي اسم المدينة والمبنى اللي هي موجودة فيهم.</span></div>
+            data-ar="اسم المستخدم زي اسم صاحبها، و@ زي كلمة 'عند/at'، واسم النطاق زي اسم المدينة والمبنى اللي هي موجودة فيهم."
+            data-en="The Username is like the owner's name, @ is like the word 'at', and the Domain name is like the city and building name where they are.">اسم المستخدم زي اسم صاحبها، و@ زي كلمة 'عند/at'، واسم النطاق زي اسم المدينة والمبنى اللي هي موجودة فيهم.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«عملية ارسال واستقبال رسائل البريد الإلكتروني [1] (SMTP) : بروتوكول لإرسال رسائل البريد الإلكتروني إلى خادم بريد. [2] (POP) : بروتوكول يُستخدم لتنزيل رسائل البريد الإلكتروني من خادم وحذفها من الخادم. [3] (IMAP) : بروتوكول للوصول إلى رسائل البريد الإلكتروني المخزنة على خادم بريد.» الشكل المطبوع:«نزّل الايميل من السيرفر وامسحه» — بوب؛ «اعرض الإيميل على السيرفر» — بروتوكول الوصول للبريد عبر الإنترنت؛ «بروتوكول إرسال / بروتوكول إرسال البريد البسيط» بين خادم البريد الصادر وخادم البريد الوارد.</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان الدرس: العربية «آلية عمل صفحات الويب والبريد الإلكتروني»؛ الإنجليزية &quot;Mechanism of Web Pages and Emails&quot;. جدول رموز الدول:العربية jp اليابان، eg مصر، kr كوريا الجنوبية، cn الصين؛ الإنجليزية eg Egypt، jp Japan، hk Hong Kong، kr South Korea — العربية تطبع cn الصين حيث تطبع الإنجليزية hk Hong Kong. بند البريد (1): العربية بصيغة الجمع «عناوين البريد الإلكتروني (email addresses)»؛ الإنجليزية المفرد &quot;an (email address)&quot;. عنوان عملية الإرسال بلا ترقيم «(2)» في العربية؛ الإنجليزية ترقمه &quot;(2)&quot;. شكل التصفح:العربية بعامية «أنا عايز أوصل لـ» و«بيرجع عنوان الـ IP»؛ الإنجليزية تطبع &quot;Returns the IP adress&quot; و&quot;Accesses via IP adress&quot; بلفظ &quot;adress&quot; كما طُبعت (مرتين). شكل البريد:العربية تترجم أسماء البروتوكولات «بوب» و«بروتوكول إرسال البريد البسيط» و«بروتوكول الوصول للبريد عبر الإنترنت»؛ الإنجليزية POP وSMTP وIMAP. شكل العنوان: تسميتا العربية «(اسم المؤسسة)» و«(نوع المؤسسة)» بشرح إنجليزي مهجّى بأحرف كبيرة &quot;Name of Organization&quot;. الرمز الزخرفي (الدائرة السوداء) يتكرر في العربية فقط بعد الجداول وبعد شكلَي DNS والبريد." data-en="Edition comparison (confirmed from the printed page images): lesson title:Arabic «آلية عمل صفحات الويب والبريد الإلكتروني»; English &quot;Mechanism of Web Pages and Emails&quot;. Country-code table:Arabic jp اليابان, eg مصر, kr كوريا الجنوبية, cn الصين; English eg Egypt, jp Japan, hk Hong Kong, kr South Korea — Arabic prints cn الصين where English prints hk Hong Kong. Email item (1): Arabic plural «عناوين البريد الإلكتروني (email addresses)»; English singular &quot;an (email address)&quot;. The sending-process heading carries no «(2)» numbering in Arabic; English numbers it &quot;(2)&quot;. Browsing figure:Arabic colloquial «أنا عايز أوصل لـ» and «بيرجع عنوان الـ IP»; English prints &quot;Returns the IP adress&quot; and &quot;Accesses via IP adress&quot; with &quot;adress&quot; as printed (twice). Email figure:Arabic translates the protocol names «بوب», «بروتوكول إرسال البريد البسيط», «بروتوكول الوصول للبريد عبر الإنترنت»; English prints POP, SMTP, IMAP. Address figure:the Arabic labels «(اسم المؤسسة)» and «(نوع المؤسسة)» carry capitalized English glosses &quot;Name of Organization&quot;. The decorative black-circle glyph recurs in Arabic only, after the tables and after the DNS and email figures.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): عنوان الدرس:العربية «آلية عمل صفحات الويب والبريد الإلكتروني»؛ الإنجليزية &quot;Mechanism of Web Pages and Emails&quot;. جدول رموز الدول:العربية jp اليابان، eg مصر، kr كوريا الجنوبية، cn الصين؛ الإنجليزية eg Egypt، jp Japan، hk Hong Kong، kr South Korea — العربية تطبع cn الصين حيث تطبع الإنجليزية hk Hong Kong. بند البريد (1): العربية بصيغة الجمع «عناوين البريد الإلكتروني (email addresses)»؛ الإنجليزية المفرد &quot;an (email address)&quot;. عنوان عملية الإرسال بلا ترقيم «(2)» في العربية؛ الإنجليزية ترقمه &quot;(2)&quot;. شكل التصفح:العربية بعامية «أنا عايز أوصل لـ» و«بيرجع عنوان الـ IP»؛ الإنجليزية تطبع &quot;Returns the IP adress&quot; و&quot;Accesses via IP adress&quot; بلفظ &quot;adress&quot; كما طُبعت (مرتين). شكل البريد:العربية تترجم أسماء البروتوكولات «بوب» و«بروتوكول إرسال البريد البسيط» و«بروتوكول الوصول للبريد عبر الإنترنت»؛ الإنجليزية POP وSMTP وIMAP. شكل العنوان: تسميتا العربية «(اسم المؤسسة)» و«(نوع المؤسسة)» بشرح إنجليزي مهجّى بأحرف كبيرة &quot;Name of Organization&quot;. الرمز الزخرفي (الدائرة السوداء) يتكرر في العربية فقط بعد الجداول وبعد شكلَي DNS والبريد.</div></div></div>
 
       <div class="section-inner">
@@ -1464,15 +506,15 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="email"></svg>
                 <div class="svg-label" data-fbox="emsg" data-ar="الإيميل — نظام تبادل رسايل"
                   data-en="the email — a message exchange system">الإيميل — نظام تبادل رسايل</div>
-                <div class="svg-label" data-fbox="euser" data-ar="اسم المستخدم (Username) — بيميّز المستقبل"
-                  data-en="the Username — identifies the recipient">اسم المستخدم (Username) — بيميّز المستقبل</div>
-                <div class="svg-label" data-fbox="edom" data-ar="اسم النطاق (Domain name) — بيميّز خادم الميل"
-                  data-en="the Domain name — identifies the mail server">اسم النطاق (Domain name) — بيميّز خادم الميل</div>
+                <div class="svg-label" data-fbox="euser" data-ar="اسم المستخدم — بيميّز المستقبل"
+                  data-en="the Username — identifies the recipient">اسم المستخدم — بيميّز المستقبل</div>
+                <div class="svg-label" data-fbox="edom" data-ar="اسم النطاق — بيميّز خادم الميل"
+                  data-en="the Domain name — identifies the mail server">اسم النطاق — بيميّز خادم الميل</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="emailPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="emailNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="emailPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="emailNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="emailCounter">1 / 3</span>
                 <button class="mini-btn" data-id="emailReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1496,8 +538,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="emailRecall">
           <div class="rq" data-id="emailRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="اسم المستخدم (Username) في عنوان الإيميل بيميّز إيه؟"
-                data-en="What does the Username in an email address identify?">اسم المستخدم (Username) في عنوان الإيميل بيميّز إيه؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="اسم المستخدم في عنوان الإيميل بيميّز إيه؟"
+                data-en="What does the Username in an email address identify?">اسم المستخدم في عنوان الإيميل بيميّز إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="emailRq1o2" data-key="A"
                 data-fb-ar="مش كده — الـ Domain name بيحدد الـ mail server."
@@ -1517,8 +559,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
             <button class="mini-btn rq-skip" data-id="emailRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="emailRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="اسم النطاق (Domain name) في عنوان الإيميل بيميّز إيه؟"
-                data-en="What does the Domain name in an email address identify?">اسم النطاق (Domain name) في عنوان الإيميل بيميّز إيه؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="اسم النطاق في عنوان الإيميل بيميّز إيه؟"
+                data-en="What does the Domain name in an email address identify?">اسم النطاق في عنوان الإيميل بيميّز إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="emailRq2o2" data-key="A"
                 data-fb-ar="مش كده — الـ Username بيحدد المستقبِل."
@@ -1548,8 +590,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s6),#b91c1c)">06</div>
           <div>
             <h2 data-ar="بروتوكولات الإرسال والاستقبال" data-en="Sending and Receiving Protocols">بروتوكولات الإرسال والاستقبال</h2>
-            <div class="tag" style="color:var(--s6)" data-ar="SMTP وPOP وIMAP — صفحة 106 بالكتاب"
-              data-en="SMTP, POP, and IMAP — book page 106">SMTP وPOP وIMAP — صفحة 106 بالكتاب</div>
+            <div class="tag" style="color:var(--s6)" data-ar="SMTP وPOP وIMAP — بالكتاب"
+              data-en="SMTP, POP, and IMAP — book">SMTP وPOP وIMAP — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1557,11 +599,11 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
       <div class="section-inner card">
         <p data-ar="SMTP هو بروتوكول لإرسال الإيميلات لخادم ميل."
           data-en="SMTP is a protocol for sending emails to a mail server.">
-          الـ <b>SMTP</b> بروتوكول <b>لإرسال الإيميلات</b> إلى خادم البريد (mail server).</p>
+ الـ <b>SMTP</b> بروتوكول <b>لإرسال الإيميلات</b> إلى خادم البريد.</p>
         <p data-ar="POP هو بروتوكول بيستخدم عشان تحمّل الإيميلات من السيرفر وتمسحها منه — بينما IMAP بروتوكول للدخول على الإيميلات المخزّنة على خادم ميل."
           data-en="POP is a protocol used to download emails from the server and delete them from the server — while IMAP is a protocol for accessing emails stored on a mail server.">
-          الـ <b>POP</b> بروتوكول بيستخدم <b>لتحميل الإيميلات من السيرفر ومسحها</b> من السيرفر — أما الـ <b>IMAP</b>
-          فهو بروتوكول <b>للوصول للإيميلات المخزنة</b> على السيرفر.</p>
+ الـ <b>POP</b> بروتوكول بيستخدم <b>لتحميل الإيميلات من السيرفر ومسحها</b> من السيرفر — أما الـ <b>IMAP</b>
+ فهو بروتوكول <b>للوصول للإيميلات المخزنة</b> على السيرفر.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="SMTP زي ساعي البريد اللي بياخد جوابك، وPOP زي ما تاخد الجواب من الصندوق وتسيبه فاضي، وIMAP زي ما تقرأ الجواب وتسيبه مكانه."
             data-en="SMTP is like the postman who takes your letter, POP is like taking the letter from the mailbox and leaving it empty, and IMAP is like reading the letter and leaving it in place.">SMTP زي ساعي البريد اللي بياخد جوابك، وPOP زي ما تاخد الجواب من الصندوق وتسيبه فاضي، وIMAP زي ما تقرأ الجواب وتسيبه مكانه.</span></div>
@@ -1585,8 +627,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="protocolsPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="protocolsNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="protocolsPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="protocolsNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="protocolsCounter">1 / 3</span>
                 <button class="mini-btn" data-id="protocolsReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1660,8 +702,8 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">07</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 105–108 (المطبوع 105–108)؛ AR 118–121"
-              data-en="Your book: EN PDF 105–108 (printed 105–108); AR 118–121">الكتاب بتاعك:EN PDF 105–108 (المطبوع 105–108)؛ AR 118–121</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1687,9 +729,9 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <h3 data-ar="من الكتاب: تحدي معلوماتك — الإجابات مطبوعة في «الشرح» أسفل السؤالين" data-en="From the book: Warm Up — the answers are printed in the Explanation below the questions">من الكتاب: تحدي معلوماتك — الإجابات مطبوعة في «الشرح» أسفل السؤالين</h3>
           <p data-ar="«أجب عن الأسئلة التالية. (1) أدخلت &quot;https://www.example.com.eg&quot; في متصفح الويب و عرضت صفحة الويب. أعد ترتيب الخطوات من 1 إلى 4 في ترتيب المعالجة لعرض صفحة الويب. (1) يرسل خادم الويب بيانات صفحة الويب. (2) الوصول إلى عنوان IP الذي تم إرجاعه من خادم . (3) DNS يرد خادم DNS بعنوان IP لخادم الويب المقابل لاسم النطاق. (4) استفسر من خادم DNS عن عنوان IP المقابل لاسم النطاق.»" data-en="&quot;Answer the following questions. (1) You entered “https://www.example.co.jp” in the web browser and displayed the web page. Rearrange the steps A to D in the order of processing to display the web page. A The web server sends the data of the web page. B Access the IP address returned from the DNS server. C The DNS server returns the IP address of the web server corresponding to the domain name. D Query the DNS server for the IP address corresponding to the domain name.&quot;">«أجب عن الأسئلة التالية. (1) أدخلت &quot;https://www.example.com.eg&quot; في متصفح الويب و عرضت صفحة الويب. أعد ترتيب الخطوات من 1 إلى 4 في ترتيب المعالجة لعرض صفحة الويب. (1) يرسل خادم الويب بيانات صفحة الويب. (2) الوصول إلى عنوان IP الذي تم إرجاعه من خادم . (3) DNS يرد خادم DNS بعنوان IP لخادم الويب المقابل لاسم النطاق. (4) استفسر من خادم DNS عن عنوان IP المقابل لاسم النطاق.»</p>
           <p data-ar="«(2) املأ الفراغات [1] إلى [4] في الجملة التالية بالمصطلحات المناسبة. يتكون عنوان البريد الإلكتروني من ([1] )username@، ويُستخدم البروتوكول ( [2] ) لإرسال رسائل البريد الإلكتروني، بينما يُستخدم ( [3] ) أو ( [4] ) لتلقي رسائل البريد الإلكتروني.»" data-en="&quot;(2) Fill in the blanks [1] to [4] in the following sentence with the appropriate terms. An email address is composed of “username@( [1] ),” and the protocol ( [2] ) is used for sending emails, while ( [3] ) or ( [4] ) is utilized for receiving emails.&quot;">«(2) املأ الفراغات [1] إلى [4] في الجملة التالية بالمصطلحات المناسبة. يتكون عنوان البريد الإلكتروني من ([1] )username@، ويُستخدم البروتوكول ( [2] ) لإرسال رسائل البريد الإلكتروني، بينما يُستخدم ( [3] ) أو ( [4] ) لتلقي رسائل البريد الإلكتروني.»</p>
-          <p data-ar="«الشرح» المطبوع:«(1) (ث) ← (ت) ← (ب) ← (أ) (2) [1] اسم النطاق [2] SMTP [3] POP [4] IMAP (ملاحظة: يمكن أن يكون [3] و [4] بأي ترتيب)»." data-en="The printed Explanation: &quot;(1) D → C → B → A (2) [1] Domain name [2] SMTP [3] POP [4] IMAP (note:[3] and [4] can be in any order)&quot;.">«الشرح» المطبوع:«(1) (ث) ← (ت) ← (ب) ← (أ) (2) [1] اسم النطاق [2] SMTP [3] POP [4] IMAP (ملاحظة: يمكن أن يكون [3] و [4] بأي ترتيب)».</p>
-          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العنوان المُدخل في السؤال (1): العربية &quot;https://www.example.com.eg&quot;؛ الإنجليزية “https://www.example.co.jp”. خطوات (1) مرقمة (1)-(4) في العربية بينما الإنجليزية A-D، و«الشرح» العربي يجيب بالحروف «(ث) ← (ت) ← (ب) ← (أ)» بأسهم لليسار — تُنقل التسميات كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;D → C → B → A&quot; والترتيب نفسه. الخطوة (2) العربية تطبع «من خادم .» بفراغ قبل النقطة (بدون &quot;DNS&quot;)، والخطوة (3) تبدأ بكلمة «DNS» زائدة قبل «يرد خادم DNS». في السؤال (2) يأتي الفراغ ([1] ) قبل «username@» في الجملة العربية المطبوعة بينما الإنجليزية تطبعه بعدها “username@( [1] )”، وإجابة الشرح المطبوعة [1] = اسم النطاق في الطبعتين. العنوان:العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;." data-en="Edition comparison (confirmed from the printed page images): the address entered in question (1): Arabic &quot;https://www.example.com.eg&quot;; English “https://www.example.co.jp”. Steps of (1) are numbered (1)-(4) in Arabic while English uses A-D, and the Arabic explanation answers with letters «(ث) ← (ت) ← (ب) ← (أ)» with leftward arrows — labels carried as printed without asserting the intended convention; English &quot;D → C → B → A&quot;, the same order. Arabic step (2) prints «من خادم .» with a gap before the period (no &quot;DNS&quot;), and step (3) starts with a stray «DNS» before «يرد خادم DNS». In question (2) the blank ([1] ) precedes «username@» in the printed Arabic sentence while English prints it after, “username@( [1] )”, and the printed explanation answer [1] = domain name in both editions. Heading:Arabic «تحدي معلوماتك»; English &quot;Warm Up&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العنوان المُدخل في السؤال (1): العربية &quot;https://www.example.com.eg&quot;؛ الإنجليزية “https://www.example.co.jp”. خطوات (1) مرقمة (1)-(4) في العربية بينما الإنجليزية A-D، و«الشرح» العربي يجيب بالحروف «(ث) ← (ت) ← (ب) ← (أ)» بأسهم لليسار — تُنقل التسميات كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;D → C → B → A&quot; والترتيب نفسه. الخطوة (2) العربية تطبع «من خادم .» بفراغ قبل النقطة (بدون &quot;DNS&quot;)، والخطوة (3) تبدأ بكلمة «DNS» زائدة قبل «يرد خادم DNS». في السؤال (2) يأتي الفراغ ([1] ) قبل «username@» في الجملة العربية المطبوعة بينما الإنجليزية تطبعه بعدها “username@( [1] )”، وإجابة الشرح المطبوعة [1] = اسم النطاق في الطبعتين. العنوان:العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 106 (المطبوع 106)؛ AR 119." data-en="The text above is from the book. Full source: English PDF 106 (printed 106); Arabic 119.">النص السابق من الكتاب. المصدر الكامل:EN PDF 106 (المطبوع 106)؛ AR 119.</span>
+          <p data-ar="«الشرح» المطبوع:«(1) (ث) → (ت) → (ب) → (أ) (2) [1] اسم النطاق [2] SMTP [3] POP [4] IMAP (ملاحظة: يمكن أن يكون [3] و [4] بأي ترتيب)»." data-en="The printed Explanation: &quot;(1) D → C → B → A (2) [1] Domain name [2] SMTP [3] POP [4] IMAP (note:[3] and [4] can be in any order)&quot;.">«الشرح» المطبوع:«(1) (ث) ← (ت) ← (ب) ← (أ) (2) [1] اسم النطاق [2] SMTP [3] POP [4] IMAP (ملاحظة: يمكن أن يكون [3] و [4] بأي ترتيب)».</p>
+          <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العنوان المُدخل في السؤال (1): العربية &quot;https://www.example.com.eg&quot;؛ الإنجليزية “https://www.example.co.jp”. خطوات (1) مرقمة (1)-(4) في العربية بينما الإنجليزية A-D، و«الشرح» العربي يجيب بالحروف «(ث) → (ت) → (ب) → (أ)» بأسهم لليسار — تُنقل التسميات كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;D ← C ← B ← A&quot; والترتيب نفسه. الخطوة (2) العربية تطبع «من خادم .» بفراغ قبل النقطة (بدون &quot;DNS&quot;)، والخطوة (3) تبدأ بكلمة «DNS» زائدة قبل «يرد خادم DNS». في السؤال (2) يأتي الفراغ ([1] ) قبل «username@» في الجملة العربية المطبوعة بينما الإنجليزية تطبعه بعدها “username@( [1] )”، وإجابة الشرح المطبوعة [1] = اسم النطاق في الطبعتين. العنوان:العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;." data-en="Edition comparison (confirmed from the printed page images): the address entered in question (1): Arabic &quot;https://www.example.com.eg&quot;; English “https://www.example.co.jp”. Steps of (1) are numbered (1)-(4) in Arabic while English uses A-D, and the Arabic explanation answers with letters «(ث) ← (ت) ← (ب) ← (أ)» with leftward arrows — labels carried as printed without asserting the intended convention; English &quot;D → C → B → A&quot;, the same order. Arabic step (2) prints «من خادم .» with a gap before the period (no &quot;DNS&quot;), and step (3) starts with a stray «DNS» before «يرد خادم DNS». In question (2) the blank ([1] ) precedes «username@» in the printed Arabic sentence while English prints it after, “username@( [1] )”, and the printed explanation answer [1] = domain name in both editions. Heading:Arabic «تحدي معلوماتك»; English &quot;Warm Up&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العنوان المُدخل في السؤال (1): العربية &quot;https://www.example.com.eg&quot;؛ الإنجليزية “https://www.example.co.jp”. خطوات (1) مرقمة (1)-(4) في العربية بينما الإنجليزية A-D، و«الشرح» العربي يجيب بالحروف «(ث) ← (ت) ← (ب) ← (أ)» بأسهم لليسار — تُنقل التسميات كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية &quot;D → C → B → A&quot; والترتيب نفسه. الخطوة (2) العربية تطبع «من خادم .» بفراغ قبل النقطة (بدون &quot;DNS&quot;)، والخطوة (3) تبدأ بكلمة «DNS» زائدة قبل «يرد خادم DNS». في السؤال (2) يأتي الفراغ ([1] ) قبل «username@» في الجملة العربية المطبوعة بينما الإنجليزية تطبعه بعدها “username@( [1] )”، وإجابة الشرح المطبوعة [1] = اسم النطاق في الطبعتين. العنوان:العربية «تحدي معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
@@ -1698,9 +740,9 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <p data-ar="«جرب بنفسك 1 أجب عن الأسئلة التالية. (1) اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [4] في الجمل التالية من الخيارات من أ إلى ج ، وأجب باستخدام الحروف. تُكتب صفحات الويب بلغة تسمى ( [1] ) ويتم تحديد موقع صفحة الويب وبروتوكول الاتصال بواسطة ( [2] ). النظام الخاص بتحويل أسماء النطاقات وعناوين IP ضمن ([2]) هو ( [3] )، و ( [4] ) يقوم بهذا الدور. (أ) URL (ب) DNS (ت) HTML (ث) WWW (ج) DNS server»" data-en="&quot;Try 1 Answer the following questions. (1) Choose the term that best fits into the blanks [1] to [4] in the following sentences from the options A to E below, and answer using the letters. Web pages are written in a language called ( [1] ) and the location and communication protocol of the web page are specified by ( [2] ). The system for converting domain names and IP addresses within ([2]) is ( [3] ), and ( [4] ) fulfills that role. A URL B DNS C HTML D WWW E DNS server&quot;">«جرب بنفسك 1 أجب عن الأسئلة التالية. (1) اختر المصطلح الأنسب الذي يملأ الفراغات [1] إلى [4] في الجمل التالية من الخيارات من أ إلى ج ، وأجب باستخدام الحروف. تُكتب صفحات الويب بلغة تسمى ( [1] ) ويتم تحديد موقع صفحة الويب وبروتوكول الاتصال بواسطة ( [2] ). النظام الخاص بتحويل أسماء النطاقات وعناوين IP ضمن ([2]) هو ( [3] )، و ( [4] ) يقوم بهذا الدور. (أ) URL (ب) DNS (ت) HTML (ث) WWW (ج) DNS server»</p>
           <p data-ar="«(2) ما هو اسم الخدمة التي تتيح لك عرض صفحات الويب على الإنترنت؟ (3) اختر الأسماء المناسبة للأقسام [1] إلى [6] التي يتكون منها عنوان URL التالي من الخيارات من أ إلى ز ، وأجب باستخدام الحروف.» https://www.mext.go.jp/index.html مع [1] إلى [6]. «(أ) اسم المخطط (ب) اسم الدولة (ج) اسم نوع المنظمة (د) اسم المنظمة (هـ) اسم المضيف (و) اسم الملف (ز) اسم النطاق»" data-en="&quot;(2) What is the name of the service that allows you to view web pages on the internet? (3) Choose the appropriate names for sections [1] to [6] that compose the following URL from the options A to G below, and answer using the letters.&quot; https://www.mext.go.jp/index.html with [1] to [6]. &quot;A Scheme name B Country name C Organization type name D Name of organization E Hostname F File name G Domain name&quot;">«(2) ما هو اسم الخدمة التي تتيح لك عرض صفحات الويب على الإنترنت؟ (3) اختر الأسماء المناسبة للأقسام [1] إلى [6] التي يتكون منها عنوان URL التالي من الخيارات من أ إلى ز ، وأجب باستخدام الحروف.» https://www.mext.go.jp/index.html مع [1] إلى [6]. «(أ) اسم المخطط (ب) اسم الدولة (ج) اسم نوع المنظمة (د) اسم المنظمة (هـ) اسم المضيف (و) اسم الملف (ز) اسم النطاق»</p>
           <p data-ar="«2 أجب عن الأسئلة التالية. (1) قم بتسمية المكونين المشار إليهما بـ [1] و [2] اللذين يشكلان عنوان البريد الإلكتروني التالي.» hanako@example.ed.jp «(2) يمثل الرسم البياني التالي تدفق إرسال واستقبال رسائل البريد الإلكتروني. اختر المجموعة المناسبة من البروتوكولات التي تناسب [1] إلى [4] في الرسم البياني التالي من الخيارات من أ إلى ث .» الشكل المطبوع: «نزّل الايميل من السيرفر وامسحه»، خادم البريد الصادر، خادم البريد الوارد، «اعرض البريد الإلكتروني على السيرفر»، والفراغات [1] إلى [4]. المجموعات: (أ) POP، SMTP، SMTP، IMAP (ب) POP، POP، IMAP، SMTP (ج) SMTP، SMTP، POP، IMAP (د) SMTP، SMTP، IMAP، POP." data-en="&quot;2 Answer the following questions. (1) Name the components labeled [1] and [2] that constitute the following email address.&quot; hanako@example.ed.jp &quot;(2) The following diagram represents the flow of sending and receiving emails. Choose the appropriate combination of protocols that fit in [1] to [4] in the following diagram from the options A to D below.&quot; Printed figure:&quot;Download and delete the email from the server&quot;, outgoing mail server, incoming mail server, &quot;View the email on the server&quot;, blanks [1] to [4]. Combinations:A POP, SMTP, SMTP, IMAP B POP, POP, IMAP, SMTP C SMTP, SMTP, POP, IMAP D SMTP, SMTP, IMAP, POP.">«2 أجب عن الأسئلة التالية. (1) قم بتسمية المكونين المشار إليهما بـ [1] و [2] اللذين يشكلان عنوان البريد الإلكتروني التالي.» hanako@example.ed.jp «(2) يمثل الرسم البياني التالي تدفق إرسال واستقبال رسائل البريد الإلكتروني. اختر المجموعة المناسبة من البروتوكولات التي تناسب [1] إلى [4] في الرسم البياني التالي من الخيارات من أ إلى ث .» الشكل المطبوع: «نزّل الايميل من السيرفر وامسحه»، خادم البريد الصادر، خادم البريد الوارد، «اعرض البريد الإلكتروني على السيرفر»، والفراغات [1] إلى [4]. المجموعات: (أ) POP، SMTP، SMTP، IMAP (ب) POP، POP، IMAP، SMTP (ج) SMTP، SMTP، POP، IMAP (د) SMTP، SMTP، IMAP، POP.</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (ت) HTML [2] (أ) URL [3] (ب) DNS [4] (ج) DNS server. 1(2): الويب (WWW). 1(3): [1] (أ) اسم المخطط [2] (هـ) اسم المضيف [3] (د) اسم المنظمة [4] (ج) اسم نوع المنظمة [5] (ب) اسم الدولة [6] (و) اسم الملف. 2(1): [1] اسم المستخدم [2] اسم النطاق. 2(2): (ج)." data-en="Answers not printed in the book (teacher-prepared): 1(1): [1] C HTML [2] A URL [3] B DNS [4] E DNS server. 1(2): the Web (WWW). 1(3): [1] A Scheme name [2] E Hostname [3] D Name of organization [4] C Organization type name [5] B Country name [6] F File name. 2(1): [1] Username [2] Domain name. 2(2): C.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (ت) HTML [2] (أ) URL [3] (ب) DNS [4] (ج) DNS server. 1(2): الويب (WWW). 1(3): [1] (أ) اسم المخطط [2] (هـ) اسم المضيف [3] (د) اسم المنظمة [4] (ج) اسم نوع المنظمة [5] (ب) اسم الدولة [6] (و) اسم الملف. 2(1): [1] اسم المستخدم [2] اسم النطاق. 2(2): (ج).</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (ت) HTML [2] (أ) URL [3] (ب) DNS [4] (ج) DNS server. 1(2): الويب. 1(3): [1] (أ) اسم المخطط [2] (هـ) اسم المضيف [3] (د) اسم المنظمة [4] (ج) اسم نوع المنظمة [5] (ب) اسم الدولة [6] (و) اسم الملف. 2(1): [1] اسم المستخدم [2] اسم النطاق. 2(2): (ج)." data-en="Answers not printed in the book (teacher-prepared): 1(1): [1] C HTML [2] A URL [3] B DNS [4] E DNS server. 1(2): the Web (WWW). 1(3): [1] A Scheme name [2] E Hostname [3] D Name of organization [4] C Organization type name [5] B Country name [6] F File name. 2(1): [1] Username [2] Domain name. 2(2): C.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] (ت) HTML [2] (أ) URL [3] (ب) DNS [4] (ج) DNS server. 1(2): الويب. 1(3): [1] (أ) اسم المخطط [2] (هـ) اسم المضيف [3] (د) اسم المنظمة [4] (ج) اسم نوع المنظمة [5] (ب) اسم الدولة [6] (و) اسم الملف. 2(1): [1] اسم المستخدم [2] اسم النطاق. 2(2): (ج).</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال 1(1): المدى «من أ إلى ج» مع خمسة خيارات (أ)(ب)(ت)(ث)(ج) بترتيب أبجدي متسق؛ الإنجليزية A-E. السؤال 1(3): المدى «من أ إلى ز» مع سبعة خيارات (أ)(ب)(ج)(د)(هـ)(و)(ز) بترتيب أبجدي حديث (لا تقليدي) متسق مع المدى؛ الإنجليزية A-G. السؤال 2(2): المدى «من أ إلى ث» مع أربع مجموعات (أ)(ب)(ج)(د)؛ الإنجليزية A-D. شكل 2(2) العربي يعيد استخدام عبارتَي الشكل العاميتين «نزّل الايميل من السيرفر وامسحه» و«اعرض البريد الإلكتروني على السيرفر»؛ الإنجليزية تطبعهما بالإنجليزية. صفوف المجموعات الأربع متطابقة في الطبعتين. العنوان: العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison (confirmed from the printed page images): question 1(1): range «أ to ج» with five options (أ)(ب)(ت)(ث)(ج) in consistent abjad order; English A-E. Question 1(3): range «أ to ز» with seven options (أ)(ب)(ج)(د)(هـ)(و)(ز) in modern alphabetical (not traditional abjad) order, consistent with the stated range; English A-G. Question 2(2): range «أ to ث» with four combinations (أ)(ب)(ج)(د); English A-D. The Arabic 2(2) figure reuses the two colloquial figure phrases «نزّل الايميل من السيرفر وامسحه» and «اعرض البريد الإلكتروني على السيرفر»; English prints them in English. The four combination rows match in both editions. Heading:Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): السؤال 1(1): المدى «من أ إلى ج» مع خمسة خيارات (أ)(ب)(ت)(ث)(ج) بترتيب أبجدي متسق؛ الإنجليزية A-E. السؤال 1(3): المدى «من أ إلى ز» مع سبعة خيارات (أ)(ب)(ج)(د)(هـ)(و)(ز) بترتيب أبجدي حديث (لا تقليدي) متسق مع المدى؛ الإنجليزية A-G. السؤال 2(2): المدى «من أ إلى ث» مع أربع مجموعات (أ)(ب)(ج)(د)؛ الإنجليزية A-D. شكل 2(2) العربي يعيد استخدام عبارتَي الشكل العاميتين «نزّل الايميل من السيرفر وامسحه» و«اعرض البريد الإلكتروني على السيرفر»؛ الإنجليزية تطبعهما بالإنجليزية. صفوف المجموعات الأربع متطابقة في الطبعتين. العنوان:العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 107 (المطبوع 107)؛ AR 120." data-en="The text above is from the book. Full source: English PDF 107 (printed 107); Arabic 120.">النص السابق من الكتاب. المصدر الكامل:EN PDF 107 (المطبوع 107)؛ AR 120.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
@@ -1712,7 +754,7 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <p data-ar="«3 اختر الخيارات المناسبة للبروتوكولات [1] إلى [3] من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (1) بروتوكول لإرسال رسائل البريد الإلكتروني إلى خادم البريد. (2) بروتوكول للوصول إلى رسائل البريد الإلكتروني على خادم البريد. (3) بروتوكول يقوم بتنزيل رسائل البريد الإلكتروني من خادم البريد وحذفها من الخادم. (أ) POP (ب) SMTP (ت) DNS (ث) IMAP» — الكتلة مرقّمة «3» في العربية كما طُبعت؛ انظر المقارنة بالأسفل." data-en="&quot;2 Choose the appropriate options for protocols [1] to [3] from the options A to D below, and answer using the letters. (1) Protocol for sending emails to a mail server. (2) Protocol for accessing emails on a mail server. (3) A protocol that downloads emails from the mail server and deletes them from the server. A POP B SMTP C DNS D IMAP&quot; — the block is numbered «3» in Arabic as printed; see the comparison below.">«3 اختر الخيارات المناسبة للبروتوكولات [1] إلى [3] من الخيارات من أ إلى ث ، وأجب باستخدام الحروف. (1) بروتوكول لإرسال رسائل البريد الإلكتروني إلى خادم البريد. (2) بروتوكول للوصول إلى رسائل البريد الإلكتروني على خادم البريد. (3) بروتوكول يقوم بتنزيل رسائل البريد الإلكتروني من خادم البريد وحذفها من الخادم. (أ) POP (ب) SMTP (ت) DNS (ث) IMAP» — الكتلة مرقّمة «3» في العربية كما طُبعت؛ انظر المقارنة بالأسفل.</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (د) DNS. 1(2): [1] (د) DNS [2] (ج) IP address [3] (أ) Web. 1(3) = (ب). 3:[1] (ب) SMTP [2] (ث) IMAP [3] (أ) POP." data-en="Answers not printed in the book (teacher-prepared): 1(1) = D. 1(2): [1] D DNS [2] C IP address [3] A Web. 1(3) = B. 2: [1] B SMTP [2] D IMAP [3] A POP.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1) = (د) DNS. 1(2): [1] (د) DNS [2] (ج) IP address [3] (أ) Web. 1(3) = (ب). 3: [1] (ب) SMTP [2] (ث) IMAP [3] (أ) POP.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot; — نفس نمط درسَي 8-1 و8-3. السؤال 1(1): المدى «من 1 إلى 4» مع «باستخدام الحرف» وخيارات معنونة (أ)(ب)(ج)(د) — تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية A-D. العبارة (أ) تطبع «لا يحصى» بينما بند النقاط العربي يطبع «لا حصر له». شكل 1(2): الفقاعة &quot;I want to access www.mext.go.jp&quot; مطبوعة بالإنجليزية داخل الشكل العربي؛ «الاستفسارات( [1] ) خادم» بقوس ملتصق بالكلمة؛ «شاشات( [3] ) صفحة» مقابل الإنجليزية &quot;Displays ( [3] ) page&quot;. السؤال 1(3) يطلب الإجابة «باستخدام الحرف» والمدى «من أ إلى ث». خيارات الكتلة 3 (أ)(ب)(ت)(ث) بترتيب أبجدي متسق. العنوان:العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison (confirmed from the printed page images): the second Exercise block is numbered «3» in Arabic though it is Exercise 2; English numbers it &quot;2&quot; — the same pattern as lessons 8-1 and 8-3. Question 1(1): range «1 to 4» with «using the letter» and lettered options (أ)(ب)(ج)(د) — carried as printed without asserting the intended convention; English A-D. Option (أ) prints «لا يحصى» while the Arabic Point prints «لا حصر له». Figure 1(2): the &quot;I want to access www.mext.go.jp&quot; bubble is printed in English inside the Arabic figure; «الاستفسارات( [1] ) خادم» with a parenthesis attached to the word; «شاشات( [3] ) صفحة» versus English &quot;Displays ( [3] ) page&quot;. Question 1(3) asks to answer «using the letter» with range «أ to ث». Block 3 options (أ)(ب)(ت)(ث) are consistent abjad. Heading:Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): كتلة التمرين الثانية مرقّمة «3» في العربية بينما هي التمرين الثاني؛ الإنجليزية ترقّمها &quot;2&quot; — نفس نمط درسَي 8-1 و8-3. السؤال 1(1): المدى «من 1 إلى 4» مع «باستخدام الحرف» وخيارات معنونة (أ)(ب)(ج)(د) — تُنقل كما طُبعت دون الجزم بالنمط المقصود؛ الإنجليزية A-D. العبارة (أ) تطبع «لا يحصى» بينما بند النقاط العربي يطبع «لا حصر له». شكل 1(2): الفقاعة &quot;I want to access www.mext.go.jp&quot; مطبوعة بالإنجليزية داخل الشكل العربي؛ «الاستفسارات( [1] ) خادم» بقوس ملتصق بالكلمة؛ «شاشات( [3] ) صفحة» مقابل الإنجليزية &quot;Displays ( [3] ) page&quot;. السؤال 1(3) يطلب الإجابة «باستخدام الحرف» والمدى «من أ إلى ث». خيارات الكتلة 3 (أ)(ب)(ت)(ث) بترتيب أبجدي متسق. العنوان:العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 108 (المطبوع 108)؛ AR 121." data-en="The text above is from the book. Full source: English PDF 108 (printed 108); Arabic 121.">النص السابق من الكتاب. المصدر الكامل:EN PDF 108 (المطبوع 108)؛ AR 121.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: تصفّح صفحة ويب — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 1: Browsing a Web Page - not printed in the book">✍️ تدريب تفاعلي إضافي 1: تصفّح صفحة ويب — غير مطبوعة في الكتاب</h3>
@@ -1720,9 +762,9 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه أول خطوة لعرض صفحة ويب بعد ما تدوس Enter؟"
               data-en="What is the first step to display a web page after pressing Enter?">إيه أول خطوة لعرض صفحة ويب بعد ما تدوس Enter؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  خادم الويب بيعرض الصفحة" data-en="A  the web server displays the page">A  خادم الويب بيعرض الصفحة</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  الاستعلام من خادم DNS عن IP" data-en="B  query the DNS server for the IP">B  الاستعلام من خادم DNS عن IP</div>
-            <div class="ex-opt" data-ar="C  الدخول عن طريق عنوان IP" data-en="C  access via the IP address">C  الدخول عن طريق عنوان IP</div>
+            <div class="ex-opt" data-ar="A خادم الويب بيعرض الصفحة" data-en="A  the web server displays the page">A خادم الويب بيعرض الصفحة</div>
+            <div class="ex-opt" data-ok="1" data-ar="B الاستعلام من خادم DNS عن IP" data-en="B  query the DNS server for the IP">B الاستعلام من خادم DNS عن IP</div>
+            <div class="ex-opt" data-ar="C الدخول عن طريق عنوان IP" data-en="C  access via the IP address">C الدخول عن طريق عنوان IP</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — الاستعلام من DNS" data-en="✅ Answer: B — querying the DNS">✅ الإجابة: B — الاستعلام من DNS</b> <span data-ar="أول خطوة هي الاستعلام من خادم DNS عن IP الخاص باسم النطاق."
               data-en="The first step is querying the DNS server for the IP of the domain name.">أول خطوة هي الاستعلام من خادم DNS عن IP الخاص باسم النطاق.</span></div>
@@ -1731,9 +773,9 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">2</span> <span data-ar="بعد الاستعلام، خادم DNS بيرجّع إيه؟"
               data-en="After the query, what does the DNS server return?">بعد الاستعلام، خادم DNS بيرجّع إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  عنوان IP لخادم الويب" data-en="A  the IP address of the web server">A  عنوان IP لخادم الويب</div>
-            <div class="ex-opt" data-ar="B  اسم الموقع كامل" data-en="B  the full site name">B  اسم الموقع كامل</div>
-            <div class="ex-opt" data-ar="C  ملف صفحة HTML" data-en="C  the HTML page file">C  ملف صفحة HTML</div>
+            <div class="ex-opt" data-ok="1" data-ar="A عنوان IP لخادم الويب" data-en="A  the IP address of the web server">A عنوان IP لخادم الويب</div>
+            <div class="ex-opt" data-ar="B اسم الموقع كامل" data-en="B  the full site name">B اسم الموقع كامل</div>
+            <div class="ex-opt" data-ar="C ملف صفحة HTML" data-en="C  the HTML page file">C ملف صفحة HTML</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — عنوان IP" data-en="✅ Answer: A — the IP address">✅ الإجابة: A — عنوان IP</b> <span data-ar="خادم DNS بيرجّع عنوان IP لخادم الويب المطابق للاسم."
               data-en="The DNS server returns the IP address of the web server corresponding to the name.">خادم DNS بيرجّع عنوان IP لخادم الويب المطابق للاسم.</span></div>
@@ -1742,12 +784,12 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">3</span> <span data-ar="إيه آخر خطوة في عرض صفحة ويب؟"
               data-en="What is the last step in displaying a web page?">إيه آخر خطوة في عرض صفحة ويب؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  بنستعلم من DNS" data-en="A  we query the DNS">A  بنستعلم من DNS</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  خادم الويب بيعرض الصفحة" data-en="B  the web server displays the page">B  خادم الويب بيعرض الصفحة</div>
-            <div class="ex-opt" data-ar="C  بندخل عن طريق IP" data-en="C  we access via the IP">C  بندخل عن طريق IP</div>
+            <div class="ex-opt" data-ar="A بنستعلم من DNS" data-en="A  we query the DNS">A بنستعلم من DNS</div>
+            <div class="ex-opt" data-ok="1" data-ar="B خادم الويب بيعرض الصفحة" data-en="B  the web server displays the page">B خادم الويب بيعرض الصفحة</div>
+            <div class="ex-opt" data-ar="C بندخل عن طريق IP" data-en="C  we access via the IP">C بندخل عن طريق IP</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — خادم الويب بيعرض الصفحة" data-en="✅ Answer: B — the web server displays the page">✅ الإجابة: B — خادم الويب بيعرض الصفحة</b> <span data-ar="آخر خطوة هي خادم الويب بيعرض داتا (Data) الصفحة."
-              data-en="The last step is the web server displaying the page data.">آخر خطوة هي خادم الويب بيعرض داتا (Data) الصفحة.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — خادم الويب بيعرض الصفحة" data-en="✅ Answer: B — the web server displays the page">✅ الإجابة: B — خادم الويب بيعرض الصفحة</b> <span data-ar="آخر خطوة هي خادم الويب بيعرض بيانات الصفحة."
+              data-en="The last step is the web server displaying the page data.">آخر خطوة هي خادم الويب بيعرض بيانات الصفحة.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1761,31 +803,31 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">1</span> <span data-ar="في https://www.mext.go.jp/index.html — https بتمثّل إيه؟"
               data-en="In https://www.mext.go.jp/index.html — what does https represent?">في https://www.mext.go.jp/index.html — https بتمثّل إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  اسم النظام (Scheme)" data-en="A  the Scheme name">A  اسم النظام (Scheme)</div>
-            <div class="ex-opt" data-ar="B  اسم الهوست (Host)" data-en="B  the Host name">B  اسم الهوست (Host)</div>
-            <div class="ex-opt" data-ar="C  اسم البلد" data-en="C  the Country name">C  اسم البلد</div>
+            <div class="ex-opt" data-ok="1" data-ar="A اسم النظام" data-en="A  the Scheme name">A اسم النظام</div>
+            <div class="ex-opt" data-ar="B اسم الهوست" data-en="B  the Host name">B اسم الهوست</div>
+            <div class="ex-opt" data-ar="C اسم البلد" data-en="C  the Country name">C اسم البلد</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: A — اسم النظام (Scheme)" data-en="✅ Answer: A — the Scheme name">✅ الإجابة: A — اسم النظام (Scheme)</b> <span data-ar="https هو اسم النظام (Scheme) (بروتوكول)."
-              data-en="https is the Scheme name (protocol).">https هو اسم النظام (Scheme) (بروتوكول).</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — اسم النظام" data-en="✅ Answer: A — the Scheme name">✅ الإجابة: A — اسم النظام</b> <span data-ar="https هو اسم النظام (بروتوكول)."
+              data-en="https is the Scheme name (protocol).">https هو اسم النظام (بروتوكول).</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="في https://www.mext.go.jp/index.html — www بتمثّل إيه؟"
               data-en="In https://www.mext.go.jp/index.html — what does www represent?">في https://www.mext.go.jp/index.html — www بتمثّل إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  اسم النظام (Scheme)" data-en="A  the Scheme name">A  اسم النظام (Scheme)</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  اسم الهوست (Host)" data-en="B  the Host name">B  اسم الهوست (Host)</div>
-            <div class="ex-opt" data-ar="C  نوع المؤسسة" data-en="C  the type of organization">C  نوع المؤسسة</div>
+            <div class="ex-opt" data-ar="A اسم النظام" data-en="A  the Scheme name">A اسم النظام</div>
+            <div class="ex-opt" data-ok="1" data-ar="B اسم الهوست" data-en="B  the Host name">B اسم الهوست</div>
+            <div class="ex-opt" data-ar="C نوع المؤسسة" data-en="C  the type of organization">C نوع المؤسسة</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — اسم الهوست (Host)" data-en="✅ Answer: B — the Host name">✅ الإجابة: B — اسم الهوست (Host)</b> <span data-ar="www هو اسم الهوست (Host) (اسم السيرفر)."
-              data-en="www is the Host name (server name).">www هو اسم الهوست (Host) (اسم السيرفر).</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — اسم الهوست" data-en="✅ Answer: B — the Host name">✅ الإجابة: B — اسم الهوست</b> <span data-ar="www هو اسم الهوست (اسم السيرفر)."
+              data-en="www is the Host name (server name).">www هو اسم الهوست (اسم السيرفر).</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="في https://www.mext.go.jp/index.html — index.html بتمثّل إيه؟"
               data-en="In https://www.mext.go.jp/index.html — what does index.html represent?">في https://www.mext.go.jp/index.html — index.html بتمثّل إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  اسم البلد" data-en="A  the Country name">A  اسم البلد</div>
-            <div class="ex-opt" data-ar="B  اسم المؤسسة" data-en="B  the name of organization">B  اسم المؤسسة</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  اسم الملف" data-en="C  the File name">C  اسم الملف</div>
+            <div class="ex-opt" data-ar="A اسم البلد" data-en="A  the Country name">A اسم البلد</div>
+            <div class="ex-opt" data-ar="B اسم المؤسسة" data-en="B  the name of organization">B اسم المؤسسة</div>
+            <div class="ex-opt" data-ok="1" data-ar="C اسم الملف" data-en="C  the File name">C اسم الملف</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — اسم الملف" data-en="✅ Answer: C — the File name">✅ الإجابة: C — اسم الملف</b> <span data-ar="index.html هو اسم الملف في URL."
               data-en="index.html is the File name in the URL.">index.html هو اسم الملف في URL.</span></div>
@@ -1802,31 +844,31 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">1</span> <span data-ar="في hanako@example.co.jp — hanako بتمثّل إيه؟"
               data-en="In hanako@example.co.jp — what does hanako represent?">في hanako@example.co.jp — hanako بتمثّل إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  اسم النطاق (Domain name)" data-en="A  the Domain name">A  اسم النطاق (Domain name)</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  اسم المستخدم (Username)" data-en="B  the Username">B  اسم المستخدم (Username)</div>
-            <div class="ex-opt" data-ar="C  نوع المؤسسة" data-en="C  the type of organization">C  نوع المؤسسة</div>
+            <div class="ex-opt" data-ar="A اسم النطاق" data-en="A  the Domain name">A اسم النطاق</div>
+            <div class="ex-opt" data-ok="1" data-ar="B اسم المستخدم" data-en="B  the Username">B اسم المستخدم</div>
+            <div class="ex-opt" data-ar="C نوع المؤسسة" data-en="C  the type of organization">C نوع المؤسسة</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: B — اسم المستخدم (Username)" data-en="✅ Answer: B — the Username">✅ الإجابة: B — اسم المستخدم (Username)</b> <span data-ar="hanako هو اسم المستخدم (Username) اللي بيميّز المستقبل."
-              data-en="hanako is the Username that identifies the recipient.">hanako هو اسم المستخدم (Username) اللي بيميّز المستقبل.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: B — اسم المستخدم" data-en="✅ Answer: B — the Username">✅ الإجابة: B — اسم المستخدم</b> <span data-ar="hanako هو اسم المستخدم اللي بيميّز المستقبل."
+              data-en="hanako is the Username that identifies the recipient.">hanako هو اسم المستخدم اللي بيميّز المستقبل.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="في hanako@example.co.jp — example.co.jp بتمثّل إيه؟"
               data-en="In hanako@example.co.jp — what does example.co.jp represent?">في hanako@example.co.jp — example.co.jp بتمثّل إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  اسم النطاق (Domain name)" data-en="A  the Domain name">A  اسم النطاق (Domain name)</div>
-            <div class="ex-opt" data-ar="B  اسم المستخدم (Username)" data-en="B  the Username">B  اسم المستخدم (Username)</div>
-            <div class="ex-opt" data-ar="C  اسم البلد" data-en="C  the country name">C  اسم البلد</div>
+            <div class="ex-opt" data-ok="1" data-ar="A اسم النطاق" data-en="A  the Domain name">A اسم النطاق</div>
+            <div class="ex-opt" data-ar="B اسم المستخدم" data-en="B  the Username">B اسم المستخدم</div>
+            <div class="ex-opt" data-ar="C اسم البلد" data-en="C  the country name">C اسم البلد</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: A — اسم النطاق (Domain name)" data-en="✅ Answer: A — the Domain name">✅ الإجابة: A — اسم النطاق (Domain name)</b> <span data-ar="example.co.jp هو اسم النطاق (Domain name) اللي بيميّز خادم الميل."
-              data-en="example.co.jp is the Domain name that identifies the mail server.">example.co.jp هو اسم النطاق (Domain name) اللي بيميّز خادم الميل.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: A — اسم النطاق" data-en="✅ Answer: A — the Domain name">✅ الإجابة: A — اسم النطاق</b> <span data-ar="example.co.jp هو اسم النطاق اللي بيميّز خادم الميل."
+              data-en="example.co.jp is the Domain name that identifies the mail server.">example.co.jp هو اسم النطاق اللي بيميّز خادم الميل.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="في hanako@example.ed.jp — ed بتمثّل إيه؟"ed" بتمثل إيه؟"
               data-en="In hanako@example.ed.jp — what does ed represent?">في hanako@example.ed.jp — ed بتمثّل إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  اسم البلد" data-en="A  the Country name">A  اسم البلد</div>
-            <div class="ex-opt" data-ar="B  اسم الملف" data-en="B  the File name">B  اسم الملف</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  نوع المؤسسة — مدرسة" data-en="C  the type of organization — a school">C  نوع المؤسسة — مدرسة</div>
+            <div class="ex-opt" data-ar="A اسم البلد" data-en="A  the Country name">A اسم البلد</div>
+            <div class="ex-opt" data-ar="B اسم الملف" data-en="B  the File name">B اسم الملف</div>
+            <div class="ex-opt" data-ok="1" data-ar="C نوع المؤسسة — مدرسة" data-en="C  the type of organization — a school">C نوع المؤسسة — مدرسة</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — نوع المؤسسة" data-en="✅ Answer: C — the type of organization">✅ الإجابة: C — نوع المؤسسة</b> <span data-ar="ed بتمثّل نوع المؤسسة — مدرسة."
               data-en="ed represents the type of organization — a school.">ed بتمثّل نوع المؤسسة — مدرسة.</span></div>
@@ -1843,9 +885,9 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">1</span> <span data-ar="البروتوكول اللي بيرسل الإيميلات لخادم ميل هو إيه؟"
               data-en="What is the protocol for sending emails to a mail server?">البروتوكول اللي بيرسل الإيميلات لخادم ميل هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  SMTP" data-en="A  SMTP">A  SMTP</div>
-            <div class="ex-opt" data-ar="B  POP" data-en="B  POP">B  POP</div>
-            <div class="ex-opt" data-ar="C  DNS" data-en="C  DNS">C  DNS</div>
+            <div class="ex-opt" data-ok="1" data-ar="A SMTP" data-en="A  SMTP">A  SMTP</div>
+            <div class="ex-opt" data-ar="B POP" data-en="B  POP">B  POP</div>
+            <div class="ex-opt" data-ar="C DNS" data-en="C  DNS">C  DNS</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — SMTP" data-en="✅ Answer: A — SMTP">✅ الإجابة: A — SMTP</b> <span data-ar="SMTP هو البروتوكول المستخدم لإرسال الإيميلات لخادم الميل."
               data-en="SMTP is the protocol used to send emails to the mail server.">SMTP هو البروتوكول المستخدم لإرسال الإيميلات لخادم الميل.</span></div>
@@ -1854,9 +896,9 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">2</span> <span data-ar="البروتوكول اللي بيحمّل الإيميلات من السيرفر ويمسحها هو إيه؟"
               data-en="What is the protocol that downloads emails from the server and deletes them?">البروتوكول اللي بيحمّل الإيميلات من السيرفر ويمسحها هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  SMTP" data-en="A  SMTP">A  SMTP</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  POP" data-en="B  POP">B  POP</div>
-            <div class="ex-opt" data-ar="C  IMAP" data-en="C  IMAP">C  IMAP</div>
+            <div class="ex-opt" data-ar="A SMTP" data-en="A  SMTP">A  SMTP</div>
+            <div class="ex-opt" data-ok="1" data-ar="B POP" data-en="B  POP">B  POP</div>
+            <div class="ex-opt" data-ar="C IMAP" data-en="C  IMAP">C  IMAP</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — POP" data-en="✅ Answer: B — POP">✅ الإجابة: B — POP</b> <span data-ar="POP بيحمّل الإيميلات من السيرفر ويمسحها منه."
               data-en="POP downloads emails from the server and deletes them from the server.">POP بيحمّل الإيميلات من السيرفر ويمسحها منه.</span></div>
@@ -1865,9 +907,9 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
           <div class="q"><span class="q-num">3</span> <span data-ar="البروتوكول اللي بيدخل على الإيميلات المخزّنة على خادم الميل هو إيه؟"
               data-en="What is the protocol for accessing emails stored on the mail server?">البروتوكول اللي بيدخل على الإيميلات المخزّنة على خادم الميل هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  POP" data-en="A  POP">A  POP</div>
-            <div class="ex-opt" data-ar="B  DNS" data-en="B  DNS">B  DNS</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  IMAP" data-en="C  IMAP">C  IMAP</div>
+            <div class="ex-opt" data-ar="A POP" data-en="A  POP">A  POP</div>
+            <div class="ex-opt" data-ar="B DNS" data-en="B  DNS">B  DNS</div>
+            <div class="ex-opt" data-ok="1" data-ar="C IMAP" data-en="C  IMAP">C  IMAP</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — IMAP" data-en="✅ Answer: C — IMAP">✅ الإجابة: C — IMAP</b> <span data-ar="IMAP هو البروتوكول للدخول على الإيميلات المخزّنة على خادم الميل."
               data-en="IMAP is the protocol for accessing emails stored on the mail server.">IMAP هو البروتوكول للدخول على الإيميلات المخزّنة على خادم الميل.</span></div>
@@ -1900,7 +942,7 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="WWW وHTML" data-en="The WWW and HTML">WWW وHTML</h4>
+                  <h3 data-ar="WWW وHTML" data-en="The WWW and HTML" class="lvl-h4 lvl-h4-2">WWW وHTML</h3>
                   <p data-ar="WWW نظام بيربط المحتوى، وHTML هي اللغة المستخدمة لإنشاء صفحات الويب."
                     data-en="the WWW is a system linking content, and HTML is the language used to create web pages.">WWW نظام بيربط المحتوى، وHTML هي اللغة المستخدمة لإنشاء صفحات الويب.</p>
                 </div>
@@ -1908,15 +950,15 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="URL" data-en="The URL">URL</h4>
-                  <p data-ar="بيمثّل مكان الصفحة وطريقة الاتصال — وبيشمل النظام (Scheme) والهوست (Host) والمؤسسة والبلد والملف."
-                    data-en="represents the page location and communication method — including Scheme, Host, the organization, country, and file.">بيمثّل مكان الصفحة وطريقة الاتصال — وبيشمل النظام (Scheme) والهوست (Host) والمؤسسة والبلد والملف.</p>
+                  <h3 data-ar="URL" data-en="The URL" class="lvl-h4 lvl-h4-2">URL</h3>
+                  <p data-ar="بيمثّل مكان الصفحة وطريقة الاتصال — وبيشمل النظام والهوست والمؤسسة والبلد والملف."
+                    data-en="represents the page location and communication method — including Scheme, Host, the organization, country, and file.">بيمثّل مكان الصفحة وطريقة الاتصال — وبيشمل النظام والهوست والمؤسسة والبلد والملف.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="تصفّح صفحة ويب" data-en="Browsing a Web Page">تصفّح صفحة ويب</h4>
+                  <h3 data-ar="تصفّح صفحة ويب" data-en="Browsing a Web Page" class="lvl-h4 lvl-h4-2">تصفّح صفحة ويب</h3>
                   <p data-ar="نستعلم من DNS، نجيب IP، ندخل عن طريقه، وخادم الويب بيعرض الصفحة."
                     data-en="query the DNS, get the IP, access via it, and the web server displays the page.">نستعلم من DNS، نجيب IP، ندخل عن طريقه، وخادم الويب بيعرض الصفحة.</p>
                 </div>
@@ -1924,15 +966,15 @@ html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
               <div class="journey-item">
                 <span class="jn-num">04</span>
                 <div>
-                  <h4 data-ar="آلية الإيميل" data-en="The Email Mechanism">آلية الإيميل</h4>
-                  <p data-ar="نظام تبادل رسايل — العنوان هو اسم المستخدم (Username) + @ + اسم النطاق (Domain name)."
-                    data-en="a message exchange system — the address is Username + @ + Domain name.">نظام تبادل رسايل — العنوان هو اسم المستخدم (Username) + @ + اسم النطاق (Domain name).</p>
+                  <h3 data-ar="آلية الإيميل" data-en="The Email Mechanism" class="lvl-h4 lvl-h4-2">آلية الإيميل</h3>
+                  <p data-ar="نظام تبادل رسايل — العنوان هو اسم المستخدم + @ + اسم النطاق."
+                    data-en="a message exchange system — the address is Username + @ + Domain name.">نظام تبادل رسايل — العنوان هو اسم المستخدم + @ + اسم النطاق.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">05</span>
                 <div>
-                  <h4 data-ar="بروتوكولات الإيميل" data-en="The Email Protocols">بروتوكولات الإيميل</h4>
+                  <h3 data-ar="بروتوكولات الإيميل" data-en="The Email Protocols" class="lvl-h4 lvl-h4-2">بروتوكولات الإيميل</h3>
                   <p data-ar="SMTP للإرسال، وPOP بيحمّل ويمسح، وIMAP بيدخل على الإيميلات المخزّنة."
                     data-en="SMTP for sending, POP downloads and deletes, and IMAP accesses stored emails.">SMTP للإرسال، وPOP بيحمّل ويمسح، وIMAP بيدخل على الإيميلات المخزّنة.</p>
                 </div>
@@ -2560,30 +1602,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>

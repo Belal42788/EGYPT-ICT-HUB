@@ -4,1164 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application of Programming [2] (Python) — البرمجة التطبيقية [2]</title>
+  <title>Application of Programming [2] — البرمجة التطبيقية [2]</title>
   <link rel="icon" type="image/x-icon" href="../../../../assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../../../../assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 12-5 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 20s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 15s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:70px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:30px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:24px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:26px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:26px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }code.inline{
-      background:rgba(24, 56, 248, .15);
-      border:1px solid rgba(24, 56, 248, .3);
-      color:#2d56fb;
-      padding:2px 8px;
-      border-radius:6px;
-      font-size:.85em;
-      font-family:'Consolas', 'Courier New', monospace
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:26px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.op-gallery{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0, 1fr));
-      gap:14px
-    }@media(max-width:960px){.op-gallery{
-        grid-template-columns:repeat(2, minmax(0, 1fr))
-      }
-    }@media(max-width:560px){.op-gallery{
-        grid-template-columns:1fr
-      }
-    }.op-chip{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:18px 12px;
-      text-align:center;
-      cursor:pointer;
-      transition:.2s;
-      position:relative
-    }.op-chip:hover,
-    .op-chip.active{
-      background:var(--card-hover);
-      border-color:var(--s3);
-      transform:translateY(-3px)
-    }.op-chip .sym{
-      display:block;
-      font-family:'Consolas', monospace;
-      font-size:1.6rem;
-      font-weight:700;
-      color:var(--s3);
-      direction:ltr
-    }.op-chip .name{
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      display:block;
-      margin-top:6px
-    }.op-detail{
-      margin-top:14px;
-      border-radius:12px;
-      overflow:hidden
-    }.op-detail:empty{
-      display:none
-    }.op-detail .body{
-      padding:16px 18px;
-      background:rgba(24, 56, 248, .08);
-      border:1px solid rgba(24, 56, 248, .3)
-    }.op-detail .exp{
-      font-family:'Consolas', monospace;
-      direction:ltr;
-      text-align:left;
-      font-size:.95rem;
-      color:#8e26fc;
-      margin-top:6px
-    }.op-detail .out{
-      margin-top:6px;
-      color:var(--accent);
-      direction:ltr;
-      font-family:'Consolas', monospace;
-      font-size:.95rem
-    }.op-choice{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:8px
-    }.op-opt{
-      flex:1;
-      min-width:52px;
-      padding:10px 8px;
-      font-family:'Consolas', monospace;
-      direction:ltr;
-      font-size:1.05rem;
-      font-weight:700;
-      color:#2d56fb;
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      border-radius:10px;
-      cursor:pointer;
-      transition:.18s
-    }.op-opt:hover{
-      border-color:rgba(24, 56, 248, .5)
-    }.op-opt.active{
-      border-color:var(--accent);
-      background:rgba(24, 56, 248, .18);
-      color:var(--accent);
-      box-shadow:0 0 0 1px var(--accent)
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }.activity-grid .demo-panel{
-        order:1
-      }.activity-grid .code-panel{
-        order:2
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.activity-grid .demo-panel input,
-    .activity-grid .demo-panel select{
-      width:100%;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      color:var(--text);
-      border-radius:8px;
-      padding:8px 12px;
-      font-family:inherit;
-      color-scheme:dark
-    }.activity-grid .demo-panel select option{
-      background:#f6f8ff;
-      color:var(--text)
-    }.activity-grid .demo-panel input:focus,
-    .activity-grid .demo-panel select:focus{
-      outline:none;
-      border-color:var(--primary)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.big-num{
-      font-family:'Consolas', monospace;
-      font-size:2.2rem;
-      font-weight:700;
-      color:var(--accent);
-      text-align:center;
-      direction:ltr;
-      background:#ebebec;
-      border-radius:14px;
-      padding:18px;
-      border:1px solid rgba(24, 56, 248, .25)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.code-panel{
-      border-radius:16px;
-      overflow:hidden;
-      background:#ececee;
-      border:1px solid rgba(11, 16, 32, 0.09)
-    }.code-panel .code-header{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      font-size:.8rem;
-      color:var(--dim);
-      border-bottom:1px solid rgba(24, 56, 248, .2)
-    }.code-panel .code-header::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:var(--accent);
-      flex-shrink:0
-    }.code-panel,
-    .code-panel .code-body,
-    .code-panel .code-header{
-      direction:ltr;
-      text-align:left;
-      unicode-bidi:isolate
-    }.py-edit,
-    .py-edit:focus{
-      display:block;
-      width:100%;
-      background:transparent;
-      border:none;
-      outline:none;
-      padding:14px;
-      font-family:'Consolas', 'Courier New', monospace;
-      font-size:.88rem;
-      line-height:1.7;
-      color:#2b3041;
-      resize:none;
-      overflow:hidden;
-      height:auto;
-      min-height:56px;
-      direction:ltr;
-      text-align:left;
-      white-space:pre;
-      overflow-wrap:normal;
-      box-sizing:border-box
-    }.py-ctl{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:8px 14px;
-      border-top:1px solid rgba(24, 56, 248, .15)
-    }.py-ctl .hint{
-      color:var(--dim);
-      font-size:.75rem;
-      margin-left:auto
-    }.term{
-      background:#ebebec;
-      border:1px solid rgba(24, 56, 248, .25);
-      border-radius:12px;
-      padding:14px;
-      font-family:Consolas, monospace;
-      font-size:.85rem;
-      min-height:60px;
-      margin:10px 0;
-      direction:ltr;
-      text-align:left;
-      display:none
-    }.term .out-line{
-      color:var(--accent);
-      opacity:0;
-      transform:translateY(4px);
-      animation:lineIn .3s forwards
-    }@keyframes lineIn{
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.py-err{
-      background:#edebec;
-      border:1px solid rgba(215, 38, 61, .45);
-      border-radius:12px;
-      color:#2f2e3c;
-      padding:14px 16px;
-      margin:8px 14px;
-      direction:ltr;
-      text-align:left;
-      line-height:1.6;
-      animation:errIn .25s ease;
-      display:none
-    }@keyframes errIn{
-      from {
-        opacity:0;
-        transform:translateY(-4px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.py-err .errtag .errbadge{
-      background:rgba(215, 38, 61, .18);
-      border:1px solid rgba(215, 38, 61, .4);
-      border-radius:6px;
-      padding:2px 8px;
-      font-weight:700;
-      font-size:.8rem;
-      color:#d50016;
-      text-transform:uppercase;
-      letter-spacing:.3px
-    }.py-err .errmain{
-      font-family:Consolas, monospace;
-      font-size:.92rem;
-      color:#fff;
-      margin-top:8px
-    }.py-err .errctx{
-      margin-top:10px;
-      padding-top:10px;
-      border-top:1px solid rgba(215, 38, 61, .2);
-      color:var(--dim);
-      font-size:.8rem
-    }.py-err .errline{
-      background:rgba(215, 38, 61, .12);
-      border-radius:6px;
-      padding:6px 10px;
-      margin-top:6px;
-      font-family:Consolas, monospace;
-      color:#302e3c;
-      font-size:.8rem;
-      white-space:pre;
-      overflow-x:auto
-    }.py-err .errline .ln{
-      display:inline-block;
-      min-width:2.2em;
-      color:#d50010;
-      margin-right:8px;
-      user-select:none
-    }.var-anim{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-      justify-content:center;
-      position:relative
-    }.var-fly{
-      position:absolute;
-      font-family:'Consolas', monospace;
-      font-weight:700;
-      color:var(--accent);
-      direction:ltr;
-      font-size:1.15rem;
-      z-index:5;
-      pointer-events:none;
-      transition:all .55s cubic-bezier(.5, 0, .3, 1)
-    }.var-src{
-      background:none;
-      border:none;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-family:'Consolas', monospace;
-      font-weight:700;
-      color:var(--accent);
-      direction:ltr;
-      font-size:1.15rem
-    }.var-box{
-      width:160px;
-      height:116px;
-      border-radius:18px;
-      background:var(--card);
-      border:2px dashed var(--s3);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:4px;
-      transition:.35s;
-      position:relative
-    }.var-box .vname{
-      font-family:'Consolas', monospace;
-      font-weight:700;
-      color:var(--s3);
-      font-size:1.05rem;
-      direction:ltr
-    }.var-box .v-val{
-      font-family:'Consolas', monospace;
-      color:#2b3041;
-      font-size:1.4rem;
-      font-weight:700;
-      direction:ltr;
-      min-height:1.8rem
-    }.var-box.live{
-      background:#eceef4;
-      border-color:var(--success);
-      box-shadow:0 0 34px rgba(13, 158, 86, .25)
-    }.var-box.live .v-val{
-      color:var(--success)
-    }.seq-card{
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(11, 16, 32, 0.08);
-      background:#ececee
-    }.seq-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:12px 16px;
-      background:#ebecee;
-      gap:10px;
-      flex-wrap:wrap
-    }.seq-lines{
-      direction:ltr;
-      text-align:left;
-      font-family:'Consolas', monospace;
-      font-size:.9rem;
-      line-height:2.1;
-      padding:8px 0
-    }.seq-lines .sl{
-      display:flex;
-      padding:0 16px;
-      transition:.15s;
-      border-right:3px solid transparent
-    }.seq-lines .sl .ln{
-      width:34px;
-      color:#3d4a7a;
-      flex-shrink:0;
-      text-align:left;
-      user-select:none
-    }.seq-lines .sl .src{
-      white-space:pre;
-      color:#2c55ff
-    }.seq-lines .sl.run{
-      background:rgba(24, 56, 248, .12);
-      border-right-color:var(--accent)
-    }.seq-lines .sl.run .src{
-      color:var(--accent)
-    }.seq-term{
-      background:#ebebec;
-      border:1px solid rgba(24, 56, 248, .25);
-      border-radius:12px;
-      margin:0 16px 16px;
-      padding:12px;
-      font-family:Consolas, monospace;
-      direction:ltr;
-      text-align:left;
-      font-size:.85rem;
-      min-height:56px;
-      color:var(--accent)
-    }.seq-term .out-line{
-      opacity:0;
-      transform:translateY(4px);
-      animation:lineIn .3s forwards
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.opt-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      padding:0 7px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:var(--primary);
-      font-weight:800;
-      font-size:.82rem;
-      margin-inline-end:8px;
-      flex-shrink:0
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.opt-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      padding:0 7px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:var(--primary);
-      font-weight:800;
-      font-size:.82rem;
-      margin-inline-end:8px;
-      flex-shrink:0
-    }.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      font-family:'Consolas', monospace;
-      direction:ltr;
-      text-align:left;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.85rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:14px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-opt.correct .ex-key{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .15);
-      color:var(--success)
-    }.ex-opt.wrong .ex-key{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .15);
-      color:var(--danger)
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s1), var(--s2), var(--s3), var(--s4))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:0 8px;
-      font-size:.78rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:10px
-    }.table th,
-    .table td{
-      text-align:right;
-      padding:10px 14px;
-      font-size:.95rem;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.table th{
-      color:var(--text);
-      font-weight:700;
-      background:rgba(24, 56, 248, .12)
-    }.table td{
-      color:var(--dim)
-    }.table code{
-      direction:ltr;
-      font-family:'Consolas', monospace;
-      color:#8c28fc
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-top{
-      height:4px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-body{
-      padding:22px;
-      overflow-x:auto
-    }.outcome-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:16px;
-      margin:18px 0
-    }@media(max-width:760px){.outcome-grid{
-        grid-template-columns:1fr
-      }
-    }.outcome-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:20px;
-      padding:20px;
-      transition:.3s;
-      border-top:3px solid var(--sc)
-    }.outcome-card:hover{
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3);
-      background:var(--card-hover)
-    }.oc-ic{
-      font-size:2rem;
-      margin-bottom:8px
-    }.outcome-card h4{
-      font-weight:800;
-      margin-bottom:6px;
-      color:var(--text)
-    }.outcome-card p{
-      font-size:.88rem;
-      color:var(--dim)
-    }.fn-flow{
-      display:flex;
-      align-items:stretch;
-      justify-content:center;
-      gap:12px;
-      min-width:420px
-    }.fn-node{
-      flex:1;
-      max-width:170px;
-      text-align:center;
-      border-radius:16px;
-      padding:16px 10px;
-      font-weight:800;
-      font-size:.9rem;
-      direction:rtl;
-      display:flex;
-      flex-direction:column;
-      gap:8px
-    }.fn-node span{
-      display:block;
-      font-size:1.1rem;
-      font-weight:800;
-      direction:ltr
-    }.fn-node.in{
-      background:rgba(24, 56, 248, .14);
-      border:2px solid rgba(24, 56, 248, .5);
-      color:#2b3041
-    }.fn-node.box{
-      background:rgba(24, 56, 248, .14);
-      border:2px solid rgba(24, 56, 248, .5);
-      color:#2d3141
-    }.fn-node.out{
-      background:rgba(24, 56, 248, .14);
-      border:2px solid rgba(24, 56, 248, .5);
-      color:var(--accent)
-    }.fn-arrow{
-      display:flex;
-      align-items:center;
-      font-size:1.6rem;
-      color:var(--accent)
-    }.legend{
-      margin-top:16px;
-      text-align:center;
-      font-size:.9rem;
-      color:var(--dim)
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.section-inner,.card,.ex-item,.code-panel{min-width:0;max-width:100%;}.textbook-code{display:block;direction:ltr;text-align:left;unicode-bidi:isolate;white-space:pre;overflow-x:auto;max-width:100%;padding:14px;border:1px solid #34416b;border-radius:10px;background:#ebecee;color:#2b3041;font:14px/1.75 Consolas,monospace;margin:10px 0;}.source-note{padding:12px;border-inline-start:3px solid var(--accent);background:#ecedef;border-radius:8px;margin:12px 0;line-height:1.8;}.blank-grid,.game-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:12px 0;}.blank-label,.game-controls label{display:flex;flex-direction:column;gap:5px;max-width:100%;}.blank-grid .blank-label{flex:1 1 90px;}.blank-label input,.game-controls input{min-width:0;width:100%;max-width:220px;padding:9px;background:#ebeced;color:#fff;border:1px solid #425b8a;border-radius:8px;font:16px Consolas,monospace;}.game-controls label{width:110px;}.self-check{margin-top:10px;}.ex-answer[hidden]{display:none!important;}.ex-answer.show{min-width:0;}.py-edit{overflow-x:auto;overflow-y:hidden;white-space:pre;}.py-ctl{flex-wrap:wrap;}.py-ctl .btn{flex-shrink:0;width:auto;min-width:78px;}.py-ctl .hint{flex:1 1 140px;}.list-rows{direction:ltr;}.lrow{grid-template-columns:64px repeat(5,minmax(40px,1fr));}.twod-grid{direction:ltr;}#grid-cells{display:grid;grid-template-columns:repeat(3,minmax(40px,1fr));gap:8px;max-width:360px;}#grid-cells button{padding:14px;color:#fff;background:#eceef1;border:1px solid #4969a0;border-radius:10px;font:700 18px Consolas,monospace;cursor:pointer;}#grid-cells button:focus-visible{outline:3px solid var(--accent);}.lesson-game{margin-bottom:18px;}.lesson-game [aria-live]{min-height:2.5em;}.gl-term a{display:inline-block;color:var(--accent);margin-top:8px;}.gl-term.hidden{display:none;}.pan-cue{font-size:12px;color:#4769a6;display:none;margin:4px 0;}.pan-cue.visible{display:block;}.game-controls select{background:#ebeced;color:#fff;border:1px solid #425b8a;border-radius:8px;padding:9px;max-width:100%;font:14px/1.5 inherit;}.game-controls:has(#trace-mode) label{width:160px;}.btn:disabled{opacity:.5;cursor:default;}.fn-route{direction:ltr;text-align:left;white-space:normal;overflow-wrap:anywhere;color:var(--accent);font:14px/1.8 Consolas,monospace;}.game-controls label{width:180px;}.game-controls select{max-width:100%;background:#ebeced;color:white;padding:10px;border:1px solid #425b8a;border-radius:8px;}.source-options{padding-inline-start:22px;}.source-options li{padding:4px 0;}.table-pan{max-width:100%;overflow-x:auto;}.table th,.table td{text-align:start;}.btn:disabled{opacity:.5;cursor:default;}.table-pan{direction:ltr}.table-pan .table{min-width:340px}.table-pan td code{white-space:nowrap;display:block;direction:ltr}.table-pan .table th,.table-pan .table td{text-align:start}</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/cation-of-programming-2-python--12-5-application-of-programming-2-python-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="contrast-pass-3">
-/* Readability pass 3: faded component blocks and light code editors. */
-.bt,.bt-sub{opacity:1!important}
-.bt-sub{color:#2f3542!important}
-.bt-note{opacity:1!important;color:#3a4152!important}
-.email-vals{color:#1a3fd0!important}
-.chat-who{color:#3a4152!important}
-.html-edit,.js-edit,.py-edit,textarea{color:var(--text)!important}
-</style>
-<style>/* contrast fix (a11y pass 4) */
-input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1020!important;background:#fff!important}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
+<link rel="stylesheet" href="../../../../assets/css/pages/cation-of-programming-2-python--12-5-application-of-programming-2-python-2.css">
 </head>
 
 <body>
@@ -1174,10 +28,10 @@ input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1
           alt="logo"></a>
       <div class="nav-links" id="navLinks">
         <a href="#intro" data-ar="يلا نبدأ" data-en="Start">يلا نبدأ</a>
-        <a href="#func" data-ar="الدالّة (Function)" data-en="Function">الدالّة (Function)</a>
+        <a href="#func" data-ar="الدالّة" data-en="Function">الدالّة</a>
         <a href="#practice" data-ar="تمارين" data-en="Exercises">تمارين</a>
         <a href="#recap" data-ar="المراجعة" data-en="Recap">المراجعة</a>
-        <a href="#glossary" data-ar="قاموس المصطلحات (Glossary)" data-en="Glossary">قاموس المصطلحات (Glossary)</a>
+        <a href="#glossary" data-ar="قاموس المصطلحات" data-en="Glossary">قاموس المصطلحات</a>
       </div>
       <button class="lang-toggle" id="langToggle" data-current="ar">EN</button>
     </div>
@@ -1191,8 +45,8 @@ input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1
       <p class="hero-sub"
         data-ar="الدوال — النهارده هنفهم إزاي نعرّف الدوال ونستدعيها ونرجّع قيمة"
         data-en="Functions — today we'll understand how to define functions, call them, and return a value">
-        الدوال (Functions) — هنفهم النهارده <b>نعرّف دوال</b> و<b>نستدعيها</b> و<b>نرجّع قيمة</b></p>
-      <div class="hero-stats"><span data-ar="5 أقسام" data-en="5 sections">5 أقسام</span><span data-ar="10 أسئلة" data-en="10 practice questions">10 أسئلة</span><span data-ar="10 مصطلحات" data-en="10 glossary terms">10 مصطلحات</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ الدوال — هنفهم النهارده <b>نعرّف دوال</b> و<b>نستدعيها</b> و<b>نرجّع قيمة</b></p>
+      <div class="hero-stats"><span data-ar="5 أقسام" data-en="5 sections">5 أقسام</span><span data-ar="10 أسئلة" data-en="10 practice questions">10 أسئلة</span><span data-ar="10 مصطلحات" data-en="10 glossary terms">10 مصطلحات</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 
@@ -1206,24 +60,24 @@ input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1
           <h2 data-ar="إيه اللي هنتعلّمه النهارده؟" data-en="What are we learning today?">إيه اللي هنتعلّمه النهارده؟</h2>
         </div>
         <p class="lead"
-          data-ar="النهارده بنتعلّم عن الدوال (Functions) في بايثون (Python) — حاجة نعرّفها مرة واحدة ونستخدمها كتير؛ بتبخد قيم (Arguments) وترجّع نتيجة (Return value)."
+          data-ar="النهارده بنتعلّم عن الدوال في بايثون — حاجة نعرّفها مرة واحدة ونستخدمها كتير؛ بتبخد قيم وترجّع نتيجة."
           data-en="Today we learn about Functions in Python — something we define once and use many times; it takes values (Arguments) and returns a result (Return value).">
-          النهارده هنعرف <b>الدوال (Functions)</b> في بايثون — دي حاجة بنعرفها مرة ونستخدمها كتير، بتاخد قيم
-          <b>(Arguments)</b> وترجّع نتيجة <b>(Return value)</b>.</p>
+ النهارده هنعرف <b>الدوال</b> في بايثون — دي حاجة بنعرفها مرة ونستخدمها كتير، بتاخد قيم
+ <b>(Arguments)</b> وترجّع نتيجة <b>(Return value)</b>.</p>
         <div class="outcome-grid">
           <div class="outcome-card" style="--sc:var(--s1)">
             <div class="oc-ic">🧩</div>
-            <h4 data-ar="الدالّة (Function) هي إيه" data-en="What is a Function">الدالّة (Function) هي إيه</h4>
+            <h3 data-ar="الدالّة هي إيه" data-en="What is a Function" class="lvl-h4 lvl-h4-1">الدالّة هي إيه</h3>
             <p data-ar="مجموعة عمليات في وحدة واحدة مسمّاة نقدر نستدعيها." data-en="A set of operations in one named unit we can call.">مجموعة عمليات في وحدة واحدة مسمّاة نقدر نستدعيها.</p>
           </div>
           <div class="outcome-card" style="--sc:var(--s2)">
             <div class="oc-ic">🎯</div>
-            <h4 data-ar="المُعامل والإرجاع (Argument and return)" data-en="Argument and return">المُعامل والإرجاع (Argument and return)</h4>
+            <h3 data-ar="المُعامل والإرجاع" data-en="Argument and return" class="lvl-h4 lvl-h4-1">المُعامل والإرجاع</h3>
             <p data-ar="الدالّة بتاخد مدخلات وترجّع نتيجة عن طريق return." data-en="The function takes inputs and returns a result via return.">الدالة بتاخد مدخلات وترجّع نتيجة عن طريق <span dir="ltr">return</span>.</p>
           </div>
           <div class="outcome-card" style="--sc:var(--s3)">
             <div class="oc-ic">⚙️</div>
-            <h4 data-ar="جاهزة ومعرّفة من المستخدم (Built-in and user-defined)" data-en="Built-in and user-defined">جاهزة ومعرّفة من المستخدم (Built-in and user-defined)</h4>
+            <h3 data-ar="جاهزة ومعرّفة من المستخدم" data-en="Built-in and user-defined" class="lvl-h4 lvl-h4-1">جاهزة ومعرّفة من المستخدم</h3>
             <p data-ar="في دوال جاهزة زي print، ودوال بنعرّفها إحنا بـ def." data-en="There are built-in functions like print, and ones we define with def.">في دوال جاهزة زي <span dir="ltr">print</span>، ودوال بنعرّفها إحنا بـ <span dir="ltr">def</span>.</p>
           </div>
         </div>
@@ -1242,19 +96,19 @@ input[type=number],input[type=text],input[type=email],select,textarea{color:#0b1
       <div class="section-inner">
         <div class="section-head">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),var(--s4))">2</div>
-          <h2 data-ar="مفهوم الدالّة (Function)" data-en="The Function concept">مفهوم <span dir="ltr">Function</span></h2>
+          <h2 data-ar="مفهوم الدالّة" data-en="The Function concept">مفهوم <span dir="ltr">Function</span></h2>
         </div>
-        <p data-ar="مصطلحات الكتاب: Argument للمتغير داخل التعريف وللقيمة المرسلة. الأدق: parameter هو اسم الاستقبال، وargument هي قيمة الاستدعاء. الدالة ممكن ما تاخدش مدخلات، ولو مفيش return بقيمة بترجع None. print بتعرض نص، وreturn بترجع قيمة للمنادي." data-en="The book uses Argument for the definition variable and the supplied value. More precisely, a parameter is the receiving name and an argument is a call value. Functions may take no arguments; without a valued return they return None. print displays output; return passes a value to the caller." class="source-note">مصطلحات الكتاب:Argument للمتغير داخل التعريف وللقيمة المرسلة. الأدق: parameter هو اسم الاستقبال، وargument هي قيمة الاستدعاء. الدالة ممكن ما تاخدش مدخلات، ولو مفيش return بقيمة بترجع None. print بتعرض نص، وreturn بترجع قيمة للمنادي.</p><div class="diagram-wrap"><div class="diagram-top"></div><div class="diagram-body"><div class="lesson-game" id="function-lab"><h3 data-ar="معمل التعريف والاستدعاء" data-en="Definition and call lab" >معمل التعريف والاستدعاء</h3><p data-ar="غيّر القيمة، وتوقّع القيمة الراجعة، وبعدين امشِ خطوة بخطوة. تعريف الدالة لوحده مش بينفّذ جسمها." data-en="Change the value, predict the return value, then step through. Defining a function does not execute its body." >غيّر القيمة، وتوقّع القيمة الراجعة، وبعدين امشِ خطوة بخطوة. تعريف الدالة لوحده مش بينفّذ جسمها.</p><div class="game-controls"><label><span data-ar="قيمة الاستدعاء" data-en="Call argument" >قيمة الاستدعاء</span><input id="fn-arg" dir="ltr" type="number" step="1" value="5"></label><label><span data-ar="جسم الدالة" data-en="Function body" >جسم الدالة</span><select id="fn-mode" dir="ltr"><option value="return">return y</option><option value="print">print(y)</option></select></label><label><span data-ar="توقّع القيمة الراجعة" data-en="Predict return value" >توقّع القيمة الراجعة</span><input id="fn-prediction" dir="ltr" autocomplete="off" spellcheck="false"></label></div><h4 data-ar="تعريف الدالة" data-en="Function definition" >تعريف الدالة</h4><pre id="fn-definition" class="textbook-code" dir="ltr"></pre><p class="fn-route" dir="ltr">argument → parameter x → body → return value → caller</p><h4 data-ar="الاستدعاء" data-en="Function call" >الاستدعاء</h4><pre id="fn-call" class="textbook-code" dir="ltr"></pre><div class="game-controls"><button class="btn small" id="fn-next"><span data-ar="خطوة" data-en="Step" >خطوة</span></button><button class="btn small" id="fn-reset"><span data-ar="إعادة" data-en="Reset" >إعادة</span></button></div><p id="fn-stage" aria-live="polite"></p><h4 data-ar="القيمة الراجعة" data-en="Return value" >القيمة الراجعة</h4><pre id="fn-return" class="textbook-code" dir="ltr"></pre><h4 data-ar="الخرج المطبوع" data-en="Printed output" >الخرج المطبوع</h4><pre id="fn-output" class="textbook-code" dir="ltr"></pre><p id="fn-feedback" aria-live="polite"></p></div></div></div>
+        <p data-ar="مصطلحات الكتاب: Argument للمتغير داخل التعريف وللقيمة المرسلة. الأدق: parameter هو اسم الاستقبال، وargument هي قيمة الاستدعاء. الدالة ممكن ما تاخدش مدخلات، ولو مفيش return بقيمة بترجع None. print بتعرض نص، وreturn بترجع قيمة للمنادي." data-en="The book uses Argument for the definition variable and the supplied value. More precisely, a parameter is the receiving name and an argument is a call value. Functions may take no arguments; without a valued return they return None. print displays output; return passes a value to the caller." class="source-note">مصطلحات الكتاب:Argument للمتغير داخل التعريف وللقيمة المرسلة. الأدق: parameter هو اسم الاستقبال، وargument هي قيمة الاستدعاء. الدالة ممكن ما تاخدش مدخلات، ولو مفيش return بقيمة بترجع None. print بتعرض نص، وreturn بترجع قيمة للمنادي.</p><div class="diagram-wrap"><div class="diagram-top"></div><div class="diagram-body"><div class="lesson-game" id="function-lab"><h3 data-ar="معمل التعريف والاستدعاء" data-en="Definition and call lab" >معمل التعريف والاستدعاء</h3><p data-ar="غيّر القيمة، وتوقّع القيمة الراجعة، وبعدين امشِ خطوة بخطوة. تعريف الدالة لوحده مش بينفّذ جسمها." data-en="Change the value, predict the return value, then step through. Defining a function does not execute its body." >غيّر القيمة، وتوقّع القيمة الراجعة، وبعدين امشِ خطوة بخطوة. تعريف الدالة لوحده مش بينفّذ جسمها.</p><div class="game-controls"><label><span data-ar="قيمة الاستدعاء" data-en="Call argument" >قيمة الاستدعاء</span><input id="fn-arg" dir="ltr" type="number" step="1" value="5"></label><label><span data-ar="جسم الدالة" data-en="Function body" >جسم الدالة</span><select id="fn-mode" dir="ltr"><option value="return">return y</option><option value="print">print(y)</option></select></label><label><span data-ar="توقّع القيمة الراجعة" data-en="Predict return value" >توقّع القيمة الراجعة</span><input id="fn-prediction" dir="ltr" autocomplete="off" spellcheck="false"></label></div><h3 data-ar="تعريف الدالة" data-en="Function definition"  class="lvl-h4 lvl-h4-2">تعريف الدالة</h3><pre id="fn-definition" class="textbook-code" dir="ltr"></pre><p class="fn-route" dir="ltr">argument → parameter x → body → return value → caller</p><h3 data-ar="الاستدعاء" data-en="Function call"  class="lvl-h4 lvl-h4-2">الاستدعاء</h3><pre id="fn-call" class="textbook-code" dir="ltr"></pre><div class="game-controls"><button class="btn small" id="fn-next"><span data-ar="خطوة" data-en="Step" >خطوة</span></button><button class="btn small" id="fn-reset"><span data-ar="إعادة" data-en="Reset" >إعادة</span></button></div><p id="fn-stage" aria-live="polite"></p><h3 data-ar="القيمة الراجعة" data-en="Return value"  class="lvl-h4 lvl-h4-2">القيمة الراجعة</h3><pre id="fn-return" class="textbook-code" dir="ltr"></pre><h3 data-ar="الخرج المطبوع" data-en="Printed output"  class="lvl-h4 lvl-h4-2">الخرج المطبوع</h3><pre id="fn-output" class="textbook-code" dir="ltr"></pre><p id="fn-feedback" aria-live="polite"></p></div></div></div>
 
         <p
-          data-ar="الدالّة (Function) هي مجموعة عمليات في وحدة واحدة. بنعرّفها بـ def؛ والمتغيّر اللي بيستقبل قيمة جوه الدالّة هو المُعامل (Argument)؛ وبـ return بنبعت النتيجة للي استدعاها كقيمة إرجاع. وعشان نستخدمها بنعمل استدعاء (call)."
+          data-ar="الدالّة هي مجموعة عمليات في وحدة واحدة. بنعرّفها بـ def؛ والمتغيّر اللي بيستقبل قيمة جوه الدالّة هو المُعامل؛ وبـ return بنبعت النتيجة للي استدعاها كقيمة إرجاع. وعشان نستخدمها بنعمل استدعاء."
           data-en="A Function is a set of operations in one unit. We define it with def; the variable that receives a value inside the function is an Argument; with return we send the result to the caller as a return value. And to use it we perform a call.">
-          الدالة <b>(Function)</b> هي مجموعة عمليات محطوطة في وحدة واحدة. بنعرّفها بكلمة <span dir="ltr">def</span>،
-          والمتغير اللي بياخد قيمة جوه الدالة اسمه <b>Argument</b>، وبأمر <span dir="ltr">return</span> بنبعت نتيجة
-          العملية للمنادي كقيمة راجعة <b>(Return value)</b>. ولما نستخدم الدالة بنعمل عملية استدعاء
-          <b>(Call)</b> لها.</p>
+ الدالة <b>(Function)</b> هي مجموعة عمليات محطوطة في وحدة واحدة. بنعرّفها بكلمة <span dir="ltr">def</span>،
+ والمتغير اللي بياخد قيمة جوه الدالة اسمه <b>Argument</b>، وبأمر <span dir="ltr">return</span> بنبعت نتيجة
+ العملية للمنادي كقيمة راجعة <b>(Return value)</b>. ولما نستخدم الدالة بنعمل عملية استدعاء
+ <b>(Call)</b> لها.</p>
         <p data-ar="المحررات نموذج تعليمي محدود، مش Python كاملة. بتدعم دوال الدرس، معاملات موضعية، متغيرات محلية، return، شرط وحلقات. مفيش import أو معاملات افتراضية أو مسمّاة لدوال المستخدم. الحد20000 خطوة، و40 استدعاء متداخل، و2000 عنصر للقائمة أو range." data-en="The editors use a bounded teaching model, not full Python. They support the lesson functions, positional parameters, local variables, return, conditions and loops. Imports, default parameters and keyword arguments to user functions are unsupported. Limits:20000 steps,40 nested calls,2000 items per list or range." class="source-note">المحررات نموذج تعليمي محدود، مش Python كاملة. بتدعم دوال الدرس، معاملات موضعية، متغيرات محلية، return، شرط وحلقات. مفيش import أو معاملات افتراضية أو مسمّاة لدوال المستخدم. الحد20000 خطوة، و40 استدعاء متداخل، و2000 عنصر للقائمة أو range.</p><div class="code-panel" data-id="funcPy">
-          <textarea class="py-edit" spellcheck="false">def function(x):
+          <textarea class="py-edit" spellcheck="false" aria-label="محرر كود بايثون">def function(x):
     y = 2 * x
     return y
 
@@ -1268,7 +122,7 @@ print(function(5))</textarea>
           <div class="py-err"></div>
         </div>
         <p data-ar="الكتاب كاتب ناتج مساحة المثلث 25. في Python3 العملية / بترجع float، فالمحرر بيطبع 25.0. القيمة العددية واحدة لكن شكل الناتج مختلف." data-en="The book prints triangle area as 25. In Python 3, / returns a float, so the editor prints 25.0. The numerical value agrees, but the displayed output differs." class="source-note">الكتاب كاتب ناتج مساحة المثلث 25. في Python3 العملية / بترجع float، فالمحرر بيطبع 25.0. القيمة العددية واحدة لكن شكل الناتج مختلف.</p><div class="code-panel" data-id="areaPy">
-          <textarea class="py-edit" spellcheck="false">def area(base, height):
+          <textarea class="py-edit" spellcheck="false" aria-label="محرر كود بايثون">def area(base, height):
     S = base * height / 2
     return S
 
@@ -1284,11 +138,11 @@ print(area(10, 5))</textarea>
         <p
           data-ar="في نوعين من الدوال: دوال جاهزة جاهزة للاستخدام من غير تعريف زي print وlen وint، ودوال معرّفة من المستخدم بنعرّفها إحنا بـ def."
           data-en="There are two kinds of functions: Built-in functions ready to use without definition like print, len and int, and User-defined functions that we define ourselves with def.">
-          في نوعين من الدوال: <b>دوال مدمجة (Built-in functions)</b> جاهزة نستخدمها من غير تعريف زي
-          <span dir="ltr">print</span> و <span dir="ltr">len</span> و <span dir="ltr">int</span>، و<b>دوال معرفة من
-          المستخدم (User-defined functions)</b> بنعرّفها إحنا بكلمة <span dir="ltr">def</span>.</p>
+ في نوعين من الدوال: <b>دوال مدمجة</b> جاهزة نستخدمها من غير تعريف زي
+ <span dir="ltr">print</span> و <span dir="ltr">len</span> و <span dir="ltr">int</span>، و<b>دوال معرفة من
+ المستخدم</b> بنعرّفها إحنا بكلمة <span dir="ltr">def</span>.</p>
         <div class="code-panel" data-id="judgePy">
-          <textarea class="py-edit" spellcheck="false">def judge(score):
+          <textarea class="py-edit" spellcheck="false" aria-label="محرر كود بايثون">def judge(score):
     if score >= 80:
         print('Pass')
     else:
@@ -1306,7 +160,7 @@ judge(40)</textarea>
         <div class="error-box">
           <div class="err-head"><span>⚠️</span><b data-ar="أخطاء شائعة" data-en="Common mistakes">أخطاء شائعة</b></div>
           <ul>
-            <li data-ar="النسيان إن في نقطتين : بعد سطر def — من غيرهم الدالّة مش هتتعَرّف." data-en="Forgetting the colon : after the def line — without it the function won't be defined.">نسيان النقطتين <span dir="ltr">:</span> بعد سطر <span dir="ltr">def</span> — من غيرها الدالة مش هتتعرّف.</li>
+            <li data-ar="النسيان إن في نقطتين: بعد سطر def — من غيرهم الدالّة مش هتتعَرّف." data-en="Forgetting the colon : after the def line — without it the function won't be defined.">نسيان النقطتين <span dir="ltr">:</span> بعد سطر <span dir="ltr">def</span> — من غيرها الدالة مش هتتعرّف.</li>
             <li data-ar="في أمثلة الدرس البسيطة، عدد الوسائط الموضعية لازم يطابق أسماء الاستقبال. Python بتدعم كمان معاملات اختيارية خارج النموذج ده." data-en="For these simple examples, the positional argument count must match the parameter count. Python also supports optional parameters outside this model.">في أمثلة الدرس البسيطة، عدد الوسائط الموضعية لازم يطابق أسماء الاستقبال. Python بتدعم كمان معاملات اختيارية خارج النموذج ده.</li>
             <li data-ar="الـ return لازم تكون جوه الدالّة عشان ترجّع القيمة للي استدعاها." data-en="The return must be inside the function to return the value to the caller.">الـ <span dir="ltr">return</span> لازم يبقى جوه الدالة عشان يرجّع القيمة للمنادي.</li>
           </ul>
@@ -1338,7 +192,7 @@ judge(40)</textarea>
     </section>
 
     <!-- ============ 03 PRACTICE ============ -->
-    <section class="section" id="practice"><div class="section-inner"><div class="section-head"><div class="section-number">3</div><h2 data-ar="تمارين الكتاب" data-en="Textbook exercises" >تمارين الكتاب</h2></div><p data-ar="اكتب إجاباتك الأول، وبعدين افتح الحل للمقارنة. الفراغات وإجابات الناتج مراجعة ذاتية، مش درجة آلية. تعبيرات مكافئة ممكن تكون صحيحة." data-en="Write your answers first, then reveal the solution. Blanks and outputs are self-checks, not automatic scores. Equivalent expressions may be valid." class="source-note">اكتب إجاباتك الأول، وبعدين افتح الحل للمقارنة. الفراغات وإجابات الناتج مراجعة ذاتية، مش درجة آلية. تعبيرات مكافئة ممكن تكون صحيحة.</p><div class="card source-group"><h3 data-ar="إحماء | EN173 · AR187" data-en="Warm Up | EN 173 · AR 187" >إحماء | EN173 · AR187</h3><article class="ex-item" data-source-id="warm-1" id="warm-1"><div class="q"><span class="q-num">1</span><span data-ar="كمّل دالة مساحة الدائرة، واكتب ناتج السطر [1]." data-en="Complete the circle-area function and give the output of line [1]." >كمّل دالة مساحة الدائرة، واكتب ناتج السطر [1].</span></div><pre class="textbook-code" dir="ltr" tabindex="0">[A] circle(r):
+    <section class="section" id="practice"><div class="section-inner"><div class="section-head"><div class="section-number">3</div><h2 data-ar="تمارين الكتاب" data-en="Textbook exercises" >تمارين الكتاب</h2></div><p data-ar="اكتب إجاباتك الأول، وبعدين افتح الحل للمقارنة. الفراغات وإجابات الناتج مراجعة ذاتية، مش درجة آلية. تعبيرات مكافئة ممكن تكون صحيحة." data-en="Write your answers first, then reveal the solution. Blanks and outputs are self-checks, not automatic scores. Equivalent expressions may be valid." class="source-note">اكتب إجاباتك الأول، وبعدين افتح الحل للمقارنة. الفراغات وإجابات الناتج مراجعة ذاتية، مش درجة آلية. تعبيرات مكافئة ممكن تكون صحيحة.</p><div class="card source-group"><h3 data-ar="إحماء" data-en="Warm Up" >إحماء</h3><article class="ex-item" data-source-id="warm-1" id="warm-1"><div class="q"><span class="q-num">1</span><span data-ar="كمّل دالة مساحة الدائرة، واكتب ناتج السطر [1]." data-en="Complete the circle-area function and give the output of line [1]." >كمّل دالة مساحة الدائرة، واكتب ناتج السطر [1].</span></div><pre class="textbook-code" dir="ltr" tabindex="0">[A] circle(r):
     S = r * r * 3.14
     [B] S
 a = circle(5)
@@ -1356,7 +210,7 @@ judge(40)</pre><div class="blank-grid"><label class="blank-label">[A]<input data
 [B] = else</pre><p data-ar="البرنامج كامل:" data-en="Complete program:" >البرنامج كامل:</p><pre class="textbook-code" dir="ltr" tabindex="0">def judge(score):
     if score &gt;= 80:print(&#x27;Pass&#x27;)
     else:print(&#x27;Fail&#x27;)
-judge(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">Fail</pre></div></article></div><div class="card source-group"><h3 data-ar="جرّب | EN174 · AR188" data-en="Try | EN 174 · AR 188" >جرّب | EN174 · AR188</h3><article class="ex-item" data-source-id="try-1" id="try-1"><div class="q"><span class="q-num">1</span><span data-ar="اختار الحرف المناسب للفراغين [1] و[2] من الخيارات الأربعة." data-en="Choose the suitable option letter for blanks [1] and [2]." >اختار الحرف المناسب للفراغين [1] و[2] من الخيارات الأربعة.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">def function_name([1]):
+judge(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">Fail</pre></div></article></div><div class="card source-group"><h3 data-ar="جرّب" data-en="Try" >جرّب</h3><article class="ex-item" data-source-id="try-1" id="try-1"><div class="q"><span class="q-num">1</span><span data-ar="اختار الحرف المناسب للفراغين [1] و[2] من الخيارات الأربعة." data-en="Choose the suitable option letter for blanks [1] and [2]." >اختار الحرف المناسب للفراغين [1] و[2] من الخيارات الأربعة.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">def function_name([1]):
     [Process]
     return [2]</pre><ul class="source-options"><li><b dir="ltr">A / أ</b> <span data-ar="وسيطة" data-en="Argument" >وسيطة</span></li><li><b dir="ltr">B / ب</b> <span data-ar="قيمة الإرجاع" data-en="Return value" >قيمة الإرجاع</span></li><li><b dir="ltr">C / جـ</b> <span data-ar="مكمل" data-en="Complement" >مكمل</span></li><li><b dir="ltr">D / د</b> <span data-ar="رقم عشوائي" data-en="Random number" >رقم عشوائي</span></li></ul><p data-ar="ده قالب توضيحي، مش برنامج جاهز للتشغيل. أسماء المتغيرات في التعريف اسمها الأدق parameters، والقيم في الاستدعاء arguments؛ الكتاب بيستخدم Argument للاتنين." data-en="This is a template, not a runnable program. Variables in a definition are more precisely parameters; values supplied in a call are arguments. The book uses Argument for both." class="source-note">ده قالب توضيحي، مش برنامج جاهز للتشغيل. أسماء المتغيرات في التعريف اسمها الأدق parameters، والقيم في الاستدعاء arguments؛ الكتاب بيستخدم Argument للاتنين.</p><div class="blank-grid"><label class="blank-label">[1]<input data-blank="1" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 1 blank 1"></label><label class="blank-label">[2]<input data-blank="2" dir="ltr" autocomplete="off" spellcheck="false" aria-label="try 1 blank 2"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[1] = A
 [2] = B</pre></div></article><article class="ex-item" data-source-id="try-2" id="try-2"><div class="q"><span class="q-num">2</span><span data-ar="كمّل مساحة المثلث واكتب ناتج السطرين [1] و[2]." data-en="Complete triangle area and give the outputs of lines [1] and [2]." >كمّل مساحة المثلث واكتب ناتج السطرين [1] و[2].</span></div><pre class="textbook-code" dir="ltr" tabindex="0">def area(base, height):
@@ -1395,7 +249,7 @@ evaluate(40)</pre><div class="table-pan" tabindex="0"><table class="table" dir="
     if score &gt;= 80:print(&#x27;A&#x27;)
     elif score &gt;= 50:print(&#x27;B&#x27;)
     else:print(&#x27;C&#x27;)
-evaluate(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">C</pre></div></article></div><div class="card source-group"><h3 data-ar="تمرين إضافي من النسخة العربية | AR189" data-en="Additional Arabic-edition exercises | AR 189" >تمرين إضافي من النسخة العربية | AR189</h3><p data-ar="الأربع أسئلة دول موجودين في الكتاب العربي فقط ص189، ومش موجودين في النسخة الإنجليزية المرفقة. النص الإنجليزي هنا ترجمة مساعدة للعرض." data-en="These four questions appear only in the supplied Arabic book, p 189, not in the supplied English edition. Their English display text here is a supplementary translation." class="source-note">الأربع أسئلة دول موجودين في الكتاب العربي فقط ص189، ومش موجودين في النسخة الإنجليزية المرفقة. النص الإنجليزي هنا ترجمة مساعدة للعرض.</p><article class="ex-item" data-source-id="exercise-1" id="exercise-1"><div class="q"><span class="q-num">1</span><span data-ar="كمّل دالة جمع رقمين." data-en="Complete the two-number addition function." >كمّل دالة جمع رقمين.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">[A] add_numbers(a, b):
+evaluate(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 output:" >الناتج في Python3:</p><pre class="textbook-code" dir="ltr" tabindex="0">C</pre></div></article></div><div class="card source-group"><h3 data-ar="تمرين إضافي من النسخة العربية |" data-en="Additional Arabic-edition exercises |" >تمرين إضافي من النسخة العربية |</h3><p data-ar="الأربع أسئلة دول موجودين في الكتاب العربي فقط ص189، ومش موجودين في النسخة الإنجليزية المرفقة. النص الإنجليزي هنا ترجمة مساعدة للعرض." data-en="These four questions appear only in the supplied Arabic book,, not in the supplied English edition. Their English display text here is a supplementary translation." class="source-note">الأربع أسئلة دول موجودين في الكتاب العربي فقط ص189، ومش موجودين في النسخة الإنجليزية المرفقة. النص الإنجليزي هنا ترجمة مساعدة للعرض.</p><article class="ex-item" data-source-id="exercise-1" id="exercise-1"><div class="q"><span class="q-num">1</span><span data-ar="كمّل دالة جمع رقمين." data-en="Complete the two-number addition function." >كمّل دالة جمع رقمين.</span></div><pre class="textbook-code" dir="ltr" tabindex="0">[A] add_numbers(a, b):
     return [B]
 result = add_numbers(3, 5)
 print(result)</pre><div class="blank-grid"><label class="blank-label">[A]<input data-blank="A" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 1 blank A"></label><label class="blank-label">[B]<input data-blank="B" dir="ltr" autocomplete="off" spellcheck="false" aria-label="exercise 1 blank B"></label></div><button class="btn small" data-self-check aria-expanded="false"><span data-ar="اعرض الحل" data-en="Show solution" >اعرض الحل</span></button><div class="ex-answer" hidden><pre class="textbook-code" dir="ltr" tabindex="0">[A] = def
@@ -1438,8 +292,8 @@ check_size(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 ou
         <div class="journey" data-id="recapJourney">
           <div class="jp" data-step="1"><span class="jp-n">1</span><span data-ar="الدالّة هي مجموعة عمليات في وحدة واحدة." data-en="A function is a set of operations in one unit.">الدالّة هي مجموعة عمليات في وحدة واحدة.</span></div>
           <div class="jp" data-step="2"><span class="jp-n">2</span><span data-ar="بنعرّفها بـ def وبعدين نكتب اسم الدالّة." data-en="We define it with def then write the function name.">بنعرّفها بـ <span dir="ltr">def</span> وبعدين نكتب اسم الدالة.</span></div>
-          <div class="jp" data-step="3"><span class="jp-n">3</span><span data-ar="الدالّة بتاخد مُعاملات (Arguments) وترجّع قيمة بـ return." data-en="The function takes Arguments and returns a value with return.">الدالة بتاخد Arguments وترجّع قيمة بـ <span dir="ltr">return</span>.</span></div>
-          <div class="jp" data-step="4"><span class="jp-n">4</span><span data-ar="عشان نستخدمها بنعمل استدعاء (Call) باسم الدالّة." data-en="To use it we make a Call with the function name.">عشان نستخدمها بنعمل استدعاء (Call) باسم الدالّة.</span></div>
+          <div class="jp" data-step="3"><span class="jp-n">3</span><span data-ar="الدالّة بتاخد مُعاملات وترجّع قيمة بـ return." data-en="The function takes Arguments and returns a value with return.">الدالة بتاخد Arguments وترجّع قيمة بـ <span dir="ltr">return</span>.</span></div>
+          <div class="jp" data-step="4"><span class="jp-n">4</span><span data-ar="عشان نستخدمها بنعمل استدعاء باسم الدالّة." data-en="To use it we make a Call with the function name.">عشان نستخدمها بنعمل استدعاء باسم الدالّة.</span></div>
           <div class="jp" data-step="5"><span class="jp-n">5</span><span data-ar="في دوال جاهزة ودوال معرّفة من المستخدم." data-en="There are built-in functions and user-defined ones.">في دوال جاهزة ودوال معرّفة من المستخدم.</span></div>
         </div>
         <button class="btn" data-id="recapQuizStart" data-start data-ar="جرّب نفسك" data-en="Test yourself">جرّب نفسك</button>
@@ -1447,7 +301,7 @@ check_size(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 ou
           <div class="rq" data-id="recapRq1">
             <div class="rq-q"><span class="q-num">1</span> <span data-ar="أنهي سطر بيعرّف دالّة بتاخد رقم وترجّع ضعفه صح؟" data-en="Which line correctly defines a function that takes a number and returns its double?">أنهي سطر بيعرّف دالّة بتاخد رقم وترجّع ضعفه صح؟</span></div>
             <div class="rq-opts">
-              <div class="rq-opt" data-id="recapRq1o2" data-key="A" data-fb-ar="لأ، النقطتين : لازم يبقوا في نهاية سطر def." data-fb-en="No, the colon : must be at the end of the def line."><span class="rq-key">A</span><span class="rq-body" data-ar="def dbl(x)" data-en="def dbl(x)">def dbl(x)</span></div>
+              <div class="rq-opt" data-id="recapRq1o2" data-key="A" data-fb-ar="لأ، النقطتين: لازم يبقوا في نهاية سطر def." data-fb-en="No, the colon : must be at the end of the def line."><span class="rq-key">A</span><span class="rq-body" data-ar="def dbl(x)" data-en="def dbl(x)">def dbl(x)</span></div>
               <div class="rq-opt" data-id="recapRq1o3" data-key="B" data-fb-ar="لأ، الكلمة الصح هي def مش deff." data-fb-en="No, the correct keyword is def, not deff."><span class="rq-key">B</span><span class="rq-body" data-ar="deff dbl(x):" data-en="deff dbl(x):">deff dbl(x):</span></div>
               <div class="rq-opt" data-id="recapRq1o1" data-key="C" data-ok="1" data-fb-ar="صحيح! def + اسم الدالة + Argument بين قوسين ونقطتين." data-fb-en="Correct! def + function name + Argument in parentheses and a colon."><span class="rq-key">C</span><span class="rq-body" data-ar="def dbl(x):" data-en="def dbl(x):">def dbl(x):</span></div>
             </div>
@@ -1479,7 +333,7 @@ check_size(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 ou
     </section>
 
     <!-- ============ 05 GLOSSARY ============ -->
-    <section class="section" id="glossary"><div class="section-inner"><div class="section-head"><div class="section-number">5</div><h2 data-ar="قاموس وتجارب" data-en="Glossary and experiments" >قاموس وتجارب</h2></div><label data-ar="ابحث بالعربي أو الإنجليزي" data-en="Search in Arabic or English" for="glossarySearch">ابحث بالعربي أو الإنجليزي</label><input id="glossarySearch" class="glossary-search" type="search"><div class="glossary-list"><article class="gl-term" data-search="Function / الدالة وحدة عمليات قابلة للاستدعاء. التعريف مش تنفيذ الجسم. A callable unit of operations. Definition does not execute its body."><h4>Function / الدالة</h4><p data-ar="وحدة عمليات قابلة للاستدعاء. التعريف مش تنفيذ الجسم." data-en="A callable unit of operations. Definition does not execute its body." >وحدة عمليات قابلة للاستدعاء. التعريف مش تنفيذ الجسم.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Parameter / معامل شكلي اسم المتغير في تعريف الدالة، زي x. الكتاب بيسميه Argument. The receiving variable in a definition, such as x. The book calls it Argument."><h4>Parameter / معامل شكلي</h4><p data-ar="اسم المتغير في تعريف الدالة، زي x. الكتاب بيسميه Argument." data-en="The receiving variable in a definition, such as x. The book calls it Argument." >اسم المتغير في تعريف الدالة، زي x. الكتاب بيسميه Argument.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Argument / وسيطة القيمة المرسلة وقت الاستدعاء، زي 5. A value supplied in a call, such as5."><h4>Argument / وسيطة</h4><p data-ar="القيمة المرسلة وقت الاستدعاء، زي 5." data-en="A value supplied in a call, such as 5." >القيمة المرسلة وقت الاستدعاء، زي 5.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="def / تعريف كلمة بتبدأ تعريف دالة، وبعد التوقيع نقطتين وجسم بمسافة بادئة. Starts a definition, followed by a colon and indented body."><h4>def / تعريف</h4><p data-ar="كلمة بتبدأ تعريف دالة، وبعد التوقيع نقطتين وجسم بمسافة بادئة." data-en="Starts a definition, followed by a colon and indented body." >كلمة بتبدأ تعريف دالة، وبعد التوقيع نقطتين وجسم بمسافة بادئة.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Call / استدعاء طلب تنفيذ الدالة باسمها وأقواس الاستدعاء. Asks a function to run, using its name and call parentheses."><h4>Call / استدعاء</h4><p data-ar="طلب تنفيذ الدالة باسمها وأقواس الاستدعاء." data-en="Asks a function to run, using its name and call parentheses." >طلب تنفيذ الدالة باسمها وأقواس الاستدعاء.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="return / إرجاع ينهي استدعاء الدالة الحالي ويرجع قيمة للمنادي. Ends the current function call and passes a value to its caller."><h4>return / إرجاع</h4><p data-ar="ينهي استدعاء الدالة الحالي ويرجع قيمة للمنادي." data-en="Ends the current function call and passes a value to its caller." >ينهي استدعاء الدالة الحالي ويرجع قيمة للمنادي.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Return value / قيمة إرجاع القيمة اللي المنادي بيستقبلها. مختلفة عن النص المطبوع. The value received by the caller, distinct from printed output."><h4>Return value / قيمة إرجاع</h4><p data-ar="القيمة اللي المنادي بيستقبلها. مختلفة عن النص المطبوع." data-en="The value received by the caller, distinct from printed output." >القيمة اللي المنادي بيستقبلها. مختلفة عن النص المطبوع.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="None / لا قيمة محددة قيمة الإرجاع لو مفيش return بقيمة؛ print بترجعها برضه. The return value without a valued return; print returns it too."><h4>None / لا قيمة محددة</h4><p data-ar="قيمة الإرجاع لو مفيش return بقيمة؛ print بترجعها برضه." data-en="The return value without a valued return; print returns it too." >قيمة الإرجاع لو مفيش return بقيمة؛ print بترجعها برضه.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Built-in function / دالة مدمجة جاهزة بدون تعريف منك، زي print وlen. Available without your own definition, such as print and len."><h4>Built-in function / دالة مدمجة</h4><p data-ar="جاهزة بدون تعريف منك، زي print وlen." data-en="Available without your own definition, such as print and len." >جاهزة بدون تعريف منك، زي print وlen.</p><a href="#kind-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="User-defined function / دالة معرفة من قبل المستخدم دالة انت بتعرّفها بـ def. A function you define with def."><h4>User-defined function / دالة معرفة من قبل المستخدم</h4><p data-ar="دالة انت بتعرّفها بـ def." data-en="A function you define with def." >دالة انت بتعرّفها بـ def.</p><a href="#kind-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article></div></div></section>
+    <section class="section" id="glossary"><div class="section-inner"><div class="section-head"><div class="section-number">5</div><h2 data-ar="قاموس وتجارب" data-en="Glossary and experiments" >قاموس وتجارب</h2></div><label data-ar="ابحث بالعربي أو الإنجليزي" data-en="Search in Arabic or English" for="glossarySearch">ابحث بالعربي أو الإنجليزي</label><input id="glossarySearch" class="glossary-search" type="search" aria-label="ابحث عن مصطلح"><div class="glossary-list"><article class="gl-term" data-search="Function / الدالة وحدة عمليات قابلة للاستدعاء. التعريف مش تنفيذ الجسم. A callable unit of operations. Definition does not execute its body."><h3 class="lvl-h4 lvl-h4-3">Function / الدالة</h3><p data-ar="وحدة عمليات قابلة للاستدعاء. التعريف مش تنفيذ الجسم." data-en="A callable unit of operations. Definition does not execute its body." >وحدة عمليات قابلة للاستدعاء. التعريف مش تنفيذ الجسم.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Parameter / معامل شكلي اسم المتغير في تعريف الدالة، زي x. الكتاب بيسميه Argument. The receiving variable in a definition, such as x. The book calls it Argument."><h3 class="lvl-h4 lvl-h4-3">Parameter / معامل شكلي</h3><p data-ar="اسم المتغير في تعريف الدالة، زي x. الكتاب بيسميه Argument." data-en="The receiving variable in a definition, such as x. The book calls it Argument." >اسم المتغير في تعريف الدالة، زي x. الكتاب بيسميه Argument.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Argument / وسيطة القيمة المرسلة وقت الاستدعاء، زي 5. A value supplied in a call, such as5."><h3 class="lvl-h4 lvl-h4-3">Argument / وسيطة</h3><p data-ar="القيمة المرسلة وقت الاستدعاء، زي 5." data-en="A value supplied in a call, such as 5." >القيمة المرسلة وقت الاستدعاء، زي 5.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="def / تعريف كلمة بتبدأ تعريف دالة، وبعد التوقيع نقطتين وجسم بمسافة بادئة. Starts a definition, followed by a colon and indented body."><h3 class="lvl-h4 lvl-h4-3">def / تعريف</h3><p data-ar="كلمة بتبدأ تعريف دالة، وبعد التوقيع نقطتين وجسم بمسافة بادئة." data-en="Starts a definition, followed by a colon and indented body." >كلمة بتبدأ تعريف دالة، وبعد التوقيع نقطتين وجسم بمسافة بادئة.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Call / استدعاء طلب تنفيذ الدالة باسمها وأقواس الاستدعاء. Asks a function to run, using its name and call parentheses."><h3 class="lvl-h4 lvl-h4-3">Call / استدعاء</h3><p data-ar="طلب تنفيذ الدالة باسمها وأقواس الاستدعاء." data-en="Asks a function to run, using its name and call parentheses." >طلب تنفيذ الدالة باسمها وأقواس الاستدعاء.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="return / إرجاع ينهي استدعاء الدالة الحالي ويرجع قيمة للمنادي. Ends the current function call and passes a value to its caller."><h3 class="lvl-h4 lvl-h4-3">return / إرجاع</h3><p data-ar="ينهي استدعاء الدالة الحالي ويرجع قيمة للمنادي." data-en="Ends the current function call and passes a value to its caller." >ينهي استدعاء الدالة الحالي ويرجع قيمة للمنادي.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Return value / قيمة إرجاع القيمة اللي المنادي بيستقبلها. مختلفة عن النص المطبوع. The value received by the caller, distinct from printed output."><h3 class="lvl-h4 lvl-h4-3">Return value / قيمة إرجاع</h3><p data-ar="القيمة اللي المنادي بيستقبلها. مختلفة عن النص المطبوع." data-en="The value received by the caller, distinct from printed output." >القيمة اللي المنادي بيستقبلها. مختلفة عن النص المطبوع.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="None / لا قيمة محددة قيمة الإرجاع لو مفيش return بقيمة؛ print بترجعها برضه. The return value without a valued return; print returns it too."><h3 class="lvl-h4 lvl-h4-3">None / لا قيمة محددة</h3><p data-ar="قيمة الإرجاع لو مفيش return بقيمة؛ print بترجعها برضه." data-en="The return value without a valued return; print returns it too." >قيمة الإرجاع لو مفيش return بقيمة؛ print بترجعها برضه.</p><a href="#function-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="Built-in function / دالة مدمجة جاهزة بدون تعريف منك، زي print وlen. Available without your own definition, such as print and len."><h3 class="lvl-h4 lvl-h4-3">Built-in function / دالة مدمجة</h3><p data-ar="جاهزة بدون تعريف منك، زي print وlen." data-en="Available without your own definition, such as print and len." >جاهزة بدون تعريف منك، زي print وlen.</p><a href="#kind-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article><article class="gl-term" data-search="User-defined function / دالة معرفة من قبل المستخدم دالة انت بتعرّفها بـ def. A function you define with def."><h3 class="lvl-h4 lvl-h4-3">User-defined function / دالة معرفة من قبل المستخدم</h3><p data-ar="دالة انت بتعرّفها بـ def." data-en="A function you define with def." >دالة انت بتعرّفها بـ def.</p><a href="#kind-lab"><span data-ar="جرّب المفهوم" data-en="Try this concept" >جرّب المفهوم</span></a></article></div></div></section>
 
   </main>
 

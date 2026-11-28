@@ -4,1067 +4,16 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Programming Basics [2] (Python) — أساسيات البرمجة [2]</title>
+<title>Programming Basics [2] — أساسيات البرمجة [2]</title>
 <link href="../../../../assets/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../../../../assets/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="../../../../assets/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="../../../../assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <meta content="شرح 12-3 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر." name="description"/>
-<link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 20s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 15s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:70px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:30px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:24px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:26px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:26px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }code.inline{
-      background:rgba(24, 56, 248, .15);
-      border:1px solid rgba(24, 56, 248, .3);
-      color:#2d56fb;
-      padding:2px 8px;
-      border-radius:6px;
-      font-size:.85em;
-      font-family:'Consolas', 'Courier New', monospace
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:26px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.op-gallery{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0, 1fr));
-      gap:14px
-    }@media(max-width:960px){.op-gallery{
-        grid-template-columns:repeat(2, minmax(0, 1fr))
-      }
-    }@media(max-width:560px){.op-gallery{
-        grid-template-columns:1fr
-      }
-    }.op-chip{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:18px 12px;
-      text-align:center;
-      cursor:pointer;
-      transition:.2s;
-      position:relative
-    }.op-chip:hover,
-    .op-chip.active{
-      background:var(--card-hover);
-      border-color:var(--s3);
-      transform:translateY(-3px)
-    }.op-chip .sym{
-      display:block;
-      font-family:'Consolas', monospace;
-      font-size:1.6rem;
-      font-weight:700;
-      color:var(--s3);
-      direction:ltr
-    }.op-chip .name{
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      display:block;
-      margin-top:6px
-    }.op-detail{
-      margin-top:14px;
-      border-radius:12px;
-      overflow:hidden
-    }.op-detail:empty{
-      display:none
-    }.op-detail .body{
-      padding:16px 18px;
-      background:rgba(24, 56, 248, .08);
-      border:1px solid rgba(24, 56, 248, .3)
-    }.op-detail .exp{
-      font-family:'Consolas', monospace;
-      direction:ltr;
-      text-align:left;
-      font-size:.95rem;
-      color:#8e26fc;
-      margin-top:6px
-    }.op-detail .out{
-      margin-top:6px;
-      color:var(--accent);
-      direction:ltr;
-      font-family:'Consolas', monospace;
-      font-size:.95rem
-    }.op-choice{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:8px
-    }.op-opt{
-      flex:1;
-      min-width:52px;
-      padding:10px 8px;
-      font-family:'Consolas', monospace;
-      direction:ltr;
-      font-size:1.05rem;
-      font-weight:700;
-      color:#2d56fb;
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      border-radius:10px;
-      cursor:pointer;
-      transition:.18s
-    }.op-opt:hover{
-      border-color:rgba(24, 56, 248, .5)
-    }.op-opt.active{
-      border-color:var(--accent);
-      background:rgba(24, 56, 248, .18);
-      color:var(--accent);
-      box-shadow:0 0 0 1px var(--accent)
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }.activity-grid .demo-panel{
-        order:1
-      }.activity-grid .code-panel{
-        order:2
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.activity-grid .demo-panel input,
-    .activity-grid .demo-panel select{
-      width:100%;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      color:var(--text);
-      border-radius:8px;
-      padding:8px 12px;
-      font-family:inherit;
-      color-scheme:dark
-    }.activity-grid .demo-panel select option{
-      background:#f6f8ff;
-      color:var(--text)
-    }.activity-grid .demo-panel input:focus,
-    .activity-grid .demo-panel select:focus{
-      outline:none;
-      border-color:var(--primary)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.big-num{
-      font-family:'Consolas', monospace;
-      font-size:2.2rem;
-      font-weight:700;
-      color:var(--accent);
-      text-align:center;
-      direction:ltr;
-      background:#ebebec;
-      border-radius:14px;
-      padding:18px;
-      border:1px solid rgba(24, 56, 248, .25)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.code-panel{
-      border-radius:16px;
-      overflow:hidden;
-      background:#ececee;
-      border:1px solid rgba(11, 16, 32, 0.09)
-    }.code-panel .code-header{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      font-size:.8rem;
-      color:var(--dim);
-      border-bottom:1px solid rgba(24, 56, 248, .2)
-    }.code-panel .code-header::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:var(--accent);
-      flex-shrink:0
-    }.code-panel,
-    .code-panel .code-body,
-    .code-panel .code-header{
-      direction:ltr;
-      text-align:left;
-      unicode-bidi:isolate
-    }.py-edit,
-    .py-edit:focus{
-      display:block;
-      width:100%;
-      background:transparent;
-      border:none;
-      outline:none;
-      padding:14px;
-      font-family:'Consolas', 'Courier New', monospace;
-      font-size:.88rem;
-      line-height:1.7;
-      color:#2b3041;
-      resize:none;
-      overflow:hidden;
-      height:auto;
-      min-height:56px;
-      direction:ltr;
-      text-align:left;
-      white-space:pre;
-      overflow-wrap:normal;
-      box-sizing:border-box
-    }.py-ctl{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:8px 14px;
-      border-top:1px solid rgba(24, 56, 248, .15)
-    }.py-ctl .hint{
-      color:var(--dim);
-      font-size:.75rem;
-      margin-left:auto
-    }.term{
-      background:#ebebec;
-      border:1px solid rgba(24, 56, 248, .25);
-      border-radius:12px;
-      padding:14px;
-      font-family:Consolas, monospace;
-      font-size:.85rem;
-      min-height:60px;
-      margin:10px 0;
-      direction:ltr;
-      text-align:left;
-      display:none
-    }.term .out-line{
-      color:var(--accent);
-      opacity:0;
-      transform:translateY(4px);
-      animation:lineIn .3s forwards
-    }@keyframes lineIn{
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.py-err{
-      background:#edebec;
-      border:1px solid rgba(215, 38, 61, .45);
-      border-radius:12px;
-      color:#2f2e3c;
-      padding:14px 16px;
-      margin:8px 14px;
-      direction:ltr;
-      text-align:left;
-      line-height:1.6;
-      animation:errIn .25s ease;
-      display:none
-    }@keyframes errIn{
-      from {
-        opacity:0;
-        transform:translateY(-4px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.py-err .errtag .errbadge{
-      background:rgba(215, 38, 61, .18);
-      border:1px solid rgba(215, 38, 61, .4);
-      border-radius:6px;
-      padding:2px 8px;
-      font-weight:700;
-      font-size:.8rem;
-      color:#d50016;
-      text-transform:uppercase;
-      letter-spacing:.3px
-    }.py-err .errmain{
-      font-family:Consolas, monospace;
-      font-size:.92rem;
-      color:#fff;
-      margin-top:8px
-    }.py-err .errctx{
-      margin-top:10px;
-      padding-top:10px;
-      border-top:1px solid rgba(215, 38, 61, .2);
-      color:var(--dim);
-      font-size:.8rem
-    }.py-err .errline{
-      background:rgba(215, 38, 61, .12);
-      border-radius:6px;
-      padding:6px 10px;
-      margin-top:6px;
-      font-family:Consolas, monospace;
-      color:#302e3c;
-      font-size:.8rem;
-      white-space:pre;
-      overflow-x:auto
-    }.py-err .errline .ln{
-      display:inline-block;
-      min-width:2.2em;
-      color:#d50010;
-      margin-right:8px;
-      user-select:none
-    }.var-anim{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-      justify-content:center;
-      position:relative
-    }.var-fly{
-      position:absolute;
-      font-family:'Consolas', monospace;
-      font-weight:700;
-      color:var(--accent);
-      direction:ltr;
-      font-size:1.15rem;
-      z-index:5;
-      pointer-events:none;
-      transition:all .55s cubic-bezier(.5, 0, .3, 1)
-    }.var-src{
-      background:none;
-      border:none;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-family:'Consolas', monospace;
-      font-weight:700;
-      color:var(--accent);
-      direction:ltr;
-      font-size:1.15rem
-    }.var-box{
-      width:160px;
-      height:116px;
-      border-radius:18px;
-      background:var(--card);
-      border:2px dashed var(--s3);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:4px;
-      transition:.35s;
-      position:relative
-    }.var-box .vname{
-      font-family:'Consolas', monospace;
-      font-weight:700;
-      color:var(--s3);
-      font-size:1.05rem;
-      direction:ltr
-    }.var-box .v-val{
-      font-family:'Consolas', monospace;
-      color:#2b3041;
-      font-size:1.4rem;
-      font-weight:700;
-      direction:ltr;
-      min-height:1.8rem
-    }.var-box.live{
-      background:#eceef4;
-      border-color:var(--success);
-      box-shadow:0 0 34px rgba(13, 158, 86, .25)
-    }.var-box.live .v-val{
-      color:var(--success)
-    }.seq-card{
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(11, 16, 32, 0.08);
-      background:#ececee
-    }.seq-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:12px 16px;
-      background:#ebecee;
-      gap:10px;
-      flex-wrap:wrap
-    }.seq-lines{
-      direction:ltr;
-      text-align:left;
-      font-family:'Consolas', monospace;
-      font-size:.9rem;
-      line-height:2.1;
-      padding:8px 0
-    }.seq-lines .sl{
-      display:flex;
-      padding:0 16px;
-      transition:.15s;
-      border-right:3px solid transparent
-    }.seq-lines .sl .ln{
-      width:34px;
-      color:#3d4a7a;
-      flex-shrink:0;
-      text-align:left;
-      user-select:none
-    }.seq-lines .sl .src{
-      white-space:pre;
-      color:#2c55ff
-    }.seq-lines .sl.run{
-      background:rgba(24, 56, 248, .12);
-      border-right-color:var(--accent)
-    }.seq-lines .sl.run .src{
-      color:var(--accent)
-    }.seq-term{
-      background:#ebebec;
-      border:1px solid rgba(24, 56, 248, .25);
-      border-radius:12px;
-      margin:0 16px 16px;
-      padding:12px;
-      font-family:Consolas, monospace;
-      direction:ltr;
-      text-align:left;
-      font-size:.85rem;
-      min-height:56px;
-      color:var(--accent)
-    }.seq-term .out-line{
-      opacity:0;
-      transform:translateY(4px);
-      animation:lineIn .3s forwards
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.opt-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      padding:0 7px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:var(--primary);
-      font-weight:800;
-      font-size:.82rem;
-      margin-inline-end:8px;
-      flex-shrink:0
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.opt-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      padding:0 7px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:var(--primary);
-      font-weight:800;
-      font-size:.82rem;
-      margin-inline-end:8px;
-      flex-shrink:0
-    }.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      font-family:'Consolas', monospace;
-      direction:ltr;
-      text-align:left;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.85rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:14px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-opt.correct .ex-key{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .15);
-      color:var(--success)
-    }.ex-opt.wrong .ex-key{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .15);
-      color:var(--danger)
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s1), var(--s2), var(--s3), var(--s4))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:0 8px;
-      font-size:.78rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:10px
-    }.table th,
-    .table td{
-      text-align:right;
-      padding:10px 14px;
-      font-size:.95rem;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.table th{
-      color:var(--text);
-      font-weight:700;
-      background:rgba(24, 56, 248, .12)
-    }.table td{
-      color:var(--dim)
-    }.table code{
-      direction:ltr;
-      font-family:'Consolas', monospace;
-      color:#8c28fc
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.textbook-code{direction:ltr;text-align:left;unicode-bidi:isolate;white-space:pre-wrap;overflow-wrap:anywhere;background:#ececee;border:1px solid rgba(11, 16, 32, 0.14);border-radius:12px;padding:14px;margin:12px 0;font:.84rem/1.65 Consolas,monospace;max-width:100%}.textbook-code code{font:inherit}.ex-opt{display:flex;align-items:flex-start;min-width:0;gap:8px}.ex-opt .ex-key{margin:0;flex:none}.ex-opt .ex-body{min-width:0;white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}.source-note{padding:12px 14px;border-inline-start:3px solid var(--accent);background:rgba(24, 56, 248,.07);border-radius:8px;font-size:.9rem;line-height:1.85}.blank-fields{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.blank-fields label{display:flex;align-items:center;gap:8px;flex:1 1 140px;min-width:0}.blank-fields input{width:100%;min-width:0;padding:9px;border:1px solid rgba(11, 16, 32, 0.2);border-radius:8px;background:#ececee;color:var(--text);font:.9rem Consolas,monospace}.self-check{color:var(--dim);font-size:.86rem}.lesson-game{padding:16px;margin:18px 0;background:rgba(24, 56, 248,.05);border:1px solid rgba(24, 56, 248,.25);border-radius:14px}.game-fields{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.game-fields label{display:flex;flex-direction:column;gap:6px;flex:1 1 65px;min-width:0}.game-fields input,.game-fields select{box-sizing:border-box;width:100%;min-width:0;padding:8px;border:1px solid rgba(11, 16, 32, 0.2);border-radius:8px;background:#ececee;color:var(--text);font:.9rem Consolas,monospace}.lesson-game .btn-row{gap:8px;flex-wrap:wrap}.game-result{line-height:1.8;overflow-wrap:anywhere;white-space:pre-wrap;margin-top:10px}.game-expression{text-align:center;font:1.15rem Consolas,monospace}.ex-opt:focus-visible,.mini-btn:focus-visible,.btn:focus-visible,.rq-opt:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.activity-grid>.source-note,.activity-grid>.hint-line{grid-column:1/-1}.activity-grid>*{min-width:0}.activity-grid{align-items:start}.textbook-code{white-space:pre;overflow-x:auto;overflow-wrap:normal}.ex-opt .ex-body{display:block;white-space:pre;overflow-x:auto;overflow-wrap:normal;max-width:100%;padding-bottom:4px}.textbook-code::-webkit-scrollbar,.ex-opt .ex-body::-webkit-scrollbar{height:6px}.textbook-code::-webkit-scrollbar-thumb,.ex-opt .ex-body::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:6px}.py-ctl{flex-wrap:wrap}.py-ctl button{white-space:nowrap;flex-shrink:0;min-height:40px;line-height:1.3;padding:8px 14px;display:inline-flex;align-items:center;justify-content:center}.py-ctl .hint{flex:1 1 160px;min-width:0}.ex-item{scroll-margin-top:84px}.code-pan-note{font-size:.76rem;color:var(--accent);margin:8px 0;line-height:1.6}.game-result[data-correct="true"]{color:var(--success)}.game-result[data-correct="false"]{color:#2f2e3c}.textbook-table-scroll{width:100%;max-width:100%;overflow-x:auto}.textbook-table-scroll .table{min-width:480px;margin-top:0}.table code{display:inline-block;direction:ltr;unicode-bidi:isolate;white-space:nowrap}.table td>small{display:block;margin-top:5px;font-size:.78rem;line-height:1.65}html[lang="en"] .table th,html[lang="en"] .table td{text-align:left}.table-pan-note{color:var(--accent);font-size:.78rem;line-height:1.7}@media(min-width:700px){.table-pan-note{display:none}}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/-3-programming-basics-2-python--12-3-programming-basics-2-python-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
 </head>
 <body>
 <div class="bg-gradient"></div>
@@ -1073,12 +22,12 @@ select{color:var(--text)!important}
 <a aria-label="الرئيسية" href="../../../../index.html"><img alt="logo" class="nav-logo" src="../../../../assets/logo-extracted.webp"/></a>
 <div class="nav-links" id="navLinks">
 <a data-ar="يلا نبدأ" data-en="Start" href="#intro">يلا نبدأ</a>
-<a data-ar="حلقة for (For Loop)" data-en="For Loop" href="#loop">حلقة for (For Loop)</a>
-<a data-ar="المقارنة (Comparison)" data-en="Comparison" href="#comparison">المقارنة (Comparison)</a>
-<a data-ar="التفرّع if (Branching if)" data-en="Branching if" href="#branching">التفرّع if (Branching if)</a>
+<a data-ar="حلقة for" data-en="For Loop" href="#loop">حلقة for</a>
+<a data-ar="المقارنة" data-en="Comparison" href="#comparison">المقارنة</a>
+<a data-ar="التفرّع if" data-en="Branching if" href="#branching">التفرّع if</a>
 <a data-ar="تمارين" data-en="Exercises" href="#practice">تمارين</a>
 <a data-ar="المراجعة" data-en="Recap" href="#recap">المراجعة</a>
-<a data-ar="قاموس المصطلحات (Glossary)" data-en="Glossary" href="#glossary">قاموس المصطلحات (Glossary)</a>
+<a data-ar="قاموس المصطلحات" data-en="Glossary" href="#glossary">قاموس المصطلحات</a>
 </div>
 <button class="lang-toggle" data-current="ar" id="langToggle">EN</button>
 </div>
@@ -1088,7 +37,7 @@ select{color:var(--text)!important}
 <div class="hero-badge" data-ar="الدرس 3 — دراسة المعلومات" data-en="Lesson 3 — Information Study">الدرس 3 — دراسة المعلومات</div>
 <h1 class="hero-title"><span class="grad" data-ar="أساسيات البرمجة [2]" data-en="Programming Basics [2] (Python)">أساسيات البرمجة [2]</span></h1>
 <p class="hero-sub" data-ar="الحلقات والتفرّع — النهارده هنخلي البرنامج يكرّر ويقرّر لوحده بجملتين:for وif" data-en="Loops and branching — today we'll make the program repeat and decide on its own with two statements: for and if">الحلقات والتفرّع — النهارده هنخلي البرنامج يكرّر ويقرّر لوحده بجملتين: for وif</p>
-<div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="10 أسئلة" data-en="10 practice questions">10 أسئلة</span><span data-ar="16 مصطلحًا" data-en="16 glossary terms">16 مصطلحًا</span></div><a class="hero-btn" data-ar="يلا نبدأ ←" data-en="Let's Start ←" data-id="heroStart" href="#intro">يلا نبدأ ←</a>
+<div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="10 أسئلة" data-en="10 practice questions">10 أسئلة</span><span data-ar="16 مصطلحًا" data-en="16 glossary terms">16 مصطلحًا</span></div><a class="hero-btn" data-ar="يلا نبدأ →" data-en="Let's Start ←" data-id="heroStart" href="#intro">يلا نبدأ ←</a>
 </div>
 </header>
 <main>
@@ -1104,7 +53,7 @@ select{color:var(--text)!important}
 </div>
 </div>
 <div class="section-inner card">
-<p data-ar="في الدرس اللي فات (12-2) اتعلمنا نعرض ونخزّن ونحسب ببايثون (Python). النهارده بناخد خطوة كبيرة: هنخلي البرنامج يكرّر حاجات لوحده وياخد قرارات لوحده. يبقى بنكتب كود أقل وهو يعمل أكتر!" data-en="In the previous lesson (12-2) we learned to display, store, and calculate with Python. Today we take a big step: we'll make the program repeat things by itself and make decisions on its own. So we write less code, and it does more!">في الدرس اللي فات (12-2) اتعلمنا نعرض ونخزّن ونحسب ببايثون (Python). النهارده بناخد خطوة كبيرة: هنخلي البرنامج يكرّر حاجات لوحده وياخد قرارات لوحده. يبقى بنكتب كود أقل وهو يعمل أكتر!</p>
+<p data-ar="في الدرس اللي فات (12-2) اتعلمنا نعرض ونخزّن ونحسب ببايثون. النهارده بناخد خطوة كبيرة: هنخلي البرنامج يكرّر حاجات لوحده وياخد قرارات لوحده. يبقى بنكتب كود أقل وهو يعمل أكتر!" data-en="In the previous lesson (12-2) we learned to display, store, and calculate with Python. Today we take a big step: we'll make the program repeat things by itself and make decisions on its own. So we write less code, and it does more!">في الدرس اللي فات (12-2) اتعلمنا نعرض ونخزّن ونحسب ببايثون. النهارده بناخد خطوة كبيرة: هنخلي البرنامج يكرّر حاجات لوحده وياخد قرارات لوحده. يبقى بنكتب كود أقل وهو يعمل أكتر!</p>
 <p data-ar="المصدر: كتابا ICT لعام 2025-2026، العربية 176-181 والإنجليزية 163-167. الدرس عن هيكل الحلقة وهيكل التفرع." data-en="Source: the 2025-2026 ICT books, Arabic 176-181 and English 163-167. This lesson covers loop and branching structures.">المصدر: كتابا ICT لعام 2025-2026، العربية 176-181 والإنجليزية 163-167. الدرس عن هيكل الحلقة وهيكل التفرع.</p>
 </div>
 <div class="section-inner">
@@ -1130,9 +79,9 @@ select{color:var(--text)!important}
 </div>
 </div>
 <div class="section-inner card">
-<h3 data-ar="جملة for والحلقة (looping)" data-en="The for statement and looping">جملة for والحلقة (looping)</h3>
+<h3 data-ar="جملة for والحلقة" data-en="The for statement and looping">جملة for والحلقة</h3>
 <p data-ar="عبارة for تكرر كتلة الأوامر ذات المسافة البادئة مرة لكل قيمة في range. الصياغة: for variable in range(...): ثم جسم الحلقة. لو المدى فارغ لن يُنفّذ الجسم." data-en="A for statement runs its indented block once for each value in range. Write for variable in range(...): followed by the loop body. An empty range skips the body.">عبارة for تكرر كتلة الأوامر ذات المسافة البادئة مرة لكل قيمة في range. الصياغة: for variable in range(...): ثم جسم الحلقة. لو المدى فارغ لن يُنفّذ الجسم.</p>
-<p data-ar="دالّة range() بتحدّد المدى للمتغيّر. ليها تلات أشكال: range(end) وrange(start, end) وrange(start, end, increment)." data-en="The range() function specifies the range for the variable. It has three forms: range(end), range(start, end), and range(start, end, increment).">دالّة range() بتحدّد المدى للمتغيّر. ليها تلات أشكال: range(end) وrange(start, end) وrange(start, end, increment).</p>
+<p data-ar="دالّة range() بتحدّد المدى للمتغيّر. ليها تلات أشكال: range وrange(start, end) وrange(start, end, increment)." data-en="The range() function specifies the range for the variable. It has three forms: range(end), range(start, end), and range(start, end, increment).">دالّة range() بتحدّد المدى للمتغيّر. ليها تلات أشكال: range وrange(start, end) وrange(start, end, increment).</p>
 </div>
 <div class="section-inner">
 <div class="diagram-wrap">
@@ -1144,8 +93,8 @@ select{color:var(--text)!important}
 <th data-ar="أسلوب الكتابة" data-en="Writing style">أسلوب الكتابة</th>
 <th data-ar="المعنى" data-en="Meaning">المعنى</th>
 </tr>
-<tr><td><code>range(end)</code></td><td data-ar="تبدأ من 0 بخطوة 1، وتتوقف قبل end. إذا كانت end أقل من أو تساوي 0 فالمدى فارغ." data-en="Starts at 0 with step 1 and stops before end. The range is empty if end is 0 or negative.">تبدأ من 0 بخطوة 1، وتتوقف قبل end. إذا كانت end أقل من أو تساوي 0 فالمدى فارغ.</td></tr>
-<tr><td><code>range(start, end)</code></td><td data-ar="تبدأ من start بخطوة 1، وتتوقف قبل end. قد يكون المدى فارغاً." data-en="Starts at start with step 1 and stops before end. The range may be empty.">تبدأ من start بخطوة 1، وتتوقف قبل end. قد يكون المدى فارغاً.</td></tr>
+<tr><td><code>range(end)</code></td><td data-ar="تبدأ من 0 بخطوة 1، وتتوقف قبل end. إذا كانت end أقل من أو تساوي 0 فالمدى فارغ." data-en="Starts at 0 with ste and stops before end. The range is empty if end is 0 or negative.">تبدأ من 0 بخطوة 1، وتتوقف قبل end. إذا كانت end أقل من أو تساوي 0 فالمدى فارغ.</td></tr>
+<tr><td><code>range(start, end)</code></td><td data-ar="تبدأ من start بخطوة 1، وتتوقف قبل end. قد يكون المدى فارغاً." data-en="Starts at start with ste and stops before end. The range may be empty.">تبدأ من start بخطوة 1، وتتوقف قبل end. قد يكون المدى فارغاً.</td></tr>
 <tr><td><code>range(start, end, increment)</code></td><td data-ar="تبدأ من start وتتحرك بمقدار increment. النهاية end غير مشمولة: أقل منها للخطوة الموجبة، وأكبر منها للسالبة. الخطوة 0 غير مسموحة." data-en="Starts at start and moves by increment. Exclude end: values stay below it for a positive step and above it for a negative step. A zero step is invalid.">تبدأ من start وتتحرك بمقدار increment. النهاية end غير مشمولة: أقل منها للخطوة الموجبة، وأكبر منها للسالبة. الخطوة 0 غير مسموحة.</td></tr>
 </table></div><p class="source-note" data-ar="توضيح للمصدر: عبارة end - increment في الجدول المطبوع ليست قاعدة عامة لآخر قيمة. مثلاً range(1, 8, 3) تعطي 1، 4، 7، وليس آخرها 5. ويستخدم Python الاسم stop للنهاية وstep للخطوة." data-en="Source clarification: the printed end - increment is not a general rule for the last value. range(1, 8, 3) gives 1, 4, 7, not a last value of 5. Python calls the endpoint stop and the increment step.">توضيح للمصدر: عبارة end - increment في الجدول المطبوع ليست قاعدة عامة لآخر قيمة. مثلاً range(1, 8, 3) تعطي 1، 4، 7، وليس آخرها 5. ويستخدم Python الاسم stop للنهاية وstep للخطوة.</p>
 </div>
@@ -1155,7 +104,7 @@ select{color:var(--text)!important}
 <div class="activity-grid">
 <p class="source-note runner-note" data-ar="المشغّل هنا نموذج تعليمي محدود، وليس Python كاملاً. يدعم أمثلة الدرس: قيم صغيرة، print وrange وحلقات for وفروع if/elif/else بمسافات بادئة. حدوده للحماية: 2000 قيمة لكل range و20000 خطوة تنفيذ. لا يدعم imports أو تعريف الدوال. للتجارب العامة استخدم Python الحقيقي." data-en="This is a limited teaching model, not full Python. It supports the lesson examples: small values, print, range, indented for loops and if/elif/else. Safety limits:2,000 values per range and 20,000 execution steps. Imports and function definitions are not supported. Use real Python for general programs.">المشغّل هنا نموذج تعليمي محدود، وليس Python كاملاً. يدعم أمثلة الدرس: قيم صغيرة، print وrange وحلقات for وفروع if/elif/else بمسافات بادئة. حدوده للحماية: 2000 قيمة لكل range و20000 خطوة تنفيذ. لا يدعم imports أو تعريف الدوال. للتجارب العامة استخدم Python الحقيقي.</p><div class="lesson-game" id="range-game"><h3 data-ar="🎮 استكشف المدى" data-en="🎮 Explore the range">🎮 استكشف المدى</h3><p data-ar="غيّر البداية والنهاية والخطوة، وتوقّع القيم قبل عرضها." data-en="Change start, stop and step. Predict the values before revealing them.">غيّر البداية والنهاية والخطوة، وتوقّع القيم قبل عرضها.</p><div class="game-fields" dir="ltr"><label>start<input id="range-start" step="1" type="number" value="1"/></label><label>stop<input id="range-stop" step="1" type="number" value="8"/></label><label>step<input id="range-step" step="1" type="number" value="3"/></label></div><div class="btn-row"><button class="mini-btn" data-ar="اعرض القيم" data-en="Reveal values" id="range-reveal">اعرض القيم</button><button class="mini-btn" data-ar="تحدّي العد التنازلي" data-en="Countdown challenge" id="range-down">تحدّي العد التنازلي</button></div><div aria-live="polite" class="game-result" id="range-result"></div><p class="hint-line" data-ar="هذه اللعبة تعرض 50 قيمة بحد أقصى؛ هذا حد للعرض وليس قاعدة في Python." data-en="This game displays at most 50 values. This is a display limit, not a Python rule.">هذه اللعبة تعرض 50 قيمة بحد أقصى؛ هذا حد للعرض وليس قاعدة في Python.</p></div><div class="code-panel">
 <div class="code-header" data-ar="loop.py" data-en="loop.py">loop.py</div>
-<textarea class="py-edit" spellcheck="false"># 0, 1, 2, 3
+<textarea class="py-edit" spellcheck="false" aria-label="محرر كود بايثون"># 0, 1, 2, 3
 for i in range(0, 4):
     print(i)
 
@@ -1175,10 +124,10 @@ for i in range(1, 7, 2):
 </div>
 </div>
 <div class="section-inner error-box">
-<h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+<h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
 <ul>
 <li data-ar="النسيان إن في نقطتين (:) بعد سطر for — ده أساسي." data-en="Forgetting the colon (:) after the for line — that's essential.">النسيان إن في نقطتين (:) بعد سطر for — ده أساسي.</li>
-<li data-ar="النسيان إن في مسافة بادئة قبل الكود المتكرّر — بايثون (Python) هتعمل غلط." data-en="Forgetting the indentation before the repeated code — Python will error.">النسيان إن في مسافة بادئة قبل الكود المتكرّر — بايثون (Python) هتعمل غلط.</li>
+<li data-ar="النسيان إن في مسافة بادئة قبل الكود المتكرّر — بايثون هتعمل غلط." data-en="Forgetting the indentation before the repeated code — Python will error.">النسيان إن في مسافة بادئة قبل الكود المتكرّر — بايثون هتعمل غلط.</li>
 <li data-ar="range(4) بتعرض 0 1 2 3، مش 1 2 3 4 — النهاية مش متضمّنة." data-en="range(4) displays 0 1 2 3, not 1 2 3 4 — the end is not included.">range(4) بتعرض 0 1 2 3، مش 1 2 3 4 — النهاية مش متضمّنة.</li>
 </ul>
 </div>
@@ -1214,7 +163,7 @@ for i in range(1, 7, 2):
 <div class="section-header">
 <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">03</div>
 <div>
-<h2 data-ar="عوامل المقارنة (Comparison Operators)" data-en="Comparison Operators">عوامل المقارنة (Comparison Operators)</h2>
+<h2 data-ar="عوامل المقارنة" data-en="Comparison Operators">عوامل المقارنة</h2>
 <div class="tag" data-ar="بتستخدم لمقارنة القيم" data-en="used to compare values" style="color:var(--s2)">بتستخدم لمقارنة القيم</div>
 </div>
 </div>
@@ -1245,7 +194,7 @@ for i in range(1, 7, 2):
 </div>
 </div>
 <div class="section-inner error-box">
-<h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+<h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
 <ul>
 <li data-ar="الخلط بين = (تعيين) و== (مقارنة): == بتسأل «هل هما متساويين؟»." data-en="Confusing = (assignment) with == (comparison): == asks «are they equal?».">الخلط بين = (تعيين) و== (مقارنة): == بتسأل «هل هما متساويين؟».</li>
 <li data-ar="استخدام = واحدة جوه الشرط بدل == — ده هيعمل غلط." data-en="Using a single = inside a condition instead of == — that will error.">استخدام = واحدة جوه الشرط بدل == — ده هيعمل غلط.</li>
@@ -1259,7 +208,7 @@ for i in range(1, 7, 2):
 <div class="rq-opts">
 <div class="rq-opt" data-fb-ar="مش صح — = للإسناد مش مقارنة." data-fb-en="Not right — = is for assignment, not comparison." data-id="cmpRq1o2" data-key="A"><span class="rq-key">A</span><span class="rq-body" data-ar="=" data-en="=">=</span></div>
 <div class="rq-opt" data-fb-ar="صح! == للمقارنة هل القيمتين متساويين." data-fb-en="Correct! == compares whether two values are equal." data-id="cmpRq1o1" data-key="B" data-ok="1"><span class="rq-key">B</span><span class="rq-body" data-ar="==" data-en="==">==</span></div>
-<div class="rq-opt" data-fb-ar="مش صح — != بيسأل «مش متساوي؟»." data-fb-en="Not right — != asks «not equal?»." data-id="cmpRq1o3" data-key="C"><span class="rq-key">C</span><span class="rq-body" data-ar="!=" data-en="!=">!=</span></div>
+<div class="rq-opt" data-fb-ar="مش صح —!= بيسأل «مش متساوي؟»." data-fb-en="Not right — != asks «not equal?»." data-id="cmpRq1o3" data-key="C"><span class="rq-key">C</span><span class="rq-body" data-ar="!=" data-en="!=">!=</span></div>
 </div>
 <div class="rq-fb"></div>
 <button class="mini-btn rq-skip" data-ar="تخطّي" data-en="Skip" data-id="cmpRq1Skip">تخطّي</button>
@@ -1267,8 +216,8 @@ for i in range(1, 7, 2):
 <div class="rq" data-id="cmpRq2">
 <div class="rq-q"><span class="q-num">2</span> <span data-ar="لو x = 70، نتيجة x &lt; 70 إيه؟" data-en="If x = 70, what is the result of x &lt; 70?">لو x = 70، نتيجة x &lt; 70 إيه؟</span></div>
 <div class="rq-opts">
-<div class="rq-opt" data-fb-ar="صح! 70 مش أصغر من 70، فالنتيجة false." data-fb-en="Correct! 70 is not less than 70, so the result is false." data-id="cmpRq2o1" data-key="A" data-ok="1"><span class="rq-key">A</span><span class="rq-body" data-ar="خطأ (False)" data-en="False">خطأ (False)</span></div>
-<div class="rq-opt" data-fb-ar="مش صح — 70 مش أصغر من 70." data-fb-en="Not right — 70 is not less than 70." data-id="cmpRq2o2" data-key="B"><span class="rq-key">B</span><span class="rq-body" data-ar="صحيح (True)" data-en="True">صحيح (True)</span></div>
+<div class="rq-opt" data-fb-ar="صح! 70 مش أصغر من 70، فالنتيجة false." data-fb-en="Correct! 70 is not less than 70, so the result is false." data-id="cmpRq2o1" data-key="A" data-ok="1"><span class="rq-key">A</span><span class="rq-body" data-ar="خطأ" data-en="False">خطأ</span></div>
+<div class="rq-opt" data-fb-ar="مش صح — 70 مش أصغر من 70." data-fb-en="Not right — 70 is not less than 70." data-id="cmpRq2o2" data-key="B"><span class="rq-key">B</span><span class="rq-body" data-ar="صحيح" data-en="True">صحيح</span></div>
 <div class="rq-opt" data-fb-ar="مش صح — &lt; بيدّي true أو false مش رقم." data-fb-en="Not right — &lt; gives true or false, not a number." data-id="cmpRq2o3" data-key="C"><span class="rq-key">C</span><span class="rq-body" data-ar="70" data-en="70">70</span></div>
 </div>
 <div class="rq-fb"></div>
@@ -1297,7 +246,7 @@ for i in range(1, 7, 2):
 <div class="activity-grid">
 <p class="hint-line" data-ar="مثال الكتاب:if مع else، نجاح أو رسوب." data-en="Textbook example: if with else, pass or fail.">مثال الكتاب: if مع else، نجاح أو رسوب.</p><div class="code-panel" id="pass-example">
 <div class="code-header" data-ar="pass_fail.py" data-en="pass_fail.py">pass_fail.py</div>
-<textarea class="py-edit" spellcheck="false">x = 70
+<textarea class="py-edit" spellcheck="false" aria-label="محرر كود بايثون">x = 70
 if x &gt;= 60:result = 'Pass'
 else:
     result = 'Fail'
@@ -1311,7 +260,7 @@ print(result)</textarea>
 <div class="py-err"></div>
 </div><div class="code-panel">
 <div class="code-header" data-ar="grade.py" data-en="grade.py">grade.py</div>
-<textarea class="py-edit" spellcheck="false">x = 70
+<textarea class="py-edit" spellcheck="false" aria-label="محرر كود بايثون">x = 70
 if x &gt;= 90:result = 'Grade is A'
 elif x &gt;= 50:result = 'Grade is B'
 else:
@@ -1328,7 +277,7 @@ print(result)</textarea>
 </div>
 </div>
 <div class="section-inner error-box">
-<h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+<h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
 <ul>
 <li data-ar="النسيان إن في نقطتين (:) بعد if وelif وelse." data-en="Forgetting the colon after if, elif and else.">النسيان إن في نقطتين (:) بعد if وelif وelse.</li>
 <li data-ar="النسيان إن في مسافة بادئة قبل الكود جوه الفرع." data-en="Forgetting the indentation before the code inside the branch.">النسيان إن في مسافة بادئة قبل الكود جوه الفرع.</li>
@@ -1394,7 +343,7 @@ print(result)</code></div><div class="ex-opt" data-key="D" data-ok="0" role="but
 if point &gt;= 85:result = 'Grade is A'
 else:
     result = 'Grade is B'</code></div></div>
-<div class="ex-answer" data-ar="الإجابة B: نحتاج point = 90 للإسناد وprint(result) للعرض." data-en="Answer B: point = 90 assigns the value, and print(result) displays it.">الإجابة B: نحتاج point = 90 للإسناد وprint(result) للعرض.</div>
+<div class="ex-answer" data-ar="الإجابة B: نحتاج point = 90 للإسناد وprint للعرض." data-en="Answer B: point = 90 assigns the value, and print(result) displays it.">الإجابة B: نحتاج point = 90 للإسناد وprint للعرض.</div>
 </div>
 <div class="ex-item" data-source-id="warm-2">
 <div class="q"><span class="q-num">2</span> <span data-ar="البرنامج ده بيحسب المجموع والمتوسط للأعداد الصحيحة 1 لـ 10. املأ الفراغات A وB وC." data-en="This program calculates the total and average of integers 1 to 10. Fill in blanks A, B and C.">البرنامج ده بيحسب المجموع والمتوسط للأعداد الصحيحة 1 لـ 10. املأ الفراغات A وB وC.</span></div>
@@ -1472,7 +421,7 @@ if score &lt; 90:result = 'Fail'
 else:
     result = 'Pass'
 print(result)</code></div></div>
-<div class="ex-answer" data-ar="الإجابة D: نحتاج score = 95 للإسناد وprint(result) للعرض. الشرط 95 &amp;lt; 90 غير متحقق، فيُنفَّذ else وتظهر Pass." data-en="Answer D:assignment and print are both required. 95 &amp;lt; 90 is False, so else runs and displays Pass.">الإجابة D:نحتاج score = 95 للإسناد وprint(result) للعرض. الشرط 95 &lt; 90 غير متحقق، فيُنفَّذ else وتظهر Pass.</div>
+<div class="ex-answer" data-ar="الإجابة D: نحتاج score = 95 للإسناد وprint للعرض. الشرط 95 &amp;lt; 90 غير متحقق، فيُنفَّذ else وتظهر Pass." data-en="Answer D:assignment and print are both required. 95 &amp;lt; 90 is False, so else runs and displays Pass.">الإجابة D:نحتاج score = 95 للإسناد وprint للعرض. الشرط 95 &lt; 90 غير متحقق، فيُنفَّذ else وتظهر Pass.</div>
 </div>
 <div class="ex-item" data-source-id="try-3">
 <div class="q"><span class="q-num">3</span> <span data-ar='البرنامج ده بيعدّ تنازلياً من 5 لـ 0، ولما يوصل 0 بيعرض "Start!". املأ الفراغات A وB وC.' data-en='This program counts down from 5 to 0, and when it reaches 0 it displays "Start!". Fill in blanks A, B and C.'>البرنامج ده بيعدّ تنازلياً من 5 لـ 0، ولما يوصل 0 بيعرض "Start!". املأ الفراغات A وB وC.</span></div>
@@ -1482,10 +431,10 @@ print(result)</code></div></div>
         print('Start!')
     else:print(count)</code></pre><p class="self-check" data-ar="مراجعة ذاتية: اكتب إجابات الفراغات، ثم قارنها بالحل. هذا السؤال خارج الدرجة." data-en="Self-check: fill the blanks, then compare with the key. This question is not scored.">مراجعة ذاتية: اكتب إجابات الفراغات، ثم قارنها بالحل. هذا السؤال خارج الدرجة.</p><div class="blank-fields"><label><span>A</span><input aria-label="try 3, A" autocomplete="off" data-blank="A" dir="ltr" type="text"/></label><label><span>B</span><input aria-label="try 3, B" autocomplete="off" data-blank="B" dir="ltr" type="text"/></label><label><span>C</span><input aria-label="try 3, C" autocomplete="off" data-blank="C" dir="ltr" type="text"/></label></div>
 <div class="ex-answer" data-ar="A = range(5, -1, -1)، B = i، C = count == 0. ويمكن استخدام i == 0 أيضاً. الناتج: 5، 4، 3، 2، 1، ثم Start! بدلاً من 0.&lt;pre class=&quot;textbook-code&quot; dir=&quot;ltr&quot;&gt;&lt;code&gt;for i in range(5, -1, -1):
-    count = i
-    if count == 0:print('Start!')
-    else:
-        print(count)&lt;/code&gt;&lt;/pre&gt;" data-en="A = range(5, -1, -1), B = i, C = count == 0. i == 0 also works. Output:5, 4, 3, 2, 1, then Start! instead of 0.&lt;pre class=&quot;textbook-code&quot; dir=&quot;ltr&quot;&gt;&lt;code&gt;for i in range(5, -1, -1):
+ count = i
+ if count == 0:print('Start!')
+ else:
+ print&lt;/code&gt;&lt;/pre&gt;" data-en="A = range(5, -1, -1), B = i, C = count == 0. i == 0 also works. Output:5, 4, 3, 2, 1, then Start! instead of 0.&lt;pre class=&quot;textbook-code&quot; dir=&quot;ltr&quot;&gt;&lt;code&gt;for i in range(5, -1, -1):
     count = i
     if count == 0:print('Start!')
     else:
@@ -1504,9 +453,9 @@ print(result)</code></div></div>
     else:
         print(i)</code></pre><p class="self-check" data-ar="مراجعة ذاتية: اكتب إجابات الفراغات، ثم قارنها بالحل. هذا السؤال خارج الدرجة." data-en="Self-check: fill the blanks, then compare with the key. This question is not scored.">مراجعة ذاتية: اكتب إجابات الفراغات، ثم قارنها بالحل. هذا السؤال خارج الدرجة.</p><div class="blank-fields"><label><span>A</span><input aria-label="try 4, A" autocomplete="off" data-blank="A" dir="ltr" type="text"/></label><label><span>B</span><input aria-label="try 4, B" autocomplete="off" data-blank="B" dir="ltr" type="text"/></label></div>
 <div class="ex-answer" data-ar="A = 101 في النسخة العربية، B = i % 2 == 0. للأعداد الفردية نعرض i، وللأعداد الزوجية نعرض الرسالة.&lt;pre class=&quot;textbook-code&quot; dir=&quot;ltr&quot;&gt;&lt;code&gt;for i in range(1, 101):
-    if i % 2 == 0:print('It is an even number')
-    else:
-        print(i)&lt;/code&gt;&lt;/pre&gt;" data-en="A = 11 in the English version, B = i % 2 == 0. Print i for odd numbers and the message for even numbers.&lt;pre class=&quot;textbook-code&quot; dir=&quot;ltr&quot;&gt;&lt;code&gt;for i in range(1, 11):
+ if i % 2 == 0:print('It is an even number')
+ else:
+ print(i)&lt;/code&gt;&lt;/pre&gt;" data-en="A = 11 in the English version, B = i % 2 == 0. Print i for odd numbers and the message for even numbers.&lt;pre class=&quot;textbook-code&quot; dir=&quot;ltr&quot;&gt;&lt;code&gt;for i in range(1, 11):
     if i % 2 == 0:print('It is an even number')
     else:
         print(i)&lt;/code&gt;&lt;/pre&gt;">A = 101 في النسخة العربية، B = i % 2 == 0. للأعداد الفردية نعرض i، وللأعداد الزوجية نعرض الرسالة.<pre class="textbook-code" dir="ltr"><code>for i in range(1, 101):
@@ -1651,7 +600,7 @@ print(count)</code></pre></div>
 <button class="mini-btn rq-skip" data-ar="تخطّي" data-en="Skip" data-id="recapRq2Skip">تخطّي</button>
 </div>
 <div class="rq" data-id="recapRq3">
-<div class="rq-q"><span class="q-num">3</span> <span data-ar="لو if x &gt;= 90 ... elif x &gt;= 50 وx = 70، النتيجة إيه؟" data-en="if x &gt;= 90 ... elif x &gt;= 50 and x = 70, what's the result?">لو if x &gt;= 90 ... elif x &gt;= 50 وx = 70، النتيجة إيه؟</span></div>
+<div class="rq-q"><span class="q-num">3</span> <span data-ar="لو if x &gt;= 90... elif x &gt;= 50 وx = 70، النتيجة إيه؟" data-en="if x &gt;= 90 ... elif x &gt;= 50 and x = 70, what's the result?">لو if x &gt;= 90... elif x &gt;= 50 وx = 70، النتيجة إيه؟</span></div>
 <div class="rq-opts">
 <div class="rq-opt" data-fb-ar="مش صح — 70 مش &gt;= 90." data-fb-en="Not right — 70 is not &gt;= 90." data-id="recapRq3o2" data-key="A"><span class="rq-key">A</span><span class="rq-body" data-ar="فرع if" data-en="The if branch">فرع if</span></div>
 <div class="rq-opt" data-fb-ar="مش صح — 70 &gt;= 50 فمش هيوصل للـ else." data-fb-en="Not right — 70 &gt;= 50 so it won't reach else." data-id="recapRq3o3" data-key="B"><span class="rq-key">B</span><span class="rq-body" data-ar="فرع else" data-en="The else branch">فرع else</span></div>
@@ -1669,50 +618,50 @@ print(count)</code></pre></div>
 <div class="section-header">
 <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#edeffe)">07</div>
 <div>
-<h2 data-ar="قاموس المصطلحات (Glossary)" data-en="Glossary">قاموس المصطلحات (Glossary)</h2>
-<div class="tag" data-ar="مصطلحات الدرس (Lesson Terms)" data-en="Lesson Terms" style="color:var(--s3)">مصطلحات الدرس (Lesson Terms)</div>
+<h2 data-ar="قاموس المصطلحات" data-en="Glossary">قاموس المصطلحات</h2>
+<div class="tag" data-ar="مصطلحات الدرس" data-en="Lesson Terms" style="color:var(--s3)">مصطلحات الدرس</div>
 </div>
 </div>
 </div>
 <div class="section-inner card">
 <p data-ar="دوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق." data-en="Search any term or use the filters to narrow down.">دوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق.</p>
-<input class="glossary-search" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." id="glossarySearch" placeholder="ابحث عن مصطلح..." type="text"/>
+<input class="glossary-search" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." id="glossarySearch" placeholder="ابحث عن مصطلح..." type="text" aria-label="ابحث عن مصطلح">
 <div class="glossary-filters">
 <button class="mini-btn gl-filter active" data-ar="الكل" data-en="All" data-filter="all">الكل</button>
-<button class="mini-btn gl-filter" data-ar="حلقة (Loop)" data-en="Loop" data-filter="loop">حلقة (Loop)</button>
-<button class="mini-btn gl-filter" data-ar="المقارنة (Comparison)" data-en="Comparison" data-filter="compare">المقارنة (Comparison)</button>
-<button class="mini-btn gl-filter" data-ar="تفرّع (Branching)" data-en="Branching" data-filter="branch">تفرّع (Branching)</button>
+<button class="mini-btn gl-filter" data-ar="حلقة" data-en="Loop" data-filter="loop">حلقة</button>
+<button class="mini-btn gl-filter" data-ar="المقارنة" data-en="Comparison" data-filter="compare">المقارنة</button>
+<button class="mini-btn gl-filter" data-ar="تفرّع" data-en="Branching" data-filter="branch">تفرّع</button>
 </div>
 <div class="glossary-list">
 <div class="gl-term" data-cat="loop">
-<h4 data-ar="عبارة for · جملة for (for statement)" data-en="for statement">عبارة for · جملة for (for statement)</h4>
+<h3 data-ar="عبارة for · جملة for" data-en="for statement" class="lvl-h4 lvl-h4-2">عبارة for · جملة for</h3>
 <p data-ar="عبارة تكرر كتلة بمسافة بادئة، مرة لكل قيمة في المدى." data-en="Repeats an indented block once for each value in the range.">عبارة تكرر كتلة بمسافة بادئة، مرة لكل قيمة في المدى.</p>
 </div>
 <div class="gl-term" data-cat="loop">
-<h4 data-ar="range()" data-en="range()">range()</h4>
+<h3 data-ar="range()" data-en="range()" class="lvl-h4 lvl-h4-2">range()</h3>
 <p data-ar="تحدد البداية والنهاية غير المشمولة والخطوة. الخطوة السالبة تعد تنازلياً، و0 غير مسموحة." data-en="Sets start, exclusive stop, and step. A negative step counts down; zero is invalid.">تحدد البداية والنهاية غير المشمولة والخطوة. الخطوة السالبة تعد تنازلياً، و0 غير مسموحة.</p>
 </div>
 <div class="gl-term" data-cat="loop">
-<h4 data-ar="هيكل الحلقة · حلقة (Loop Structure)" data-en="Loop Structure / Loop">هيكل الحلقة · حلقة (Loop Structure)</h4>
+<h3 data-ar="هيكل الحلقة · حلقة" data-en="Loop Structure / Loop" class="lvl-h4 lvl-h4-2">هيكل الحلقة · حلقة</h3>
 <p data-ar="تكرار كتلة من الأوامر. تستخدم أمثلة هذا الدرس for مع range." data-en="Repeating a block of statements. This lesson uses for with range.">تكرار كتلة من الأوامر. تستخدم أمثلة هذا الدرس for مع range.</p>
 </div>
 <div class="gl-term" data-cat="compare">
-<h4 data-ar="عامل المقارنة (Comparison Operator)" data-en="Comparison Operator">عامل المقارنة (Comparison Operator)</h4>
+<h3 data-ar="عامل المقارنة" data-en="Comparison Operator" class="lvl-h4 lvl-h4-2">عامل المقارنة</h3>
 <p data-ar="عامل بيقارن القيم، زي == و!= و&lt; و&gt; و&lt;= و&gt;=." data-en="An operator that compares values, like ==, !=, &lt;, &gt;, &lt;=, &gt;=.">عامل بيقارن القيم، زي == و!= و&lt; و&gt; و&lt;= و&gt;=.</p>
 </div>
 <div class="gl-term" data-cat="branch">
-<h4 data-ar="التعبير الشرطي (Conditional Expression)" data-en="Conditional Expression">التعبير الشرطي (Conditional Expression)</h4>
+<h3 data-ar="التعبير الشرطي" data-en="Conditional Expression" class="lvl-h4 lvl-h4-2">التعبير الشرطي</h3>
 <p data-ar="تعبير نختبره لاختيار الفرع. المقارنات في أمثلة الدرس ترجع True أو False." data-en="An expression tested to select a branch. The comparisons in this lesson return True or False.">تعبير نختبره لاختيار الفرع. المقارنات في أمثلة الدرس ترجع True أو False.</p>
 </div>
 <div class="gl-term" data-cat="branch">
-<h4 data-ar="عبارة if · if / elif / else" data-en="if statement / if / elif / else">عبارة if · if / elif / else</h4>
+<h3 data-ar="عبارة if · if / elif / else" data-en="if statement / if / elif / else" class="lvl-h4 lvl-h4-2">عبارة if · if / elif / else</h3>
 <p data-ar="تركيب بيختار فرع حسب شروط متعدّدة بالترتيب." data-en="A structure that picks a branch based on multiple conditions in order.">تركيب بيختار فرع حسب شروط متعدّدة بالترتيب.</p>
 </div>
 <div class="gl-term" data-cat="branch">
-<h4 data-ar="هيكل التفرع · تركيب التفرّع (Branching Structure)" data-en="Branching Structure">هيكل التفرع · تركيب التفرّع (Branching Structure)</h4>
+<h3 data-ar="هيكل التفرع · تركيب التفرّع" data-en="Branching Structure" class="lvl-h4 lvl-h4-2">هيكل التفرع · تركيب التفرّع</h3>
 <p data-ar="بيفصّل العمليات حسب الشروط." data-en="Separates processes according to conditions.">بيفصّل العمليات حسب الشروط.</p>
 </div>
-<div class="gl-term" data-cat="compare"><h4 data-ar="يساوي (==)" data-en="Equal (==)">يساوي (==)</h4><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="compare"><h4 data-ar="لا يساوي (!=)" data-en="Not equal (!=)">لا يساوي (!=)</h4><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="compare"><h4 data-ar="أصغر من (&amp;lt;)" data-en="Less than (&amp;lt;)">أصغر من (&lt;)</h4><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="compare"><h4 data-ar="أكبر من (&amp;gt;)" data-en="Greater than (&amp;gt;)">أكبر من (&gt;)</h4><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="compare"><h4 data-ar="أصغر من أو يساوي (&amp;lt;=)" data-en="Less than or equal to (&amp;lt;=)">أصغر من أو يساوي (&lt;=)</h4><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="compare"><h4 data-ar="أكبر من أو يساوي (&amp;gt;=)" data-en="Greater than or equal to (&amp;gt;=)">أكبر من أو يساوي (&gt;=)</h4><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="loop"><h4 data-ar="قيمة البداية (Start value)" data-en="Start value">قيمة البداية (Start value)</h4><p data-ar="بداية المدى، وهي أول قيمة إذا لم يكن المدى فارغاً. غيّر start في لعبة المدى." data-en="The start of the range, and its first value when nonempty. Change start in the range game.">بداية المدى، وهي أول قيمة إذا لم يكن المدى فارغاً. غيّر start في لعبة المدى.</p></div><div class="gl-term" data-cat="loop"><h4 data-ar="قيمة النهاية (End value / stop)" data-en="End value / stop">قيمة النهاية (End value / stop)</h4><p data-ar="حد النهاية غير المشمول. غيّر stop في لعبة المدى." data-en="The exclusive endpoint. Change stop in the range game.">حد النهاية غير المشمول. غيّر stop في لعبة المدى.</p></div><div class="gl-term" data-cat="loop"><h4 data-ar="مقدار الزيادة أو الخطوة (Increment / step)" data-en="Increment / step">مقدار الزيادة أو الخطوة (Increment / step)</h4><p data-ar="مقدار التغير بعد كل دورة. السالب للعد التنازلي و0 غير مسموح. غيّر step في اللعبة." data-en="The change after each iteration. Negative counts down; zero is invalid. Change step in the game.">مقدار التغير بعد كل دورة. السالب للعد التنازلي و0 غير مسموح. غيّر step في اللعبة.</p></div></div>
+<div class="gl-term" data-cat="compare"><h3 data-ar="يساوي (==)" data-en="Equal (==)" class="lvl-h4 lvl-h4-2">يساوي (==)</h3><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="compare"><h3 data-ar="لا يساوي (!=)" data-en="Not equal (!=)" class="lvl-h4 lvl-h4-2">لا يساوي (!=)</h3><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="compare"><h3 data-ar="أصغر من (&amp;lt;)" data-en="Less than (&amp;lt;)" class="lvl-h4 lvl-h4-2">أصغر من (&lt;)</h3><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="compare"><h3 data-ar="أكبر من (&amp;gt;)" data-en="Greater than (&amp;gt;)" class="lvl-h4 lvl-h4-2">أكبر من (&gt;)</h3><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="compare"><h3 data-ar="أصغر من أو يساوي (&amp;lt;=)" data-en="Less than or equal to (&amp;lt;=)" class="lvl-h4 lvl-h4-2">أصغر من أو يساوي (&lt;=)</h3><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="compare"><h3 data-ar="أكبر من أو يساوي (&amp;gt;=)" data-en="Greater than or equal to (&amp;gt;=)" class="lvl-h4 lvl-h4-2">أكبر من أو يساوي (&gt;=)</h3><p class="hint-line" data-ar="عامل مقارنة. جرّبه في لعبة المقارنة." data-en="A comparison operator. Try it in the comparison game.">عامل مقارنة. جرّبه في لعبة المقارنة.</p></div><div class="gl-term" data-cat="loop"><h3 data-ar="قيمة البداية" data-en="Start value" class="lvl-h4 lvl-h4-2">قيمة البداية</h3><p data-ar="بداية المدى، وهي أول قيمة إذا لم يكن المدى فارغاً. غيّر start في لعبة المدى." data-en="The start of the range, and its first value when nonempty. Change start in the range game.">بداية المدى، وهي أول قيمة إذا لم يكن المدى فارغاً. غيّر start في لعبة المدى.</p></div><div class="gl-term" data-cat="loop"><h3 data-ar="قيمة النهاية (End value / stop)" data-en="End value / stop" class="lvl-h4 lvl-h4-2">قيمة النهاية (End value / stop)</h3><p data-ar="حد النهاية غير المشمول. غيّر stop في لعبة المدى." data-en="The exclusive endpoint. Change stop in the range game.">حد النهاية غير المشمول. غيّر stop في لعبة المدى.</p></div><div class="gl-term" data-cat="loop"><h3 data-ar="مقدار الزيادة أو الخطوة (Increment / step)" data-en="Increment / step" class="lvl-h4 lvl-h4-2">مقدار الزيادة أو الخطوة (Increment / step)</h3><p data-ar="مقدار التغير بعد كل دورة. السالب للعد التنازلي و0 غير مسموح. غيّر step في اللعبة." data-en="The change after each iteration. Negative counts down; zero is invalid. Change step in the game.">مقدار التغير بعد كل دورة. السالب للعد التنازلي و0 غير مسموح. غيّر step في اللعبة.</p></div></div>
 </div>
 </section>
 </main>

@@ -10,982 +10,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 6-9 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap:anywhere
-    }
-  /* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/6-9-digital-representation-and-compression-technology-for-videos-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
 </head>
 
 <body>
@@ -1006,7 +35,7 @@ select{color:var(--text)!important}
       <div class="nav-links" id="navLinks">
         <a href="#intro" data-ar="يلا نبدأ" data-en="Start">يلا نبدأ</a>
         <a href="#video" data-ar="آلية الفيديو" data-en="Video Mechanism">آلية الفيديو</a>
-        <a href="#amount" data-ar="مقدار الداتا (Data)" data-en="Data Amount">مقدار الداتا (Data)</a>
+        <a href="#amount" data-ar="مقدار البيانات" data-en="Data Amount">مقدار البيانات</a>
         <a href="#compress" data-ar="ضغط" data-en="Compression">ضغط</a>
         <a href="#loss" data-ar="ضغط بدون فقد وضغط بفقد" data-en="Lossless & Lossy">ضغط بدون فقد وضغط بفقد</a>
         <a href="#practice" data-ar="تمارين" data-en="Exercises">تمارين</a>
@@ -1020,11 +49,11 @@ select{color:var(--text)!important}
       <div class="hero-badge" data-ar="الدرس 9 — دراسة المعلومات" data-en="Lesson 9 — Information Study">الدرس 9 — دراسة المعلومات</div>
       <h1 class="hero-title" data-ar="<span class=&quot;grad&quot;>تمثيل</span> الفيديو وضغط البيانات" data-en="<span class=&quot;grad&quot;>Representing</span> Videos and Compressing Data">تمثيل <span class="grad">الفيديو</span> وضغط البيانات</h1>
       <p class="hero-sub"
-        data-ar="التمثيل الرقمي وتقنية ضغط الداتا (Data) للفيديو — الفيديو سلسلة صور ثابتة. النهارده هنتعلّم آلية الفيديو والإطار (Frame) ومعدل الإطارات، وحساب مقدار الداتا (Data)، وأنواع الضغط بدون فقد وبفقد."
+        data-ar="التمثيل الرقمي وتقنية ضغط البيانات للفيديو — الفيديو سلسلة صور ثابتة. النهارده هنتعلّم آلية الفيديو والإطار ومعدل الإطارات، وحساب مقدار البيانات، وأنواع الضغط بدون فقد وبفقد."
         data-en="Digital Representation and Compression Technology for Videos — a video is a series of still images. Today we learn the video mechanism, Frame and Frame rate, calculating the data amount, and the compression types Lossless and Lossy.">
         <span dir="ltr">Digital Representation and Compression Technology for Videos</span> — الفيديو سلسلة صور ثابتة.
-        النهارده هنتعلم ميكانيزم الفيديو وFrame وFrame rate، وحساب حجم البيانات، ونوعا الضغط Lossless وLossy.</p>
-      <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="14 سؤالًا" data-en="14 practice questions">14 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ النهارده هنتعلم ميكانيزم الفيديو وFrame وFrame rate، وحساب حجم البيانات، ونوعا الضغط Lossless وLossy.</p>
+      <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="14 سؤالًا" data-en="14 practice questions">14 سؤالًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 <main>
@@ -1041,15 +70,15 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s1),#1440c9)">01</div>
           <div>
             <h2 data-ar="إيه اللي هنتعلّمه النهارده؟" data-en="What will we learn today?">إيه اللي هنتعلّمه النهارده؟</h2>
-            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — الفيديو وضغط الداتا (Data)"
-              data-en="Lesson introduction — videos and data compression">مقدمة الدرس — الفيديو وضغط الداتا (Data)</div>
+            <div class="tag" style="color:var(--s1)" data-ar="مقدمة الدرس — الفيديو وضغط البيانات"
+              data-en="Lesson introduction — videos and data compression">مقدمة الدرس — الفيديو وضغط البيانات</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="زي ما الصور بتتخزّن كبكسلات، الفيديو كمان له طريقة خاصة في التمثيل والتخزين الرقمي. النهارده هنتعلّم إزاي الفيديو بيتكوّن، وإزاي نحسب حجم داتا (Data) بتاعه، وإزاي بنضغط الداتا (Data) عشان نوفّر مساحة وتخزين."
-          data-en="Just as images are stored as pixels, videos also have their own special way of digital representation and storage. Today we learn how a video is composed, how to calculate its data size, and how we compress data to save space and storage.">زي ما الصور بتتخزّن كبكسلات، الفيديو كمان له طريقة خاصة في التمثيل والتخزين الرقمي. النهارده هنتعلّم إزاي الفيديو بيتكوّن، وإزاي نحسب حجم داتا (Data) بتاعه، وإزاي بنضغط الداتا (Data) عشان نوفّر مساحة وتخزين.</p>
+        <p data-ar="زي ما الصور بتتخزّن كبكسلات، الفيديو كمان له طريقة خاصة في التمثيل والتخزين الرقمي. النهارده هنتعلّم إزاي الفيديو بيتكوّن، وإزاي نحسب حجم بيانات بتاعه، وإزاي بنضغط البيانات عشان نوفّر مساحة وتخزين."
+          data-en="Just as images are stored as pixels, videos also have their own special way of digital representation and storage. Today we learn how a video is composed, how to calculate its data size, and how we compress data to save space and storage.">زي ما الصور بتتخزّن كبكسلات، الفيديو كمان له طريقة خاصة في التمثيل والتخزين الرقمي. النهارده هنتعلّم إزاي الفيديو بيتكوّن، وإزاي نحسب حجم بيانات بتاعه، وإزاي بنضغط البيانات عشان نوفّر مساحة وتخزين.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="الفيديو هو سلسلة صور ثابتة بتتعرَض واحدة ورا التانية بسرعة — وبما إن عين الإنسان فيها ظاهرة بقايا الصورة، إحنا بنحس إن الصور بتتحرك."
             data-en="A video is a series of still images displayed one after another quickly — and because the human eye has the afterimage phenomenon, we feel the images are moving.">الفيديو هو سلسلة صور ثابتة بتتعرَض واحدة ورا التانية بسرعة — وبما إن عين الإنسان فيها ظاهرة بقايا الصورة، إحنا بنحس إن الصور بتتحرك.</span></div>
@@ -1061,31 +90,31 @@ select{color:var(--text)!important}
             <div class="demo-label" data-ar="النهارده هنتعلّم 3 مفاهيم"
               data-en="Today we'll learn 3 concepts">النهارده هنتعلّم 3 مفاهيم</div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🎬</span><span><b
-                  style="color:var(--s2)" data-ar="آلية الفيديو — الفيديو والإطار (Frame) ومعدل الإطارات"
-                  data-en="the video mechanism — Video, Frame and Frame rate">آلية الفيديو — الفيديو والإطار (Frame) ومعدل الإطارات</b></span></div>
+                  style="color:var(--s2)" data-ar="آلية الفيديو — الفيديو والإطار ومعدل الإطارات"
+                  data-en="the video mechanism — Video, Frame and Frame rate">آلية الفيديو — الفيديو والإطار ومعدل الإطارات</b></span></div>
             <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">🧮</span><span><b
-                  style="color:var(--s3)" data-ar="حساب مقدار داتا (Data) الفيديو"
-                  data-en="calculating the video data amount">حساب مقدار داتا (Data) الفيديو</b></span></div>
+                  style="color:var(--s3)" data-ar="حساب مقدار بيانات الفيديو"
+                  data-en="calculating the video data amount">حساب مقدار بيانات الفيديو</b></span></div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🗜️</span><span><b
-                  style="color:var(--s4)" data-ar="ضغط الداتا (Data) — بدون فقد وبفقد"
-                  data-en="data compression — Lossless and Lossy">ضغط الداتا (Data) — بدون فقد وبفقد</b></span></div>
+                  style="color:var(--s4)" data-ar="ضغط البيانات — بدون فقد وبفقد"
+                  data-en="data compression — Lossless and Lossy">ضغط البيانات — بدون فقد وبفقد</b></span></div>
           </div>
           <div class="demo-panel">
             <div class="demo-label" data-ar="ليه بنتعلم ده؟" data-en="Why do we learn this?">ليه بنتعلم ده؟</div>
             <p style="font-size:.95rem"
-              data-ar="الفيديو من الملفات اللي بتاخد أكبر مساحة على الموبايل والكمبيوتر. لما تفهم إزاي حجمه بيتحسب وإزاي الضغط بيقلّل الداتا (Data)، هتفهم ليه الفيديو بيتحمّل ببطء أو بيتخزّن بجودة أقل."
-              data-en="Videos are among the files that take up the most space on your phone and computer. When you understand how their size is calculated and how compression reduces data, you will understand why a video loads slowly or is stored at lower quality.">الفيديو من الملفات اللي بتاخد أكبر مساحة على الموبايل والكمبيوتر. لما تفهم إزاي حجمه بيتحسب وإزاي الضغط بيقلّل الداتا (Data)، هتفهم ليه الفيديو بيتحمّل ببطء أو بيتخزّن بجودة أقل.</p>
+              data-ar="الفيديو من الملفات اللي بتاخد أكبر مساحة على الموبايل والكمبيوتر. لما تفهم إزاي حجمه بيتحسب وإزاي الضغط بيقلّل البيانات، هتفهم ليه الفيديو بيتحمّل ببطء أو بيتخزّن بجودة أقل."
+              data-en="Videos are among the files that take up the most space on your phone and computer. When you understand how their size is calculated and how compression reduces data, you will understand why a video loads slowly or is stored at lower quality.">الفيديو من الملفات اللي بتاخد أكبر مساحة على الموبايل والكمبيوتر. لما تفهم إزاي حجمه بيتحسب وإزاي الضغط بيقلّل البيانات، هتفهم ليه الفيديو بيتحمّل ببطء أو بيتخزّن بجودة أقل.</p>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
-          <li data-ar="الخلط بين الإطار (Frame) ومعدل الإطارات — الأول صورة ثابتة واحدة، والتاني هو عدد الصور المعروضة في الثانية."
-            data-en="Confusing Frame with Frame rate — the first is one still image, the second is the number of images displayed per second.">الخلط بين الإطار (Frame) ومعدل الإطارات — الأول صورة ثابتة واحدة، والتاني هو عدد الصور المعروضة في الثانية.</li>
-          <li data-ar="الخلط بين الضغط وفك الضغط — الأول بيقلّل الداتا (Data)، والتاني بيرجّعها لحالتها الأصلية."
-            data-en="Confusing Compression with Decompression — the first reduces the data, the second restores it to its original state.">الخلط بين الضغط وفك الضغط — الأول بيقلّل الداتا (Data)، والتاني بيرجّعها لحالتها الأصلية.</li>
+          <li data-ar="الخلط بين الإطار ومعدل الإطارات — الأول صورة ثابتة واحدة، والتاني هو عدد الصور المعروضة في الثانية."
+            data-en="Confusing Frame with Frame rate — the first is one still image, the second is the number of images displayed per second.">الخلط بين الإطار ومعدل الإطارات — الأول صورة ثابتة واحدة، والتاني هو عدد الصور المعروضة في الثانية.</li>
+          <li data-ar="الخلط بين الضغط وفك الضغط — الأول بيقلّل البيانات، والتاني بيرجّعها لحالتها الأصلية."
+            data-en="Confusing Compression with Decompression — the first reduces the data, the second restores it to its original state.">الخلط بين الضغط وفك الضغط — الأول بيقلّل البيانات، والتاني بيرجّعها لحالتها الأصلية.</li>
         </ul>
       </div>
     </section>
@@ -1098,8 +127,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="آلية الفيديو" data-en="The Video Mechanism">ميكانيزم الفيديو <span dir="ltr">(Video, Frame,
                 Frame rate)</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="إزاي الفيديو بيتحرك — صفحة 77 بالكتاب"
-              data-en="how a video moves — book page 77">إزاي الفيديو بيتحرك — صفحة 77 بالكتاب</div>
+            <div class="tag" style="color:var(--s2)" data-ar="إزاي الفيديو بيتحرك — بالكتاب"
+              data-en="how a video moves — book">إزاي الفيديو بيتحرك — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1108,16 +137,16 @@ select{color:var(--text)!important}
         <p data-ar="الفيديو هو وسيلة إلكترونية بتخلق وهم الحركة عن طريق عرض سلسلة صور ثابتة ورا بعض — بالاعتماد على ظاهرة بقايا الصورة اللي بتحصل بسبب خصائص الرؤية البشرية."
           data-en="A video is an electronic medium that creates the illusion of movement by displaying a series of still images in succession — relying on the afterimage phenomenon that occurs due to the characteristics of human vision.">
           <b>الفيديو <span dir="ltr">(Video)</span></b> هو وسيط إلكتروني بيخلق وهم الحركة بعرض سلسلة من الصور الثابتة
-          بشكل متتابع — وبيفوّت على ظاهرة <b>استمرار الرؤية <span dir="ltr">(afterimage phenomenon)</span></b> اللي بتحصل
-          بسبب خصائص الرؤية البشرية.</p>
-        <p data-ar="الإطار (Frame) هو كل صورة ثابتة بيتركّب منها الفيديو. معدل الإطارات هو عدد الإطارات المعروضة في الثانية، ووحدته fps."
+ بشكل متتابع — وبيفوّت على ظاهرة <b>استمرار الرؤية <span dir="ltr">(afterimage phenomenon)</span></b> اللي بتحصل
+ بسبب خصائص الرؤية البشرية.</p>
+        <p data-ar="الإطار هو كل صورة ثابتة بيتركّب منها الفيديو. معدل الإطارات هو عدد الإطارات المعروضة في الثانية، ووحدته fps."
           data-en="A frame is each still image that composes a video. The frame rate is the number of frames displayed per second, and its unit is fps.">
           <b>الإطار <span dir="ltr">(Frame)</span></b> هو كل صورة ثابتة بتكوّن الفيديو. و<b>معدل الإطارات <span
               dir="ltr">(Frame rate)</span></b> هو عدد الإطارات المعروضة في الثانية، ووحدته <b>fps</b>.</p>
         <div class="note"><b data-ar="افتكر:" data-en="Remember:">افتكر:</b> <span
-            data-ar="كل ما رقم معدل الإطارات أعلى، الفيديو يبان أنعم — بس حجم الداتا (Data) بيكبر."
+            data-ar="كل ما رقم معدل الإطارات أعلى، الفيديو يبان أنعم — بس حجم البيانات بيكبر."
             data-en="the higher the frame rate number, the smoother the video appears — but the data size becomes larger.">كل
-            ما زاد رقم معدل الإطارات، الفيديو بيبان <b>أنعم</b> — لكن حجم البيانات بيبقى <b>أكبر</b>.</span></div>
+ ما زاد رقم معدل الإطارات، الفيديو بيبان <b>أنعم</b> — لكن حجم البيانات بيبقى <b>أكبر</b>.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«النقاط الرئيسية. 1. آلية الفيديو (1) فيديو (Video) : وسط إلكتروني يخلق وهم الحركة عن طريق عرض سلسلة من الصور الثابتة على التوالي. يستخدم (ظاهرة الصورة الباقية)، التي تحدث بسبب خصائص الرؤية البشرية. (2) الإطار (Frame) : هو صورة واحدة من سلسلة الصور المتتابعة التي تُعرض بسرعة لتكوين حركة. (3) معدل الإطارات (Frame rate) : عدد الإطارات المعروضة في الثانية. الوحدة هي fps ×. كلما ارتفع رقم معدل الإطارات، كلما يبدو الفيديو أنعم، وكلما أصبح حجم البيانات أكبر. (4) طريقة حساب حجم بيانات الفيديو حجم بيانات الفيديو = (حجم بيانات الصورة [B] × معدل الإطارات [fps] × الوقت [ثانية])»</p></div>
 
       <div class="section-inner">
@@ -1132,13 +161,13 @@ select{color:var(--text)!important}
                 <div class="svg-label" data-fbox="still" data-ar="سلسلة صور ثابتة" data-en="a series of still images">سلسلة صور ثابتة</div>
                 <div class="svg-label" data-fbox="seq" data-ar="معروضة ورا بعض بسرعة"
                   data-en="displayed in succession quickly">معروضة ورا بعض بسرعة</div>
-                <div class="svg-label" data-fbox="move" data-ar="ظاهرة بقايا الصورة ← وهم الحركة"
+                <div class="svg-label" data-fbox="move" data-ar="ظاهرة بقايا الصورة → وهم الحركة"
                   data-en="afterimage phenomenon → illusion of movement">ظاهرة بقايا الصورة ← وهم الحركة</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="videoPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="videoNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="videoPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="videoNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="videoCounter">1 / 3</span>
                 <button class="mini-btn" data-id="videoReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1170,7 +199,7 @@ select{color:var(--text)!important}
                   class="rq-key">A</span><span class="rq-body" data-ar="ظاهرة انكسار الضوء"
                   data-en="the light refraction phenomenon">ظاهرة انكسار الضوء</span></div>
               <div class="rq-opt" data-id="videoRq1o1" data-key="B" data-ok="1"
-                data-fb-ar="صحيح! الفيديو بيستخدم ظاهرة استمرار الرؤية (afterimage phenomenon)."
+                data-fb-ar="صحيح! الفيديو بيستخدم ظاهرة استمرار الرؤية."
                 data-fb-en="Correct! A video uses the afterimage phenomenon."><span
                   class="rq-key">B</span><span class="rq-body" data-ar="ظاهرة بقايا الصورة"
                   data-en="the afterimage phenomenon">ظاهرة بقايا الصورة</span></div>
@@ -1190,12 +219,12 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="videoRq2o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! الفيديو بيبان أنعم لكن حجم البيانات بيبقى أكبر."
                 data-fb-en="Correct! The video appears smoother but the data size becomes larger."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="الفيديو يبان أنعم بس الداتا (Data) بتكبر"
-                  data-en="the video appears smoother but the data becomes larger">الفيديو يبان أنعم بس الداتا (Data) بتكبر</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="الفيديو يبان أنعم بس البيانات بتكبر"
+                  data-en="the video appears smoother but the data becomes larger">الفيديو يبان أنعم بس البيانات بتكبر</span></div>
               <div class="rq-opt" data-id="videoRq2o2" data-key="B"
                 data-fb-ar="مش كده — العكس تماماً." data-fb-en="Not quite — it is exactly the opposite."><span
-                  class="rq-key">B</span><span class="rq-body" data-ar="الفيديو يبان أنعم والداتا (Data) بتقل"
-                  data-en="the video appears smoother and the data decreases">الفيديو يبان أنعم والداتا (Data) بتقل</span></div>
+                  class="rq-key">B</span><span class="rq-body" data-ar="الفيديو يبان أنعم والبيانات بتقل"
+                  data-en="the video appears smoother and the data decreases">الفيديو يبان أنعم والبيانات بتقل</span></div>
               <div class="rq-opt" data-id="videoRq2o3" data-key="C"
                 data-fb-ar="مش كده — مفيش تأثير على نعومة الفيديو."
                 data-fb-en="Not quite — there is no effect on the smoothness."><span
@@ -1215,16 +244,16 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#1838f8)">03</div>
           <div>
-            <h2 data-ar="حساب مقدار داتا (Data) الفيديو" data-en="Calculating the Video Data Amount">حساب حجم بيانات الفيديو
-              <span dir="ltr">(Video Data Amount)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="معادلة المقدار — صفحة 77 بالكتاب"
-              data-en="the amount formula — book page 77">معادلة المقدار — صفحة 77 بالكتاب</div>
+            <h2 data-ar="حساب مقدار بيانات الفيديو" data-en="Calculating the Video Data Amount">حساب حجم بيانات الفيديو
+ <span dir="ltr">(Video Data Amount)</span></h2>
+            <div class="tag" style="color:var(--s3)" data-ar="معادلة المقدار — بالكتاب"
+              data-en="the amount formula — book">معادلة المقدار — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="مقدار داتا (Data) الفيديو = مقدار داتا (Data) الصورة [B] × معدل الإطارات [fps] × الوقت [ثواني]."
+        <p data-ar="مقدار بيانات الفيديو = مقدار بيانات الصورة [B] × معدل الإطارات [fps] × الوقت [ثواني]."
           data-en="The amount of video data = the amount of image data [B] × the frame rate [fps] × the time [seconds].">
           <b>حجم بيانات الفيديو</b> = حجم بيانات الصورة الواحدة <span dir="ltr">[B]</span> × معدل الإطارات <span
             dir="ltr">[fps]</span> × الزمن <span dir="ltr">[ثانية]</span>.</p>
@@ -1233,8 +262,8 @@ select{color:var(--text)!important}
         <div class="note"><b data-ar="مثال:" data-en="Example:">مثال:</b> <span
             data-ar="فيديو 10 ثواني بـ 30 fps، كل إطار صورة 24 بت بدقة 500 × 200 — حجمه: 500 × 200 × 24 ÷ 8 = 300,000 B، وبعدين 300,000 × 30 × 10 = 90,000,000 B ÷ 1000 ÷ 1000 = 90 MB."
             data-en="a 10-second video at 30 fps, each frame a 24-bit image at 500 × 200 resolution — its size: 500 × 200 × 24 ÷ 8 = 300,000 B, then 300,000 × 30 × 10 = 90,000,000 B ÷ 1000 ÷ 1000 = 90 MB.">فيديو
-            10 ثواني بمعدل 30 fps، وكل فريم صورة 24-bit بدقة 500 × 200 — حجمه: 500 × 200 × 24 ÷ 8 = 300,000 B، وبعدين
-            300,000 × 30 × 10 = 90,000,000 B ÷ 1000 ÷ 1000 = <b>90 MB</b>.</span></div>
+ 10 ثواني بمعدل 30 fps، وكل فريم صورة 24-bit بدقة 500 × 200 — حجمه: 500 × 200 × 24 ÷ 8 = 300,000 B، وبعدين
+ 300,000 × 30 × 10 = 90,000,000 B ÷ 1000 ÷ 1000 = <b>90 MB</b>.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1250,13 +279,13 @@ select{color:var(--text)!important}
                   data-en="one frame = 300,000 B">إطار واحد = 300,000 B</div>
                 <div class="svg-label" data-fbox="mul" data-ar="× 30 fps × 10 ثواني"
                   data-en="× 30 fps × 10 seconds">× 30 fps × 10 ثواني</div>
-                <div class="svg-label" data-fbox="total" data-ar="= 90,000,000 B ← 90 MB"
+                <div class="svg-label" data-fbox="total" data-ar="= 90,000,000 B → 90 MB"
                   data-en="= 90,000,000 B → 90 MB">= 90,000,000 B ← 90 MB</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="calcPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="calcNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="calcPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="calcNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="calcCounter">1 / 3</span>
                 <button class="mini-btn" data-id="calcReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1280,24 +309,24 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="amountRecall">
           <div class="rq" data-id="amountRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه معادلة مقدار داتا (Data) الفيديو؟"
-                data-en="What is the formula for the amount of video data?">إيه معادلة مقدار داتا (Data) الفيديو؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه معادلة مقدار بيانات الفيديو؟"
+                data-en="What is the formula for the amount of video data?">إيه معادلة مقدار بيانات الفيديو؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="amountRq1o2" data-key="A"
                 data-fb-ar="مش كده — معدل الإطارات بيتضرب مش بيتجمع." data-fb-en="Not quite — the frame rate is multiplied, not added."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="داتا (Data) الصورة + معدل الإطارات + الوقت"
-                  data-en="image data + frame rate + time">داتا (Data) الصورة + معدل الإطارات + الوقت</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="بيانات الصورة + معدل الإطارات + الوقت"
+                  data-en="image data + frame rate + time">بيانات الصورة + معدل الإطارات + الوقت</span></div>
               <div class="rq-opt" data-id="amountRq1o1" data-key="B" data-ok="1"
                 data-fb-ar="صحيح! الحجم = بيانات الصورة × معدل الإطارات × الزمن."
                 data-fb-en="Correct! The amount = image data × frame rate × time."><span
                   class="rq-key">B</span><span class="rq-body"
-                  data-ar="داتا (Data) الصورة × معدل الإطارات × الوقت"
-                  data-en="image data × frame rate × time">داتا (Data) الصورة × معدل الإطارات × الوقت</span></div>
+                  data-ar="بيانات الصورة × معدل الإطارات × الوقت"
+                  data-en="image data × frame rate × time">بيانات الصورة × معدل الإطارات × الوقت</span></div>
               <div class="rq-opt" data-id="amountRq1o3" data-key="C"
                 data-fb-ar="مش كده — مفيش قسمة على معدل الإطارات هنا."
                 data-fb-en="Not quite — there is no division by the frame rate here."><span
-                  class="rq-key">C</span><span class="rq-body" data-ar="داتا (Data) الصورة ÷ معدل الإطارات × الوقت"
-                  data-en="image data ÷ frame rate × time">داتا (Data) الصورة ÷ معدل الإطارات × الوقت</span></div>
+                  class="rq-key">C</span><span class="rq-body" data-ar="بيانات الصورة ÷ معدل الإطارات × الوقت"
+                  data-en="image data ÷ frame rate × time">بيانات الصورة ÷ معدل الإطارات × الوقت</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="amountRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -1330,27 +359,27 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
           <div>
-            <h2 data-ar="ضغط الداتا (Data)" data-en="Data Compression">ضغط البيانات <span dir="ltr">(Compression)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="تقليل الداتا (Data) مع الحفاظ على المحتوى — صفحة 77 بالكتاب"
-              data-en="reduce the data while preserving the content — book page 77">تقليل الداتا (Data) مع الحفاظ على المحتوى — صفحة 77 بالكتاب</div>
+            <h2 data-ar="ضغط البيانات" data-en="Data Compression">ضغط البيانات <span dir="ltr">(Compression)</span></h2>
+            <div class="tag" style="color:var(--s4)" data-ar="تقليل البيانات مع الحفاظ على المحتوى — بالكتاب"
+              data-en="reduce the data while preserving the content — book">تقليل البيانات مع الحفاظ على المحتوى — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الضغط هو عملية تقليل مقدار الداتا (Data) قدر الإمكان مع الحفاظ على محتوى الداتا (Data)."
+        <p data-ar="الضغط هو عملية تقليل مقدار البيانات قدر الإمكان مع الحفاظ على محتوى البيانات."
           data-en="Compression is a process of reducing the amount of data as much as possible while preserving the content of the data.">
           <b>الضغط <span dir="ltr">(Compression)</span></b> هو عملية تقليل كمية البيانات قدر الإمكان مع الحفاظ على محتوى
-          البيانات.</p>
-        <p data-ar="فك الضغط هو عملية ترجيع الداتا (Data) المضغوطة لحالتها الأصلية. نسبة الضغط هي المدى اللي اتضغطت بيه الداتا (Data)، وبنحسبها بـ: نسبة الضغط [%] = (مقدار الداتا (Data) بعد الضغط ÷ مقدار الداتا (Data) الأصلي) × 100."
+ البيانات.</p>
+        <p data-ar="فك الضغط هو عملية ترجيع البيانات المضغوطة لحالتها الأصلية. نسبة الضغط هي المدى اللي اتضغطت بيه البيانات، وبنحسبها بـ: نسبة الضغط [%] = (مقدار البيانات بعد الضغط ÷ مقدار البيانات الأصلي) × 100."
           data-en="Decompression is a process of restoring compressed data to its original state. The compression ratio is the extent to which data has been compressed, and we calculate it by: Compression ratio [%] = (amount of data after compression ÷ original amount of data) × 100.">
           <b>فك الضغط <span dir="ltr">(Decompression)</span></b> هو عملية إرجاع البيانات المضغوطة لحالتها الأصلية. و<b>نسبة
-            الضغط <span dir="ltr">(Compression ratio)</span></b> هي مدى ضغط البيانات، ونحسبها بالقانون: نسبة الضغط <span
+ الضغط <span dir="ltr">(Compression ratio)</span></b> هي مدى ضغط البيانات، ونحسبها بالقانون: نسبة الضغط <span
             dir="ltr">[%]</span> = (كمية البيانات بعد الضغط ÷ كمية البيانات الأصلية) × 100.</p>
         <div class="note"><b data-ar="مثال:" data-en="Example:">مثال:</b> <span
             data-ar="فيديو 90 MB اتحوّل لملف مضغوط 30 MB — نسبة الضغط = 30 ÷ 90 × 100 = 33.3% ≈ 33%."
             data-en="a video of 90 MB was converted to a compressed file of 30 MB — the compression ratio = 30 ÷ 90 × 100 = 33.3% ≈ 33%.">فيديو
-            حجمه 90 MB اتحول لملف مضغوط حجمه 30 MB — نسبة الضغط = 30 ÷ 90 × 100 = 33.3% ≈ <b>33%</b>.</span></div>
+ حجمه 90 MB اتحول لملف مضغوط حجمه 30 MB — نسبة الضغط = 30 ÷ 90 × 100 = 33.3% ≈ <b>33%</b>.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«2. ضغط البيانات (1) الضغط (Compression) : عملية تقليل حجم البيانات بقدر ممكن مع الحفاظ على محتوى البيانات. (2) فك الضغط (Decompression) : عملية استعادة البيانات المضغوطة إلى حالتها الأصلية. (3) نسبة الضغط (Compression ratio) : المدى الذي تم به ضغط البيانات. نسبة الضغط = (حجم البيانات بعد الضغط) / (حجم البيانات الأصلي) × 100 (4) الضغط غير الفاقد والضغط الفاقد [1] الضغط غير الفاقد (Lossless compression) : طريقة ضغط تسمح بالاستعادة الكاملة للبيانات الأصلية من البيانات المضغوطة. تستخدم لضغط البيانات مثل بيانات النص أو البرنامج. [2] الضغط مع فقدان البيانات (Lossy compression) : طريقة ضغط لا يمكن من خلالها استعادة البيانات الأصلية من البيانات المضغوطة. يستخدم الضغط المفقود لضغط ملفات الصوت والصور والفيديو بطريقة لا يدرك فيها البشر فرقًا كبيرًا، حتى لو تعذر استعادة هذه الملفات بشكل مثالي إلى شكلها الأصلي.»</p></div>
 
       <div class="section-inner">
@@ -1362,8 +391,8 @@ select{color:var(--text)!important}
             <div class="flow-card" data-id="compress">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="compress"></svg>
-                <div class="svg-label" data-fbox="orig" data-ar="الداتا (Data) الأصلية = 90 MB"
-                  data-en="original data = 90 MB">الداتا (Data) الأصلية = 90 MB</div>
+                <div class="svg-label" data-fbox="orig" data-ar="البيانات الأصلية = 90 MB"
+                  data-en="original data = 90 MB">البيانات الأصلية = 90 MB</div>
                 <div class="svg-label" data-fbox="comp" data-ar="بعد الضغط = 30 MB"
                   data-en="after compression = 30 MB">بعد الضغط = 30 MB</div>
                 <div class="svg-label" data-fbox="ratio" data-ar="نسبة الضغط = 33%"
@@ -1371,8 +400,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="compressPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="compressNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="compressPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="compressNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="compressCounter">1 / 3</span>
                 <button class="mini-btn" data-id="compressReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1401,24 +430,24 @@ select{color:var(--text)!important}
             <div class="rq-opts">
               <div class="rq-opt" data-id="compressRq1o2" data-key="A"
                 data-fb-ar="مش كده — دي عملية الضغط نفسها." data-fb-en="Not quite — that is the compression process itself."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="تقليل مقدار الداتا (Data)"
-                  data-en="reducing the amount of data">تقليل مقدار الداتا (Data)</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="تقليل مقدار البيانات"
+                  data-en="reducing the amount of data">تقليل مقدار البيانات</span></div>
               <div class="rq-opt" data-id="compressRq1o3" data-key="B"
                 data-fb-ar="مش كده — فك الضغط بيرجّع مش بيحذف." data-fb-en="Not quite — decompression restores, it does not delete."><span
-                  class="rq-key">B</span><span class="rq-body" data-ar="مسح الداتا (Data) نهائياً"
-                  data-en="deleting the data permanently">مسح الداتا (Data) نهائياً</span></div>
+                  class="rq-key">B</span><span class="rq-body" data-ar="مسح البيانات نهائياً"
+                  data-en="deleting the data permanently">مسح البيانات نهائياً</span></div>
               <div class="rq-opt" data-id="compressRq1o1" data-key="C" data-ok="1"
                 data-fb-ar="صحيح! فك الضغط بيرجّع البيانات المضغوطة لحالتها الأصلية."
                 data-fb-en="Correct! Decompression restores compressed data to its original state."><span
-                  class="rq-key">C</span><span class="rq-body" data-ar="ترجيع الداتا (Data) المضغوطة لحالتها الأصلية"
-                  data-en="restoring compressed data to its original state">ترجيع الداتا (Data) المضغوطة لحالتها الأصلية</span></div>
+                  class="rq-key">C</span><span class="rq-body" data-ar="ترجيع البيانات المضغوطة لحالتها الأصلية"
+                  data-en="restoring compressed data to its original state">ترجيع البيانات المضغوطة لحالتها الأصلية</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="compressRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="compressRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="داتا (Data) أصلية 90 MB اتحوّلت لـ 30 MB — نسبة الضغط كام؟"
-                data-en="Original data of 90 MB was converted to 30 MB — what is the compression ratio?">داتا (Data) أصلية 90 MB اتحوّلت لـ 30 MB — نسبة الضغط كام؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="بيانات أصلية 90 MB اتحوّلت لـ 30 MB — نسبة الضغط كام؟"
+                data-en="Original data of 90 MB was converted to 30 MB — what is the compression ratio?">بيانات أصلية 90 MB اتحوّلت لـ 30 MB — نسبة الضغط كام؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="compressRq2o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! 30 ÷ 90 × 100 = 33.3% ≈ 33%."
@@ -1446,26 +475,26 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s5),#be185d)">05</div>
           <div>
             <h2 data-ar="ضغط بدون فقد وضغط بفقد" data-en="Lossless and Lossy Compression">الضغط بدون فقدان
-              والضغط مع الفقدان <span dir="ltr">(Lossless vs Lossy)</span></h2>
-            <div class="tag" style="color:var(--s5)" data-ar="نوعي الضغط والطرق الأساسية — EN PDF 77 (المطبوع 77)؛ AR 87–88"
-              data-en="the two compression types and the main methods — EN PDF 77 (printed 77); AR 87-88">نوعي الضغط والطرق الأساسية — EN PDF 77 (المطبوع 77)؛ AR 87–88</div>
+ والضغط مع الفقدان <span dir="ltr">(Lossless vs Lossy)</span></h2>
+            <div class="tag" style="color:var(--s5)" data-ar="نوعي الضغط والطرق الأساسية"
+              data-en="the two compression types and the main methods">نوعي الضغط والطرق الأساسية</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الضغط بدون فقد هو طريقة ضغط بتسمح بترجيع الداتا (Data) الأصلية بالكامل من الداتا (Data) المضغوطة — وبيتستخدم في ضغط النصوص وداتا (Data) البرامج."
+        <p data-ar="الضغط بدون فقد هو طريقة ضغط بتسمح بترجيع البيانات الأصلية بالكامل من البيانات المضغوطة — وبيتستخدم في ضغط النصوص وبيانات البرامج."
           data-en="Lossless compression is a compression method that allows the complete restoration of the original data from the compressed data — it is used for compressing text and program data.">
           <b>الضغط بدون فقدان <span dir="ltr">(Lossless compression)</span></b> هو طريقة ضغط بتسمح باستعادة البيانات
-          الأصلية <b>كاملة</b> من البيانات المضغوطة — وبنستخدمه لضغط المعلومات زي النصوص وبيانات البرامج.</p>
-        <p data-ar="الضغط بفقد هو طريقة ضغط مش بيتقدر يتترجع منها الداتا (Data) الأصلية بالكامل — وبيتستخدم في ضغط الصوت والصور والفيديو، لأن الإنسان مش بيحس بفرق كبير في الجودة."
+ الأصلية <b>كاملة</b> من البيانات المضغوطة — وبنستخدمه لضغط المعلومات زي النصوص وبيانات البرامج.</p>
+        <p data-ar="الضغط بفقد هو طريقة ضغط مش بيتقدر يتترجع منها البيانات الأصلية بالكامل — وبيتستخدم في ضغط الصوت والصور والفيديو، لأن الإنسان مش بيحس بفرق كبير في الجودة."
           data-en="Lossy compression is a compression method in which the original data cannot be completely restored — it is used for compressing audio, images, and video, because humans do not perceive a significant difference in quality.">
           <b>الضغط مع الفقدان <span dir="ltr">(Lossy compression)</span></b> هو طريقة ضغط مش بتسمح باستعادة البيانات
-          الأصلية كاملة — وبنستخدمه لضغط الصوت والصور والفيديو، لأن الإنسان مش بيلاحظ فرق كبير في الجودة.</p>
+ الأصلية كاملة — وبنستخدمه لضغط الصوت والصور والفيديو، لأن الإنسان مش بيلاحظ فرق كبير في الجودة.</p>
         <div class="note"><b data-ar="الأنواع الأساسية للضغط بدون فقد:" data-en="Main types of lossless compression:">الأنواع الأساسية للضغط بدون فقد:</b> <span
-            data-ar="الترميز بطول التشغيل (Run-length) بيبدّل تتابعات الرموز المتتالية نفسها برقم بيعبّر عن الطول (زي A5B2A4B8A6)، وترميز Huffman بيدّي تتابعات بت أقصر للحروف الأكثر تكراراً."
-            data-en="Run-length encoding replaces sequences of the same consecutive symbols with a number expressing the length (like A5B2A4B8A6), and Huffman coding assigns shorter bit sequences to the most frequent characters.">الترميز بطول التشغيل (Run-length) بيبدّل تتابعات الرموز المتتالية نفسها برقم بيعبّر عن الطول (زي A5B2A4B8A6)، وترميز Huffman بيدّي تتابعات بت أقصر للحروف الأكثر تكراراً.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«3. الأنواع الرئيسية للضغط بدون فقدان (1) ترميز طول التشغيل (Run-length encoding) : طريقة ضغط تستبدل تسلسلات الرموز المتتالية المتطابقة بقيمة رقمية تشير إلى طول التسلسل. وهي فعالة عندما يكون هناك العديد من الرموز المتطابقة المتتالية. <مثال> قبل الضغط:“AAAAABBAAAABBBBBBBBAAAAAA” (25 حرفًا) 5 من “A” 2 من “B” 4 من “A” 8 من “B” 6 من “A” (ب)بعد الضغط: A5B2A4B8A6 (10 أحرف) نسبة الضغط هي ( 10/25 × 100 ) = ( 40 [%] ). (2) ترميز هوفمان (Huffman coding) : طريقة ضغط تعين تسلسلات بت bit أقصر للأحرف ذات ذات التكرار الأعلى، وتسلسلات بتات bits أطول للأحرف ذات التكرار الأقل.»</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإنجليزية ترقّم المصطلحات والصيغ بأرقام مرتفعة ¹-²⁰ داخل ثلاثة أقسام مرقمة؛ العربية بلا أرقام مرتفعة، وفي مثال طول التشغيل تلصق الرقم المرتفع ¹⁷ بـ«(10 أحرف» بينما تلصقه الإنجليزية بـ(A5B2A4B8A6) نفسها. عنوان الدرس العربي «التمثيل الرقمي وضغط الفيديو» مقابل &quot;Digital Representation and Compression Technology for Videos&quot;. البند (3) العربي يطبع «الوحدة هي fps ×.» بعلامة × بعد الوحدة كما طُبعت، والإنجليزية &quot;The unit is (fps).&quot;. الضغط الفاقد يظهر في العربية بثلاث صيغ:«الضغط الفاقد» في عنوان (4)، و«الضغط مع فقدان البيانات» في عنوان [2]، و«يستخدم الضغط المفقود» في المتن؛ الإنجليزية &quot;Lossy compression&quot; في كل المواضع. سطر المثال العربي يطبع «(ب)بعد الضغط» بادئة (ب) كما طُبعت، والإنجليزية &quot;After compression:&quot; فقط. تعريف هوفمان العربي «للأحرف ذات ذات التكرار الأعلى» بـ«ذات» مكررة كما طُبعت، والإنجليزية &quot;with higher frequencies of occurrence&quot;. العربية تطبع علامة = في سطر نسبة الضغط كمربع فارغ (رمز ناقص في الخط)؛ كتبناها هنا = كما في الإنجليزية ＝. صيغة نسبة الضغط في «النقاط» العربية «نسبة الضغط = ... × 100» بلا [%]، والإنجليزية &quot;Compression ratio [%] =&quot;." data-en="Edition comparison (verified from the printed page images): English numbers terms and formulas with superscripts 1-20 inside three numbered sections; Arabic has no superscripts, and in the run-length example it attaches superscript 17 to «(10 characters» where English attaches 17 to (A5B2A4B8A6) itself. The Arabic lesson title is «التمثيل الرقمي وضغط الفيديو» vs &quot;Digital Representation and Compression Technology for Videos&quot;. Arabic item (3) prints «الوحدة هي fps ×.» with a × after the unit as printed; English &quot;The unit is (fps).&quot;. Lossy appears in three Arabic wordings:«الضغط الفاقد» in heading (4), «الضغط مع فقدان البيانات» in heading [2], and «الضغط المفقود» in the body; English uses &quot;Lossy compression&quot; throughout. The Arabic example line prints «(ب)بعد الضغط» with a (ب) prefix as printed; English only &quot;After compression:&quot;. The Arabic Huffman definition prints «ذات ذات التكرار الأعلى» with a doubled word as printed vs English &quot;with higher frequencies of occurrence&quot;. Arabic renders the = in the compression-ratio line as an empty box (missing glyph); we write it as = per the English ＝. The Arabic Point formula omits the [%] unit label that English prints in &quot;Compression ratio [%] =&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإنجليزية ترقّم المصطلحات والصيغ بأرقام مرتفعة ¹-²⁰ داخل ثلاثة أقسام مرقمة؛ العربية بلا أرقام مرتفعة، وفي مثال طول التشغيل تلصق الرقم المرتفع ¹⁷ بـ«(10 أحرف» بينما تلصقه الإنجليزية بـ(A5B2A4B8A6) نفسها. عنوان الدرس العربي «التمثيل الرقمي وضغط الفيديو» مقابل "Digital Representation and Compression Technology for Videos". البند (3) العربي يطبع «الوحدة هي fps ×.» بعلامة × بعد الوحدة كما طُبعت، والإنجليزية "The unit is (fps).". الضغط الفاقد يظهر في العربية بثلاث صيغ:«الضغط الفاقد» في عنوان (4)، و«الضغط مع فقدان البيانات» في عنوان [2]، و«يستخدم الضغط المفقود» في المتن؛ الإنجليزية "Lossy compression" في كل المواضع. سطر المثال العربي يطبع «(ب)بعد الضغط» بادئة (ب) كما طُبعت، والإنجليزية "After compression:" فقط. تعريف هوفمان العربي «للأحرف ذات ذات التكرار الأعلى» بـ«ذات» مكررة كما طُبعت، والإنجليزية "with higher frequencies of occurrence". العربية تطبع علامة = في سطر نسبة الضغط كمربع فارغ (رمز ناقص في الخط)؛ كتبناها هنا = كما في الإنجليزية ＝. صيغة نسبة الضغط في «النقاط» العربية «نسبة الضغط = ... × 100» بلا [%]، والإنجليزية "Compression ratio [%] =".</div></div></div>
+            data-ar="الترميز بطول التشغيل بيبدّل تتابعات الرموز المتتالية نفسها برقم بيعبّر عن الطول (زي A5B2A4B8A6)، وترميز Huffman بيدّي تتابعات بت أقصر للحروف الأكثر تكراراً."
+            data-en="Run-length encoding replaces sequences of the same consecutive symbols with a number expressing the length (like A5B2A4B8A6), and Huffman coding assigns shorter bit sequences to the most frequent characters.">الترميز بطول التشغيل بيبدّل تتابعات الرموز المتتالية نفسها برقم بيعبّر عن الطول (زي A5B2A4B8A6)، وترميز Huffman بيدّي تتابعات بت أقصر للحروف الأكثر تكراراً.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«3. الأنواع الرئيسية للضغط بدون فقدان (1) ترميز طول التشغيل: طريقة ضغط تستبدل تسلسلات الرموز المتتالية المتطابقة بقيمة رقمية تشير إلى طول التسلسل. وهي فعالة عندما يكون هناك العديد من الرموز المتطابقة المتتالية. <مثال> قبل الضغط:“AAAAABBAAAABBBBBBBBAAAAAA” (25 حرفًا) 5 من “A” 2 من “B” 4 من “A” 8 من “B” 6 من “A” (ب)بعد الضغط: A5B2A4B8A6 (10 أحرف) نسبة الضغط هي ( 10/25 × 100 ) = ( 40 [%] ). (2) ترميز هوفمان: طريقة ضغط تعين تسلسلات بت bit أقصر للأحرف ذات ذات التكرار الأعلى، وتسلسلات بتات bits أطول للأحرف ذات التكرار الأقل.»</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإنجليزية ترقّم المصطلحات والصيغ بأرقام مرتفعة ¹-²⁰ داخل ثلاثة أقسام مرقمة؛ العربية بلا أرقام مرتفعة، وفي مثال طول التشغيل تلصق الرقم المرتفع ¹⁷ بـ«(10 أحرف» بينما تلصقه الإنجليزية بـ(A5B2A4B8A6) نفسها. عنوان الدرس العربي «التمثيل الرقمي وضغط الفيديو» مقابل &quot;Digital Representation and Compression Technology for Videos&quot;. البند (3) العربي يطبع «الوحدة هي fps ×.» بعلامة × بعد الوحدة كما طُبعت، والإنجليزية &quot;The unit is (fps).&quot;. الضغط الفاقد يظهر في العربية بثلاث صيغ:«الضغط الفاقد» في عنوان (4)، و«الضغط مع فقدان البيانات» في عنوان [2]، و«يستخدم الضغط المفقود» في المتن؛ الإنجليزية &quot;Lossy compression&quot; في كل المواضع. سطر المثال العربي يطبع «(ب)بعد الضغط» بادئة (ب) كما طُبعت، والإنجليزية &quot;After compression:&quot; فقط. تعريف هوفمان العربي «للأحرف ذات ذات التكرار الأعلى» بـ«ذات» مكررة كما طُبعت، والإنجليزية &quot;with higher frequencies of occurrence&quot;. العربية تطبع علامة = في سطر نسبة الضغط كمربع فارغ (رمز ناقص في الخط)؛ كتبناها هنا = كما في الإنجليزية ＝. صيغة نسبة الضغط في «النقاط» العربية «نسبة الضغط = ... × 100» بلا [%]، والإنجليزية &quot;Compression ratio [%] =&quot;." data-en="Edition comparison (verified from the printed page images): English numbers terms and formulas with superscripts 1-20 inside three numbered sections; Arabic has no superscripts, and in the run-length example it attaches superscript 17 to «(10 characters» where English attaches 17 to (A5B2A4B8A6) itself. The Arabic lesson title is «التمثيل الرقمي وضغط الفيديو» vs &quot;Digital Representation and Compression Technology for Videos&quot;. Arabic item (3) prints «الوحدة هي fps ×.» with a × after the unit as printed; English &quot;The unit is (fps).&quot;. Lossy appears in three Arabic wordings:«الضغط الفاقد» in heading (4), «الضغط مع فقدان البيانات» in heading [2], and «الضغط المفقود» in the body; English uses &quot;Lossy compression&quot; throughout. The Arabic example line prints «(ب)بعد الضغط» with a (ب) prefix as printed; English only &quot;After compression:&quot;. The Arabic Huffman definition prints «ذات ذات التكرار الأعلى» with a doubled word as printed vs English &quot;with higher frequencies of occurrence&quot;. Arabic renders the = in the compression-ratio line as an empty box (missing glyph); we write it as = per the English ＝. The Arabic Point formula omits the [%] unit label that English prints in &quot;Compression ratio [%] =&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): الإنجليزية ترقّم المصطلحات والصيغ بأرقام مرتفعة ¹-²⁰ داخل ثلاثة أقسام مرقمة؛ العربية بلا أرقام مرتفعة، وفي مثال طول التشغيل تلصق الرقم المرتفع ¹⁷ بـ«(10 أحرف» بينما تلصقه الإنجليزية بـ(A5B2A4B8A6) نفسها. عنوان الدرس العربي «التمثيل الرقمي وضغط الفيديو» مقابل "Digital Representation and Compression Technology for Videos". البند (3) العربي يطبع «الوحدة هي fps ×.» بعلامة × بعد الوحدة كما طُبعت، والإنجليزية "The unit is (fps).". الضغط الفاقد يظهر في العربية بثلاث صيغ:«الضغط الفاقد» في عنوان (4)، و«الضغط مع فقدان البيانات» في عنوان [2]، و«يستخدم الضغط المفقود» في المتن؛ الإنجليزية "Lossy compression" في كل المواضع. سطر المثال العربي يطبع «(ب)بعد الضغط» بادئة (ب) كما طُبعت، والإنجليزية "After compression:" فقط. تعريف هوفمان العربي «للأحرف ذات ذات التكرار الأعلى» بـ«ذات» مكررة كما طُبعت، والإنجليزية "with higher frequencies of occurrence". العربية تطبع علامة = في سطر نسبة الضغط كمربع فارغ (رمز ناقص في الخط)؛ كتبناها هنا = كما في الإنجليزية ＝. صيغة نسبة الضغط في «النقاط» العربية «نسبة الضغط = ... × 100» بلا [%]، والإنجليزية "Compression ratio [%] =".</div></div></div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
@@ -1485,8 +514,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="lossPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="lossNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="lossPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="lossNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="lossCounter">1 / 3</span>
                 <button class="mini-btn" data-id="lossReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1510,8 +539,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="lossRecall">
           <div class="rq" data-id="lossRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="أي نوع ضغط بيسمح بترجيع الداتا (Data) الأصلية بالكامل؟"
-                data-en="Which compression type allows complete restoration of the original data?">أي نوع ضغط بيسمح بترجيع الداتا (Data) الأصلية بالكامل؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="أي نوع ضغط بيسمح بترجيع البيانات الأصلية بالكامل؟"
+                data-en="Which compression type allows complete restoration of the original data?">أي نوع ضغط بيسمح بترجيع البيانات الأصلية بالكامل؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="lossRq1o2" data-key="A"
                 data-fb-ar="مش كده — Lossy مش بيسترجع البيانات كاملة."
@@ -1533,8 +562,8 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="lossRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="lossRq2">
-            <div class="rq-q"><span class="q-num">2</span> <span data-ar="داتا (Data) الصوت والصورة والفيديو بتتضغط بأنهي نوع؟"
-                data-en="Audio, image, and video data are compressed with which type?">داتا (Data) الصوت والصورة والفيديو بتتضغط بأنهي نوع؟</span></div>
+            <div class="rq-q"><span class="q-num">2</span> <span data-ar="بيانات الصوت والصورة والفيديو بتتضغط بأنهي نوع؟"
+                data-en="Audio, image, and video data are compressed with which type?">بيانات الصوت والصورة والفيديو بتتضغط بأنهي نوع؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="lossRq2o2" data-key="A"
                 data-fb-ar="مش كده — Lossless بيخص النصوص والبرامج غالباً."
@@ -1565,8 +594,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">06</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 78–80 (المطبوع 78–80)؛ AR 88–91"
-              data-en="Your book: EN PDF 78-80 (printed 78-80); AR 88-91">الكتاب بتاعك:EN PDF 78–80 (المطبوع 78–80)؛ AR 88–91</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1594,7 +623,7 @@ select{color:var(--text)!important}
           <p data-ar="«(2) فكر في كيفية تمثيل صورة باستخدام البكسلات pixels. في حالة الرسم التخطيطي على اليمين، يتم قراءة 25 بكسل pixel في الشبكة 5×55×5 واحدًا تلو الآخر من أعلى اليسار، صفًا بصف، تتحرك إلى اليمين. إذا كان البكسل pixel أسود، فاكتب &quot;B&quot;؛ إذا كان أبيض، فاكتب &quot;W&quot;. هذا النتائج في التسلسل:“BBBBBBWWWWBBBBWWWWWWWWWWWW”. (ب) بعد ذلك، من خلال تمثيل الأحرف المتتالية &quot;B&quot; أو &quot;W&quot; بطول n (حيث n هو عدد صحيح من 2 أو أكثر) كـ &quot;Bn&quot; أو &quot;Wn&quot;، يمكن ضغط التسلسل إلى &quot;B6W4B4WBW4BW4&quot;. باستخدام نفس الطريقة مع شبكة أخرى من 5 × 5، ما هو الحرف الأبجدي الذي تمثله البيانات المضغوطة التالية؟ “B4WBW3B5WBW4BW4”»" data-en="&quot;(2) Consider how to represent an image using pixels. In the case of the diagram on the right, the 25 pixels in the 5 × 5 grid are read one by one from the top-left, row by row, moving to the right. If a pixel is black, write “B”; if it is white, write “W”. This results in the sequence:“BBBBBBWWWWBBBBWBWWWWBWWWW”. Next, by representing consecutive characters “B” or “W” of length n (where n is an integer of 2 or more) as “Bn” or “Wn”, the sequence can be compressed to “B6W4B4WBW4BW4”. Using the same method with another 5 × 5 grid, what is the alphabet letter represented by the following compressed data? “B4WBW3B5WBW4BW4”&quot;">«(2) فكر في كيفية تمثيل صورة باستخدام البكسلات pixels. في حالة الرسم التخطيطي على اليمين، يتم قراءة 25 بكسل pixel في الشبكة 5×55×5 واحدًا تلو الآخر من أعلى اليسار، صفًا بصف، تتحرك إلى اليمين. إذا كان البكسل pixel أسود، فاكتب "B"؛ إذا كان أبيض، فاكتب "W". هذا النتائج في التسلسل:“BBBBBBWWWWBBBBWWWWWWWWWWWW”. (ب) بعد ذلك، من خلال تمثيل الأحرف المتتالية "B" أو "W" بطول n (حيث n هو عدد صحيح من 2 أو أكثر) كـ "Bn" أو "Wn"، يمكن ضغط التسلسل إلى "B6W4B4WBW4BW4". باستخدام نفس الطريقة مع شبكة أخرى من 5 × 5، ما هو الحرف الأبجدي الذي تمثله البيانات المضغوطة التالية؟ “B4WBW3B5WBW4BW4”»</p>
           <p data-ar="«الشرح. (1) [1] حجم البيانات لكل إطار هو، 500 × 200 × 24 [بت bit] = 2,400,000 [بت bit] بما لأن 1 ب = 8 بتات bits، فإن 2,400,000 [بت bit] ÷ 8 = 300,000 [بت bit] كمية البيانات لمقطع فيديو مدته 10 ثوانٍ بمعدل 30 إطارًا في الثانية هي كما يلي: 300,000 [بايت bit] × 30 [إطارًا في الثانية] × 10 [ثانية] = 90,000,000 [بايت bit] 1 كيلوبايت [KB] = 1,000 [بايت bit]، 1 ميجابايت = 1,000 كيلوبايت [KB]، وبالتالي 90,000,000 [بايت bit] ÷ 1,000 ÷ 1,000 = 90 [ميجابايت] 90 ميجابايت MB [2] نسبة الضغط [%] = كمية البيانات بعد الضغط / الكمية الأصلية من البيانات × 100، 30/90 × 100 ＝ 33.3…〔%〕 مما ينتج عنه 33% (2) توسيع بيانات ما قبل الضغط &quot;B4WBW3B5WBW4BW4&quot; yields “&quot;BBBBWWWWBBBBWWWWWWWWWWWW&quot;. إذا ملأت شبكة 5×55×5 بكسل واحدًا تلو الآخر من أعلى اليسار، صفًا بصف إلى اليمين، بتلوين الأسود لـ &quot;B&quot; والأبيض لـ &quot;W&quot;، فستحصل على الصورة shown على اليمين. لذلك، P»" data-en="&quot;Explanation (1) [1] The amount of data per frame is, 500 × 200 × 24 [bits] = 2,400,000 [bits] Since 1 B = 8 bits, 2,400,000 [bits] ÷ 8 = 300,000 [B] The amount of data of a 10-second video at 30 fps is as follows:300,000 [B] × 30 [fps] × 10 [seconds] = 90,000,000 [B] 1 KB = 1,000 B, 1 MB = 1,000 KB, therefore, 90,000,000 [B] ÷ 1,000 ÷ 1,000 = 90 [MB] 90 MB [2] Compression ratio [%] = Amount of data after compression / Original amount of data × 100, 30/90 × 100 ＝ 33.3…〔%〕 resulting in 33% (2) Expanding the pre-compressed data “B4WBW3B5WBW4BW4” yields “BBBBWBWWWBBBBBWBWWWWBWWWW”. If you fill in a 5 × 5 grid one pixel at a time from the top-left, row by row to the right, coloring black for “B” and white for “W”, you will get the image shown on the right. Therefore, P&quot;">«الشرح. (1) [1] حجم البيانات لكل إطار هو، 500 × 200 × 24 [بت bit] = 2,400,000 [بت bit] بما لأن 1 ب = 8 بتات bits، فإن 2,400,000 [بت bit] ÷ 8 = 300,000 [بت bit] كمية البيانات لمقطع فيديو مدته 10 ثوانٍ بمعدل 30 إطارًا في الثانية هي كما يلي:300,000 [بايت bit] × 30 [إطارًا في الثانية] × 10 [ثانية] = 90,000,000 [بايت bit] 1 كيلوبايت [KB] = 1,000 [بايت bit]، 1 ميجابايت = 1,000 كيلوبايت [KB]، وبالتالي 90,000,000 [بايت bit] ÷ 1,000 ÷ 1,000 = 90 [ميجابايت] 90 ميجابايت MB [2] نسبة الضغط [%] = كمية البيانات بعد الضغط / الكمية الأصلية من البيانات × 100، 30/90 × 100 ＝ 33.3…〔%〕 مما ينتج عنه 33% (2) توسيع بيانات ما قبل الضغط "B4WBW3B5WBW4BW4" yields “"BBBBWWWWBBBBWWWWWWWWWWWW". إذا ملأت شبكة 5×55×5 بكسل واحدًا تلو الآخر من أعلى اليسار، صفًا بصف إلى اليمين، بتلوين الأسود لـ "B" والأبيض لـ "W"، فستحصل على الصورة shown على اليمين. لذلك، P»</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): سؤال [1] العربي يطبع الدقة «200×200500×500» كما طُبعت؛ الإنجليزية &quot;500 × 200 pixels&quot;، و«الشرح» في النسختين يحسب بـ 500 × 200. تسلسل السؤال (2) العربي مطبوع “BBBBBBWWWWBBBBWWWWWWWWWWWW” كما ورد؛ الإنجليزية “BBBBBBWWWWBBBBWBWWWWBWWWW” وهو ما يطابق الصيغة المضغوطة &quot;B6W4B4WBW4BW4&quot; المطبوعة في النسختين — حُفظ النص كما طُبع دون ترجيح. العربية تطبع «5×55×5» في موضعين، والإنجليزية &quot;5 × 5&quot;. «الشرح» العربي يبقي كلمتين إنجليزيتين:&quot;yields&quot; و&quot;shown&quot;، ويطبع البيانات الموسّعة «“&quot;BBBBWWWWBBBBWWWWWWWWWWWW&quot;» بعلامة اقتباس مزدوجة و24 حرفًا؛ الإنجليزية &quot;BBBBWBWWWBBBBBWBWWWWBWWWW&quot; (25 حرفًا) وهو ما يطابق البيانات المضغوطة — حُفظ كما طُبع. في «الشرح» العربي ناتج القسمة 300,000 موسوم «[بت bit]» بينما الإنجليزية &quot;[B]&quot; (بايت)، والسطور التالية تستخدم «[بايت bit]». العربية تعرض = و〔%〕 في سطور النسبة كمربعات فارغة (رموز ناقصة في الخط)؛ كتبناها ＝ و〔%〕 كما في الإنجليزية. «بما لأن» كما طُبعت. شكل الحرف P مطبوع بجانب «الشرح» في الإنجليزية وغير مطبوع في الصفحة العربية رغم الإشارة إليه؛ وشكل الحرف E في سؤال (2) مطبوع في النسختين. إجابات «تحدى معلوماتك» مطبوعة في النسختين:[1] 90 MB، [2] 33%، (2) الحرف P." data-en="Edition comparison (verified from the printed page images): Arabic question [1] prints the resolution as «200×200500×500» as printed; English prints &quot;500 × 200 pixels&quot;, and both editions' Explanation computes with 500 × 200. The Arabic question (2) sequence prints &quot;BBBBBBWWWWBBBBWWWWWWWWWWWW&quot; as printed; English prints &quot;BBBBBBWWWWBBBBWBWWWWBWWWW&quot;, which matches the compressed form &quot;B6W4B4WBW4BW4&quot; printed in both editions - preserved as printed without choosing. Arabic prints «5×55×5» twice vs English &quot;5 × 5&quot;. The Arabic Explanation keeps two English words, &quot;yields&quot; and &quot;shown&quot;, and prints the expanded data with a doubled opening quote and 24 characters; English prints &quot;BBBBWBWWWBBBBBWBWWWWBWWWW&quot; (25 characters), matching the compressed data - preserved as printed. In the Arabic Explanation the 300,000 result is tagged «[بت bit]» (bits) where English prints &quot;[B]&quot; (bytes); later Arabic lines use «[بايت bit]». Arabic renders the = and 〔%〕 in the ratio lines as empty boxes (missing glyphs); we write ＝ and 〔%〕 per the English. The letter-P figure printed beside the English Explanation is not printed on the Arabic page although its text refers to it; the letter-E figure in question (2) is printed in both. Warm Up answers are printed in both editions:[1] 90 MB, [2] 33%, (2) the letter P.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): سؤال [1] العربي يطبع الدقة «200×200500×500» كما طُبعت؛ الإنجليزية "500 × 200 pixels"، و«الشرح» في النسختين يحسب بـ 500 × 200. تسلسل السؤال (2) العربي مطبوع “BBBBBBWWWWBBBBWWWWWWWWWWWW” كما ورد؛ الإنجليزية “BBBBBBWWWWBBBBWBWWWWBWWWW” وهو ما يطابق الصيغة المضغوطة "B6W4B4WBW4BW4" المطبوعة في النسختين — حُفظ النص كما طُبع دون ترجيح. العربية تطبع «5×55×5» في موضعين، والإنجليزية "5 × 5". «الشرح» العربي يبقي كلمتين إنجليزيتين: "yields" و"shown"، ويطبع البيانات الموسّعة «“"BBBBWWWWBBBBWWWWWWWWWWWW"» بعلامة اقتباس مزدوجة و24 حرفًا؛ الإنجليزية "BBBBWBWWWBBBBBWBWWWWBWWWW" (25 حرفًا) وهو ما يطابق البيانات المضغوطة — حُفظ كما طُبع. في «الشرح» العربي ناتج القسمة 300,000 موسوم «[بت bit]» بينما الإنجليزية "[B]" (بايت)، والسطور التالية تستخدم «[بايت bit]». العربية تعرض = و〔%〕 في سطور النسبة كمربعات فارغة (رموز ناقصة في الخط)؛ كتبناها ＝ و〔%〕 كما في الإنجليزية. «بما لأن» كما طُبعت. شكل الحرف P مطبوع بجانب «الشرح» في الإنجليزية وغير مطبوع في الصفحة العربية رغم الإشارة إليه؛ وشكل الحرف E في سؤال (2) مطبوع في النسختين. إجابات «تحدى معلوماتك» مطبوعة في النسختين: [1] 90 MB، [2] 33%، (2) الحرف P.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 78 (المطبوع 78)؛ AR 88–89." data-en="The text above is from the book. Full source: English PDF 78 (printed 78); Arabic 88-89.">النص السابق من الكتاب. المصدر الكامل:EN PDF 78 (المطبوع 78)؛ AR 88–89.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
@@ -1605,7 +634,7 @@ select{color:var(--text)!important}
           <p data-ar="«3 أجب على الأسئلة التالية. (1) فكر في كيفية تمثيل صورة باستخدام البكسلات. في حالة الرسم التوضيحي على اليمين، تُقرأ البكسلات البالغ عددها 25 في الشبكة 5 × 5 واحدة تلو الأخرى من أعلى اليسار، صفًا بصف، متجهًا إلى اليمين. إذا كان البكسل أسود، اكتب &quot;B&quot;؛ وإذا كان أبيض، اكتب &quot;W&quot;. ينتج عن هذا التسلسل:“BBBBBBWWWWBBBBWBWWWWBWWWW”. (ب) بعد ذلك، عن طريق تمثيل الأحرف المتتالية &quot;B&quot; أو &quot;W&quot; بطول n (حيث n هو عدد صحيح من 2 أو أكثر) على أنها &quot;Bn&quot; أو &quot;Wn&quot;، يمكن ضغط التسلسل إلى &quot;B6W4B4WBW4BW4&quot;. باستخدام نفس الطريقة مع شبكة 5 × 5 أخرى، ما هو الحرف الأبجدي الذي تمثله البيانات المضغوطة التالية؟ “BW3B2W3B7W3B2W3B” (2) ما هو المصطلح الذي يطلق على طريقة الضغط التي تمثل البيانات المتكررة عن طريق سرد البيانات وعدد تكرارها المتتالي، كما هو موضح في (1)؟ اختر واحدة من الخيارات أ إلى ث، وأجب باستخدام الحرف. (أ) ترميز هوفمان Huffman coding (ب) برنامج ترميز (Codec) (ت) ترميز طول التشغيل (Run-length encoding) (د) ترميز LZ»" data-en="&quot;3 Answer the following questions. (1) Consider how to represent an image using pixels. In the case of the diagram on the right, the 25 pixels in the 5 × 5 grid are read one by one from the top-left, row by row, moving to the right. If a pixel is black, write “B”; if it is white, write “W”. This results in the sequence:“BBBBBBWWWWBBBBWBWWWWBWWWW”. Next, by representing consecutive characters “B” or “W” of length n (where n is an integer of 2 or more) as “Bn” or “Wn”, the sequence can be compressed to “B6W4B4WBW4BW4”. Using the same method with another 5 × 5 grid, what is the alphabet letter represented by the following compressed data? “BW3B2W3B7W3B2W3B” (2) What is the term for the compression method that represents repeated data by listing the data and the number of consecutive occurrences, as shown in (1)? Choose one from the options A to D, and answer using the letter. A Huffman coding B Codec C Run-length encoding D LZ encoding&quot;">«3 أجب على الأسئلة التالية. (1) فكر في كيفية تمثيل صورة باستخدام البكسلات. في حالة الرسم التوضيحي على اليمين، تُقرأ البكسلات البالغ عددها 25 في الشبكة 5 × 5 واحدة تلو الأخرى من أعلى اليسار، صفًا بصف، متجهًا إلى اليمين. إذا كان البكسل أسود، اكتب "B"؛ وإذا كان أبيض، اكتب "W". ينتج عن هذا التسلسل:“BBBBBBWWWWBBBBWBWWWWBWWWW”. (ب) بعد ذلك، عن طريق تمثيل الأحرف المتتالية "B" أو "W" بطول n (حيث n هو عدد صحيح من 2 أو أكثر) على أنها "Bn" أو "Wn"، يمكن ضغط التسلسل إلى "B6W4B4WBW4BW4". باستخدام نفس الطريقة مع شبكة 5 × 5 أخرى، ما هو الحرف الأبجدي الذي تمثله البيانات المضغوطة التالية؟ “BW3B2W3B7W3B2W3B” (2) ما هو المصطلح الذي يطلق على طريقة الضغط التي تمثل البيانات المتكررة عن طريق سرد البيانات وعدد تكرارها المتتالي، كما هو موضح في (1)؟ اختر واحدة من الخيارات أ إلى ث، وأجب باستخدام الحرف. (أ) ترميز هوفمان Huffman coding (ب) برنامج ترميز (Codec) (ت) ترميز طول التشغيل (Run-length encoding) (د) ترميز LZ»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] ظاهرة الصورة الباقية، [2] الإطارات، [3] معدل الإطارات، [4] أعلى، [5] أكبر. 1(2): 1244 ميجابايت (640 × 360 × 24 = 5,529,600 بت ÷ 8 = 691,200 بايت؛ × 30 × 60 = 1,244,160,000 بايت ≈ 1244 MB). 2(1): (أ) × — العبارة تصف الضغط الفاقد لا غير الفاقد، (ب) ✓، (ت) ✓، (ث) ✓. 2(2): 21/50 × 100 = 42%. 3(1): الحرف H (العمودان الطرفيان ممتلئان والصف الأوسط ممتلئ). 3(2): (ت) ترميز طول التشغيل." data-en="Answers not printed in the book (teacher-prepared): 1(1): [1] the afterimage phenomenon, [2] frames, [3] frame rate, [4] higher, [5] larger. 1(2): 1244 MB (640 × 360 × 24 = 5,529,600 bits ÷ 8 = 691,200 B; × 30 × 60 = 1,244,160,000 B ≈ 1244 MB). 2(1): A × - the statement describes lossy, not lossless; B ○; C ○; D ○. 2(2): 21/50 × 100 = 42%. 3(1): the letter H (both side columns and the middle row filled). 3(2): C Run-length encoding.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): [1] ظاهرة الصورة الباقية، [2] الإطارات، [3] معدل الإطارات، [4] أعلى، [5] أكبر. 1(2): 1244 ميجابايت (640 × 360 × 24 = 5,529,600 بت ÷ 8 = 691,200 بايت؛ × 30 × 60 = 1,244,160,000 بايت ≈ 1244 MB). 2(1): (أ) × — العبارة تصف الضغط الفاقد لا غير الفاقد، (ب) ✓، (ت) ✓، (ث) ✓. 2(2): 21/50 × 100 = 42%. 3(1): الحرف H (العمودان الطرفيان ممتلئان والصف الأوسط ممتلئ). 3(2): (ت) ترميز طول التشغيل.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): تعليمة (1) الإنجليزية تطبع &quot;filling in the blanks [1] and [5]&quot; كما وردت؛ العربية «بملء الفراغات من [1] إلى [5]». الجملة العربية تطبع «وكلما زاد ( [4] ) الـ ( [3] )» بفعل زائد؛ الإنجليزية &quot;The ( [4] ) the ([3])&quot;. السؤال 1(2) العربي يطبع «(24 بايت bit)» بكلمة بايت (بايت) حيث تطبع الإنجليزية &quot;24-bit&quot;، بينما تمرين 1(2) يطبع «(24 bits)». علامتا التقييم:العربية صح &quot;✓&quot; وخطأ &quot;×&quot;؛ الإنجليزية &quot;○&quot; و&quot;×&quot;. البند 2(1) العربي يبدأ «النسبة للعبارات» كما طُبع، و(أ) «التي لا يلاحظها للبشر» كما طُبعت. العربية في 3(1)(ب) «على أنها» والإنجليزية &quot;as&quot;. خيارات 3(2) بالترتيب نفسه في النسختين (أ-ث ↔ A-D). شكل الحرف E المعاد طبعه في 3(1) هو نفس شكل «تحدى معلوماتك» في النسختين." data-en="Edition comparison (verified from the printed page images): English instruction (1) prints &quot;filling in the blanks [1] and [5]&quot; as printed; Arabic prints «من [1] إلى [5]». The Arabic sentence prints «وكلما زاد ( [4] ) الـ ( [3] )» with an extra verb; English &quot;The ( [4] ) the ([3])&quot;. Arabic question 1(2) prints «(24 بايت bit)» with the word for byte where English prints &quot;24-bit&quot;, while Exercise 1(2) prints «(24 bits)». The marking symbols:Arabic صح &quot;✓&quot; and خطأ &quot;×&quot; vs English &quot;○&quot; and &quot;×&quot;. Arabic item 2(1) opens with «النسبة للعبارات» as printed. Arabic 3(1)(ب) uses «على أنها» vs English &quot;as&quot;. Options of 3(2) in the same order in both editions. The letter-E figure reprinted in 3(1) is the same Warm Up figure in both editions.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): تعليمة (1) الإنجليزية تطبع "filling in the blanks [1] and [5]" كما وردت؛ العربية «بملء الفراغات من [1] إلى [5]». الجملة العربية تطبع «وكلما زاد ( [4] ) الـ ( [3] )» بفعل زائد؛ الإنجليزية "The ( [4] ) the ([3])". السؤال 1(2) العربي يطبع «(24 بايت bit)» بكلمة بايت (بايت) حيث تطبع الإنجليزية "24-bit"، بينما تمرين 1(2) يطبع «(24 bits)». علامتا التقييم:العربية صح "✓" وخطأ "×"؛ الإنجليزية "○" و"×". البند 2(1) العربي يبدأ «النسبة للعبارات» كما طُبع، و(أ) «التي لا يلاحظها للبشر» كما طُبعت. العربية في 3(1)(ب) «على أنها» والإنجليزية "as". خيارات 3(2) بالترتيب نفسه في النسختين (أ-ث ↔ A-D). شكل الحرف E المعاد طبعه في 3(1) هو نفس شكل «تحدى معلوماتك» في النسختين.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 79 (المطبوع 79)؛ AR 89–90." data-en="The text above is from the book. Full source: English PDF 79 (printed 79); Arabic 89-90.">النص السابق من الكتاب. المصدر الكامل:EN PDF 79 (المطبوع 79)؛ AR 89–90.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
@@ -1614,9 +643,9 @@ select{color:var(--text)!important}
           <p data-ar="«تمرين. 1 أجب على الأسئلة التالية. لهذه الأسئلة، افترض أن 1 كيلوبايت (KB) = 1,000 بايت (bit) و 1 MB (MB) = 1,000 كيلوبايت (KB). (1) بالنسبة للعبارات التالية من أ إلى ث حول آليات الفيديو، ضع علامة صح &quot;✓&quot; إذا كانت العبارة مناسبة، وخطأ&quot;×&quot; إذا كانت غير مناسبة. (أ) تُنشئ مقاطع الفيديو وهم الحركة عن طريق عرض سلسلة من الصور الثابتة في تتابع سريع، مستفيدة من ظاهرة الصورة اللاحقة. في الواقع، الصور نفسها لا تتحرك. (ب) كل صورة ثابتة فردية تشكل الفيديو تسمى إطارًا. (ت) عدد الإطارات المعروضة في الثانية يسمى معدل الإطارات. كلما انخفض معدل الإطارات، ظهر الفيديو بشكل أكثر سلاسة. (ث) عند تسجيل مقطع فيديو، إذا كانت إعدادات الدقة ومعدل الإطارات هي نفسها، فإن حجم بيانات مقطع الفيديو المسجل لمدة ثانية واحدة ومقطع الفيديو المسجل لمدة 60 ثانية لا يختلف.»" data-en="&quot;Exercise 1 Answer the following questions. For these questions, assume that 1 KB = 1,000 B and 1 MB = 1,000 KB. (1) For the following statements A to D about video mechanisms, mark “○” if the statement is appropriate, and “×” if it is inappropriate. A Videos create the illusion of movement by displaying a series of still images in rapid succession, leveraging the afterimage phenomenon. In reality, the images themselves are not moving. B Each individual still image that composes a video is called a frame. C The number of frames displayed per second is called the frame rate. The lower the frame rate, the smoother the video appears. D When recording a video, if the resolution and frame rate settings are the same, the amount of data of a video recorded for 1 second and a video recorded for 60 seconds does not vary.&quot;">«تمرين. 1 أجب على الأسئلة التالية. لهذه الأسئلة، افترض أن 1 كيلوبايت (KB) = 1,000 بايت (bit) و 1 MB (MB) = 1,000 كيلوبايت (KB). (1) بالنسبة للعبارات التالية من أ إلى ث حول آليات الفيديو، ضع علامة صح "✓" إذا كانت العبارة مناسبة، وخطأ"×" إذا كانت غير مناسبة. (أ) تُنشئ مقاطع الفيديو وهم الحركة عن طريق عرض سلسلة من الصور الثابتة في تتابع سريع، مستفيدة من ظاهرة الصورة اللاحقة. في الواقع، الصور نفسها لا تتحرك. (ب) كل صورة ثابتة فردية تشكل الفيديو تسمى إطارًا. (ت) عدد الإطارات المعروضة في الثانية يسمى معدل الإطارات. كلما انخفض معدل الإطارات، ظهر الفيديو بشكل أكثر سلاسة. (ث) عند تسجيل مقطع فيديو، إذا كانت إعدادات الدقة ومعدل الإطارات هي نفسها، فإن حجم بيانات مقطع الفيديو المسجل لمدة ثانية واحدة ومقطع الفيديو المسجل لمدة 60 ثانية لا يختلف.»</p>
           <p data-ar="«(2) ما هو حجم البيانات، بالـ MB، لمقطع فيديو مدته ثانية واحدة بمعدل 60 إطارًا في الثانية، حيث كل إطار هو صورة ثابتة ملونة بالكامل (24 bits) بدقة 1,920 × 1,080 بكسل pixel؟ افترض أن الفيديو غير مضغوط، وقرّب إجابتك إلى منزلة عشرية واحدة. 2 بالنسبة للمصطلحات التي تتناسب مع الفراغات من [1] إلى [3] في الجمل التالية، إذا كان الضغط غير فاقد، أجب بـ أ؛ إذا كان الضغط فاقدًا، أجب بـ ب. هناك طريقتان رئيسيتان لضغط البيانات. طريقة الضغط التي تسمح باستعادة البيانات الأصلية بالكامل من البيانات المضغوطة عند فك الضغط تسمى ( [1] ). طريقة الضغط التي لا تسمح بالاستعادة الكاملة للبيانات الأصلية تسمى ( [2] ). بالنسبة للبيانات مثل الصور ومقاطع الفيديو، حيث لا تحتاج البيانات المضغوطة إلى أن تُستعاد بشكل مثالي ولا يدرك البشر فرقًا كبيرًا، يتم استخدام ( [3] ).»" data-en="&quot;(2) What is the data size, in megabytes, of a 1-second video at 60 fps, where each frame is a 24-bit full-color still image with a resolution of 1,920 × 1,080 pixels? Assume that the video is uncompressed, and round your answer to one decimal place. 2 For the terms that fit in the blanks [1] to [3] in the following sentences, if the compression is lossless, answer with A; if the compression is lossy, answer with B. There are two main methods for compressing data. A compression method that allows the original data to be completely restored from the compressed data when decompressed is called ( [1] ). A compression method that does not allow for the complete restoration of the original data is called ( [2] ). For data such as images and videos, where the compressed data does not need to be perfectly restored and humans do not perceive a significant difference, ( [3] ) is used.&quot;">«(2) ما هو حجم البيانات، بالـ MB، لمقطع فيديو مدته ثانية واحدة بمعدل 60 إطارًا في الثانية، حيث كل إطار هو صورة ثابتة ملونة بالكامل (24 bits) بدقة 1,920 × 1,080 بكسل pixel؟ افترض أن الفيديو غير مضغوط، وقرّب إجابتك إلى منزلة عشرية واحدة. 2 بالنسبة للمصطلحات التي تتناسب مع الفراغات من [1] إلى [3] في الجمل التالية، إذا كان الضغط غير فاقد، أجب بـ أ؛ إذا كان الضغط فاقدًا، أجب بـ ب. هناك طريقتان رئيسيتان لضغط البيانات. طريقة الضغط التي تسمح باستعادة البيانات الأصلية بالكامل من البيانات المضغوطة عند فك الضغط تسمى ( [1] ). طريقة الضغط التي لا تسمح بالاستعادة الكاملة للبيانات الأصلية تسمى ( [2] ). بالنسبة للبيانات مثل الصور ومقاطع الفيديو، حيث لا تحتاج البيانات المضغوطة إلى أن تُستعاد بشكل مثالي ولا يدرك البشر فرقًا كبيرًا، يتم استخدام ( [3] ).»</p>
           <p data-ar="«3 أجب على الأسئلة التالية. (1) فكر في كيفية تمثيل صورة باستخدام البكسلات. في حالة الرسم التوضيحي على اليمين، تُقرأ البكسلات البالغ عددها 25 في الشبكة 5 × 5 واحدة تلو الأخرى من أعلى اليسار، صفًا بصف، متجهًا إلى اليمين. إذا كان البكسل pixel أسود، اكتب &quot;B&quot;؛ وإذا كان أبيض، اكتب &quot;W&quot;. ينتج عن هذا التسلسل:“BBBBWBWWWBBBBBWBWWBWBWWWB”. عندما يظهر الحرف &quot;B&quot; أو &quot;W&quot; بشكل متتابع n مرة (حيث n هو عدد صحيح أكبر من أو يساوي 2)، يمكن كتابتهما على شكل &quot;Bn&quot; أو &quot;Wn&quot;. باستخدام هذه الطريقة، يمكن ضغط التسلسل كـ &quot;B4WBW3B5WBW2BWBW3B&quot;. باستخدام نفس الطريقة مع شبكة 5 × 5 أخرى، ما هو الحرف الأبجدي الذي تمثله البيانات المضغوطة التالية؟ “BW3BWBWBW3BW4BW4BW2” (2) ما هو المصطلح الذي يطلق على طريقة الضغط التي تمثل البيانات المتكررة عن طريق سرد البيانات وعدد تكرارها المتتالي، كما هو موضح في (1)؟»" data-en="&quot;3 Answer the following questions. (1) Consider how to represent an image using pixels. In the case of the diagram on the right, the 25 pixels in the 5 × 5 grid are read one by one from the top-left, row by row, moving to the right. If a pixel is black, write “B”; if it is white, write “W”. This results in the sequence:“BBBBWBWWWBBBBBWBWWBWBWWWB”. When “B” or “W” appears consecutively n times (where n is an integer greater than or equal to 2), they can be written as “Bn” or “Wn”. Using this method, the sequence can be compressed as “B4WBW3B5WBW2BWBW3B”. Using the same method with another 5 × 5 grid, what is the alphabet letter represented by the following compressed data? “BW3BWBWBW3BW4BW4BW2” (2) What is the term for the compression method that represents repeated data by listing the data and the number of consecutive occurrences, as shown in (1)?&quot;">«3 أجب على الأسئلة التالية. (1) فكر في كيفية تمثيل صورة باستخدام البكسلات. في حالة الرسم التوضيحي على اليمين، تُقرأ البكسلات البالغ عددها 25 في الشبكة 5 × 5 واحدة تلو الأخرى من أعلى اليسار، صفًا بصف، متجهًا إلى اليمين. إذا كان البكسل pixel أسود، اكتب "B"؛ وإذا كان أبيض، اكتب "W". ينتج عن هذا التسلسل:“BBBBWBWWWBBBBBWBWWBWBWWWB”. عندما يظهر الحرف "B" أو "W" بشكل متتابع n مرة (حيث n هو عدد صحيح أكبر من أو يساوي 2)، يمكن كتابتهما على شكل "Bn" أو "Wn". باستخدام هذه الطريقة، يمكن ضغط التسلسل كـ "B4WBW3B5WBW2BWBW3B". باستخدام نفس الطريقة مع شبكة 5 × 5 أخرى، ما هو الحرف الأبجدي الذي تمثله البيانات المضغوطة التالية؟ “BW3BWBWBW3BW4BW4BW2” (2) ما هو المصطلح الذي يطلق على طريقة الضغط التي تمثل البيانات المتكررة عن طريق سرد البيانات وعدد تكرارها المتتالي، كما هو موضح في (1)؟»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): (أ) ✓، (ب) ✓، (ت) × — كلما ارتفع معدل الإطارات ظهر الفيديو أكثر سلاسة، (ث) × — الحجم يتناسب مع الزمن (فيديو 60 ثانية أكبر 60 مرة). 1(2): 373.2 ميجابايت (1,920 × 1,080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 بايت؛ × 60 × 1 = 373,248,000 بايت ≈ 373.2 MB). 2: [1] أ (غير فاقد)، [2] ب (فاقد)، [3] ب (فاقد). 3(1): الحرف Y (قطران من الزاويتين العلويتين يلتقيان في المنتصف ثم عمود رأسي). 3(2): ترميز طول التشغيل (Run-length encoding)." data-en="Answers not printed in the book (teacher-prepared): 1(1): A ○, B ○, C × - the higher the frame rate, the smoother the video; D × - the size scales with time (a 60-second video is 60 times larger). 1(2): 373.2 MB (1,920 × 1,080 × 24 = 49,766,400 bits ÷ 8 = 6,220,800 B; × 60 × 1 = 373,248,000 B ≈ 373.2 MB). 2:[1] A (lossless), [2] B (lossy), [3] B (lossy). 3(1): the letter Y (two diagonals from the top corners meeting at the center, then a vertical stem). 3(2): Run-length encoding.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): (أ) ✓، (ب) ✓، (ت) × — كلما ارتفع معدل الإطارات ظهر الفيديو أكثر سلاسة، (ث) × — الحجم يتناسب مع الزمن (فيديو 60 ثانية أكبر 60 مرة). 1(2): 373.2 ميجابايت (1,920 × 1,080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 بايت؛ × 60 × 1 = 373,248,000 بايت ≈ 373.2 MB). 2: [1] أ (غير فاقد)، [2] ب (فاقد)، [3] ب (فاقد). 3(1): الحرف Y (قطران من الزاويتين العلويتين يلتقيان في المنتصف ثم عمود رأسي). 3(2): ترميز طول التشغيل (Run-length encoding).</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): (أ) ✓، (ب) ✓، (ت) × — كلما ارتفع معدل الإطارات ظهر الفيديو أكثر سلاسة، (ث) × — الحجم يتناسب مع الزمن (فيديو 60 ثانية أكبر 60 مرة). 1(2): 373.2 ميجابايت (1,920 × 1,080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 بايت؛ × 60 × 1 = 373,248,000 بايت ≈ 373.2 MB). 2: [1] أ (غير فاقد)، [2] ب (فاقد)، [3] ب (فاقد). 3(1): الحرف Y (قطران من الزاويتين العلويتين يلتقيان في المنتصف ثم عمود رأسي). 3(2): ترميز طول التشغيل." data-en="Answers not printed in the book (teacher-prepared): 1(1): A ○, B ○, C × - the higher the frame rate, the smoother the video; D × - the size scales with time (a 60-second video is 60 times larger). 1(2): 373.2 MB (1,920 × 1,080 × 24 = 49,766,400 bits ÷ 8 = 6,220,800 B; × 60 × 1 = 373,248,000 B ≈ 373.2 MB). 2:[1] A (lossless), [2] B (lossy), [3] B (lossy). 3(1): the letter Y (two diagonals from the top corners meeting at the center, then a vertical stem). 3(2): Run-length encoding.">إجابات غير مطبوعة في الكتاب (إعداد معلم): 1(1): (أ) ✓، (ب) ✓، (ت) × — كلما ارتفع معدل الإطارات ظهر الفيديو أكثر سلاسة، (ث) × — الحجم يتناسب مع الزمن (فيديو 60 ثانية أكبر 60 مرة). 1(2): 373.2 ميجابايت (1,920 × 1,080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 بايت؛ × 60 × 1 = 373,248,000 بايت ≈ 373.2 MB). 2: [1] أ (غير فاقد)، [2] ب (فاقد)، [3] ب (فاقد). 3(1): الحرف Y (قطران من الزاويتين العلويتين يلتقيان في المنتصف ثم عمود رأسي). 3(2): ترميز طول التشغيل.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العبارة (أ) العربية تطبع «ظاهرة الصورة اللاحقة» بينما «النقاط الرئيسية» تطبع «ظاهرة الصورة الباقية»؛ الإنجليزية &quot;afterimage phenomenon&quot; في الموضعين. شرط السؤال 2 العربي بأحرف «أ»/«ب»؛ الإنجليزية &quot;A&quot;/&quot;B&quot;. سؤال 1(2) العربي «بالـ MB،» و«(24 bits)» — مختلفًا عن «(24 بايت bit)» في «جرب بنفسك». سطر الافتراض العربي يطبع «1 MB (MB)» مكررة و«1,000 بايت (bit)». علامتا ✓/× في العربية مقابل ○/× في الإنجليزية كما في «جرب بنفسك». شريط «تمرين» أحمر في النسخة العربية. شكل الحرف S المطبوع في 3(1) موجود في النسختين." data-en="Edition comparison (verified from the printed page images): Arabic statement A prints «ظاهرة الصورة اللاحقة» where the Point box prints «ظاهرة الصورة الباقية»; English uses &quot;afterimage phenomenon&quot; in both. The Arabic question-2 condition uses the letters «أ»/«ب» vs English &quot;A&quot;/&quot;B&quot;. Arabic question 1(2) prints «بالـ MB،» and «(24 bits)», unlike «(24 بايت bit)» in Try. The Arabic assumption line prints «1 MB (MB)» doubled and «1,000 بايت (bit)». Marks ✓/× in Arabic vs ○/× in English, as in Try. The Arabic Exercise band is printed red. The letter-S figure in 3(1) is printed in both editions.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة): العبارة (أ) العربية تطبع «ظاهرة الصورة اللاحقة» بينما «النقاط الرئيسية» تطبع «ظاهرة الصورة الباقية»؛ الإنجليزية "afterimage phenomenon" في الموضعين. شرط السؤال 2 العربي بأحرف «أ»/«ب»؛ الإنجليزية "A"/"B". سؤال 1(2) العربي «بالـ MB،» و«(24 bits)» — مختلفًا عن «(24 بايت bit)» في «جرب بنفسك». سطر الافتراض العربي يطبع «1 MB (MB)» مكررة و«1,000 بايت (bit)». علامتا ✓/× في العربية مقابل ○/× في الإنجليزية كما في «جرب بنفسك». شريط «تمرين» أحمر في النسخة العربية. شكل الحرف S المطبوع في 3(1) موجود في النسختين.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل:EN PDF 80 (المطبوع 80)؛ AR 90–91." data-en="The text above is from the book. Full source: English PDF 80 (printed 80); Arabic 90-91.">النص السابق من الكتاب. المصدر الكامل:EN PDF 80 (المطبوع 80)؛ AR 90–91.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: حساب حجم الفيديو — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 1: calculating the video size - not printed in the book">✍️ تدريب تفاعلي إضافي 1: حساب حجم الفيديو — غير مطبوعة في الكتاب</h3>
@@ -1624,23 +653,23 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="حجم فيديو 10 ثواني بـ 30 fps، كل إطار صورة 24 بت بدقة 500 × 200 — كام MB؟"
               data-en="The size of a 10-second video at 30 fps, each frame a 24-bit image at 500 × 200 — in MB?">حجم فيديو 10 ثواني بـ 30 fps، كل إطار صورة 24 بت بدقة 500 × 200 — كام MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  90 MB" data-en="A  90 MB">A  <span dir="ltr">90 MB</span></div>
-            <div class="ex-opt" data-ar="B  9 MB" data-en="B  9 MB">B  <span dir="ltr">9 MB</span></div>
-            <div class="ex-opt" data-ar="C  900 KB" data-en="C  900 KB">C  <span dir="ltr">900 KB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 90 MB" data-en="A  90 MB">A  <span dir="ltr">90 MB</span></div>
+            <div class="ex-opt" data-ar="B 9 MB" data-en="B  9 MB">B  <span dir="ltr">9 MB</span></div>
+            <div class="ex-opt" data-ar="C 900 KB" data-en="C  900 KB">C  <span dir="ltr">900 KB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 90 MB" data-en="✅ Answer: A — 90 MB">✅ الإجابة: A — 90 MB</b>
             <span data-ar="500 × 200 × 24 = 2,400,000 بت ÷ 8 = 300,000 B. وبعدين 300,000 × 30 × 10 = 90,000,000 B ÷ 1000 ÷ 1000 = 90 MB."
               data-en="500 × 200 × 24 = 2,400,000 bits ÷ 8 = 300,000 B. Then 300,000 × 30 × 10 = 90,000,000 B ÷ 1000 ÷ 1000 = 90 MB.">500
-              × 200 × 24 = 2,400,000 بت ÷ 8 = 300,000 B. وبعدين 300,000 × 30 × 10 = 90,000,000 B ÷ 1000 ÷ 1000 =
-              <b>90 MB</b>.</span></div>
+ × 200 × 24 = 2,400,000 بت ÷ 8 = 300,000 B. وبعدين 300,000 × 30 × 10 = 90,000,000 B ÷ 1000 ÷ 1000 =
+ <b>90 MB</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="الفيديو ده اتحوّل لملف مضغوط 30 MB — نسبة الضغط كام؟"
               data-en="This video was converted to a compressed file of 30 MB — what is the compression ratio?">الفيديو ده اتحوّل لملف مضغوط 30 MB — نسبة الضغط كام؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  30%" data-en="A  30%">A  <span dir="ltr">30%</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  33%" data-en="B  33%">B  <span dir="ltr">33%</span></div>
-            <div class="ex-opt" data-ar="C  300%" data-en="C  300%">C  <span dir="ltr">300%</span></div>
+            <div class="ex-opt" data-ar="A 30%" data-en="A  30%">A  <span dir="ltr">30%</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 33%" data-en="B  33%">B  <span dir="ltr">33%</span></div>
+            <div class="ex-opt" data-ar="C 300%" data-en="C  300%">C  <span dir="ltr">300%</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 33%" data-en="✅ Answer: B — 33%">✅ الإجابة: B — 33%</b> <span
               data-ar="30 ÷ 90 × 100 = 33.3% ≈ 33%."
@@ -1650,27 +679,27 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="حجم فيديو دقيقة بـ 30 fps، كل إطار صورة 24 بت بدقة 640 × 360 — كام MB؟"
               data-en="The size of a 1-minute video at 30 fps, each frame a 24-bit image at 640 × 360 — in MB?">حجم فيديو دقيقة بـ 30 fps، كل إطار صورة 24 بت بدقة 640 × 360 — كام MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  1244 MB" data-en="A  1244 MB">A  <span dir="ltr">1244 MB</span></div>
-            <div class="ex-opt" data-ar="B  124 MB" data-en="B  124 MB">B  <span dir="ltr">124 MB</span></div>
-            <div class="ex-opt" data-ar="C  622 MB" data-en="C  622 MB">C  <span dir="ltr">622 MB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="A 1244 MB" data-en="A  1244 MB">A  <span dir="ltr">1244 MB</span></div>
+            <div class="ex-opt" data-ar="B 124 MB" data-en="B  124 MB">B  <span dir="ltr">124 MB</span></div>
+            <div class="ex-opt" data-ar="C 622 MB" data-en="C  622 MB">C  <span dir="ltr">622 MB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — 1244 MB" data-en="✅ Answer: A — 1244 MB">✅ الإجابة: A — 1244 MB</b> <span data-ar="640 × 360 × 24 = 5,529,600 بت ÷ 8 = 691,200 B. وبعدين 691,200 × 30 × 60 = 1,244,160,000 B ÷ 1000 ÷ 1000 ≈ 1244 MB."
               data-en="640 × 360 × 24 = 5,529,600 bits ÷ 8 = 691,200 B. Then 691,200 × 30 × 60 = 1,244,160,000 B ÷ 1000 ÷ 1000 ≈ 1244 MB.">640
-              × 360 × 24 = 5,529,600 بت ÷ 8 = 691,200 B. وبعدين 691,200 × 30 × 60 = 1,244,160,000 B ÷ 1000 ÷ 1000 ≈
-              <b>1244 MB</b>.</span></div>
+ × 360 × 24 = 5,529,600 بت ÷ 8 = 691,200 B. وبعدين 691,200 × 30 × 60 = 1,244,160,000 B ÷ 1000 ÷ 1000 ≈
+ <b>1244 MB</b>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">4</span> <span data-ar="حجم فيديو ثانية بـ 60 fps، كل إطار صورة 24 بت بدقة 1,920 × 1,080 — كام MB؟"
               data-en="The size of a 1-second video at 60 fps, each frame a 24-bit image at 1,920 × 1,080 — in MB?">حجم فيديو ثانية بـ 60 fps، كل إطار صورة 24 بت بدقة 1,920 × 1,080 — كام MB؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  186.6 MB" data-en="A  186.6 MB">A  <span dir="ltr">186.6 MB</span></div>
-            <div class="ex-opt" data-ar="B  747.5 MB" data-en="B  747.5 MB">B  <span dir="ltr">747.5 MB</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="C  373.2 MB" data-en="C  373.2 MB">C  <span dir="ltr">373.2 MB</span></div>
+            <div class="ex-opt" data-ar="A 186.6 MB" data-en="A  186.6 MB">A  <span dir="ltr">186.6 MB</span></div>
+            <div class="ex-opt" data-ar="B 747.5 MB" data-en="B  747.5 MB">B  <span dir="ltr">747.5 MB</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="C 373.2 MB" data-en="C  373.2 MB">C  <span dir="ltr">373.2 MB</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — 373.2 MB" data-en="✅ Answer: C — 373.2 MB">✅ الإجابة: C — 373.2 MB</b> <span data-ar="1920 × 1080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 B. وبعدين 6,220,800 × 60 × 1 = 373,248,000 B ÷ 1000 ÷ 1000 ≈ 373.2 MB."
               data-en="1920 × 1080 × 24 = 49,766,400 bits ÷ 8 = 6,220,800 B. Then 6,220,800 × 60 × 1 = 373,248,000 B ÷ 1000 ÷ 1000 ≈ 373.2 MB.">1920
-              × 1080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 B. وبعدين 6,220,800 × 60 × 1 = 373,248,000 B ÷ 1000 ÷ 1000 ≈
-              <b>373.2 MB</b>.</span></div>
+ × 1080 × 24 = 49,766,400 بت ÷ 8 = 6,220,800 B. وبعدين 6,220,800 × 60 × 1 = 373,248,000 B ÷ 1000 ÷ 1000 ≈
+ <b>373.2 MB</b>.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1684,35 +713,35 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="الكلمات اللي بتكمّل الجملة: الفيديو بيعرض سلسلة صور ثابتة، ظاهرة (...) بتخلق وهم الحركة، كل صورة بتتسمّى (...)، وعددها في الثانية هو (...)."
               data-en="The terms that complete the sentence: a video displays a series of still images, the phenomenon of (...) creates the illusion of movement, each image is called (...), and its number per second is (...).">الكلمات اللي بتكمّل الجملة: الفيديو بيعرض سلسلة صور ثابتة، ظاهرة (...) بتخلق وهم الحركة، كل صورة بتتسمّى (...)، وعددها في الثانية هو (...).</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  بقايا الصورة — إطار (Frame) — معدل الإطارات"
-              data-en="A  afterimage — Frame — Frame rate">A  بقايا الصورة — إطار (Frame) — معدل الإطارات</div>
-            <div class="ex-opt" data-ar="B  الانكسار — معدل الإطارات — إطار (Frame)"
-              data-en="B  refraction — Frame rate — Frame">B  الانكسار — معدل الإطارات — إطار (Frame)</div>
-            <div class="ex-opt" data-ar="C  التمدّد — ضغط — فك ضغط"
-              data-en="C  expansion — Compression — Decompression">C  التمدّد — ضغط — فك ضغط</div>
+            <div class="ex-opt" data-ok="1" data-ar="A بقايا الصورة — إطار — معدل الإطارات"
+              data-en="A  afterimage — Frame — Frame rate">A بقايا الصورة — إطار — معدل الإطارات</div>
+            <div class="ex-opt" data-ar="B الانكسار — معدل الإطارات — إطار"
+              data-en="B  refraction — Frame rate — Frame">B الانكسار — معدل الإطارات — إطار</div>
+            <div class="ex-opt" data-ar="C التمدّد — ضغط — فك ضغط"
+              data-en="C  expansion — Compression — Decompression">C التمدّد — ضغط — فك ضغط</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A" data-en="✅ Answer: A">✅ الإجابة: A</b> <span
-              data-ar="ظاهرة بقايا الصورة بتخلق وهم الحركة، الصورة الواحدة هي إطار (Frame)، وعددها في الثانية هو معدل الإطارات."
-              data-en="the afterimage phenomenon creates the illusion of movement, one image is a Frame, and its number per second is the Frame rate.">ظاهرة بقايا الصورة بتخلق وهم الحركة، الصورة الواحدة هي إطار (Frame)، وعددها في الثانية هو معدل الإطارات.</span></div>
+              data-ar="ظاهرة بقايا الصورة بتخلق وهم الحركة، الصورة الواحدة هي إطار، وعددها في الثانية هو معدل الإطارات."
+              data-en="the afterimage phenomenon creates the illusion of movement, one image is a Frame, and its number per second is the Frame rate.">ظاهرة بقايا الصورة بتخلق وهم الحركة، الصورة الواحدة هي إطار، وعددها في الثانية هو معدل الإطارات.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="الضغط اللي بيوفّر مساحة مع إنه بيبقّي الداتا (Data) زي ما هي بالظبط؟"
-              data-en="The compression that saves space while keeping the data exactly the same?">الضغط اللي بيوفّر مساحة مع إنه بيبقّي الداتا (Data) زي ما هي بالظبط؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="الضغط اللي بيوفّر مساحة مع إنه بيبقّي البيانات زي ما هي بالظبط؟"
+              data-en="The compression that saves space while keeping the data exactly the same?">الضغط اللي بيوفّر مساحة مع إنه بيبقّي البيانات زي ما هي بالظبط؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  ضغط بفقد" data-en="A  Lossy compression">A  ضغط بفقد</div>
-            <div class="ex-opt" data-ar="B  فك ضغط" data-en="B  Decompression">B  فك ضغط</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  ضغط بدون فقد" data-en="C  Lossless compression">C  ضغط بدون فقد</div>
+            <div class="ex-opt" data-ar="A ضغط بفقد" data-en="A  Lossy compression">A ضغط بفقد</div>
+            <div class="ex-opt" data-ar="B فك ضغط" data-en="B  Decompression">B فك ضغط</div>
+            <div class="ex-opt" data-ok="1" data-ar="C ضغط بدون فقد" data-en="C  Lossless compression">C ضغط بدون فقد</div>
           </div>
-          <div class="ex-answer"><b data-ar="✅ الإجابة: C — بدون فقد" data-en="✅ Answer: C — Lossless">✅ الإجابة: C — بدون فقد</b> <span data-ar="الضغط بدون فقد بيرجّع الداتا (Data) الأصلية بالكامل — وبيتستخدم مع النصوص والبرامج."
-              data-en="Lossless restores the original data completely — it is used with text and programs.">الضغط بدون فقد بيرجّع الداتا (Data) الأصلية بالكامل — وبيتستخدم مع النصوص والبرامج.</span></div>
+          <div class="ex-answer"><b data-ar="✅ الإجابة: C — بدون فقد" data-en="✅ Answer: C — Lossless">✅ الإجابة: C — بدون فقد</b> <span data-ar="الضغط بدون فقد بيرجّع البيانات الأصلية بالكامل — وبيتستخدم مع النصوص والبرامج."
+              data-en="Lossless restores the original data completely — it is used with text and programs.">الضغط بدون فقد بيرجّع البيانات الأصلية بالكامل — وبيتستخدم مع النصوص والبرامج.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="21 MB من الداتا (Data) المضغوطة اتفك ضغطها وكبرت لـ 50 MB — نسبة الضغط كام؟"
-              data-en="21 MB of compressed data was decompressed and expanded to 50 MB — what is the compression ratio?">21 MB من الداتا (Data) المضغوطة اتفك ضغطها وكبرت لـ 50 MB — نسبة الضغط كام؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="21 MB من البيانات المضغوطة اتفك ضغطها وكبرت لـ 50 MB — نسبة الضغط كام؟"
+              data-en="21 MB of compressed data was decompressed and expanded to 50 MB — what is the compression ratio?">21 MB من البيانات المضغوطة اتفك ضغطها وكبرت لـ 50 MB — نسبة الضغط كام؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  24%" data-en="A  24%">A  <span dir="ltr">24%</span></div>
-            <div class="ex-opt" data-ok="1" data-ar="B  42%" data-en="B  42%">B  <span dir="ltr">42%</span></div>
-            <div class="ex-opt" data-ar="C  21%" data-en="C  21%">C  <span dir="ltr">21%</span></div>
+            <div class="ex-opt" data-ar="A 24%" data-en="A  24%">A  <span dir="ltr">24%</span></div>
+            <div class="ex-opt" data-ok="1" data-ar="B 42%" data-en="B  42%">B  <span dir="ltr">42%</span></div>
+            <div class="ex-opt" data-ar="C 21%" data-en="C  21%">C  <span dir="ltr">21%</span></div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — 42%" data-en="✅ Answer: B — 42%">✅ الإجابة: B — 42%</b> <span
               data-ar="21 ÷ 50 × 100 = 42%."
@@ -1730,41 +759,41 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيه العبارة الغلط عن آلية الفيديو؟"
               data-en="Which statement about the video mechanism is incorrect?">إيه العبارة الغلط عن آلية الفيديو؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  كل صورة ثابتة بيتركّب منها الفيديو بتتسمّى إطار (Frame)"
-              data-en="A  each still image composing a video is called a Frame">A  كل صورة ثابتة بيتركّب منها الفيديو بتتسمّى إطار (Frame)</div>
-            <div class="ex-opt" data-ar="B  الفيديو بيستخدم ظاهرة بقايا الصورة"
-              data-en="B  a video uses the afterimage phenomenon">B  الفيديو بيستخدم ظاهرة بقايا الصورة</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  كل ما معدل الإطارات أقل، الفيديو يبان أنعم"
-              data-en="C  the lower the frame rate, the smoother the video appears">C  كل ما معدل الإطارات أقل، الفيديو يبان أنعم</div>
+            <div class="ex-opt" data-ar="A كل صورة ثابتة بيتركّب منها الفيديو بتتسمّى إطار"
+              data-en="A  each still image composing a video is called a Frame">A كل صورة ثابتة بيتركّب منها الفيديو بتتسمّى إطار</div>
+            <div class="ex-opt" data-ar="B الفيديو بيستخدم ظاهرة بقايا الصورة"
+              data-en="B  a video uses the afterimage phenomenon">B الفيديو بيستخدم ظاهرة بقايا الصورة</div>
+            <div class="ex-opt" data-ok="1" data-ar="C كل ما معدل الإطارات أقل، الفيديو يبان أنعم"
+              data-en="C  the lower the frame rate, the smoother the video appears">C كل ما معدل الإطارات أقل، الفيديو يبان أنعم</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C" data-en="✅ Answer: C">✅ الإجابة: C</b> <span
               data-ar="العكس هو الصح: كل ما معدل الإطارات أعلى، الفيديو يبان أنعم."
               data-en="the opposite is true: the higher the frame rate, the smoother the video appears.">العكس صح: كل ما
-              <b>زاد</b> معدل الإطارات، الفيديو بيبان أنعم.</span></div>
+ <b>زاد</b> معدل الإطارات، الفيديو بيبان أنعم.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="إيه العبارة الغلط عن الضغط؟"
               data-en="Which statement about compression is incorrect?">إيه العبارة الغلط عن الضغط؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  فك الضغط بيرجّع الداتا (Data) المضغوطة لحالتها الأصلية"
-              data-en="A  Decompression restores compressed data to its original state">A  فك الضغط بيرجّع الداتا (Data) المضغوطة لحالتها الأصلية</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  الضغط بدون فقد بيحسّن كفاءة الضغط بالسماح بتغييرات بسيطة في الداتا (Data)"
-              data-en="B  Lossless improves compression efficiency by allowing slight changes to the data">B  الضغط بدون فقد بيحسّن كفاءة الضغط بالسماح بتغييرات بسيطة في الداتا (Data)</div>
-            <div class="ex-opt" data-ar="C  الداتا (Data) المضغوطة بفقد مش متطابقة بالظبط مع الأصلية"
-              data-en="C  data compressed with Lossy is not exactly identical to the original">C  الداتا (Data) المضغوطة بفقد مش متطابقة بالظبط مع الأصلية</div>
+            <div class="ex-opt" data-ar="A فك الضغط بيرجّع البيانات المضغوطة لحالتها الأصلية"
+              data-en="A  Decompression restores compressed data to its original state">A فك الضغط بيرجّع البيانات المضغوطة لحالتها الأصلية</div>
+            <div class="ex-opt" data-ok="1" data-ar="B الضغط بدون فقد بيحسّن كفاءة الضغط بالسماح بتغييرات بسيطة في البيانات"
+              data-en="B  Lossless improves compression efficiency by allowing slight changes to the data">B الضغط بدون فقد بيحسّن كفاءة الضغط بالسماح بتغييرات بسيطة في البيانات</div>
+            <div class="ex-opt" data-ar="C البيانات المضغوطة بفقد مش متطابقة بالظبط مع الأصلية"
+              data-en="C  data compressed with Lossy is not exactly identical to the original">C البيانات المضغوطة بفقد مش متطابقة بالظبط مع الأصلية</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B" data-en="✅ Answer: B">✅ الإجابة: B</b> <span
-              data-ar="العبارة دي بتوصف الضغط بفقد، مش بدون فقد — الضغط بدون فقد بيرجّع الداتا (Data) زي ما كانت بالظبط."
-              data-en="this statement describes Lossy, not Lossless — Lossless restores the data exactly as it was.">العبارة دي بتوصف الضغط بفقد، مش بدون فقد — الضغط بدون فقد بيرجّع الداتا (Data) زي ما كانت بالظبط.</span></div>
+              data-ar="العبارة دي بتوصف الضغط بفقد، مش بدون فقد — الضغط بدون فقد بيرجّع البيانات زي ما كانت بالظبط."
+              data-en="this statement describes Lossy, not Lossless — Lossless restores the data exactly as it was.">العبارة دي بتوصف الضغط بفقد، مش بدون فقد — الضغط بدون فقد بيرجّع البيانات زي ما كانت بالظبط.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="لما بنسجّل فيديو بنفس الدقة ومعدل الإطارات — حجم فيديو ثانية مقابل 60 ثانية؟"
               data-en="When recording a video with the same resolution and frame rate — the size of a 1-second video versus 60 seconds?">لما بنسجّل فيديو بنفس الدقة ومعدل الإطارات — حجم فيديو ثانية مقابل 60 ثانية؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  فيديو 60 ثانية أكبر بـ 60 مرة"
-              data-en="A  the 60-second video is 60 times larger">A  فيديو 60 ثانية أكبر بـ 60 مرة</div>
-            <div class="ex-opt" data-ar="B  الحجمين متساويين" data-en="B  the two sizes are equal">B  الحجمين متساويين</div>
-            <div class="ex-opt" data-ar="C  فيديو 60 ثانية أصغر" data-en="C  the 60-second video is smaller">C  فيديو 60 ثانية أصغر</div>
+            <div class="ex-opt" data-ok="1" data-ar="A فيديو 60 ثانية أكبر بـ 60 مرة"
+              data-en="A  the 60-second video is 60 times larger">A فيديو 60 ثانية أكبر بـ 60 مرة</div>
+            <div class="ex-opt" data-ar="B الحجمين متساويين" data-en="B  the two sizes are equal">B الحجمين متساويين</div>
+            <div class="ex-opt" data-ar="C فيديو 60 ثانية أصغر" data-en="C  the 60-second video is smaller">C فيديو 60 ثانية أصغر</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A" data-en="✅ Answer: A">✅ الإجابة: A</b> <span
               data-ar="الوقت بيتضرب في المعادلة — يعني كل ما الوقت أطول، الحجم يكبر بنفس العامل."
@@ -1779,56 +808,56 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 4: فك ضغط الصور وطرق الضغط — غير مطبوعة في الكتاب" data-en="✍️ Additional interactive drill 4: image decompression and compression methods - not printed in the book">✍️ تدريب تفاعلي إضافي 4: فك ضغط الصور وطرق الضغط — غير مطبوعة في الكتاب</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="داتا (Data) الصورة المضغوطة 'B4WBW3B5WBW4BW4' بتمثّل أنهي حرف ألفبائي بعد فك الضغط؟"
-              data-en="The compressed image data 'B4WBW3B5WBW4BW4' represents which alphabet letter after decompression?">داتا (Data) الصورة المضغوطة 'B4WBW3B5WBW4BW4' بتمثّل أنهي حرف ألفبائي بعد فك الضغط؟</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="بيانات الصورة المضغوطة 'B4WBW3B5WBW4BW4' بتمثّل أنهي حرف ألفبائي بعد فك الضغط؟"
+              data-en="The compressed image data 'B4WBW3B5WBW4BW4' represents which alphabet letter after decompression?">بيانات الصورة المضغوطة 'B4WBW3B5WBW4BW4' بتمثّل أنهي حرف ألفبائي بعد فك الضغط؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  الحرف H" data-en="A  the letter H">A  الحرف H</div>
-            <div class="ex-opt" data-ar="B  الحرف S" data-en="B  the letter S">B  الحرف S</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  الحرف P" data-en="C  the letter P">C  الحرف P</div>
+            <div class="ex-opt" data-ar="A الحرف H" data-en="A  the letter H">A الحرف H</div>
+            <div class="ex-opt" data-ar="B الحرف S" data-en="B  the letter S">B الحرف S</div>
+            <div class="ex-opt" data-ok="1" data-ar="C الحرف P" data-en="C  the letter P">C الحرف P</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — P" data-en="✅ Answer: C — P">✅ الإجابة: C — P</b> <span
               data-ar="فك الضغط بيدّي BBBBWBWWWBBBBBWBWWWWBWWWW — لما تتحط في شبكة 5 × 5 بتطلع الحرف P."
               data-en="Decompressing gives BBBBWBWWWBBBBBWBWWWWBWWWW — placed in a 5 × 5 grid it draws the letter P.">بفك
-              الضغط بنحصل على BBBBWBWWWBBBBBWBWWWWBWWWW — وبتوضع في شبكة 5 × 5 بترسم حرف <b>P</b>.</span></div>
+ الضغط بنحصل على BBBBWBWWWBBBBBWBWWWWBWWWW — وبتوضع في شبكة 5 × 5 بترسم حرف <b>P</b>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="داتا (Data) الصورة المضغوطة 'BW3B2W3B7W3B2W3B' بتمثّل أنهي حرف؟"
-              data-en="The compressed image data 'BW3B2W3B7W3B2W3B' represents which letter?">داتا (Data) الصورة المضغوطة 'BW3B2W3B7W3B2W3B' بتمثّل أنهي حرف؟</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="بيانات الصورة المضغوطة 'BW3B2W3B7W3B2W3B' بتمثّل أنهي حرف؟"
+              data-en="The compressed image data 'BW3B2W3B7W3B2W3B' represents which letter?">بيانات الصورة المضغوطة 'BW3B2W3B7W3B2W3B' بتمثّل أنهي حرف؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  الحرف P" data-en="A  the letter P">A  الحرف P</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  الحرف H" data-en="B  the letter H">B  الحرف H</div>
-            <div class="ex-opt" data-ar="C  الحرف Z" data-en="C  the letter Z">C  الحرف Z</div>
+            <div class="ex-opt" data-ar="A الحرف P" data-en="A  the letter P">A الحرف P</div>
+            <div class="ex-opt" data-ok="1" data-ar="B الحرف H" data-en="B  the letter H">B الحرف H</div>
+            <div class="ex-opt" data-ar="C الحرف Z" data-en="C  the letter Z">C الحرف Z</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — H" data-en="✅ Answer: B — H">✅ الإجابة: B — H</b> <span
               data-ar="فك الضغط: B WWW BB WWW BBBBBBB WWW BB WWW B = BWWWBBWWWBBBBBBBWWWBBWWWB — لما تتحط في شبكة 5 × 5 بتطلع الحرف H."
               data-en="Decompressing: B WWW BB WWW BBBBBBB WWW BB WWW B = BWWWBBWWWBBBBBBBWWWBBWWWB — placed in a 5 × 5 grid it draws the letter H.">بفك
-              الضغط: B WWW BB WWW BBBBBBB WWW BB WWW B = BWWWBBWWWBBBBBBBWWWBBWWWB — وبتوضع في شبكة 5 × 5 بترسم حرف
-              <b>H</b>.</span></div>
+ الضغط: B WWW BB WWW BBBBBBB WWW BB WWW B = BWWWBBWWWBBBBBBBWWWBBWWWB — وبتوضع في شبكة 5 × 5 بترسم حرف
+ <b>H</b>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="داتا (Data) الصورة المضغوطة 'BW3BWBWBW3BW4BW4BW2' بتمثّل أنهي حرف؟"
-              data-en="The compressed image data 'BW3BWBWBW3BW4BW4BW2' represents which letter?">داتا (Data) الصورة المضغوطة 'BW3BWBWBW3BW4BW4BW2' بتمثّل أنهي حرف؟</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="بيانات الصورة المضغوطة 'BW3BWBWBW3BW4BW4BW2' بتمثّل أنهي حرف؟"
+              data-en="The compressed image data 'BW3BWBWBW3BW4BW4BW2' represents which letter?">بيانات الصورة المضغوطة 'BW3BWBWBW3BW4BW4BW2' بتمثّل أنهي حرف؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  الحرف P" data-en="A  the letter P">A  الحرف P</div>
-            <div class="ex-opt" data-ar="B  الحرف T" data-en="B  the letter T">B  الحرف T</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  الحرف Y" data-en="C  the letter Y">C  الحرف Y</div>
+            <div class="ex-opt" data-ar="A الحرف P" data-en="A  the letter P">A الحرف P</div>
+            <div class="ex-opt" data-ar="B الحرف T" data-en="B  the letter T">B الحرف T</div>
+            <div class="ex-opt" data-ok="1" data-ar="C الحرف Y" data-en="C  the letter Y">C الحرف Y</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — Y" data-en="✅ Answer: C — Y">✅ الإجابة: C — Y</b> <span
               data-ar="فك الضغط: B WWW B W B W B WWW B WWWW B WWWW B WW = BWWWBWBWBWWWBWWWWBWWWWBWW — لما تتحط في شبكة 5 × 5 بتطلع الحرف Y."
               data-en="Decompressing: B WWW B W B W B WWW B WWWW B WWWW B WW = BWWWBWBWBWWWBWWWWBWWWWBWW — placed in a 5 × 5 grid it draws the letter Y.">بفك
-              الضغط: B WWW B W B W B WWW B WWWW B WWWW B WW = BWWWBWBWBWWWBWWWWBWWWWBWW — وبتوضع في شبكة 5 × 5 بترسم حرف
-              <b>Y</b>.</span></div>
+ الضغط: B WWW B W B W B WWW B WWWW B WWWW B WW = BWWWBWBWBWWWBWWWWBWWWWBWW — وبتوضع في شبكة 5 × 5 بترسم حرف
+ <b>Y</b>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">4</span> <span data-ar="طريقة الضغط اللي بتمثّل الداتا (Data) المتكررة عن طريق كتابة الداتا (Data) وعدد التكرارات المتتالية بتتسمّى إيه؟"
-              data-en="The compression method that represents repeated data by listing the data and the number of consecutive occurrences is called?">طريقة الضغط اللي بتمثّل الداتا (Data) المتكررة عن طريق كتابة الداتا (Data) وعدد التكرارات المتتالية بتتسمّى إيه؟</span></div>
+          <div class="q"><span class="q-num">4</span> <span data-ar="طريقة الضغط اللي بتمثّل البيانات المتكررة عن طريق كتابة البيانات وعدد التكرارات المتتالية بتتسمّى إيه؟"
+              data-en="The compression method that represents repeated data by listing the data and the number of consecutive occurrences is called?">طريقة الضغط اللي بتمثّل البيانات المتكررة عن طريق كتابة البيانات وعدد التكرارات المتتالية بتتسمّى إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  ترميز Huffman" data-en="A  Huffman coding">A  ترميز Huffman</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  ترميز طول التشغيل" data-en="B  Run-length encoding">B  ترميز طول التشغيل</div>
-            <div class="ex-opt" data-ar="C  ترميز LZ" data-en="C  LZ encoding">C  ترميز LZ</div>
+            <div class="ex-opt" data-ar="A ترميز Huffman" data-en="A  Huffman coding">A ترميز Huffman</div>
+            <div class="ex-opt" data-ok="1" data-ar="B ترميز طول التشغيل" data-en="B  Run-length encoding">B ترميز طول التشغيل</div>
+            <div class="ex-opt" data-ar="C ترميز LZ" data-en="C  LZ encoding">C ترميز LZ</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — ترميز طول التشغيل" data-en="✅ Answer: B — Run-length encoding">✅ الإجابة: B — ترميز طول التشغيل</b> <span
-              data-ar="ترميز طول التشغيل بيحوّل تتابعات الرموز المتكررة (زي BBBBB → B5) لرمز واحد ورقم بيعبّر عن العدّ."
+              data-ar="ترميز طول التشغيل بيحوّل تتابعات الرموز المتكررة (زي BBBBB ← B5) لرمز واحد ورقم بيعبّر عن العدّ."
               data-en="Run-length encoding converts sequences of repeated symbols (like BBBBB → B5) into one symbol and a number expressing the count.">ترميز طول التشغيل بيحوّل تتابعات الرموز المتكررة (زي BBBBB → B5) لرمز واحد ورقم بيعبّر عن العدّ.</span></div>
         </div>
         <div class="ex-btn-row">
@@ -1859,7 +888,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="آلية الفيديو" data-en="The video mechanism">آلية الفيديو</h4>
+                  <h3 data-ar="آلية الفيديو" data-en="The video mechanism" class="lvl-h4 lvl-h4-2">آلية الفيديو</h3>
                   <p data-ar="سلسلة صور ثابتة (إطارات/Frame) معروضة ورا بعض بسرعة، وظاهرة بقايا الصورة بتخلق وهم الحركة."
                     data-en="a series of still images (Frames) displayed in succession quickly, and the afterimage phenomenon creates the illusion of movement.">سلسلة صور ثابتة (إطارات/Frame) معروضة ورا بعض بسرعة، وظاهرة بقايا الصورة بتخلق وهم الحركة.</p>
                 </div>
@@ -1867,17 +896,17 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="مقدار داتا (Data) الفيديو" data-en="The video data amount">مقدار داتا (Data) الفيديو</h4>
-                  <p data-ar="المقدار = داتا (Data) الصورة [B] × معدل الإطارات [fps] × الوقت [ثواني]."
-                    data-en="the amount = image data [B] × frame rate [fps] × time [seconds].">المقدار = داتا (Data) الصورة [B] × معدل الإطارات [fps] × الوقت [ثواني].</p>
+                  <h3 data-ar="مقدار بيانات الفيديو" data-en="The video data amount" class="lvl-h4 lvl-h4-2">مقدار بيانات الفيديو</h3>
+                  <p data-ar="المقدار = بيانات الصورة [B] × معدل الإطارات [fps] × الوقت [ثواني]."
+                    data-en="the amount = image data [B] × frame rate [fps] × time [seconds].">المقدار = بيانات الصورة [B] × معدل الإطارات [fps] × الوقت [ثواني].</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="ضغط" data-en="Compression">ضغط</h4>
-                  <p data-ar="النسبة = (بعد ÷ الأصلي) × 100، والضغط بدون فقد بيرجّع الداتا (Data) بالكامل بينما البفقد لأ.".
-                    data-en="the ratio = (after ÷ original) × 100, and Lossless restores data completely while Lossy does not.">النسبة = (بعد ÷ الأصلي) × 100، والضغط بدون فقد بيرجّع الداتا (Data) بالكامل بينما البفقد لأ.</p>
+                  <h3 data-ar="ضغط" data-en="Compression" class="lvl-h4 lvl-h4-2">ضغط</h3>
+                  <p data-ar="النسبة = (بعد ÷ الأصلي) × 100، والضغط بدون فقد بيرجّع البيانات بالكامل بينما البفقد لأ.".
+                    data-en="the ratio = (after ÷ original) × 100, and Lossless restores data completely while Lossy does not.">النسبة = (بعد ÷ الأصلي) × 100، والضغط بدون فقد بيرجّع البيانات بالكامل بينما البفقد لأ.</p>
                 </div>
               </div>
             </div>
@@ -1894,8 +923,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="recapRecall">
           <div class="rq" data-id="recapRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو الإطار (Frame)؟"
-                data-en="What is a frame?">إيه هو الإطار (Frame)؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه هو الإطار؟"
+                data-en="What is a frame?">إيه هو الإطار؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq1o2" data-key="A"
                 data-fb-ar="مش كده — ده عدد الإطارات مش الصورة الواحدة."
@@ -1923,25 +952,25 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="recapRq2o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! الحجم = بيانات الصورة × معدل الإطارات × الزمن."
                 data-fb-en="Correct! The amount = image data × frame rate × time."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="داتا (Data) الصورة × معدل الإطارات × الوقت"
-                  data-en="image data × frame rate × time">داتا (Data) الصورة × معدل الإطارات × الوقت</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="بيانات الصورة × معدل الإطارات × الوقت"
+                  data-en="image data × frame rate × time">بيانات الصورة × معدل الإطارات × الوقت</span></div>
               <div class="rq-opt" data-id="recapRq2o2" data-key="B"
                 data-fb-ar="مش كده — الزمن بيتضرب مش بيتقسم."
                 data-fb-en="Not quite — time is multiplied, not divided."><span class="rq-key">B</span><span
-                  class="rq-body" data-ar="داتا (Data) الصورة ÷ معدل الإطارات ÷ الوقت"
-                  data-en="image data ÷ frame rate ÷ time">داتا (Data) الصورة ÷ معدل الإطارات ÷ الوقت</span></div>
+                  class="rq-body" data-ar="بيانات الصورة ÷ معدل الإطارات ÷ الوقت"
+                  data-en="image data ÷ frame rate ÷ time">بيانات الصورة ÷ معدل الإطارات ÷ الوقت</span></div>
               <div class="rq-opt" data-id="recapRq2o3" data-key="C"
                 data-fb-ar="مش كده — معدل الإطارات مش بيتجمع."
                 data-fb-en="Not quite — the frame rate is not added."><span class="rq-key">C</span><span
-                  class="rq-body" data-ar="داتا (Data) الصورة + معدل الإطارات + الوقت"
-                  data-en="image data + frame rate + time">داتا (Data) الصورة + معدل الإطارات + الوقت</span></div>
+                  class="rq-body" data-ar="بيانات الصورة + معدل الإطارات + الوقت"
+                  data-en="image data + frame rate + time">بيانات الصورة + معدل الإطارات + الوقت</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="recapRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
           <div class="rq" data-id="recapRq3">
-            <div class="rq-q"><span class="q-num">3</span> <span data-ar="داتا (Data) الصوت والصورة والفيديو بتتضغط بأنهي نوع؟"
-                data-en="Audio, image, and video data are compressed with which type?">داتا (Data) الصوت والصورة والفيديو بتتضغط بأنهي نوع؟</span></div>
+            <div class="rq-q"><span class="q-num">3</span> <span data-ar="بيانات الصوت والصورة والفيديو بتتضغط بأنهي نوع؟"
+                data-en="Audio, image, and video data are compressed with which type?">بيانات الصوت والصورة والفيديو بتتضغط بأنهي نوع؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq3o2" data-key="A"
                 data-fb-ar="مش كده — Lossless بيخص النصوص والبرامج غالباً."
@@ -2490,30 +1519,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>

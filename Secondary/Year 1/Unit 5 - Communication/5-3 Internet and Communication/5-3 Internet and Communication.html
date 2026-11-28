@@ -10,955 +10,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 5-3 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .22);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap:anywhere
-    }
-  /* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-
-/* dimmed step rows: grey instead of faded, so the text stays readable */
-.email-row.dim, .chat-row.dim{ opacity:.95 }
-.email-row.dim .email-tag, .chat-row.dim .chat-who{ color:#334155!important; background:rgba(11,16,32,.06)!important }
-.email-row.dim .email-vals, .chat-row.dim .chat-hint, .chat-row.dim .chat-tick{ color:#334155!important }
-
-/* dimmed step rows: grey instead of faded, so the text stays readable */
-.email-row.dim, .chat-row.dim{ opacity:1 }
-.email-row.dim .email-tag, .chat-row.dim .chat-who{ color:#334155!important; background:rgba(11,16,32,.06)!important }
-.email-row.dim .email-vals, .chat-row.dim .chat-hint, .chat-row.dim .chat-tick{ color:#334155!important }
-/* small labels: a shade darker so they clear 4.5:1 on their tinted chips */
-.email-tag{ color:#0d2ac4!important }
-.chat-hint, .chat-tick{ color:#2440d8!important }
-.error-box h4{ color:#b31f33!important }
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/5-3-internet-and-communication--5-3-internet-and-communication-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="contrast-pass-3">
-/* Readability pass 3: faded component blocks and light code editors. */
-.bt,.bt-sub{opacity:1!important}
-.bt-sub{color:#2f3542!important}
-.bt-note{opacity:1!important;color:#3a4152!important}
-.email-vals{color:#1a3fd0!important}
-.chat-who{color:#3a4152!important}
-.html-edit,.js-edit,.py-edit,textarea{color:var(--text)!important}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
 </head>
 
 <body>
@@ -999,7 +55,7 @@ select{color:var(--text)!important}
       <p class="hero-sub"
         data-ar="إزاي بنتواصل على الإنترنت — من الإيميل لمكالمات الفيديو، وإزاي بنبعت ونستقبل واحترم بعض."
         data-en="How we communicate on the internet — from email to video calls, and how we send, receive and respect each other.">إزاي بنتواصل على الإنترنت — من الإيميل لمكالمات الفيديو، وإزاي بنبعت ونستقبل واحترم بعض.</p>
-      <div class="hero-stats"><span data-ar="10 أقسام" data-en="10 sections">10 أقسام</span><span data-ar="22 سؤالًا" data-en="22 practice questions">22 سؤالًا</span><span data-ar="15 مصطلحًا" data-en="15 glossary terms">15 مصطلحًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+      <div class="hero-stats"><span data-ar="10 أقسام" data-en="10 sections">10 أقسام</span><span data-ar="22 سؤالًا" data-en="22 practice questions">22 سؤالًا</span><span data-ar="15 مصطلحًا" data-en="15 glossary terms">15 مصطلحًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 
@@ -1023,15 +79,15 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="النهارده هنتكلم عن الطرق اللي بنتواصل بيها على الإنترنت — إزاي نبعت ونستقبل معلومات (Information) من غير ما نتوه، وإزاي نختار الوسيلة الصح لكل موقف."
+        <p data-ar="النهارده هنتكلم عن الطرق اللي بنتواصل بيها على الإنترنت — إزاي نبعت ونستقبل معلومات من غير ما نتوه، وإزاي نختار الوسيلة الصح لكل موقف."
           data-en="Today we'll talk about the ways we communicate on the internet — how we send and receive information without getting lost, and how to choose the right medium for each situation.">
-          النهارده هنتكلم عن <b>وسايل الاتصال على الإنترنت</b> — إزاي بنبعت ونستقبل المعلومات من غير ما نتوه، وإزاي نختار
-          الوسيلة الصح لكل موقف.</p>
+ النهارده هنتكلم عن <b>وسايل الاتصال على الإنترنت</b> — إزاي بنبعت ونستقبل المعلومات من غير ما نتوه، وإزاي نختار
+ الوسيلة الصح لكل موقف.</p>
         <p data-ar="هنتعلّم الطرق المعروفة زي الإيميل والمراسلة الفورية ومكالمات الفيديو والمدوّنات، ونشوف المنصّات اللي الناس بتقابل فيها بعض زي السوشيال ميديا ومشاركة الفيديو. وفي الآخر هنفهم الخصائص المشتركة اللي بتميّز اتصال الإنترنت عن أي اتصال تاني."
           data-en="We'll learn the famous ways like email, instant messaging, video calls and blogs, and see the platforms where people meet like social media and video sharing. Finally we'll understand the shared characteristics that set internet communication apart from any other communication.">
-          هنعرف الوسايل الشهيرة زي <span dir="ltr">Email</span> والرسايل الفورية والفيديو كول والمدونة، وهنشوف المنصات اللي
-          الناس بتلتقي فيها زي السوشيال ميديا ومشاركة الفيديو. وفي الآخر هنفهم الخصائص المشتركة اللي بتفرق الاتصال على
-          الإنترنت عن أي اتصال تاني.</p>
+ هنعرف الوسايل الشهيرة زي <span dir="ltr">Email</span> والرسايل الفورية والفيديو كول والمدونة، وهنشوف المنصات اللي
+ الناس بتلتقي فيها زي السوشيال ميديا ومشاركة الفيديو. وفي الآخر هنفهم الخصائص المشتركة اللي بتفرق الاتصال على
+ الإنترنت عن أي اتصال تاني.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="قبل ما تختار طريقة للاتصال، اسأل نفسك: محتاج أوصل لشخص معيّن ولا لكتير؟ محتاج رد فوري ولا مش مستعجل؟ الإجابة هي اللي بتحدد اختيارك."
             data-en="before choosing a way to communicate, ask yourself: do I need to reach one specific person or many? do I need an instant reply or am I not in a hurry? The answer decides your choice.">قبل ما تختار طريقة للاتصال، اسأل نفسك: محتاج أوصل لشخص معيّن ولا لكتير؟ محتاج رد فوري ولا مش مستعجل؟ الإجابة هي اللي بتحدد اختيارك.</span></div>
@@ -1088,84 +144,29 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين CC وBCC — الاتنين بيبعتوا لأكبر عدد من الناس، بس BCC مخفي."
             data-en="Mixing up CC and BCC — both send to the maximum number of people, but BCC is hidden.">
-            الخلط بين <span dir="ltr">CC</span> و<span dir="ltr">BCC</span> — الاتنين بيبعتوا للحد الأقصى من الناس لكن
-            <span dir="ltr">BCC</span> مخفي.</li>
-          <li data-ar="إنك تفتكر إن anonymity على الإنترنت يعني تقدر تكتب أي حاجة — لا، السجلّات بتتخزّن وكلامك ممكن يتفهم غلط، فكن محترم ودقيق في معلوماتك (Information)."
-            data-en="Thinking anonymity on the internet means you can write anything — no, records are kept and your words may be misunderstood, so be respectful and accurate with your information.">إنك تفتكر إن anonymity على الإنترنت يعني تقدر تكتب أي حاجة — لا، السجلّات بتتخزّن وكلامك ممكن يتفهم غلط، فكن محترم ودقيق في معلوماتك (Information).</li>
+ الخلط بين <span dir="ltr">CC</span> و<span dir="ltr">BCC</span> — الاتنين بيبعتوا للحد الأقصى من الناس لكن
+ <span dir="ltr">BCC</span> مخفي.</li>
+          <li data-ar="إنك تفتكر إن anonymity على الإنترنت يعني تقدر تكتب أي حاجة — لا، السجلّات بتتخزّن وكلامك ممكن يتفهم غلط، فكن محترم ودقيق في معلوماتك."
+            data-en="Thinking anonymity on the internet means you can write anything — no, records are kept and your words may be misunderstood, so be respectful and accurate with your information.">إنك تفتكر إن anonymity على الإنترنت يعني تقدر تكتب أي حاجة — لا، السجلّات بتتخزّن وكلامك ممكن يتفهم غلط، فكن محترم ودقيق في معلوماتك.</li>
         </ul>
       </div>
     </section>
 
     <!-- ============ 02 EMAIL ============ -->
     <section id="email">
-      <style>
-        .email-window {
-          background:rgba(11, 16, 32, 0.04);
-          border:1px solid rgba(11, 16, 32, 0.1);
-          border-radius:16px;
-          overflow:hidden
-        }
-
-        .email-row {
-          display:flex;
-          align-items:center;
-          gap:12px;
-          padding:11px 14px;
-          margin:4px 8px;
-          border-radius:10px;
-          border:1px solid transparent;
-          transition:background .3s, box-shadow .3s, border-color .3s, opacity .3s
-        }
-
-        .email-row.dim {
-          opacity:1
-        }
-
-        .email-row.on {
-          border-color:rgba(24, 56, 248, .45);
-          background:rgba(24, 56, 248, .08);
-          box-shadow:0 0 18px rgba(24, 56, 248, .22)
-        }
-
-        .email-tag {
-          flex-shrink:0;
-          width:58px;
-          text-align:center;
-          font-weight:800;
-          font-size:.9rem;
-          letter-spacing:.5px;
-          padding:5px 10px;
-          border-radius:8px
-        }
-
-        .email-vals {
-          font-family:'Consolas', monospace;
-          direction:ltr;
-          text-align:left;
-          font-size:.9rem;
-          color:#2d56fb
-        }
-
-        @media(max-width:640px) {
-          .email-row {
-            flex-direction:column;
-            align-items:flex-start;
-            gap:4px
-          }
-        }
-      </style>
+      <link rel="stylesheet" href="../../../../assets/css/pages/5-3-internet-and-communication--5-3-internet-and-communication-2.css">
       <div class="section-inner">
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#f7f3eb)">02</div>
           <div>
             <h2 data-ar="مفهوم الإيميل" data-en="The Concept of Email">مفهوم <span
                 dir="ltr">Email</span> — البريد الإلكتروني</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="التعريف الأساسي — EN PDF 50 (المطبوع 50)؛ AR 58"
-              data-en="the basic definition - English PDF 50 (printed 50); Arabic 58">التعريف الأساسي — EN PDF 50 (المطبوع 50)؛ AR 58</div>
+            <div class="tag" style="color:var(--s2)" data-ar="التعريف الأساسي"
+              data-en="the basic definition">التعريف الأساسي</div>
           </div>
         </div>
       </div>
@@ -1174,7 +175,7 @@ select{color:var(--text)!important}
         <div class="demo-panel">
           <div class="demo-label" data-ar="نافذة كتابة الإيميل:اتبع الخطوات وشوف الفرق بين To وCC وBCC"
             data-en="An email compose window: follow the steps and see the difference between To, CC and BCC">نموذج رسالة
-            إيميل: تابع الخطوات وشوف الفرق بين <span dir="ltr">To</span> و<span dir="ltr">CC</span> و<span
+ إيميل: تابع الخطوات وشوف الفرق بين <span dir="ltr">To</span> و<span dir="ltr">CC</span> و<span
               dir="ltr">BCC</span></div>
           <div class="email-window">
             <div class="email-row on" data-f="to">
@@ -1198,8 +199,8 @@ select{color:var(--text)!important}
               <div class="tl-desc"
                 data-ar="في خانة To بتكتب عنوان (أو عناوين) المستقبِلين اللي عاوز توصلهم مباشرة. دول الناس الأساسيين اللي الرسالة موجّهة ليهم فعلياً."
                 data-en="In the To field you type the address(es) of the recipients you want to reach directly. These are the main people the message is actually addressed to.">في
-                حقل <span dir="ltr">To</span> بتكتب عنوان أو عناوين المستلمين اللي عايز توصّلهم الرسالة مباشرة. دول
-                الأساسيين اللي الرسالة موجهة ليهم فعلاً.</div>
+ حقل <span dir="ltr">To</span> بتكتب عنوان أو عناوين المستلمين اللي عايز توصّلهم الرسالة مباشرة. دول
+ الأساسيين اللي الرسالة موجهة ليهم فعلاً.</div>
             </div>
             <div class="tl-step" data-f="cc">
               <div class="tl-icon emoji-pulse">👁️</div>
@@ -1208,8 +209,8 @@ select{color:var(--text)!important}
               <div class="tl-desc"
                 data-ar="في خانة CC بتضيف مستقبِلين عاوز تشاركهم المحتوى، بس كل مستقبِل بيشوف عناوين To وCC. يعني أي حد في الرسالة يعرف مين الباقي."
                 data-en="In the CC field you add recipients you want to share the content with, but every recipient sees the To and CC addresses. So anyone on the message knows who the others are.">في
-                حقل <span dir="ltr">CC</span> بتضيف مستلمين عايز تشاركهم المحتوى، لكن <b>كل المستلمين بيشوفوا</b> عناوين
-                <span dir="ltr">To</span> و<span dir="ltr">CC</span>. يعني أي حد في الرسالة هيعرف مين التانيين.</div>
+ حقل <span dir="ltr">CC</span> بتضيف مستلمين عايز تشاركهم المحتوى، لكن <b>كل المستلمين بيشوفوا</b> عناوين
+ <span dir="ltr">To</span> و<span dir="ltr">CC</span>. يعني أي حد في الرسالة هيعرف مين التانيين.</div>
             </div>
             <div class="tl-step" data-f="bcc">
               <div class="tl-icon emoji-pulse">👻</div>
@@ -1218,9 +219,9 @@ select{color:var(--text)!important}
               <div class="tl-desc"
                 data-ar="خانة BCC بتبعت نفس المحتوى لناس أكتر، بس من غير ما المستقبِلين التانيين يشوفوا العناوين دي أو حتى يعرفوا إن BCC اتستخدم. المستقبِلين بتوع BCC بيستقبلوا الرسالة فعلاً."
                 data-en="The BCC field sends the same content to more people, but without other recipients seeing those addresses or even knowing BCC is used. BCC recipients really receive the message.">حقل
-                <span dir="ltr">BCC</span> بيبعت نفس المحتوى لناس تانيين، لكن من غير ما المستلمين التانيين <b>يشوفوا
-                  العناوين</b> أو يعرفوا إن <span dir="ltr">BCC</span> مستخدم أصلن. اللي في <span dir="ltr">BCC</span>
-                بياخد الرسالة فعلاً.</div>
+ <span dir="ltr">BCC</span> بيبعت نفس المحتوى لناس تانيين، لكن من غير ما المستلمين التانيين <b>يشوفوا
+ العناوين</b> أو يعرفوا إن <span dir="ltr">BCC</span> مستخدم أصلن. اللي في <span dir="ltr">BCC</span>
+ بياخد الرسالة فعلاً.</div>
             </div>
             <div class="tl-step" data-f="all">
               <div class="tl-icon emoji-pulse">🔍</div>
@@ -1234,8 +235,8 @@ select{color:var(--text)!important}
             </div>
           </div>
           <div class="tl-nav">
-            <button class="btn" data-id="emailPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-            <button class="btn" data-id="emailNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+            <button class="btn" data-id="emailPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+            <button class="btn" data-id="emailNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
             <span class="kbd" id="emailCounter">1 / 4</span>
             <button class="mini-btn" data-id="emailReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
           </div>
@@ -1251,33 +252,33 @@ select{color:var(--text)!important}
         <p
           data-ar="ببساطة: بدل ما تكتب جواب وتبعته بالبريد، بتكتب رسالة على الكمبيوتر أو الموبايل بتاعك وتوصل للشخص في ثواني مهما كان بعيد. لو عاوز توصل لعدد كبير، بتكتب كل العناوين وتضغط إرسال — وكل واحد بياخد الرسالة. تخيّل معلّم عاوز يبعت الواجب للصف كله: بدل ما يبعت 30 رسالة، بيبعت واحدة بس. وتقدر ترفق صور وفيديو وملفات، فالإيميل مش محدود بالنص."
           data-en="Simply: instead of writing a letter and sending it by post, you type a message on your computer or phone and it reaches the person in seconds no matter how far away. If you want to reach many people, you type all their addresses and hit send — each one gets the message. Imagine a teacher who wants to send homework to the whole class: instead of sending 30 messages, they send just one. You can also attach photos, videos and files, so email is not limited to text.">
-          ببساطة: بدل ما تكتب خطاب وتبعت جواب، بتكتب رسالة على الكمبيوتر أو الموبايل وبتوصل للي قصدك في ثواني مهما كان
-          بعيد. ولو عايز توصّل ناس كتير، بتكتب عناوينهم كلهم وتدوس إرسال — كل واحد بياخد الرسالة. تخيل مدرس عايز يبعت
-          واجب لكل الفصل: بدل ما يبعت 30 رسالة، بيبعت <b>واحدة وبس</b>. وممكن ترفق صور وفيديوهات وملفات، فالإيميل مش
-          مقتصر على النصوص.</p>
+ ببساطة: بدل ما تكتب خطاب وتبعت جواب، بتكتب رسالة على الكمبيوتر أو الموبايل وبتوصل للي قصدك في ثواني مهما كان
+ بعيد. ولو عايز توصّل ناس كتير، بتكتب عناوينهم كلهم وتدوس إرسال — كل واحد بياخد الرسالة. تخيل مدرس عايز يبعت
+ واجب لكل الفصل: بدل ما يبعت 30 رسالة، بيبعت <b>واحدة وبس</b>. وممكن ترفق صور وفيديوهات وملفات، فالإيميل مش
+ مقتصر على النصوص.</p>
         <div class="pill" style="background:rgba(24, 56, 248,.13);border:1px solid rgba(24, 56, 248,.35)"><span
             class="pill-dot" style="background:var(--s1)"></span> <b data-ar="To:" data-en="To:">To:</b> <span
             data-ar="بتكتب عنوان (أو عناوين) المستقبِل اللي عاوز تبعتله الرسالة مباشرة."
             data-en="you type the address(es) of the recipient(s) you want to send the message to directly.">بتكتب
-            عنوان(عناوين) المستلم اللي عايز تبعته ليهم الرسالة <b>مباشرة</b>.</span></div>
+ عنوان(عناوين) المستلم اللي عايز تبعته ليهم الرسالة <b>مباشرة</b>.</span></div>
         <div class="pill" style="background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.35)"><span
             class="pill-dot" style="background:var(--s2)"></span> <b data-ar="CC:" data-en="CC:">CC:</b> <span
             data-ar="بتكتب عناوين المستقبِلين اللي عاوز تشاركهم محتوى الإيميل، وكل المستقبِلين بيشوفوا عناوين CC."
             data-en="you type the addresses of recipients you want to share the email content with, and all recipients see the CC addresses.">بتكتب
-            عناوين مستلمين عايز تشاركهم محتوى الرسالة، وكل المستلمين <b>بيشوفوا</b> عناوين <span
+ عناوين مستلمين عايز تشاركهم محتوى الرسالة، وكل المستلمين <b>بيشوفوا</b> عناوين <span
               dir="ltr">CC</span>.</span></div>
         <div class="pill" style="background:rgba(24, 56, 248,.13);border:1px solid rgba(24, 56, 248,.35)"><span
             class="pill-dot" style="background:var(--s3)"></span> <b data-ar="BCC:" data-en="BCC:">BCC:</b> <span
             data-ar="زي CC للمشاركة، بس من غير ما المستقبِلين التانيين يشوفوا العناوين أو حتى يعرفوا إن BCC اتستخدم."
             data-en="like CC for sharing, but without the other recipients seeing the addresses or even knowing BCC is used.">زي
-            <span dir="ltr">CC</span> في المشاركة، لكن من غير ما المستلمين التانيين <b>يشوفوا</b> العناوين أو يعرفوا إن
-            <span dir="ltr">BCC</span> مستخدم أصلن.</span></div>
+ <span dir="ltr">CC</span> في المشاركة، لكن من غير ما المستلمين التانيين <b>يشوفوا</b> العناوين أو يعرفوا إن
+ <span dir="ltr">BCC</span> مستخدم أصلن.</span></div>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="To هو البيت الأساسي للرسالة، وCC زي أعضاء مشروع بيشوفوا بعض، وBCC زي نسخة سرية بتبلّغ ناسها من غير ما حد يعرف."
             data-en="To is the main home of the message, CC is like project members who see each other, and BCC is like a secret copy that reaches its people without anyone knowing."><span
               dir="ltr">To</span> هو البيت الأساسي للرسالة، <span dir="ltr">CC</span> ناس شغالين في المشروع يشوفوا بعض،
-            و<span dir="ltr">BCC</span> زي رسالة سرية بتوصل لمن قصدها من غير ما حد يعرف.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>أ. الاتصال عبر الإنترنت — (1) البريد الإلكتروني ((Email (Electronic mail))): أداة لإرسال واستقبال الرسائل القائمة على النص عبر الإنترنت. يتميز البريد الإلكتروني بـ قدرة البث (broadcast capability) التي تسمح للمستخدم بإرسال الرسائل إلى مستلمين متعددين.</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>[1] إلى (To): أدخل عنوان البريد الإلكتروني للمستلم (المستلمين) الذي تريد إرسال البريد الإلكتروني إليه. [2] نسخة (CC): أدخل عنوان البريد الإلكتروني للمستلم (المستلمين) الذي تريد مشاركة محتوى البريد الإلكتروني معهم. [3] نسخة مخفية (BCC): أدخل عنوان البريد الإلكتروني للمستلم (المستلمين) الذي تريد مشاركة محتوى البريد الإلكتروني معهم ولكن لا تريد أن يرى المستلمون الآخرون ذلك. لا يمكن للمستلمين الآخرين رؤية عناوين البريد الإلكتروني وتستخدم BCC لهذا الغرض.</p></div>
+ و<span dir="ltr">BCC</span> زي رسالة سرية بتوصل لمن قصدها من غير ما حد يعرف.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>أ. الاتصال عبر الإنترنت — (1) البريد الإلكتروني ((Email)): أداة لإرسال واستقبال الرسائل القائمة على النص عبر الإنترنت. يتميز البريد الإلكتروني بـ قدرة البث التي تسمح للمستخدم بإرسال الرسائل إلى مستلمين متعددين.</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>[1] إلى: أدخل عنوان البريد الإلكتروني للمستلم (المستلمين) الذي تريد إرسال البريد الإلكتروني إليه. [2] نسخة: أدخل عنوان البريد الإلكتروني للمستلم (المستلمين) الذي تريد مشاركة محتوى البريد الإلكتروني معهم. [3] نسخة مخفية: أدخل عنوان البريد الإلكتروني للمستلم (المستلمين) الذي تريد مشاركة محتوى البريد الإلكتروني معهم ولكن لا تريد أن يرى المستلمون الآخرون ذلك. لا يمكن للمستلمين الآخرين رؤية عناوين البريد الإلكتروني وتستخدم BCC لهذا الغرض.</p></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -1310,7 +311,7 @@ select{color:var(--text)!important}
                 data-fb-ar="مش كده — اللي في CC كمان مش شايفين BCC."
                 data-fb-en="Not quite — those in CC also do not see BCC."><span class="rq-key">D</span><span
                   class="rq-body" data-ar="المرسل ومستقبِلين CC" data-en="The sender and the CC recipients">المرسل
-                  والمستلمين في <span dir="ltr">CC</span></span></div>
+ والمستلمين في <span dir="ltr">CC</span></span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="emailRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -1348,22 +349,22 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li
             data-ar="الخلط بين CC وBCC — الاتنين بيبعتوا المحتوى لناس زيادة، بس عناوين CC ظاهرة وعناوين BCC مخفية."
             data-en="Mixing up CC and BCC — both send the content to extra people, but CC addresses are visible and BCC addresses are hidden.">
-            الخلط بين <span dir="ltr">CC</span> و<span dir="ltr">BCC</span> — الاتنين بيبعتوا المحتوى لناس إضافيين، لكن
-            عناوين <span dir="ltr">CC</span> <b>ظاهرة</b> وعناوين <span dir="ltr">BCC</span> <b>مخفية</b>.</li>
+ الخلط بين <span dir="ltr">CC</span> و<span dir="ltr">BCC</span> — الاتنين بيبعتوا المحتوى لناس إضافيين، لكن
+ عناوين <span dir="ltr">CC</span> <b>ظاهرة</b> وعناوين <span dir="ltr">BCC</span> <b>مخفية</b>.</li>
           <li
             data-ar="إنك تفتكر مستقبِل BCC مش باين — لا، بيستقبل الرسالة فعلاً، بس مفيش مستقبِل تاني يشوفه."
             data-en="Thinking a BCC recipient is invisible — no, they really receive the message, but no other recipient sees them.">
-            الاعتقاد إن <span dir="ltr">BCC</span> مستلم غير مرئي — لأ، هو <b>بياخد الرسالة فعلاً</b>، لكن محدش من
-            المستلمين التانيين بيشوفه.</li>
+ الاعتقاد إن <span dir="ltr">BCC</span> مستلم غير مرئي — لأ، هو <b>بياخد الرسالة فعلاً</b>، لكن محدش من
+ المستلمين التانيين بيشوفه.</li>
           <li
             data-ar="إنك تفتكر الإيميل للرسايل النصية بس — تقدر ترفق صور وفيديو وملفات."
             data-en="Thinking email is only for text messages — you can attach photos, videos and files.">
-            الاعتقاد إن البريد الإلكتروني مخصص للرسائل النصية بس — ممكن <b>ترفق صور وفيديوهات وملفات</b>.</li>
+ الاعتقاد إن البريد الإلكتروني مخصص للرسائل النصية بس — ممكن <b>ترفق صور وفيديوهات وملفات</b>.</li>
         </ul>
       </div>
 
@@ -1409,7 +410,7 @@ select{color:var(--text)!important}
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#edeffe)">03</div>
           <div>
-            <h2 data-ar="نظام السبورة الإعلانية (BBS)" data-en="Bulletin board system (BBS)"><span
+            <h2 data-ar="نظام السبورة الإعلانية" data-en="Bulletin board system (BBS)"><span
                 dir="ltr">Bulletin board system</span> <span dir="ltr">(BBS)</span></h2>
             <div class="tag" style="color:var(--s3)" data-ar="سبورة رسايل عامة — الكل بيبوست ويرد"
               data-en="a public message board — everyone posts and replies">سبورة رسايل عامة — الكل بيبوست ويرد</div>
@@ -1427,15 +428,15 @@ select{color:var(--text)!important}
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="bbs"></svg>
                 <div class="svg-label" data-fbox="p" data-ar="✍️ إنت بتنزّل رسالة" data-en="✍️ You post a message">✍️ إنت بتنزّل رسالة</div>
-                <div class="svg-label" data-fbox="board" data-ar="📋 السبورة (BBS)" data-en="📋 The message board (BBS)">📋
-                  لوحة الرسائل <span dir="ltr">(BBS)</span></div>
+                <div class="svg-label" data-fbox="board" data-ar="📋 السبورة" data-en="📋 The message board (BBS)">📋
+ لوحة الرسائل <span dir="ltr">(BBS)</span></div>
                 <div class="svg-label" data-fbox="r1" data-ar="👀 الناس التانية بتشوفها" data-en="👀 Others see it">👀 الناس التانية بتشوفها</div>
                 <div class="svg-label" data-fbox="r2" data-ar="💬 وترد عليها" data-en="💬 And reply to it">💬 وترد عليها</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="bbsPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="bbsNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="bbsPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="bbsNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="bbsCounter">1 / 4</span>
                 <button class="mini-btn" data-id="bbsReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1452,20 +453,20 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="الـ BBS زي سبورة إعلانات رقمية — بتكتب رسالة، الناس بتشوفها وترد عليها، وكل الردود بتتراكم تحت الرسالة. من أقدم أشكال المجتمعات أونلاين قبل السوشيال ميديا الحديثة."
           data-en="A BBS is like a digital notice board — you write a message, people see it and reply to it, and all the replies pile up under the message. One of the oldest forms of online communities before modern social media.">
-          الـ <span dir="ltr">BBS</span> زي لوحة إعلانات رقمية — بتكتب رسالة، والناس بتشوفها وترد عليها، وكل الردود بتتكدس
-          تحت الرسالة. من <b>أقدم أشكال المجتمعات</b> على الإنترنت قبل مواقع التواصل الحديثة.</p>
+ الـ <span dir="ltr">BBS</span> زي لوحة إعلانات رقمية — بتكتب رسالة، والناس بتشوفها وترد عليها، وكل الردود بتتكدس
+ تحت الرسالة. من <b>أقدم أشكال المجتمعات</b> على الإنترنت قبل مواقع التواصل الحديثة.</p>
         <p data-ar="الاسم بيوصف الفكرة: Bulletin يعني إعلان، وBoard يعني سبورة — حرفياً سبورة إعلانات عامة أي حد يقدر يشوفها."
           data-en="The name describes the idea: Bulletin means an announcement, and Board means a board — literally a public notice board that everyone can see.">
-          الاسم نفسه بيوصف الفكرة: <span dir="ltr">Bulletin</span> يعني إعلان/بيان، و<span dir="ltr">Board</span> يعني لوحة —
-          يعني حرفياً لوحة نشر الإعلانات اللي الكل يقدر يشوفها.</p>
+ الاسم نفسه بيوصف الفكرة: <span dir="ltr">Bulletin</span> يعني إعلان/بيان، و<span dir="ltr">Board</span> يعني لوحة —
+ يعني حرفياً لوحة نشر الإعلانات اللي الكل يقدر يشوفها.</p>
         <p data-ar="مثال عملي: فورم أسئلة — طالب بيسأل سؤال، طالب تاني بيرد، والردود بتظهر بالترتيب."
           data-en="A practical example: a questions forum — a student asks a question, another student replies, and the replies appear in sequence.">
           <b>مثال عملي:</b> منتدى أسئلة — طالب بيسأل سؤال، وطالب تاني بيرد، والردود بتظهر بالتسلسل.</p>
         <div class="note"><b data-ar="افرّق بينهم:" data-en="Tell them apart:">افرّق بينهم:</b> <span
             data-ar="الـ BBS عام ومفتوح للكل، بينما الإيميل خاص وشخصي بين مرسل ومستقبِل."
             data-en="the BBS is public and open to everyone, while email is private and personal between a sender and a receiver.">الـ
-            <span dir="ltr">BBS</span> عام ومفتوح للكل، لكن الإيميل خاص وشخصي.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) نظام لوحة الإعلانات:(Bulletin board system (BBS)): أداة تسمح للمستخدم بنشر الرسائل وكتابة الردود على الرسائل الأخرى. (3) تطبيق المراسلة (Messaging app): أدوات تمكن تبادل النصوص والصور ومقاطع الفيديو. هذا يسهل الاتصال للأفراد أو المجموعات. &lt;أمثلة&gt; خدمة الرسائل القصيرة (SMS) ، LINE ، إلخ.</p></div>
+ <span dir="ltr">BBS</span> عام ومفتوح للكل، لكن الإيميل خاص وشخصي.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) نظام لوحة الإعلانات:(Bulletin board system): أداة تسمح للمستخدم بنشر الرسائل وكتابة الردود على الرسائل الأخرى. (3) تطبيق المراسلة: أدوات تمكن تبادل النصوص والصور ومقاطع الفيديو. هذا يسهل الاتصال للأفراد أو المجموعات. &lt;أمثلة&gt; خدمة الرسائل القصيرة، LINE، إلخ.</p></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -1476,7 +477,7 @@ select{color:var(--text)!important}
           <div class="rq" data-id="bbsRq1">
             <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه الفرق الأساسي بين BBS والإيميل؟"
                 data-en="What is the basic difference between a BBS and email?">الفرق الأساسي بين الـ <span dir="ltr">BBS</span>
-                والإيميل؟</span></div>
+ والإيميل؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="bbsRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صح! الـ BBS عام ومفتوح — أي حد يشوف الرسائل ويرد، لكن الإيميل خاص بين مرسل ومستقبل."
@@ -1498,7 +499,7 @@ select{color:var(--text)!important}
           <div class="rq" data-id="bbsRq2">
             <div class="rq-q"><span class="q-num">2</span> <span data-ar="هل الردود على BBS بتظهر فوراً وفي الوقت الحقيقي؟"
                 data-en="Do replies on a BBS appear instantly and in real time?">هل الردود على الـ <span dir="ltr">BBS</span>
-                بتظهر فوراً ولحظياً؟</span></div>
+ بتظهر فوراً ولحظياً؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="bbsRq2o1" data-key="A" data-ok="1"
                 data-fb-ar="صح! مش بالضرورة — أي حد يرد وقت ما يقدر، والرد بيظهر لما يتنشر مش لحظياً."
@@ -1517,15 +518,15 @@ select{color:var(--text)!important}
         </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين BBS والإيميل — الـ BBS عام ومفتوح للكل، بينما الإيميل خاص وشخصي."
             data-en="Mixing up a BBS with email — a BBS is public and open to everyone, while email is private and personal.">
-            الخلط بين الـ <span dir="ltr">BBS</span> والبريد الإلكتروني — الـ <span dir="ltr">BBS</span> <b>عام ومفتوح</b>،
-            والإيميل خاص وشخصي.</li>
+ الخلط بين الـ <span dir="ltr">BBS</span> والبريد الإلكتروني — الـ <span dir="ltr">BBS</span> <b>عام ومفتوح</b>،
+ والإيميل خاص وشخصي.</li>
           <li data-ar="إنك تفتكر ردود BBS فورية — مش بالضرورة؛ الناس بترد لما تقدر، مش على طول."
             data-en="Believing replies on a BBS are instant — not necessarily; people reply whenever they can, not right away.">
-            الاعتقاد إن الردود على الـ <span dir="ltr">BBS</span> لحظية — مش بالضرورة؛ الناس بترد وقت ما تقدر.</li>
+ الاعتقاد إن الردود على الـ <span dir="ltr">BBS</span> لحظية — مش بالضرورة؛ الناس بترد وقت ما تقدر.</li>
         </ul>
       </div>
       </div>
@@ -1533,122 +534,7 @@ select{color:var(--text)!important}
 
     <!-- ============ 04 ONE-TO-MANY ============ -->
     <section id="messaging">
-      <style>
-        .chat-window {
-          background:rgba(11, 16, 32, 0.04);
-          border:1px solid rgba(11, 16, 32, 0.1);
-          border-radius:16px;
-          overflow:hidden;
-          padding:6px 10px
-        }
-
-        .chat-row {
-          display:flex;
-          align-items:center;
-          gap:12px;
-          flex-wrap:wrap;
-          padding:11px 12px;
-          margin:4px 2px;
-          border-radius:10px;
-          border:1px solid transparent;
-          transition:background .3s, box-shadow .3s, border-color .3s, opacity .3s
-        }
-
-        .chat-row.dim {
-          opacity:1
-        }
-
-        .chat-row.on {
-          border-color:rgba(24, 56, 248, .45);
-          background:rgba(24, 56, 248, .08);
-          box-shadow:0 0 18px rgba(24, 56, 248, .22)
-        }
-
-        .chat-who {
-          flex-shrink:0;
-          font-size:.85rem;
-          font-weight:800;
-          padding:4px 10px;
-          border-radius:999px;
-          background:rgba(11, 16, 32, 0.06)
-        }
-
-        .chat-bubble {
-          background:rgba(24, 56, 248, .14);
-          border:1px solid rgba(24, 56, 248, .4);
-          padding:8px 14px;
-          border-radius:14px;
-          font-size:.95rem
-        }
-
-        .chat-hint,
-        .chat-tick {
-          font-size:.8rem;
-          color:#3456f8
-        }
-
-        @media(max-width:640px) {
-          .chat-row {
-            flex-direction:column;
-            align-items:flex-start;
-            gap:6px
-          }
-        }
-      
-    /* ===== Unified flat design system (auto-applied) ===== */
-    .bg-gradient, .hero-circles, .particles,
-    .bg-animation, .hero-blob, .particle {
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }
-
-    .lesson-section::before,
-    .lesson-section[data-accent]::before {
-      background:var(--primary) !important;
-    }
-
-    .section-number,
-    .lesson-section[data-accent] .section-number {
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }
-
-    [class*="-bar-fill"] {
-      background:var(--primary) !important;
-    }
-
-    [class*="-bar-fill"].good {
-      background:var(--success) !important;
-    }
-
-    [class*="-bar-fill"].mid {
-      background:var(--primary) !important;
-    }
-
-    [class*="-bar-fill"].bad {
-      background:var(--danger) !important;
-    }
-
-    .unit-num, .unit-card {
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }
-
-    [style*="linear-gradient"] {
-      background:var(--primary) !important;
-    }
-</style>
+      <link rel="stylesheet" href="../../../../assets/css/pages/5-3-internet-and-communication--5-3-internet-and-communication-3.css">
       <div class="section-inner">
         <div class="section-header">
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#ebf4f2)">04</div>
@@ -1662,7 +548,7 @@ select{color:var(--text)!important}
 
       <div class="section-inner">
         <div class="demo-panel">
-          <div class="demo-label" data-ar="محاكاة رسالة سريعة: اكتب → ابعت → وصلت بعلامة الاستلام"
+          <div class="demo-label" data-ar="محاكاة رسالة سريعة: اكتب ← ابعت ← وصلت بعلامة الاستلام"
             data-en="A quick message simulation: type → send → delivered with the receipt mark">محاكاة رسالة سريعة: اكتب → ابعت → وصلت بعلامة الاستلام</div>
           <div class="chat-window">
             <div class="chat-row on" data-f="compose">
@@ -1705,12 +591,12 @@ select{color:var(--text)!important}
               <div class="tl-desc"
                 data-ar="الرسالة بتظهر عند الطرف التاني بعلامة ✓✓ وصلت — الاتصال فوري لو الطرف التاني أونلاين."
                 data-en="The message shows at the other side with a ✓✓ delivered mark — communication is instant if the other side is online.">الرسالة
-                بتظهر عند الطرف التاني مع علامة ✓✓ إنها اتستلمت — التواصل بيكون <b>لحظي</b> لو الطرف متصل.</div>
+ بتظهر عند الطرف التاني مع علامة ✓✓ إنها اتستلمت — التواصل بيكون <b>لحظي</b> لو الطرف متصل.</div>
             </div>
           </div>
           <div class="tl-nav">
-            <button class="btn" data-id="messagingPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-            <button class="btn" data-id="messagingNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+            <button class="btn" data-id="messagingPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+            <button class="btn" data-id="messagingNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
             <span class="kbd" id="messagingCounter">1 / 3</span>
             <button class="mini-btn" data-id="messagingReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
           </div>
@@ -1721,18 +607,18 @@ select{color:var(--text)!important}
         <p
           data-ar="تطبيقات المراسلة زي واتساب وLINE وSMS بتخلينا نتبادل نص وصور وفيديو في ثواني — لأفراد أو لمجموعات. ميزتها إن الاتصال سريع ومباشر، وبيوصل فوراً لو الطرف التاني أونلاين."
           data-en="Messaging apps like WhatsApp, LINE and SMS let us exchange text, photos and videos in seconds — for individuals or for groups. Their advantage is that communication is fast and direct, and it arrives instantly if the other side is online.">
-          تطبيقات التراسل زي <span dir="ltr">WhatsApp</span> و<span dir="ltr">LINE</span> و<span
+ تطبيقات التراسل زي <span dir="ltr">WhatsApp</span> و<span dir="ltr">LINE</span> و<span
             dir="ltr">SMS</span> بتخلينا نتبادل <b>نص وصور وفيديو</b> في ثواني — للأفراد أو للجروبات. ميزتها إن التواصل
-          <b>سريع ومباشر</b> وبيوصل <b>لحظياً</b> لو الطرف التاني متصل.</p>
+ <b>سريع ومباشر</b> وبيوصل <b>لحظياً</b> لو الطرف التاني متصل.</p>
         <p
           data-ar="اسم المفهوم الرسمي هو تطبيق مراسلة: أدوات بتتيح تبادل نص وصور وفيديو. أمثلته من الكتاب: SMS (خدمة الرسايل القصيرة) وLINE."
           data-en="The official concept name is Messaging app: tools that enable exchanging text, photos and videos. Examples from the book: SMS (Short Message Service) and LINE.">
-          المفهوم بيسمّى <span dir="ltr">Messaging app</span>: أدوات بتمكّن تبادل <b>النصوص والصور والفيديوهات</b>.
-          أمثلة من الكتاب: <span dir="ltr">SMS (Short Message Service)</span> و<span dir="ltr">LINE</span>.</p>
+ المفهوم بيسمّى <span dir="ltr">Messaging app</span>: أدوات بتمكّن تبادل <b>النصوص والصور والفيديوهات</b>.
+ أمثلة من الكتاب: <span dir="ltr">SMS (Short Message Service)</span> و<span dir="ltr">LINE</span>.</p>
         <div class="note"><b data-ar="مثال / توضيح:" data-en="Example / illustration:">مثال / توضيح:</b> <span
             data-ar="جروب العيلة — الكل بيبعت صور وفيديو، والكل بيشوفها ويعلّق عليها."
             data-en="the family group — everyone sends photos and videos, and everyone sees them and comments.">جروب
-            العيلة — كل واحد بيبعت <b>صور وفيديوهات</b>، والكل <b>بيشوفها ويعلق</b>.</span></div>
+ العيلة — كل واحد بيبعت <b>صور وفيديوهات</b>، والكل <b>بيشوفها ويعلق</b>.</span></div>
       </div>
 
       <div class="section-inner card">
@@ -1806,17 +692,17 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li
             data-ar="الخلط بين تطبيق المراسلة والإيميل — المراسلة فورية، بينما الإيميل ممكن يتأخّر."
             data-en="Mixing up a Messaging app and email — messaging is instant, while email may be delayed.">
-            الخلط بين <span dir="ltr">Messaging app</span> والبريد الإلكتروني — التراسل <b>لحظي</b>، والإيميل ممكن
-            <b>يتأخر</b>.</li>
+ الخلط بين <span dir="ltr">Messaging app</span> والبريد الإلكتروني — التراسل <b>لحظي</b>، والإيميل ممكن
+ <b>يتأخر</b>.</li>
           <li
             data-ar="إنك تفتكر الرسالة مش بتتسجّل كأثر دايماً — حتى لو مسحتها، ممكن تفضل عند الطرف التاني."
             data-en="Believing a message is not always recorded as a trace — even if you delete it, it may stay with the other side.">
-            الاعتقاد إن الرسالة <b>بتتسجل دايماً كأثر</b> — حتى لو مسحتها ممكن تتفضل عند الطرف التاني.</li>
+ الاعتقاد إن الرسالة <b>بتتسجل دايماً كأثر</b> — حتى لو مسحتها ممكن تتفضل عند الطرف التاني.</li>
         </ul>
       </div>
 
@@ -1915,7 +801,7 @@ select{color:var(--text)!important}
               <div class="tl-icon emoji-pulse">📹</div>
               <div class="tl-year-badge">3 / 4</div>
               <div class="tl-title" data-ar="صورة وصوت مع بعض (لايف)" data-en="Picture and Sound Together (Live)">صورة وصوت معاً
-                <span dir="ltr">(Live)</span></div>
+ <span dir="ltr">(Live)</span></div>
               <div class="tl-desc"
                 data-ar="الصوت والصورة بيمشوا مع بعض في نفس اللحظة — بتشوفوا بعض وتسمعوا بعض بشكل طبيعي."
                 data-en="Sound and picture go together at the same moment — you see each other and hear each other normally.">الصوت والصورة بيمشوا مع بعض في نفس اللحظة — بتشوفوا بعض وتسمعوا بعض بشكل طبيعي.</div>
@@ -1930,8 +816,8 @@ select{color:var(--text)!important}
             </div>
           </div>
           <div class="tl-nav">
-            <button class="btn" data-id="videocallPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-            <button class="btn" data-id="videocallNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+            <button class="btn" data-id="videocallPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+            <button class="btn" data-id="videocallNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
             <span class="kbd" id="videocallCounter">1 / 4</span>
             <button class="mini-btn" data-id="videocallReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
           </div>
@@ -1942,16 +828,16 @@ select{color:var(--text)!important}
         <p data-ar="مكالمة الفيديو: أداة بتتيح محادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني على الإنترنت."
           data-en="Video call: a tool that enables a real-time conversation while watching the other person's video over the internet.">
           <span dir="ltr">Video call</span>: أداة بتمكّن محادثة في الوقت الحقيقي <span dir="ltr">(real-time)</span> مع مشاهدة
-          فيديو الشخص التاني عبر الإنترنت.</p>
+ فيديو الشخص التاني عبر الإنترنت.</p>
         <p data-ar="مكالمة الفيديو بتخلّيك تكلم حد وأنت شايف وشه في نفس اللحظة على الإنترنت — بتجمع الصوت والصورة مع بعض. محتاج كاميرا وميكروفون واتصال إنترنت كويس."
           data-en="A video call lets you talk to someone while seeing their face at the same moment over the internet — it combines sound and picture together. You need a camera, a microphone and a good internet connection.">
-          مكالمة الفيديو بتخليك تكلم حد <b>وشايف وشه في نفس اللحظة</b> عبر الإنترنت — بتجمع <b>الصوت والصورة مع بعض</b>. بتحتاج
-          كاميرا وميكروفون واتصال إنترنت كويس.</p>
+ مكالمة الفيديو بتخليك تكلم حد <b>وشايف وشه في نفس اللحظة</b> عبر الإنترنت — بتجمع <b>الصوت والصورة مع بعض</b>. بتحتاج
+ كاميرا وميكروفون واتصال إنترنت كويس.</p>
         <div class="note"><b data-ar="مثال سريع:" data-en="A quick example:">مثال سريع:</b> <span
             data-ar="مكالمة فيديو مع صاحبك في بلد تاني — بتشوفوا بعض وتتكلموا في نفس الوقت."
             data-en="a video call with your friend in another country — you see each other and talk at the same time.">مكالمة
-            فيديو مع صاحبك اللي في بلد تانية — <b>بتشوفوا بعض وبتتكلموا في نفس الوقت</b>.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(4) مكالمة الفيديو (Video call): أداة تسمح بالمحادثة في الوقت الفعلي أثناء مشاهدة فيديو الشخص الآخر عبر الإنترنت. (5) مدونه (Blog): كلمة تم صياغتها بدمج "web" و "log"، وهي خدمة ويب تسمح لك بتجميع ونشر كتابات مثل يومياتك على الإنترنت. (6) وسائل التواصل الاجتماعي (Social Media): خدمات توفر منصات حيث يمكن للأفراد التواصل مع بعضهم البعض على الإنترنت. (7) منصة مشاركة الفيديو (Video sharing platform): خدمة تسمح لجمهور واسع غير محدد بمشاركة ومشاهدة مقاطع الفيديو المنشورة بواسطة مستخدمين غير محددين آخرين على الإنترنت..</p></div>
+ فيديو مع صاحبك اللي في بلد تانية — <b>بتشوفوا بعض وبتتكلموا في نفس الوقت</b>.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(4) مكالمة الفيديو: أداة تسمح بالمحادثة في الوقت الفعلي أثناء مشاهدة فيديو الشخص الآخر عبر الإنترنت. (5) مدونه: كلمة تم صياغتها بدمج "web" و "log"، وهي خدمة ويب تسمح لك بتجميع ونشر كتابات مثل يومياتك على الإنترنت. (6) وسائل التواصل الاجتماعي: خدمات توفر منصات حيث يمكن للأفراد التواصل مع بعضهم البعض على الإنترنت. (7) منصة مشاركة الفيديو: خدمة تسمح لجمهور واسع غير محدد بمشاركة ومشاهدة مقاطع الفيديو المنشورة بواسطة مستخدمين غير محددين آخرين على الإنترنت..</p></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -2007,18 +893,18 @@ select{color:var(--text)!important}
             <button class="mini-btn rq-skip" data-id="videocallRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
           </div>
         </div>
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-2">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين مكالمة الفيديو ومكالمة الصوت — مكالمة الفيديو فيها الصورة مع الصوت."
             data-en="Mixing up Video call with a voice call — a video call includes the picture with the sound.">
-            الخلط بين <span dir="ltr">Video call</span> والمكالمة الصوتية — الفيديو كول <b>بيشمل الصورة</b> مع الصوت.</li>
+ الخلط بين <span dir="ltr">Video call</span> والمكالمة الصوتية — الفيديو كول <b>بيشمل الصورة</b> مع الصوت.</li>
           <li data-ar="إنك تفتكر الفيديو مستحيل على اتصال إنترنت بطيء — الصورة ممكن تجمّد بس الصوت غالباً بيبقى شغّال."
             data-en="Thinking video is impossible on a slow internet connection — the picture may freeze but the sound usually continues.">
-            الاعتقاد إن الاتصال بالصورة <b>مش ممكن</b> على الإنترنت البطيء — الصورة ممكن تتجمد لكن الصوت غالباً بيكمل.</li>
+ الاعتقاد إن الاتصال بالصورة <b>مش ممكن</b> على الإنترنت البطيء — الصورة ممكن تتجمد لكن الصوت غالباً بيكمل.</li>
           <li data-ar="الخلط بين مكالمة الفيديو ومنصّة مشاركة الفيديو — واحدة محادثة لايف، والتانية منصّة لنشر الفيديوهات."
             data-en="Mixing up Video call with a Video sharing platform — one is a live conversation, the other is a platform for publishing videos.">
-            الخلط بين <span dir="ltr">Video call</span> و<span dir="ltr">Video sharing platform</span> — الواحد محادثة
-            <b>مباشرة</b>، والتاني منصة نشر فيديوهات.</li>
+ الخلط بين <span dir="ltr">Video call</span> و<span dir="ltr">Video sharing platform</span> — الواحد محادثة
+ <b>مباشرة</b>، والتاني منصة نشر فيديوهات.</li>
         </ul>
       </div>
 
@@ -2086,8 +972,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="blogPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="blogNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="blogPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="blogNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="blogCounter">1 / 3</span>
                 <button class="mini-btn" data-id="blogReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -2103,18 +989,18 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="المدوّنة (Blog) موقع شخصي بتكتب فيه زي يوميات — أيام وأفكار ومقالات — وتنشرها للناس. الكلمة نفسها مدموجة من web + log (سجل). وفي المدوّن اللي بيختار موضوع معيّن وبيكتب عنه بانتظام."
+        <p data-ar="المدوّنة موقع شخصي بتكتب فيه زي يوميات — أيام وأفكار ومقالات — وتنشرها للناس. الكلمة نفسها مدموجة من web + log (سجل). وفي المدوّن اللي بيختار موضوع معيّن وبيكتب عنه بانتظام."
           data-en="The Blog is a personal website where you write like a diary — days, thoughts, articles — and publish it to people. The word itself is merged from web + log (a record). There is the blogger who picks a specific topic and writes about it regularly.">
-          البلوج <span dir="ltr">(Blog)</span> عبارة عن موقع شخصي بتكتب فيه زيّ مذكرات — يوميات، أفكار، مقالات — وبتنشره
-          للناس. الكلمة نفسها مدمجة من <span dir="ltr">web + log</span> (سجل). فيه البلوجر اللي بيختار موضوع معين
-          وبيكتب فيه بشكل منتظم.</p>
+ البلوج <span dir="ltr">(Blog)</span> عبارة عن موقع شخصي بتكتب فيه زيّ مذكرات — يوميات، أفكار، مقالات — وبتنشره
+ للناس. الكلمة نفسها مدمجة من <span dir="ltr">web + log</span> (سجل). فيه البلوجر اللي بيختار موضوع معين
+ وبيكتب فيه بشكل منتظم.</p>
         <p data-ar="مثال: مدوّنة طبخ — كل أسبوع بينشر وصفة جديدة، والقرّاء بيقروا ويتفاعلوا."
           data-en="Example: a cooking blog — every week I publish a new recipe, and readers read it and interact.">
-          مثال: بلوج عن الطبخ — كل أسبوع بنشر وصفة جديدة، والقراء بيقرأوها <b>ويتفاعلوا</b>.</p>
+ مثال: بلوج عن الطبخ — كل أسبوع بنشر وصفة جديدة، والقراء بيقرأوها <b>ويتفاعلوا</b>.</p>
         <div class="note"><b data-ar="افهم كويس:" data-en="Understand well:">افهم كويس:</b> <span
             data-ar="المدوّنة غير متزامنة — البوست بيتكتب ويتقرا في أوقات مختلفة، مش محادثة فورية."
             data-en="a blog is Asynchronous — the post is written and read at different times, not an instant conversation.">البلوج
-            <span dir="ltr">Asynchronous</span> — المقالة بتتكتب وتتقرا في أوقات مختلفة، مش محادثة لحظية.</span></div>
+ <span dir="ltr">Asynchronous</span> — المقالة بتتكتب وتتقرا في أوقات مختلفة، مش محادثة لحظية.</span></div>
       </div>
 
       <div class="section-inner card">
@@ -2137,7 +1023,7 @@ select{color:var(--text)!important}
                 data-fb-en="The first part is not book — it is web."><span class="rq-key">B</span><span class="rq-body"
                   data-ar="book + log" data-en="book + log"><span dir="ltr">book + log</span></span></div>
               <div class="rq-opt" data-id="blogRq1o1" data-key="C" data-ok="1"
-                data-fb-ar="صحيح! Blog = web + log — سجل (log) على الويب (web)."
+                data-fb-ar="صحيح! Blog = web + log — سجل على الويب."
                 data-fb-en="Correct! Blog = web + log — a record (log) on the web."><span class="rq-key">C</span><span
                   class="rq-body" data-ar="web + log" data-en="web + log"><span dir="ltr">web + log</span></span></div>
             </div>
@@ -2163,7 +1049,7 @@ select{color:var(--text)!important}
                 data-fb-en="Correct! A blog is longer and more like articles, while social media is shorter and faster."><span
                   class="rq-key">C</span><span class="rq-body" data-ar="المدوّنة أطول وأكتر زي المقالات، والسوشيال ميديا أقصر وأسرع"
                   data-en="a blog is longer and more article-like, social media is shorter and faster">البلوج <b>أطول
-                  وأشبه بمقالات</b>، والسوشيال أقصر وأسرع</span></div>
+ وأشبه بمقالات</b>، والسوشيال أقصر وأسرع</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="blogRq2Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -2172,16 +1058,16 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين المدوّنة والسوشيال ميديا — المدوّنة أطول وأكتر زي المقالات، والسوشيال ميديا أقصر وأسرع."
             data-en="Mixing up Blog and social media — a blog is longer and more like articles, social media is shorter and faster.">
-            الخلط بين <span dir="ltr">Blog</span> والسوشيال ميديا — البلوج أطول وأشبه بمقالات، والسوشيال أقصر وأسرع.</li>
+ الخلط بين <span dir="ltr">Blog</span> والسوشيال ميديا — البلوج أطول وأشبه بمقالات، والسوشيال أقصر وأسرع.</li>
           <li data-ar="إنك تفتكر كل المدوّنات تفاعلية فوراً — المدوّنة مش محادثة لايف، بتتقرا في أي وقت."
             data-en="Believing all blogs are instantly interactive — a blog is not a live conversation, it is read at any time.">إنك تفتكر كل المدوّنات تفاعلية فوراً — المدوّنة مش محادثة لايف، بتتقرا في أي وقت.</li>
           <li data-ar="نسيان إن كلمة blog جاية من web + log."
             data-en="Forgetting that the word blog comes from web + log.">نسيان إن كلمة <span dir="ltr">blog</span> مشتقة
-            من <span dir="ltr">web + log</span>.</li>
+ من <span dir="ltr">web + log</span>.</li>
         </ul>
       </div>
     </section>
@@ -2197,7 +1083,7 @@ select{color:var(--text)!important}
             <div class="tag" style="color:var(--s1)"
               data-ar="السوشيال ميديا ومنصّة مشاركة الفيديو + الخصائص الأربعة للاتصال"
               data-en="Social media and Video sharing platform + the four communication characteristics">Social media و
-              <span dir="ltr">Video sharing platform</span> + خصائص الاتصال الأربعة</div>
+ <span dir="ltr">Video sharing platform</span> + خصائص الاتصال الأربعة</div>
           </div>
         </div>
       </div>
@@ -2207,25 +1093,25 @@ select{color:var(--text)!important}
         <p data-ar="السوشيال ميديا: خدمات بتوفّر منصّات يقدر الأفراد يتواصلوا من خلالها مع بعض على الإنترنت."
           data-en="Social media: services providing platforms where individuals can connect with each other on the internet.">
           <b data-ar="السوشيال ميديا:" data-en="Social media:">السوشيال ميديا:</b> خدمات بتوفر منصات يقدر الأفراد <b>يتواصلوا
-            مع بعضهم</b> عليها عبر الإنترنت.</p>
-        <p data-ar="ببساطة: منصّة زي فيسبوك وتويتر (X) وإنستجرام — كل شخص يعمل حساب، يبني شبكة أصحاب، بينزّل بوستات، لايكز، ويتفاعل مع التانيين. المعلومات (Information) بتتحرك من الكل للكل هنا، وأي حد في الشبكة بيشيرك ويستقبل."
+ مع بعضهم</b> عليها عبر الإنترنت.</p>
+        <p data-ar="ببساطة: منصّة زي فيسبوك وتويتر (X) وإنستجرام — كل شخص يعمل حساب، يبني شبكة أصحاب، بينزّل بوستات، لايكز، ويتفاعل مع التانيين. المعلومات بتتحرك من الكل للكل هنا، وأي حد في الشبكة بيشيرك ويستقبل."
           data-en="Simply: a platform like Facebook, Twitter (X) and Instagram — each person makes an account, builds a friend network, posts, likes and interacts with others. Information moves from everyone to everyone here, and anyone in the network shares and receives.">
-          ببساطة: منصة زي فيسبوك وتويتر <span dir="ltr">(X)</span> وإنستجرام — كل واحد يعمل حساب، يكوّن شبكة أصدقاء، وينشر
-          ويعمل لايك ويتفاعل مع غيرها. المعلومة بتتحرك هنا <b>من الكل للكل</b>، وأي حد في الشبكة يشارك ويستقبل.</p>
+ ببساطة: منصة زي فيسبوك وتويتر <span dir="ltr">(X)</span> وإنستجرام — كل واحد يعمل حساب، يكوّن شبكة أصدقاء، وينشر
+ ويعمل لايك ويتفاعل مع غيرها. المعلومة بتتحرك هنا <b>من الكل للكل</b>، وأي حد في الشبكة يشارك ويستقبل.</p>
         <div class="pill" style="background:rgba(24, 56, 248,.13);border:1px solid rgba(24, 56, 248,.35)"><span
             class="pill-dot" style="background:var(--s1)"></span> <b data-ar="أمثلة:" data-en="Examples:">أمثلة:</b>
           <span data-ar="فيسبوك، تويتر (X)، إنستجرام، تيك توك، لينكد إن."
             data-en="Facebook, Twitter (X), Instagram, TikTok, LinkedIn.">فيسبوك، تويتر <span dir="ltr">(X)</span>،
-            إنستجرام، تيك توك، لينكد إن.</span></div>
+ إنستجرام، تيك توك، لينكد إن.</span></div>
 
         <p data-ar="منصّة مشاركة الفيديو: خدمة بتسمح لجمهور كبير ومش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين على الإنترنت."
           data-en="Video sharing platform: a service that allows a large, unspecified audience to share and watch videos posted by other unspecified users on the internet.">
           <b data-ar="منصّة مشاركة الفيديو:" data-en="Video sharing platform:">منصّة مشاركة الفيديو:</b> خدمة بتسمح
-          <b>لجمهور واسع غير محدد</b> إنهم يشاركوا ويشاهدوا فيديوهات منشورة من مستخدمين تانيين غير محددين على الإنترنت.</p>
+ <b>لجمهور واسع غير محدد</b> إنهم يشاركوا ويشاهدوا فيديوهات منشورة من مستخدمين تانيين غير محددين على الإنترنت.</p>
         <p data-ar="ببساطة: منصّة زي يوتيوب — أي مستخدم بينزّل فيديو، وجمهور عالمي ضخم يقدر يتفرّج عليه في أي وقت. الفيديو بث مسجّل بيفضى متاح للكل."
           data-en="Simply: a platform like YouTube — any user posts a video, and a huge worldwide audience can watch it at any time. The video is a recorded broadcast that stays available to everyone.">
-          ببساطة: منصة زي يوتيوب — أي مستخدم ينشر فيديو، وأي جمهور كبير على مستوى العالم يقدر يشوفه في أي وقت. الفيديو هنا
-          <b>بث مسجل</b> بيقعد متاح للجميع.</p>
+ ببساطة: منصة زي يوتيوب — أي مستخدم ينشر فيديو، وأي جمهور كبير على مستوى العالم يقدر يشوفه في أي وقت. الفيديو هنا
+ <b>بث مسجل</b> بيقعد متاح للجميع.</p>
         <div class="pill" style="background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.35)"><span
             class="pill-dot" style="background:var(--s2)"></span> <b data-ar="أمثلة:" data-en="Examples:">أمثلة:</b>
           <span data-ar="يوتيوب، ڤيميو." data-en="YouTube, Vimeo.">يوتيوب، ڤيميو.</span></div>
@@ -2233,9 +1119,9 @@ select{color:var(--text)!important}
         <div class="note"><b data-ar="خد الفرق:" data-en="Get the difference:">خد الفرق:</b> <span
             data-ar="السوشيال ميديا منصّات تفاعلية للتواصل مع الناس — ومشاركة الفيديو منصّة لبث فيديوهات مسجّلة لجمهور كبير مش محدد."
             data-en="Social media is interactive platforms for connecting with people — video sharing is a platform for broadcasting recorded videos to a large, unspecified audience.">السوشيال
-            ميديا منصات <b>تفاعلية</b> للتواصل مع أشخاص — والفيديو شيرينج منصة <b>لبث فيديوهات مسجلة</b> لجمهور واسع غير
-            محدد.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>ب. خصائص التواصل على الإنترنت — (1) إخفاء الهوية (Anonymity): يسمح للمستخدم بإخفاء المعلومات التي يمكن أن تؤدي إلى التعرف الشخصي (الاسم، الانتماء، إلخ). • المزايا: يمكن للمستخدمين التعبير عن أنفسهم بحرية، بغض النظر عن العمر أو الوضع الاجتماعي. • العيوب: [1] لإساءة عبر الإنترنت: حالة حيث تتركز التعليقات النقدية على المنشورات على وسائل التواصل الاجتماعي والمنصات الأخرى. [2] الأخبار المزيفة: معلومات كاذبة يتم توزيعها ونشرها على وسائل التواصل الاجتماعي.</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) ألفورية (Immediacy): يسمح للمستخدم باستجابة فورية من الطرف الآخر. (3) الملائمة (Convenience): يسمح للمستخدم بالتواصل بسلاسة. (4) القابلية للتسجيل (Recordability): إرسال واستقبال المعلومات على الإنترنت يترك سجلًا (log).</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) عنوان الدرس في العربية «الإنترنت والاتصالات» (بصيغة الجمع) مقابل الإنجليزية &quot;Internet and Communication&quot;. (2) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁵ بينما العربية بالتظليل الأحمر فقط. (3) الإنجليزية ترقم قسمَي النقاط 1 و2 بينما العربية تطبع «أ.» و«ب.». (4) وصف BCC في العربية:«لا يمكن للمستلمين الآخرين رؤية عناوين البريد الإلكتروني وتستخدم BCC لهذا الغرض» مقابل الإنجليزية &quot;Other recipients cannot see the email addresses or the fact that BCC is being used&quot;. (5) تهجيات مطبوعة في العربية:«ألفورية» بهمزة على الألف مقابل &quot;Immediacy&quot;، و«الملائمة» مقابل &quot;Convenience&quot;، و«مدونه» بلا ألف في النقاط بينما يطبع جرب بنفسك «المدونة»، و«لإساءة عبر الإنترنت» بلام مبدئية مقابل &quot;Flaming&quot;، و«الأخبار المزيفة» مقابل &quot;Fake news&quot;. (6) النسختان تحملان ثلاث أيقونات هلال في المواضع نفسها (نهاية وصف BCC، ومنصة مشاركة الفيديو، والقابلية للتسجيل). (7) عنوان الأمثلة «&lt;أمثلة>» مقابل &quot;&lt;Examples>&quot; و«إلخ» مقابل &quot;etc.&quot;." data-en="Edition comparison:(1) The Arabic lesson title prints «الإنترنت والاتصالات» (plural) vs English &quot;Internet and Communication&quot;. (2) English marks terms with superscripts ¹-¹⁵ while Arabic uses only the red highlight. (3) English numbers the Point sections 1 and 2 while Arabic prints «أ.» and «ب.». (4) The Arabic BCC description:«لا يمكن للمستلمين الآخرين رؤية عناوين البريد الإلكتروني وتستخدم BCC لهذا الغرض» vs English &quot;Other recipients cannot see the email addresses or the fact that BCC is being used&quot;. (5) Arabic spellings as printed:«ألفورية» with a hamza on the alef for &quot;Immediacy&quot;, «الملائمة» for &quot;Convenience&quot;, «مدونه» without an alef in the Point box while the Try section prints «المدونة», «لإساءة عبر الإنترنت» with a leading lam for &quot;Flaming&quot;, and «الأخبار المزيفة» for &quot;Fake news&quot;. (6) Both editions carry three crescent icons at the same positions (end of the BCC, video sharing platform and recordability items). (7) The examples heading «&lt;أمثلة>» vs &quot;&lt;Examples>&quot; and «إلخ» vs &quot;etc.&quot;.">مقارنة النسختين:(1) عنوان الدرس في العربية «الإنترنت والاتصالات» (بصيغة الجمع) مقابل الإنجليزية "Internet and Communication". (2) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁵ بينما العربية بالتظليل الأحمر فقط. (3) الإنجليزية ترقم قسمَي النقاط 1 و2 بينما العربية تطبع «أ.» و«ب.». (4) وصف BCC في العربية: «لا يمكن للمستلمين الآخرين رؤية عناوين البريد الإلكتروني وتستخدم BCC لهذا الغرض» مقابل الإنجليزية "Other recipients cannot see the email addresses or the fact that BCC is being used". (5) تهجيات مطبوعة في العربية: «ألفورية» بهمزة على الألف مقابل "Immediacy"، و«الملائمة» مقابل "Convenience"، و«مدونه» بلا ألف في النقاط بينما يطبع جرب بنفسك «المدونة»، و«لإساءة عبر الإنترنت» بلام مبدئية مقابل "Flaming"، و«الأخبار المزيفة» مقابل "Fake news". (6) النسختان تحملان ثلاث أيقونات هلال في المواضع نفسها (نهاية وصف BCC، ومنصة مشاركة الفيديو، والقابلية للتسجيل). (7) عنوان الأمثلة «&lt;أمثلة&gt;» مقابل "&lt;Examples&gt;" و«إلخ» مقابل "etc.".</div></div></div>
+ ميديا منصات <b>تفاعلية</b> للتواصل مع أشخاص — والفيديو شيرينج منصة <b>لبث فيديوهات مسجلة</b> لجمهور واسع غير
+ محدد.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>ب. خصائص التواصل على الإنترنت — (1) إخفاء الهوية: يسمح للمستخدم بإخفاء المعلومات التي يمكن أن تؤدي إلى التعرف الشخصي (الاسم، الانتماء، إلخ). • المزايا: يمكن للمستخدمين التعبير عن أنفسهم بحرية، بغض النظر عن العمر أو الوضع الاجتماعي. • العيوب: [1] لإساءة عبر الإنترنت: حالة حيث تتركز التعليقات النقدية على المنشورات على وسائل التواصل الاجتماعي والمنصات الأخرى. [2] الأخبار المزيفة: معلومات كاذبة يتم توزيعها ونشرها على وسائل التواصل الاجتماعي.</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) ألفورية: يسمح للمستخدم باستجابة فورية من الطرف الآخر. (3) الملائمة: يسمح للمستخدم بالتواصل بسلاسة. (4) القابلية للتسجيل: إرسال واستقبال المعلومات على الإنترنت يترك سجلًا.</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين: (1) عنوان الدرس في العربية «الإنترنت والاتصالات» (بصيغة الجمع) مقابل الإنجليزية &quot;Internet and Communication&quot;. (2) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁵ بينما العربية بالتظليل الأحمر فقط. (3) الإنجليزية ترقم قسمَي النقاط 1 و2 بينما العربية تطبع «أ.» و«ب.». (4) وصف BCC في العربية:«لا يمكن للمستلمين الآخرين رؤية عناوين البريد الإلكتروني وتستخدم BCC لهذا الغرض» مقابل الإنجليزية &quot;Other recipients cannot see the email addresses or the fact that BCC is being used&quot;. (5) تهجيات مطبوعة في العربية:«ألفورية» بهمزة على الألف مقابل &quot;Immediacy&quot;، و«الملائمة» مقابل &quot;Convenience&quot;، و«مدونه» بلا ألف في النقاط بينما يطبع جرب بنفسك «المدونة»، و«لإساءة عبر الإنترنت» بلام مبدئية مقابل &quot;Flaming&quot;، و«الأخبار المزيفة» مقابل &quot;Fake news&quot;. (6) النسختان تحملان ثلاث أيقونات هلال في المواضع نفسها (نهاية وصف BCC، ومنصة مشاركة الفيديو، والقابلية للتسجيل). (7) عنوان الأمثلة «&lt;أمثلة>» مقابل &quot;&lt;Examples>&quot; و«إلخ» مقابل &quot;etc.&quot;." data-en="Edition comparison:(1) The Arabic lesson title prints «الإنترنت والاتصالات» (plural) vs English &quot;Internet and Communication&quot;. (2) English marks terms with superscripts ¹-¹⁵ while Arabic uses only the red highlight. (3) English numbers the Point sections 1 and 2 while Arabic prints «أ.» and «ب.». (4) The Arabic BCC description:«لا يمكن للمستلمين الآخرين رؤية عناوين البريد الإلكتروني وتستخدم BCC لهذا الغرض» vs English &quot;Other recipients cannot see the email addresses or the fact that BCC is being used&quot;. (5) Arabic spellings as printed:«ألفورية» with a hamza on the alef for &quot;Immediacy&quot;, «الملائمة» for &quot;Convenience&quot;, «مدونه» without an alef in the Point box while the Try section prints «المدونة», «لإساءة عبر الإنترنت» with a leading lam for &quot;Flaming&quot;, and «الأخبار المزيفة» for &quot;Fake news&quot;. (6) Both editions carry three crescent icons at the same positions (end of the BCC, video sharing platform and recordability items). (7) The examples heading «&lt;أمثلة>» vs &quot;&lt;Examples>&quot; and «إلخ» vs &quot;etc.&quot;.">مقارنة النسختين:(1) عنوان الدرس في العربية «الإنترنت والاتصالات» (بصيغة الجمع) مقابل الإنجليزية "Internet and Communication". (2) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-¹⁵ بينما العربية بالتظليل الأحمر فقط. (3) الإنجليزية ترقم قسمَي النقاط 1 و2 بينما العربية تطبع «أ.» و«ب.». (4) وصف BCC في العربية: «لا يمكن للمستلمين الآخرين رؤية عناوين البريد الإلكتروني وتستخدم BCC لهذا الغرض» مقابل الإنجليزية "Other recipients cannot see the email addresses or the fact that BCC is being used". (5) تهجيات مطبوعة في العربية: «ألفورية» بهمزة على الألف مقابل "Immediacy"، و«الملائمة» مقابل "Convenience"، و«مدونه» بلا ألف في النقاط بينما يطبع جرب بنفسك «المدونة»، و«لإساءة عبر الإنترنت» بلام مبدئية مقابل "Flaming"، و«الأخبار المزيفة» مقابل "Fake news". (6) النسختان تحملان ثلاث أيقونات هلال في المواضع نفسها (نهاية وصف BCC، ومنصة مشاركة الفيديو، والقابلية للتسجيل). (7) عنوان الأمثلة «&lt;أمثلة&gt;» مقابل "&lt;Examples&gt;" و«إلخ» مقابل "etc.".</div></div></div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
@@ -2255,8 +1141,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="socialPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="socialNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="socialPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="socialNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="socialCounter">1 / 4</span>
                 <button class="mini-btn" data-id="socialReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -2274,14 +1160,14 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="الخصائص الأربعة دي بيوصفوا أي اتصال على الإنترنت: إخفاء هوية اختياري، ورد فوري، وسهولة، وسجل دايم."
           data-en="These four characteristics describe any internet communication: optional anonymity, an instant reply, convenience, and a lasting record.">
-          الخصائص الأربعة دي بتوصف أي اتصال على الإنترنت: إخفاء اختياري للهوية <span dir="ltr">(Anonymity)</span>، رد لحظي
-          <span dir="ltr">(Immediacy)</span>، راحة وسهولة <span dir="ltr">(Convenience)</span>، وسجل بيتبقى <span
+ الخصائص الأربعة دي بتوصف أي اتصال على الإنترنت: إخفاء اختياري للهوية <span dir="ltr">(Anonymity)</span>، رد لحظي
+ <span dir="ltr">(Immediacy)</span>، راحة وسهولة <span dir="ltr">(Convenience)</span>، وسجل بيتبقى <span
             dir="ltr">(Recordability)</span>.</p>
         <div class="note"><b data-ar="افهم كويس:" data-en="Understand well:">افهم كويس:</b> <span
-            data-ar="من غير إمكانية التسجيل كنا هنقدر نمسح أي حاجة بنزّلها — بس السجل (Recordability) بيخلي كل إرسال واستقبال يسيب أثر."
+            data-ar="من غير إمكانية التسجيل كنا هنقدر نمسح أي حاجة بنزّلها — بس السجل بيخلي كل إرسال واستقبال يسيب أثر."
             data-en="without Recordability we could delete anything we post — but the record makes every send and receive leave a trace.">من
-            غير <span dir="ltr">Recordability</span> كان ممكن نحذف أي حاجة بنشرناها — لكن وجود السجل بيخلي كل إرسال
-            واستقبال <b>له أثر</b>.</span></div>
+ غير <span dir="ltr">Recordability</span> كان ممكن نحذف أي حاجة بنشرناها — لكن وجود السجل بيخلي كل إرسال
+ واستقبال <b>له أثر</b>.</span></div>
       </div>
 
       <div class="section-inner card">
@@ -2295,12 +1181,12 @@ select{color:var(--text)!important}
             <div class="rq-q"><span class="q-num">1</span> <span
                 data-ar="إخفاء الهوية على الإنترنت ممكن يودي لـ..."
                 data-en="Anonymity on the internet can lead to...">إخفاء الهوية <span dir="ltr">(Anonymity)</span> على
-                الإنترنت ممكن يودي لـ...</span></div>
+ الإنترنت ممكن يودي لـ...</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="socialRq1o1" data-key="A" data-ok="1"
-                data-fb-ar="صحيح! إخفاء الهوية بيخلّي الناس تعبّر بعنف (Flaming) وتنشر أخبار كاذبة (Fake news) من غير ما يتعرف عليهم."
+                data-fb-ar="صحيح! إخفاء الهوية بيخلّي الناس تعبّر بعنف وتنشر أخبار كاذبة من غير ما يتعرف عليهم."
                 data-fb-en="Correct! Anonymity lets people post aggressively (Flaming) and spread false news (Fake news) without being identified."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="شتايم وأخبار كذبة (Fake news)"
+                  class="rq-key">A</span><span class="rq-body" data-ar="شتايم وأخبار كذبة"
                   data-en="Flaming and Fake news">Flaming و <span dir="ltr">Fake news</span></span></div>
               <div class="rq-opt" data-id="socialRq1o2" data-key="B"
                 data-fb-ar="مش كده — إخفاء الهوية مش أمان كامل، وليه عيوب زي Flaming و Fake news."
@@ -2325,7 +1211,7 @@ select{color:var(--text)!important}
             <div class="rq-q"><span class="q-num">2</span> <span
                 data-ar="إيه الخاصية اللي بتخلي الشاتات أونلاين بتاعتك صعب تمسحها تماماً؟"
                 data-en="Which characteristic makes your online chats hard to erase completely?">أي خاصية بتخلي محادثاتك
-                على الإنترنت صعب <b>محيها نهائياً</b>؟</span></div>
+ على الإنترنت صعب <b>محيها نهائياً</b>؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="socialRq2o1" data-key="A"
                 data-fb-ar="إخفاء الهوية بيتعلق بهويتك، مش بحفظ الرسائل."
@@ -2333,7 +1219,7 @@ select{color:var(--text)!important}
                   class="rq-key">A</span><span class="rq-body" data-ar="إخفاء الهوية"
                   data-en="Anonymity"><span dir="ltr">Anonymity</span></span></div>
               <div class="rq-opt" data-id="socialRq2o2" data-key="B" data-ok="1"
-                data-fb-ar="صحيح! إرسال واستقبال المعلومات على الإنترنت بيترك سجل (log)، فاللي اتنشر صعب محيه نهائياً."
+                data-fb-ar="صحيح! إرسال واستقبال المعلومات على الإنترنت بيترك سجل، فاللي اتنشر صعب محيه نهائياً."
                 data-fb-en="Correct! Sending and receiving information on the internet leaves a log, so what is published is hard to erase completely."><span
                   class="rq-key">B</span><span class="rq-body" data-ar="إمكانية التسجيل"
                   data-en="Recordability"><span dir="ltr">Recordability</span> (القابلية للتسجيل)</span></div>
@@ -2355,20 +1241,20 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين إخفاء الهوية والحرية المطلقة — إخفاء هويتك مش معناه تقدر تكتب أي حاجة من غير نتايج."
             data-en="Confusing Anonymity with absolute freedom — hiding your identity does not mean you can write anything without consequences.">
-            الخلط بين <span dir="ltr">Anonymity</span> والحرية المطلقة — إخفاء الهوية <b>مش معناه</b> تقدر تكتب أي حاجة من
-            غير ما تتحاسب على العواقب.</li>
-          <li data-ar="إنك تفتكر المعلومات (Information) المنشورة ممكن تمسحها تماماً — السجل (Recordability) بيخلي ده صعب."
+ الخلط بين <span dir="ltr">Anonymity</span> والحرية المطلقة — إخفاء الهوية <b>مش معناه</b> تقدر تكتب أي حاجة من
+ غير ما تتحاسب على العواقب.</li>
+          <li data-ar="إنك تفتكر المعلومات المنشورة ممكن تمسحها تماماً — السجل بيخلي ده صعب."
             data-en="Believing published information can be erased completely — the record (Recordability) makes that hard.">
-            الاعتقاد إن المعلومة اللي اتنشرت ممكن <b>تمحى نهائياً</b> — السجل <span dir="ltr">(Recordability)</span> بيخلي
-            ده صعب.</li>
+ الاعتقاد إن المعلومة اللي اتنشرت ممكن <b>تمحى نهائياً</b> — السجل <span dir="ltr">(Recordability)</span> بيخلي
+ ده صعب.</li>
           <li data-ar="الخلط بين منصّة مشاركة الفيديو ومكالمة الفيديو — واحدة بث مسجّل لجمهور واسع، والتانية محادثة لايف خاصة."
             data-en="Mixing up a Video sharing platform and a Video call — one is a recorded broadcast for a wide audience, the other is a private live conversation.">
-            الخلط بين <span dir="ltr">Video sharing platform</span> و<span dir="ltr">Video call</span> — واحد <b>بث
-              مسجل</b> لجمهور واسع، والتاني محادثة <b>مباشرة خاصة</b>.</li>
+ الخلط بين <span dir="ltr">Video sharing platform</span> و<span dir="ltr">Video call</span> — واحد <b>بث
+ مسجل</b> لجمهور واسع، والتاني محادثة <b>مباشرة خاصة</b>.</li>
         </ul>
       </div>
     </section>
@@ -2404,33 +1290,33 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <!-- TEXTBOOK-CARD-BEGIN id="book-warm" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع</h3>
+          <h3 data-ar="من الكتاب: تحدى معلوماتك مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك مع الشرح المطبوع</h3>
           <p data-ar="تحدى معلوماتك — (1) لكل مما يلي، اختر الشرح الأكثر ملاءمة فيما يتعلق بطرق الاتصال على الإنترنت من الخيارات من أ إلى ث. [1] نظام لوحة الإعلانات [2] وسائل التواصل الاجتماعي [3] منصة مشاركة الفيديو — (أ) أداة تسمح بالمحادثة في الوقت الفعلي أثناء مشاهدة فيديو الشخص الآخر عبر الإنترنت. (ب) خدمات توفر منصات حيث يمكن للأفراد التواصل مع بعضهم البعض على الإنترنت. (ت) أداة تسمح للمستخدم بنشر الرسائل وكتابة الردود على الرسائل الأخرى. (ث) خدمة تسمح لجمهور واسع غير محدد بمشاركة ومشاهدة مقاطع الفيديو المنشورة بواسطة مستخدمين غير محددين آخرين على الإنترنت." data-en="Warm Up - (1) For each of the following, choose the most appropriate explanation regarding methods of communication on the internet from the options A to D, and answer using the letters. [1] Bulletin board system [2] Social media [3] Video sharing platform - A A tool that allows real-time conversation while viewing the other person’s video via the internet. B Services providing platforms where individuals can connect with each other on the internet. C A tool that allows the user to post messages and write replies to other messages. D A service that allows a wide, unspecified audience to share and watch videos posted by other unspecified users on the internet.">تحدى معلوماتك — (1) لكل مما يلي، اختر الشرح الأكثر ملاءمة فيما يتعلق بطرق الاتصال على الإنترنت من الخيارات من أ إلى ث. [1] نظام لوحة الإعلانات [2] وسائل التواصل الاجتماعي [3] منصة مشاركة الفيديو — (أ) أداة تسمح بالمحادثة في الوقت الفعلي أثناء مشاهدة فيديو الشخص الآخر عبر الإنترنت. (ب) خدمات توفر منصات حيث يمكن للأفراد التواصل مع بعضهم البعض على الإنترنت. (ت) أداة تسمح للمستخدم بنشر الرسائل وكتابة الردود على الرسائل الأخرى. (ث) خدمة تسمح لجمهور واسع غير محدد بمشاركة ومشاهدة مقاطع الفيديو المنشورة بواسطة مستخدمين غير محددين آخرين على الإنترنت.</p>
           <p data-ar="(2) النقاط التالية من أ إلى ت هي شروحات للخدمات التي تستخدم الإنترنت. ضع علامة صح إذا كانت العبارة صحيحة، وخطأ إذا كانت غير صحيحة. (أ) بما أن المنشورات عبر الإنترنت يمكن أن تكون مجهولة، فلا بأس للمستخدمين بكتابة أي معلومات يريدون. (ب) عند تحميل مقاطع الفيديو إلى منصة مشاركة الفيديو، هناك احتمال أن يتم التعرف على الأفراد من المباني أو اللافتات المرئية في الفيديو. (ت) في الاتصال عبر الإنترنت، بما أنه يتم الاحتفاظ بسجلات التفاعلات، فمن المهم أن تكون مراعيًا وتضمن أن رسائلك لا تجعل المستلم يشعر بعدم الراحة." data-en="(2) The following A to C are explanations of services that use the internet. Mark “○” if the statement is correct, and “×” if it is incorrect. A Since online posts can be anonymous, it is fine for users to write whatever information they like. B When uploading videos to a video sharing platform, there is a possibility that individuals can be identified from buildings or signs visible in the video. C In internet communication, since records of interactions are kept, it is important to be considerate and ensure that your messages do not make the recipient feel uncomfortable.">(2) النقاط التالية من أ إلى ت هي شروحات للخدمات التي تستخدم الإنترنت. ضع علامة صح إذا كانت العبارة صحيحة، وخطأ إذا كانت غير صحيحة. (أ) بما أن المنشورات عبر الإنترنت يمكن أن تكون مجهولة، فلا بأس للمستخدمين بكتابة أي معلومات يريدون. (ب) عند تحميل مقاطع الفيديو إلى منصة مشاركة الفيديو، هناك احتمال أن يتم التعرف على الأفراد من المباني أو اللافتات المرئية في الفيديو. (ت) في الاتصال عبر الإنترنت، بما أنه يتم الاحتفاظ بسجلات التفاعلات، فمن المهم أن تكون مراعيًا وتضمن أن رسائلك لا تجعل المستلم يشعر بعدم الراحة.</p>
           <p data-ar="الشرح المطبوع — (1) [1] (ت) [2] (ب) [3] (ث). (2) (أ) عند النشر على الإنترنت، من المهم دائمًا مراعاة وجهة نظر الشخص الآخر وإظهار التعاطف، والسعي لمشاركة معلومات دقيقة. هذا بسبب وجود احتمال أن يتم فهم كلماتك بطريقة لم تقصدها. لذلك، فالعبارة خطأ. (ب) صح (ت) صح." data-en="Printed Explanation - (1) [1] C [2] B [3] D. (2) A When posting on the internet, it is important to always consider the other person’s perspective and show empathy, and to strive to share accurate information. This is because there is a possibility that your words may be misunderstood in a way that you did not intend. Therefore, × B ○ C ○.">الشرح المطبوع — (1) [1] (ت) [2] (ب) [3] (ث). (2) (أ) عند النشر على الإنترنت، من المهم دائمًا مراعاة وجهة نظر الشخص الآخر وإظهار التعاطف، والسعي لمشاركة معلومات دقيقة. هذا بسبب وجود احتمال أن يتم فهم كلماتك بطريقة لم تقصدها. لذلك، فالعبارة خطأ. (ب) صح (ت) صح.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) تعليمة (1) في العربية تطبع المدى «من أ إلى ث» مع أربعة خيارات مطبوعة (أ)(ب)(ت)(ث)، والإنجليزية تطبع &quot;A to D&quot; بأربعة خيارات — متفقتان. (2) تعليمة (2) في العربية تطبع «من أ إلى ت» مع (أ)(ب)(ت)، والإنجليزية &quot;A to C&quot; — متفقتان. (3) العربية تستعمل كلمتي «صح» و«خطأ» حيث تطبع الإنجليزية العلامتين &quot;○&quot; و&quot;×&quot;. (4) الشرح المطبوع متفق بين النسختين:(1) C/B/D = ت/ب/ث، و(2) (أ) خطأ/× مع تعليل مراعاة وجهة نظر الآخر نفسه، (ب) صح/○، (ت) صح/○." data-en="Edition comparison: (1) The Arabic instruction of (1) prints the range «من أ إلى ث» with four printed options (أ)(ب)(ت)(ث), and English prints &quot;A to D&quot; with four options - consistent. (2) The Arabic instruction of (2) prints «من أ إلى ت» with (أ)(ب)(ت), and English prints &quot;A to C&quot; - consistent. (3) Arabic uses the words «صح» and «خطأ» where English prints the marks &quot;○&quot; and &quot;×&quot;. (4) The printed Explanation agrees across editions:(1) C/B/D = ت/ب/ث, and (2) A ×/خطأ with the same empathy reasoning, B ○/صح, C ○/صح.">مقارنة النسختين: (1) تعليمة (1) في العربية تطبع المدى «من أ إلى ث» مع أربعة خيارات مطبوعة (أ)(ب)(ت)(ث)، والإنجليزية تطبع "A to D" بأربعة خيارات — متفقتان. (2) تعليمة (2) في العربية تطبع «من أ إلى ت» مع (أ)(ب)(ت)، والإنجليزية "A to C" — متفقتان. (3) العربية تستعمل كلمتي «صح» و«خطأ» حيث تطبع الإنجليزية العلامتين "○" و"×". (4) الشرح المطبوع متفق بين النسختين: (1) C/B/D = ت/ب/ث، و(2) (أ) خطأ/× مع تعليل مراعاة وجهة نظر الآخر نفسه، (ب) صح/○، (ت) صح/○.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 51 (المطبوع 51)؛ AR 59." data-en="The above is from the textbook. Full source: English PDF 51 (printed 51); Arabic 59.">النص السابق من الكتاب. المصدر الكامل:EN PDF 51 (المطبوع 51)؛ AR 59.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: جرب بنفسك (Try)" data-en="From the book: Try">من الكتاب: جرب بنفسك (Try)</h3>
+          <h3 data-ar="من الكتاب: جرب بنفسك" data-en="From the book: Try">من الكتاب: جرب بنفسك</h3>
           <p data-ar="جرب بنفسك — أجب على الأسئلة التالية. (1) لكل مما يلي، اختر الشرح الأكثر ملاءمة فيما يتعلق بطرق الاتصال على الإنترنت من الخيارات من أ إلى ت. [1] المدونة [2] وسائل التواصل الاجتماعي [3] مكالمة الفيديو — (أ) أداة تسمح بالمحادثة في الوقت الفعلي أثناء مشاهدة فيديو الشخص الآخر عبر الإنترنت. (ب) خدمة تسمح لك بتجميع ونشر كتابات مثل يومياتك على الإنترنت. (ت) خدمات توفر منصات حيث يمكن للأفراد التواصل مع بعضهم البعض على الإنترنت." data-en="Try - Answer the following questions. (1) For each of the following, choose the most appropriate explanation regarding methods of communication on the internet from the options A to C, and answer using the letters. [1] Blog [2] Social media [3] Video call - A A tool that allows real-time conversation while viewing the other person’s video via the internet. B A service that allows you to compile and publish writings such as your diary on the internet. C Services providing platforms where individuals can connect with each other on the internet.">جرب بنفسك — أجب على الأسئلة التالية. (1) لكل مما يلي، اختر الشرح الأكثر ملاءمة فيما يتعلق بطرق الاتصال على الإنترنت من الخيارات من أ إلى ت. [1] المدونة [2] وسائل التواصل الاجتماعي [3] مكالمة الفيديو — (أ) أداة تسمح بالمحادثة في الوقت الفعلي أثناء مشاهدة فيديو الشخص الآخر عبر الإنترنت. (ب) خدمة تسمح لك بتجميع ونشر كتابات مثل يومياتك على الإنترنت. (ت) خدمات توفر منصات حيث يمكن للأفراد التواصل مع بعضهم البعض على الإنترنت.</p>
           <p data-ar="(2) تصف الجمل التالية خصائص الاتصال على الإنترنت، اختر الشرح الأكثر ملاءمة المتعلق بالجمل من الخيارات من أ إلى ث. [1] على لوحات الإعلانات الإلكترونية ووسائل التواصل الاجتماعي، من الممكن التواصل أثناء إخفاء معلومات مثل الاسم أو الانتماء. [2] المعلومات المنشورة على الإنترنت لا يمكن محوها بالكامل. [3] تتلقى على الفور استجابة من الطرف الآخر. — (أ) الراحة (ب) القابلية للتسجيل (جـ) إخفاء الهوية (د) الفورية" data-en="(2) The following sentences describe the characteristics of communication on the internet. Choose the most suitable explanation related to the sentences from the options A to D, and answer using the letters. [1] On electronic bulletin boards and social media, it is possible to communicate while concealing information such as one’s name or affiliation. [2] Information published on the internet cannot be completely erased. [3] You immediately receive a response from the other party. - A Convenience B Recordability C Anonymity D Immediacy">(2) تصف الجمل التالية خصائص الاتصال على الإنترنت، اختر الشرح الأكثر ملاءمة المتعلق بالجمل من الخيارات من أ إلى ث. [1] على لوحات الإعلانات الإلكترونية ووسائل التواصل الاجتماعي، من الممكن التواصل أثناء إخفاء معلومات مثل الاسم أو الانتماء. [2] المعلومات المنشورة على الإنترنت لا يمكن محوها بالكامل. [3] تتلقى على الفور استجابة من الطرف الآخر. — (أ) الراحة (ب) القابلية للتسجيل (جـ) إخفاء الهوية (د) الفورية</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ب [2] ت [3] أ. (2) [1] جـ: إخفاء الهوية [2] ب: القابلية للتسجيل [3] د: الفورية." data-en="Answers not printed in the book (teacher-prepared): (1) [1] B [2] C [3] A. (2) [1] C anonymity [2] B recordability [3] D immediacy.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ب [2] ت [3] أ. (2) [1] جـ: إخفاء الهوية [2] ب: القابلية للتسجيل [3] د: الفورية.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) جملة [1] في (1) تطبع «المدونة» بالألف بينما مصطلح النقاط الرئيسية مطبوع «مدونه». (2) تعليمة (2) في العربية تطبع المدى «من أ إلى ث» بينما الخيارات المطبوعة أربعة (أ)(ب)(جـ)(د)؛ والإنجليزية تطبع &quot;A to D&quot; بأربعة خيارات. (3) خيارا (أ) و(د) في العربية يطبعان «الراحة» و«الفورية» بينما يطبع صندوق النقاط «الملائمة» و«ألفورية». (4) خيارات (1): العربية «من أ إلى ت» بثلاثة خيارات (أ)(ب)(ت) والإنجليزية &quot;A to C&quot; — متفقتان. (5) إجابات جرب بنفسك غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما." data-en="Edition comparison:(1) Sentence [1] of (1) prints «المدونة» with an alef while the Point box term prints «مدونه». (2) The Arabic instruction of (2) prints the range «من أ إلى ث» while the printed options are four (أ)(ب)(جـ)(د); English prints &quot;A to D&quot; with four options. (3) The Arabic options (أ) and (د) print «الراحة» and «الفورية» while the Point box prints «الملائمة» and «ألفورية». (4) Options of (1): Arabic «من أ إلى ت» with three options (أ)(ب)(ت) vs English &quot;A to C&quot; - consistent. (5) The Try answers are not printed in either edition, and the derived results agree across both.">مقارنة النسختين:(1) جملة [1] في (1) تطبع «المدونة» بالألف بينما مصطلح النقاط الرئيسية مطبوع «مدونه». (2) تعليمة (2) في العربية تطبع المدى «من أ إلى ث» بينما الخيارات المطبوعة أربعة (أ)(ب)(جـ)(د)؛ والإنجليزية تطبع "A to D" بأربعة خيارات. (3) خيارا (أ) و(د) في العربية يطبعان «الراحة» و«الفورية» بينما يطبع صندوق النقاط «الملائمة» و«ألفورية». (4) خيارات (1): العربية «من أ إلى ت» بثلاثة خيارات (أ)(ب)(ت) والإنجليزية "A to C" — متفقتان. (5) إجابات جرب بنفسك غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 52 (المطبوع 52)؛ AR 59–60." data-en="The above is from the textbook. Full source: English PDF 52 (printed 52); Arabic 59-60.">النص السابق من الكتاب. المصدر الكامل:EN PDF 52 (المطبوع 52)؛ AR 59–60.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: تمرين (Exercise)" data-en="From the book: Exercise">من الكتاب: تمرين (Exercise)</h3>
+          <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
           <p data-ar="تمرين — 1 أجب عن الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغات [1] إلى [3] بالمصطلحات المناسبة. «مستلمو البريد الإلكتروني لديهم حقول &quot;To&quot;، و[1]، و&quot;[2]&quot;، وكلها تتميز بـ [3] التي تسمح للمستخدم بإرسال رسائل البريد الإلكتروني إلى عناوين بريد إلكتروني متعددة. ومع ذلك، إذا كنت لا تريد أن يرى المستلمون الآخرون عناوين البريد الإلكتروني، فأنت بحاجة إلى اختيار [2].»" data-en="Exercise - 1 Answer the following questions. (1) Complete the following sentences by filling in the blanks [1] to [3] with the appropriate terms. “Email recipients have “To,” “( [1] ),” and “( [2] ),” all of which have the feature of ( [3] ) that allows the user to send emails to multiple email addresses. However, among ([1]) and ([2]), if you do not want other recipients to see the email addresses, you need to choose ([2]).”">تمرين — 1 أجب عن الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغات [1] إلى [3] بالمصطلحات المناسبة. «مستلمو البريد الإلكتروني لديهم حقول "To"، و[1]، و"[2]"، وكلها تتميز بـ [3] التي تسمح للمستخدم بإرسال رسائل البريد الإلكتروني إلى عناوين بريد إلكتروني متعددة. ومع ذلك، إذا كنت لا تريد أن يرى المستلمون الآخرون عناوين البريد الإلكتروني، فأنت بحاجة إلى اختيار [2].»</p>
           <p data-ar="(2) اختر الشرح الأكثر ملاءمة لكل من الجمل التالية من الخيارات من أ إلى ح، وأجب باستخدام الحروف. [1] أداة تسمح بالمحادثة في الوقت الفعلي أثناء مشاهدة فيديو الشخص الآخر عبر الإنترنت. [2] أداة تسمح لك بإرفاق وإرسال ليس فقط النص، ولكن أيضًا الصور ومقاطع الفيديو وملفات المستندات. [3] خدمة تسمح لك بتجميع ونشر كتابات مثل يومياتك على الإنترنت. [4] خدمات توفر منصات حيث يمكن للأفراد التواصل مع بعضهم البعض على الإنترنت. — (أ) منصة مشاركة الفيديو (ب) تطبيق المراسلة (ت) البريد الإلكتروني (ث) المدونة (ج) وسائل التواصل الاجتماعي (ح) مكالمة الفيديو" data-en="(2) Choose the most suitable explanation for each of the following sentences from the options A to F below, and answer using the letters. [1] A tool that allows real-time conversation while viewing the other person’s video via the internet. [2] A tool that allows you to attach and send not only text, but also photos, videos, and document files. [3] A service that allows you to compile and publish writings such as your diary on the internet. [4] Services providing platforms where individuals can connect with each other on the internet. - A Video sharing platform B Messaging app C Email D Blog E Social media F Video call">(2) اختر الشرح الأكثر ملاءمة لكل من الجمل التالية من الخيارات من أ إلى ح، وأجب باستخدام الحروف. [1] أداة تسمح بالمحادثة في الوقت الفعلي أثناء مشاهدة فيديو الشخص الآخر عبر الإنترنت. [2] أداة تسمح لك بإرفاق وإرسال ليس فقط النص، ولكن أيضًا الصور ومقاطع الفيديو وملفات المستندات. [3] خدمة تسمح لك بتجميع ونشر كتابات مثل يومياتك على الإنترنت. [4] خدمات توفر منصات حيث يمكن للأفراد التواصل مع بعضهم البعض على الإنترنت. — (أ) منصة مشاركة الفيديو (ب) تطبيق المراسلة (ت) البريد الإلكتروني (ث) المدونة (ج) وسائل التواصل الاجتماعي (ح) مكالمة الفيديو</p>
           <p data-ar="(3) العبارات التالية من أ إلى ت وصف هي للخدمات التي تستخدم الإنترنت، ضع علامة &quot;صح&quot; إذا كان البيان صحيحًا، و&quot;خطأ&quot; إذا كان غير صحيح. (أ) يمكن للشخص نشر المعلومات بحرية بغض النظر عن موقفهم. (ب) لوحات الإعلانات الإلكترونية هي شكل من أشكال الاتصال القائم على النص بشكل رئيسي، لذلك قد يحدث سوء فهم. (ت) من الصعب محو المعلومات بالكامل بمجرد نشرها على الإنترنت." data-en="(3) The following A to C are explanations of services that use the internet. Mark “○” if the statement is correct, and “×” if it is incorrect. A A person can freely disseminate information regardless of their position. B Electronic bulletin boards are a form of communication that is primarily text-based, so misunderstandings may occur. C It is difficult to completely erase information once it has been published on the internet.">(3) العبارات التالية من أ إلى ت وصف هي للخدمات التي تستخدم الإنترنت، ضع علامة "صح" إذا كان البيان صحيحًا، و"خطأ" إذا كان غير صحيح. (أ) يمكن للشخص نشر المعلومات بحرية بغض النظر عن موقفهم. (ب) لوحات الإعلانات الإلكترونية هي شكل من أشكال الاتصال القائم على النص بشكل رئيسي، لذلك قد يحدث سوء فهم. (ت) من الصعب محو المعلومات بالكامل بمجرد نشرها على الإنترنت.</p>
-          <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب:(1) [1] نسخة (CC) [2] نسخة مخفية (BCC) [3] قدرة البث (broadcast capability). (2) [1] ح: مكالمة الفيديو [2] ب: تطبيق المراسلة [3] ث: المدونة [4] ج: وسائل التواصل الاجتماعي. (3) (أ) صح (ب) صح (ت) صح." data-en="Answers not printed in the book (teacher-prepared): (1) [1] CC [2] BCC [3] broadcast capability. (2) [1] F video call [2] B messaging app [3] D blog [4] E social media. (3) A ○ B ○ C ○.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] نسخة (CC) [2] نسخة مخفية (BCC) [3] قدرة البث (broadcast capability). (2) [1] ح: مكالمة الفيديو [2] ب: تطبيق المراسلة [3] ث: المدونة [4] ج: وسائل التواصل الاجتماعي. (3) (أ) صح (ب) صح (ت) صح.</p>
+          <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب:(1) [1] نسخة [2] نسخة مخفية [3] قدرة البث. (2) [1] ح: مكالمة الفيديو [2] ب: تطبيق المراسلة [3] ث: المدونة [4] ج: وسائل التواصل الاجتماعي. (3) (أ) صح (ب) صح (ت) صح." data-en="Answers not printed in the book (teacher-prepared): (1) [1] CC [2] BCC [3] broadcast capability. (2) [1] F video call [2] B messaging app [3] D blog [4] E social media. (3) A ○ B ○ C ○.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] نسخة [2] نسخة مخفية [3] قدرة البث. (2) [1] ح: مكالمة الفيديو [2] ب: تطبيق المراسلة [3] ث: المدونة [4] ج: وسائل التواصل الاجتماعي. (3) (أ) صح (ب) صح (ت) صح.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) نص الفراغات في العربية «مستلمو البريد الإلكتروني لديهم حقول &quot;To&quot;، و[1]، و&quot;[2]&quot;» مقابل الإنجليزية &quot;have “To,” “( [1] ),” and “( [2] ),”&quot;، والجملة مطبوعة داخل إطار في النسختين. (2) خيارات (2) في العربية تطبع المدى «من أ إلى ح» مع ستة خيارات (أ)(ب)(ت)(ث)(ج)(ح) — متفقة — وتطبع (ج) هنا بلا ذيل بينما طبع جرب بنفسك (2) الخيار (جـ) بالذيل؛ والإنجليزية تطبع &quot;A to F&quot;. (3) عبارات (3) تتصل بمزايا إخفاء الهوية وسوء الفهم في النصوص والقابلية للتسجيل؛ الإجابات غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما (صح/○ للعبارات الثلاث)." data-en="Edition comparison:(1) The Arabic blank text prints «مستلمو البريد الإلكتروني لديهم حقول &quot;To&quot;، و[1]، و&quot;[2]&quot;» vs English &quot;have “To,” “( [1] ),” and “( [2] ),”&quot;, the sentence boxed in both editions. (2) The Arabic options of (2) print the range «من أ إلى ح» with six options (أ)(ب)(ت)(ث)(ج)(ح) - consistent - and (ج) prints here without the tail while Try (2) printed (جـ) with the tail; English prints &quot;A to F&quot;. (3) The statements of (3) relate to the anonymity advantages, text-based misunderstanding, and recordability; the answers are not printed in either edition, and the derived results agree across both (○/صح for all three).">مقارنة النسختين:(1) نص الفراغات في العربية «مستلمو البريد الإلكتروني لديهم حقول "To"، و[1]، و"[2]"» مقابل الإنجليزية "have “To,” “( [1] ),” and “( [2] ),”"، والجملة مطبوعة داخل إطار في النسختين. (2) خيارات (2) في العربية تطبع المدى «من أ إلى ح» مع ستة خيارات (أ)(ب)(ت)(ث)(ج)(ح) — متفقة — وتطبع (ج) هنا بلا ذيل بينما طبع جرب بنفسك (2) الخيار (جـ) بالذيل؛ والإنجليزية تطبع "A to F". (3) عبارات (3) تتصل بمزايا إخفاء الهوية وسوء الفهم في النصوص والقابلية للتسجيل؛ الإجابات غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما (صح/○ للعبارات الثلاث).</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 52 (المطبوع 52)؛ AR 60." data-en="The above is from the textbook. Full source: English PDF 52 (printed 52); Arabic 60.">النص السابق من الكتاب. المصدر الكامل:EN PDF 52 (المطبوع 52)؛ AR 60.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
       </div>
@@ -2440,45 +1326,45 @@ select{color:var(--text)!important}
           data-en="✍️ Lesson exercises — 7 groups: solve by yourself first, then show all answers">✍️ تدريبات الدرس — 7 مجموعات: حل بنفسك الأول، وبعدين إظهار كل الإجابات</h3>
 
         <div class="group-label" data-ar="المجموعة 1 — تمهيدي (1): ربط كل مصطلح بالشرح الصح"
-          data-en="Group 1 — Warm Up (1): match each term with the right explanation">المجموعة 1 — <span
+          data-en="Grou — Warm Up (1): match each term with the right explanation">المجموعة 1 — <span
             dir="ltr">Warm Up (1)</span>: طابق المصطلحات بالوصف المناسب</div>
         <div class="ex-item">
           <div class="q"><span class="q-num">1</span> <span data-ar="[1] نظام السبورة الإعلانية — إيه الشرح اللي يناسب؟"
               data-en="[1] Bulletin board system — which explanation fits?">[1] <span dir="ltr">Bulletin board
                 system</span> — الوصف المناسب هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  نظام السبورة الإعلانية (BBS) — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية"
-              data-en="A  Bulletin board system (BBS) — a tool that allows the user to post messages and write replies to other messages">A  نظام السبورة الإعلانية (BBS) — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية</div>
-            <div class="ex-opt" data-ar="B  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
-              data-en="B  Video call — a tool that allows real-time conversation while viewing the other person's video">B  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
-            <div class="ex-opt" data-ar="C  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت"
-              data-en="C  Social media — services providing platforms where individuals can connect with each other on the internet">C  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت</div>
-            <div class="ex-opt" data-ar="D  منصّة مشاركة الفيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين"
-              data-en="D  Video sharing platform — a service that allows a wide, unspecified audience to share and watch videos posted by other unspecified users">D  منصّة مشاركة الفيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين</div>
+            <div class="ex-opt" data-ok="1" data-ar="A نظام السبورة الإعلانية — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية"
+              data-en="A  Bulletin board system (BBS) — a tool that allows the user to post messages and write replies to other messages">A نظام السبورة الإعلانية — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية</div>
+            <div class="ex-opt" data-ar="B مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
+              data-en="B  Video call — a tool that allows real-time conversation while viewing the other person's video">B مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
+            <div class="ex-opt" data-ar="C سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت"
+              data-en="C  Social media — services providing platforms where individuals can connect with each other on the internet">C سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت</div>
+            <div class="ex-opt" data-ar="D منصّة مشاركة الفيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين"
+              data-en="D  Video sharing platform — a service that allows a wide, unspecified audience to share and watch videos posted by other unspecified users">D منصّة مشاركة الفيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — نظام السبورة الإعلانية"
               data-en="✅ Answer: A — Bulletin board system">✅ الإجابة: A — <span dir="ltr">Bulletin board
                 system</span></b> <span data-ar="الـ BBS أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية — وده بيطابق الاختيار A."
               data-en="a BBS is a tool that lets the user post messages and write replies to other messages — this matches choice A.">الـ
-              <span dir="ltr">BBS</span> أداة بتسمح للمستخدم ينشر رسائل ويكتب ردود على رسائل تانية — والوصف ده مطابق
-              للاختيار A.</span></div>
+ <span dir="ltr">BBS</span> أداة بتسمح للمستخدم ينشر رسائل ويكتب ردود على رسائل تانية — والوصف ده مطابق
+ للاختيار A.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="[2] سوشيال ميديا — إيه الشرح اللي يناسب؟"
               data-en="[2] Social media — which explanation fits?">[2] <span dir="ltr">Social media</span> — الوصف
-              المناسب هو إيه؟</span></div>
+ المناسب هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
-              data-en="A  Video call — a tool that allows real-time conversation while viewing the other person's video">A  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
-            <div class="ex-opt" data-ar="B  نظام السبورة الإعلانية (BBS) — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية"
-              data-en="B  Bulletin board system (BBS) — a tool that allows the user to post messages and write replies to other messages">B  نظام السبورة الإعلانية (BBS) — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية</div>
-            <div class="ex-opt" data-ar="C  منصّة مشاركة فيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين"
-              data-en="C  Video sharing platform — a service that allows a wide, unspecified audience to share and watch videos posted by other unspecified users">C  منصّة مشاركة فيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين</div>
-            <div class="ex-opt" data-ok="1" data-ar="D  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت"
-              data-en="D  Social media — services providing platforms where individuals can connect with each other on the internet">D  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت</div>
+            <div class="ex-opt" data-ar="A مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
+              data-en="A  Video call — a tool that allows real-time conversation while viewing the other person's video">A مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
+            <div class="ex-opt" data-ar="B نظام السبورة الإعلانية — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية"
+              data-en="B  Bulletin board system (BBS) — a tool that allows the user to post messages and write replies to other messages">B نظام السبورة الإعلانية — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية</div>
+            <div class="ex-opt" data-ar="C منصّة مشاركة فيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين"
+              data-en="C  Video sharing platform — a service that allows a wide, unspecified audience to share and watch videos posted by other unspecified users">C منصّة مشاركة فيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين</div>
+            <div class="ex-opt" data-ok="1" data-ar="D سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت"
+              data-en="D  Social media — services providing platforms where individuals can connect with each other on the internet">D سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: D — السوشيال ميديا" data-en="✅ Answer: D — Social media">✅
-              الإجابة: D — <span dir="ltr">Social media</span></b> <span
+ الإجابة: D — <span dir="ltr">Social media</span></b> <span
               data-ar="السوشيال ميديا خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت — وده بيطابق الاختيار D."
               data-en="social media are services providing platforms where individuals can connect with each other on the internet — this matches choice D.">السوشيال ميديا خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت — وده بيطابق الاختيار D.</span></div>
         </div>
@@ -2487,14 +1373,14 @@ select{color:var(--text)!important}
               data-en="[3] Video sharing platform — which explanation fits?">[3] <span dir="ltr">Video sharing
                 platform</span> — الوصف المناسب هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  منصّة مشاركة فيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين"
-              data-en="A  Video sharing platform — a service that allows a wide, unspecified audience to share and watch videos posted by other unspecified users">A  منصّة مشاركة فيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين</div>
-            <div class="ex-opt" data-ar="B  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
-              data-en="B  Video call — a tool that allows real-time conversation while viewing the other person's video">B  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
-            <div class="ex-opt" data-ar="C  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت"
-              data-en="C  Social media — services providing platforms where individuals can connect with each other on the internet">C  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت</div>
-            <div class="ex-opt" data-ar="D  نظام السبورة الإعلانية (BBS) — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية"
-              data-en="D  Bulletin board system (BBS) — a tool that allows the user to post messages and write replies to other messages">D  نظام السبورة الإعلانية (BBS) — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية</div>
+            <div class="ex-opt" data-ok="1" data-ar="A منصّة مشاركة فيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين"
+              data-en="A  Video sharing platform — a service that allows a wide, unspecified audience to share and watch videos posted by other unspecified users">A منصّة مشاركة فيديو — خدمة بتسمح لجمهور واسع مش محدد إنه يشارك ويتفرّج على فيديوهات منزّلة من مستخدمين تانيين مش محددين</div>
+            <div class="ex-opt" data-ar="B مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
+              data-en="B  Video call — a tool that allows real-time conversation while viewing the other person's video">B مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
+            <div class="ex-opt" data-ar="C سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت"
+              data-en="C  Social media — services providing platforms where individuals can connect with each other on the internet">C سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض على الإنترنت</div>
+            <div class="ex-opt" data-ar="D نظام السبورة الإعلانية — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية"
+              data-en="D  Bulletin board system (BBS) — a tool that allows the user to post messages and write replies to other messages">D نظام السبورة الإعلانية — أداة بتسمح للمستخدم ينزّل رسايل ويكتب ردود على رسايل تانية</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — منصّة مشاركة الفيديو"
               data-en="✅ Answer: A — Video sharing platform">✅ الإجابة: A — <span dir="ltr">Video sharing
@@ -2504,25 +1390,25 @@ select{color:var(--text)!important}
         </div>
 
         <div class="group-label" data-ar="المجموعة 2 — تمهيدي (2): صح/غلط (○/×)"
-          data-en="Group 2 — Warm Up (2): True/False (○/×)">المجموعة 2 — <span dir="ltr">Warm Up (2)</span>: صح/خطأ
-          (○/×)</div>
+          data-en="Grou — Warm Up (2): True/False (○/×)">المجموعة 2 — <span dir="ltr">Warm Up (2)</span>: صح/خطأ
+ (○/×)</div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">4</span> <span data-ar="العبارة A: 'بما إن البوستات أونلاين ممكن تكون مجهولة، فمفيش مشكلة إن المستخدمين يكتبوا أي معلومات (Information) عاوزينها.' — صح ولا غلط؟"
-              data-en="Statement A: 'Since online posts can be anonymous, it is fine for users to write whatever information they like.' — correct or incorrect?">العبارة A: 'بما إن البوستات أونلاين ممكن تكون مجهولة، فمفيش مشكلة إن المستخدمين يكتبوا أي معلومات (Information) عاوزينها.' — صح ولا غلط؟</span></div>
+          <div class="q"><span class="q-num">4</span> <span data-ar="العبارة A: 'بما إن البوستات أونلاين ممكن تكون مجهولة، فمفيش مشكلة إن المستخدمين يكتبوا أي معلومات عاوزينها.' — صح ولا غلط؟"
+              data-en="Statement A: 'Since online posts can be anonymous, it is fine for users to write whatever information they like.' — correct or incorrect?">العبارة A: 'بما إن البوستات أونلاين ممكن تكون مجهولة، فمفيش مشكلة إن المستخدمين يكتبوا أي معلومات عاوزينها.' — صح ولا غلط؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  × غلط" data-en="A  × Incorrect">A  × غلط</div>
-            <div class="ex-opt" data-ar="B  ○ صح" data-en="B  ○ Correct">B  ○ صح</div>
+            <div class="ex-opt" data-ok="1" data-ar="A × غلط" data-en="A  × Incorrect">A × غلط</div>
+            <div class="ex-opt" data-ar="B ○ صح" data-en="B  ○ Correct">B ○ صح</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — × غلط" data-en="✅ Answer: A — × Incorrect">✅ الإجابة: A — × غلط</b> <span
-              data-ar="لازم دايماً تراعي وجهة نظر الطرف التاني وتبقى متعاطف، حتى مع إخفاء الهوية — إنك تكتب أي معلومات (Information) من غير تفكير غلط."
-              data-en="you must always consider the other person's perspective and show empathy, even with anonymity — writing any information without thinking is wrong.">لازم دايماً تراعي وجهة نظر الطرف التاني وتبقى متعاطف، حتى مع إخفاء الهوية — إنك تكتب أي معلومات (Information) من غير تفكير غلط.</span></div>
+              data-ar="لازم دايماً تراعي وجهة نظر الطرف التاني وتبقى متعاطف، حتى مع إخفاء الهوية — إنك تكتب أي معلومات من غير تفكير غلط."
+              data-en="you must always consider the other person's perspective and show empathy, even with anonymity — writing any information without thinking is wrong.">لازم دايماً تراعي وجهة نظر الطرف التاني وتبقى متعاطف، حتى مع إخفاء الهوية — إنك تكتب أي معلومات من غير تفكير غلط.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">5</span> <span data-ar="العبارة B: 'لما ترفع فيديو على منصّة مشاركة فيديو، فيه احتمال إن الأشخاص يتعرّفوا عليهم من المباني أو اللافتات الظاهرة في الفيديو.' — صح ولا غلط؟"
               data-en="Statement B: 'When uploading a video to a video sharing platform, there is a possibility that individuals can be identified from buildings or signs visible in the video.' — correct or incorrect?">العبارة B: 'لما ترفع فيديو على منصّة مشاركة فيديو، فيه احتمال إن الأشخاص يتعرّفوا عليهم من المباني أو اللافتات الظاهرة في الفيديو.' — صح ولا غلط؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  × غلط" data-en="A  × Incorrect">A  × غلط</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  ○ صح" data-en="B  ○ Correct">B  ○ صح</div>
+            <div class="ex-opt" data-ar="A × غلط" data-en="A  × Incorrect">A × غلط</div>
+            <div class="ex-opt" data-ok="1" data-ar="B ○ صح" data-en="B  ○ Correct">B ○ صح</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — ○ صح" data-en="✅ Answer: B — ○ Correct">✅ الإجابة: B — ○ صح</b> <span
               data-ar="المباني واللافتات الظاهرة في الفيديو ممكن تكشف مكانك وتسيب الناس تعرّفك."
@@ -2532,8 +1418,8 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">6</span> <span data-ar="العبارة C: 'في اتصال الإنترنت، بما إن سجلّات التفاعلات بتفضل محفوظة، فمهم تكون مراعي وتتأكد إن رسائلك مبتحسّسش المستقبِل بعدم راحة.' — صح ولا غلط؟"
               data-en="Statement C: 'In internet communication, since records of interactions are kept, it is important to be considerate and ensure that your messages do not make the recipient feel uncomfortable.' — correct or incorrect?">العبارة C: 'في اتصال الإنترنت، بما إن سجلّات التفاعلات بتفضل محفوظة، فمهم تكون مراعي وتتأكد إن رسائلك مبتحسّسش المستقبِل بعدم راحة.' — صح ولا غلط؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  ○ صح" data-en="A  ○ Correct">A  ○ صح</div>
-            <div class="ex-opt" data-ar="B  × غلط" data-en="B  × Incorrect">B  × غلط</div>
+            <div class="ex-opt" data-ok="1" data-ar="A ○ صح" data-en="A  ○ Correct">A ○ صح</div>
+            <div class="ex-opt" data-ar="B × غلط" data-en="B  × Incorrect">B × غلط</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — ○ صح" data-en="✅ Answer: A — ○ Correct">✅ الإجابة: A — ○ صح</b> <span
               data-ar="السجلّات بتفضل محفوظة، فلازم تكون مراعي وتتأكد إن رسائلك مبتحسّسش المستقبِل بعدم راحة."
@@ -2541,19 +1427,19 @@ select{color:var(--text)!important}
         </div>
 
         <div class="group-label" data-ar="المجموعة 3 — جرب بنفسك (1): ربط كل مصطلح بالشرح الصح"
-          data-en="Group 3 — Try (1): match each term with the right explanation">المجموعة 3 — <span
+          data-en="Grou — Try (1): match each term with the right explanation">المجموعة 3 — <span
             dir="ltr">Try (1)</span>: طابق المصطلحات بالوصف المناسب</div>
         <div class="ex-item">
           <div class="q"><span class="q-num">7</span> <span data-ar="[1] مدوّنة — إيه الشرح اللي يناسب؟"
               data-en="[1] Blog — which explanation fits?">[1] <span dir="ltr">Blog</span> — الوصف المناسب هو
-            إيه؟</span></div>
+ إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
-              data-en="A  Video call — a tool that allows real-time conversation while viewing the other person's video">A  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت"
-              data-en="B  Blog — a service that allows you to compile and publish writings such as your diary on the internet">B  مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت</div>
-            <div class="ex-opt" data-ar="C  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض"
-              data-en="C  Social media — services providing platforms where individuals can connect with each other">C  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض</div>
+            <div class="ex-opt" data-ar="A مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
+              data-en="A  Video call — a tool that allows real-time conversation while viewing the other person's video">A مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
+            <div class="ex-opt" data-ok="1" data-ar="B مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت"
+              data-en="B  Blog — a service that allows you to compile and publish writings such as your diary on the internet">B مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت</div>
+            <div class="ex-opt" data-ar="C سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض"
+              data-en="C  Social media — services providing platforms where individuals can connect with each other">C سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — مدوّنة" data-en="✅ Answer: B — Blog">✅ الإجابة: B — <span
                 dir="ltr">Blog</span></b> <span
@@ -2563,114 +1449,114 @@ select{color:var(--text)!important}
         <div class="ex-item">
           <div class="q"><span class="q-num">8</span> <span data-ar="[2] سوشيال ميديا — إيه الشرح اللي يناسب؟"
               data-en="[2] Social media — which explanation fits?">[2] <span dir="ltr">Social media</span> — الوصف
-              المناسب هو إيه؟</span></div>
+ المناسب هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض"
-              data-en="A  Social media — services providing platforms where individuals can connect with each other">A  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض</div>
-            <div class="ex-opt" data-ar="B  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
-              data-en="B  Video call — a tool that allows real-time conversation while viewing the other person's video">B  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
-            <div class="ex-opt" data-ar="C  مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت"
-              data-en="C  Blog — a service that allows you to compile and publish writings such as your diary on the internet">C  مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت</div>
+            <div class="ex-opt" data-ok="1" data-ar="A سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض"
+              data-en="A  Social media — services providing platforms where individuals can connect with each other">A سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض</div>
+            <div class="ex-opt" data-ar="B مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
+              data-en="B  Video call — a tool that allows real-time conversation while viewing the other person's video">B مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
+            <div class="ex-opt" data-ar="C مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت"
+              data-en="C  Blog — a service that allows you to compile and publish writings such as your diary on the internet">C مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — السوشيال ميديا" data-en="✅ Answer: A — Social media">✅
-              الإجابة: A — <span dir="ltr">Social media</span></b> <span
+ الإجابة: A — <span dir="ltr">Social media</span></b> <span
               data-ar="السوشيال ميديا خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض — بيطابق الاختيار A."
               data-en="social media are services providing platforms where individuals can connect with each other — matching choice A.">السوشيال ميديا خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض — بيطابق الاختيار A.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">9</span> <span data-ar="[3] مكالمة فيديو — إيه الشرح اللي يناسب؟"
               data-en="[3] Video call — which explanation fits?">[3] <span dir="ltr">Video call</span> — الوصف المناسب
-              هو إيه؟</span></div>
+ هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت"
-              data-en="A  Blog — a service that allows you to compile and publish writings such as your diary on the internet">A  مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت</div>
-            <div class="ex-opt" data-ar="B  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض"
-              data-en="B  Social media — services providing platforms where individuals can connect with each other">B  سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
-              data-en="C  Video call — a tool that allows real-time conversation while viewing the other person's video">C  مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
+            <div class="ex-opt" data-ar="A مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت"
+              data-en="A  Blog — a service that allows you to compile and publish writings such as your diary on the internet">A مدوّنة — خدمة بتسمح لك تجمّع وتنشر كتابات زي يومياتك على الإنترنت</div>
+            <div class="ex-opt" data-ar="B سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض"
+              data-en="B  Social media — services providing platforms where individuals can connect with each other">B سوشيال ميديا — خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض</div>
+            <div class="ex-opt" data-ok="1" data-ar="C مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني"
+              data-en="C  Video call — a tool that allows real-time conversation while viewing the other person's video">C مكالمة فيديو — أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — مكاللة فيديو" data-en="✅ Answer: C — Video call">✅ الإجابة: C
-              — <span dir="ltr">Video call</span></b> <span
+ — <span dir="ltr">Video call</span></b> <span
               data-ar="مكالمة الفيديو أداة بتتيح محادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني — بيطابق الاختيار C."
               data-en="a video call is a tool enabling a real-time conversation while viewing the other person's video — matching choice C.">مكالمة الفيديو أداة بتتيح محادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني — بيطابق الاختيار C.</span></div>
         </div>
 
         <div class="group-label" data-ar="المجموعة 4 — جرب بنفسك (2): خصائص الاتصال على الإنترنت"
-          data-en="Group 4 — Try (2): characteristics of communication on the internet">المجموعة 4 — <span
+          data-en="Grou — Try (2): characteristics of communication on the internet">المجموعة 4 — <span
             dir="ltr">Try (2)</span>: خصائص الاتصال على الإنترنت</div>
         <div class="ex-item">
           <div class="q"><span class="q-num">10</span> <span data-ar="'على السبورات الإعلانية الإلكترونية والسوشيال ميديا، ممكن تتواصل وأنت مخفي معلومات زي اسمك أو انتمائك.' — إيه الخاصية اللي بتناسب؟"
               data-en="'On electronic bulletin boards and social media, it is possible to communicate while concealing information such as one's name or affiliation.' — which characteristic fits?">'على السبورات الإعلانية الإلكترونية والسوشيال ميديا، ممكن تتواصل وأنت مخفي معلومات زي اسمك أو انتمائك.' — إيه الخاصية اللي بتناسب؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  السهولة" data-en="A  Convenience">A  السهولة</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  إخفاء الهوية" data-en="B  Anonymity">B  إخفاء الهوية</div>
-            <div class="ex-opt" data-ar="C  إمكانية التسجيل" data-en="C  Recordability">C  إمكانية التسجيل</div>
-            <div class="ex-opt" data-ar="D  الفورية" data-en="D  Immediacy">D  الفورية</div>
+            <div class="ex-opt" data-ar="A السهولة" data-en="A  Convenience">A السهولة</div>
+            <div class="ex-opt" data-ok="1" data-ar="B إخفاء الهوية" data-en="B  Anonymity">B إخفاء الهوية</div>
+            <div class="ex-opt" data-ar="C إمكانية التسجيل" data-en="C  Recordability">C إمكانية التسجيل</div>
+            <div class="ex-opt" data-ar="D الفورية" data-en="D  Immediacy">D الفورية</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — إخفاء الهوية" data-en="✅ Answer: B — Anonymity">✅ الإجابة: B —
-              <span dir="ltr">Anonymity</span></b> <span
+ <span dir="ltr">Anonymity</span></b> <span
               data-ar="إخفاء معلومات ممكن تكشّفك (الاسم والانتماء) هي خاصية إخفاء الهوية."
               data-en="hiding information that could identify you (name and affiliation) is the characteristic of anonymity.">إخفاء
-              المعلومات اللي ممكن توصّل لهويتك (اسمك وانتماءك) هي خاصية إخفاء الهوية <span
+ المعلومات اللي ممكن توصّل لهويتك (اسمك وانتماءك) هي خاصية إخفاء الهوية <span
                 dir="ltr">Anonymity</span>.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">11</span> <span data-ar="'المعلومات (Information) المنشورة على الإنترنت مقدرش تتمسح تماماً.' — إيه الخاصية اللي بتناسب؟"
-              data-en="'Information published on the internet cannot be completely erased.' — which characteristic fits?">'المعلومات (Information) المنشورة على الإنترنت مقدرش تتمسح تماماً.' — إيه الخاصية اللي بتناسب؟</span></div>
+          <div class="q"><span class="q-num">11</span> <span data-ar="'المعلومات المنشورة على الإنترنت مقدرش تتمسح تماماً.' — إيه الخاصية اللي بتناسب؟"
+              data-en="'Information published on the internet cannot be completely erased.' — which characteristic fits?">'المعلومات المنشورة على الإنترنت مقدرش تتمسح تماماً.' — إيه الخاصية اللي بتناسب؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  إمكانية التسجيل" data-en="A  Recordability">A  إمكانية التسجيل</div>
-            <div class="ex-opt" data-ar="B  السهولة" data-en="B  Convenience">B  السهولة</div>
-            <div class="ex-opt" data-ar="C  إخفاء الهوية" data-en="C  Anonymity">C  إخفاء الهوية</div>
-            <div class="ex-opt" data-ar="D  الفورية" data-en="D  Immediacy">D  الفورية</div>
+            <div class="ex-opt" data-ok="1" data-ar="A إمكانية التسجيل" data-en="A  Recordability">A إمكانية التسجيل</div>
+            <div class="ex-opt" data-ar="B السهولة" data-en="B  Convenience">B السهولة</div>
+            <div class="ex-opt" data-ar="C إخفاء الهوية" data-en="C  Anonymity">C إخفاء الهوية</div>
+            <div class="ex-opt" data-ar="D الفورية" data-en="D  Immediacy">D الفورية</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — إمكانية التسجيل" data-en="✅ Answer: A — Recordability">✅
-              الإجابة: A — <span dir="ltr">Recordability</span></b> <span
-              data-ar="إرسال واستقبال معلومات (Information) على الإنترنت بيسيب سجل (log) — فالمعلومات (Information) المنشورة صعب تتسح تماماً، وده هو التسجيل (Recordability)."
+ الإجابة: A — <span dir="ltr">Recordability</span></b> <span
+              data-ar="إرسال واستقبال معلومات على الإنترنت بيسيب سجل — فالمعلومات المنشورة صعب تتسح تماماً، وده هو التسجيل."
               data-en="sending and receiving information on the internet leaves a record (log) — so published information is hard to erase completely, which is recordability.">إرسال
-              واستقبال المعلومات على الإنترنت بيترك سجل <span dir="ltr">(log)</span> — فالمعلومات اللي اتنشرت صعب تمحى
-              تماماً، ودي خاصية التسجيل <span dir="ltr">Recordability</span>.</span></div>
+ واستقبال المعلومات على الإنترنت بيترك سجل <span dir="ltr">(log)</span> — فالمعلومات اللي اتنشرت صعب تمحى
+ تماماً، ودي خاصية التسجيل <span dir="ltr">Recordability</span>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">12</span> <span data-ar="'إنك تاخد رد فوري من الطرف التاني.' — إيه الخاصية اللي بتناسب؟"
               data-en="'You immediately receive a response from the other party.' — which characteristic fits?">'إنك تاخد رد فوري من الطرف التاني.' — إيه الخاصية اللي بتناسب؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  السهولة" data-en="A  Convenience">A  السهولة</div>
-            <div class="ex-opt" data-ar="B  إمكانية التسجيل" data-en="B  Recordability">B  إمكانية التسجيل</div>
-            <div class="ex-opt" data-ar="C  إخفاء الهوية" data-en="C  Anonymity">C  إخفاء الهوية</div>
-            <div class="ex-opt" data-ok="1" data-ar="D  الفورية" data-en="D  Immediacy">D  الفورية</div>
+            <div class="ex-opt" data-ar="A السهولة" data-en="A  Convenience">A السهولة</div>
+            <div class="ex-opt" data-ar="B إمكانية التسجيل" data-en="B  Recordability">B إمكانية التسجيل</div>
+            <div class="ex-opt" data-ar="C إخفاء الهوية" data-en="C  Anonymity">C إخفاء الهوية</div>
+            <div class="ex-opt" data-ok="1" data-ar="D الفورية" data-en="D  Immediacy">D الفورية</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: D — الفورية" data-en="✅ Answer: D — Immediacy">✅ الإجابة: D —
-              <span dir="ltr">Immediacy</span></b> <span
-              data-ar="أخذ رد فوري من الطرف التاني هي خاصية الفورية (Immediacy)."
+ <span dir="ltr">Immediacy</span></b> <span
+              data-ar="أخذ رد فوري من الطرف التاني هي خاصية الفورية."
               data-en="receiving an immediate response from the other party is the characteristic of immediacy.">استلام
-              رد فوري من الطرف التاني هي خاصية الوصول الفوري <span dir="ltr">Immediacy</span>.</span></div>
+ رد فوري من الطرف التاني هي خاصية الوصول الفوري <span dir="ltr">Immediacy</span>.</span></div>
         </div>
 
         <div class="group-label" data-ar="المجموعة 5 — تمرين (1): كمّل الفراغات"
-          data-en="Group 5 — Exercise (1): complete the blanks">المجموعة 5 — <span dir="ltr">Exercise (1)</span>: اكمل الفراغات</div>
+          data-en="Grou — Exercise (1): complete the blanks">المجموعة 5 — <span dir="ltr">Exercise (1)</span>: اكمل الفراغات</div>
         <div class="ex-item">
           <div class="q"><span class="q-num">13</span> <span data-ar="مستقبِلين الإيميل عندهم 'To،' ( [1] )، و( [2] ) — إيه المصطلح اللي يناسب الفراغ [1]؟"
               data-en="Email recipients have 'To,' ( [1] ), and ( [2] ) — which term fits blank [1]?">مستلمي الإيميل
-              عندهم <span dir="ltr">To</span> و ( [1] ) و ( [2] ) — المصطلح المناسب للخانة [1] هو إيه؟</span></div>
+ عندهم <span dir="ltr">To</span> و ( [1] ) و ( [2] ) — المصطلح المناسب للخانة [1] هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  To" data-en="A  To">A  To</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  CC" data-en="B  CC">B  CC</div>
-            <div class="ex-opt" data-ar="C  BCC" data-en="C  BCC">C  BCC</div>
-            <div class="ex-opt" data-ar="D  الموضوع" data-en="D  Subject">D  الموضوع</div>
+            <div class="ex-opt" data-ar="A To" data-en="A  To">A  To</div>
+            <div class="ex-opt" data-ok="1" data-ar="B CC" data-en="B  CC">B  CC</div>
+            <div class="ex-opt" data-ar="C BCC" data-en="C  BCC">C  BCC</div>
+            <div class="ex-opt" data-ar="D الموضوع" data-en="D  Subject">D الموضوع</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: [1] = CC" data-en="✅ Answer: [1] = CC">✅ الإجابة: [1] = <span
                 dir="ltr">CC</span></b> <span data-ar="الفراغ [1] هو CC — بتكتب عناوين المستقبِلين اللي عاوز تشاركهم محتوى الرسالة."
               data-en="blank [1] is CC — you type addresses of recipients you want to share the message content with.">الخانة
-              [1] هي <span dir="ltr">CC</span> — بتكتب فيها عناوين مستلمين عايز تشاركهم محتوى الرسالة.</span></div>
+ [1] هي <span dir="ltr">CC</span> — بتكتب فيها عناوين مستلمين عايز تشاركهم محتوى الرسالة.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">14</span> <span data-ar="'لو مش عاوز المستقبِلين التانيين يشوفوا العناوين، لازم تختار ( [2] ).' — إيه المصطلح اللي يناسب الفراغ [2]؟"
               data-en="'If you do not want other recipients to see the addresses, you need to choose ( [2] ).' — which term fits blank [2]?">'لو مش عاوز المستقبِلين التانيين يشوفوا العناوين، لازم تختار ( [2] ).' — إيه المصطلح اللي يناسب الفراغ [2]؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  CC" data-en="A  CC">A  CC</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  BCC" data-en="B  BCC">B  BCC</div>
-            <div class="ex-opt" data-ar="C  To" data-en="C  To">C  To</div>
-            <div class="ex-opt" data-ar="D  الموضوع" data-en="D  Subject">D  الموضوع</div>
+            <div class="ex-opt" data-ar="A CC" data-en="A  CC">A  CC</div>
+            <div class="ex-opt" data-ok="1" data-ar="B BCC" data-en="B  BCC">B  BCC</div>
+            <div class="ex-opt" data-ar="C To" data-en="C  To">C  To</div>
+            <div class="ex-opt" data-ar="D الموضوع" data-en="D  Subject">D الموضوع</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: [2] = BCC" data-en="✅ Answer: [2] = BCC">✅ الإجابة: [2] = <span
                 dir="ltr">BCC</span></b> <span
@@ -2682,35 +1568,35 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">15</span> <span data-ar="'وكلها ليها ميزة ( [3] ) اللي بتسمح للمستخدم يبعت إيميلات لعناوين كتير.' — إيه المصطلح اللي يناسب الفراغ [3]؟"
               data-en="'all of which have the feature of ( [3] ) that allows the user to send emails to multiple addresses.' — which term fits blank [3]?">'وكلها ليها ميزة ( [3] ) اللي بتسمح للمستخدم يبعت إيميلات لعناوين كتير.' — إيه المصطلح اللي يناسب الفراغ [3]؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  إمكانية البث"
-              data-en="A  Broadcast capability">A  إمكانية البث</div>
-            <div class="ex-opt" data-ar="B  مرفق" data-en="B  Attachment">B  مرفق</div>
-            <div class="ex-opt" data-ar="C  تشفير" data-en="C  Encryption">C  تشفير</div>
-            <div class="ex-opt" data-ar="D  فلتر سبام" data-en="D  Spam filter">D  فلتر سبام</div>
+            <div class="ex-opt" data-ok="1" data-ar="A إمكانية البث"
+              data-en="A  Broadcast capability">A إمكانية البث</div>
+            <div class="ex-opt" data-ar="B مرفق" data-en="B  Attachment">B مرفق</div>
+            <div class="ex-opt" data-ar="C تشفير" data-en="C  Encryption">C تشفير</div>
+            <div class="ex-opt" data-ar="D فلتر سبام" data-en="D  Spam filter">D فلتر سبام</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: [3] = إمكانية البث"
               data-en="✅ Answer: [3] = Broadcast capability">✅ الإجابة: [3] = <span dir="ltr">Broadcast
                 capability</span></b> <span
               data-ar="ميزة إمكانية البث هي اللي بتخلّي المستخدم يبعت إيميلات لعناوين كتير مرة واحدة."
               data-en="the broadcast capability feature is what lets the user send emails to multiple addresses at once.">خاصية
-              الـ <span dir="ltr">broadcast capability</span> هي اللي بتسمح للمستخدم يبعت إيميلات لأكثر من عنوان في نفس
-              الوقت.</span></div>
+ الـ <span dir="ltr">broadcast capability</span> هي اللي بتسمح للمستخدم يبعت إيميلات لأكثر من عنوان في نفس
+ الوقت.</span></div>
         </div>
 
         <div class="group-label" data-ar="المجموعة 6 — تمرين (2): ربط كل جملة بالطريقة المناسبة"
-          data-en="Group 6 — Exercise (2): match each sentence with the suitable method">المجموعة 6 — <span
+          data-en="Grou — Exercise (2): match each sentence with the suitable method">المجموعة 6 — <span
             dir="ltr">Exercise (2)</span>: طابق كل جملة بالوسيلة المناسبة</div>
         <div class="ex-item">
           <div class="q"><span class="q-num">16</span> <span data-ar="'أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني.' — إيه الطريقة اللي بتناسب؟"
               data-en="'A tool that allows real-time conversation while viewing the other person's video.' — which method fits?">'أداة بتسمح بمحادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني.' — إيه الطريقة اللي بتناسب؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  إيميل" data-en="A  Email">A  إيميل</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  مكالمة فيديو" data-en="B  Video call">B  مكالمة فيديو</div>
-            <div class="ex-opt" data-ar="C  مدوّنة" data-en="C  Blog">C  مدوّنة</div>
-            <div class="ex-opt" data-ar="D  منصّة مشاركة فيديو" data-en="D  Video sharing platform">D  منصّة مشاركة فيديو</div>
+            <div class="ex-opt" data-ar="A إيميل" data-en="A  Email">A إيميل</div>
+            <div class="ex-opt" data-ok="1" data-ar="B مكالمة فيديو" data-en="B  Video call">B مكالمة فيديو</div>
+            <div class="ex-opt" data-ar="C مدوّنة" data-en="C  Blog">C مدوّنة</div>
+            <div class="ex-opt" data-ar="D منصّة مشاركة فيديو" data-en="D  Video sharing platform">D منصّة مشاركة فيديو</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — مكالمة فيديو" data-en="✅ Answer: B — Video call">✅ الإجابة: B
-              — <span dir="ltr">Video call</span></b> <span
+ — <span dir="ltr">Video call</span></b> <span
               data-ar="الوصف ده بيطابق مكالمة الفيديو — محادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني."
               data-en="this description matches a video call — a real-time conversation while viewing the other person's video.">الوصف ده بيطابق مكالمة الفيديو — محادثة في الوقت الحقيقي وأنت بتشوف فيديو الطرف التاني.</span></div>
         </div>
@@ -2718,13 +1604,13 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">17</span> <span data-ar="'أداة بتسمحلك ترفق وتبعت مش بس نص، كمان صور وفيديو وملفات مستندات.' — إيه الطريقة اللي بتناسب؟"
               data-en="'A tool that allows you to attach and send not only text, but also photos, videos, and document files.' — which method fits?">'أداة بتسمحلك ترفق وتبعت مش بس نص، كمان صور وفيديو وملفات مستندات.' — إيه الطريقة اللي بتناسب؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  سوشيال ميديا" data-en="A  Social media">A  سوشيال ميديا</div>
-            <div class="ex-opt" data-ar="B  مكالمة فيديو" data-en="B  Video call">B  مكالمة فيديو</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  تطبيق مراسلة" data-en="C  Messaging app">C  تطبيق مراسلة</div>
-            <div class="ex-opt" data-ar="D  إيميل" data-en="D  Email">D  إيميل</div>
+            <div class="ex-opt" data-ar="A سوشيال ميديا" data-en="A  Social media">A سوشيال ميديا</div>
+            <div class="ex-opt" data-ar="B مكالمة فيديو" data-en="B  Video call">B مكالمة فيديو</div>
+            <div class="ex-opt" data-ok="1" data-ar="C تطبيق مراسلة" data-en="C  Messaging app">C تطبيق مراسلة</div>
+            <div class="ex-opt" data-ar="D إيميل" data-en="D  Email">D إيميل</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — تطبيق مراسلة" data-en="✅ Answer: C — Messaging app">✅
-              الإجابة: C — <span dir="ltr">Messaging app</span></b> <span
+ الإجابة: C — <span dir="ltr">Messaging app</span></b> <span
               data-ar="تطبيق المراسلة بيسمحلك ترفق وتبعت مش بس نص كمان صور وفيديو وملفات — بيطابق الاختيار C."
               data-en="a messaging app lets you attach and send not only text but also photos, videos, and files — matching choice C.">تطبيق المراسلة بيسمحلك ترفق وتبعت مش بس نص كمان صور وفيديو وملفات — بيطابق الاختيار C.</span></div>
         </div>
@@ -2732,10 +1618,10 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">18</span> <span data-ar="'خدمة بتسمحلك تجمّع وتنشر كتابات زي يومياتك على الإنترنت.' — إيه الطريقة اللي بتناسب؟"
               data-en="'A service that allows you to compile and publish writings such as your diary on the internet.' — which method fits?">'خدمة بتسمحلك تجمّع وتنشر كتابات زي يومياتك على الإنترنت.' — إيه الطريقة اللي بتناسب؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  إيميل" data-en="A  Email">A  إيميل</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  مدوّنة" data-en="B  Blog">B  مدوّنة</div>
-            <div class="ex-opt" data-ar="C  منصّة مشاركة فيديو" data-en="C  Video sharing platform">C  منصّة مشاركة فيديو</div>
-            <div class="ex-opt" data-ar="D  سوشيال ميديا" data-en="D  Social media">D  سوشيال ميديا</div>
+            <div class="ex-opt" data-ar="A إيميل" data-en="A  Email">A إيميل</div>
+            <div class="ex-opt" data-ok="1" data-ar="B مدوّنة" data-en="B  Blog">B مدوّنة</div>
+            <div class="ex-opt" data-ar="C منصّة مشاركة فيديو" data-en="C  Video sharing platform">C منصّة مشاركة فيديو</div>
+            <div class="ex-opt" data-ar="D سوشيال ميديا" data-en="D  Social media">D سوشيال ميديا</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — مدوّنة" data-en="✅ Answer: B — Blog">✅ الإجابة: B — <span
                 dir="ltr">Blog</span></b> <span
@@ -2746,53 +1632,53 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">19</span> <span data-ar="'خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض.' — إيه الطريقة اللي بتناسب؟"
               data-en="'Services providing platforms where individuals can connect with each other.' — which method fits?">'خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض.' — إيه الطريقة اللي بتناسب؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  مدوّنة" data-en="A  Blog">A  مدوّنة</div>
-            <div class="ex-opt" data-ar="B  مكالمة فيديو" data-en="B  Video call">B  مكالمة فيديو</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  سوشيال ميديا" data-en="C  Social media">C  سوشيال ميديا</div>
-            <div class="ex-opt" data-ar="D  منصّة مشاركة فيديو" data-en="D  Video sharing platform">D  منصّة مشاركة فيديو</div>
+            <div class="ex-opt" data-ar="A مدوّنة" data-en="A  Blog">A مدوّنة</div>
+            <div class="ex-opt" data-ar="B مكالمة فيديو" data-en="B  Video call">B مكالمة فيديو</div>
+            <div class="ex-opt" data-ok="1" data-ar="C سوشيال ميديا" data-en="C  Social media">C سوشيال ميديا</div>
+            <div class="ex-opt" data-ar="D منصّة مشاركة فيديو" data-en="D  Video sharing platform">D منصّة مشاركة فيديو</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — السوشيال ميديا" data-en="✅ Answer: C — Social media">✅
-              الإجابة: C — <span dir="ltr">Social media</span></b> <span
+ الإجابة: C — <span dir="ltr">Social media</span></b> <span
               data-ar="السوشيال ميديا خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض — بيطابق الاختيار C."
               data-en="social media are services providing platforms where individuals can connect with each other — matching choice C.">السوشيال ميديا خدمات بتوفّر منصّات يتواصل فيها الأفراد مع بعض — بيطابق الاختيار C.</span></div>
         </div>
 
         <div class="group-label" data-ar="المجموعة 7 — تمرين (3): صح/غلط (○/×)"
-          data-en="Group 7 — Exercise (3): True/False (○/×)">المجموعة 7 — <span dir="ltr">Exercise (3)</span>: صح/خطأ (○/×)</div>
+          data-en="Grou — Exercise (3): True/False (○/×)">المجموعة 7 — <span dir="ltr">Exercise (3)</span>: صح/خطأ (○/×)</div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">20</span> <span data-ar="العبارة A: 'الشخص يقدر ينشر معلومات (Information) بحرية بغض النظر عن موقعه.' — صح ولا غلط؟"
-              data-en="Statement A: 'A person can freely disseminate information regardless of their position.' — correct or incorrect?">العبارة A: 'الشخص يقدر ينشر معلومات (Information) بحرية بغض النظر عن موقعه.' — صح ولا غلط؟</span></div>
+          <div class="q"><span class="q-num">20</span> <span data-ar="العبارة A: 'الشخص يقدر ينشر معلومات بحرية بغض النظر عن موقعه.' — صح ولا غلط؟"
+              data-en="Statement A: 'A person can freely disseminate information regardless of their position.' — correct or incorrect?">العبارة A: 'الشخص يقدر ينشر معلومات بحرية بغض النظر عن موقعه.' — صح ولا غلط؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  × غلط" data-en="A  × Incorrect">A  × غلط</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  ○ صح" data-en="B  ○ Correct">B  ○ صح</div>
+            <div class="ex-opt" data-ar="A × غلط" data-en="A  × Incorrect">A × غلط</div>
+            <div class="ex-opt" data-ok="1" data-ar="B ○ صح" data-en="B  ○ Correct">B ○ صح</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — ○ صح" data-en="✅ Answer: B — ○ Correct">✅ الإجابة: B — ○ صح</b> <span
-              data-ar="ميزة إخفاء الهوية إن الشخص يقدر يعبّر عن نفسه وينشر معلومات (Information) بحرية بغض النظر عن موقعه أو مكانته الاجتماعية."
-              data-en="an advantage of anonymity is that a person can freely express themselves and disseminate information regardless of their position or social status.">ميزة إخفاء الهوية إن الشخص يقدر يعبّر عن نفسه وينشر معلومات (Information) بحرية بغض النظر عن موقعه أو مكانته الاجتماعية.</span></div>
+              data-ar="ميزة إخفاء الهوية إن الشخص يقدر يعبّر عن نفسه وينشر معلومات بحرية بغض النظر عن موقعه أو مكانته الاجتماعية."
+              data-en="an advantage of anonymity is that a person can freely express themselves and disseminate information regardless of their position or social status.">ميزة إخفاء الهوية إن الشخص يقدر يعبّر عن نفسه وينشر معلومات بحرية بغض النظر عن موقعه أو مكانته الاجتماعية.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">21</span> <span data-ar="العبارة B: 'السبورات الإعلانية الإلكترونية شكل من أشكال الاتصال يعتمد أساساً على النص، فممكن تحصل سوء تفاهم.' — صح ولا غلط؟"
               data-en="Statement B: 'Electronic bulletin boards are a form of communication that is primarily text-based, so misunderstandings may occur.' — correct or incorrect?">العبارة B: 'السبورات الإعلانية الإلكترونية شكل من أشكال الاتصال يعتمد أساساً على النص، فممكن تحصل سوء تفاهم.' — صح ولا غلط؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  × غلط" data-en="A  × Incorrect">A  × غلط</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  ○ صح" data-en="B  ○ Correct">B  ○ صح</div>
+            <div class="ex-opt" data-ar="A × غلط" data-en="A  × Incorrect">A × غلط</div>
+            <div class="ex-opt" data-ok="1" data-ar="B ○ صح" data-en="B  ○ Correct">B ○ صح</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — ○ صح" data-en="✅ Answer: B — ○ Correct">✅ الإجابة: B — ○ صح</b> <span
               data-ar="بما إن الاتصال يعتمد أساساً على النص من غير نبرة صوت أو تعبيرات وش، ممكن تحصل سوء تفاهم."
               data-en="since the communication is primarily text-based without tone of voice or facial expressions, misunderstandings may occur.">بما إن الاتصال يعتمد أساساً على النص من غير نبرة صوت أو تعبيرات وش، ممكن تحصل سوء تفاهم.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">22</span> <span data-ar="العبارة C: 'صعب تمسح معلومات (Information) تماماً لما تنشر على الإنترنت.' — صح ولا غلط؟"
-              data-en="Statement C: 'It is difficult to completely erase information once it has been published on the internet.' — correct or incorrect?">العبارة C: 'صعب تمسح معلومات (Information) تماماً لما تنشر على الإنترنت.' — صح ولا غلط؟</span></div>
+          <div class="q"><span class="q-num">22</span> <span data-ar="العبارة C: 'صعب تمسح معلومات تماماً لما تنشر على الإنترنت.' — صح ولا غلط؟"
+              data-en="Statement C: 'It is difficult to completely erase information once it has been published on the internet.' — correct or incorrect?">العبارة C: 'صعب تمسح معلومات تماماً لما تنشر على الإنترنت.' — صح ولا غلط؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  ○ صح" data-en="A  ○ Correct">A  ○ صح</div>
-            <div class="ex-opt" data-ar="B  × غلط" data-en="B  × Incorrect">B  × غلط</div>
+            <div class="ex-opt" data-ok="1" data-ar="A ○ صح" data-en="A  ○ Correct">A ○ صح</div>
+            <div class="ex-opt" data-ar="B × غلط" data-en="B  × Incorrect">B × غلط</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — ○ صح" data-en="✅ Answer: A — ○ Correct">✅ الإجابة: A — ○ صح</b> <span
-              data-ar="لأن إرسال واستقبال معلومات (Information) على الإنترنت بيسيب سجل (log) محفوظ، فصعب تمسح المعلومات (Information) تماماً."
+              data-ar="لأن إرسال واستقبال معلومات على الإنترنت بيسيب سجل محفوظ، فصعب تمسح المعلومات تماماً."
               data-en="because sending and receiving information on the internet leaves a saved record (log), it is difficult to erase information completely.">لأن
-              إرسال واستقبال المعلومات على الإنترنت بيترك سجل <span dir="ltr">(log)</span> محفوظ، فصعب محي المعلومات
-              نهائياً.</span></div>
+ إرسال واستقبال المعلومات على الإنترنت بيترك سجل <span dir="ltr">(log)</span> محفوظ، فصعب محي المعلومات
+ نهائياً.</span></div>
         </div>
 
         <div class="ex-btn-row">
@@ -2827,7 +1713,7 @@ select{color:var(--text)!important}
                       dir="ltr">Email</span>)</div>
                   <div class="d" data-ar="أداة لإرسال واستقبال رسايل نصية بميزة البث عبر To وCC وBCC."
                     data-en="a tool for sending and receiving text messages with a broadcast feature via To, CC, and BCC.">أداة
-                    لإرسال واستقبال رسائل نصية مع خاصية البث (<span dir="ltr">broadcast</span>) عبر <span
+ لإرسال واستقبال رسائل نصية مع خاصية البث (<span dir="ltr">broadcast</span>) عبر <span
                       dir="ltr">To</span> و<span dir="ltr">CC</span> و<span dir="ltr">BCC</span>.</div>
                 </div>
               </div>
@@ -2835,7 +1721,7 @@ select{color:var(--text)!important}
                 <div class="j-dot" style="background:var(--s2)"></div>
                 <div class="j-body">
                   <div class="t" data-ar="2. BBS" data-en="2. BBS">2. لوحات الإعلانات
-                    الإلكترونية (<span dir="ltr">BBS</span>)</div>
+ الإلكترونية (<span dir="ltr">BBS</span>)</div>
                   <div class="d" data-ar="تنزيل رسايل للمجتمع وكتابة ردود عليها."
                     data-en="posting messages to the community and writing replies to them.">تنزيل رسايل للمجتمع وكتابة ردود عليها.</div>
                 </div>
@@ -2844,7 +1730,7 @@ select{color:var(--text)!important}
                 <div class="j-dot" style="background:var(--s3)"></div>
                 <div class="j-body">
                   <div class="t" data-ar="3. تطبيقات المراسلة" data-en="3. Messaging apps">3. تطبيقات
-                    المراسلة (<span dir="ltr">Messaging apps</span>)</div>
+ المراسلة (<span dir="ltr">Messaging apps</span>)</div>
                   <div class="d" data-ar="تبادل نص وصور وفيديو — زي SMS وLINE."
                     data-en="exchanging text, photos, and video — like SMS and LINE.">تبادل النصوص والصور والفيديو — زي <span
                       dir="ltr">SMS</span> و<span dir="ltr">LINE</span>.</div>
@@ -2865,7 +1751,7 @@ select{color:var(--text)!important}
                   <div class="t" data-ar="5. مدوّنة" data-en="5. Blog">5. المدونة (<span dir="ltr">Blog</span>)</div>
                   <div class="d" data-ar="web + log — نشر كتاباتك ويومياتك على الإنترنت."
                     data-en="web + log — publishing your writings and diary on the internet."><span dir="ltr">web + log</span>
-                    — نشر كتاباتك ومذكراتك على الإنترنت.</div>
+ — نشر كتاباتك ومذكراتك على الإنترنت.</div>
                 </div>
               </div>
               <div class="j-node">
@@ -2919,7 +1805,7 @@ select{color:var(--text)!important}
                 data-fb-en="Correct! In BCC the addresses are hidden from the other recipients, unlike CC which everyone sees."><span
                   class="rq-key">C</span><span class="rq-body" data-ar="عناوين BCC مخفية عن المستقبِلين التانيين"
                   data-en="BCC addresses are hidden from the other recipients">عناوين <span dir="ltr">BCC</span> مخفية عن
-                  باقي المستلمين</span></div>
+ باقي المستلمين</span></div>
               <div class="rq-opt" data-id="recapRq1o4" data-key="D"
                 data-fb-ar="في فرق كبير — الفرق في إخفاء العناوين وعدد المستلمين الظاهرين."
                 data-fb-en="There is a big difference — the difference is in hiding addresses and how many recipients are visible."><span
@@ -2989,28 +1875,28 @@ select{color:var(--text)!important}
             dir="ltr">Internet and Communication</span></h3>
         <p data-ar="دلوقتي إنت عارف طرق اتصال الإنترنت — الإيميل وBBS وتطبيقات المراسلة ومكالمات الفيديو والمدوّنات والسوشيال ميديا ومشاركة الفيديو — وخصائص الاتصال زي إخفاء الهوية والفورية والسهولة وإمكانية التسجيل."
           data-en="Now you know internet communication methods — Email, BBS, messaging apps, video calls, blogs, social media, and video sharing — and communication characteristics like Anonymity, Immediacy, Convenience, and Recordability.">
-          عرفت دلوقتي وسائل الاتصال عبر الإنترنت — <span dir="ltr">Email</span> و<span dir="ltr">BBS</span> وتطبيقات
-          المراسلة ومكالمات الفيديو والمدونات والسوشيال ميديا ومشاركة الفيديو — وخصائص الاتصال زي <span
+ عرفت دلوقتي وسائل الاتصال عبر الإنترنت — <span dir="ltr">Email</span> و<span dir="ltr">BBS</span> وتطبيقات
+ المراسلة ومكالمات الفيديو والمدونات والسوشيال ميديا ومشاركة الفيديو — وخصائص الاتصال زي <span
             dir="ltr">Anonymity</span> و<span dir="ltr">Immediacy</span> و<span dir="ltr">Convenience</span> و<span
             dir="ltr">Recordability</span>.</p>
-        <div class="note"><b data-ar="لو لسه محتاج مراجعة:" data-en="If you still need a review:">لو لسه محتاج مراجعة:</b> <span data-ar="رجع للرسومات في كل قسم واضغط 'التالي →' خطوة بخطوة."
+        <div class="note"><b data-ar="لو لسه محتاج مراجعة:" data-en="If you still need a review:">لو لسه محتاج مراجعة:</b> <span data-ar="رجع للرسومات في كل قسم واضغط 'التالي ←' خطوة بخطوة."
               data-en="go back to the diagrams in each section and click 'Next →' step by step.">رجع للرسومات في كل قسم واضغط 'التالي →' خطوة بخطوة.</span></div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين CC وBCC — في BCC العناوين مخفية عن المستقبِلين التانيين."
             data-en="Confusing CC with BCC — in BCC the addresses are hidden from the other recipients.">
-            الخلط بين <span dir="ltr">CC</span> و<span dir="ltr">BCC</span> — في <span dir="ltr">BCC</span> العناوين
-            مخفية عن باقي المستلمين.</li>
+ الخلط بين <span dir="ltr">CC</span> و<span dir="ltr">BCC</span> — في <span dir="ltr">BCC</span> العناوين
+ مخفية عن باقي المستلمين.</li>
           <li data-ar="نسيان إن المدوّنة = web + log — سجل على الويب، مش أي كلمة تانية."
             data-en="Forgetting that Blog = web + log — a log on the web, not any other word.">
-            نسيان إن <span dir="ltr">Blog = web + log</span> — سجل على الويب، مش أي كلمة تانية.</li>
+ نسيان إن <span dir="ltr">Blog = web + log</span> — سجل على الويب، مش أي كلمة تانية.</li>
           <li data-ar="الخلط بين خصائص الاتصال — الفورية للمحادثة في الوقت الحقيقي، وإخفاء الهوية لإخفاء الشخصية، وإمكانية التسجيل للتسجيل، والسهولة لسهولة الاستخدام."
             data-en="Mixing up the communication characteristics — Immediacy for real-time conversation, Anonymity for hiding identity, Recordability for recording, Convenience for ease.">
-            الخلط بين خصائص الاتصال — <span dir="ltr">Immediacy</span> للمحاورة اللحظية، <span dir="ltr">Anonymity</span>
-            لإخفاء الهوية، <span dir="ltr">Recordability</span> للتسجيل، <span dir="ltr">Convenience</span> للسهولة.</li>
+ الخلط بين خصائص الاتصال — <span dir="ltr">Immediacy</span> للمحاورة اللحظية، <span dir="ltr">Anonymity</span>
+ لإخفاء الهوية، <span dir="ltr">Recordability</span> للتسجيل، <span dir="ltr">Convenience</span> للسهولة.</li>
         </ul>
       </div>
     </section>
@@ -3027,7 +1913,7 @@ select{color:var(--text)!important}
       </div>
       <div class="section-inner card">
         <p data-ar="ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق البحث." data-en="Search any term or use the filters to narrow down.">ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق البحث.</p>
-        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح..." aria-label="ابحث عن مصطلح">
         <div class="glossary-filters">
           <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
           <button class="mini-btn gl-filter" data-filter="comm" data-ar="أدوات الاتصال" data-en="Communication tools">أدوات الاتصال</button>
@@ -3037,63 +1923,63 @@ select{color:var(--text)!important}
         </div>
         <div class="glossary-list">
           <div class="gl-term" data-cat="comm">
-            <h4 data-ar="إيميل (بريد إلكتروني)" data-en="Email (Electronic mail)">إيميل (بريد إلكتروني)</h4>
+            <h3 data-ar="إيميل (بريد إلكتروني)" data-en="Email (Electronic mail)" class="lvl-h4 lvl-h4-3">إيميل (بريد إلكتروني)</h3>
             <p data-ar="أداة لإرسال واستقبال رسايل نصية على الإنترنت، بإمكانية بث لأكتر من مستقبِل." data-en="A tool to send and receive text messages over the internet, with a broadcast capability to more than one recipient.">أداة لإرسال واستقبال رسايل نصية على الإنترنت، بإمكانية بث لأكتر من مستقبِل.</p>
           </div>
           <div class="gl-term" data-cat="email">
-            <h4 data-ar="To / CC / BCC" data-en="To / CC / BCC">To / CC / BCC</h4>
+            <h3 data-ar="To / CC / BCC" data-en="To / CC / BCC" class="lvl-h4 lvl-h4-3">To / CC / BCC</h3>
             <p data-ar="خانات بنكتب فيها مستقبِلين الإيميل — To للمستقبِل الأساسي، وCC لنسخة ظاهرة، وBCC لنسخة مخفية." data-en="Fields where we write the recipients of the email — To for the main recipient, CC for a copy, and BCC for a hidden copy.">حقول بنكتب فيها المستلمين في الإيميل — <span dir="ltr">To</span> للمستلم الأساسي، و<span dir="ltr">CC</span> نسخة، و<span dir="ltr">BCC</span> نسخة مخفية.</p>
           </div>
           <div class="gl-term" data-cat="comm">
-            <h4 data-ar="نظام السبورة الإعلانية (BBS)" data-en="Bulletin board system (BBS)">نظام السبورة الإعلانية (BBS)</h4>
+            <h3 data-ar="نظام السبورة الإعلانية" data-en="Bulletin board system (BBS)" class="lvl-h4 lvl-h4-3">نظام السبورة الإعلانية</h3>
             <p data-ar="أداة لتنزيل رسايل على سبورة عامة وكتابة ردود عليها من الأعضاء التانيين." data-en="A tool to post messages on a public board and write replies to them by other members.">أداة لتنزيل رسايل على سبورة عامة وكتابة ردود عليها من الأعضاء التانيين.</p>
           </div>
           <div class="gl-term" data-cat="comm">
-            <h4 data-ar="تطبيق مراسلة" data-en="Messaging app">تطبيق مراسلة</h4>
+            <h3 data-ar="تطبيق مراسلة" data-en="Messaging app" class="lvl-h4 lvl-h4-3">تطبيق مراسلة</h3>
             <p data-ar="أدوات لتبادل نصوص وصور وفيديوهات بين المستخدمين في أي وقت." data-en="Tools to exchange texts, images, and videos between users at any time.">أدوات لتبادل نصوص وصور وفيديوهات بين المستخدمين في أي وقت.</p>
           </div>
           <div class="gl-term" data-cat="comm">
-            <h4 data-ar="مكالمة فيديو" data-en="Video call">مكالمة فيديو</h4>
+            <h3 data-ar="مكالمة فيديو" data-en="Video call" class="lvl-h4 lvl-h4-3">مكالمة فيديو</h3>
             <p data-ar="محادثة في الوقت الحقيقي بصوت وصورة بين شخصين أو مجموعة على الإنترنت." data-en="A real-time conversation with audio and video between two people or a group over the internet.">محادثة في الوقت الحقيقي بصوت وصورة بين شخصين أو مجموعة على الإنترنت.</p>
           </div>
           <div class="gl-term" data-cat="comm">
-            <h4 data-ar="مدوّنة" data-en="Blog">مدوّنة</h4>
+            <h3 data-ar="مدوّنة" data-en="Blog" class="lvl-h4 lvl-h4-3">مدوّنة</h3>
             <p data-ar="كلمة من web وlog — موقع لنشر الكتابات واليوميات بانتظام." data-en="A word from web and log — a site to publish writings and diaries regularly.">كلمة من <span dir="ltr">web</span> و<span dir="ltr">log</span> — موقع لنشر الكتابات والمذكرات بشكل دوري.</p>
           </div>
           <div class="gl-term" data-cat="social">
-            <h4 data-ar="سوشيال ميديا" data-en="Social media">سوشيال ميديا</h4>
+            <h3 data-ar="سوشيال ميديا" data-en="Social media" class="lvl-h4 lvl-h4-3">سوشيال ميديا</h3>
             <p data-ar="منصّات إنترنت بتسمح للأفراد يتواصلوا ويشاركوا محتوى ويتفاعلوا." data-en="Internet platforms that allow individuals to communicate, share content, and interact.">منصّات إنترنت بتسمح للأفراد يتواصلوا ويشاركوا محتوى ويتفاعلوا.</p>
           </div>
           <div class="gl-term" data-cat="social">
-            <h4 data-ar="منصّة مشاركة فيديو" data-en="Video sharing platform">منصّة مشاركة فيديو</h4>
+            <h3 data-ar="منصّة مشاركة فيديو" data-en="Video sharing platform" class="lvl-h4 lvl-h4-3">منصّة مشاركة فيديو</h3>
             <p data-ar="خدمة لمشاركة واتفرّج على فيديوهات قدام جمهور واسع من الناس." data-en="A service to share and watch videos in front of a wide audience of people.">خدمة لمشاركة واتفرّج على فيديوهات قدام جمهور واسع من الناس.</p>
           </div>
           <div class="gl-term" data-cat="chars">
-            <h4 data-ar="إخفاء الهوية" data-en="Anonymity">إخفاء الهوية</h4>
+            <h3 data-ar="إخفاء الهوية" data-en="Anonymity" class="lvl-h4 lvl-h4-3">إخفاء الهوية</h3>
             <p data-ar="خاصية إخفاء معلومات الشخصية زي الاسم والصورة أثناء الاتصال." data-en="A characteristic of hiding identity information such as name and photo during communication.">خاصية إخفاء معلومات الشخصية زي الاسم والصورة أثناء الاتصال.</p>
           </div>
           <div class="gl-term" data-cat="chars">
-            <h4 data-ar="الفورية" data-en="Immediacy">الفورية</h4>
+            <h3 data-ar="الفورية" data-en="Immediacy" class="lvl-h4 lvl-h4-3">الفورية</h3>
             <p data-ar="خاصية أخذ رد فوري من الطرف التاني في نفس اللحظة." data-en="A characteristic of receiving an immediate reply from the other side at the same moment.">خاصية أخذ رد فوري من الطرف التاني في نفس اللحظة.</p>
           </div>
           <div class="gl-term" data-cat="chars">
-            <h4 data-ar="السهولة" data-en="Convenience">السهولة</h4>
+            <h3 data-ar="السهولة" data-en="Convenience" class="lvl-h4 lvl-h4-3">السهولة</h3>
             <p data-ar="خاصية اتصال سلس من أي مكان في أي وقت من غير قيود." data-en="A characteristic of smooth communication from anywhere at any time without restrictions.">خاصية اتصال سلس من أي مكان في أي وقت من غير قيود.</p>
           </div>
           <div class="gl-term" data-cat="chars">
-            <h4 data-ar="إمكانية التسجيل" data-en="Recordability">إمكانية التسجيل</h4>
-            <p data-ar="خاصية إن الاتصال بيسيب سجل (log) للرسايل والمحادثات." data-en="A characteristic that the communication leaves a log record of messages and conversations.">خاصية إن الاتصال بيسيب سجل <span dir="ltr">log</span> بيسجل الرسائل والمحادثات.</p>
+            <h3 data-ar="إمكانية التسجيل" data-en="Recordability" class="lvl-h4 lvl-h4-3">إمكانية التسجيل</h3>
+            <p data-ar="خاصية إن الاتصال بيسيب سجل للرسايل والمحادثات." data-en="A characteristic that the communication leaves a log record of messages and conversations.">خاصية إن الاتصال بيسيب سجل <span dir="ltr">log</span> بيسجل الرسائل والمحادثات.</p>
           </div>
           <div class="gl-term" data-cat="email">
-            <h4 data-ar="إمكانية البث" data-en="Broadcast capability">إمكانية البث</h4>
+            <h3 data-ar="إمكانية البث" data-en="Broadcast capability" class="lvl-h4 lvl-h4-3">إمكانية البث</h3>
             <p data-ar="القدرة على إرسال نفس الرسالة لأكتر من مستقبِل في نفس الوقت." data-en="The capability to send the same message to more than one recipient at the same time.">القدرة على إرسال نفس الرسالة لأكتر من مستقبِل في نفس الوقت.</p>
           </div>
           <div class="gl-term" data-cat="chars">
-            <h4 data-ar="الشتايم" data-en="Flaming">الشتايم</h4>
+            <h3 data-ar="الشتايم" data-en="Flaming" class="lvl-h4 lvl-h4-3">الشتايم</h3>
             <p data-ar="تعليقات نقدية عنيفة وعدوانية بيكتبها المستخدمين على البوستات." data-en="Violent and aggressive critical comments written by users on posts.">تعليقات نقدية عنيفة وعدوانية بيكتبها المستخدمين على البوستات.</p>
           </div>
           <div class="gl-term" data-cat="chars">
-            <h4 data-ar="أخبار كذبة" data-en="Fake news">أخبار كذبة</h4>
+            <h3 data-ar="أخبار كذبة" data-en="Fake news" class="lvl-h4 lvl-h4-3">أخبار كذبة</h3>
             <p data-ar="أخبار كاذبة بتنتشر على الإنترنت بسرعة وبأعداد كبيرة." data-en="False news that spreads on the internet quickly and in large numbers.">أخبار كاذبة بتنتشر على الإنترنت بسرعة وبأعداد كبيرة.</p>
           </div>
         </div>

@@ -10,1030 +10,13 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 5-2 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .22);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }.book-card p, .book-card .book-diff, .book-card h3{
-      overflow-wrap:anywhere
-    }.tbl-wrap{
-      overflow-x:auto;
-      margin:10px 0
-    }.tbl-wrap table.commforms{
-      width:100%;
-      border-collapse:collapse
-    }.tbl-wrap table.commforms th, .tbl-wrap table.commforms td{
-      border:1px solid rgba(11, 16, 32, 0.18);
-      padding:6px 10px;
-      font-size:.92rem;
-      text-align:center
-    }.tbl-wrap table.commforms th{
-      background:rgba(11, 16, 32, 0.06)
-    }.tbl-note{
-      font-size:.82rem;
-      opacity:.7
-    }.swipe-hint{
-      display:none;
-      font-size:.75rem;
-      opacity:.65;
-      margin:2px 0 6px
-    }@media (max-width:820px){.swipe-hint{
-        display:block
-      }
-    }
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/-2-communication-and-its-forms--5-2-communication-and-its-forms-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style>/* contrast fix (a11y pass 4c) */
-.swipe-hint{color:#4b5563!important}
-</style>
-<style>
-/* === narrow screens: wide tables become stacked cards (no sideways scrolling) === */
-@media (max-width:900px){
-  .tbl-wrap{ overflow:visible!important }
-  .swipe-hint{ display:none!important }
-  .bq-inline{ overflow-wrap:anywhere }
-  .tbl-wrap > table, .bq-inline table{
-    display:block!important; width:100%!important; max-width:100%!important; border:0!important;
-    table-layout:auto!important; white-space:normal!important; font-size:14px!important }
-  .tbl-wrap > table tbody, .bq-inline table tbody{ display:block!important; width:100%!important }
-  .tbl-wrap > table tr, .bq-inline table tr{
-    display:block!important; width:100%!important; box-sizing:border-box; max-width:100%;
-    border:1px solid rgba(11,16,32,.14); border-radius:12px; padding:10px 12px; margin:0 0 10px;
-    background:rgba(11,16,32,.02) }
-  .tbl-wrap > table tr:first-child, .bq-inline table tr:first-child{ display:none!important }
-  .tbl-wrap > table th, .tbl-wrap > table td, .bq-inline table th, .bq-inline table td{
-    display:block!important; width:auto!important; max-width:100%!important; box-sizing:border-box;
-    border:0!important; padding:2px 0!important; text-align:start!important; white-space:normal!important;
-    background:transparent!important; overflow-wrap:anywhere; word-break:break-word;
-    font-size:14px!important; font-family:inherit!important; line-height:1.6 }
-  .tbl-wrap > table tr > th:first-child, .bq-inline table tr > th:first-child{
-    font-size:14.5px!important; font-weight:800; color:#1838f8; margin:0 0 6px }
-  .tbl-wrap > table td::before, .bq-inline table td::before{
-    content:attr(data-cell-label); display:block; font-size:11.5px; font-weight:800; color:#4b5563; margin-bottom:2px }
-  .tbl-wrap > table td:not([data-cell-label])::before,
-  .bq-inline table td:not([data-cell-label])::before{ display:none }
-}
-
-#classify .tbl-wrap table tr > td:nth-child(2)::before, #classify .bq-inline table tr > td:nth-child(2)::before{ content:"متزامن"; display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin:6px 0 2px;white-space:nowrap;overflow-wrap:normal;word-break:normal; }
-#classify .tbl-wrap table tr > td:nth-child(3)::before, #classify .bq-inline table tr > td:nth-child(3)::before{ content:"غير متزامن"; display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin:6px 0 2px;white-space:nowrap;overflow-wrap:normal;word-break:normal; }
-</style>
-<style>
-@media (max-width:900px){
-  .tbl-wrap > table tr:not(:has(td)), .bq-inline table tr:not(:has(td)){ display:none!important }
-  .tbl-wrap > table td::before, .bq-inline table td::before{ margin-top:6px }
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+<link rel="stylesheet" href="../../../../assets/css/pages/-2-communication-and-its-forms--5-2-communication-and-its-forms-2.css">
+<link rel="stylesheet" href="../../../../assets/css/pages/-2-communication-and-its-forms--5-2-communication-and-its-forms-3.css">
+<link rel="stylesheet" href="../../../../assets/css/pages/-2-communication-and-its-forms--5-2-communication-and-its-forms-4.css">
 </head>
 
 <body>
@@ -1075,8 +58,8 @@ select{color:var(--text)!important}
         data-ar="الاتصال وأشكاله — مش بس مكالمة أو رسالة… الاتصال له أشكال وأنواع حسب عدد المرسلين والمستقبِلين، وحسب مكان وتوقيت التبادل."
         data-en="Communication and Its Forms — not just a call or a message… communication has forms and types based on the number of senders and receivers, and based on the place and time of the exchange.">
         <span dir="ltr">Communication and Its Forms</span> — مش بس مكالمة أو رسالة… الاتصال له أشكال وأنواع حسب عدد
-        المرسلين والمستقبلين، وحسب مكان وزمان التبادل.</p>
-      <div class="hero-stats"><span data-ar="10 أقسام" data-en="10 sections">10 أقسام</span><span data-ar="15 سؤالًا" data-en="15 practice questions">15 سؤالًا</span><span data-ar="20 مصطلحًا" data-en="20 glossary terms">20 مصطلحًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+ المرسلين والمستقبلين، وحسب مكان وزمان التبادل.</p>
+      <div class="hero-stats"><span data-ar="10 أقسام" data-en="10 sections">10 أقسام</span><span data-ar="15 سؤالًا" data-en="15 practice questions">15 سؤالًا</span><span data-ar="20 مصطلحًا" data-en="20 glossary terms">20 مصطلحًا</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 
@@ -1102,12 +85,12 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="النهارده هنتعلّم إيه هو الاتصال فعلياً، وبعدين نصنّفه لأنواع: فيه اتصال بين شخصين بس، ومن شخص لعدد كبير، والعكس، واتصال الكل بيكلم فيه الكل. في الآخر هنشوف تصنيف تاني مبني على مكان وتوقيت الاتصال."
           data-en="Today we'll learn what Communication actually is, then classify it into types: there is communication between just two people, from one person to a large number, the reverse, and communication where everyone talks to everyone. At the end we'll see another classification based on the place and time of the communication.">
-          النهارده هنعرف إيه هو الـ <b>Communication</b> أصلاً، وبعدين هنصنّفه لأنواع: فيه اتصال بين شخصين بس، فيه اتصال من
-          شخص لعدد كبير، فيه العكس، وفيه اتصال يكون فيه الكل مع الكل. وفي الآخر هنشوف تصنيف تاني على حسب مكان الاتصال وزمانه.
-        </p>
+ النهارده هنعرف إيه هو الـ <b>Communication</b> أصلاً، وبعدين هنصنّفه لأنواع: فيه اتصال بين شخصين بس، فيه اتصال من
+ شخص لعدد كبير، فيه العكس، وفيه اتصال يكون فيه الكل مع الكل. وفي الآخر هنشوف تصنيف تاني على حسب مكان الاتصال وزمانه.
+ </p>
         <p data-ar="التصنيف الأساسي في الكتاب حسب عدد المرسلين والمستقبِلين — واسمه التصنيف حسب عدد المرسلين والمستقبِلين — وله 4 أنواع: فردي، واحد لكثير، كثير لواحد، وكثير لكثير."
           data-en="The main classification in the book is by the number of senders and receivers — called Classification by the Number of Senders and Receivers — and it has 4 types: One-to-one, One-to-many, Many-to-one, and Many-to-many.">
-          التصنيف الأساسي في الكتاب هو <b>حسب عدد المرسلين والمستقبلين</b> — وده اللي بنسميه <span dir="ltr">(Classification by
+ التصنيف الأساسي في الكتاب هو <b>حسب عدد المرسلين والمستقبلين</b> — وده اللي بنسميه <span dir="ltr">(Classification by
             the Number of Senders and Receivers)</span> — وفيه 4 أنواع: <span dir="ltr">One-to-one</span>، <span
             dir="ltr">One-to-many</span>، <span dir="ltr">Many-to-one</span>، و<span dir="ltr">Many-to-many</span>.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
@@ -1121,8 +104,8 @@ select{color:var(--text)!important}
             <div class="demo-label" data-ar="النهارده هنتعلّم 5 حاجات أساسية"
               data-en="Today we'll learn 5 core things">النهارده هنتعلّم 5 حاجات أساسية</div>
             <div class="todo-item"><span class="emoji-float" style="font-size:1.5rem">🔤</span><span><b
-                  style="color:var(--s2)" data-ar="تعريف الاتصال" data-en="The definition of Communication">تعريف الاتصال</b> <b data-ar="— عملية استقبال وتبادل المعلومات (Information) بين الناس"
-                  data-en="— the process of receiving and exchanging information between people">— عملية استقبال وتبادل المعلومات (Information) بين الناس</b></span></div>
+                  style="color:var(--s2)" data-ar="تعريف الاتصال" data-en="The definition of Communication">تعريف الاتصال</b> <b data-ar="— عملية استقبال وتبادل المعلومات بين الناس"
+                  data-en="— the process of receiving and exchanging information between people">— عملية استقبال وتبادل المعلومات بين الناس</b></span></div>
             <div class="todo-item"><span class="emoji-pulse" style="font-size:1.5rem">👤</span><span><b
                   style="color:var(--s3)">One-to-one (Individual type)</b> <b data-ar="— مرسل واحد لمستقبِل واحد"
                   data-en="— one sender to one receiver">— مرسل واحد لمستقبِل واحد</b></span></div>
@@ -1148,27 +131,27 @@ select{color:var(--text)!important}
             <div class="note" style="margin-top:8px"><b data-ar="إيه الجاي؟" data-en="What's next?">إيه الجاي؟</b>
               <span data-ar="بعد الأنواع الأربعة، هنضيف تصنيف تاني من الكتاب: حسب المكان (مباشر/غير مباشر) وحسب الوقت (متزامن/غير متزامن)."
                   data-en="after the four types, we'll add another classification from the book: by place (Direct/Indirect) and by time (Synchronous/Asynchronous).">بعد
-                الأنواع الأربعة، هنضيف تصنيف تاني من الكتاب: حسب المكان <span dir="ltr">(Direct/Indirect)</span> وحسب الزمن
-                <span dir="ltr">(Synchronous/Asynchronous)</span>.</span></div>
+ الأنواع الأربعة، هنضيف تصنيف تاني من الكتاب: حسب المكان <span dir="ltr">(Direct/Indirect)</span> وحسب الزمن
+ <span dir="ltr">(Synchronous/Asynchronous)</span>.</span></div>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين واحد لكثير وكثير لواحد — الفرق في اتجاه التدفّق: الأول مرسل واحد بيوزّع، والتاني كتير بيبعتوا لجهة واحدة."
             data-en="Mixing up One-to-many and Many-to-one — the difference is the flow direction: the first has one sender distributing, the second has many sending to one side.">
-            الخلط بين <span dir="ltr">One-to-many</span> و<span dir="ltr">Many-to-one</span> — الفرق في <b>اتجاه التدفق</b>:
-            الأول مرسل واحد وبيوزّع، والتاني عدد كبير بيبعتوا لطرف واحد.</li>
+ الخلط بين <span dir="ltr">One-to-many</span> و<span dir="ltr">Many-to-one</span> — الفرق في <b>اتجاه التدفق</b>:
+ الأول مرسل واحد وبيوزّع، والتاني عدد كبير بيبعتوا لطرف واحد.</li>
           <li data-ar="إنك تفتكر كل الاتصال الجماهيري تليفزيون — لا، الجرايد والراديو وصفحات الويب كلها واحد لكثير."
             data-en="Thinking all mass communication is television — no, newspapers, radio and web pages are all One-to-many.">
-            اعتبار إن كل اتصال جماهيري هو تلفزيون — لأ، الجرايد والراديو وصفحات الويب كلها <span
+ اعتبار إن كل اتصال جماهيري هو تلفزيون — لأ، الجرايد والراديو وصفحات الويب كلها <span
               dir="ltr">One-to-many</span>.</li>
-          <li data-ar="نسيان إن الاتصال تبادل، مش إرسال باتجاه واحد — لازم يبقى فيه مرسل ومستقبِل وتبادل معلومات (Information)."
+          <li data-ar="نسيان إن الاتصال تبادل، مش إرسال باتجاه واحد — لازم يبقى فيه مرسل ومستقبِل وتبادل معلومات."
             data-en="Forgetting that Communication is an exchange, not a one-way transmission — there must be a sender, a receiver, and an exchange of information.">
-            نسيان إن الـ <span dir="ltr">Communication</span> <b>عملية تبادل</b> مش إرسال من طرف واحد — لازم يكون في مرسل
-            ومستقبل وتبادل معلومات.</li>
+ نسيان إن الـ <span dir="ltr">Communication</span> <b>عملية تبادل</b> مش إرسال من طرف واحد — لازم يكون في مرسل
+ ومستقبل وتبادل معلومات.</li>
         </ul>
       </div>
     </section>
@@ -1181,8 +164,8 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="مفهوم الاتصال" data-en="The Concept of Communication">مفهوم <span
                 dir="ltr">Communication</span></h2>
-            <div class="tag" style="color:var(--s2)" data-ar="التعريف الأساسي — EN PDF 48 (المطبوع 48)؛ AR 56"
-              data-en="the basic definition - English PDF 48 (printed 48); Arabic 56">التعريف الأساسي — EN PDF 48 (المطبوع 48)؛ AR 56</div>
+            <div class="tag" style="color:var(--s2)" data-ar="التعريف الأساسي"
+              data-en="the basic definition">التعريف الأساسي</div>
           </div>
         </div>
       </div>
@@ -1191,8 +174,8 @@ select{color:var(--text)!important}
         <div class="diagram-wrap">
           <span class="topbar"></span>
           <div class="inner">
-            <div class="demo-label" data-ar="رحلة المعلومات (Information): مرسل ← قناة ← مستقبِل ← تبادل"
-              data-en="The journey of information:sender ← channel ← receiver ← exchange">رحلة المعلومات (Information): مرسل ← قناة ← مستقبِل ← تبادل</div>
+            <div class="demo-label" data-ar="رحلة المعلومات: مرسل → قناة → مستقبِل → تبادل"
+              data-en="The journey of information:sender ← channel ← receiver ← exchange">رحلة المعلومات: مرسل ← قناة ← مستقبِل ← تبادل</div>
             <div class="flow-card" data-id="comm">
               <div class="svg-stage">
                 <svg viewBox="0 0 900 400" class="svg-main" data-flow="comm"></svg>
@@ -1202,8 +185,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="commPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="commNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="commPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="commNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="commCounter">1 / 4</span>
                 <button class="mini-btn" data-id="commReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1219,18 +202,18 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner card">
-        <p data-ar="الاتصال هو عملية استقبال وتبادل المعلومات (Information) بين الناس. مش بس إرسال — فيه مرسل بيدّي معلومات (Information)، وقناة بتحملها، ومستقبِل بياخدها، وبعدين الأدوار تتبدّل ويحصل تبادل حقيقي."
+        <p data-ar="الاتصال هو عملية استقبال وتبادل المعلومات بين الناس. مش بس إرسال — فيه مرسل بيدّي معلومات، وقناة بتحملها، ومستقبِل بياخدها، وبعدين الأدوار تتبدّل ويحصل تبادل حقيقي."
           data-en="Communication is the process of receiving and exchanging information between people. It is not just sending — there is a sender giving information, a channel carrying it, a receiver taking it, then the roles can reverse and a real exchange happens.">
-          الـ <b>Communication</b> هي <b>عملية استقبال وتبادل المعلومات بين الناس</b>. يعني مش مجرد إرسال — في مرسل بيدي
-          معلومة، وقناة بتتقلها، ومستقبل بياخدها، وبعدين الأدوار ممكن تنعكس ويحصل تبادل حقيقي.</p>
+ الـ <b>Communication</b> هي <b>عملية استقبال وتبادل المعلومات بين الناس</b>. يعني مش مجرد إرسال — في مرسل بيدي
+ معلومة، وقناة بتتقلها، ومستقبل بياخدها، وبعدين الأدوار ممكن تنعكس ويحصل تبادل حقيقي.</p>
         <p data-ar="كلمة 'استقبال' مهمة جداً هنا — لأن الاتصال الناجح محتاج الطرف التاني يسمع ويفهم، مش بس المرسل بيتكلم. من غير مستقبِل مفيش اتصال خالص."
           data-en="The word 'receiving' matters a lot here — because successful communication needs the other side to hear and understand, not just the sender talking. Without a receiver there is no communication at all.">
-          كلمة <b>استقبال</b> مهمة جداً هنا — لأن الاتصال الناجح محتاج الطرف التاني يكون سامع وفاهم، مش بس المرسل اللي
-          بيتكلم. ولو مفيش مستقبل، فمفيش اتصال أصلاً.</p>
+ كلمة <b>استقبال</b> مهمة جداً هنا — لأن الاتصال الناجح محتاج الطرف التاني يكون سامع وفاهم، مش بس المرسل اللي
+ بيتكلم. ولو مفيش مستقبل، فمفيش اتصال أصلاً.</p>
         <div class="note"><b data-ar="مثال سريع:" data-en="A quick example:">مثال سريع:</b> <span
-            data-ar="المعلّم بيشرح للطالب (مرسل ← مستقبِل)، ولما الطالب يسأل سؤال الأدوار تتبدّل. ده تبادل حقيقي."
+            data-ar="المعلّم بيشرح للطالب (مرسل → مستقبِل)، ولما الطالب يسأل سؤال الأدوار تتبدّل. ده تبادل حقيقي."
             data-en="the teacher explains to the student (sender ← receiver), and when the student asks a question the roles reverse. That's a real exchange.">المعلّم بيشرح للطالب (مرسل ← مستقبِل)، ولما الطالب يسأل سؤال الأدوار تتبدّل. ده تبادل حقيقي.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(1) الاتصال (Communication): عملية استقبال وتبادل المعلومات بين الناس.</p></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(1) الاتصال: عملية استقبال وتبادل المعلومات بين الناس.</p></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -1243,13 +226,13 @@ select{color:var(--text)!important}
           <div class="rq" data-id="commRq1">
             <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه التعريف الصح للاتصال؟"
                 data-en="What is the correct definition of Communication?">التعريف الصحيح للـ <span dir="ltr">Communication</span>
-                هو إيه؟</span></div>
+ هو إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="commRq1o2" data-key="A"
                 data-fb-ar="مش كده — الاتصال فيه استقبال كمان، مش إرسال من طرف واحد."
                 data-fb-en="Not quite — communication also involves receiving, not just one-way sending."><span
-                  class="rq-key">A</span><span class="rq-body" data-ar="إرسال معلومات (Information) في اتجاه واحد"
-                  data-en="Sending information in one direction">إرسال معلومات (Information) في اتجاه واحد</span></div>
+                  class="rq-key">A</span><span class="rq-body" data-ar="إرسال معلومات في اتجاه واحد"
+                  data-en="Sending information in one direction">إرسال معلومات في اتجاه واحد</span></div>
               <div class="rq-opt" data-id="commRq1o3" data-key="B"
                 data-fb-ar="دي وسيلة اتصال جماهيري، مش تعريف الاتصال بشكل عام."
                 data-fb-en="That's a mass media method, not the general definition of communication."><span
@@ -1258,13 +241,13 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="commRq1o1" data-key="C" data-ok="1"
                 data-fb-ar="صحيح! عملية استقبال وتبادل المعلومات بين الناس — فيها إرسال واستقبال معاً."
                 data-fb-en="Correct! The process of receiving and exchanging information between people — it involves both sending and receiving."><span
-                  class="rq-key">C</span><span class="rq-body" data-ar="عملية استقبال وتبادل المعلومات (Information) بين الناس"
-                  data-en="The process of receiving and exchanging information between people">عملية استقبال وتبادل المعلومات (Information) بين الناس</span></div>
+                  class="rq-key">C</span><span class="rq-body" data-ar="عملية استقبال وتبادل المعلومات بين الناس"
+                  data-en="The process of receiving and exchanging information between people">عملية استقبال وتبادل المعلومات بين الناس</span></div>
               <div class="rq-opt" data-id="commRq1o4" data-key="D"
                 data-fb-ar="الحاسب أداة ممكن تنقل المعلومة، لكن تعريف الاتصال أعرض من كده."
                 data-fb-en="A computer is a tool that can carry information, but the definition of communication is broader."><span
-                  class="rq-key">D</span><span class="rq-body" data-ar="تبادل داتا (Data) بين الكمبيوترات بس"
-                  data-en="Exchanging data between computers only">تبادل داتا (Data) بين الكمبيوترات بس</span></div>
+                  class="rq-key">D</span><span class="rq-body" data-ar="تبادل بيانات بين الكمبيوترات بس"
+                  data-en="Exchanging data between computers only">تبادل بيانات بين الكمبيوترات بس</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="commRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -1301,14 +284,14 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="نسيان كلمة 'استقبال' — الاتصال تبادل، الطرف التاني لازم يسمع ويفهم."
             data-en="Forgetting the word 'receiving' — communication is an exchange, the other side must hear and understand.">
-            نسيان كلمة «استقبال» — الاتصال <b>عملية تبادل</b>، والطرف التاني لازم يسمع ويفهم.</li>
+ نسيان كلمة «استقبال» — الاتصال <b>عملية تبادل</b>، والطرف التاني لازم يسمع ويفهم.</li>
           <li data-ar="الخلط بين الرسالة والقناة — الرسالة هي المحتوى، والقناة هي الوسيلة اللي بتحملها."
             data-en="Mixing up the message and the channel — the message is the content, the channel is the medium that carries it.">
-            الخلط بين الرسالة والقناة — الرسالة هي <b>المحتوى</b>، والقناة هي <b>الوسيلة</b> اللي بتتقلها.</li>
+ الخلط بين الرسالة والقناة — الرسالة هي <b>المحتوى</b>، والقناة هي <b>الوسيلة</b> اللي بتتقلها.</li>
           <li data-ar="إنك تفتكر الاتصال لازم يشمل أجهزة — لا، ممكن يكون وش لوش من غير أي جهاز."
             data-en="Thinking communication must involve devices — no, it can be face-to-face without any device.">إنك تفتكر الاتصال لازم يشمل أجهزة — لا، ممكن يكون وش لوش من غير أي جهاز.</li>
         </ul>
@@ -1323,7 +306,7 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="فردي (نوع فردي)" data-en="One-to-one (Individual type)"><span
                 dir="ltr">One-to-one</span> <span dir="ltr">(Individual type)</span></h2>
-            <div class="tag" style="color:var(--s3)" data-ar="مرسل واحد ← مستقبِل واحد"
+            <div class="tag" style="color:var(--s3)" data-ar="مرسل واحد → مستقبِل واحد"
               data-en="one sender → one receiver">مرسل واحد ← مستقبِل واحد</div>
           </div>
         </div>
@@ -1343,8 +326,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="o2oPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="o2oNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="o2oPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="o2oNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="o2oCounter">1 / 3</span>
                 <button class="mini-btn" data-id="o2oReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1361,18 +344,18 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="ده أبسط نوع اتصال: مرسل واحد لمستقبِل واحد. أمثلته في الكتاب: الجوابات والتليفونات."
           data-en="This is the simplest type of communication: one sender to one receiver. Its examples in the book: letters and telephones.">
-          النوع ده هو <b>أبسط أنواع الاتصال</b>: مرسل واحد لمستقبل واحد. أمثلته في الكتاب: الخطابات <span
+ النوع ده هو <b>أبسط أنواع الاتصال</b>: مرسل واحد لمستقبل واحد. أمثلته في الكتاب: الخطابات <span
             dir="ltr">(Letters)</span> والمكالمات التليفونية <span dir="ltr">(Telephones)</span>.</p>
         <p data-ar="مهم تفهم إن الفردي مش معناه طرف واحد بس بيتكلم — في الحقيقة أغلب الوسائل الفردية بتسمح بالتبادل، زي المكالمة اللي الاتنين بيسمعوا ويتكلموا."
           data-en="It's important to understand that One-to-one does not mean one side only talks — in fact most individual media allow exchange, like a call where both listen and speak.">
-          مهم إننا نفهم إن الـ <span dir="ltr">One-to-one</span> مش شرط يكون طرف واحد بيتكلم بس — في الحقيقة معظم الوسائل
-          الفردية بتسمح بالتبادل، زي المكالمة اللي الاتنين فيها بيسمعوا ويحكوا.</p>
+ مهم إننا نفهم إن الـ <span dir="ltr">One-to-one</span> مش شرط يكون طرف واحد بيتكلم بس — في الحقيقة معظم الوسائل
+ الفردية بتسمح بالتبادل، زي المكالمة اللي الاتنين فيها بيسمعوا ويحكوا.</p>
         <div class="note"><b data-ar="افرّق بينهم:" data-en="Tell them apart:">افرّق بينهم:</b> <span
             data-ar="التليفون فردي (شخصين بس)، بينما التليفزيون جماهيري — الفرق في عدد المستقبِلين، مش في الإرسال نفسه."
             data-en="the telephone is individual (two people only), while television is mass — the difference is the number of receivers, not the sending itself.">لو
-            التليفون اتصال فردي (اتنين فقط)، والتلفزيون اتصال جماهيري — الفرق في <b>عدد المستقبلين</b> مش في الإرسال
-            نفسه.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) تصنيف الاتصال — [1] التصنيف حسب عدد المرسلين والمستلمين:• واحد إلى واحد (نوع فردي) ((One-to-one (Individual type))): مرسل واحد إلى مستلم واحد. &lt;أمثلة&gt; الرسائل، الهواتف، إلخ. • واحد إلى العديد نوع (وسائل الاتصال الجماهيرية) ((One-to-many (Mass media type))): مرسل واحد إلى مستلمين متعددين. &lt;أمثلة&gt; الصحف، الراديو، التلفزيون، صفحات الويب، إلخ.</p></div>
+ التليفون اتصال فردي (اتنين فقط)، والتلفزيون اتصال جماهيري — الفرق في <b>عدد المستقبلين</b> مش في الإرسال
+ نفسه.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>(2) تصنيف الاتصال — [1] التصنيف حسب عدد المرسلين والمستلمين:• واحد إلى واحد (نوع فردي) ((One-to-one)): مرسل واحد إلى مستلم واحد. &lt;أمثلة&gt; الرسائل، الهواتف، إلخ. • واحد إلى العديد نوع (وسائل الاتصال الجماهيرية) ((One-to-many)): مرسل واحد إلى مستلمين متعددين. &lt;أمثلة&gt; الصحف، الراديو، التلفزيون، صفحات الويب، إلخ.</p></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -1409,19 +392,19 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط مع الإعلام الجماهيري — لو فيه مستقبِل واحد بس فهو فردي أيّ كانت الوسيلة."
             data-en="Mixing it up with Mass media — if there's only one receiver it's One-to-one whatever the medium is.">
-            الخلط بينه وبين <span dir="ltr">Mass media</span> — لو المستقبل <b>واحد بس</b> يبقى <span
+ الخلط بينه وبين <span dir="ltr">Mass media</span> — لو المستقبل <b>واحد بس</b> يبقى <span
               dir="ltr">One-to-one</span> مهما كانت الوسيلة.</li>
           <li data-ar="نسيان إن التليفون فردي رغم انتشاره — كل مكالمة بين شخصين في المرة."
             data-en="Forgetting the telephone is individual despite its spread — each call is between two people at a time.">
-            نسيان إن التليفون <b>فردي</b> رغم انتشاره — كل مكالمة بين شخصين بس في نفس الوقت.</li>
+ نسيان إن التليفون <b>فردي</b> رغم انتشاره — كل مكالمة بين شخصين بس في نفس الوقت.</li>
           <li data-ar="الخلط بين التبادل وعدد المرسلين — التبادل حاجة، بس في الفردي عدد المرسلين في أي لحظة واحد."
             data-en="Mixing up exchange with the number of senders — exchange is one thing, but in One-to-one the number of senders at any moment is one.">
-            الخلط بين التبادل وعدد المرسلين — التبادل حاجة، لكن في <span dir="ltr">One-to-one</span> عدد المرسلين في كل لحظة
-            واحد.</li>
+ الخلط بين التبادل وعدد المرسلين — التبادل حاجة، لكن في <span dir="ltr">One-to-one</span> عدد المرسلين في كل لحظة
+ واحد.</li>
         </ul>
       </div>
     </section>
@@ -1434,7 +417,7 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="واحد لكثير (نوع الإعلام الجماهيري)" data-en="One-to-many (Mass media type)"><span
                 dir="ltr">One-to-many</span> <span dir="ltr">(Mass media type)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="مرسل واحد ← مستقبِلين كتير"
+            <div class="tag" style="color:var(--s4)" data-ar="مرسل واحد → مستقبِلين كتير"
               data-en="one sender → many receivers">مرسل واحد ← مستقبِلين كتير</div>
           </div>
         </div>
@@ -1456,8 +439,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="o2mPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="o2mNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="o2mPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="o2mNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="o2mCounter">1 / 3</span>
                 <button class="mini-btn" data-id="o2mReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1474,12 +457,12 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="في النوع ده، مرسل واحد بيبعت لعدد كبير من الناس في نفس الوقت. أمثلته في الكتاب: الجرايد والراديو والتليفزيون وصفحات الويب."
           data-en="In this type, one sender sends to many people at the same time. Its examples in the book: newspapers, radio, television, and web pages.">
-          في النوع ده <b>مرسل واحد</b> بيرسل <b>لناس كتير</b> في نفس الوقت. أمثلته في الكتاب: الجرايد <span
+ في النوع ده <b>مرسل واحد</b> بيرسل <b>لناس كتير</b> في نفس الوقت. أمثلته في الكتاب: الجرايد <span
             dir="ltr">(Newspapers)</span> والراديو <span dir="ltr">(Radio)</span> والتلفزيون <span
             dir="ltr">(Television)</span> وصفحات الويب <span dir="ltr">(Web pages)</span>.</p>
         <p data-ar="كلمة Mass هنا معناها 'للكثير' — نفس الرسالة توصل للكل في نفس الشكل، وده اللي بنسميه إعلام جماهيري."
           data-en="The word Mass here means 'for the many' — the same message reaches everyone in the same form, and this is what we call mass media.">
-          كلمة <b>Mass</b> هنا معناها جماهيري أو جماعي — نفس الرسالة بتوصل بنفس الشكل لكل الناس، وده اللي بنسميه <span
+ كلمة <b>Mass</b> هنا معناها جماهيري أو جماعي — نفس الرسالة بتوصل بنفس الشكل لكل الناس، وده اللي بنسميه <span
             dir="ltr">Mass media</span> (وسائل الإعلام الجماهيري).</p>
         <div class="note"><b data-ar="مثال سريع:" data-en="A quick example:">مثال سريع:</b> <span
             data-ar="نشرة الجو بتطلع على التليفزيون — محطة واحدة، وملايين المشاهدين بياخدوا نفس النشرة."
@@ -1523,18 +506,18 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط مع كثير لواحد — ده فيه مرسل واحد، والتاني فيه مستقبِل واحد."
             data-en="Mixing it up with Many-to-one — this one has one sender, the other has one receiver.">
-            الخلط بينه وبين <span dir="ltr">Many-to-one</span> — ده فيه <b>مرسل واحد</b>، والتاني فيه <b>مستقبل واحد</b>.</li>
+ الخلط بينه وبين <span dir="ltr">Many-to-one</span> — ده فيه <b>مرسل واحد</b>، والتاني فيه <b>مستقبل واحد</b>.</li>
           <li data-ar="الخلط بين الجرايد والجوابات — الجرايد توصل للجمهور (جماهيري)، والجوابات توصل لشخص واحد (فردي)."
             data-en="Mixing up newspapers and letters — newspapers reach the public (Mass), letters reach one person (Individual).">
-            الخلط بين الجرايد والخطابات — الجرايد بتوصل للجمهور <span dir="ltr">(Mass)</span>، والخطابات لشخص واحد <span
+ الخلط بين الجرايد والخطابات — الجرايد بتوصل للجمهور <span dir="ltr">(Mass)</span>، والخطابات لشخص واحد <span
               dir="ltr">(Individual)</span>.</li>
           <li data-ar="نسيان إن صفحات الويب جماهيرية — أي صفحة على الإنترنت ممكن أي حد يفتحها، فتقدر توصل لعدد كبير."
             data-en="Forgetting web pages are mass — any page on the internet can be opened by anyone, so it can reach a large number.">
-            نسيان إن صفحات الويب <b>جماهيرية</b> — أي صفحة على الإنترنت ممكن أي حد يفتحها فممكن توصل لعدد كبير.</li>
+ نسيان إن صفحات الويب <b>جماهيرية</b> — أي صفحة على الإنترنت ممكن أي حد يفتحها فممكن توصل لعدد كبير.</li>
         </ul>
       </div>
     </section>
@@ -1547,7 +530,7 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="كثير لواحد (نوع الإعلام الجماهيري المعكوس)" data-en="Many-to-one (Reverse mass media type)"><span
                 dir="ltr">Many-to-one</span> <span dir="ltr">(Reverse mass media type)</span></h2>
-            <div class="tag" style="color:var(--s5)" data-ar="مرسلين كتير ← مستقبِل واحد"
+            <div class="tag" style="color:var(--s5)" data-ar="مرسلين كتير → مستقبِل واحد"
               data-en="many senders → one receiver">مرسلين كتير ← مستقبِل واحد</div>
           </div>
         </div>
@@ -1569,8 +552,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="m2oPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="m2oNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="m2oPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="m2oNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="m2oCounter">1 / 3</span>
                 <button class="mini-btn" data-id="m2oReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1587,16 +570,16 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="النوع ده عكس الجماهيري بالظبط: عدد كبير من المرسلين بيبعتوا لمستقبِل واحد. الكتاب بيسميه نوع الإعلام الجماهيري المعكوس."
           data-en="This type is the exact reverse of mass: a large number of senders send to one recipient. The book calls it the Reverse mass media type.">
-          النوع ده هو <b>عكس الجماهيري تماماً</b>: عدد كبير من المرسلين بيرسلوا <b>لمستقبل واحد</b>. الكتاب بيسميه <span
+ النوع ده هو <b>عكس الجماهيري تماماً</b>: عدد كبير من المرسلين بيرسلوا <b>لمستقبل واحد</b>. الكتاب بيسميه <span
             dir="ltr">Reverse mass media type</span>.</p>
         <p data-ar="إيه أمثلته؟ جهة واحدة بتجمع مدخلات من ناس كتير — استبيانات واستفسارات واقتراحات أو رسايل كلها بترجع لجهة واحدة."
           data-en="What are its examples? One side collecting inputs from many people — surveys, inquiries, suggestions, or messages all coming back to a single authority.">
-          إيه أمثلة النوع ده؟ واحد بيلمّ مدخلات من ناس كتير — استبيانات <span dir="ltr">(Surveys)</span>، استعلامات،
-          اقتراحات، أو رسائل كلها راجعة لجهة واحدة.</p>
+ إيه أمثلة النوع ده؟ واحد بيلمّ مدخلات من ناس كتير — استبيانات <span dir="ltr">(Surveys)</span>، استعلامات،
+ اقتراحات، أو رسائل كلها راجعة لجهة واحدة.</p>
         <div class="note"><b data-ar="مثال سريع:" data-en="A quick example:">مثال سريع:</b> <span
             data-ar="المدرسة بتوزّع استبيان عن الرحلات — مئات الطلاب بيبعتوا إجاباتهم، وكل النتايج بتتجمع في لجنة واحدة."
             data-en="the school hands out a survey about trips — hundreds of students send their answers, and all results gather at one committee.">المدرسة بتوزّع استبيان عن الرحلات — مئات الطلاب بيبعتوا إجاباتهم، وكل النتايج بتتجمع في لجنة واحدة.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>• متعدد إلى واحد نوع ((وسائل الاتصال العكسية) (Many-to-one (Reverse mass media type))): مرسلون متعددون إلى مستلم واحد. &lt;أمثلة&gt; جدولة الاستبيانات، الاستفسارات، إلخ. • متعدد إلى متعدد نوع (مؤتمر) ((Many-to-many (Conference type))): مرسلون متعددون إلى مستلمين متعددين. &lt;أمثلة&gt; مؤتمرات الفيديو، المكالمات الجماعية، وسائل التواصل الاجتماعي، إلخ.</p></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>• متعدد إلى واحد نوع ((وسائل الاتصال العكسية) (Many-to-one)): مرسلون متعددون إلى مستلم واحد. &lt;أمثلة&gt; جدولة الاستبيانات، الاستفسارات، إلخ. • متعدد إلى متعدد نوع (مؤتمر) ((Many-to-many)): مرسلون متعددون إلى مستلمين متعددين. &lt;أمثلة&gt; مؤتمرات الفيديو، المكالمات الجماعية، وسائل التواصل الاجتماعي، إلخ.</p></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -1607,7 +590,7 @@ select{color:var(--text)!important}
           <div class="rq" data-id="m2oRq1">
             <div class="rq-q"><span class="q-num">1</span> <span data-ar="إيه المثال الصح لكثير لواحد؟"
                 data-en="Which is the correct example of Many-to-one?">المثال الأصح على <span dir="ltr">Many-to-one</span>
-                هو إيه؟</span></div>
+ هو إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="m2oRq1o1" data-key="A" data-ok="1"
                 data-fb-ar="صحيح! استبيان بتجاوب عليه مئات الطلاب وبيتجمع عند جهة واحدة — كتير لمستقبل واحد."
@@ -1637,18 +620,18 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط مع كثير لكثير — في كثير لواحد جهة الاستقبال واحدة، وفي كثير لكثير الكل بيستقبل ويبعت."
             data-en="Mixing it up with Many-to-many — in Many-to-one the receiving side is one, in Many-to-many everyone receives and sends.">
-            الخلط بينه وبين <span dir="ltr">Many-to-many</span> — في <span dir="ltr">Many-to-one</span> الطرف المستقبل
-            <b>واحد</b>، وفي <span dir="ltr">Many-to-many</span> الكل بياخد ويبعت.</li>
+ الخلط بينه وبين <span dir="ltr">Many-to-many</span> — في <span dir="ltr">Many-to-one</span> الطرف المستقبل
+ <b>واحد</b>، وفي <span dir="ltr">Many-to-many</span> الكل بياخد ويبعت.</li>
           <li data-ar="نسيان إن الاستبيانات أمثلة للنوع ده — إجابات كتير عند جهة واحدة هي الفكرة الأساسية."
             data-en="Forgetting surveys are examples of this type — many answers at one authority is the core idea.">
-            نسيان إن الاستبيانات أمثلة على النوع ده — إجابات كتير عند جهة واحدة هي <b>جوهر الفكرة</b>.</li>
+ نسيان إن الاستبيانات أمثلة على النوع ده — إجابات كتير عند جهة واحدة هي <b>جوهر الفكرة</b>.</li>
           <li data-ar="الخلط بين عدد المرسلين وعدد الرسايل — ممكن كتير يبعتوا، بس المستقبِل لسه واحد."
             data-en="Mixing up the number of senders with the number of messages — many may send, but the recipient is still one.">
-            الخلط بين عدد المرسلين وعدد الرسائل — ممكن كتير يبعتوا، لكن لسه المستقبل <b>واحد</b>.</li>
+ الخلط بين عدد المرسلين وعدد الرسائل — ممكن كتير يبعتوا، لكن لسه المستقبل <b>واحد</b>.</li>
         </ul>
       </div>
     </section>
@@ -1661,7 +644,7 @@ select{color:var(--text)!important}
           <div>
             <h2 data-ar="كثير لكثير (نوع المؤتمر)" data-en="Many-to-many (Conference type)"><span
                 dir="ltr">Many-to-many</span> <span dir="ltr">(Conference type)</span></h2>
-            <div class="tag" style="color:var(--s6)" data-ar="مرسلين كتير ← مستقبِلين كتير"
+            <div class="tag" style="color:var(--s6)" data-ar="مرسلين كتير → مستقبِلين كتير"
               data-en="many senders → many receivers">مرسلين كتير ← مستقبِلين كتير</div>
           </div>
         </div>
@@ -1686,8 +669,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="m2mPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="m2mNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="m2mPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="m2mNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="m2mCounter">1 / 3</span>
                 <button class="mini-btn" data-id="m2mReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1705,17 +688,17 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="ده أكمل نوع اتصال: مرسلين كتير بيبعتوا لمستقبِلين كتير، الكل بيشارك مع الكل. الكتاب بيسميه نوع المؤتمر."
           data-en="This is the fullest type of communication: many senders sending to many receivers, everyone sharing with everyone. The book calls it the Conference type.">
-          ده <b>أكمل أنواع الاتصال</b>: مرسلين كتير بيرسلوا <b>لمستقبلين كتير</b>، والكل بيشارك مع الكل. الكتاب بيسميه
-          <span dir="ltr">Conference type</span>.</p>
+ ده <b>أكمل أنواع الاتصال</b>: مرسلين كتير بيرسلوا <b>لمستقبلين كتير</b>، والكل بيشارك مع الكل. الكتاب بيسميه
+ <span dir="ltr">Conference type</span>.</p>
         <p data-ar="أمثلته: الفيديو كونفرنس والمؤتمرات والاجتماعات الجماعية ومجموعات السوشيال ميديا اللي الكل بيبعت ويستقبل فيها."
           data-en="Its examples: video conferencing, conferences, group meetings, and social media groups where everyone sends and receives.">
-          أمثلته: الفيديو كونفرانس <span dir="ltr">(Video conferencing)</span>، المؤتمرات <span
+ أمثلته: الفيديو كونفرانس <span dir="ltr">(Video conferencing)</span>، المؤتمرات <span
             dir="ltr">(Conferences)</span>، اجتماعات الجروبات، ومجموعات السوشيال ميديا اللي الكل فيها بيبعت وياخد.</p>
         <div class="note"><b data-ar="لاحظ الفرق:" data-en="Spot the difference:">لاحظ الفرق:</b> <span
             data-ar="في واحد لكثير واحد بيتكلم والناس بتسمع — بس في كثير لكثير الكل بيتبادل، الكل بيسمع ويتكلم."
             data-en="in One-to-many one talks and people listen — but in Many-to-many everyone exchanges, everyone listens and talks.">في
-            <span dir="ltr">One-to-many</span> واحد بيتكلم والناس بتسمع — لكن في <span dir="ltr">Many-to-many</span> الكل
-            بيتبادل، والكل بيسمع وبيتكلم.</span></div>
+ <span dir="ltr">One-to-many</span> واحد بيتكلم والناس بتسمع — لكن في <span dir="ltr">Many-to-many</span> الكل
+ بيتبادل، والكل بيسمع وبيتكلم.</span></div>
       </div>
 
       <div class="section-inner card">
@@ -1754,17 +737,17 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط مع واحد لكثير — في الأول الكل بيتبادل، في التاني بس واحد بيبعت للكل."
             data-en="Mixing it up with One-to-many — in the first everyone exchanges, in the second only one sends to all.">
-            الخلط بينه وبين <span dir="ltr">One-to-many</span> — في الأول الكل <b>بيتبادل</b>، وفي التاني واحد بس بيبعت
-            للكل.</li>
+ الخلط بينه وبين <span dir="ltr">One-to-many</span> — في الأول الكل <b>بيتبادل</b>، وفي التاني واحد بس بيبعت
+ للكل.</li>
           <li data-ar="نسيان إن الفيديو كونفرنس من أمثلته الأساسية — اجتماع كله مع الكل عن بُعد."
             data-en="Forgetting video conferencing is one of its key examples — an everyone-with-everyone meeting remotely.">نسيان إن الفيديو كونفرنس من أمثلته الأساسية — اجتماع كله مع الكل عن بُعد.</li>
           <li data-ar="الخلط بين المؤتمر والبث — في البث الجماهيري الجمهور مفيش تفاعل، في المؤتمر الكل بيتفاعل."
             data-en="Mixing up a conference and a broadcast — in mass broadcasting the audience has no interaction, in a conference everyone interacts.">
-            الخلط بين المؤتمر والبث — في البث الجماهيري مفيش تفاعل من الجمهور، وفي المؤتمر الكل <b>بيتفاعل</b>.</li>
+ الخلط بين المؤتمر والبث — في البث الجماهيري مفيش تفاعل من الجمهور، وفي المؤتمر الكل <b>بيتفاعل</b>.</li>
         </ul>
       </div>
     </section>
@@ -1791,12 +774,12 @@ select{color:var(--text)!important}
                 class="pill-dot" style="background:var(--s1)"></span> <b data-ar="مباشر:"
                 data-en="Direct:">مباشر:</b> <span data-ar="المرسل والمستقبِل في نفس المكان والوقت — زي الكلام وش لوش."
                   data-en="the sender and receiver are in the same place and time — like a face-to-face conversation.">المرسل
-                والمستقبل في <b>نفس المكان والوقت</b> — زي الحوار وجه لوجه.</span></div>
+ والمستقبل في <b>نفس المكان والوقت</b> — زي الحوار وجه لوجه.</span></div>
             <div class="pill" style="background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.35)"><span
                 class="pill-dot" style="background:var(--s2)"></span> <b data-ar="غير مباشر:"
                 data-en="Indirect:">غير مباشر:</b> <span data-ar="المرسل والمستقبِل في أماكن مختلفة — زي المكالمة أو التليفزيون."
                   data-en="the sender and receiver are in different places — like a call or television.">المرسل والمستقبل في
-                <b>أماكن مختلفة</b> — زي المكالمة والتليفزيون.</span></div>
+ <b>أماكن مختلفة</b> — زي المكالمة والتليفزيون.</span></div>
           </div>
           <div class="demo-panel">
             <div class="demo-label" data-ar="حسب الوقت" data-en="By Time">حسب الوقت</div>
@@ -1804,12 +787,12 @@ select{color:var(--text)!important}
                 class="pill-dot" style="background:var(--s3)"></span> <b data-ar="متزامن:"
                 data-en="Synchronous:">متزامن:</b> <span data-ar="الاتصال بيحصل في نفس اللحظة للطرفين — زي الشات المباشر."
                   data-en="communication happens at the same moment for both sides — like a live chat.">الاتصال بيحصل في
-                <b>نفس اللحظة</b> للطرفين — زي المحادثة المباشرة.</span></div>
+ <b>نفس اللحظة</b> للطرفين — زي المحادثة المباشرة.</span></div>
             <div class="pill" style="background:rgba(13, 158, 86,.13);border:1px solid rgba(13, 158, 86,.35)"><span
                 class="pill-dot" style="background:var(--s4)"></span> <b data-ar="غير متزامن:"
                 data-en="Asynchronous:">غير متزامن:</b> <span data-ar="الاتصال بيحصل في أوقات مختلفة — زي رسالة بتتسبّب وتتقرا بعدين."
                   data-en="communication happens at different times — like a message left and read later.">الاتصال بيحصل في
-                <b>أوقات مختلفة</b> — زي الرسالة اللي بتتساب وتتقرا بعدين.</span></div>
+ <b>أوقات مختلفة</b> — زي الرسالة اللي بتتساب وتتقرا بعدين.</span></div>
           </div>
         </div>
       </div>
@@ -1844,15 +827,15 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="الفكرة الأساسية إن التصنيفين مستقلين — أي وسيلة ممكن توصَف بدمج الاتنين. مثال: المكالمة غير مباشر + متزامن، والإيميل غير مباشر + غير متزامن."
           data-en="The key idea is that the two classifications are independent — any medium can be described with a combination of both. Example: a phone call is Indirect + Synchronous, and email is Indirect + Asynchronous.">
-          أهم حاجة نفهمها إن التصنيفين دول <b>مستقلين عن بعض</b> — أي وسيلة تقدر توصف بتركيبة من الاتنين. مثال: مكالمة
-          التليفون <span dir="ltr">Indirect + Synchronous</span>، والبريد الإلكتروني <span
+ أهم حاجة نفهمها إن التصنيفين دول <b>مستقلين عن بعض</b> — أي وسيلة تقدر توصف بتركيبة من الاتنين. مثال: مكالمة
+ التليفون <span dir="ltr">Indirect + Synchronous</span>، والبريد الإلكتروني <span
             dir="ltr">Indirect + Asynchronous</span>.</p>
         <div class="note"><b data-ar="افهم كويس:" data-en="Understand well:">افهم كويس:</b> <span
             data-ar="بس الكلام وش لوش هو المباشر + المتزامن سوا — لأنه نفس المكان ونفس الوقت. كل الوسائل عن بُعد غير مباشرة."
             data-en="only a face-to-face conversation is Direct + Synchronous together — because it's the same place and same time. All remote media are Indirect.">حوار
-            وجه لوجه هو الوحيد اللي هو <span dir="ltr">Direct + Synchronous</span> مع بعض — لأنه في نفس المكان ونفس الوقت.
-            كل الوسائل البعيدة <span dir="ltr">Indirect</span>.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>[2] التصنيف بناء على علاقة الموقع بين المرسل والمستلم:• الاتصال المباشر (Direct communication): المرسل والمستلم وجهًا لوجه مباشرة. تمكن هذه الطريقة من الاتصال أثناء مراقبة ردود فعل الشخص الآخر، ولكن هناك قيود على الوقت والموقع. &lt;أمثلة&gt; المحادثات، العروض التقديمية، إلخ. • الاتصال غير المباشر (Indirect communication): المرسل والمستلم منفصلان. بينما ليس من الممكن رؤية ردود فعل الشخص الآخر مباشرة، فإنه يمكن إزالة قيود الوقت والموقع. &lt;أمثلة&gt; الهواتف، البريد الإلكتروني، صفحات الويب، إلخ.</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>[3] التصنيف حسب تزامن الاتصال:• متزامن (Synchronous): يشارك المرسل والمستلم المعلومات في وقت واحد تقريبًا. &lt;أمثلة&gt; المحادثة، الهواتف، العروض التقديمية، مكالمات الفيديو، البث التلفزيوني المباشر، إلخ. • غير متزامن (Asynchronous): يتم إرسال المعلومات واستقبالها في أوقات مناسبة لكل من المرسل والمستلم. &lt;أمثلة&gt; الرسائل، البريد الإلكتروني، لوحات الإعلانات الإلكترونية، تطبيقات المراسلة، وسائل التواصل الاجتماعي، إلخ.</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين:(1) عنوان الصندوق: العربية «أ. الاتصال وأشكاله» مقابل الإنجليزية &quot;Communication and Its Forms&quot;. (2) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-⁹ بينما العربية بالتظليل الأحمر فقط. (3) بنية الأقواس تختلف بين المصطلحات في العربية:«واحد إلى واحد (نوع فردي) ((One-to-one (Individual type)))» و«واحد إلى العديد نوع (وسائل الاتصال الجماهيرية) ((One-to-many (Mass media type)))» و«متعدد إلى متعدد نوع (مؤتمر) ((Many-to-many (Conference type)))» بينما «متعدد إلى واحد نوع ((وسائل الاتصال العكسية) (Many-to-one (Reverse mass media type)))» يجمع المصطلحين معًا داخل الأقواس المضاعفة. (4) المصطلح العربي «وسائل الاتصال العكسية» مقابل الإنجليزية &quot;Reverse mass media type&quot;، و«مؤتمر» مقابل &quot;Conference type&quot;. (5) عنوان [2]: العربية «التصنيف بناء على علاقة الموقع بين المرسل والمستلم» مقابل الإنجليزية &quot;Classification Based on the Location Relationship Between Sender and Receiver&quot;. (6) أمثلة المتزامن تبدأ في العربية بـ«المحادثة» مفردة مقابل الإنجليزية &quot;Conversation&quot;، وأمثلة المباشر «المحادثات» مقابل &quot;Conversations&quot;. (7) عنوان الأمثلة «&lt;أمثلة>» مقابل &quot;&lt;Examples>&quot;. (8) النسختان تحملان ثلاث أيقونات سماعة في المواضع نفسها (بعد أمثلة متعدد إلى متعدد، والاتصال غير المباشر، وغير المتزامن)." data-en="Edition comparison:(1) The box heading: Arabic «أ. الاتصال وأشكاله» vs English &quot;Communication and Its Forms&quot;. (2) English marks terms with superscripts ¹-⁹ while Arabic uses only the red highlight. (3) The parenthesis structure varies across the Arabic terms:«واحد إلى واحد (نوع فردي) ((One-to-one (Individual type)))», «واحد إلى العديد نوع (وسائل الاتصال الجماهيرية) ((One-to-many (Mass media type)))» and «متعدد إلى متعدد نوع (مؤتمر) ((Many-to-many (Conference type)))», while «متعدد إلى واحد نوع ((وسائل الاتصال العكسية) (Many-to-one (Reverse mass media type)))» nests both terms inside the doubled parentheses. (4) The Arabic term «وسائل الاتصال العكسية» corresponds to English &quot;Reverse mass media type&quot;, and «مؤتمر» to &quot;Conference type&quot;. (5) Heading [2]: Arabic «التصنيف بناء على علاقة الموقع بين المرسل والمستلم» vs English &quot;Classification Based on the Location Relationship Between Sender and Receiver&quot;. (6) The synchronous examples open with singular «المحادثة» in Arabic vs &quot;Conversation&quot; in English, and the direct examples «المحادثات» vs &quot;Conversations&quot;. (7) The examples heading «&lt;أمثلة>» vs &quot;&lt;Examples>&quot;. (8) Both editions carry three speaker icons at the same positions (after the many-to-many, indirect-communication and asynchronous examples).">مقارنة النسختين:(1) عنوان الصندوق: العربية «أ. الاتصال وأشكاله» مقابل الإنجليزية "Communication and Its Forms". (2) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-⁹ بينما العربية بالتظليل الأحمر فقط. (3) بنية الأقواس تختلف بين المصطلحات في العربية: «واحد إلى واحد (نوع فردي) ((One-to-one (Individual type)))» و«واحد إلى العديد نوع (وسائل الاتصال الجماهيرية) ((One-to-many (Mass media type)))» و«متعدد إلى متعدد نوع (مؤتمر) ((Many-to-many (Conference type)))» بينما «متعدد إلى واحد نوع ((وسائل الاتصال العكسية) (Many-to-one (Reverse mass media type)))» يجمع المصطلحين معًا داخل الأقواس المضاعفة. (4) المصطلح العربي «وسائل الاتصال العكسية» مقابل الإنجليزية "Reverse mass media type"، و«مؤتمر» مقابل "Conference type". (5) عنوان [2]: العربية «التصنيف بناء على علاقة الموقع بين المرسل والمستلم» مقابل الإنجليزية "Classification Based on the Location Relationship Between Sender and Receiver". (6) أمثلة المتزامن تبدأ في العربية بـ«المحادثة» مفردة مقابل الإنجليزية "Conversation"، وأمثلة المباشر «المحادثات» مقابل "Conversations". (7) عنوان الأمثلة «&lt;أمثلة&gt;» مقابل "&lt;Examples&gt;". (8) النسختان تحملان ثلاث أيقونات سماعة في المواضع نفسها (بعد أمثلة متعدد إلى متعدد، والاتصال غير المباشر، وغير المتزامن).</div></div></div>
+ وجه لوجه هو الوحيد اللي هو <span dir="ltr">Direct + Synchronous</span> مع بعض — لأنه في نفس المكان ونفس الوقت.
+ كل الوسائل البعيدة <span dir="ltr">Indirect</span>.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>[2] التصنيف بناء على علاقة الموقع بين المرسل والمستلم:• الاتصال المباشر: المرسل والمستلم وجهًا لوجه مباشرة. تمكن هذه الطريقة من الاتصال أثناء مراقبة ردود فعل الشخص الآخر، ولكن هناك قيود على الوقت والموقع. &lt;أمثلة&gt; المحادثات، العروض التقديمية، إلخ. • الاتصال غير المباشر: المرسل والمستلم منفصلان. بينما ليس من الممكن رؤية ردود فعل الشخص الآخر مباشرة، فإنه يمكن إزالة قيود الوقت والموقع. &lt;أمثلة&gt; الهواتف، البريد الإلكتروني، صفحات الويب، إلخ.</p><p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>[3] التصنيف حسب تزامن الاتصال:• متزامن: يشارك المرسل والمستلم المعلومات في وقت واحد تقريبًا. &lt;أمثلة&gt; المحادثة، الهواتف، العروض التقديمية، مكالمات الفيديو، البث التلفزيوني المباشر، إلخ. • غير متزامن: يتم إرسال المعلومات واستقبالها في أوقات مناسبة لكل من المرسل والمستلم. &lt;أمثلة&gt; الرسائل، البريد الإلكتروني، لوحات الإعلانات الإلكترونية، تطبيقات المراسلة، وسائل التواصل الاجتماعي، إلخ.</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين:(1) عنوان الصندوق: العربية «أ. الاتصال وأشكاله» مقابل الإنجليزية &quot;Communication and Its Forms&quot;. (2) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-⁹ بينما العربية بالتظليل الأحمر فقط. (3) بنية الأقواس تختلف بين المصطلحات في العربية:«واحد إلى واحد (نوع فردي) ((One-to-one (Individual type)))» و«واحد إلى العديد نوع (وسائل الاتصال الجماهيرية) ((One-to-many (Mass media type)))» و«متعدد إلى متعدد نوع (مؤتمر) ((Many-to-many (Conference type)))» بينما «متعدد إلى واحد نوع ((وسائل الاتصال العكسية) (Many-to-one (Reverse mass media type)))» يجمع المصطلحين معًا داخل الأقواس المضاعفة. (4) المصطلح العربي «وسائل الاتصال العكسية» مقابل الإنجليزية &quot;Reverse mass media type&quot;، و«مؤتمر» مقابل &quot;Conference type&quot;. (5) عنوان [2]: العربية «التصنيف بناء على علاقة الموقع بين المرسل والمستلم» مقابل الإنجليزية &quot;Classification Based on the Location Relationship Between Sender and Receiver&quot;. (6) أمثلة المتزامن تبدأ في العربية بـ«المحادثة» مفردة مقابل الإنجليزية &quot;Conversation&quot;، وأمثلة المباشر «المحادثات» مقابل &quot;Conversations&quot;. (7) عنوان الأمثلة «&lt;أمثلة>» مقابل &quot;&lt;Examples>&quot;. (8) النسختان تحملان ثلاث أيقونات سماعة في المواضع نفسها (بعد أمثلة متعدد إلى متعدد، والاتصال غير المباشر، وغير المتزامن)." data-en="Edition comparison:(1) The box heading: Arabic «أ. الاتصال وأشكاله» vs English &quot;Communication and Its Forms&quot;. (2) English marks terms with superscripts ¹-⁹ while Arabic uses only the red highlight. (3) The parenthesis structure varies across the Arabic terms:«واحد إلى واحد (نوع فردي) ((One-to-one (Individual type)))», «واحد إلى العديد نوع (وسائل الاتصال الجماهيرية) ((One-to-many (Mass media type)))» and «متعدد إلى متعدد نوع (مؤتمر) ((Many-to-many (Conference type)))», while «متعدد إلى واحد نوع ((وسائل الاتصال العكسية) (Many-to-one (Reverse mass media type)))» nests both terms inside the doubled parentheses. (4) The Arabic term «وسائل الاتصال العكسية» corresponds to English &quot;Reverse mass media type&quot;, and «مؤتمر» to &quot;Conference type&quot;. (5) Heading [2]: Arabic «التصنيف بناء على علاقة الموقع بين المرسل والمستلم» vs English &quot;Classification Based on the Location Relationship Between Sender and Receiver&quot;. (6) The synchronous examples open with singular «المحادثة» in Arabic vs &quot;Conversation&quot; in English, and the direct examples «المحادثات» vs &quot;Conversations&quot;. (7) The examples heading «&lt;أمثلة>» vs &quot;&lt;Examples>&quot;. (8) Both editions carry three speaker icons at the same positions (after the many-to-many, indirect-communication and asynchronous examples).">مقارنة النسختين:(1) عنوان الصندوق: العربية «أ. الاتصال وأشكاله» مقابل الإنجليزية "Communication and Its Forms". (2) الإنجليزية تعلّم المصطلحات بأرقام مرتفعة ¹-⁹ بينما العربية بالتظليل الأحمر فقط. (3) بنية الأقواس تختلف بين المصطلحات في العربية: «واحد إلى واحد (نوع فردي) ((One-to-one (Individual type)))» و«واحد إلى العديد نوع (وسائل الاتصال الجماهيرية) ((One-to-many (Mass media type)))» و«متعدد إلى متعدد نوع (مؤتمر) ((Many-to-many (Conference type)))» بينما «متعدد إلى واحد نوع ((وسائل الاتصال العكسية) (Many-to-one (Reverse mass media type)))» يجمع المصطلحين معًا داخل الأقواس المضاعفة. (4) المصطلح العربي «وسائل الاتصال العكسية» مقابل الإنجليزية "Reverse mass media type"، و«مؤتمر» مقابل "Conference type". (5) عنوان [2]: العربية «التصنيف بناء على علاقة الموقع بين المرسل والمستلم» مقابل الإنجليزية "Classification Based on the Location Relationship Between Sender and Receiver". (6) أمثلة المتزامن تبدأ في العربية بـ«المحادثة» مفردة مقابل الإنجليزية "Conversation"، وأمثلة المباشر «المحادثات» مقابل "Conversations". (7) عنوان الأمثلة «&lt;أمثلة&gt;» مقابل "&lt;Examples&gt;". (8) النسختان تحملان ثلاث أيقونات سماعة في المواضع نفسها (بعد أمثلة متعدد إلى متعدد، والاتصال غير المباشر، وغير المتزامن).</div></div></div>
 
       <div class="section-inner card">
         <h3 data-ar="جرّب نفسك — استرجاع سريع" data-en="Test yourself — a quick recall">جرّب نفسك — استرجاع سريع</h3>
@@ -1878,7 +861,7 @@ select{color:var(--text)!important}
                 data-fb-en="Both are wrong — a call is remote and in the same moment."><span class="rq-key">C</span><span
                   class="rq-body" data-ar="مباشر + غير متزامن" data-en="Direct + Asynchronous">مباشر + غير متزامن</span></div>
               <div class="rq-opt" data-id="classifyRq1o1" data-key="D" data-ok="1"
-                data-fb-ar="صحيح! بعيدة (Indirect) وفي نفس اللحظة (Synchronous)."
+                data-fb-ar="صحيح! بعيدة وفي نفس اللحظة."
                 data-fb-en="Correct! Remote (Indirect) and at the same moment (Synchronous)."><span class="rq-key">D</span><span
                   class="rq-body" data-ar="غير مباشر + متزامن" data-en="Indirect + Synchronous">غير مباشر + متزامن</span></div>
             </div>
@@ -1890,7 +873,7 @@ select{color:var(--text)!important}
                 data-en="How is television alone classified?">التليفزيون لوحده بيتصنّف إزاي؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="classifyRq2o2" data-key="A" data-ok="1"
-                data-fb-ar="صحيح! المشاهد بعيد عن المحطة (Indirect) وبيشوف البث وهو بيعمل (Synchronous)."
+                data-fb-ar="صحيح! المشاهد بعيد عن المحطة وبيشوف البث وهو بيعمل."
                 data-fb-en="Correct! The viewer is far from the station (Indirect) and watches the broadcast live (Synchronous)."><span
                   class="rq-key">A</span><span class="rq-body" data-ar="غير مباشر + متزامن"
                   data-en="Indirect + Synchronous">غير مباشر + متزامن</span></div>
@@ -1916,20 +899,20 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين مباشر/غير مباشر ومتزامن/غير متزامن — الأول بخص المكان، والتاني بخص الوقت."
             data-en="Mixing up Direct/Indirect with Synchronous/Asynchronous — the first is about place, the second about time.">
-            الخلط بين <span dir="ltr">Direct/Indirect</span> و<span dir="ltr">Synchronous/Asynchronous</span> — الأول عن
-            <b>المكان</b>، والتاني عن <b>الزمن</b>.</li>
+ الخلط بين <span dir="ltr">Direct/Indirect</span> و<span dir="ltr">Synchronous/Asynchronous</span> — الأول عن
+ <b>المكان</b>، والتاني عن <b>الزمن</b>.</li>
           <li data-ar="إنك تفتكر المكالمة مباشرة — لا، غير مباشرة لأن الطرفين في أماكن مختلفة."
             data-en="Thinking a phone call is Direct — no, it's Indirect because the two sides are in different places.">
-            اعتبار إن مكالمة التليفون <span dir="ltr">Direct</span> — لأ، هي <span dir="ltr">Indirect</span> لأن الطرفين
-            في أماكن مختلفة.</li>
+ اعتبار إن مكالمة التليفون <span dir="ltr">Direct</span> — لأ، هي <span dir="ltr">Indirect</span> لأن الطرفين
+ في أماكن مختلفة.</li>
           <li data-ar="الخلط بين سبورة الإعلانات والشات — السبورة غير متزامنة لأنها بتتقرا في وقت مختلف."
             data-en="Mixing up a bulletin board and a chat — a board is Asynchronous because it's read at a different time.">
-            الخلط بين اللوحة الإعلانية والمحادثة — اللوحة <span dir="ltr">Asynchronous</span> لأنها بتتقرا في وقت
-            مختلف.</li>
+ الخلط بين اللوحة الإعلانية والمحادثة — اللوحة <span dir="ltr">Asynchronous</span> لأنها بتتقرا في وقت
+ مختلف.</li>
         </ul>
       </div>
     </section>
@@ -1965,34 +948,34 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <!-- TEXTBOOK-CARD-BEGIN id="book-warm" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك (Warm Up) مع الشرح المطبوع</h3>
-          <p data-ar="تحدى معلوماتك — اختر الشكل الأكثر ملاءمة للاتصال لكل من الطرق التالية من الخيارات من أ إلى ت ، وأجب باستخدام الحروف. (1) تطبيق مراسلة (2) محادثة (3) مكالمة فيديو — الخيارات: (أ) مباشر ومتزامن (ب) غير مباشر ومتزامن (جـ) غير مباشر وغير متزامن." data-en="Warm Up - Choose the most suitable form of communication for each of the following methods from the options A to C below, and answer using the letters. (1) Messaging app (2) Conversation (3) Video call - A Direct and synchronous, B Indirect and synchronous, C Indirect and asynchronous.">تحدى معلوماتك — اختر الشكل الأكثر ملاءمة للاتصال لكل من الطرق التالية من الخيارات من أ إلى ت ، وأجب باستخدام الحروف. (1) تطبيق مراسلة (2) محادثة (3) مكالمة فيديو — الخيارات: (أ) مباشر ومتزامن (ب) غير مباشر ومتزامن (جـ) غير مباشر وغير متزامن.</p>
+          <h3 data-ar="من الكتاب: تحدى معلوماتك مع الشرح المطبوع" data-en="From the book: Warm Up with the printed Explanation">من الكتاب: تحدى معلوماتك مع الشرح المطبوع</h3>
+          <p data-ar="تحدى معلوماتك — اختر الشكل الأكثر ملاءمة للاتصال لكل من الطرق التالية من الخيارات من أ إلى ت، وأجب باستخدام الحروف. (1) تطبيق مراسلة (2) محادثة (3) مكالمة فيديو — الخيارات: (أ) مباشر ومتزامن (ب) غير مباشر ومتزامن (جـ) غير مباشر وغير متزامن." data-en="Warm Up - Choose the most suitable form of communication for each of the following methods from the options A to C below, and answer using the letters. (1) Messaging app (2) Conversation (3) Video call - A Direct and synchronous, B Indirect and synchronous, C Indirect and asynchronous.">تحدى معلوماتك — اختر الشكل الأكثر ملاءمة للاتصال لكل من الطرق التالية من الخيارات من أ إلى ت، وأجب باستخدام الحروف. (1) تطبيق مراسلة (2) محادثة (3) مكالمة فيديو — الخيارات: (أ) مباشر ومتزامن (ب) غير مباشر ومتزامن (جـ) غير مباشر وغير متزامن.</p>
           <p data-ar="الشرح المطبوع — (1) (ث) (2) (أ) (3) (ب)." data-en="Printed Explanation - (1) C (2) A (3) B.">الشرح المطبوع — (1) (ث) (2) (أ) (3) (ب).</p>
-          <div class="book-diff" data-ar="مقارنة النسختين: (1) تعليمة العربية تطبع المدى «من أ إلى ت » (بمسافة قبل الفاصلة) بينما الخيارات المطبوعة هي (أ) و(ب) و(جـ)؛ والإنجليزية تطبع &quot;from the options A to C&quot; مع خيارات A وB وC. (2) الشرح العربي المطبوع (في صفحة 57) يطبع «(1) (ث) (2) (أ) (3) (ب)» — والحرف (ث) لا يظهر بين خيارات السؤال المطبوعة (أ)-(جـ) — بينما الإنجليزية تطبع &quot;(1) C (2) A (3) B&quot;. (3) التطابق المعنوي بين النسختين:تطبيق المراسلة = غير مباشر وغير متزامن، المحادثة = مباشر ومتزامن، مكالمة الفيديو = غير مباشر ومتزامن." data-en="Edition comparison: (1) The Arabic instruction prints the range «من أ إلى ت » (with a space before the comma) while the printed options are (أ), (ب) and (جـ); English prints &quot;from the options A to C&quot; with options A, B and C. (2) The printed Arabic Explanation (on page 57) prints «(1) (ث) (2) (أ) (3) (ب)» - the letter (ث) does not appear among the question’s printed options (أ)-(جـ) - while English prints &quot;(1) C (2) A (3) B&quot;. (3) The semantic mapping agrees across editions:messaging app = indirect and asynchronous, conversation = direct and synchronous, video call = indirect and synchronous.">مقارنة النسختين: (1) تعليمة العربية تطبع المدى «من أ إلى ت » (بمسافة قبل الفاصلة) بينما الخيارات المطبوعة هي (أ) و(ب) و(جـ)؛ والإنجليزية تطبع "from the options A to C" مع خيارات A وB وC. (2) الشرح العربي المطبوع (في صفحة 57) يطبع «(1) (ث) (2) (أ) (3) (ب)» — والحرف (ث) لا يظهر بين خيارات السؤال المطبوعة (أ)-(جـ) — بينما الإنجليزية تطبع "(1) C (2) A (3) B". (3) التطابق المعنوي بين النسختين: تطبيق المراسلة = غير مباشر وغير متزامن، المحادثة = مباشر ومتزامن، مكالمة الفيديو = غير مباشر ومتزامن.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 48 (المطبوع 48)؛ AR 56، والشرح في AR 57." data-en="The above is from the textbook. Full source: English PDF 48 (printed 48); Arabic 56, Explanation on Arabic 57.">النص السابق من الكتاب. المصدر الكامل:EN PDF 48 (المطبوع 48)؛ AR 56، والشرح في AR 57.</span>
+          <div class="book-diff" data-ar="مقارنة النسختين: (1) تعليمة العربية تطبع المدى «من أ إلى ت » (بمسافة قبل الفاصلة) بينما الخيارات المطبوعة هي (أ) و(ب) و(جـ)؛ والإنجليزية تطبع &quot;from the options A to C&quot; مع خيارات A وB وC. (2) الشرح العربي المطبوع (في) يطبع «(1) (ث) (2) (أ) (3) (ب)» — والحرف (ث) لا يظهر بين خيارات السؤال المطبوعة (أ)-(جـ) — بينما الإنجليزية تطبع &quot;(1) C (2) A (3) B&quot;. (3) التطابق المعنوي بين النسختين:تطبيق المراسلة = غير مباشر وغير متزامن، المحادثة = مباشر ومتزامن، مكالمة الفيديو = غير مباشر ومتزامن." data-en="Edition comparison: (1) The Arabic instruction prints the range «من أ إلى ت » (with a space before the comma) while the printed options are (أ), (ب) and (جـ); English prints &quot;from the options A to C&quot; with options A, B and C. (2) The printed Arabic Explanation (on) prints «(1) (ث) (2) (أ) (3) (ب)» - the letter (ث) does not appear among the question’s printed options (أ)-(جـ) - while English prints &quot;(1) C (2) A (3) B&quot;. (3) The semantic mapping agrees across editions:messaging app = indirect and asynchronous, conversation = direct and synchronous, video call = indirect and synchronous.">مقارنة النسختين: (1) تعليمة العربية تطبع المدى «من أ إلى ت » (بمسافة قبل الفاصلة) بينما الخيارات المطبوعة هي (أ) و(ب) و(جـ)؛ والإنجليزية تطبع "from the options A to C" مع خيارات A وB وC. (2) الشرح العربي المطبوع (في) يطبع «(1) (ث) (2) (أ) (3) (ب)» — والحرف (ث) لا يظهر بين خيارات السؤال المطبوعة (أ)-(جـ) — بينما الإنجليزية تطبع "(1) C (2) A (3) B". (3) التطابق المعنوي بين النسختين: تطبيق المراسلة = غير مباشر وغير متزامن، المحادثة = مباشر ومتزامن، مكالمة الفيديو = غير مباشر ومتزامن.</div>
+          <span class="book-src" data-ar="النص السابق من الكتاب.، والشرح في." data-en="The above is from the textbook., Explanation on Arabic 57.">النص السابق من الكتاب.، والشرح في.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-warm" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-try" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: جرب بنفسك (Try)" data-en="From the book: Try">من الكتاب: جرب بنفسك (Try)</h3>
+          <h3 data-ar="من الكتاب: جرب بنفسك" data-en="From the book: Try">من الكتاب: جرب بنفسك</h3>
           <p data-ar="جرب بنفسك — أجب عن الأسئلة التالية. (1) اختر الطرق التي تناسب الفراغات [1] إلى [4] في الجدول التالي من الخيارات من أ إلى ث. — الخيارات: (أ) الرسالة (ب) الهاتف (ت) البث التلفزيوني المباشر (ث) وسائل التواصل الاجتماعي." data-en="Try - Answer the following questions. (1) Choose the methods that best fit into the blanks [1] to [4] in the following table from the options A to D, and answer using the letters. - A Letter, B Telephone, C Live television broadcast, D Social media.">جرب بنفسك — أجب عن الأسئلة التالية. (1) اختر الطرق التي تناسب الفراغات [1] إلى [4] في الجدول التالي من الخيارات من أ إلى ث. — الخيارات: (أ) الرسالة (ب) الهاتف (ت) البث التلفزيوني المباشر (ث) وسائل التواصل الاجتماعي.</p>
           <p class="tbl-note" data-ar="إعادة تنسيق للجدول المطبوع — نفس القيم من الكتاب، والتنسيق الجدولي فقط من إعدادنا." data-en="Reformatted rendering of the printed table - same values as the book; only the table layout is ours.">إعادة تنسيق للجدول المطبوع — نفس القيم من الكتاب، والتنسيق الجدولي فقط من إعدادنا.</p>
           <div class="swipe-hint" data-ar="↔ اسحب الجدول أفقيًا لرؤية بقية الأعمدة" data-en="↔ Swipe the table horizontally to see the remaining columns">↔ اسحب الجدول أفقيًا لرؤية بقية الأعمدة</div>
-          <div class="tbl-wrap" data-ar="&lt;table class=&quot;commforms&quot;>&lt;tr>&lt;th>الاتصال&lt;/th>&lt;th>متزامن&lt;/th>&lt;th>غير متزامن&lt;/th>&lt;/tr>&lt;tr>&lt;th>واحد إلى واحد نوع( فردي)&lt;/th>&lt;td>[1]&lt;/td>&lt;td>[2]&lt;/td>&lt;/tr>&lt;tr>&lt;th>واحد إلى كثير نوع (وسائل الإعلام الجماهيرية)&lt;/th>&lt;td>[3]&lt;/td>&lt;td>[4]&lt;/td>&lt;/tr>&lt;/table>" data-en="&lt;table class=&quot;commforms&quot;>&lt;tr>&lt;th>&lt;/th>&lt;th>Synchronous&lt;/th>&lt;th>Asynchronous&lt;/th>&lt;/tr>&lt;tr>&lt;th>One-to-one (Individual type)&lt;/th>&lt;td>( [1] )&lt;/td>&lt;td>( [2] )&lt;/td>&lt;/tr>&lt;tr>&lt;th>One-to-many (Mass media type)&lt;/th>&lt;td>( [3] )&lt;/td>&lt;td>( [4] )&lt;/td>&lt;/tr>&lt;/table>"><table class="commforms"><tr><th>الاتصال</th><th>متزامن</th><th>غير متزامن</th></tr><tr><th>واحد إلى واحد نوع( فردي)</th><td>[1]</td><td>[2]</td></tr><tr><th>واحد إلى كثير نوع (وسائل الإعلام الجماهيرية)</th><td>[3]</td><td>[4]</td></tr></table></div>
+          <div class="tbl-wrap" data-ar="&lt;table class=&quot;commforms&quot;>&lt;tr>&lt;th>الاتصال&lt;/th>&lt;th>متزامن&lt;/th>&lt;th>غير متزامن&lt;/th>&lt;/tr>&lt;tr>&lt;th>واحد إلى واحد نوع( فردي)&lt;/th>&lt;td>[1]&lt;/td>&lt;td>[2]&lt;/td>&lt;/tr>&lt;tr>&lt;th>واحد إلى كثير نوع (وسائل الإعلام الجماهيرية)&lt;/th>&lt;td>[3]&lt;/td>&lt;td>[4]&lt;/td>&lt;/tr>&lt;/table>" data-en="&lt;table class=&quot;commforms&quot;>&lt;tr>&lt;th>&lt;/th>&lt;th>Synchronous&lt;/th>&lt;th>Asynchronous&lt;/th>&lt;/tr>&lt;tr>&lt;th>One-to-one&lt;/th>&lt;td>( [1] )&lt;/td>&lt;td>( [2] )&lt;/td>&lt;/tr>&lt;tr>&lt;th>One-to-many&lt;/th>&lt;td>( [3] )&lt;/td>&lt;td>( [4] )&lt;/td>&lt;/tr>&lt;/table>"><table class="commforms"><tr><th>الاتصال</th><th>متزامن</th><th>غير متزامن</th></tr><tr><th>واحد إلى واحد نوع( فردي)</th><td>[1]</td><td>[2]</td></tr><tr><th>واحد إلى كثير نوع (وسائل الإعلام الجماهيرية)</th><td>[3]</td><td>[4]</td></tr></table></div>
           <p data-ar="(2) اختر جميع الطرق المناسبة من الخيارات من أ إلى ح التي تتطابق مع أشكال الاتصال التالية. [1] مباشر ومتزامن [2] غير مباشر ومتزامن [3] غير مباشر وغير متزامن — الخيارات:(أ) الهاتف (ب) البريد الإلكتروني (ت) المحادثة (ث) لوحة الإعلانات الإلكترونية (ج) تطبيق المراسلة (ح) مكالمة الفيديو." data-en="(2) Choose all appropriate methods from the options A to F that match the following forms of communication, and answer using the letters. [1] Direct and synchronous [2] Indirect and synchronous [3] Indirect and asynchronous - A Telephone, B Email, C Conversation, D Electronic bulletin board, E Messaging app, F Video call.">(2) اختر جميع الطرق المناسبة من الخيارات من أ إلى ح التي تتطابق مع أشكال الاتصال التالية. [1] مباشر ومتزامن [2] غير مباشر ومتزامن [3] غير مباشر وغير متزامن — الخيارات: (أ) الهاتف (ب) البريد الإلكتروني (ت) المحادثة (ث) لوحة الإعلانات الإلكترونية (ج) تطبيق المراسلة (ح) مكالمة الفيديو.</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ب: الهاتف [2] أ: الرسالة [3] ت: البث التلفزيوني المباشر [4] ث: وسائل التواصل الاجتماعي. (2) [1] ت: المحادثة [2] أ وح: الهاتف ومكالمة الفيديو [3] ب وث وج: البريد الإلكتروني ولوحة الإعلانات الإلكترونية وتطبيق المراسلة." data-en="Answers not printed in the book (teacher-prepared): (1) [1] B telephone [2] A letter [3] C live television broadcast [4] D social media. (2) [1] C conversation [2] A and F: telephone and video call [3] B, D and E: email, electronic bulletin board and messaging app.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] ب: الهاتف [2] أ: الرسالة [3] ت: البث التلفزيوني المباشر [4] ث: وسائل التواصل الاجتماعي. (2) [1] ت: المحادثة [2] أ وح: الهاتف ومكالمة الفيديو [3] ب وث وج: البريد الإلكتروني ولوحة الإعلانات الإلكترونية وتطبيق المراسلة.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) عنوانا صفَّي الجدول في العربية: «واحد إلى واحد نوع( فردي)» و«واحد إلى كثير نوع (وسائل الإعلام الجماهيرية)» — بلفظ «كثير» و«وسائل الإعلام الجماهيرية» — بينما تطبع النقاط الرئيسية «واحد إلى العديد نوع (وسائل الاتصال الجماهيرية)»؛ والإنجليزية تطبع &quot;One-to-one (Individual type)&quot; و&quot;One-to-many (Mass media type)&quot;. (2) خلايا الجدول في العربية تحمل الفراغات [1]-[4] بلا أقواس بينما الإنجليزية تطبع «( [1] )». (3) خيارات (1): العربية «من أ إلى ث» بأربعة خيارات (أ)(ب)(ت)(ث) والإنجليزية &quot;A to D&quot;. (4) خيارات (2): العربية «من أ إلى ح» بستة خيارات (أ)(ب)(ت)(ث)(ج)(ح) والإنجليزية &quot;A to F&quot; بنفس الترتيب المعنوي. (5) إجابات جرب بنفسك غير مطبوعة في أي من النسختين." data-en="Edition comparison:(1) The table row headings in Arabic: «واحد إلى واحد نوع( فردي)» and «واحد إلى كثير نوع (وسائل الإعلام الجماهيرية)» - with «كثير» and «وسائل الإعلام الجماهيرية» - while the Point box prints «واحد إلى العديد نوع (وسائل الاتصال الجماهيرية)»; English prints &quot;One-to-one (Individual type)&quot; and &quot;One-to-many (Mass media type)&quot;. (2) The Arabic table cells carry the blanks [1]-[4] without parentheses, while English prints «( [1] )». (3) Options of (1): Arabic «من أ إلى ث» with four options (أ)(ب)(ت)(ث) vs English &quot;A to D&quot;. (4) Options of (2): Arabic «من أ إلى ح» with six options (أ)(ب)(ت)(ث)(ج)(ح) vs English &quot;A to F&quot; in the same semantic order. (5) The Try answers are not printed in either edition.">مقارنة النسختين:(1) عنوانا صفَّي الجدول في العربية: «واحد إلى واحد نوع( فردي)» و«واحد إلى كثير نوع (وسائل الإعلام الجماهيرية)» — بلفظ «كثير» و«وسائل الإعلام الجماهيرية» — بينما تطبع النقاط الرئيسية «واحد إلى العديد نوع (وسائل الاتصال الجماهيرية)»؛ والإنجليزية تطبع "One-to-one (Individual type)" و"One-to-many (Mass media type)". (2) خلايا الجدول في العربية تحمل الفراغات [1]-[4] بلا أقواس بينما الإنجليزية تطبع «( [1] )». (3) خيارات (1): العربية «من أ إلى ث» بأربعة خيارات (أ)(ب)(ت)(ث) والإنجليزية "A to D". (4) خيارات (2): العربية «من أ إلى ح» بستة خيارات (أ)(ب)(ت)(ث)(ج)(ح) والإنجليزية "A to F" بنفس الترتيب المعنوي. (5) إجابات جرب بنفسك غير مطبوعة في أي من النسختين.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 49 (المطبوع 49)؛ AR 57." data-en="The above is from the textbook. Full source: English PDF 49 (printed 49); Arabic 57.">النص السابق من الكتاب. المصدر الكامل:EN PDF 49 (المطبوع 49)؛ AR 57.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-try" -->
         <!-- TEXTBOOK-CARD-BEGIN id="book-exc" -->
         <div class="book-card try">
-          <h3 data-ar="من الكتاب: تمرين (Exercise)" data-en="From the book: Exercise">من الكتاب: تمرين (Exercise)</h3>
+          <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
           <p data-ar="تمرين — 1 أجب على الأسئلة التالية. (1) اختر الطريقة الأكثر ملاءمة للفراغات [1] و [2] في النص التالي من الخيارات من أ إلى ث: «يمكن تصنيف طرق الاتصال بناءً على عدد المرسلين والمستلمين. الاتصال مع مرسل واحد لمستلم واحد نوعه يسمى الفردي. يشمل هذا التصنيف الرسائل و [1] الاتصال مع مرسل واحد ومستلمين متعددين يسمى وسائل الإعلام الجماهيرية. يشمل هذا التصنيف الصحف، [2]، وصفحات الويب.» — الخيارات: (أ) مؤتمرات الفيديو (ب) التلفزيون (جـ) الهاتف (د) جدولة الاستبيانات." data-en="Exercise - 1 Answer the following questions. (1) Choose the most suitable method for blanks [1] and [2] in the following text from the options A to D, and answer using the letters. &quot;Communication methods can be classified based on the number of senders and receivers. Communication with one sender for one receiver is called the individual type. This classification includes letters and ( [1] ). Communication with one sender and multiple recipients is called mass media. This classification includes newspapers, ( [2] ), and web pages.&quot; - A Video conferencing, B Television, C Telephone, D Survey tabulation.">تمرين — 1 أجب على الأسئلة التالية. (1) اختر الطريقة الأكثر ملاءمة للفراغات [1] و [2] في النص التالي من الخيارات من أ إلى ث:«يمكن تصنيف طرق الاتصال بناءً على عدد المرسلين والمستلمين. الاتصال مع مرسل واحد لمستلم واحد نوعه يسمى الفردي. يشمل هذا التصنيف الرسائل و [1] الاتصال مع مرسل واحد ومستلمين متعددين يسمى وسائل الإعلام الجماهيرية. يشمل هذا التصنيف الصحف، [2]، وصفحات الويب.» — الخيارات: (أ) مؤتمرات الفيديو (ب) التلفزيون (جـ) الهاتف (د) جدولة الاستبيانات.</p>
           <p data-ar="(2) اختر الشكل الأكثر ملاءمة للاتصال لكل من الطرق التالية من الخيارات من أ إلى ت. [1] البريد الإلكتروني [2] العرض التقديمي [3] مكالمة الفيديو — الخيارات: (أ) مباشر ومتزامن (ب) غير مباشر ومتزامن (جـ) غير مباشر وغير متزامن." data-en="(2) Choose the most suitable form of communication for each of the following methods from the options A to C below, and answer using the letters. [1] Email [2] Presentation [3] Video call - A Direct and synchronous, B Indirect and synchronous, C Indirect and asynchronous.">(2) اختر الشكل الأكثر ملاءمة للاتصال لكل من الطرق التالية من الخيارات من أ إلى ت. [1] البريد الإلكتروني [2] العرض التقديمي [3] مكالمة الفيديو — الخيارات: (أ) مباشر ومتزامن (ب) غير مباشر ومتزامن (جـ) غير مباشر وغير متزامن.</p>
           <p data-ar="إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] جـ: الهاتف [2] ب: التلفزيون. (2) [1] جـ: البريد الإلكتروني = غير مباشر وغير متزامن [2] أ: العرض التقديمي = مباشر ومتزامن [3] ب: مكالمة الفيديو = غير مباشر ومتزامن." data-en="Answers not printed in the book (teacher-prepared): (1) [1] C telephone [2] B television. (2) [1] C email: indirect and asynchronous [2] A presentation: direct and synchronous [3] B video call: indirect and synchronous.">إجابات من إعدادنا — غير مطبوعة في الكتاب: (1) [1] جـ: الهاتف [2] ب: التلفزيون. (2) [1] جـ: البريد الإلكتروني = غير مباشر وغير متزامن [2] أ: العرض التقديمي = مباشر ومتزامن [3] ب: مكالمة الفيديو = غير مباشر ومتزامن.</p>
           <div class="book-diff" data-ar="مقارنة النسختين: (1) خيارات التمرين (1) في العربية مطبوعة بالحروف (أ) (ب) (جـ) (د) بينما تعليمتها تطبع المدى «من أ إلى ث»؛ وخيارات (2) مطبوعة (أ) (ب) (جـ) مع مدى مطبوع «من أ إلى ت»، مثل سؤال تحدى معلوماتك؛ والإنجليزية تطبع A إلى D وA إلى C دون ذلك. (2) نص الفراغات في العربية «الاتصال مع مرسل واحد لمستلم واحد نوعه يسمى الفردي» و«يسمى وسائل الإعلام الجماهيرية» بينما الإنجليزية &quot;is called the individual type&quot; و&quot;is called mass media&quot;. (3) الإجابات غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما." data-en="Edition comparison:(1) The Arabic Exercise (1) options print the letters (أ) (ب) (جـ) (د) while its instruction prints the range «من أ إلى ث»; the options of (2) print (أ) (ب) (جـ) with a printed range «من أ إلى ت», the same pattern as the Warm Up question; English prints &quot;A to D&quot; and &quot;A to C&quot; without this. (2) The Arabic blank text:«الاتصال مع مرسل واحد لمستلم واحد نوعه يسمى الفردي» and «يسمى وسائل الإعلام الجماهيرية» vs English &quot;is called the individual type&quot; and &quot;is called mass media&quot;. (3) The answers are not printed in either edition, and the derived results agree across both.">مقارنة النسختين:(1) خيارات التمرين (1) في العربية مطبوعة بالحروف (أ) (ب) (جـ) (د) بينما تعليمتها تطبع المدى «من أ إلى ث»؛ وخيارات (2) مطبوعة (أ) (ب) (جـ) مع مدى مطبوع «من أ إلى ت»، مثل سؤال تحدى معلوماتك؛ والإنجليزية تطبع A إلى D وA إلى C دون ذلك. (2) نص الفراغات في العربية «الاتصال مع مرسل واحد لمستلم واحد نوعه يسمى الفردي» و«يسمى وسائل الإعلام الجماهيرية» بينما الإنجليزية "is called the individual type" و"is called mass media". (3) الإجابات غير مطبوعة في أي من النسختين، والنتائج المستنتجة متفقة بينهما.</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 49 (المطبوع 49)؛ AR 57." data-en="The above is from the textbook. Full source: English PDF 49 (printed 49); Arabic 57.">النص السابق من الكتاب. المصدر الكامل:EN PDF 49 (المطبوع 49)؛ AR 57.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The above is from the textbook.">النص السابق من الكتاب.</span>
         </div>
         <!-- TEXTBOOK-CARD-END id="book-exc" -->
       </div>
@@ -2000,24 +983,24 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <h3 data-ar="✍️ تدريب 1: تمهيدي — اختار الشكل المناسب"
           data-en="✍️ Exercise 1: Warm Up — choose the suitable form">✍️ التمرين الأول: <span dir="ltr">Warm Up</span> —
-          اختر الصيغة المناسبة</h3>
+ اختر الصيغة المناسبة</h3>
         <div class="ex-item">
           <div class="q"><span class="q-num">1</span> <span data-ar="تطبيق مراسلة — إيه أأنسب شكل اتصال؟"
               data-en="A messaging app — which form of communication is most suitable?">التطبيق اللي بتراسل عليه <span
                 dir="ltr">(Messaging app)</span> — أشكال الاتصال المناسب هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  غير مباشر وغير متزامن"
-              data-en="A  Indirect and asynchronous">A  غير مباشر وغير متزامن</div>
-            <div class="ex-opt" data-ar="B  مباشر ومتزامن"
-              data-en="B  Direct and synchronous">B  مباشر ومتزامن</div>
-            <div class="ex-opt" data-ar="C  غير مباشر ومتزامن"
-              data-en="C  Indirect and synchronous">C  غير مباشر ومتزامن</div>
+            <div class="ex-opt" data-ok="1" data-ar="A غير مباشر وغير متزامن"
+              data-en="A  Indirect and asynchronous">A غير مباشر وغير متزامن</div>
+            <div class="ex-opt" data-ar="B مباشر ومتزامن"
+              data-en="B  Direct and synchronous">B مباشر ومتزامن</div>
+            <div class="ex-opt" data-ar="C غير مباشر ومتزامن"
+              data-en="C  Indirect and synchronous">C غير مباشر ومتزامن</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — غير مباشر وغير متزامن"
               data-en="✅ Answer: A — Indirect and asynchronous">✅ الإجابة: A — غير مباشر وغير متزامن</b> <span
               data-ar="المراسلة بتحصل من أماكن مختلفة (غير مباشر)، وكل طرف بيقرا ويرد في وقت مناسب له (غير متزامن)."
               data-en="messaging happens from different places (Indirect), and each side reads and replies at a convenient time (Asynchronous).">المراسلة
-              بتتم من أماكن مختلفة <span dir="ltr">(Indirect)</span>، وكل طرف بيقرا ويرد في الوقت اللي يناسبه <span
+ بتتم من أماكن مختلفة <span dir="ltr">(Indirect)</span>، وكل طرف بيقرا ويرد في الوقت اللي يناسبه <span
                 dir="ltr">(Asynchronous)</span>.</span></div>
         </div>
         <div class="ex-item">
@@ -2025,36 +1008,36 @@ select{color:var(--text)!important}
               data-en="A face-to-face conversation — which form of communication is most suitable?">المحادثة الوجه لوجه <span
                 dir="ltr">(Conversation)</span> — أشكال الاتصال المناسب هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  غير مباشر ومتزامن"
-              data-en="A  Indirect and synchronous">A  غير مباشر ومتزامن</div>
-            <div class="ex-opt" data-ar="B  غير مباشر وغير متزامن"
-              data-en="B  Indirect and asynchronous">B  غير مباشر وغير متزامن</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  مباشر ومتزامن"
-              data-en="C  Direct and synchronous">C  مباشر ومتزامن</div>
+            <div class="ex-opt" data-ar="A غير مباشر ومتزامن"
+              data-en="A  Indirect and synchronous">A غير مباشر ومتزامن</div>
+            <div class="ex-opt" data-ar="B غير مباشر وغير متزامن"
+              data-en="B  Indirect and asynchronous">B غير مباشر وغير متزامن</div>
+            <div class="ex-opt" data-ok="1" data-ar="C مباشر ومتزامن"
+              data-en="C  Direct and synchronous">C مباشر ومتزامن</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — مباشر ومتزامن"
               data-en="✅ Answer: C — Direct and synchronous">✅ الإجابة: C — مباشر ومتزامن</b> <span
               data-ar="الطرفين في نفس المكان (مباشر) وبيكلموا في نفس الوقت (متزامن)."
               data-en="both sides are in the same place (Direct) and talk at the same time (Synchronous).">الطرفين في نفس
-              المكان <span dir="ltr">(Direct)</span> وبيتكلموا في نفس الوقت <span dir="ltr">(Synchronous)</span>.</span></div>
+ المكان <span dir="ltr">(Direct)</span> وبيتكلموا في نفس الوقت <span dir="ltr">(Synchronous)</span>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">3</span> <span data-ar="مكالمة فيديو — إيه أنسب شكل اتصال؟"
               data-en="A video call — which form of communication is most suitable?">مكالمة الفيديو <span
                 dir="ltr">(Video call)</span> — أشكال الاتصال المناسب هو إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  غير مباشر ومتزامن"
-              data-en="A  Indirect and synchronous">A  غير مباشر ومتزامن</div>
-            <div class="ex-opt" data-ar="B  مباشر ومتزامن"
-              data-en="B  Direct and synchronous">B  مباشر ومتزامن</div>
-            <div class="ex-opt" data-ar="C  غير مباشر وغير متزامن"
-              data-en="C  Indirect and asynchronous">C  غير مباشر وغير متزامن</div>
+            <div class="ex-opt" data-ok="1" data-ar="A غير مباشر ومتزامن"
+              data-en="A  Indirect and synchronous">A غير مباشر ومتزامن</div>
+            <div class="ex-opt" data-ar="B مباشر ومتزامن"
+              data-en="B  Direct and synchronous">B مباشر ومتزامن</div>
+            <div class="ex-opt" data-ar="C غير مباشر وغير متزامن"
+              data-en="C  Indirect and asynchronous">C غير مباشر وغير متزامن</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — غير مباشر ومتزامن"
               data-en="✅ Answer: A — Indirect and synchronous">✅ الإجابة: A — غير مباشر ومتزامن</b> <span
               data-ar="مكالمة الفيديو من أماكن مختلفة (غير مباشر) بس في نفس اللحظة (متزامن)."
               data-en="a video call is from different places (Indirect) but at the same moment (Synchronous).">مكالمة
-              الفيديو من أماكن مختلفة <span dir="ltr">(Indirect)</span> بس في نفس اللحظة <span
+ الفيديو من أماكن مختلفة <span dir="ltr">(Indirect)</span> بس في نفس اللحظة <span
                 dir="ltr">(Synchronous)</span>.</span></div>
         </div>
         <div class="ex-btn-row">
@@ -2071,15 +1054,15 @@ select{color:var(--text)!important}
               data-en="Blank [1] — One-to-one under Synchronous: which method fits?">الخانة [1] — <span
                 dir="ltr">One-to-one</span> في عمود <span dir="ltr">Synchronous</span>: الوسيلة المناسبة هي إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  جواب" data-en="A  Letter">A  جواب</div>
-            <div class="ex-opt" data-ar="B  بث تليفزيوني مباشر"
-              data-en="B  Live television broadcast">B  بث تليفزيوني مباشر</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  تليفون" data-en="C  Telephone">C  تليفون</div>
-            <div class="ex-opt" data-ar="D  سوشيال ميديا" data-en="D  Social media">D  سوشيال ميديا</div>
+            <div class="ex-opt" data-ar="A جواب" data-en="A  Letter">A جواب</div>
+            <div class="ex-opt" data-ar="B بث تليفزيوني مباشر"
+              data-en="B  Live television broadcast">B بث تليفزيوني مباشر</div>
+            <div class="ex-opt" data-ok="1" data-ar="C تليفون" data-en="C  Telephone">C تليفون</div>
+            <div class="ex-opt" data-ar="D سوشيال ميديا" data-en="D  Social media">D سوشيال ميديا</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — التليفون" data-en="✅ Answer: C — Telephone">✅ الإجابة: C — التليفون</b> <span data-ar="التليفون فردي وكل الطرفين بيتكلموا في نفس اللحظة (متزامن)."
               data-en="the telephone is individual (One-to-one) and both sides talk at the same moment (Synchronous).">التليفون
-              فردي <span dir="ltr">(One-to-one)</span> وبيتكلم الطرفين في نفس اللحظة <span
+ فردي <span dir="ltr">(One-to-one)</span> وبيتكلم الطرفين في نفس اللحظة <span
                 dir="ltr">(Synchronous)</span>.</span></div>
         </div>
         <div class="ex-item">
@@ -2087,16 +1070,16 @@ select{color:var(--text)!important}
               data-en="Blank [2] — One-to-one under Asynchronous: which method fits?">الخانة [2] — <span
                 dir="ltr">One-to-one</span> في عمود <span dir="ltr">Asynchronous</span>: الوسيلة المناسبة هي إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  تليفون" data-en="A  Telephone">A  تليفون</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  جواب" data-en="B  Letter">B  جواب</div>
-            <div class="ex-opt" data-ar="C  بث تليفزيوني مباشر"
-              data-en="C  Live television broadcast">C  بث تليفزيوني مباشر</div>
-            <div class="ex-opt" data-ar="D  سوشيال ميديا" data-en="D  Social media">D  سوشيال ميديا</div>
+            <div class="ex-opt" data-ar="A تليفون" data-en="A  Telephone">A تليفون</div>
+            <div class="ex-opt" data-ok="1" data-ar="B جواب" data-en="B  Letter">B جواب</div>
+            <div class="ex-opt" data-ar="C بث تليفزيوني مباشر"
+              data-en="C  Live television broadcast">C بث تليفزيوني مباشر</div>
+            <div class="ex-opt" data-ar="D سوشيال ميديا" data-en="D  Social media">D سوشيال ميديا</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — الجواب" data-en="✅ Answer: B — Letter">✅ الإجابة: B — الجواب</b>
             <span data-ar="الجواب بين شخصين (فردي) وبيتقرا في وقت مناسب للمستقبِل (غير متزامن)."
               data-en="a letter is between two people (One-to-one) and read at a time convenient for the receiver (Asynchronous).">الخطاب
-            بين شخصين <span dir="ltr">(One-to-one)</span> وبيتقرا في وقت يناسب المستقبل <span
+ بين شخصين <span dir="ltr">(One-to-one)</span> وبيتقرا في وقت يناسب المستقبل <span
               dir="ltr">(Asynchronous)</span>.</span></div>
         </div>
         <div class="ex-item">
@@ -2104,17 +1087,17 @@ select{color:var(--text)!important}
               data-en="Blank [3] — One-to-many under Synchronous: which method fits?">الخانة [3] — <span
                 dir="ltr">One-to-many</span> في عمود <span dir="ltr">Synchronous</span>: الوسيلة المناسبة هي إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  بث تليفزيوني مباشر"
-              data-en="A  Live television broadcast">A  بث تليفزيوني مباشر</div>
-            <div class="ex-opt" data-ar="B  جواب" data-en="B  Letter">B  جواب</div>
-            <div class="ex-opt" data-ar="C  تليفون" data-en="C  Telephone">C  تليفون</div>
-            <div class="ex-opt" data-ar="D  سوشيال ميديا" data-en="D  Social media">D  سوشيال ميديا</div>
+            <div class="ex-opt" data-ok="1" data-ar="A بث تليفزيوني مباشر"
+              data-en="A  Live television broadcast">A بث تليفزيوني مباشر</div>
+            <div class="ex-opt" data-ar="B جواب" data-en="B  Letter">B جواب</div>
+            <div class="ex-opt" data-ar="C تليفون" data-en="C  Telephone">C تليفون</div>
+            <div class="ex-opt" data-ar="D سوشيال ميديا" data-en="D  Social media">D سوشيال ميديا</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — بث تليفزيوني مباشر"
               data-en="✅ Answer: A — Live television broadcast">✅ الإجابة: A — بث تليفزيوني مباشر</b> <span
               data-ar="بث جماهيري (واحد لكثير) والمشاهدين بيشوفوه live وهو بيحصل (متزامن)."
               data-en="a mass broadcast (One-to-many) and viewers watch it live as it happens (Synchronous).">البث
-              الجماهيري <span dir="ltr">(One-to-many)</span> والمشاهدين بيتفرجوا عليه لحظة حدوثه <span
+ الجماهيري <span dir="ltr">(One-to-many)</span> والمشاهدين بيتفرجوا عليه لحظة حدوثه <span
                 dir="ltr">(Synchronous)</span>.</span></div>
         </div>
         <div class="ex-item">
@@ -2122,15 +1105,15 @@ select{color:var(--text)!important}
               data-en="Blank [4] — One-to-many under Asynchronous: which method fits?">الخانة [4] — <span
                 dir="ltr">One-to-many</span> في عمود <span dir="ltr">Asynchronous</span>: الوسيلة المناسبة هي إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  جواب" data-en="A  Letter">A  جواب</div>
-            <div class="ex-opt" data-ar="B  تليفون" data-en="B  Telephone">B  تليفون</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  سوشيال ميديا" data-en="C  Social media">C  سوشيال ميديا</div>
-            <div class="ex-opt" data-ar="D  بث تليفزيوني مباشر"
-              data-en="D  Live television broadcast">D  بث تليفزيوني مباشر</div>
+            <div class="ex-opt" data-ar="A جواب" data-en="A  Letter">A جواب</div>
+            <div class="ex-opt" data-ar="B تليفون" data-en="B  Telephone">B تليفون</div>
+            <div class="ex-opt" data-ok="1" data-ar="C سوشيال ميديا" data-en="C  Social media">C سوشيال ميديا</div>
+            <div class="ex-opt" data-ar="D بث تليفزيوني مباشر"
+              data-en="D  Live television broadcast">D بث تليفزيوني مباشر</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — السوشيال ميديا" data-en="✅ Answer: C — Social media">✅ الإجابة: C — السوشيال ميديا</b> <span data-ar="السوشيال ميديا ليها جمهور كبير (واحد لكثير) ومحتواها بيتقرا في أي وقت (غير متزامن)."
               data-en="social media has a large audience (One-to-many) and its content is read at any time (Asynchronous).">السوشيال
-              ميديا ليها جمهور كبير <span dir="ltr">(One-to-many)</span> ومحتواها بيتقرا في أي وقت <span
+ ميديا ليها جمهور كبير <span dir="ltr">(One-to-many)</span> ومحتواها بيتقرا في أي وقت <span
                 dir="ltr">(Asynchronous)</span>.</span></div>
         </div>
         <div class="ex-btn-row">
@@ -2142,62 +1125,62 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <h3 data-ar="✍️ تدريب 3: اختار كل الطرق المناسبة (أكتر من إجابة صح)"
           data-en="✍️ Exercise 3: Choose all appropriate methods (more than one correct)">✍️ التمرين الثالث: اختر كل
-          الوسائل المناسبة <span dir="ltr">(More than one correct)</span></h3>
+ الوسائل المناسبة <span dir="ltr">(More than one correct)</span></h3>
         <div class="ex-item" data-multi>
           <div class="q"><span class="q-num">1</span> <span data-ar="مباشر ومتزامن — إيه الطرق اللي بتناسب؟"
               data-en="Direct and synchronous — which methods fit?"><span dir="ltr">Direct and synchronous</span> — كل
-              الوسائل المناسبة هي إيه؟</span></div>
+ الوسائل المناسبة هي إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  تليفون" data-en="A  Telephone">A  تليفون</div>
-            <div class="ex-opt" data-ar="B  إيميل" data-en="B  Email">B  إيميل</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  محادثة" data-en="C  Conversation">C  محادثة</div>
-            <div class="ex-opt" data-ar="D  سبورة إعلانات إلكترونية"
-              data-en="D  Electronic bulletin board">D  سبورة إعلانات إلكترونية</div>
-            <div class="ex-opt" data-ar="E  تطبيق مراسلة" data-en="E  Messaging app">E  تطبيق مراسلة</div>
-            <div class="ex-opt" data-ar="F  مكالمة فيديو" data-en="F  Video call">F  مكالمة فيديو</div>
+            <div class="ex-opt" data-ar="A تليفون" data-en="A  Telephone">A تليفون</div>
+            <div class="ex-opt" data-ar="B إيميل" data-en="B  Email">B إيميل</div>
+            <div class="ex-opt" data-ok="1" data-ar="C محادثة" data-en="C  Conversation">C محادثة</div>
+            <div class="ex-opt" data-ar="D سبورة إعلانات إلكترونية"
+              data-en="D  Electronic bulletin board">D سبورة إعلانات إلكترونية</div>
+            <div class="ex-opt" data-ar="E تطبيق مراسلة" data-en="E  Messaging app">E تطبيق مراسلة</div>
+            <div class="ex-opt" data-ar="F مكالمة فيديو" data-en="F  Video call">F مكالمة فيديو</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — المحادثة" data-en="✅ Answer: C — Conversation">✅ الإجابة: C — المحادثة</b> <span data-ar="بس الكلام وش لوش هو المباشر + المتزامن في القائمة."
               data-en="only a face-to-face conversation is Direct + Synchronous in the list.">المحادثة وجه لوجه هي
-              الوحيدة <span dir="ltr">Direct + Synchronous</span> في القائمة.</span></div>
+ الوحيدة <span dir="ltr">Direct + Synchronous</span> في القائمة.</span></div>
         </div>
         <div class="ex-item" data-multi>
           <div class="q"><span class="q-num">2</span> <span data-ar="غير مباشر ومتزامن — إيه الطرق اللي بتناسب؟"
               data-en="Indirect and synchronous — which methods fit?"><span dir="ltr">Indirect and synchronous</span> —
-              كل الوسائل المناسبة هي إيه؟</span></div>
+ كل الوسائل المناسبة هي إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  تليفون" data-en="A  Telephone">A  تليفون</div>
-            <div class="ex-opt" data-ar="B  إيميل" data-en="B  Email">B  إيميل</div>
-            <div class="ex-opt" data-ar="C  محادثة" data-en="C  Conversation">C  محادثة</div>
-            <div class="ex-opt" data-ar="D  سبورة إعلانات إلكترونية"
-              data-en="D  Electronic bulletin board">D  سبورة إعلانات إلكترونية</div>
-            <div class="ex-opt" data-ar="E  تطبيق مراسلة" data-en="E  Messaging app">E  تطبيق مراسلة</div>
-            <div class="ex-opt" data-ok="1" data-ar="F  مكالمة فيديو" data-en="F  Video call">F  مكالمة فيديو</div>
+            <div class="ex-opt" data-ok="1" data-ar="A تليفون" data-en="A  Telephone">A تليفون</div>
+            <div class="ex-opt" data-ar="B إيميل" data-en="B  Email">B إيميل</div>
+            <div class="ex-opt" data-ar="C محادثة" data-en="C  Conversation">C محادثة</div>
+            <div class="ex-opt" data-ar="D سبورة إعلانات إلكترونية"
+              data-en="D  Electronic bulletin board">D سبورة إعلانات إلكترونية</div>
+            <div class="ex-opt" data-ar="E تطبيق مراسلة" data-en="E  Messaging app">E تطبيق مراسلة</div>
+            <div class="ex-opt" data-ok="1" data-ar="F مكالمة فيديو" data-en="F  Video call">F مكالمة فيديو</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A وF — التليفون ومكالمة الفيديو"
               data-en="✅ Answer: A and F — Telephone and Video call">✅ الإجابة: A وF — التليفون ومكالمة الفيديو</b> <span
               data-ar="التليفون ومكالمة الفيديو من أماكن مختلفة (غير مباشر) وبيكلموا في نفس اللحظة (متزامن)."
               data-en="the telephone and video call are from different places (Indirect) and talk at the same moment (Synchronous).">التليفون
-              ومكالمة الفيديو من أماكن مختلفة <span dir="ltr">(Indirect)</span> وبيتكلموا في نفس اللحظة <span
+ ومكالمة الفيديو من أماكن مختلفة <span dir="ltr">(Indirect)</span> وبيتكلموا في نفس اللحظة <span
                 dir="ltr">(Synchronous)</span>.</span></div>
         </div>
         <div class="ex-item" data-multi>
           <div class="q"><span class="q-num">3</span> <span data-ar="غير مباشر وغير متزامن — إيه الطرق اللي بتناسب؟"
               data-en="Indirect and asynchronous — which methods fit?"><span dir="ltr">Indirect and asynchronous</span> —
-              كل الوسائل المناسبة هي إيه؟</span></div>
+ كل الوسائل المناسبة هي إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  تليفون" data-en="A  Telephone">A  تليفون</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  إيميل" data-en="B  Email">B  إيميل</div>
-            <div class="ex-opt" data-ar="C  محادثة" data-en="C  Conversation">C  محادثة</div>
-            <div class="ex-opt" data-ok="1" data-ar="D  سبورة إعلانات إلكترونية"
-              data-en="D  Electronic bulletin board">D  سبورة إعلانات إلكترونية</div>
-            <div class="ex-opt" data-ok="1" data-ar="E  تطبيق مراسلة" data-en="E  Messaging app">E  تطبيق مراسلة</div>
-            <div class="ex-opt" data-ar="F  مكالمة فيديو" data-en="F  Video call">F  مكالمة فيديو</div>
+            <div class="ex-opt" data-ar="A تليفون" data-en="A  Telephone">A تليفون</div>
+            <div class="ex-opt" data-ok="1" data-ar="B إيميل" data-en="B  Email">B إيميل</div>
+            <div class="ex-opt" data-ar="C محادثة" data-en="C  Conversation">C محادثة</div>
+            <div class="ex-opt" data-ok="1" data-ar="D سبورة إعلانات إلكترونية"
+              data-en="D  Electronic bulletin board">D سبورة إعلانات إلكترونية</div>
+            <div class="ex-opt" data-ok="1" data-ar="E تطبيق مراسلة" data-en="E  Messaging app">E تطبيق مراسلة</div>
+            <div class="ex-opt" data-ar="F مكالمة فيديو" data-en="F  Video call">F مكالمة فيديو</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B وD وE — الإيميل وسبورة الإعلانات الإلكترونية وتطبيق المراسلة"
               data-en="✅ Answer: B, D and E — Email, Electronic bulletin board and Messaging app">✅ الإجابة: B وD وE — الإيميل وسبورة الإعلانات الإلكترونية وتطبيق المراسلة</b> <span
               data-ar="الإيميلات وسبورات الإعلانات وتطبيقات المراسلة بتتقرا ويردّوا في أي وقت (غير متزامن) ومن أماكن مختلفة (غير مباشر)."
               data-en="emails, bulletin boards and messaging apps are read and replied to at any time (Asynchronous) and from different places (Indirect).">الرسائل
-              الإلكترونية واللوحات وتطبيقات المراسلة بتتقرا وبتترد عليها في أي وقت <span
+ الإلكترونية واللوحات وتطبيقات المراسلة بتتقرا وبتترد عليها في أي وقت <span
                 dir="ltr">(Asynchronous)</span> ومن أماكن مختلفة <span dir="ltr">(Indirect)</span>.</span></div>
         </div>
         <div class="ex-btn-row">
@@ -2213,10 +1196,10 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="'النوع الفردي بيشمل الجوابات و( [1] )' — إيه الطريقة اللي بتناسب الفراغ [1]؟"
               data-en="'The individual type includes letters and ( [1] )' — which method fits blank [1]?">'النوع الفردي بيشمل الجوابات و( [1] )' — إيه الطريقة اللي بتناسب الفراغ [1]؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  فيديو كونفرنس" data-en="A  Video conferencing">A  فيديو كونفرنس</div>
-            <div class="ex-opt" data-ar="B  تليفزيون" data-en="B  Television">B  تليفزيون</div>
-            <div class="ex-opt" data-ar="C  تبويب استبيان" data-en="C  Survey tabulation">C  تبويب استبيان</div>
-            <div class="ex-opt" data-ok="1" data-ar="D  تليفون" data-en="D  Telephone">D  تليفون</div>
+            <div class="ex-opt" data-ar="A فيديو كونفرنس" data-en="A  Video conferencing">A فيديو كونفرنس</div>
+            <div class="ex-opt" data-ar="B تليفزيون" data-en="B  Television">B تليفزيون</div>
+            <div class="ex-opt" data-ar="C تبويب استبيان" data-en="C  Survey tabulation">C تبويب استبيان</div>
+            <div class="ex-opt" data-ok="1" data-ar="D تليفون" data-en="D  Telephone">D تليفون</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: D — التليفون" data-en="✅ Answer: D — Telephone">✅ الإجابة: D — التليفون</b> <span data-ar="النوع الفردي بيشمل وسائل بين طرفين — الجوابات والتليفون."
               data-en="the individual type includes media between two sides — letters and the telephone.">النوع الفردي <span
@@ -2226,15 +1209,15 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="'نوع الإعلام الجماهيري بيشمل الجرايد و( [2] ) وصفحات الويب' — إيه الطريقة اللي بتناسب الفراغ [2]؟"
               data-en="'The mass media type includes newspapers, ( [2] ), and web pages' — which method fits blank [2]?">'نوع الإعلام الجماهيري بيشمل الجرايد و( [2] ) وصفحات الويب' — إيه الطريقة اللي بتناسب الفراغ [2]؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  فيديو كونفرنس" data-en="A  Video conferencing">A  فيديو كونفرنس</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  تليفزيون" data-en="B  Television">B  تليفزيون</div>
-            <div class="ex-opt" data-ar="C  تليفون" data-en="C  Telephone">C  تليفون</div>
-            <div class="ex-opt" data-ar="D  تبويب استبيان" data-en="D  Survey tabulation">D  تبويب استبيان</div>
+            <div class="ex-opt" data-ar="A فيديو كونفرنس" data-en="A  Video conferencing">A فيديو كونفرنس</div>
+            <div class="ex-opt" data-ok="1" data-ar="B تليفزيون" data-en="B  Television">B تليفزيون</div>
+            <div class="ex-opt" data-ar="C تليفون" data-en="C  Telephone">C تليفون</div>
+            <div class="ex-opt" data-ar="D تبويب استبيان" data-en="D  Survey tabulation">D تبويب استبيان</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — التليفزيون" data-en="✅ Answer: B — Television">✅ الإجابة: B — التليفزيون</b> <span data-ar="نوع الإعلام الجماهيري بيشمل وسائل بتوصل لجمهور كبير — الجرايد والتليفزيون وصفحات الويب."
               data-en="the mass media type includes media reaching a large audience — newspapers, television and web pages.">النوع
-              الجماهيري <span dir="ltr">(Mass media)</span> بيضم وسايل بتوصل لجمهور كبير — الجرايد والتلفزيون وصفحات
-              الويب.</span></div>
+ الجماهيري <span dir="ltr">(Mass media)</span> بيضم وسايل بتوصل لجمهور كبير — الجرايد والتلفزيون وصفحات
+ الويب.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -2249,30 +1232,30 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="إيميل — إيه أنسب شكل اتصال؟"
               data-en="Email — which form of communication is most suitable?">إيميل — إيه أنسب شكل اتصال؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  مباشر ومتزامن"
-              data-en="A  Direct and synchronous">A  مباشر ومتزامن</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  غير مباشر وغير متزامن"
-              data-en="B  Indirect and asynchronous">B  غير مباشر وغير متزامن</div>
-            <div class="ex-opt" data-ar="C  غير مباشر ومتزامن"
-              data-en="C  Indirect and synchronous">C  غير مباشر ومتزامن</div>
+            <div class="ex-opt" data-ar="A مباشر ومتزامن"
+              data-en="A  Direct and synchronous">A مباشر ومتزامن</div>
+            <div class="ex-opt" data-ok="1" data-ar="B غير مباشر وغير متزامن"
+              data-en="B  Indirect and asynchronous">B غير مباشر وغير متزامن</div>
+            <div class="ex-opt" data-ar="C غير مباشر ومتزامن"
+              data-en="C  Indirect and synchronous">C غير مباشر ومتزامن</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — غير مباشر وغير متزامن"
               data-en="✅ Answer: B — Indirect and asynchronous">✅ الإجابة: B — غير مباشر وغير متزامن</b> <span
               data-ar="الإيميل عن بُعد (غير مباشر) وبيتقرا في وقت مناسب للمستقبِل (غير متزامن)."
               data-en="email is remote (Indirect) and read at a time convenient for the recipient (Asynchronous).">البريد
-              الإلكتروني بعيد <span dir="ltr">(Indirect)</span> وبيتقرا في وقت يناسب المستلم <span
+ الإلكتروني بعيد <span dir="ltr">(Indirect)</span> وبيتقرا في وقت يناسب المستلم <span
                 dir="ltr">(Asynchronous)</span>.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="عرض تقديمي — إيه أنسب شكل اتصال؟"
               data-en="Presentation — which form of communication is most suitable?">عرض تقديمي — إيه أنسب شكل اتصال؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  غير مباشر ومتزامن"
-              data-en="A  Indirect and synchronous">A  غير مباشر ومتزامن</div>
-            <div class="ex-opt" data-ar="B  غير مباشر وغير متزامن"
-              data-en="B  Indirect and asynchronous">B  غير مباشر وغير متزامن</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  مباشر ومتزامن"
-              data-en="C  Direct and synchronous">C  مباشر ومتزامن</div>
+            <div class="ex-opt" data-ar="A غير مباشر ومتزامن"
+              data-en="A  Indirect and synchronous">A غير مباشر ومتزامن</div>
+            <div class="ex-opt" data-ar="B غير مباشر وغير متزامن"
+              data-en="B  Indirect and asynchronous">B غير مباشر وغير متزامن</div>
+            <div class="ex-opt" data-ok="1" data-ar="C مباشر ومتزامن"
+              data-en="C  Direct and synchronous">C مباشر ومتزامن</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — مباشر ومتزامن"
               data-en="✅ Answer: C — Direct and synchronous">✅ الإجابة: C — مباشر ومتزامن</b> <span
@@ -2283,18 +1266,18 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="مكالمة فيديو — إيه أنسب شكل اتصال؟"
               data-en="Video call — which form of communication is most suitable?">مكالمة فيديو — إيه أنسب شكل اتصال؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  مباشر ومتزامن"
-              data-en="A  Direct and synchronous">A  مباشر ومتزامن</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  غير مباشر ومتزامن"
-              data-en="B  Indirect and synchronous">B  غير مباشر ومتزامن</div>
-            <div class="ex-opt" data-ar="C  غير مباشر وغير متزامن"
-              data-en="C  Indirect and asynchronous">C  غير مباشر وغير متزامن</div>
+            <div class="ex-opt" data-ar="A مباشر ومتزامن"
+              data-en="A  Direct and synchronous">A مباشر ومتزامن</div>
+            <div class="ex-opt" data-ok="1" data-ar="B غير مباشر ومتزامن"
+              data-en="B  Indirect and synchronous">B غير مباشر ومتزامن</div>
+            <div class="ex-opt" data-ar="C غير مباشر وغير متزامن"
+              data-en="C  Indirect and asynchronous">C غير مباشر وغير متزامن</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — غير مباشر ومتزامن"
               data-en="✅ Answer: B — Indirect and synchronous">✅ الإجابة: B — غير مباشر ومتزامن</b> <span
               data-ar="مكالمة الفيديو من أماكن مختلفة (غير مباشر) وبتحصل في نفس اللحظة (متزامن)."
               data-en="a video call is from different places (Indirect) and happens at the same moment (Synchronous).">مكالمة
-              الفيديو من أماكن مختلفة <span dir="ltr">(Indirect)</span> وبتحصل في نفس اللحظة <span
+ الفيديو من أماكن مختلفة <span dir="ltr">(Indirect)</span> وبتحصل في نفس اللحظة <span
                 dir="ltr">(Synchronous)</span>.</span></div>
         </div>
         <div class="ex-btn-row">
@@ -2304,18 +1287,18 @@ select{color:var(--text)!important}
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="اختيار إجابة واحدة بس في أسئلة الاختيار من متعدد — لو السؤال بيقول 'اختار كل الطرق المناسبة'، ممكن يكون فيه أكتر من إجابة صح."
             data-en="Picking only one answer in multiple-choice questions — if the question says 'choose all suitable methods', there can be more than one correct answer.">اختيار إجابة واحدة بس في أسئلة الاختيار من متعدد — لو السؤال بيقول 'اختار كل الطرق المناسبة'، ممكن يكون فيه أكتر من إجابة صح.</li>
           <li data-ar="الخلط بين بث مباشر (متزامن) ومحتوى مسجّل (غير متزامن) — اللي بيفرق هو لحظة ما المشاهد بيشوف."
             data-en="Mixing up a live broadcast (Synchronous) with recorded content (Asynchronous) — what matters is the moment the viewer watches.">
-            الخلط بين بث مباشر <span dir="ltr">(Synchronous)</span> وبين المحتوى المسجل <span
+ الخلط بين بث مباشر <span dir="ltr">(Synchronous)</span> وبين المحتوى المسجل <span
               dir="ltr">(Asynchronous)</span> — المهم هو لحظة مشاهدة المشاهد.</li>
           <li data-ar="نسيان إن التليفون في الوقت الحقيقي مثال لغير مباشر + متزامن — فردي في الأنواع الأربعة."
             data-en="Forgetting the telephone in real time is an example of Indirect + Synchronous — individual in the four types.">
-            نسيان إن التليفون في نفس الوقت مثال على <span dir="ltr">Indirect + Synchronous</span> — فردي في الأنواع
-            الأربعة.</li>
+ نسيان إن التليفون في نفس الوقت مثال على <span dir="ltr">Indirect + Synchronous</span> — فردي في الأنواع
+ الأربعة.</li>
         </ul>
       </div>
     </section>
@@ -2341,17 +1324,17 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="تعريف الاتصال" data-en="The definition of Communication">تعريف <span
-                      dir="ltr">Communication</span></h4>
-                  <p data-ar="عملية استقبال وتبادل المعلومات (Information) بين الناس — مرسل وقناة ومستقبِل وتبادل."
-                    data-en="the process of receiving and exchanging information between people — a sender, a channel, a receiver, and exchange.">عملية استقبال وتبادل المعلومات (Information) بين الناس — مرسل وقناة ومستقبِل وتبادل.</p>
+                  <h3 data-ar="تعريف الاتصال" data-en="The definition of Communication" class="lvl-h4 lvl-h4-2">تعريف <span
+                      dir="ltr">Communication</span></h3>
+                  <p data-ar="عملية استقبال وتبادل المعلومات بين الناس — مرسل وقناة ومستقبِل وتبادل."
+                    data-en="the process of receiving and exchanging information between people — a sender, a channel, a receiver, and exchange.">عملية استقبال وتبادل المعلومات بين الناس — مرسل وقناة ومستقبِل وتبادل.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="حسب عدد المرسلين والمستقبِلين (4 أنواع)"
-                    data-en="By the number of senders and receivers (4 types)">حسب عدد المرسلين والمستقبِلين (4 أنواع)</h4>
+                  <h3 data-ar="حسب عدد المرسلين والمستقبِلين (4 أنواع)"
+                    data-en="By the number of senders and receivers (4 types)" class="lvl-h4 lvl-h4-2">حسب عدد المرسلين والمستقبِلين (4 أنواع)</h3>
                   <p data-ar="فردي، واحد لكثير (جماهيري)، كثير لواحد (معكوس)، كثير لكثير (مؤتمر)."
                     data-en="One-to-one (individual), One-to-many (mass), Many-to-one (reverse), Many-to-many (conference)."><span
                       dir="ltr">One-to-one</span> (فردي)، <span dir="ltr">One-to-many</span> (جماهيري)، <span
@@ -2361,20 +1344,20 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="حسب المكان: مباشر / غير مباشر"
-                    data-en="By place: Direct / Indirect">حسب المكان: <span dir="ltr">Direct / Indirect</span></h4>
+                  <h3 data-ar="حسب المكان: مباشر / غير مباشر"
+                    data-en="By place: Direct / Indirect" class="lvl-h4 lvl-h4-2">حسب المكان: <span dir="ltr">Direct / Indirect</span></h3>
                   <p data-ar="مباشر: الطرفين في نفس المكان — غير مباشر: الطرفين في أماكن مختلفة."
                     data-en="Direct: both sides in the same place — Indirect: the two sides in different places."><span
                       dir="ltr">Direct</span>: الطرفين في نفس المكان — <span dir="ltr">Indirect</span>: الطرفين في أماكن
-                    مختلفة.</p>
+ مختلفة.</p>
                 </div>
               </div>
               <div class="journey-item">
                 <span class="jn-num">04</span>
                 <div>
-                  <h4 data-ar="حسب الوقت: متزامن / غير متزامن"
-                    data-en="By time: Synchronous / Asynchronous">حسب الزمن: <span dir="ltr">Synchronous /
-                      Asynchronous</span></h4>
+                  <h3 data-ar="حسب الوقت: متزامن / غير متزامن"
+                    data-en="By time: Synchronous / Asynchronous" class="lvl-h4 lvl-h4-2">حسب الزمن: <span dir="ltr">Synchronous /
+                      Asynchronous</span></h3>
                   <p data-ar="متزامن: في نفس اللحظة — غير متزامن: في أوقات مختلفة."
                     data-en="Synchronous: at the same moment — Asynchronous: at different times."><span
                       dir="ltr">Synchronous</span>: في نفس اللحظة — <span dir="ltr">Asynchronous</span>: في أوقات مختلفة.</p>
@@ -2383,7 +1366,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">05</span>
                 <div>
-                  <h4 data-ar="أمثلة الكتاب الأساسية" data-en="The book's key examples">أمثلة الكتاب الأساسية</h4>
+                  <h3 data-ar="أمثلة الكتاب الأساسية" data-en="The book's key examples" class="lvl-h4 lvl-h4-2">أمثلة الكتاب الأساسية</h3>
                   <p data-ar="الجوابات والتليفونات (فردي)، والجرايد والراديو والتليفزيون وصفحات الويب (جماهيري)، والاستبيانات (معكوس)، والفيديو كونفرنس والسوشيال ميديا (مؤتمر)."
                     data-en="letters and telephones (individual), newspapers, radio, television and web pages (mass), surveys (reverse), video conferencing and social media (conference).">الجوابات والتليفونات (فردي)، والجرايد والراديو والتليفزيون وصفحات الويب (جماهيري)، والاستبيانات (معكوس)، والفيديو كونفرنس والسوشيال ميديا (مؤتمر).</p>
                 </div>
@@ -2432,7 +1415,7 @@ select{color:var(--text)!important}
                 data-en="How is email classified?">الإيميل بيتصنّف إزاي؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq2o3" data-key="A" data-ok="1"
-                data-fb-ar="صحيح! البريد الإلكتروني بعيد (Indirect) وبيتقرا في وقت يناسب المستلم (Asynchronous)."
+                data-fb-ar="صحيح! البريد الإلكتروني بعيد وبيتقرا في وقت يناسب المستلم."
                 data-fb-en="Correct! Email is remote (Indirect) and read at a time convenient for the recipient (Asynchronous)."><span
                   class="rq-key">A</span><span class="rq-body" data-ar="غير مباشر وغير متزامن"
                   data-en="Indirect and asynchronous">غير مباشر وغير متزامن</span></div>
@@ -2456,7 +1439,7 @@ select{color:var(--text)!important}
           <div class="rq" data-id="recapRq3">
             <div class="rq-q"><span class="q-num">3</span> <span data-ar="إيه المثال الصح لكثير لواحد؟"
                 data-en="Which is the correct example of Many-to-one?">المثال الأصح على <span dir="ltr">Many-to-one</span>
-                هو إيه؟</span></div>
+ هو إيه؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="recapRq3o2" data-key="A"
                 data-fb-ar="ده One-to-many — مرسل واحد للجمهور."
@@ -2491,25 +1474,25 @@ select{color:var(--text)!important}
             dir="ltr">Communication and Its Forms</span></h3>
         <p data-ar="دلوقتي تقدر تعرّف الاتصال، وتصنّفه حسب عدد المرسلين والمستقبِلين (4 أنواع)، وحسب المكان والوقت — وتحدد نوع أي وسيلة حواليك."
           data-en="Now you can define Communication, classify it by the number of senders and receivers (4 types), and by place and time — and identify the type of any medium around you.">
-          عرفت دلوقتي تعرّف الـ <span dir="ltr">Communication</span>، وتصنّفه حسب عدد المرسلين والمستقبلين (4 أنواع)، وحسب
-          المكان والزمن — وتحدد نوع أي وسيلة حواليك.</p>
-        <div class="note"><b data-ar="لو لسه محتاج مراجعة:" data-en="If you still need a review:">لو لسه محتاج مراجعة:</b> <span data-ar="رجع للرسومات في كل قسم واضغط 'التالي →' خطوة بخطوة."
+ عرفت دلوقتي تعرّف الـ <span dir="ltr">Communication</span>، وتصنّفه حسب عدد المرسلين والمستقبلين (4 أنواع)، وحسب
+ المكان والزمن — وتحدد نوع أي وسيلة حواليك.</p>
+        <div class="note"><b data-ar="لو لسه محتاج مراجعة:" data-en="If you still need a review:">لو لسه محتاج مراجعة:</b> <span data-ar="رجع للرسومات في كل قسم واضغط 'التالي ←' خطوة بخطوة."
               data-en="go back to the diagrams in each section and click 'Next →' step by step.">رجع للرسومات في كل قسم واضغط 'التالي →' خطوة بخطوة.</span></div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="نسيان إن الراديو والجرايد أمثلة إعلام جماهيري — مش فردي."
             data-en="Forgetting radio and newspapers are mass media examples — not individual.">
-            نسيان إن الراديو والجرايد أمثلة جماهيرية <span dir="ltr">(Mass media)</span> — مش فردية.</li>
+ نسيان إن الراديو والجرايد أمثلة جماهيرية <span dir="ltr">(Mass media)</span> — مش فردية.</li>
           <li data-ar="الخلط بين كثير لواحد وكثير لكثير — الأول فيه مستقبِل واحد، والتاني الكل بيستقبل ويبعت."
             data-en="Mixing up Many-to-one and Many-to-many — the first has one recipient, the second everyone receives and sends.">
-            الخلط بين <span dir="ltr">Many-to-one</span> و<span dir="ltr">Many-to-many</span> — الأول مستقبل <b>واحد</b>،
-            والتاني الكل بياخد ويبعت.</li>
+ الخلط بين <span dir="ltr">Many-to-one</span> و<span dir="ltr">Many-to-many</span> — الأول مستقبل <b>واحد</b>،
+ والتاني الكل بياخد ويبعت.</li>
           <li data-ar="الخلط بين المحادثة (مباشر + متزامن) وأي وسيلة عن بُعد (غير مباشر)."
             data-en="Mixing up a conversation (Direct + Synchronous) with any remote medium (Indirect).">
-            الخلط بين المحادثة (<span dir="ltr">Direct + Synchronous</span>) وأي وسيلة بعيدة (<span
+ الخلط بين المحادثة (<span dir="ltr">Direct + Synchronous</span>) وأي وسيلة بعيدة (<span
               dir="ltr">Indirect</span>).</li>
         </ul>
       </div>
@@ -2527,7 +1510,7 @@ select{color:var(--text)!important}
       </div>
       <div class="section-inner card">
         <p data-ar="ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق البحث." data-en="Search any term or use the filters to narrow down.">ادوّر على أي مصطلح أو استخدم الفلاتر عشان تضيّق البحث.</p>
-        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح...">
+        <input type="text" class="glossary-search" id="glossarySearch" data-ar="ادوّر على مصطلح..." data-en="Search for a term..." placeholder="ابحث عن مصطلح..." aria-label="ابحث عن مصطلح">
         <div class="glossary-filters">
           <button class="mini-btn gl-filter active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
           <button class="mini-btn gl-filter" data-filter="basic" data-ar="أساسيات" data-en="Basics">أساسيات</button>
@@ -2537,83 +1520,83 @@ select{color:var(--text)!important}
         </div>
         <div class="glossary-list">
           <div class="gl-term" data-cat="basic">
-            <h4 data-ar="اتصال" data-en="Communication">اتصال</h4>
-            <p data-ar="عملية استقبال وتبادل المعلومات (Information) بين الناس — مرسل وقناة ومستقبِل وتبادل." data-en="The process of receiving and exchanging information between people — a sender, a channel, a receiver, and exchange.">عملية استقبال وتبادل المعلومات (Information) بين الناس — مرسل وقناة ومستقبِل وتبادل.</p>
+            <h3 data-ar="اتصال" data-en="Communication" class="lvl-h4 lvl-h4-3">اتصال</h3>
+            <p data-ar="عملية استقبال وتبادل المعلومات بين الناس — مرسل وقناة ومستقبِل وتبادل." data-en="The process of receiving and exchanging information between people — a sender, a channel, a receiver, and exchange.">عملية استقبال وتبادل المعلومات بين الناس — مرسل وقناة ومستقبِل وتبادل.</p>
           </div>
           <div class="gl-term" data-cat="basic">
-            <h4 data-ar="المرسل" data-en="Sender">المرسل</h4>
-            <p data-ar="الشخص أو الجهة اللي معاها المعلومات (Information) وبتدّيها — نقطة البداية لأي اتصال." data-en="The person or side that has the information and gives it — the starting point of any communication.">الشخص أو الجهة اللي معاها المعلومات (Information) وبتدّيها — نقطة البداية لأي اتصال.</p>
+            <h3 data-ar="المرسل" data-en="Sender" class="lvl-h4 lvl-h4-3">المرسل</h3>
+            <p data-ar="الشخص أو الجهة اللي معاها المعلومات وبتدّيها — نقطة البداية لأي اتصال." data-en="The person or side that has the information and gives it — the starting point of any communication.">الشخص أو الجهة اللي معاها المعلومات وبتدّيها — نقطة البداية لأي اتصال.</p>
           </div>
           <div class="gl-term" data-cat="basic">
-            <h4 data-ar="المستقبِل" data-en="Receiver">المستقبِل</h4>
-            <p data-ar="الشخص اللي بياخد المعلومات (Information) ويفهمها — من غيره مفيش اتصال خالص." data-en="The person who takes the information and understands it — without him there is no communication at all.">الشخص اللي بياخد المعلومات (Information) ويفهمها — من غيره مفيش اتصال خالص.</p>
+            <h3 data-ar="المستقبِل" data-en="Receiver" class="lvl-h4 lvl-h4-3">المستقبِل</h3>
+            <p data-ar="الشخص اللي بياخد المعلومات ويفهمها — من غيره مفيش اتصال خالص." data-en="The person who takes the information and understands it — without him there is no communication at all.">الشخص اللي بياخد المعلومات ويفهمها — من غيره مفيش اتصال خالص.</p>
           </div>
           <div class="gl-term" data-cat="basic">
-            <h4 data-ar="القناة" data-en="Channel">القناة</h4>
-            <p data-ar="الوسيلة اللي بتحمل المعلومات (Information) — صوت في الهوا، نص على ورق، إشارة على الإنترنت." data-en="The medium that carries the information — sound in the air, text on paper, a signal over the internet.">الوسيلة اللي بتحمل المعلومات (Information) — صوت في الهوا، نص على ورق، إشارة على الإنترنت.</p>
+            <h3 data-ar="القناة" data-en="Channel" class="lvl-h4 lvl-h4-3">القناة</h3>
+            <p data-ar="الوسيلة اللي بتحمل المعلومات — صوت في الهوا، نص على ورق، إشارة على الإنترنت." data-en="The medium that carries the information — sound in the air, text on paper, a signal over the internet.">الوسيلة اللي بتحمل المعلومات — صوت في الهوا، نص على ورق، إشارة على الإنترنت.</p>
           </div>
           <div class="gl-term" data-cat="basic">
-            <h4 data-ar="تبادل" data-en="Exchange">تبادل</h4>
+            <h3 data-ar="تبادل" data-en="Exchange" class="lvl-h4 lvl-h4-3">تبادل</h3>
             <p data-ar="الأدوار بتبدّل — المرسل يبقى مستقبِل والعكس — وده ليه الاتصال تبادل، مش إرسال باتجاه واحد." data-en="The roles reverse — the sender becomes a receiver and vice versa — that is why communication is an exchange, not one-way sending.">الأدوار بتبدّل — المرسل يبقى مستقبِل والعكس — وده ليه الاتصال تبادل، مش إرسال باتجاه واحد.</p>
           </div>
           <div class="gl-term" data-cat="types">
-            <h4 data-ar="فردي (نوع فردي)" data-en="One-to-one (Individual type)">فردي (نوع فردي)</h4>
+            <h3 data-ar="فردي (نوع فردي)" data-en="One-to-one (Individual type)" class="lvl-h4 lvl-h4-3">فردي (نوع فردي)</h3>
             <p data-ar="مرسل واحد لمستقبِل واحد — زي الجوابات والمكالمات." data-en="One sender to one receiver — like letters and phone calls.">مرسل واحد لمستقبِل واحد — زي الجوابات والمكالمات.</p>
           </div>
           <div class="gl-term" data-cat="types">
-            <h4 data-ar="واحد لكثير (نوع الإعلام الجماهيري)" data-en="One-to-many (Mass media type)">واحد لكثير (نوع الإعلام الجماهيري)</h4>
+            <h3 data-ar="واحد لكثير (نوع الإعلام الجماهيري)" data-en="One-to-many (Mass media type)" class="lvl-h4 lvl-h4-3">واحد لكثير (نوع الإعلام الجماهيري)</h3>
             <p data-ar="مرسل واحد لعدد كبير من المستقبِلين — الجرايد والراديو والتليفزيون وصفحات الويب." data-en="One sender to a large number of receivers — newspapers, radio, television, web pages.">مرسل واحد لعدد كبير من المستقبِلين — الجرايد والراديو والتليفزيون وصفحات الويب.</p>
           </div>
           <div class="gl-term" data-cat="types">
-            <h4 data-ar="كثير لواحد (نوع الإعلام الجماهيري المعكوس)" data-en="Many-to-one (Reverse mass media type)">كثير لواحد (نوع الإعلام الجماهيري المعكوس)</h4>
+            <h3 data-ar="كثير لواحد (نوع الإعلام الجماهيري المعكوس)" data-en="Many-to-one (Reverse mass media type)" class="lvl-h4 lvl-h4-3">كثير لواحد (نوع الإعلام الجماهيري المعكوس)</h3>
             <p data-ar="مرسلين كتير لمستقبِل واحد — زي الاستبيانات والاستفسارات." data-en="Many senders to one recipient — like surveys and inquiries.">مرسلين كتير لمستقبِل واحد — زي الاستبيانات والاستفسارات.</p>
           </div>
           <div class="gl-term" data-cat="types">
-            <h4 data-ar="كثير لكثير (نوع المؤتمر)" data-en="Many-to-many (Conference type)">كثير لكثير (نوع المؤتمر)</h4>
+            <h3 data-ar="كثير لكثير (نوع المؤتمر)" data-en="Many-to-many (Conference type)" class="lvl-h4 lvl-h4-3">كثير لكثير (نوع المؤتمر)</h3>
             <p data-ar="الكل بيبعت والكل بيستقبل — الفيديو كونفرنس والمكالمات الجماعية والسوشيال ميديا." data-en="Everyone sends and everyone receives — video conferencing, group calls, social media.">الكل بيبعت والكل بيستقبل — الفيديو كونفرنس والمكالمات الجماعية والسوشيال ميديا.</p>
           </div>
           <div class="gl-term" data-cat="classify">
-            <h4 data-ar="مباشر" data-en="Direct">مباشر</h4>
+            <h3 data-ar="مباشر" data-en="Direct" class="lvl-h4 lvl-h4-3">مباشر</h3>
             <p data-ar="اتصال والطرفين في نفس المكان — زي الكلام وش لوش." data-en="Communication with both sides in the same place — like a face-to-face conversation.">اتصال والطرفين في نفس المكان — زي الكلام وش لوش.</p>
           </div>
           <div class="gl-term" data-cat="classify">
-            <h4 data-ar="غير مباشر" data-en="Indirect">غير مباشر</h4>
+            <h3 data-ar="غير مباشر" data-en="Indirect" class="lvl-h4 lvl-h4-3">غير مباشر</h3>
             <p data-ar="اتصال والطرفين في أماكن مختلفة — زي المكالمات والبريد." data-en="Communication with the two sides in different places — like calls and mail.">اتصال والطرفين في أماكن مختلفة — زي المكالمات والبريد.</p>
           </div>
           <div class="gl-term" data-cat="classify">
-            <h4 data-ar="متزامن" data-en="Synchronous">متزامن</h4>
+            <h3 data-ar="متزامن" data-en="Synchronous" class="lvl-h4 lvl-h4-3">متزامن</h3>
             <p data-ar="اتصال بيحصل في نفس اللحظة للطرفين — زي المكالمة والبث المباشر." data-en="Communication happening at the same moment for both sides — like a call and a live broadcast.">اتصال بيحصل في نفس اللحظة للطرفين — زي المكالمة والبث المباشر.</p>
           </div>
           <div class="gl-term" data-cat="classify">
-            <h4 data-ar="غير متزامن" data-en="Asynchronous">غير متزامن</h4>
+            <h3 data-ar="غير متزامن" data-en="Asynchronous" class="lvl-h4 lvl-h4-3">غير متزامن</h3>
             <p data-ar="اتصال بيحصل في أوقات مختلفة — الرسالة بتتسبّب وتتقرا بعدين، زي الإيميل." data-en="Communication happening at different times — the message is left and read later, like email.">اتصال بيحصل في أوقات مختلفة — الرسالة بتتسبّب وتتقرا بعدين، زي الإيميل.</p>
           </div>
           <div class="gl-term" data-cat="media">
-            <h4 data-ar="الجوابات" data-en="Letters">الجوابات</h4>
+            <h3 data-ar="الجوابات" data-en="Letters" class="lvl-h4 lvl-h4-3">الجوابات</h3>
             <p data-ar="مثال على الفردي — رابطة فردية بين شخصين." data-en="An example of One-to-one — an individual connection between two people.">مثال على <span dir="ltr">One-to-one</span> — اتصال فردي بين شخصين.</p>
           </div>
           <div class="gl-term" data-cat="media">
-            <h4 data-ar="التليفونات" data-en="Telephones">التليفونات</h4>
+            <h3 data-ar="التليفونات" data-en="Telephones" class="lvl-h4 lvl-h4-3">التليفونات</h3>
             <p data-ar="مثال على الفردي — رابطة فردية بين شخصين، في نفس اللحظة." data-en="An example of One-to-one — an individual connection between two people, at the same moment.">مثال على <span dir="ltr">One-to-one</span> — اتصال فردي بين شخصين، وفي نفس اللحظة.</p>
           </div>
           <div class="gl-term" data-cat="media">
-            <h4 data-ar="راديو" data-en="Radio">راديو</h4>
+            <h3 data-ar="راديو" data-en="Radio" class="lvl-h4 lvl-h4-3">راديو</h3>
             <p data-ar="مثال على واحد لكثير — مرسل واحد يوصل لكتير من المستقبِلين." data-en="An example of One-to-many — one sender reaching many receivers.">مثال على <span dir="ltr">One-to-many</span> — مرسل واحد بيوصل لعدد كبير من المستقبلين.</p>
           </div>
           <div class="gl-term" data-cat="media">
-            <h4 data-ar="التليفزيون" data-en="Television">التليفزيون</h4>
+            <h3 data-ar="التليفزيون" data-en="Television" class="lvl-h4 lvl-h4-3">التليفزيون</h3>
             <p data-ar="مثال على واحد لكثير — بث من مصدر واحد لجمهور كبير في نفس الوقت." data-en="An example of One-to-many — a broadcast from one source to a large audience at the same time.">مثال على <span dir="ltr">One-to-many</span> — بث من مصدر واحد لجمهور كبير في نفس الوقت.</p>
           </div>
           <div class="gl-term" data-cat="media">
-            <h4 data-ar="الاستبيانات" data-en="Surveys">الاستبيانات</h4>
+            <h3 data-ar="الاستبيانات" data-en="Surveys" class="lvl-h4 lvl-h4-3">الاستبيانات</h3>
             <p data-ar="مثال على كثير لواحد — إجابات ناس كتير بتتجمع عند جهة واحدة." data-en="An example of Many-to-one — many people's answers gather at one authority.">مثال على <span dir="ltr">Many-to-one</span> — إجابات عدد كبير بتتجمع عند جهة واحدة.</p>
           </div>
           <div class="gl-term" data-cat="media">
-            <h4 data-ar="الفيديو كونفرنس" data-en="Video conferencing">الفيديو كونفرنس</h4>
+            <h3 data-ar="الفيديو كونفرنس" data-en="Video conferencing" class="lvl-h4 lvl-h4-3">الفيديو كونفرنس</h3>
             <p data-ar="مثال على كثير لكثير — كل المشاركين بيبعتوا ويستقبلوا في نفس الوقت." data-en="An example of Many-to-many — all participants send and receive at the same time.">مثال على <span dir="ltr">Many-to-many</span> — كل المشاركين بيبعتوا ويستقبلوا في نفس الوقت.</p>
           </div>
           <div class="gl-term" data-cat="media">
-            <h4 data-ar="سوشيال ميديا" data-en="Social media">سوشيال ميديا</h4>
+            <h3 data-ar="سوشيال ميديا" data-en="Social media" class="lvl-h4 lvl-h4-3">سوشيال ميديا</h3>
             <p data-ar="مثال على كثير لكثير — الكل بيبوست والكل بيتفاعل مع الباقي." data-en="An example of Many-to-many — everyone posts and everyone interacts with the rest.">مثال على <span dir="ltr">Many-to-many</span> — الكل بينشر والكل بيتفاعل مع الباقيين.</p>
           </div>
         </div>

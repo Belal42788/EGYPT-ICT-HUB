@@ -10,981 +10,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../../assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/apple-touch-icon.png">
   <meta name="description" content="شرح 9-3 — من منهج ICT للمرحلة الثانوية، منصة Egypt ICT Hub بواسطة بلال عبدالناصر.">
-  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><style>:root{
-      --s1:#1838f8;
-      --s2:#9a6a00;
-      --s3:#1838f8;
-      --s4:#10B981;
-      --s5:#1838f8;
-      --s6:#d7263d}*{
-      margin:0;
-      padding:0;
-      box-sizing:border-box
-    }html{
-      scroll-behavior:smooth
-    }body{
-      font-family:'Cairo', 'Cairo', sans-serif;
-      background:var(--bg);
-      color:var(--dim);
-      line-height:1.9;
-      overflow-x:hidden
-    }.bg-gradient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      background:radial-gradient(600px 400px at 30% 50%, rgba(24, 56, 248, .35), transparent 70%),
-        radial-gradient(600px 400px at 70% 80%, rgba(24, 56, 248, .28), transparent 70%);
-      animation:bgDrift 18s ease-in-out infinite;
-    }@keyframes bgDrift{
-
-      0%,
-      100% {
-        transform:translate(0, 0) scale(1)
-      }
-
-      50% {
-        transform:translate(-30px, 20px) scale(1.08)
-      }
-    }.particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none
-    }.particles i{
-      position:absolute;
-      bottom:-10px;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:var(--primary);
-      opacity:.3;
-      animation:floatUp 14s linear infinite
-    }@keyframes floatUp{
-      0% {
-        transform:translateY(0);
-        opacity:0
-      }
-
-      10% {
-        opacity:.3
-      }
-
-      100% {
-        transform:translateY(-110vh);
-        opacity:0
-      }
-    }@keyframes heroFloat{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-26px)
-      }
-    }@keyframes fadeUp{
-      from {
-        opacity:0;
-        transform:translateY(40px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }main{
-      max-width:1060px;
-      margin:0 auto;
-      padding:0 24px
-    }section{
-      padding:38px 0
-    }.section-header{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      margin-bottom:16px
-    }.section-number{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-      color:var(--bg);
-      animation:glow 3s ease-in-out infinite
-    }@keyframes glow{
-
-      0%,
-      100% {
-        box-shadow:0 0 20px rgba(24, 56, 248, .25)
-      }
-
-      50% {
-        box-shadow:0 0 42px rgba(24, 56, 248, .6)
-      }
-    }.section-header h2{
-      font-size:clamp(22px, 4vw, 34px);
-      font-weight:800;
-      color:var(--text);
-      line-height:1.3
-    }.section-header .tag{
-      font-size:.9rem
-    }.section-inner{
-      opacity:0;
-      transform:translateY(30px);
-      transition:all .6s cubic-bezier(.4, 0, .2, 1)
-    }.section-inner.visible{
-      opacity:1;
-      transform:translateY(0)
-    }@keyframes autoReveal{ from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }.section-inner{ animation:autoReveal .7s ease-out both; }.section-inner.visible{ animation:none; opacity:1; transform:translateY(0); }.section-inner+.section-inner{
-      margin-top:16px
-    }.card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:18px;
-      transition:.3s
-    }.card:hover{
-      background:var(--card-hover);
-      transform:translateY(-5px);
-      border-color:rgba(24, 56, 248, .3)
-    }.diagram-wrap{
-      position:relative;
-      border-radius:24px;
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      overflow:hidden
-    }.diagram-wrap .topbar{
-      height:3px;
-      background:linear-gradient(90deg, var(--primary), var(--accent))
-    }.diagram-wrap .inner{
-      padding:16px
-    }h3{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.25rem;
-      margin-bottom:12px;
-      line-height:1.4
-    }p{
-      margin-bottom:12px
-    }b,
-    strong{
-      color:var(--text)
-    }.note{
-      background:rgba(255, 215, 0, .06);
-      border:1px solid rgba(255, 215, 0, .25);
-      border-radius:12px;
-      padding:14px 16px;
-      margin-top:14px;
-      font-size:.95rem
-    }.note b{
-      color:var(--warn)
-    }.glossary-search{
-      width:100%;
-      padding:12px 18px;
-      border-radius:50px;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      background:var(--card);
-      color:var(--text);
-      font-family:inherit;
-      font-size:15px;
-      color-scheme:dark;
-      margin:14px 0;
-    }.glossary-search:focus{
-      outline:none;
-      border-color:var(--primary);
-    }.glossary-filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:18px;
-    }.gl-filter{
-      padding:6px 16px;
-    }.gl-filter.active{
-      background:rgba(24, 56, 248, 0.2);
-      border-color:var(--s3);
-      color:var(--text);
-    }.glossary-list{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px;
-    }@media (max-width:860px){.glossary-list{
-        grid-template-columns:1fr;
-      }
-    }.gl-term{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.08);
-      border-radius:16px;
-      padding:16px;
-      transition:all 0.3s ease;
-    }.gl-term:hover{
-      background:var(--card-hover);
-      border-color:var(--s3);
-    }.gl-term h4{
-      font-size:15px;
-      margin-bottom:6px;
-      color:var(--s3);
-    }.gl-term p{
-      font-size:13px;
-      margin-bottom:0;
-    }.gl-term.hidden{
-      display:none;
-    }.error-box{
-      border:1px solid rgba(215, 38, 61, .2);
-      background:rgba(215, 38, 61, .05);
-      border-radius:12px;
-      padding:16px;
-      margin-top:6px
-    }.error-box h4,
-    .error-box h3{
-      color:var(--danger);
-      font-weight:800;
-      margin-bottom:10px;
-      font-size:1rem
-    }.error-box ul{
-      list-style:none
-    }.error-box li{
-      padding:4px 0;
-      position:relative;
-      padding-right:26px
-    }.error-box li::before{
-      content:"⚠️";
-      position:absolute;
-      right:0;
-      top:2px;
-      font-size:.95rem
-    }.error-box li b{
-      color:var(--danger)
-    }.legend{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:14px;
-      font-size:.85rem
-    }.legend span{
-      display:inline-flex;
-      align-items:center;
-      gap:7px
-    }.legend i{
-      width:14px;
-      height:14px;
-      border-radius:4px;
-      display:inline-block
-    }.concept-block{
-      border-top:3px solid var(--c);
-      padding-top:30px;
-      margin-top:14px
-    }.concept-block:first-of-type{
-      margin-top:0
-    }.concept-head{
-      display:flex;
-      align-items:center;
-      gap:14px
-    }.concept-title{
-      font-size:1.35rem;
-      font-weight:800;
-      color:var(--text);
-      line-height:1.4
-    }.concept-head .tag{
-      font-size:.88rem
-    }.activity-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px
-    }@media(max-width:860px){.activity-grid{
-        grid-template-columns:1fr
-      }
-    }.activity-grid .demo-panel{
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      padding:20px;
-      background:rgba(11, 16, 32, 0.03);
-      border-radius:16px;
-      border:1px solid rgba(11, 16, 32, 0.06)
-    }.demo-label{
-      font-size:.82rem;
-      font-weight:700;
-      color:var(--dim);
-      margin-bottom:6px;
-      display:block
-    }.todo-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:12px 16px;
-      margin-bottom:10px
-    }.todo-item b{
-      color:var(--text)
-    }.btn{
-      background:linear-gradient(90deg, var(--primary), var(--accent));
-      border:none;
-      color:#fff;
-      font-family:inherit;
-      font-weight:800;
-      padding:12px 28px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:.95rem;
-      transition:.2s;
-      box-shadow:0 6px 24px rgba(24, 56, 248, .3)
-    }.btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 32px rgba(24, 56, 248, .3)
-    }.mini-btn{
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      color:var(--text);
-      font-family:inherit;
-      font-weight:600;
-      padding:8px 18px;
-      border-radius:30px;
-      cursor:pointer;
-      font-size:.85rem
-    }.mini-btn:hover{
-      background:rgba(11, 16, 32, 0.12)
-    }.btn-row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap
-    }.kbd{
-      display:inline-block;
-      background:#e9edfe;
-      border:1px solid rgba(11, 16, 32, 0.15);
-      border-radius:6px;
-      padding:2px 10px;
-      font-size:.85rem;
-      color:var(--text);
-      font-family:'Consolas', monospace
-    }.hint-line{
-      font-size:.85rem;
-      color:var(--dim);
-      margin-top:8px
-    }.tl-card{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.05);
-      border-radius:24px;
-      padding:24px
-    }.tl-steps{
-      min-height:120px;
-      display:flex;
-      align-items:center
-    }.tl-step{
-      display:none;
-      text-align:center;
-      width:100%
-    }.tl-step.active{
-      display:block;
-      animation:tlIn .4s ease
-    }@keyframes tlIn{
-      from {
-        opacity:0;
-        transform:translateY(12px)
-      }
-
-      to {
-        opacity:1;
-        transform:translateY(0)
-      }
-    }.tl-icon{
-      font-size:2.1rem;
-      margin-bottom:6px;
-      display:inline-block
-    }.tl-year-badge{
-      display:inline-block;
-      background:rgba(11, 16, 32, 0.06);
-      border:1px solid rgba(11, 16, 32, 0.12);
-      border-radius:20px;
-      padding:3px 16px;
-      font-size:.85rem;
-      color:var(--accent);
-      font-weight:700
-    }.tl-title{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.2rem;
-      margin:8px 0 6px
-    }.tl-desc{
-      color:var(--dim);
-      font-size:.98rem;
-      max-width:660px;
-      margin:0 auto
-    }.tl-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px
-    }.svg-stage{
-      position:relative;
-      max-width:760px;
-      margin:10px auto 0
-    }.svg-stage .svg-main{
-      width:100%;
-      height:auto;
-      display:block
-    }.svg-label{
-      position:absolute;
-      transform:translate(-50%, -50%);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(255, 255, 255, 0.88);
-      border:1px solid rgba(11, 16, 32, 0.16);
-      border-radius:12px;
-      padding:5px 12px;
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-      white-space:nowrap;
-      z-index:3;
-      pointer-events:none;
-      box-shadow:0 6px 20px rgba(0, 0, 0, .45)
-    }.svg-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35))
-    }.flow-box{
-      fill:url(#bxG);
-      stroke:rgba(255, 255, 255, .14);
-      stroke-width:2;
-      filter:drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
-      transition:stroke .3s, filter .3s
-    }.flow-box.on{
-      stroke:var(--accent);
-      filter:drop-shadow(0 0 18px rgba(24, 56, 248, .5))
-    }.flow-wire{
-      stroke:#dfe5fb;
-      stroke-width:3;
-      fill:none;
-      transition:stroke .3s
-    }.flow-wire.on{
-      stroke:var(--accent);
-      stroke-width:3.5;
-      stroke-dasharray:6 12;
-      stroke-linecap:round;
-      animation:flow 1.1s linear infinite;
-      filter:drop-shadow(0 0 6px rgba(24, 56, 248, .6))
-    }@keyframes flow{
-      to {
-        stroke-dashoffset:-36
-      }
-    }.wire-arrow{
-      fill:var(--accent);
-      opacity:0;
-      transition:opacity .3s;
-      filter:drop-shadow(0 0 4px rgba(24, 56, 248, .6))
-    }.wire-arrow.on{
-      opacity:1
-    }.flow-port{
-      fill:#dfe5fb;
-      stroke:var(--bg);
-      stroke-width:2;
-      transition:fill .3s
-    }.flow-port.on{
-      fill:var(--accent);
-      filter:drop-shadow(0 0 8px rgba(24, 56, 248, .8))
-    }.bcast-wave{
-      fill:none;
-      stroke:var(--accent);
-      stroke-width:2;
-      opacity:0;
-      transform-box:fill-box;
-      transform-origin:center
-    }.bcast-wave.run{
-      animation:wave 1.8s ease-out infinite
-    }.bcast-wave.run:nth-of-type(2){
-      animation-delay:.5s
-    }@keyframes wave{
-      0% {
-        opacity:.8;
-        transform:scale(.4)
-      }
-
-      100% {
-        opacity:0;
-        transform:scale(1.5)
-      }
-    }.flow-arrow{
-      color:var(--accent);
-      overflow:visible
-    }.flow-arrow use{
-      transform-box:fill-box;
-      transform-origin:center
-    }.flow-arrow use.flip{
-      transform:scaleX(-1)
-    }.mx-grid{
-      display:grid;
-      grid-template-columns:140px 1fr 1fr;
-      gap:10px;
-      margin-top:8px
-    }.mx-grid>div{
-      border-radius:14px;
-      padding:14px
-    }.mx-head{
-      background:rgba(24, 56, 248, .12);
-      border:1px solid rgba(24, 56, 248, .35);
-      font-weight:800;
-      color:var(--text);
-      text-align:center
-    }.mx-row{
-      background:rgba(11, 16, 32, 0.04);
-      border:1px solid rgba(11, 16, 32, 0.1);
-      font-weight:800;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center
-    }.mx-cell{
-      background:var(--card);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      min-height:70px
-    }.mx-cell b{
-      display:block;
-      color:var(--text);
-      font-size:.9rem;
-      margin-bottom:4px
-    }.mx-chip{
-      display:inline-block;
-      background:rgba(24, 56, 248, .1);
-      border:1px solid rgba(24, 56, 248, .35);
-      color:var(--accent);
-      border-radius:20px;
-      padding:3px 12px;
-      font-size:.85rem;
-      margin:4px
-    }.mx-empty{
-      color:var(--dim);
-      font-size:.9rem;
-      text-align:center;
-      padding:8px
-    }@media(max-width:700px){.mx-grid{
-        grid-template-columns:1fr 1fr
-      }.mx-row{
-        grid-column:span 2
-      }
-    }.ex-item{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.ex-item .q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.ex-options{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.ex-options{
-        grid-template-columns:1fr
-      }
-    }.ex-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      white-space:pre-wrap;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.ex-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.ex-opt.picked{
-      border-color:var(--primary);
-      background:rgba(24, 56, 248, .18);
-      color:#fff;
-      box-shadow:0 0 0 1px var(--primary)
-    }.ex-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.ex-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.ex-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:rgba(24, 56, 248, .18);
-      border:1px solid rgba(24, 56, 248, .55);
-      color:var(--s3);
-      font-weight:800;
-      font-size:.78rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.ex-body{
-      vertical-align:middle;
-      display:inline-block;
-      white-space:normal
-    }.ex-answer{
-      display:none;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:.92rem
-    }.ex-answer.show{
-      display:block;
-      border:1px solid rgba(13, 158, 86, .35);
-      background:rgba(13, 158, 86, .07);
-      color:var(--success)
-    }.ex-answer.show b{
-      color:var(--success);
-      margin:0 6px
-    }.ex-score{
-      margin-top:14px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:rgba(13, 158, 86, .08);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success);
-      font-size:.95rem
-    }.group-label{
-      color:var(--text);
-      font-weight:800;
-      font-size:1.05rem;
-      margin:22px 0 12px;
-      display:flex;
-      align-items:center;
-      gap:8px
-    }.group-label::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      background:var(--s3);
-      flex-shrink:0
-    }.recall{
-      display:none;
-      margin-top:16px
-    }.recall.show{
-      display:block
-    }.rq{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:14px;
-      padding:16px 18px;
-      margin-bottom:14px
-    }.rq-q{
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px
-    }.rq-opts{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px
-    }@media(max-width:640px){.rq-opts{
-        grid-template-columns:1fr
-      }
-    }.rq-opt{
-      direction:rtl;
-      text-align:right;
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.09);
-      border-radius:10px;
-      padding:8px 12px;
-      font-size:.9rem;
-      color:#2d56fb;
-      cursor:pointer;
-      transition:.15s;
-      user-select:none
-    }.rq-opt:hover{
-      border-color:rgba(24, 56, 248, .5);
-      background:rgba(24, 56, 248, .08)
-    }.rq-opt.disabled{
-      pointer-events:none;
-      opacity:.65
-    }.rq-opt.correct{
-      border-color:var(--success);
-      background:rgba(13, 158, 86, .12);
-      color:var(--success)
-    }.rq-opt.wrong{
-      border-color:var(--danger);
-      background:rgba(215, 38, 61, .12);
-      color:#2f2e3c
-    }.rq-key{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:26px;
-      height:26px;
-      border-radius:6px;
-      background:rgba(24, 56, 248, .14);
-      border:1px solid rgba(24, 56, 248, .5);
-      color:#2d56fb;
-      font-weight:800;
-      font-size:.82rem;
-      margin-right:10px;
-      vertical-align:middle;
-      flex-shrink:0
-    }.rq-fb{
-      margin-top:10px;
-      display:none;
-      font-size:.92rem;
-      padding:10px 14px;
-      border-radius:10px
-    }.rq-fb.show{
-      display:block
-    }.rq-fb.ok{
-      background:rgba(13, 158, 86, .07);
-      border:1px solid rgba(13, 158, 86, .35);
-      color:var(--success)
-    }.rq-fb.no{
-      background:rgba(215, 38, 61, .07);
-      border:1px solid rgba(215, 38, 61, .35);
-      color:#2f2e3c
-    }.journey{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      padding-right:26px
-    }.journey::before{
-      content:"";
-      position:absolute;
-      right:9px;
-      top:14px;
-      bottom:14px;
-      width:3px;
-      border-radius:3px;
-      background:linear-gradient(180deg, var(--s2), var(--s3), var(--s4), var(--s5), var(--s6))
-    }.j-node{
-      position:relative;
-      display:grid;
-      grid-template-columns:20px 1fr;
-      gap:16px;
-      padding:14px 0
-    }.j-dot{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      flex-shrink:0;
-      margin-top:3px;
-      z-index:2
-    }.j-body .t{
-      color:var(--text);
-      font-weight:700
-    }.j-body .d{
-      font-size:.93rem
-    }.journey-item{
-      position:relative;
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:14px;
-      padding:12px 0
-    }.journey-item h4{
-      color:var(--text);
-      font-size:1rem;
-      margin:0 0 4px
-    }.journey-item p{
-      margin:0;
-      font-size:.92rem
-    }.pill{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      border-radius:14px;
-      padding:12px 14px;
-      margin-bottom:10px;
-      font-size:.92rem;
-      line-height:1.7
-    }.pill-dot{
-      flex-shrink:0;
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      margin-top:7px
-    }.mx-wrap{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-radius:16px;
-      padding:14px
-    }.ex-btn-row{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap
-    }.congrats{
-      border:1px solid rgba(13, 158, 86, .35);
-      background:linear-gradient(180deg, rgba(13, 158, 86, .07), rgba(11, 16, 32, 0.03))
-    }#scrollTop{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:60;
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      border:1px solid rgba(24, 56, 248, .4);
-      background:rgba(255, 255, 255, 0.9);
-      color:var(--accent);
-      font-size:1.15rem;
-      font-weight:800;
-      cursor:pointer;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      transition:.2s;
-      box-shadow:0 8px 24px rgba(0, 0, 0, .35)
-    }#scrollTop.show{
-      display:flex
-    }#scrollTop:hover{
-      background:rgba(24, 56, 248, .15)
-    }.emoji-float{
-      display:inline-block;
-      animation:ef 3s ease-in-out infinite
-    }@keyframes ef{
-
-      0%,
-      100% {
-        transform:translateY(0)
-      }
-
-      50% {
-        transform:translateY(-5px)
-      }
-    }.emoji-pulse{
-      display:inline-block;
-      animation:ep 2s ease-in-out infinite
-    }@keyframes ep{
-
-      0%,
-      100% {
-        transform:scale(1)
-      }
-
-      50% {
-        transform:scale(1.12)
-      }
-    }.bg-gradient,.particles,.bg-animation,.particle{
-      display:none !important;
-    }.gradient-text{
-      background:none !important;
-      -webkit-text-fill-color:var(--primary) !important;
-      color:var(--primary) !important;
-    }.lesson-section::before,
-    .lesson-section[data-accent]::before{
-      background:var(--primary) !important;
-    }.section-number,
-    .lesson-section[data-accent] .section-number{
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:none !important;
-      animation:none !important;
-    }[class*="-bar-fill"]{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].good{
-      background:var(--success) !important;
-    }[class*="-bar-fill"].mid{
-      background:var(--primary) !important;
-    }[class*="-bar-fill"].bad{
-      background:var(--danger) !important;
-    }.unit-num, .unit-card{
-      background:var(--primary) !important;
-    }.cta-btn,.btn{
-      background:var(--primary) !important;
-      color:#fff !important;
-      border-color:var(--primary) !important;
-      box-shadow:0 8px 20px rgba(0, 0, 0, .25) !important;
-    }.cta-btn:hover,.btn:hover{
-      box-shadow:0 10px 26px rgba(0, 0, 0, .3) !important;
-    }[style*="linear-gradient"]{
-      background:var(--primary) !important;
-    }.book-card{
-      background:rgba(11, 16, 32, 0.03);
-      border:1px solid rgba(11, 16, 32, 0.07);
-      border-inline-start:4px solid var(--s2, #9a6a00);
-      border-radius:18px;
-      padding:20px 22px;
-      margin:18px 0
-    }.book-card.try{
-      border-inline-start-color:var(--s5, #1440c9)
-    }.book-card.try h3{
-      color:var(--s5, #1440c9)
-    }.book-card h3{
-      margin:0 0 10px;
-      color:var(--s2, #9a6a00)
-    }.book-card ol, .book-card ul{
-      margin:8px 0;
-      padding-inline-start:22px
-    }.book-card li{
-      margin-bottom:6px
-    }.book-src{
-      display:block;
-      margin-top:12px;
-      font-size:.82rem;
-      opacity:.65
-    }.book-diff{
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:10px;
-      background:rgba(245, 158, 11, .08);
-      border:1px solid rgba(245, 158, 11, .3);
-      font-size:.9rem
-    }
-
-/* === Book text moved beside the part that explains it (out of the old top box) === */
-.bq-inline{margin:12px 0 0;padding:10px 13px;border-inline-start:3px solid var(--primary);
-  background:rgba(24,56,248,.05);border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.8;color:var(--text)}
-html[dir="ltr"] .bq-inline{border-radius:10px 0 0 10px}
-.bq-inline .bqi-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.2px;color:var(--primary);margin-bottom:3px}
-.bq-inline + .bq-inline .bqi-tag{display:none}
-</style>
+  <link rel="stylesheet" href="../../../../assets/css/site.css"><link rel="stylesheet" href="../../../../assets/css/nav.css"><link rel="stylesheet" href="../../../../assets/css/lesson.css"><link rel="stylesheet" href="../../../../assets/css/pages/-3-various-information-systems--9-3-various-information-systems-1.css">
 <link rel="stylesheet" href="../../../../assets/css/lesson-numbers.css">
 <script defer src="../../../../assets/js/lesson-numbers.js"></script>
-<style id="contrast-pass-2">
-/* Readability pass 2: faded captions and low-contrast accent text (axe-core leftovers). */
-.book-src,.tbl-note,.source-note,.simulation-note{opacity:1!important;color:#59606f!important}
-.slot{color:#0b1020!important}
-.bt-sub,.bt-note{color:#3a4152!important}
-.chat-who{color:#4b5468!important}
-.email-vals{color:#2d56fb!important}
-.tag{color:#0a7a55!important}
-b[style*="var(--s2)"],span[style*="var(--s2)"]{color:#7d5500!important}
-b[style*="var(--s6)"],span[style*="var(--s6)"]{color:#b31f34!important}
-b[style*="var(--s4)"],span[style*="var(--s4)"]{color:#0a7a55!important}
-.source-task h4{color:var(--text)!important}
-select{color:var(--text)!important}
-</style>
-<style id="mob-diagram-fit">
-/* Mobile: diagram captions must fit the phone width and stay readable.
-   The floating captions are stacked under the diagram instead of overlapping
-   or needing a sideways swipe. */
-@media (max-width:640px){
-  .diagram-wrap{overflow:hidden}
-  .diagram-wrap .inner{min-width:0;display:flex;flex-direction:column;gap:6px}
-  .diagram-wrap svg{max-width:100%;height:auto}
-  .svg-label{position:static!important;transform:none!important;left:auto!important;top:auto!important;
-    width:auto!important;max-width:100%!important;font-size:12px;line-height:1.45;text-align:start;
-    padding:6px 9px;margin:0}
-  .diagram-wrap table{font-size:11.5px}
-  .diagram-wrap th,.diagram-wrap td{padding:4px 5px;word-break:break-word}
-  .diagram-wrap pre{white-space:pre-wrap;word-break:break-word}
-}
-</style>
+<link rel="stylesheet" href="../../../../assets/css/lesson-common.css">
+
 </head>
 
 <body>
@@ -1006,7 +36,7 @@ select{color:var(--text)!important}
         <a href="#intro" data-ar="يلا نبدأ" data-en="Start">يلا نبدأ</a>
         <a href="#sys" data-ar="أنظمة" data-en="Systems">أنظمة</a>
         <a href="#intg" data-ar="تكامل" data-en="Integration">تكامل</a>
-        <a href="#erp" data-ar="تخطيط موارد المؤسسة (ERP)" data-en="ERP">تخطيط موارد المؤسسة (ERP)</a>
+        <a href="#erp" data-ar="تخطيط موارد المؤسسة" data-en="ERP">تخطيط موارد المؤسسة</a>
         <a href="#apps" data-ar="تطبيقات" data-en="Applications">تطبيقات</a>
         <a href="#practice" data-ar="تمارين" data-en="Exercises">تمارين</a>
         <a href="#recap" data-ar="المراجعة" data-en="Recap">المراجعة</a>
@@ -1024,12 +54,12 @@ select{color:var(--text)!important}
       <p class="hero-sub"
         data-ar="النهارده هنستكشف أنواع أنظمة المعلومات المختلفة:نظام معالجة المعاملات TPS، ونظام معلومات الإدارة MIS، ونظام دعم القرار DSS، ونظام معلومات التنفيذيين EIS، وبعدين تكامل الأنظمة الرأسي والأفقي، ونظام تخطيط موارد المؤسسة ERP، وأمثلة عملية زي POS وGPS وITS."
         data-en="Today we explore the different types of information systems: the Transaction Processing System TPS, Management Information System MIS, Decision Support System DSS, and Executive Information System EIS, then system integration vertical and horizontal, the Enterprise Resource Planning system ERP, and practical examples like POS, GPS, and ITS.">
-        النهارده هنعرف الأنواع المختلفة من أنظمة المعلومات: نظام معالجة المعاملات <span dir="ltr">TPS</span> ونظام
-        معلومات الإدارة <span dir="ltr">MIS</span> ونظام دعم القرار <span dir="ltr">DSS</span> ونظام معلومات
-        التنفيذيين <span dir="ltr">EIS</span>، وبعدها تكامل الأنظمة الرأسي والأفقي، ونظام تخطيط موارد المؤسسات
-        <span dir="ltr">ERP</span>، وأمثلة عملية زي <span dir="ltr">POS</span> و<span dir="ltr">GPS</span> و<span
+ النهارده هنعرف الأنواع المختلفة من أنظمة المعلومات: نظام معالجة المعاملات <span dir="ltr">TPS</span> ونظام
+ معلومات الإدارة <span dir="ltr">MIS</span> ونظام دعم القرار <span dir="ltr">DSS</span> ونظام معلومات
+ التنفيذيين <span dir="ltr">EIS</span>، وبعدها تكامل الأنظمة الرأسي والأفقي، ونظام تخطيط موارد المؤسسات
+ <span dir="ltr">ERP</span>، وأمثلة عملية زي <span dir="ltr">POS</span> و<span dir="ltr">GPS</span> و<span
           dir="ltr">ITS</span>.</p>
-      <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="9 أسئلة" data-en="9 practice questions">9 أسئلة</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ ←" data-en="Let's Start ←">يلا نبدأ ←</a>
+      <div class="hero-stats"><span data-ar="7 أقسام" data-en="7 sections">7 أقسام</span><span data-ar="9 أسئلة" data-en="9 practice questions">9 أسئلة</span></div><a href="#intro" class="hero-btn" data-id="heroStart" data-ar="يلا نبدأ →" data-en="Let's Start ←">يلا نبدأ ←</a>
     </div>
   </header>
 <main>
@@ -1049,15 +79,15 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="أنظمة المعلومات في كل حتة حوالينا — في المحلات والسوبر ماركت، وفي المواصلات والطرق، وفي الشركات. النهارده هنتعلّم الأنواع الأربعة: نظام معالجة المعاملات TPS، ونظام معلومات الإدارة MIS، ونظام دعم القرار DSS، ونظام معلومات التنفيذيين EIS، وبعدين تكامل الأنظمة الرأسي والأفقي، ونظام تخطيط موارد المؤسسة ERP."
           data-en="Information systems are everywhere around us — in stores and supermarkets, in transportation and roads, and in companies. Today we learn the four types: the Transaction Processing System TPS, Management Information System MIS, Decision Support System DSS, and Executive Information System EIS, then system integration vertical and horizontal, and the Enterprise Resource Planning system ERP.">
-          أنظمة المعلومات <b>Information Systems</b> حوالينا في كل حتة — في المحلات والسوبر ماركت، وفي المواصلات
-          والطرق، وفي الشركات. النهارده هنتعرف على الأنواع الأربعة: نظام معالجة المعاملات <b>TPS</b> ونظام معلومات
-          الإدارة <b>MIS</b> ونظام دعم القرار <b>DSS</b> ونظام معلومات التنفيذيين <b>EIS</b>، وبعدها تكامل الأنظمة
-          الرأسي والأفقي، ونظام تخطيط موارد المؤسسات <b>ERP</b>.</p>
+ أنظمة المعلومات <b>Information Systems</b> حوالينا في كل حتة — في المحلات والسوبر ماركت، وفي المواصلات
+ والطرق، وفي الشركات. النهارده هنتعرف على الأنواع الأربعة: نظام معالجة المعاملات <b>TPS</b> ونظام معلومات
+ الإدارة <b>MIS</b> ونظام دعم القرار <b>DSS</b> ونظام معلومات التنفيذيين <b>EIS</b>، وبعدها تكامل الأنظمة
+ الرأسي والأفقي، ونظام تخطيط موارد المؤسسات <b>ERP</b>.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="كل نظام له شغله: TPS بيسجّل المعاملات اليومية، وMIS بيدّي تقارير للمديرين، وDSS بيدعم القرارات الصعبة، وEIS بيوصّل معلومات ملخّصة للتنفيذيين."
             data-en="Each system has its own job: TPS records daily transactions, MIS provides reports to managers, DSS supports difficult decisions, and EIS delivers summarized information to executives.">كل
-            نظام ليه شغلة معينة: <b>TPS</b> بيسجل المعاملات اليومية، <b>MIS</b> بيقدم تقارير للمدراء، <b>DSS</b>
-            بيساعد في القرارات الصعبة، و<b>EIS</b> بيوصل معلومات مختصرة للتنفيذيين.</span></div>
+ نظام ليه شغلة معينة: <b>TPS</b> بيسجل المعاملات اليومية، <b>MIS</b> بيقدم تقارير للمدراء، <b>DSS</b>
+ بيساعد في القرارات الصعبة، و<b>EIS</b> بيوصل معلومات مختصرة للتنفيذيين.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1083,14 +113,14 @@ select{color:var(--text)!important}
             <p style="font-size:.95rem"
               data-ar="إزاي شركة كبيرة بتدير المحاسبة والموظفين والإمداد والمخزون كله في وقت واحد؟ الإجابة في تكامل الأنظمة ونظام ERP. وإزاي المحلات بتتبع مبيعاتها؟ بفضل أنظمة زي POS."
               data-en="How does a big company manage accounting, employees, supply, and inventory all at once? The answer is in system integration and the ERP system. And how do stores track their sales? Thanks to systems like POS.">
-              إزاي شركة كبيرة بتدير محاسبة وموظفين وتوريد ومخازن في نفس الوقت؟ الجواب في تكامل الأنظمة ونظام
-              <b>ERP</b>. وإزاي المحلات بتعرف تتابع مبيعاتها؟ بفضل أنظمة زي <b>POS</b>.</p>
+ إزاي شركة كبيرة بتدير محاسبة وموظفين وتوريد ومخازن في نفس الوقت؟ الجواب في تكامل الأنظمة ونظام
+ <b>ERP</b>. وإزاي المحلات بتعرف تتابع مبيعاتها؟ بفضل أنظمة زي <b>POS</b>.</p>
           </div>
         </div>
       </div>
 
       <div class="section-inner error-box">
-        <h4 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes">⚠️ أخطاء شائعة</h4>
+        <h3 data-ar="⚠️ أخطاء شائعة" data-en="⚠️ Common Mistakes" class="lvl-h4 lvl-h4-1">⚠️ أخطاء شائعة</h3>
         <ul>
           <li data-ar="الخلط بين MIS وDSS — MIS بيدّي تقارير دورية عشان تساعد في اتخاذ القرار، بينما DSS بيدعم قرارات غير روتينية عن طريق النمذجة والمحاكاة."
             data-en="Confusing MIS with DSS — MIS provides periodic reports to assist in decision-making, while DSS supports non-routine decisions through modeling and simulations.">الخلط بين MIS وDSS — MIS بيدّي تقارير دورية عشان تساعد في اتخاذ القرار، بينما DSS بيدعم قرارات غير روتينية عن طريق النمذجة والمحاكاة.</li>
@@ -1111,8 +141,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">02</div>
           <div>
             <h2 data-ar="أنظمة المعلومات الأربعة" data-en="The Four Information Systems">أنظمة المعلومات الأربعة</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="TPS وMIS وDSS وEIS — صفحة 119 بالكتاب"
-              data-en="TPS, MIS, DSS, and EIS — book page 119">TPS وMIS وDSS وEIS — صفحة 119 بالكتاب</div>
+            <div class="tag" style="color:var(--s2)" data-ar="TPS وMIS وDSS وEIS — بالكتاب"
+              data-en="TPS, MIS, DSS, and EIS — book">TPS وMIS وDSS وEIS — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1120,18 +150,18 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="أنظمة المعلومات هي أنظمة مكوّنة من بشر وكمبيوترات ومعدات تكنولوجيا المعلومات والاتصالات التانية، وبتدعمنا في حياتنا اليومية — زي المحلات والمواصلات والشركات."
           data-en="Information systems are systems composed of humans, computers, and other information and communication technology equipment, and they support our daily lives — like stores, transportation, and companies.">
-          أنظمة المعلومات <b>Information Systems</b> هي أنظمة بتتكون من البشر وأجهزة الكمبيوتر ومعدات تقنية المعلومات
-          والاتصالات، وبتدعم حياتنا اليومية — زي المحلات والمواصلات والشركات.</p>
+ أنظمة المعلومات <b>Information Systems</b> هي أنظمة بتتكون من البشر وأجهزة الكمبيوتر ومعدات تقنية المعلومات
+ والاتصالات، وبتدعم حياتنا اليومية — زي المحلات والمواصلات والشركات.</p>
         <p data-ar="كل نوع له دور مختلف: TPS بيسجّل المعاملات اليومية، وMIS بيدّي تقارير دورية، وDSS بيدعم القرارات الصعبة، وEIS بيوصّل معلومات ملخّصة للتنفيذيين."
           data-en="Each type has a different role: TPS records daily transactions, MIS provides periodic reports, DSS supports difficult decisions, and EIS delivers summarized information to executives.">
-          كل نوع ليه دور مختلف: <b>TPS</b> بيسجل المعاملات اليومية، <b>MIS</b> بيقدم تقارير دورية، <b>DSS</b> بيدعم
-          القرارات الصعبة، و<b>EIS</b> بيوصل معلومات مختصرة للتنفيذيين.</p>
+ كل نوع ليه دور مختلف: <b>TPS</b> بيسجل المعاملات اليومية، <b>MIS</b> بيقدم تقارير دورية، <b>DSS</b> بيدعم
+ القرارات الصعبة، و<b>EIS</b> بيوصل معلومات مختصرة للتنفيذيين.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="زي المدرسة: TPS هو حضور الطلاب اليومي، وMIS تقارير آخر الشهر، وDSS اختيار منهج جديد بعد المحاكاة، وEIS تقرير مختصر لمدير المدرسة عن حالة المدرسة."
             data-en="Like a school: TPS is daily student attendance, MIS is end-of-month reports, DSS is choosing a new curriculum after simulation, and EIS is a brief report to the principal about the school's status.">زي
-            مدرسة: <b>TPS</b> كأنه تسجيل حضور الطلاب اليومي، <b>MIS</b> تقارير نهاية الشهر، <b>DSS</b> اختيار المنهج
-            الجديد بعد محاكاة، و<b>EIS</b> تقرير مختصر للمدير عن حالة المدرسة.</span></div>
-      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«(1) نظام معالجة المعاملات (TPS - Transaction Processing System): هو نظام يقوم بتسجيل ومعالجة المعاملات اليومية الروتينية للشركة. &lt;أمثلة&gt; نظام نقاط البيع (POS)، نظام حجوزات الطيران.» «(2) نظام المعلومات الإدارية (MIS - Management Information System): هو نظام يوفر تقارير دورية للمديرين لمساعدتهم في اتخاذ القرارات. &lt;أمثلة&gt; تقارير المبيعات الشهرية، تقارير المخزون.» «(3) نظام دعم القرار ((DSS - Decision Support Syste): هو نظام يدعم المديرين في اتخاذ قرارات غير روتينية من خلال النمذجة والمحاكاة. &lt;أمثلة&gt; تحليل "ماذا لو"، تخطيط سيناريو هات الاعمال.» «(4) نظام المعلومات التنفيذي (EIS - Executive Information System): هو نظام يوفر معلومات موجزة للمستوى التنفيذي عن أداء المنظمة ككل.»(( &lt;أمثلة&gt; لوحات التحكم التنفيذية، مؤشرات الأداء الرئيسية (KPIs).»</p></div>
+ مدرسة: <b>TPS</b> كأنه تسجيل حضور الطلاب اليومي، <b>MIS</b> تقارير نهاية الشهر، <b>DSS</b> اختيار المنهج
+ الجديد بعد محاكاة، و<b>EIS</b> تقرير مختصر للمدير عن حالة المدرسة.</span></div>
+      <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«(1) نظام معالجة المعاملات (TPS - Transaction Processing System): هو نظام يقوم بتسجيل ومعالجة المعاملات اليومية الروتينية للشركة. &lt;أمثلة&gt; نظام نقاط البيع (POS)، نظام حجوزات الطيران.» «(2) نظام المعلومات الإدارية (MIS - Management Information System): هو نظام يوفر تقارير دورية للمديرين لمساعدتهم في اتخاذ القرارات. &lt;أمثلة&gt; تقارير المبيعات الشهرية، تقارير المخزون.» «(3) نظام دعم القرار ((DSS - Decision Support Syste): هو نظام يدعم المديرين في اتخاذ قرارات غير روتينية من خلال النمذجة والمحاكاة. &lt;أمثلة&gt; تحليل "ماذا لو"، تخطيط سيناريو هات الاعمال.» «(4) نظام المعلومات التنفيذي (EIS - Executive Information System): هو نظام يوفر معلومات موجزة للمستوى التنفيذي عن أداء المنظمة ككل.»(( &lt;أمثلة&gt; لوحات التحكم التنفيذية، مؤشرات الأداء الرئيسية.»</p></div>
 
       <div class="section-inner">
         <div class="diagram-wrap">
@@ -1153,8 +183,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="sysPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="sysNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="sysPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="sysNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="sysCounter">1 / 4</span>
                 <button class="mini-btn" data-id="sysReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1174,19 +204,19 @@ select{color:var(--text)!important}
         <div class="todo-item"><span class="emoji-pulse">🛒</span><span><b data-ar="TPS:"
               data-en="TPS:">TPS:</b> <span data-ar="نظام نقطة البيع POS ونظام حجز الطيران."
                 data-en="the Point of Sales POS system and the Airline Reservation System.">نظام نقاط البيع
-                <b>POS</b> ونظام حجوزات الطيران <b>Airline Reservation System</b>.</span></span></div>
+ <b>POS</b> ونظام حجوزات الطيران <b>Airline Reservation System</b>.</span></span></div>
         <div class="todo-item"><span class="emoji-float">📈</span><span><b data-ar="MIS:"
               data-en="MIS:">MIS:</b> <span data-ar="تقارير المبيعات الشهرية وتقارير المخزون."
                 data-en="Monthly Sales Reports and Inventory Reports.">تقارير المبيعات الشهرية
-                <b>Monthly Sales Reports</b> وتقارير المخزون <b>Inventory Reports</b>.</span></span></div>
+ <b>Monthly Sales Reports</b> وتقارير المخزون <b>Inventory Reports</b>.</span></span></div>
         <div class="todo-item"><span class="emoji-pulse">🧠</span><span><b data-ar="DSS:"
-              data-en="DSS:">DSS:</b> <span data-ar="تحليل ماذا لو (What-if) وتخطيط سيناريوهات العمل."
+              data-en="DSS:">DSS:</b> <span data-ar="تحليل ماذا لو وتخطيط سيناريوهات العمل."
                 data-en="What-if Analysis and Business scenario planning.">تحليل «ماذا لو» <b>What-if Analysis</b> وتخطيط
-                سيناريوهات الأعمال <b>Business scenario planning</b>.</span></span></div>
+ سيناريوهات الأعمال <b>Business scenario planning</b>.</span></span></div>
         <div class="todo-item"><span class="emoji-float">🏢</span><span><b data-ar="EIS:"
               data-en="EIS:">EIS:</b> <span data-ar="لوحات التنفيذيين ومؤشرات الأداء الرئيسية KPIs."
                 data-en="Executive Dashboards and Key Performance Indicators KPIs.">لوحات معلومات التنفيذيين
-                <b>Executive Dashboards</b> ومؤشرات الأداء الرئيسية <b>KPIs</b>.</span></span></div>
+ <b>Executive Dashboards</b> ومؤشرات الأداء الرئيسية <b>KPIs</b>.</span></span></div>
       </div>
 
       <div class="section-inner card">
@@ -1250,24 +280,24 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s3),#1838f8)">03</div>
           <div>
             <h2 data-ar="تكامل الأنظمة" data-en="System Integration">تكامل الأنظمة</h2>
-            <div class="tag" style="color:var(--s3)" data-ar="رأسي وأفقي — صفحة 119 بالكتاب"
-              data-en="vertical and horizontal — book page 119">رأسي وأفقي — صفحة 119 بالكتاب</div>
+            <div class="tag" style="color:var(--s3)" data-ar="رأسي وأفقي — بالكتاب"
+              data-en="vertical and horizontal — book">رأسي وأفقي — بالكتاب</div>
           </div>
         </div>
       </div>
 
       <div class="section-inner card">
-        <p data-ar="تكامل الأنظمة هو ربط أنظمة المعلومات المختلفة ببعضها عشان تتبادل الداتا (Data) وتشتغل مع بعض بطريقة متكاملة."
+        <p data-ar="تكامل الأنظمة هو ربط أنظمة المعلومات المختلفة ببعضها عشان تتبادل البيانات وتشتغل مع بعض بطريقة متكاملة."
           data-en="System integration is linking different information systems together so they can exchange data and work together in an integrated way.">
-          تكامل الأنظمة <b>System Integration</b> هو ربط أنظمة معلومات مختلفة مع بعضها، عشان تتبادل البيانات وتشتغل
-          معاً بشكل متكامل.</p>
+ تكامل الأنظمة <b>System Integration</b> هو ربط أنظمة معلومات مختلفة مع بعضها، عشان تتبادل البيانات وتشتغل
+ معاً بشكل متكامل.</p>
         <p data-ar="التكامل نوعين: رأسي، بيربط مستويات مختلفة من المؤسسة، وأفقي، بيربط أنظمة في نفس المستوى عبر الأقسام."
           data-en="Integration is of two types: vertical, which links different levels of the organization, and horizontal, which links systems at the same level across departments.">
-          التكامل على نوعين: <b>رأسي</b> Vertical بيربط مستويات مختلفة من المؤسسة، و<b>أفقي</b> Horizontal بيربط
-          أنظمة نفس المستوى عبر الإدارات.</p>
+ التكامل على نوعين: <b>رأسي</b> Vertical بيربط مستويات مختلفة من المؤسسة، و<b>أفقي</b> Horizontal بيربط
+ أنظمة نفس المستوى عبر الإدارات.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
-            data-ar="الرأسي زي ربط سجل الحضور اليومي (TPS) بتقارير المدير الشهرية (MIS) — مستويات مختلفة. والأفقي زي ربط نظام المبيعات بنظام المخزون — نفس المستوى في قسمين مختلفين."
-            data-en="Vertical is like linking the daily attendance log (TPS) with monthly manager reports (MIS) — different levels. Horizontal is like linking the sales system with the inventory system — the same level in two different departments.">الرأسي زي ربط سجل الحضور اليومي (TPS) بتقارير المدير الشهرية (MIS) — مستويات مختلفة. والأفقي زي ربط نظام المبيعات بنظام المخزون — نفس المستوى في قسمين مختلفين.</span></div>
+            data-ar="الرأسي زي ربط سجل الحضور اليومي بتقارير المدير الشهرية — مستويات مختلفة. والأفقي زي ربط نظام المبيعات بنظام المخزون — نفس المستوى في قسمين مختلفين."
+            data-en="Vertical is like linking the daily attendance log (TPS) with monthly manager reports (MIS) — different levels. Horizontal is like linking the sales system with the inventory system — the same level in two different departments.">الرأسي زي ربط سجل الحضور اليومي بتقارير المدير الشهرية — مستويات مختلفة. والأفقي زي ربط نظام المبيعات بنظام المخزون — نفس المستوى في قسمين مختلفين.</span></div>
       <p class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span>«ب. تكامل النظم (1) التكامل الرأسي (Vertical Integration): هو ربط النظم على مستويات مختلفة من المنظمة (مثل TPS مع MIS). (2) التكامل الأفقي (Horizontal Integration): هو ربط النظم على نفس المستوى عبر أقسام مختلفة (مثل نظام المبيعات مع نظام المخزون).» «ت. أنظمة تخطيط موارد المؤسسة (ERP) (1) نظام تخطيط موارد المؤسسة (Enterprise Resource Planning (ERP) system): ههو نظام متكامل يجمع بين وظائف الأعمال المختلفة مثل المحاسبة، الموارد البشرية، سلسلة التوريد، وإدارة علاقات العملاء في نظام واحد.»</p><div class="bq-inline"><span class="bqi-tag" data-ar="📖 من الكتاب (بنصه)" data-en="📖 From the book (verbatim)">📖 من الكتاب (بنصه)</span><div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صور الصفحات المطبوعة واستخراج النص): سطر DSS العربي مطبوع بقوسين مفتوحين «((DSS - Decision Support Syste)» والشرح الإنجليزي ناقص الحرف الأخير m؛ الإنجليزية تطبع &quot;DSS - Decision Support System&quot; سليمًا. مثال DSS العربي «تخطيط سيناريو هات الاعمال» (بـ«هات») مقابل &quot;Business scenario planning&quot;. بعد تعريف EIS العربي يظهر رمز دائرة سوداء وقوسان زائدان «((» لا مقابل لهما في الإنجليزية. تعريف ERP العربي يبدأ «ههو نظام متكامل» بهاء مضاعفة. في المقابل الطبعة الإنجليزية نفسها تطبع أخطاء إملائية:&quot;manageres&quot; مرتين و&quot;simulaions&quot; و&quot;mnagaement&quot; بينما العربية تطبع هذه المقاطع سليمة. العناوين الفرعية:العربية «أ.» و«ب.» و«ت.» بالحروف؛ الإنجليزية &quot;1&quot; و&quot;2&quot; و&quot;3&quot; بالأرقام. العنوان:العربية «النقاط الرئيسية» مقابل &quot;Point!&quot;." data-en="Edition comparison (confirmed from the printed page images and the text layer): the Arabic DSS line prints a doubled opening parenthesis «((DSS - Decision Support Syste)» with the English gloss missing its final m; English prints &quot;DSS - Decision Support System&quot; cleanly. The Arabic DSS example reads «تخطيط سيناريو هات الاعمال» (with «هات») versus &quot;Business scenario planning&quot;. After the Arabic EIS definition a black-circle icon glyph and a stray «((» appear with no English counterpart. The Arabic ERP definition opens «ههو نظام متكامل» with a doubled ه. Conversely the English edition itself prints typos:&quot;manageres&quot; twice, &quot;simulaions&quot;, and &quot;mnagaement&quot;, while Arabic renders those passages cleanly. Sub-headings:Arabic lettered «أ.» «ب.» «ت.»; English numbered 1, 2, 3. Heading:Arabic «النقاط الرئيسية» versus &quot;Point!&quot;.">مقارنة النسختين (مؤكد من صور الصفحات المطبوعة واستخراج النص): سطر DSS العربي مطبوع بقوسين مفتوحين «((DSS - Decision Support Syste)» والشرح الإنجليزي ناقص الحرف الأخير m؛ الإنجليزية تطبع "DSS - Decision Support System" سليمًا. مثال DSS العربي «تخطيط سيناريو هات الاعمال» (بـ«هات») مقابل "Business scenario planning". بعد تعريف EIS العربي يظهر رمز دائرة سوداء وقوسان زائدان «((» لا مقابل لهما في الإنجليزية. تعريف ERP العربي يبدأ «ههو نظام متكامل» بهاء مضاعفة. في المقابل الطبعة الإنجليزية نفسها تطبع أخطاء إملائية:"manageres" مرتين و"simulaions" و"mnagaement" بينما العربية تطبع هذه المقاطع سليمة. العناوين الفرعية: العربية «أ.» و«ب.» و«ت.» بالحروف؛ الإنجليزية "1" و"2" و"3" بالأرقام. العنوان: العربية «النقاط الرئيسية» مقابل "Point!".</div></div></div>
 
       <div class="section-inner">
@@ -1283,13 +313,13 @@ select{color:var(--text)!important}
                   data-en="vertical — linking different levels">رأسي — ربط مستويات مختلفة</div>
                 <div class="svg-label" data-fbox="inh" data-ar="أفقي — ربط نفس المستوى عبر الأقسام"
                   data-en="horizontal — linking the same level across departments">أفقي — ربط نفس المستوى عبر الأقسام</div>
-                <div class="svg-label" data-fbox="inu" data-ar="النتيجة — تدفق داتا (Data) موحّد"
-                  data-en="the result — a unified data flow">النتيجة — تدفق داتا (Data) موحّد</div>
+                <div class="svg-label" data-fbox="inu" data-ar="النتيجة — تدفق بيانات موحّد"
+                  data-en="the result — a unified data flow">النتيجة — تدفق بيانات موحّد</div>
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="intgPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="intgNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="intgPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="intgNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="intgCounter">1 / 3</span>
                 <button class="mini-btn" data-id="intgReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1364,9 +394,9 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s4),#047857)">04</div>
           <div>
             <h2 data-ar="تخطيط موارد المؤسسة" data-en="Enterprise Resource Planning">نظام تخطيط موارد المؤسسات
-              <span dir="ltr">(ERP)</span></h2>
-            <div class="tag" style="color:var(--s4)" data-ar="دمج وظائف العمل في نظام واحد — صفحة 119 بالكتاب"
-              data-en="combining business functions into a single system — book page 119">دمج وظائف العمل في نظام واحد — صفحة 119 بالكتاب</div>
+ <span dir="ltr">(ERP)</span></h2>
+            <div class="tag" style="color:var(--s4)" data-ar="دمج وظائف العمل في نظام واحد — بالكتاب"
+              data-en="combining business functions into a single system — book">دمج وظائف العمل في نظام واحد — بالكتاب</div>
           </div>
         </div>
       </div>
@@ -1374,17 +404,17 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="نظام تخطيط موارد المؤسسة ERP هو نظام متكامل بيجمع وظائف عمل مختلفة — زي المحاسبة والموارد البشرية وسلسلة الإمداد وإدارة علاقات العملاء CRM — في نظام واحد."
           data-en="The Enterprise Resource Planning system ERP is an integrated system that combines various business functions — such as accounting, human resources, supply chain, and customer relationship management CRM — into a single system.">
-          نظام تخطيط موارد المؤسسات <b>ERP</b> هو نظام متكامل بيدمج وظائف الأعمال المختلفة — زي المحاسبة
-          <b>Accounting</b> والموارد البشرية <b>Human Resources</b> وسلسلة التوريد <b>Supply Chain</b> وإدارة علاقات
-          العملاء <b>CRM</b> — في نظام واحد.</p>
-        <p data-ar="بدل ما كل قسم عنده نظام منفصل، كل حاجة في نظام واحد موحّد بيتبادل الداتا (Data) بسهولة."
+ نظام تخطيط موارد المؤسسات <b>ERP</b> هو نظام متكامل بيدمج وظائف الأعمال المختلفة — زي المحاسبة
+ <b>Accounting</b> والموارد البشرية <b>Human Resources</b> وسلسلة التوريد <b>Supply Chain</b> وإدارة علاقات
+ العملاء <b>CRM</b> — في نظام واحد.</p>
+        <p data-ar="بدل ما كل قسم عنده نظام منفصل، كل حاجة في نظام واحد موحّد بيتبادل البيانات بسهولة."
           data-en="Instead of each department having its own separate system, everything is in one unified system that easily exchanges data.">
-          بدل ما يكون لكل إدارة نظام منفصل، بيبقى كل حاجة في <b>نظام واحد موحد</b> بيتبادل البيانات بسهولة.</p>
+ بدل ما يكون لكل إدارة نظام منفصل، بيبقى كل حاجة في <b>نظام واحد موحد</b> بيتبادل البيانات بسهولة.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="شركة عندها ERP: لما يتباع منتج، المحاسبة والمخزون وسلسلة الإمداد كلهم بيتحدّثوا في نفس اللحظة من نظام واحد."
             data-en="A company with ERP: when a product is sold, accounting, inventory, and supply chain all update at the same moment from one system.">شركة
-            فيها <b>ERP</b>: لما تتباع منتج، المحاسبة والمخزون وسلسلة التوريد كله بيتحدث في نفس اللحظة من نظام
-            واحد.</span></div>
+ فيها <b>ERP</b>: لما تتباع منتج، المحاسبة والمخزون وسلسلة التوريد كله بيتحدث في نفس اللحظة من نظام
+ واحد.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1405,8 +435,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="erpPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="erpNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="erpPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="erpNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="erpCounter">1 / 3</span>
                 <button class="mini-btn" data-id="erpReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1446,7 +476,7 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="erpRq1o3" data-key="C"
                 data-fb-ar="مش كده — ERP نظام برمجي مش جهاز."
                 data-fb-en="Not quite — ERP is a software system, not a device."><span class="rq-key">C</span><span
-                  class="rq-body" data-ar="جهاز لتخزين الداتا (Data)" data-en="a device for data storage">جهاز لتخزين الداتا (Data)</span></div>
+                  class="rq-body" data-ar="جهاز لتخزين البيانات" data-en="a device for data storage">جهاز لتخزين البيانات</span></div>
             </div>
             <div class="rq-fb"></div>
             <button class="mini-btn rq-skip" data-id="erpRq1Skip" data-ar="تخطّي" data-en="Skip">تخطّي</button>
@@ -1492,13 +522,13 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <p data-ar="خليني نبص على أمثلة حقيقية من حياتنا ليومية لأنظمة المعلومات: نظام نقطة البيع POS في المحلات، ونظام تحديد الموقع العالمي GPS، ونظام النقل الذكي ITS."
           data-en="Let's look at real-world examples of information systems used in our daily lives: the Point of Sale POS system in stores, the Global Positioning System GPS, and the Intelligent Transport System ITS.">
-          خلينا نشوف أمثلة واقعية لأنظمة معلومات بتستخدم في حياتنا اليومية: نظام نقاط البيع <b>POS</b> في المحلات،
-          ونظام تحديد المواقع <b>GPS</b>، ونظام النقل الذكي <b>ITS</b>.</p>
+ خلينا نشوف أمثلة واقعية لأنظمة معلومات بتستخدم في حياتنا اليومية: نظام نقاط البيع <b>POS</b> في المحلات،
+ ونظام تحديد المواقع <b>GPS</b>، ونظام النقل الذكي <b>ITS</b>.</p>
         <div class="note"><b data-ar="فكّر فيها كده:" data-en="Think of it this way:">فكّر فيها كده:</b> <span
             data-ar="POS بيسجّل المبيعات في السوبر ماركت وقت البيع، وGPS بيحدّد مكانك عن طريق القمر الصناعي، وITS بيحل مشاكل المرور باستخدام معلومات الطريق."
             data-en="POS records sales in the supermarket at the moment of sale, GPS determines your location via satellite, and ITS solves traffic problems using road information.">POS
-            بيسجل المبيعات في السوبر ماركت لحظة البيع، <b>GPS</b> بيحدد موقعك بالساتل، و<b>ITS</b> بيحل مشاكل المرور عن
-            طريق معلومات الطرق.</span></div>
+ بيسجل المبيعات في السوبر ماركت لحظة البيع، <b>GPS</b> بيحدد موقعك بالساتل، و<b>ITS</b> بيحل مشاكل المرور عن
+ طريق معلومات الطرق.</span></div>
       </div>
 
       <div class="section-inner">
@@ -1519,8 +549,8 @@ select{color:var(--text)!important}
               </div>
               <div class="tl-steps flow-steps"></div>
               <div class="tl-nav">
-                <button class="btn" data-id="appsPrev" data-ar="← السابق" data-en="← Previous">← السابق</button>
-                <button class="btn" data-id="appsNext" data-ar="التالي →" data-en="Next →">التالي →</button>
+                <button class="btn" data-id="appsPrev" data-ar="→ السابق" data-en="← Previous">← السابق</button>
+                <button class="btn" data-id="appsNext" data-ar="التالي ←" data-en="Next →">التالي →</button>
                 <span class="kbd" id="appsCounter">1 / 3</span>
                 <button class="mini-btn" data-id="appsReplay" data-ar="↺ إعادة" data-en="↺ Replay">↺ إعادة</button>
               </div>
@@ -1544,8 +574,8 @@ select{color:var(--text)!important}
           data-en="💡 Start the Quiz">💡 ابدأ الاختبار</button>
         <div class="recall" id="appsRecall">
           <div class="rq" data-id="appsRq1">
-            <div class="rq-q"><span class="q-num">1</span> <span data-ar="أنهي نظام بيستخدم في المحلات والسوبر ماركت عشان يجمع ويدير داتا (Data) المبيعات؟"
-                data-en="Which system is used in stores and supermarkets to collect and manage sales data?">أنهي نظام بيستخدم في المحلات والسوبر ماركت عشان يجمع ويدير داتا (Data) المبيعات؟</span></div>
+            <div class="rq-q"><span class="q-num">1</span> <span data-ar="أنهي نظام بيستخدم في المحلات والسوبر ماركت عشان يجمع ويدير بيانات المبيعات؟"
+                data-en="Which system is used in stores and supermarkets to collect and manage sales data?">أنهي نظام بيستخدم في المحلات والسوبر ماركت عشان يجمع ويدير بيانات المبيعات؟</span></div>
             <div class="rq-opts">
               <div class="rq-opt" data-id="appsRq1o2" data-key="A"
                 data-fb-ar="مش كده — GPS بيحدد المواقع بالساتل."
@@ -1594,8 +624,8 @@ select{color:var(--text)!important}
           <div class="section-number" style="background:linear-gradient(135deg,var(--s2),#9a6a00)">06</div>
           <div>
             <h2 data-ar="تمارين" data-en="Exercises">تمارين</h2>
-            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك: EN PDF 119–122 (المطبوع 119–122)؛ AR 133–134"
-              data-en="Your book: EN PDF 119–122 (printed 119–122); AR 133–134">الكتاب بتاعك:EN PDF 119–122 (المطبوع 119–122)؛ AR 133–134</div>
+            <div class="tag" style="color:var(--s2)" data-ar="الكتاب بتاعك"
+              data-en="Your book">الكتاب بتاعك</div>
           </div>
         </div>
       </div>
@@ -1621,15 +651,15 @@ select{color:var(--text)!important}
           <p data-ar="«أجب عن الأسئلة التالية. (1) اختر المصطلح الذي يناسب الفراغات [1] إلى [3] في الجمل التالية من الخيارات من أ إلى ج ، والإجابة باستخدام الحروف. تدعم حياتنا اليومية ( [1] ) المكونة من البشر وأجهزة الكمبيوتر وغيرها من معدات تكنولوجيا المعلومات والاتصالات. ومن الأمثلة على ذلك ( [2] ) حيث يتم جمع البيانات وإدارتها في وقت بيع المنتج، و ( [3] ) حيث يتم الحصول على البيانات من الأقمار الصناعية لتحديد موقعك الحالي وحالة تشغيل الحافلات وأنظمة النقل الأخرى. (أ) POSنظام نقاط البيع (ب) أنظمة المعلومات (ت) GPS (نظام تحديد المواقع العالمي) (ث) ITS (نظام النقل الذكي) (ج) SNS (خدمة الشبكات الاجتماعية)»" data-en="&quot;Answer the following questions. (1) Choose the term that best fits into the blanks [1] to [3] in the following sentences from the options A to E below, and answer using the letters. Our daily lives are supported by ( [1] ) composed of humans, computers, and other information and communication technology equipment. Examples include ( [2] ) where data is collected and managed at the time a product is sold, and ( [3] ) where data from satellites is obtained to determine your present location and the operation status of buses and other transportation systems. A POS system B Information systems C GPS (Global Positioning System) D ITS (Intelligent Transport System) E SNS (Social Networking Service)&quot;">«أجب عن الأسئلة التالية. (1) اختر المصطلح الذي يناسب الفراغات [1] إلى [3] في الجمل التالية من الخيارات من أ إلى ج ، والإجابة باستخدام الحروف. تدعم حياتنا اليومية ( [1] ) المكونة من البشر وأجهزة الكمبيوتر وغيرها من معدات تكنولوجيا المعلومات والاتصالات. ومن الأمثلة على ذلك ( [2] ) حيث يتم جمع البيانات وإدارتها في وقت بيع المنتج، و ( [3] ) حيث يتم الحصول على البيانات من الأقمار الصناعية لتحديد موقعك الحالي وحالة تشغيل الحافلات وأنظمة النقل الأخرى. (أ) POSنظام نقاط البيع (ب) أنظمة المعلومات (ت) GPS (نظام تحديد المواقع العالمي) (ث) ITS (نظام النقل الذكي) (ج) SNS (خدمة الشبكات الاجتماعية)»</p>
           <p data-ar="إجابات الكتاب المطبوعة في «الشرح»: (1) [1] (ب) — أنظمة المعلومات. [2] (أ) — نظام نقاط البيع POS. [3] (ت) — نظام تحديد المواقع العالمي GPS." data-en="The book's printed answers in the &quot;Explanation&quot;: (1) [1] B. Information systems. [2] A. POS system. [3] C. GPS (Global Positioning System).">إجابات الكتاب المطبوعة في «الشرح»: (1) [1] (ب) — أنظمة المعلومات. [2] (أ) — نظام نقاط البيع POS. [3] (ت) — نظام تحديد المواقع العالمي GPS.</p>
           <div class="book-diff" data-ar="مقارنة النسختين (مؤكد من صورة الصفحة المطبوعة): ترتيب الخيارات واحد في الطبعتين (POS، أنظمة المعلومات، GPS، ITS، SNS)، والمدى العربي «من أ إلى ج» بخمسة خيارات صحيح بحروف الأبجد (أ ب ت ث ج) ويقابل &quot;A to E&quot;. مفتاح الإجابة المطبوع متطابق (ب/أ/ت = B/A/C). الجملة [3] تخلط الأقمار الصناعية بالحافلات وأنظمة النقل (لمسة GPS وITS معًا) والإجابة المطبوعة GPS في الطبعتين — وراقة مطبوعة كما هي. العنوان:العربية «تحدى معلوماتك»؛ الإنجليزية &quot;Warm Up&quot;. صندوق الإجابة:العربية «الشرح»؛ الإنجليزية &quot;Explanation&quot;." data-en="Edition comparison (confirmed from the printed page image): the option order is identical in both editions (POS, Information systems, GPS, ITS, SNS), and the Arabic range «من أ إلى ج» with five options is correct abjad lettering (أ ب ت ث ج) matching &quot;A to E&quot;. The printed key matches (ب/أ/ت = B/A/C). Sentence [3] blends satellites with buses and transportation systems (a GPS+ITS blend) while the printed answer is GPS in both editions — a printed quirk left as is. Heading:Arabic «تحدى معلوماتك»; English &quot;Warm Up&quot;. Answer box:Arabic «الشرح»; English &quot;Explanation&quot;.">مقارنة النسختين (مؤكد من صورة الصفحة المطبوعة): ترتيب الخيارات واحد في الطبعتين (POS، أنظمة المعلومات، GPS، ITS، SNS)، والمدى العربي «من أ إلى ج» بخمسة خيارات صحيح بحروف الأبجد (أ ب ت ث ج) ويقابل "A to E". مفتاح الإجابة المطبوع متطابق (ب/أ/ت = B/A/C). الجملة [3] تخلط الأقمار الصناعية بالحافلات وأنظمة النقل (لمسة GPS وITS معًا) والإجابة المطبوعة GPS في الطبعتين — وراقة مطبوعة كما هي. العنوان:العربية «تحدى معلوماتك»؛ الإنجليزية "Warm Up". صندوق الإجابة: العربية «الشرح»؛ الإنجليزية "Explanation".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 120 (المطبوع 120)؛ AR 134." data-en="The text above is from the book. Full source: English PDF 120 (printed 120); Arabic 134.">النص السابق من الكتاب. المصدر الكامل:EN PDF 120 (المطبوع 120)؛ AR 134.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <div class="book-card try">
           <h3 data-ar="من الكتاب: جرب بنفسك" data-en="From the book: Try">من الكتاب: جرب بنفسك</h3>
           <p data-ar="«1 أجب عن الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغات [1] إلى [4] بالمصطلحات المناسبة. يُشار إلى النظام الذي يستخدم شبكة لجمع وتبادل ونقل مختلف البيانات والمعلومات باسم ( [1] ). من أمثلة ( [1] ) نظام ( [2] )، وهو نظام ينقل ويستقبل معلومات الطرق لحل مشكلات مثل حوادث المرور والازدحام. بالإضافة إلى ذلك، ( [3] ) هو نظام يُستخدم في المتاجر الصغيرة ومحلات السوبر ماركت لجمع وإدارة البيانات عند نقطة البيع.»" data-en="&quot;1 Answer the following questions. (1) Complete the following sentences by filling in the blanks [1] to [4] with the appropriate terms. A system that utilizes a network to collect, share, and transmit various data and information is referred to as an ( [1] ). Examples of ([1]) include ( [2] ), which is a system that transmits and receives road information to resolve issues such as traffic accidents and congestion. In addition, a ( [3] ) is a system used in convenience stores and supermarkets to collect and manage data at the point of sales.&quot;">«1 أجب عن الأسئلة التالية. (1) أكمل الجمل التالية بملء الفراغات [1] إلى [4] بالمصطلحات المناسبة. يُشار إلى النظام الذي يستخدم شبكة لجمع وتبادل ونقل مختلف البيانات والمعلومات باسم ( [1] ). من أمثلة ( [1] ) نظام ( [2] )، وهو نظام ينقل ويستقبل معلومات الطرق لحل مشكلات مثل حوادث المرور والازدحام. بالإضافة إلى ذلك، ( [3] ) هو نظام يُستخدم في المتاجر الصغيرة ومحلات السوبر ماركت لجمع وإدارة البيانات عند نقطة البيع.»</p>
           <p data-ar="«(2) ما هو المصطلح الذي يطلق على نظام تحديد المواقع عبر الأقمار الصناعية الذي يجمع معلومات الموقع لأي مكان على وجه الأرض؟»" data-en="&quot;(2) What is the term for the satellite positioning system that collects location information for any place on Earth?&quot;">«(2) ما هو المصطلح الذي يطلق على نظام تحديد المواقع عبر الأقمار الصناعية الذي يجمع معلومات الموقع لأي مكان على وجه الأرض؟»</p>
-          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) [1] نظام المعلومات. [2] نظام النقل الذكي (ITS). [3] نظام نقاط البيع (POS). (2) نظام تحديد المواقع العالمي (GPS)." data-en="Answers not printed in the book (teacher-prepared): (1) [1] Information system. [2] Intelligent Transport System (ITS). [3] POS system. (2) GPS (Global Positioning System).">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) [1] نظام المعلومات. [2] نظام النقل الذكي (ITS). [3] نظام نقاط البيع (POS). (2) نظام تحديد المواقع العالمي (GPS).</p>
+          <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) [1] نظام المعلومات. [2] نظام النقل الذكي. [3] نظام نقاط البيع. (2) نظام تحديد المواقع العالمي." data-en="Answers not printed in the book (teacher-prepared): (1) [1] Information system. [2] Intelligent Transport System (ITS). [3] POS system. (2) GPS (Global Positioning System).">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) [1] نظام المعلومات. [2] نظام النقل الذكي. [3] نظام نقاط البيع. (2) نظام تحديد المواقع العالمي.</p>
           <div class="book-diff" data-ar="مقارنة النسختين:تعليمة سؤال (1) تطلب ملء الفراغات «[1] إلى [4]» / &quot;[1] to [4]&quot; بينما الجمل المطبوعة تحمل الفراغات [1] [2] [3] فقط في الطبعتين — لا يوجد فراغ [4] مطبوع. العربية تكتب «محلات السوبر ماركت» مقابل &quot;convenience stores and supermarkets&quot;. العنوان:العربية «جرب بنفسك»؛ الإنجليزية &quot;Try&quot;." data-en="Edition comparison:question (1)'s instruction asks to fill blanks «[1] إلى [4]» / &quot;[1] to [4]&quot; while the printed sentences carry only [1] [2] [3] in both editions — no printed [4] blank exists. Arabic prints «محلات السوبر ماركت» versus &quot;convenience stores and supermarkets&quot;. Heading:Arabic «جرب بنفسك»; English &quot;Try&quot;.">مقارنة النسختين:تعليمة سؤال (1) تطلب ملء الفراغات «[1] إلى [4]» / "[1] to [4]" بينما الجمل المطبوعة تحمل الفراغات [1] [2] [3] فقط في الطبعتين — لا يوجد فراغ [4] مطبوع. العربية تكتب «محلات السوبر ماركت» مقابل "convenience stores and supermarkets". العنوان: العربية «جرب بنفسك»؛ الإنجليزية "Try".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 121 (المطبوع 121)؛ AR 134." data-en="The text above is from the book. Full source: English PDF 121 (printed 121); Arabic 134.">النص السابق من الكتاب. المصدر الكامل:EN PDF 121 (المطبوع 121)؛ AR 134.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
         <div class="book-card try">
           <h3 data-ar="من الكتاب: تمرين" data-en="From the book: Exercise">من الكتاب: تمرين</h3>
@@ -1637,16 +667,16 @@ select{color:var(--text)!important}
           <p data-ar="«(2) اختر الشرح الأنسب للتكامل الرأسي من الخيارات التالية. (1) ربط النظم على نفس المستوى عبر أقسام مختلفة من المنظمة. (2) ربط النظم على مستويات مختلفة من المنظمة. (3) ربط النظم على مستوى واحد داخل قسم معين. (4) ربط النظم بين أقسام غير مترابطة.»" data-en="&quot;2 Choose the most appropriate explanation for vertical integration from the options A to D below, and answer using the letter. A Linking systems at the same level across different departments of the organization.. B Linking systems at different levels of the organization. C Linking systems at a single level within a specific department. D Linking systems between two unrelated departments&quot;">«(2) اختر الشرح الأنسب للتكامل الرأسي من الخيارات التالية. (1) ربط النظم على نفس المستوى عبر أقسام مختلفة من المنظمة. (2) ربط النظم على مستويات مختلفة من المنظمة. (3) ربط النظم على مستوى واحد داخل قسم معين. (4) ربط النظم بين أقسام غير مترابطة.»</p>
           <p data-ar="إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) (3) — نظام يُستخدم في المتاجر الصغيرة والمحلات التجارية الأخرى لإدارة معلومات مبيعات المنتجات. (2) (2) — ربط النظم على مستويات مختلفة من المنظمة." data-en="Answers not printed in the book (teacher-prepared): 1 C. A system used in convenience stores and other shops to manage product sales information. 2 B. Linking systems at different levels of the organization.">إجابات غير مطبوعة في الكتاب (إعداد معلم): (1) (3) — نظام يُستخدم في المتاجر الصغيرة والمحلات التجارية الأخرى لإدارة معلومات مبيعات المنتجات. (2) (2) — ربط النظم على مستويات مختلفة من المنظمة.</p>
           <div class="book-diff" data-ar="مقارنة النسختين:الطبعة الإنجليزية تطبع نقطة مضاعفة في الخيار A من سؤال 2: &quot;departments..&quot;؛ العربية تطبع «من المنظمة.» سليمة. الخيارات العربية مرقمة (1)-(4) والإنجليزية A-D. سؤال (1) العربي يحدد «لنظام POS» بينما الإنجليزية &quot;of a POS system&quot; — تطابق. العنوان:العربية «تمرين»؛ الإنجليزية &quot;Exercise&quot;." data-en="Edition comparison:the English edition prints a doubled period in question 2 option A: &quot;departments..&quot;; Arabic prints «من المنظمة.» cleanly. Arabic options numbered (1)-(4), English A-D. Heading:Arabic «تمرين»; English &quot;Exercise&quot;.">مقارنة النسختين:الطبعة الإنجليزية تطبع نقطة مضاعفة في الخيار A من سؤال 2: "departments.."؛ العربية تطبع «من المنظمة.» سليمة. الخيارات العربية مرقمة (1)-(4) والإنجليزية A-D. سؤال (1) العربي يحدد «لنظام POS» بينما الإنجليزية "of a POS system" — تطابق. العنوان: العربية «تمرين»؛ الإنجليزية "Exercise".</div>
-          <span class="book-src" data-ar="النص السابق من الكتاب. المصدر الكامل: EN PDF 122 (المطبوع 122)؛ AR 134." data-en="The text above is from the book. Full source: English PDF 122 (printed 122); Arabic 134.">النص السابق من الكتاب. المصدر الكامل:EN PDF 122 (المطبوع 122)؛ AR 134.</span>
+          <span class="book-src" data-ar="النص السابق من الكتاب." data-en="The text above is from the book.">النص السابق من الكتاب.</span>
         </div>
 <h3 data-ar="✍️ تدريب تفاعلي إضافي 1: حياة يومية مدعومة بأنظمة المعلومات" data-en="✍️ Additional interactive drill 1: A Daily Life Supported by Information Systems">✍️ تدريب 1: حياة يومية مدعومة بأنظمة المعلومات</h3>
         <div class="ex-item">
           <div class="q"><span class="q-num">1</span> <span data-ar="حياتنا اليومية مدعومة بـ (……) مكوّنة من بشر وكمبيوترات ومعدات تكنولوجيا المعلومات والاتصالات التانية."
               data-en="Our daily lives are supported by (……) composed of humans, computers, and other information and communication technology equipment.">حياتنا اليومية مدعومة بـ (……) مكوّنة من بشر وكمبيوترات ومعدات تكنولوجيا المعلومات والاتصالات التانية.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  نظام POS" data-en="A  the POS system">A  نظام POS</div>
-            <div class="ex-opt" data-ar="B  الـ GPS" data-en="B  the GPS">B  الـ GPS</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  أنظمة المعلومات" data-en="C  information systems">C  أنظمة المعلومات</div>
+            <div class="ex-opt" data-ar="A نظام POS" data-en="A  the POS system">A نظام POS</div>
+            <div class="ex-opt" data-ar="B الـ GPS" data-en="B  the GPS">B الـ GPS</div>
+            <div class="ex-opt" data-ok="1" data-ar="C أنظمة المعلومات" data-en="C  information systems">C أنظمة المعلومات</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — أنظمة المعلومات"
               data-en="✅ Answer: C — information systems">✅ الإجابة: C — أنظمة المعلومات</b> <span
@@ -1654,30 +684,30 @@ select{color:var(--text)!important}
               data-en="Information systems are composed of humans, computers, and information and communication technology equipment.">أنظمة المعلومات مكوّنة من بشر وكمبيوترات ومعدات تكنولوجيا المعلومات والاتصالات.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">2</span> <span data-ar="مثال على نظام الداتا (Data) فيه بتتجمع وتتإدار وقت ما يتباع المنتج."
-              data-en="An example of a system where data is collected and managed at the time a product is sold.">مثال على نظام الداتا (Data) فيه بتتجمع وتتإدار وقت ما يتباع المنتج.</span></div>
+          <div class="q"><span class="q-num">2</span> <span data-ar="مثال على نظام البيانات فيه بتتجمع وتتإدار وقت ما يتباع المنتج."
+              data-en="An example of a system where data is collected and managed at the time a product is sold.">مثال على نظام البيانات فيه بتتجمع وتتإدار وقت ما يتباع المنتج.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  الـ MIS" data-en="A  the MIS">A  الـ MIS</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  نظام POS" data-en="B  the POS system">B  نظام POS</div>
-            <div class="ex-opt" data-ar="C  الـ ITS" data-en="C  the ITS">C  الـ ITS</div>
+            <div class="ex-opt" data-ar="A الـ MIS" data-en="A  the MIS">A الـ MIS</div>
+            <div class="ex-opt" data-ok="1" data-ar="B نظام POS" data-en="B  the POS system">B نظام POS</div>
+            <div class="ex-opt" data-ar="C الـ ITS" data-en="C  the ITS">C الـ ITS</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — نظام POS"
               data-en="✅ Answer: B — the POS system">✅ الإجابة: B — نظام POS</b> <span
-              data-ar="نظام POS بيجمع ويدير الداتا (Data) وقت ما يتباع المنتج."
-              data-en="The POS system collects and manages data at the moment of selling a product.">نظام POS بيجمع ويدير الداتا (Data) وقت ما يتباع المنتج.</span></div>
+              data-ar="نظام POS بيجمع ويدير البيانات وقت ما يتباع المنتج."
+              data-en="The POS system collects and manages data at the moment of selling a product.">نظام POS بيجمع ويدير البيانات وقت ما يتباع المنتج.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="مثال على نظام بنجيب منه داتا (Data) الأقمار الصناعية عشان نحدّد مكانك الحالي."
-              data-en="An example of a system where satellite data is obtained to determine your current location.">مثال على نظام بنجيب منه داتا (Data) الأقمار الصناعية عشان نحدّد مكانك الحالي.</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="مثال على نظام بنجيب منه بيانات الأقمار الصناعية عشان نحدّد مكانك الحالي."
+              data-en="An example of a system where satellite data is obtained to determine your current location.">مثال على نظام بنجيب منه بيانات الأقمار الصناعية عشان نحدّد مكانك الحالي.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  الـ GPS" data-en="A  the GPS">A  الـ GPS</div>
-            <div class="ex-opt" data-ar="B  نظام POS" data-en="B  the POS system">B  نظام POS</div>
-            <div class="ex-opt" data-ar="C  الـ MIS" data-en="C  the MIS">C  الـ MIS</div>
+            <div class="ex-opt" data-ok="1" data-ar="A الـ GPS" data-en="A  the GPS">A الـ GPS</div>
+            <div class="ex-opt" data-ar="B نظام POS" data-en="B  the POS system">B نظام POS</div>
+            <div class="ex-opt" data-ar="C الـ MIS" data-en="C  the MIS">C الـ MIS</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — الـ GPS"
               data-en="✅ Answer: A — the GPS">✅ الإجابة: A — الـ GPS</b> <span
-              data-ar="GPS بيستخدم داتا (Data) الأقمار الصناعية عشان يحدّد المكان الحالي لأي مكان على الأرض."
-              data-en="GPS uses satellite data to determine the current location of any place on Earth.">GPS بيستخدم داتا (Data) الأقمار الصناعية عشان يحدّد المكان الحالي لأي مكان على الأرض.</span></div>
+              data-ar="GPS بيستخدم بيانات الأقمار الصناعية عشان يحدّد المكان الحالي لأي مكان على الأرض."
+              data-en="GPS uses satellite data to determine the current location of any place on Earth.">GPS بيستخدم بيانات الأقمار الصناعية عشان يحدّد المكان الحالي لأي مكان على الأرض.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1688,25 +718,25 @@ select{color:var(--text)!important}
       <div class="section-inner card">
         <h3 data-ar="✍️ تدريب تفاعلي إضافي 2: املأ الفراغ" data-en="✍️ Additional interactive drill 2: Fill in the Blanks">✍️ تدريب 2: املأ الفراغ</h3>
         <div class="ex-item">
-          <div class="q"><span class="q-num">1</span> <span data-ar="نظام بيستخدم شبكة عشان يجمع ويتشارك ويرسل داتا (Data) ومعلومات مختلفة بيتسمّى (……)."
-              data-en="A system that utilizes a network to collect, share, and transmit various data and information is referred to as (……).">نظام بيستخدم شبكة عشان يجمع ويتشارك ويرسل داتا (Data) ومعلومات مختلفة بيتسمّى (……).</span></div>
+          <div class="q"><span class="q-num">1</span> <span data-ar="نظام بيستخدم شبكة عشان يجمع ويتشارك ويرسل بيانات ومعلومات مختلفة بيتسمّى (……)."
+              data-en="A system that utilizes a network to collect, share, and transmit various data and information is referred to as (……).">نظام بيستخدم شبكة عشان يجمع ويتشارك ويرسل بيانات ومعلومات مختلفة بيتسمّى (……).</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  الـ ITS" data-en="A  the ITS">A  الـ ITS</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  نظام معلومات" data-en="B  an information system">B  نظام معلومات</div>
-            <div class="ex-opt" data-ar="C  نظام POS" data-en="C  the POS system">C  نظام POS</div>
+            <div class="ex-opt" data-ar="A الـ ITS" data-en="A  the ITS">A الـ ITS</div>
+            <div class="ex-opt" data-ok="1" data-ar="B نظام معلومات" data-en="B  an information system">B نظام معلومات</div>
+            <div class="ex-opt" data-ar="C نظام POS" data-en="C  the POS system">C نظام POS</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — نظام معلومات"
               data-en="✅ Answer: B — an information system">✅ الإجابة: B — نظام معلومات</b> <span
-              data-ar="النظام اللي بيستخدم شبكة عشان يجمع ويتشارك ويرسل الداتا (Data) هو نظام معلومات."
-              data-en="The system that uses a network to collect, share, and transmit data is an information system.">النظام اللي بيستخدم شبكة عشان يجمع ويتشارك ويرسل الداتا (Data) هو نظام معلومات.</span></div>
+              data-ar="النظام اللي بيستخدم شبكة عشان يجمع ويتشارك ويرسل البيانات هو نظام معلومات."
+              data-en="The system that uses a network to collect, share, and transmit data is an information system.">النظام اللي بيستخدم شبكة عشان يجمع ويتشارك ويرسل البيانات هو نظام معلومات.</span></div>
         </div>
         <div class="ex-item">
           <div class="q"><span class="q-num">2</span> <span data-ar="نظام بيرسل ويستقبل معلومات الطرق عشان يحل مشاكل زي الحوادث والزحمة."
               data-en="A system that transmits and receives road information to resolve issues such as traffic accidents and congestion.">نظام بيرسل ويستقبل معلومات الطرق عشان يحل مشاكل زي الحوادث والزحمة.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  الـ GPS" data-en="A  the GPS">A  الـ GPS</div>
-            <div class="ex-opt" data-ar="B  نظام POS" data-en="B  the POS system">B  نظام POS</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  الـ ITS" data-en="C  the ITS">C  الـ ITS</div>
+            <div class="ex-opt" data-ar="A الـ GPS" data-en="A  the GPS">A الـ GPS</div>
+            <div class="ex-opt" data-ar="B نظام POS" data-en="B  the POS system">B نظام POS</div>
+            <div class="ex-opt" data-ok="1" data-ar="C الـ ITS" data-en="C  the ITS">C الـ ITS</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — الـ ITS"
               data-en="✅ Answer: C — the ITS">✅ الإجابة: C — الـ ITS</b> <span
@@ -1714,17 +744,17 @@ select{color:var(--text)!important}
               data-en="ITS transmits and receives road information to resolve traffic accidents and congestion.">ITS بيرسل ويستقبل معلومات الطرق عشان يحل حوادث المرور والزحمة.</span></div>
         </div>
         <div class="ex-item">
-          <div class="q"><span class="q-num">3</span> <span data-ar="نظام بيستخدم في المحلات والسوبر ماركت عشان يجمع ويدير الداتا (Data) وقت البيع."
-              data-en="A system used in convenience stores and supermarkets to collect and manage data at the point of sale.">نظام بيستخدم في المحلات والسوبر ماركت عشان يجمع ويدير الداتا (Data) وقت البيع.</span></div>
+          <div class="q"><span class="q-num">3</span> <span data-ar="نظام بيستخدم في المحلات والسوبر ماركت عشان يجمع ويدير البيانات وقت البيع."
+              data-en="A system used in convenience stores and supermarkets to collect and manage data at the point of sale.">نظام بيستخدم في المحلات والسوبر ماركت عشان يجمع ويدير البيانات وقت البيع.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  نظام POS" data-en="A  the POS system">A  نظام POS</div>
-            <div class="ex-opt" data-ar="B  الـ GPS" data-en="B  the GPS">B  الـ GPS</div>
-            <div class="ex-opt" data-ar="C  الـ ITS" data-en="C  the ITS">C  الـ ITS</div>
+            <div class="ex-opt" data-ok="1" data-ar="A نظام POS" data-en="A  the POS system">A نظام POS</div>
+            <div class="ex-opt" data-ar="B الـ GPS" data-en="B  the GPS">B الـ GPS</div>
+            <div class="ex-opt" data-ar="C الـ ITS" data-en="C  the ITS">C الـ ITS</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — نظام POS"
               data-en="✅ Answer: A — the POS system">✅ الإجابة: A — نظام POS</b> <span
-              data-ar="نظام POS بيستخدم في المحلات عشان يجمع ويدير الداتا (Data) وقت البيع."
-              data-en="The POS system is used in stores to collect and manage data at the point of sale.">نظام POS بيستخدم في المحلات عشان يجمع ويدير الداتا (Data) وقت البيع.</span></div>
+              data-ar="نظام POS بيستخدم في المحلات عشان يجمع ويدير البيانات وقت البيع."
+              data-en="The POS system is used in stores to collect and manage data at the point of sale.">نظام POS بيستخدم في المحلات عشان يجمع ويدير البيانات وقت البيع.</span></div>
         </div>
         <div class="ex-btn-row">
           <button class="btn" data-reveal data-ar="✔️ اكشف الإجابات" data-en="✔️ Reveal Answers">✔️ اكشف الإجابات</button>
@@ -1738,9 +768,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">1</span> <span data-ar="المصطلح لنظام الت定位 بالأقمار الصناعية اللي بيجمع معلومات المكان لأي مكان على الأرض إيه؟"
               data-en="What is the term for the satellite positioning system that collects location information for any place on Earth?">المصطلح لنظام الت定位 بالأقمار الصناعية اللي بيجمع معلومات المكان لأي مكان على الأرض إيه؟</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  الـ ITS" data-en="A  the ITS">A  الـ ITS</div>
-            <div class="ex-opt" data-ok="1" data-ar="B  الـ GPS" data-en="B  the GPS">B  الـ GPS</div>
-            <div class="ex-opt" data-ar="C  نظام POS" data-en="C  the POS system">C  نظام POS</div>
+            <div class="ex-opt" data-ar="A الـ ITS" data-en="A  the ITS">A الـ ITS</div>
+            <div class="ex-opt" data-ok="1" data-ar="B الـ GPS" data-en="B  the GPS">B الـ GPS</div>
+            <div class="ex-opt" data-ar="C نظام POS" data-en="C  the POS system">C نظام POS</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: B — الـ GPS"
               data-en="✅ Answer: B — the GPS">✅ الإجابة: B — الـ GPS</b> <span
@@ -1751,9 +781,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">2</span> <span data-ar="اختار أوصف وصف للنظام POS."
               data-en="Choose the most appropriate description of the POS system.">اختار أوصف وصف للنظام POS.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ar="A  نظام بيستخدم أقمار صناعية عشان يحدّد الأماكن الحالية." data-en="A  a system that uses artificial satellites to determine current locations.">A  نظام بيستخدم أقمار صناعية عشان يحدّد الأماكن الحالية.</div>
-            <div class="ex-opt" data-ar="B  نظام لإرسال واستقبال معلومات الطرق عشان يحل حوادث المرور والزحمة." data-en="B  a system for transmitting and receiving road information to resolve traffic accidents and congestion.">B  نظام لإرسال واستقبال معلومات الطرق عشان يحل حوادث المرور والزحمة.</div>
-            <div class="ex-opt" data-ok="1" data-ar="C  نظام بيستخدم في المحلات والدكاكين عشان يدير معلومات مبيعات المنتجات." data-en="C  a system used in stores and other shops to manage product sales information.">C  نظام بيستخدم في المحلات والدكاكين عشان يدير معلومات مبيعات المنتجات.</div>
+            <div class="ex-opt" data-ar="A نظام بيستخدم أقمار صناعية عشان يحدّد الأماكن الحالية." data-en="A  a system that uses artificial satellites to determine current locations.">A نظام بيستخدم أقمار صناعية عشان يحدّد الأماكن الحالية.</div>
+            <div class="ex-opt" data-ar="B نظام لإرسال واستقبال معلومات الطرق عشان يحل حوادث المرور والزحمة." data-en="B  a system for transmitting and receiving road information to resolve traffic accidents and congestion.">B نظام لإرسال واستقبال معلومات الطرق عشان يحل حوادث المرور والزحمة.</div>
+            <div class="ex-opt" data-ok="1" data-ar="C نظام بيستخدم في المحلات والدكاكين عشان يدير معلومات مبيعات المنتجات." data-en="C  a system used in stores and other shops to manage product sales information.">C نظام بيستخدم في المحلات والدكاكين عشان يدير معلومات مبيعات المنتجات.</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: C — نظام بيستخدم في المحلات عشان يدير معلومات مبيعات المنتجات"
               data-en="✅ Answer: C — a system used in stores to manage product sales information">✅ الإجابة: C — نظام بيستخدم في المحلات عشان يدير معلومات مبيعات المنتجات</b> <span
@@ -1764,9 +794,9 @@ select{color:var(--text)!important}
           <div class="q"><span class="q-num">3</span> <span data-ar="اختار أوصف وصف للتكامل الرأسي."
               data-en="Choose the most appropriate description of vertical integration.">اختار أوصف وصف للتكامل الرأسي.</span></div>
           <div class="ex-options">
-            <div class="ex-opt" data-ok="1" data-ar="A  ربط أنظمة في مستويات مختلفة من المؤسسة." data-en="A  linking systems at different levels of the organization.">A  ربط أنظمة في مستويات مختلفة من المؤسسة.</div>
-            <div class="ex-opt" data-ar="B  ربط أنظمة في نفس المستوى عبر أقسام مختلفة." data-en="B  linking systems at the same level across different departments.">B  ربط أنظمة في نفس المستوى عبر أقسام مختلفة.</div>
-            <div class="ex-opt" data-ar="C  ربط أنظمة بين قسمين ملهمش علاقة ببعض." data-en="C  linking systems between two unrelated departments.">C  ربط أنظمة بين قسمين ملهمش علاقة ببعض.</div>
+            <div class="ex-opt" data-ok="1" data-ar="A ربط أنظمة في مستويات مختلفة من المؤسسة." data-en="A  linking systems at different levels of the organization.">A ربط أنظمة في مستويات مختلفة من المؤسسة.</div>
+            <div class="ex-opt" data-ar="B ربط أنظمة في نفس المستوى عبر أقسام مختلفة." data-en="B  linking systems at the same level across different departments.">B ربط أنظمة في نفس المستوى عبر أقسام مختلفة.</div>
+            <div class="ex-opt" data-ar="C ربط أنظمة بين قسمين ملهمش علاقة ببعض." data-en="C  linking systems between two unrelated departments.">C ربط أنظمة بين قسمين ملهمش علاقة ببعض.</div>
           </div>
           <div class="ex-answer"><b data-ar="✅ الإجابة: A — ربط أنظمة في مستويات مختلفة"
               data-en="✅ Answer: A — linking systems at different levels">✅ الإجابة: A — ربط أنظمة في مستويات مختلفة</b>
@@ -1801,7 +831,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">01</span>
                 <div>
-                  <h4 data-ar="الأنواع الأربعة" data-en="The Four Types">الأنواع الأربعة</h4>
+                  <h3 data-ar="الأنواع الأربعة" data-en="The Four Types" class="lvl-h4 lvl-h4-2">الأنواع الأربعة</h3>
                   <p data-ar="TPS بيسجّل المعاملات اليومية، وMIS بيدّي تقارير دورية، وDSS بيدعم قرارات صعبة، وEIS بيخبّر التنفيذيين."
                     data-en="TPS records daily transactions, MIS gives periodic reports, DSS supports difficult decisions, and EIS informs executives.">TPS بيسجّل المعاملات اليومية، وMIS بيدّي تقارير دورية، وDSS بيدعم قرارات صعبة، وEIS بيخبّر التنفيذيين.</p>
                 </div>
@@ -1809,7 +839,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">02</span>
                 <div>
-                  <h4 data-ar="تكامل الأنظمة" data-en="System Integration">تكامل الأنظمة</h4>
+                  <h3 data-ar="تكامل الأنظمة" data-en="System Integration" class="lvl-h4 lvl-h4-2">تكامل الأنظمة</h3>
                   <p data-ar="الرأسي بيربط مستويات مختلفة، والأفقي بيربط نفس المستوى عبر الأقسام."
                     data-en="vertical links different levels, and horizontal links the same level across departments.">الرأسي بيربط مستويات مختلفة، والأفقي بيربط نفس المستوى عبر الأقسام.</p>
                 </div>
@@ -1817,7 +847,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">03</span>
                 <div>
-                  <h4 data-ar="نظام ERP" data-en="The ERP System">نظام ERP</h4>
+                  <h3 data-ar="نظام ERP" data-en="The ERP System" class="lvl-h4 lvl-h4-2">نظام ERP</h3>
                   <p data-ar="نظام متكامل بيجمع وظائف العمل — المحاسبة والموارد البشرية وسلسلة الإمداد وCRM — في نظام واحد."
                     data-en="an integrated system that combines business functions — accounting, HR, supply chain, and CRM — into a single system.">نظام متكامل بيجمع وظائف العمل — المحاسبة والموارد البشرية وسلسلة الإمداد وCRM — في نظام واحد.</p>
                 </div>
@@ -1825,7 +855,7 @@ select{color:var(--text)!important}
               <div class="journey-item">
                 <span class="jn-num">04</span>
                 <div>
-                  <h4 data-ar="أمثلة عملية" data-en="Practical Examples">أمثلة عملية</h4>
+                  <h3 data-ar="أمثلة عملية" data-en="Practical Examples" class="lvl-h4 lvl-h4-2">أمثلة عملية</h3>
                   <p data-ar="POS في المحلات، وGPS لتحديد المكان بالأقمار، وITS عشان يحل مشاكل المرور."
                     data-en="POS in stores, GPS for satellite location, and ITS to solve traffic problems.">POS في المحلات، وGPS لتحديد المكان بالأقمار، وITS عشان يحل مشاكل المرور.</p>
                 </div>
@@ -1896,7 +926,7 @@ select{color:var(--text)!important}
               <div class="rq-opt" data-id="recapRq3o3" data-key="B"
                 data-fb-ar="مش كده — ERP نظام برمجي مش جهاز."
                 data-fb-en="Not quite — ERP is a software system, not a device."><span class="rq-key">B</span><span
-                  class="rq-body" data-ar="جهاز تخزين داتا (Data)" data-en="a data storage device">جهاز تخزين داتا (Data)</span></div>
+                  class="rq-body" data-ar="جهاز تخزين بيانات" data-en="a data storage device">جهاز تخزين بيانات</span></div>
               <div class="rq-opt" data-id="recapRq3o1" data-key="C" data-ok="1"
                 data-fb-ar="صحيح! ERP بيدمج كل الوظائف في نظام واحد موحد."
                 data-fb-en="Correct! ERP combines all functions into one unified system."><span
@@ -2439,30 +1469,7 @@ var FLOWS = {
       });
     })();
   </script>
-<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script id="mob-label-clamp">
-/* Keep absolutely positioned diagram captions inside the card at phone widths. */
-(function(){
-  function clamp(){
-    if (window.innerWidth > 640) return;
-    document.querySelectorAll('.diagram-wrap').forEach(function(w){
-      var W = w.clientWidth;
-      w.querySelectorAll('.svg-label').forEach(function(l){
-        var r = l.getBoundingClientRect();
-        var half = r.width/2;
-        var minC = half + 3, maxC = W - half - 3;
-        if (minC > maxC) return;
-        var cur = parseFloat(l.style.left);
-        if (isNaN(cur)) return;
-        var curPx = cur/100*W;
-        var t = Math.min(Math.max(curPx, minC), maxC);
-        if (Math.abs(t-curPx) > 0.5) l.style.left = (t/W*100).toFixed(3)+'%';
-      });
-    });
-  }
-  window.addEventListener('load', function(){ setTimeout(clamp,50); setTimeout(clamp,400); });
-  window.addEventListener('resize', function(){ setTimeout(clamp,120); });
-})();
-</script>
+<script src="../../../../assets/js/nav.js"></script><script>/*tab-title*/(function(){function t(){var h=document.querySelector("h1.hero-title");if(h)document.title=h.textContent.replace(/\s+/g," ").trim()+" | Egypt ICT Hub"}document.addEventListener("langChange",t);window.addEventListener("load",t);t()})();</script><script src="../../../../assets/js/shared-cb783206.js"></script>
 </body>
 
 </html>
