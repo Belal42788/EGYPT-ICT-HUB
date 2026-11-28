@@ -156,53 +156,133 @@ function dbdesign(){title('من هيكل الجدول إلى السجل','From t
 const FQ={rows:[{id:1,name:'yasmin',ar:17,en:18,co:19},{id:2,name:'tamer',ar:14,en:19,co:16},{id:3,name:'yasmin',ar:20,en:20,co:18}],at:0,draft:'18',name:'any',cut:'18',op:'gt',logic:'and',show:[false,true,true,false,false],result:null,phase:0,msg:['عدل درجة من النموذج أو صمم استعلامًا.','Edit a form grade or design a query.']};
 function paintAccess(){
  const bl=(ar,en,tag='span')=>{const e=E(tag);e.dataset.ar=ar;e.dataset.en=en;e.textContent=t([ar,en]);return e};
+ const ic=(name,size)=>{const s=E('span',undefined,'ac-ic');s.innerHTML='<svg viewBox="0 0 16 16" width="'+(size||14)+'" height="'+(size||14)+'" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+({
+   save:'<path d="M3 2h8l3 3v9H3z"/><path d="M5.5 2v3.5h5V2"/><path d="M5 14v-4.5h6V14"/>',
+   undo:'<path d="M6.5 3.5 3 7l3.5 3.5"/><path d="M3.5 7H11a3 3 0 0 1 0 6H9"/>',
+   redo:'<path d="M9.5 3.5 13 7l-3.5 3.5"/><path d="M12.5 7H5a3 3 0 0 0 0 6h2"/>',
+   plus:'<path d="M8 3v10M3 8h10"/>',
+   trash:'<path d="M3 4.5h10M6.5 4V2.5h3V4M4.5 4.5l.7 9h5.6l.7-9"/><path d="M6.8 7v4M9.2 7v4"/>',
+   sortaz:'<path d="M4 3v10M4 13l-2-2.5M4 13l2-2.5"/><path d="M9 4.5h5M9.7 8h4M10.4 11.5h3"/>',
+   filter:'<path d="M2.5 3.5h11l-4.2 4.8v4.2l-2.6-1.4V8.3z"/>',
+   search:'<circle cx="7" cy="7" r="4"/><path d="M10.2 10.2 14 14"/>',
+   table:'<rect x="2.5" y="3" width="11" height="10" rx="1"/><path d="M2.5 6.5h11M8 6.5V13"/>',
+   key:'<circle cx="5.5" cy="8" r="2.6"/><path d="M8.1 8H14M12 8v2.4M14 8v1.8"/>',
+   gridview:'<rect x="2.5" y="3" width="11" height="10" rx="1"/><path d="M2.5 6.2h11M2.5 9.4h11M6.8 3v10M11.2 3v10"/>',
+   design:'<path d="M9.8 3.2l3 3L6 13H3v-3z"/><path d="M8.6 4.4l3 3"/>',
+   first:'<path d="M3.5 3.5v9M12.5 3.5l-5 4.5 5 4.5"/>',
+   prev:'<path d="M10.5 3.5l-5 4.5 5 4.5"/>',
+   next:'<path d="M5.5 3.5l5 4.5-5 4.5"/>',
+   last:'<path d="M12.5 3.5v9M3.5 3.5l5 4.5-5 4.5"/>',
+   newrec:'<path d="M5.5 3.5l5 4.5-5 4.5"/><path d="M12 5.5v5M9.5 8h5"/>'
+  })[name]+'</svg>';return s};
  const bx=document.getElementById('interactive-lab')||box;
  let wrap=bx.querySelector('.ac-scale');
  if(!wrap){wrap=E('div',undefined,'ac-scale');const cv=E('div',undefined,'ac-canvas');cv.id='ac-canvas';wrap.append(cv);bx.append(wrap)}
  const cv=wrap.firstChild;cv.replaceChildren();
  const win=E('div',undefined,'ac-win');
+
+ /* ---- title bar: logo, quick access toolbar, file name, window controls ---- */
  const bar=E('div',undefined,'ac-title');
- bar.append(bl('Access تدريبي — نتائج الطلاب.accdb (خيالي)','Training Access — Student Results.accdb (fictional)','b'));
+ const logo=E('span',undefined,'ac-logo');logo.textContent='A';logo.setAttribute('aria-hidden','true');bar.append(logo);
+ const qat=E('span',undefined,'ac-qat');
+ [ic('save',13),ic('undo',13),ic('redo',13)].forEach(i=>{const q=E('span',undefined,'ac-qat-i');q.append(i);qat.append(q)});
+ bar.append(qat);
+ bar.append(bl('نتائج الطلاب.accdb — Access (نموذج تدريبي خيالي)','Student Results.accdb — Access (fictional training model)','b'));
+ const ctl=E('span',undefined,'ac-ctl');
+ ctl.append(Object.assign(E('span',undefined,'ac-ctl-i'),{textContent:'—'}),Object.assign(E('span',undefined,'ac-ctl-i'),{textContent:'▢'}),Object.assign(E('span',undefined,'ac-ctl-i ac-ctl-x'),{textContent:'✕'}));
+ bar.append(ctl);
+
+ /* ---- ribbon tabs ---- */
  const ribbon=E('div',undefined,'ac-ribbon');
- [['الشريط الرئيسي','Home',true],['إنشاء','Create',false],['بيانات خارجية','External Data',false]].forEach(([ar,en,on])=>{const tb=E('span',undefined,'ac-tab'+(on?' on':''));tb.append(bl(ar,en));ribbon.append(tb)});
+ [['ملف','File',false,'file'],['الشريط الرئيسي','Home',true],['إنشاء','Create',false],['بيانات خارجية','External Data',false],['أدوات قاعدة البيانات','Database Tools',false]].forEach(([ar,en,on,kind])=>{const tb=E('span',undefined,'ac-tab'+(on?' on':'')+(kind?' ac-tab-'+kind:''));tb.append(bl(ar,en));ribbon.append(tb)});
+
+ /* ---- ribbon command panel: grouped commands like real Access ---- */
+ const rp=E('div',undefined,'ac-rpanel');
+ const grp=(ar,en)=>{const g=E('div',undefined,'ac-group');const btns=E('div',undefined,'ac-group-btns');g.append(btns);g.append(bl(ar,en,'small'));rp.append(g);return btns};
+ const rbtn=(btns,icon,ar,en,action,enabled)=>{const b=E('button',undefined,'ac-rbtn'+(enabled?'':' dim'));b.type='button';b.append(ic(icon,16),bl(ar,en,'span'));if(enabled&&action)b.onclick=action;else b.tabIndex=-1;btns.append(b);return b};
+ const g1=grp('السجلات','Records');
+ rbtn(g1,'save','حفظ البنية','Save schema',()=>{document.getElementById('db-save')?.click()},DB.view==='design');
+ rbtn(g1,'plus','سجل جديد','New record',()=>{document.getElementById('db-add')?.click()},DB.view==='data');
+ rbtn(g1,'trash','حذف سجل','Delete record',()=>{document.getElementById('db-delete')?.click()},DB.view==='data');
+ const g2=grp('فرز وتصفية','Sort & Filter');
+ rbtn(g2,'sortaz','تصاعدي','Ascending',null,false);
+ rbtn(g2,'filter','تصفية','Filter',null,false);
+ const g3=grp('البحث','Find');
+ rbtn(g3,'search','بحث','Find',null,false);
+
+ /* ---- body: navigation pane + main document area ---- */
  const bodyw=E('div',undefined,'ac-body');
  const nav=E('div',undefined,'ac-nav');
- nav.append(bl('جداول','Tables','b'));
- const tbl=E('div',undefined,'ac-tbl'+(DB.created?' on':' off'));tbl.append(bl('درجات الطلاب','Student Grades'));nav.append(tbl);
+ nav.append(bl('جزء التنقل','Navigation Pane','b'));
+ const navcat=bl('كل كائنات Access','All Access Objects','span');navcat.className='ac-navcat';nav.append(navcat);
+ const srch=E('span',undefined,'ac-search');srch.append(ic('search',12),bl('بحث…','Search…','span'));nav.append(srch);
+ const ghead=E('span',undefined,'ac-grouphead');ghead.append(bl('جداول','Tables','b'));nav.append(ghead);
+ const tbl=E('div',undefined,'ac-tbl'+(DB.created?' on':' off'));tbl.append(ic('table',14),bl('درجات الطلاب','Student Grades'));nav.append(tbl);
  if(!DB.created)nav.append(bl('لا قاعدة بعد — أنشئها بزر الإنشاء أسفل النافذة','No database yet — create it with the button below the window','small'));
  const main=E('div',undefined,'ac-main');
- const vbar=E('div',undefined,'ac-vbar');
- [['design',['تصميم الجدول','Table Design']],['data',['ورقة البيانات','Datasheet']]].forEach(([v,pair])=>{const b=E('button',undefined,'ac-view'+(DB.view===v?' on':''));b.type='button';b.append(bl(pair[0],pair[1]));b.onclick=()=>{DB.view=v;paint()};vbar.append(b)});
- const saved=bl(DB.saved?'البنية محفوظة ✓':'البنية غير محفوظة',DB.saved?'Schema saved ✓':'Schema not saved','small');
- vbar.append(saved);main.append(vbar);
+
+ /* object tab + saved state */
+ const tabs=E('div',undefined,'ac-objtabs');
+ if(DB.created){
+  const ot=E('span',undefined,'ac-objtab');
+  ot.append(ic(DB.view==='design'?'design':'gridview',13),bl(DB.view==='design'?'درجات الطلاب : تصميم الجدول':'درجات الطلاب : ورقة البيانات',DB.view==='design'?'Student Grades : Table Design':'Student Grades : Datasheet'),Object.assign(E('span',undefined,'ac-objtab-x'),{textContent:'✕'}));
+  tabs.append(ot);
+ }
+ tabs.append(bl(DB.saved?'البنية محفوظة ✓':'البنية غير محفوظة',DB.saved?'Schema saved ✓':'Schema not saved','small'));
+ main.append(tabs);
+
  if(!DB.created){
   const emp=E('div',undefined,'ac-empty');emp.append(bl('منطقة العمل فارغة — القاعدة الخيالية لم تنشأ بعد','Empty workspace — the fictional database is not created yet'));main.append(emp);
  }else if(DB.view==='design'){
-  const g=E('div',undefined,'ac-grid');
-  const hh=E('div',undefined,'ac-row head');hh.append(bl('اسم الحقل','Field Name','b'),bl('نوع البيانات','Data Type','b'),bl('مفتاح','Key','b'));g.append(hh);
+  const descs=[['معرف تلقائي لكل سجل','Auto id per record'],['اسم الطالب','Pupil name'],['درجة من 0 إلى 20','Grade 0–20'],['درجة من 0 إلى 20','Grade 0–20'],['درجة من 0 إلى 20','Grade 0–20']];
+  const g=E('div',undefined,'ac-grid design');
+  const hh=E('div',undefined,'ac-row head');hh.append(E('span',undefined,'ac-rs'),bl('اسم الحقل','Field Name','b'),bl('نوع البيانات','Data Type','b'),bl('الوصف (اختياري)','Description (optional)','b'));g.append(hh);
   const cycle={AutoNumber:'Short Text','Short Text':'Number',Number:'AutoNumber'};
   labels.forEach((pair,i)=>{
-   const r=E('div',undefined,'ac-row');
+   const r=E('div',undefined,'ac-row'+(i===0?' cur':''));
+   const rs=E('span',undefined,'ac-rs');
+   if(i===0&&DB.pk)rs.append(ic('key',13));else if(i===0)rs.textContent='▸';
+   r.append(rs);
    r.append(bl(pair[0],pair[1]));
    const tc=E('button',undefined,'ac-type');tc.type='button';tc.id='ac-type-'+i;tc.textContent=DB.types[i];
    tc.title='';tc.onclick=()=>{DB.types[i]=cycle[DB.types[i]];DB.saved=false;DB.msg=['تغير التصميم؛ راجعه واحفظ قبل إدخال سجل جديد. لا نجري تحويلًا صامتًا للبيانات.','Schema changed; review/save before a new record. No silent data conversion.'];paint()};
    r.append(tc);
-   const k=E('span',undefined,'ac-key');k.textContent=(i===0&&DB.pk)?'🔑':'';r.append(k);
+   r.append(bl(descs[i][0],descs[i][1],'small'));
    g.append(r)});
   main.append(g);
+  const props=E('div',undefined,'ac-props');
+  props.append(bl('خصائص الحقل','Field Properties','b'));
+  const pl=E('div',undefined,'ac-props-list');
+  [[['الحقل المحدد','Selected field'],['id (AutoNumber)','id (AutoNumber)']],[['مفهرس','Indexed'],['نعم (بلا تكرار)','Yes (No Duplicates)']],[['مطلوب','Required'],['نعم','Yes']]].forEach(([k,v])=>{pl.append(bl(k[0],k[1],'span'),bl(v[0],v[1],'span'))});
+  props.append(pl);main.append(props);
   main.append(bl('اضغط خلية النوع لتبديله — نفس قاعدة التحقق المطلوبة: id تلقائي، الاسم نص، الدرجات Number، والمفتاح مفعل','Click a type cell to cycle it — same required rule: AutoNumber id, text name, Number grades, key on','small'));
  }else{
   const g=E('div',undefined,'ac-grid data');
-  const hh=E('div',undefined,'ac-row head');hh.append(bl('id','id','b'),bl('الاسم','Name','b'),bl('العربي','Arabic','b'),bl('الإنجليزي','English','b'),bl('الكمبيوتر','Computer','b'));g.append(hh);
+  const hh=E('div',undefined,'ac-row head');hh.append(E('span',undefined,'ac-rs'),bl('id','id','b'),bl('الاسم','Name','b'),bl('العربي','Arabic','b'),bl('الإنجليزي','English','b'),bl('الكمبيوتر','Computer','b'));
+  hh.querySelectorAll('b').forEach(h=>h.append(Object.assign(E('span',undefined,'ac-filt'),{textContent:'▾'})));g.append(hh);
   if(!DB.rows.length){const emp=E('div',undefined,'ac-empty');emp.append(bl('لا سجلات — أضف سجلًا بزر الإضافة أسفل النافذة','No records — add one with the button below the window'));g.append(emp)}
-  DB.rows.forEach(r0=>{const r=E('div',undefined,'ac-row');r.append(bl(String(r0[0]),String(r0[0])),bl(t(namelist[r0[1]]),t(namelist[r0[1]])),bl(String(r0[2]),String(r0[2])),bl(String(r0[3]),String(r0[3])),bl(String(r0[4]),String(r0[4])));g.append(r)});
+  DB.rows.forEach((r0,ri)=>{const r=E('div',undefined,'ac-row'+(ri===0?' cur':''));const rs=E('span',undefined,'ac-rs');rs.textContent=ri===0?'▸':'';r.append(rs,bl(String(r0[0]),String(r0[0])),bl(t(namelist[r0[1]]),t(namelist[r0[1]])),bl(String(r0[2]),String(r0[2])),bl(String(r0[3]),String(r0[3])),bl(String(r0[4]),String(r0[4])));g.append(r)});
+  if(DB.rows.length){const nr=E('div',undefined,'ac-row new');const rs=E('span',undefined,'ac-rs');rs.textContent='*';nr.append(rs,bl('(جديد)','(New)'),bl('',''),bl('',''),bl('',''),bl('',''));g.append(nr)}
   main.append(g);
+  const recnav=E('div',undefined,'ac-recnav');
+  const nb=E('span',undefined,'ac-recnav-btns');
+  [ic('first',13),ic('prev',13),ic('next',13),ic('last',13),ic('newrec',13)].forEach(i=>{const b=E('span',undefined,'ac-rnav');b.append(i);nb.append(b)});
+  recnav.append(nb);
+  const recno=bl(DB.rows.length?`السجل 1 من ${DB.rows.length}`:'لا سجلات',DB.rows.length?`Record 1 of ${DB.rows.length}`:'No records','span');recno.className='ac-recno';recnav.append(recno);
+  const rs2=E('span',undefined,'ac-search ac-recsearch');rs2.append(ic('search',12),bl('بحث','Search','span'));recnav.append(rs2);
+  main.append(recnav);
   main.append(bl(`${DB.rows.length} سجل خيالي — الأرقام تلقائية ولا تُعاد جدولتها بعد الحذف`,`${DB.rows.length} fictional record(s) — ids are automatic and not renumbered after delete`,'small'));
  }
+
+ /* ---- status bar with view switcher icons ---- */
  const status=E('div',undefined,'ac-status');
- status.append(bl(DB.view==='design'?'طريقة عرض: التصميم':'طريقة عرض: ورقة البيانات',DB.view==='design'?'View: Design':'View: Datasheet','small'));
+ status.append(bl('جاهز','Ready','small'));
  status.append(bl('نموذج مستوحى من Access — ليس برنامج Access أو ملفًا حقيقيًا','Access-inspired model — not Access or a real file','small'));
- bodyw.append(nav,main);win.append(bar,ribbon,bodyw,status);cv.append(win);
+ const vi=E('span',undefined,'ac-viewicons');
+ [['data','gridview','ورقة البيانات','Datasheet'],['design','design','تصميم الجدول','Design']].forEach(([v,icn,ar,en])=>{const b=E('button',undefined,'ac-vicon'+(DB.view===v?' on':''));b.type='button';b.title=t([ar,en]);b.append(ic(icn,15));b.onclick=()=>{DB.view=v;paint()};vi.append(b)});
+ status.append(vi);
+
+ bodyw.append(nav,main);win.append(bar,ribbon,rp,bodyw,status);cv.append(win);
  const fit=()=>{const w=wrap.clientWidth;const ph=w<720;cv.classList.toggle('ac-phone',ph);if(ph){cv.style.transform='';cv.style.left='';wrap.style.height='';return}const s=Math.min(1,w/1280);cv.style.transform='scale('+s+')';cv.style.left=Math.max(0,(w-1280*s)/2)+'px';wrap.style.height=(720*s)+'px'};
  fit();if(!window.__acFit){window.__acFit=true;window.addEventListener('resize',()=>{document.querySelectorAll('.ac-scale').forEach(w2=>{const c2=w2.firstChild;if(!c2)return;const w=w2.clientWidth;const ph=w<720;c2.classList.toggle('ac-phone',ph);if(ph){c2.style.transform='';c2.style.left='';w2.style.height='';return}const s=Math.min(1,w/1280);c2.style.transform='scale('+s+')';c2.style.left=Math.max(0,(w-1280*s)/2)+'px';w2.style.height=(720*s)+'px'})})}
 }
