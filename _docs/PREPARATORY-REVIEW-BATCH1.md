@@ -33,7 +33,7 @@ All workbenches use fixed teaching rules. They are not real AI, connected sensor
 
 ## Build
 
-Run `python scripts/preparatory-lessons/build.py` from the repository root. It uses the standard Python library. The separate preparatory assets reuse the secondary visual identity without modifying secondary shared files.
+The generator is archived at `scripts/preparatory-lessons/archive/build.py` and is no longer run: the committed HTML pages are the source of truth (Bilal, 2026-11-28). Running it would revert the light redesign on 31 files, so edit the pages directly. The engine sources in `scripts/preparatory-lessons/` are kept for the shared-engine work.
 
 Generated output: three Term 1 lesson HTML files, three year directories, and the preparatory landing. HTML includes its own lesson data, styles, and scripts; the optional Google font and source books require internet access.
 
