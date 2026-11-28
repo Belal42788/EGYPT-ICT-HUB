@@ -142,3 +142,14 @@ h3.lvl-h4{font-size:16px;font-weight:800;color:#0b1020;line-height:1.9;margin:0 
 /* 320px phones: verbatim book quotes (Arabic + long English tokens) must wrap instead of
    widening the page. Only takes effect when a word has no other break point. */
 .bq-inline,.book-diff,.book-card{overflow-wrap:break-word !important;word-break:break-word !important}
+/* Phones: smaller section titles so long Arabic titles wrap to ~2 lines next to the
+   number circle instead of 4-5 (Bilal 6:33: circle stays vertically centered). */
+@media (max-width:640px){main .section-title{font-size:20px;line-height:1.35}}
+/* Journey timeline: direction-aware positioning. The per-page copies hardcode right:
+   offsets, which detaches the dot and line from the text in English (LTR). Logical
+   properties keep Arabic pixel-identical and put the markers on the text side in English. */
+main .journey{padding-inline-start:26px;padding-inline-end:0}
+main .journey::before{inset-inline-start:11px}
+main .journey:has(.j-node)::before{inset-inline-start:9px}
+main .journey-item{padding-inline-start:30px;padding-inline-end:0}
+main .journey-item::before{inset-inline-start:3px}
