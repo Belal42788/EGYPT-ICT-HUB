@@ -1,0 +1,24 @@
+name: lint
+
+# Code-quality gate only. The site is plain HTML/CSS/JS served by GitHub Pages;
+# nothing here builds or deploys anything.
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: JavaScript (correctness errors fail, style debt warns)
+        run: npm run lint:js
+      - name: CSS (warnings only for now)
+        run: npm run lint:css
+      - name: HTML structure
+        run: npm run lint:html

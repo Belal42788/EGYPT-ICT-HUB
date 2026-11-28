@@ -1,0 +1,18 @@
+{
+  "name": "egypt-ict-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual ICT site. HTML pages are the source of truth; these tools only check code quality.",
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
+    "lint:js": "eslint assets/js scripts",
+    "lint:css": "stylelint \"assets/css/**/*.css\"",
+    "lint:html": "htmlhint \"*.html\" \"Preparatory/**/*.html\" \"Secondary/**/*.html\""
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-plugin-sonarjs": "^4.0.0",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^16.0.0"
+  }
+}
