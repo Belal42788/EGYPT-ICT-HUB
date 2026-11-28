@@ -97,3 +97,10 @@ table.ascii th, table.ascii td {
   unicode-bidi:plaintext;
   text-align:center !important;
 }
+
+/* Bullet lists inside table cells: one marker per item, markers in a column,
+   the whole block centred in the cell. */
+.cell-list{list-style:none;margin:0;padding:0;display:inline-block;text-align:start}
+.cell-list li{position:relative;padding-inline-start:1.15em;margin:0 0 .3em}
+.cell-list li:last-child{margin-bottom:0}
+.cell-list li::before{content:"•";position:absolute;inset-inline-start:0;color:currentColor;opacity:.85}

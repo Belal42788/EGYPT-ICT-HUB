@@ -27,5 +27,8 @@
   .bq-inline table td:not([data-cell-label])::before{ display:none }
 }
 
+/* labels only where tables stack into cards (<=900px); they were leaking onto desktop */
+@media (max-width:900px){
 #societies .tbl-wrap table tr > td:nth-child(2)::before, #societies .bq-inline table tr > td:nth-child(2)::before{ content:"شرح"; display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin:6px 0 2px;white-space:nowrap;overflow-wrap:normal;word-break:normal; }
 #societies .tbl-wrap table tr > td:nth-child(3)::before, #societies .bq-inline table tr > td:nth-child(3)::before{ content:"التقنيات والأدوات المؤثرة"; display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin:6px 0 2px;white-space:nowrap;overflow-wrap:normal;word-break:normal; }
+}
