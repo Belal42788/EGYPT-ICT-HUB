@@ -61,11 +61,6 @@ function paintCyber(){
  output('backup-status',cy.locked?(cy.backup?['الملفات محجوبة في الرسم؛ النسخة المنفصلة تتيح تجربة الاستعادة.','The drawing’s files are locked; the separate backup enables model recovery.']:['لا نسخة في المثال:الاستعادة ليست مضمونة. اطلب مساعدة بالغ موثوق ودعم تقني، ولا تدفع.','No backup in this example: recovery is not assured. Seek trusted adult and IT help; do not pay.']):['الملفات الخيالية متاحة. لم يُقرأ أو يُشفّر أي ملف من جهازك.','The fictional files are available. No file on your device was read or encrypted.'],cy.locked&&!cy.backup);
  box.append(E('h3',['افحص الفكرة، لا تضغط رابطًا','Inspect the idea, not a link']));select('cyber-scenario',['موقف خيالي','Fictional situation'],[['targeted',['رسالة موجهة','Targeted message']],['pretext',['قصة وصفة مختلقتان','Invented role and story']],['bait',['إغراء بمكافأة','Reward lure']]],cy.scenario,v=>{cy.scenario=v;cy.reveal=false});output('scenario-text',threats[cy.scenario][0]);controls([B('cyber-reveal',['اكشف علامة الخطر والاستجابة','Reveal the cue and response'],()=>{cy.reveal=true;paint()})]);if(cy.reveal)output('scenario-response',threats[cy.scenario][1]);
 }
-const bd={dedup:false,validate:false,copies:1,format:'table',rate:'slow',phase:0};
-const records=[['1',12],['2',18],['2',18],['3',-4],['4',20],['5','?'],['6',30]];
-const ai={mode:'search',phase:0,n:'0',target:'10',label:'spam',trained:false,weights:null,sample:'free school',result:null};
-const sorts=(()=>{const a=[5,2,9,1],frames=[{a:[...a],pair:[],swap:false}];for(let end=3;end>0;end--)for(let i=0;i<end;i++){const swap=a[i]>a[i+1];if(swap)[a[i],a[i+1]]=[a[i+1],a[i]];frames.push({a:[...a],pair:[i,i+1],swap})}return frames})();
-const st={text:'Hello1',idx:'0',needle:'H',phase:-1,list:['Ahmed','Ali','Sara','Alaa'],name:'Ali',notice:null,namePhase:-1,preset:'Demo7@Ab'};
 function paint(){box.textContent='';paintCyber()}
 window.paintLab=paint;document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing){stop();paint()}});window.addEventListener('pagehide',stop);paint();
 })();

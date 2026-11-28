@@ -52,12 +52,6 @@ function paintOperating(){
  output('os-status',os.msg||[['طلب جاهز عند الواجهة.','A request waits at the interface.'],['النظام ينظم الذاكرة والحقوق.','The OS coordinates memory and permissions.'],['إدارة المكونات تتعامل مع جهاز الإخراج.','Hardware management coordinates the output device.'],['اكتملت طباعة وهمية داخل الصفحة، لم تُستدعَ طابعة حقيقية.','A fictional print job completed in-page; no real printer was called.']][os.phase],os.msg&&(!os.permission||!os.printer));
 }
 const cy={good:3,bad:8,filter:false,phase:0,backup:true,locked:false,scenario:'targeted',reveal:false};
-const threats={targeted:[['رسالة خيالية تستهدف مجموعة طلاب وتعرف اسم فصلهم.','A fictional message targets pupils and knows their class name.'],['التصيد الموجه: معرفة تفاصيل عنك لا تثبت الهوية. تحقق بقناة مستقلة معروفة.','Spear phishing: knowing details about you does not prove identity. Verify independently through a known channel.']],pretext:[['مصدر غير متحقق منه يدعي دور الدعم ويختلق سببًا لطلب بيانات سرية.','An unverified source claims a support role and invents a reason to request secret data.'],['Pretexting: صفة وقصة مختلقتان. لا تعطِ أسرارًا، وارجع لمسؤول تعرفه.','Pretexting: a fabricated role and story. Disclose no secrets; ask a support contact you already know.']],bait:[['إعلان خيالي يَعِد بمكافأة مقابل تنزيل ملف من مصدر مجهول.','A fictional advert promises a reward for downloading an unknown file.'],['الاستدراج: المكافأة طُعم. لا تنزل الملف واطلب مساعدة موثوقة.','Baiting: the reward is a lure. Do not download it; seek trusted help.']]};
-const bd={dedup:false,validate:false,copies:1,format:'table',rate:'slow',phase:0};
-const records=[['1',12],['2',18],['2',18],['3',-4],['4',20],['5','?'],['6',30]];
-const ai={mode:'search',phase:0,n:'0',target:'10',label:'spam',trained:false,weights:null,sample:'free school',result:null};
-const sorts=(()=>{const a=[5,2,9,1],frames=[{a:[...a],pair:[],swap:false}];for(let end=3;end>0;end--)for(let i=0;i<end;i++){const swap=a[i]>a[i+1];if(swap)[a[i],a[i+1]]=[a[i+1],a[i]];frames.push({a:[...a],pair:[i,i+1],swap})}return frames})();
-const st={text:'Hello1',idx:'0',needle:'H',phase:-1,list:['Ahmed','Ali','Sara','Alaa'],name:'Ali',notice:null,namePhase:-1,preset:'Demo7@Ab'};
 function paint(){box.textContent='';paintOperating()}
 window.paintLab=paint;document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing){stop();paint()}});window.addEventListener('pagehide',stop);paint();
 })();

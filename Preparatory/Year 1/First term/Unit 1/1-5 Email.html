@@ -151,14 +151,10 @@ function paintEmail(){
  out('mail-send-status',mail.delivered?['وصل رمز الرسالة إلى الصندوق الخيالي فقط. لا طلب شبكة لإرسال بريد.','The message symbol reached only the fictional inbox. No network mail-send request.']:['الرسالة ثابتة ولا مرفقات حقيقية. راجع المرسل إليه والمحتوى قبل أي إرسال حقيقي.','The message is fixed with no real attachments. Review recipients/content before any real send.']);
 }function training(){return [[1,2],[2,4],[3,6],[4,ai.clean?8:9]]}
 // The deliberately weak interface is contained inside a labelled prototype.
-const ux={nav:false,clarity:false,consistent:false,layout:false,palette:'low',page:'home',clicks:0,found:false,watch:0};
-const palettes={good:['#f0f7fa','#173244'],low:['#dadada','#b8b8b8'],loud:['#ffeb79','#8a1647']};
 // Fixed programs, not eval or a general Python interpreter.
 const fn={mode:'add',a:'3',b:'5',missing:false,phase:0,outside:false};
-const fncodes={add:'def add(a, b):\n    return a + b\n\nresult = add(A, B)\nprint(result)',print:'def add(a, b):\n    print(a + b)\n\nresult = add(A, B)\nprint(result)',circle:'def circle_area(radius):\n    pi = 3.14\n    return pi * radius ** 2\n\nresult = circle_area(A)\nprint(result)',max:'def max_number(a, b):\n    if a > b:\n        return a\n    return b\n\nresult = max_number(A, B)\nprint(result)',multi:'def multiply(x, y):\n    return x * y\n\nfirst = multiply(4, 5)\nsecond = multiply(2, 3)\ntotal = first + second\nprint(total)',greet:'def greet(name):\n    print("Hello,", name)\n\nresult = greet("Ahmed")\nprint(result)'};
 // A deliberately bounded decimal-string model. Unsupported Python forms are
 // reported as interface limits, not invented Python ValueErrors.
-const er={mode:'ten',a:'hello',b:'0',queue:'hello,5',phase:0};
 function paint(){box.textContent='';paintEmail()}
 window.paintLab=paint;document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing){stop();paint()}});window.addEventListener('pagehide',stop);paint();
 })();
