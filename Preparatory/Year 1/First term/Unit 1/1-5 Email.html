@@ -178,14 +178,14 @@ function paintEmail(){
  const bl=(ar,en,tag='span')=>{const e=E(tag);e.dataset.ar=ar;e.dataset.en=en;e.textContent=t([ar,en]);return e};
  title('صندوق بريد تدريبي بلا حساب أو إرسال','A practice mailbox without accounts or sending','لا تدخل اسمًا أو تاريخ ميلاد أو كلمة مرور أو رمزًا. كل العناوين من example.com المخصص للأمثلة، وكل الحقول ثابتة.','Enter no name, birth date, password or code. All addresses use reserved example.com, and all fields are fixed.');
  if(mail.composeOpen===undefined){mail.composeOpen=false;mail.composeOnce=false;mail.gearOpen=false;mail.avatarOpen=false}
- const parts=panel(['فك شفرة عنوان','Decode an address'],'wb3-address');parts.dir='ltr';for(const[p,label]of[['learner',['اسم محلي داخل هذا النطاق','Local part within this domain']],['@',['فاصل','Separator']],['example.com',['النطاق','Domain']]]){const tile=E('div');tile.append(E('b',p),E('small',label));parts.append(tile)}
+ const parts=panel(['فك شفرة عنوان','Decode an address'],'wb3-address');parts.dir='ltr';for(const[p,label]of[['learner',['اسم محلي داخل هذا النطاق','Local part within this domain']],['@',['فاصل','Separator']],['example.com',['النطاق','Domain']]]){const tile=E('div');if(p==='@')tile.className='wb3-at';tile.append(E('b',p),E('small',label));parts.append(tile)}
  note('قد يتكرر learner في نطاق آخر. التفرد للاسم داخل نطاق مزود معين، وليس للاسم وحده على الإنترنت كله.','learner can exist in another domain. The local name is unique within a provider’s domain, not globally by itself.');
  const act=fn=>()=>{fn();paint()};
  const mt=p=>p[mail.saved==='en'?1:0];
  const wrap=E('div',undefined,'ml-scale'),cv=E('div',undefined,'ml-canvas gm');
  wrap.append(cv);box.append(wrap);
- const fit=()=>{const w=wrap.clientWidth||1280,s=Math.min(1,w/1280);cv.style.transform='scale('+s+')';cv.style.left=Math.max(0,(w-1280*s)/2)+'px';wrap.style.height=(720*s)+'px'};
- if(!window.__mlFit){window.__mlFit=1;addEventListener('resize',()=>{document.querySelectorAll('.ml-canvas').forEach(c=>{const p=c.parentElement,w=p.clientWidth,s=Math.min(1,w/1280);c.style.transform='scale('+s+')';c.style.left=Math.max(0,(w-1280*s)/2)+'px';p.style.height=(720*s)+'px'})})}
+ const fit=()=>{const w=wrap.clientWidth||1280,ph=w<720;cv.classList.toggle('gm-phone',ph);if(ph){cv.style.transform='';cv.style.left='';wrap.style.height='';return}const s=Math.min(1,w/1280);cv.style.transform='scale('+s+')';cv.style.left=Math.max(0,(w-1280*s)/2)+'px';wrap.style.height=(720*s)+'px'};
+ if(!window.__mlFit){window.__mlFit=1;addEventListener('resize',()=>{document.querySelectorAll('.ml-canvas').forEach(c=>{const p=c.parentElement,w=p.clientWidth,ph=w<720;c.classList.toggle('gm-phone',ph);if(ph){c.style.transform='';c.style.left='';p.style.height='';return}const s=Math.min(1,w/1280);c.style.transform='scale('+s+')';c.style.left=Math.max(0,(w-1280*s)/2)+'px';p.style.height=(720*s)+'px'})})}
  setTimeout(fit,0);
  if(!mail.signed){
   if(mail.phase<1)mail.phase=1;
