@@ -22,3 +22,21 @@
 /* Number glyphs stay LTR, while spacing follows the page's reading direction. */
 .q-num,.ex-item .q-num,.algo-step .q-num,.mcq-num,.jn-num,.chip-num,.lesson-number,.order-position {margin-left:10px;margin-right:0;}
 html[dir="ltr"] .q-num,html[dir="ltr"] .mcq-num,html[dir="ltr"] .jn-num,html[dir="ltr"] .chip-num,html[dir="ltr"] .lesson-number,html[dir="ltr"] .order-position {margin-left:0;margin-right:10px;}
+
+/* Desktop density (approved by Bilal 2026-11-28): first screen (.hero) stays exactly as is;
+   content below gets tighter line-height and smaller boxes on desktop only. */
+@media (min-width:1024px){
+  .hero ~ *{line-height:1.65}
+  section{padding:24px 0 16px}
+  .objectives{margin:24px 0;padding:16px 22px}
+  .card{padding:18px}
+  .lab{padding:20px}
+}
+
+/* Phone density (approved by Bilal 2026-11-28): same idea below the hero on small screens; desktop rule above unchanged */
+@media (max-width:1023px){
+  .hero ~ *{line-height:1.75}
+  section{padding:24px 0 16px}
+  .objectives{margin:20px 0;padding:16px 20px}
+  .card,.lab{padding:18px}
+}
