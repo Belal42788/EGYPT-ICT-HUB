@@ -1,193 +1,72 @@
 # Egypt ICT Hub
 
-A modern educational resource that helps students in Egyptian schools understand **Information and Communication Technology (ICT)** in a simple, clear, and engaging way.
+Interactive ICT lessons for Egyptian prep and secondary students, built on the official Ministry book and explained simply in Arabic and English.
 
 **Live site:** https://belal42788.github.io/EGYPT-ICT-HUB/
 
-<p align="center">
-  <img src="assets/screenshots/home-desktop.webp" alt="Egypt ICT Hub — home page" width="820">
-</p>
+دروس ICT تفاعلية لطلبة الإعدادي والثانوي، على كتاب الوزارة، بشرح بسيط وتدريبات وأسئلة — بالعربي والإنجليزي.
 
-## About
+## What it is
 
-Egypt ICT Hub is an open educational project built around the ICT curriculum for Egyptian school students — initially the **first-year secondary school** level, with structure reserved for the remaining secondary years and the middle (preparatory) grades. Its goal is to take the standard ICT material and present it in a way that is easier to follow, more visual, and more interesting for young learners — turning everyday lessons into interactive, self-paced learning experiences.
+A free study site for the Egyptian ICT curriculum. Each lesson follows the Ministry book: the book's own wording first, then the same idea in simple words, an interactive activity, and a quiz with instant feedback. Every page switches between Arabic and English, and the choice is remembered in the browser.
 
-The platform is currently under active development, with content being organized unit-by-unit and lesson-by-lesson.
+## What's on the site
 
-## Screenshots
+- **Home** — `index.html`
+- **Preparatory (إعدادي)** — Years 1, 2 and 3 — `preparatory.html`
+- **Secondary (ثانوي)** — Year 1 `secondary.html`, Year 2 `secondary-year2.html`
 
-**Desktop**
+96 lesson pages so far: 62 in Secondary Year 1, 7 in Secondary Year 2, and 27 across the three preparatory years.
 
-| Home | About the teacher |
-| --- | --- |
-| ![Home page](assets/screenshots/home-desktop.webp) | ![About the teacher](assets/screenshots/about-desktop.webp) |
-| **Secondary stage — units and lessons** | **Lesson 1-1 — book text + explanation** |
-| ![Secondary page](assets/screenshots/secondary-desktop.webp) | ![Lesson page](assets/screenshots/lesson-desktop.webp) |
+## Inside a lesson
 
-**Mobile**
+- The book text, then the same idea in simple words
+- An interactive activity or lab where the lesson allows it
+- A quiz with instant feedback
+- Arabic / English toggle on every page
+- On stage pages: search across lessons, "seen" ticks and a continue-where-you-stopped bar, saved in the browser only
 
-| Home | Secondary stage | Lesson |
-| --- | --- | --- |
-| <img src="assets/screenshots/home-mobile.webp" alt="Home on mobile" width="230"> | <img src="assets/screenshots/secondary-mobile.webp" alt="Secondary page on mobile" width="230"> | <img src="assets/screenshots/lesson-mobile.webp" alt="Lesson on mobile" width="230"> |
-
-## Goals
-
-- **Simplify ICT concepts** so students can grasp them without unnecessary jargon.
-- **Support learning and revision** with structured, easy-to-follow material.
-- **Provide organized content** — a clear unit and lesson structure that mirrors the curriculum.
-- **Make learning more interactive and engaging** — go beyond plain text and encourage active learning.
-- **Build practical digital skills** students can actually use.
-
-## Target Audience
-
-- Students in Egyptian schools studying ICT.
-- Beginners who are new to Information and Communication Technology concepts.
-- Teachers and educators who want accessible resources to support their lessons.
-
-## Learning Content
-
-The project intends to cover a broad range of ICT topics in a structured way, including:
-
-- Core ICT concepts
-- Practical digital skills
-- Hands-on activities
-- Exercises and practice problems
-- Quizzes and self-testing
-- Small projects and applications
-- Revision and review materials
-
-Content is organized by units and lessons, making it easy for students to follow the material step by step.
-
-## Content Organization
+## Structure
 
 ```
 EGYPT-ICT-HUB/
-├── Secondary/              # الثانوية (secondary stage)
-│   ├── Year 1/             # الصف الأول الثانوي — 62 lessons across 13 units
-│   │   ├── Unit 1 - What is Information/
-│   │   ├── Unit 2 - Regulations and Rights in the Information Society/
-│   │   ├── ... (Units 3-13)
-│   │   └── The Book/       # source book PDF (ICT_En_Sec1_T1.pdf)
-│   └── src/                # source & generation files (kept separate from rendered HTML)
-│       └── Year 1/         # per-lesson: master-prompt*.md, extracted_en.md, *.txt
-│   # Year 2 and Year 3 folders do not exist yet — planned
-├── Preparatory/            # المرحلة الإعدادية (preparatory stage) — placeholders only
-│   ├── Year 1/             # الصف الأول الإعدادي — 7 empty page stubs (Second term)
-│   └── Year 2/             # الصف الثاني الإعدادي — 12 empty page stubs (Second term)
-│   # Year 3 folder does not exist yet
-├── index-redesigns/        # 23 design files (original + 20 explorations + final + lesson sample) — see below
-├── tools/                  # Python helpers for content extraction & application
-│   ├── extract_en.py
-│   ├── apply_json.py
-│   └── list_lessons.py
-├── assets/                 # images: logo, favicons, og-image, hero/teacher photo (.webp)
-├── index.html              # main landing page (primary index)
-├── secondary.html          # secondary stage entry
-├── preparatory.html        # preparatory stage entry
-├── 404.html                # custom "page not found" page
-├── sitemap.xml             # list of all pages (for search engines)
-├── DESIGN.md               # design rules: colors, fonts, spacing, components
-├── IDEA.md                 # project notes / roadmap
+├── index.html                  home
+├── 404.html
+├── sitemap.xml
+├── preparatory.html            prep stage
+├── preparatory-year1-term1.html
+├── preparatory-year2-term1.html
+├── preparatory-year3-term1.html
+├── secondary.html              secondary stage, Year 1
+├── secondary-year2.html
+├── assets/                     shared CSS, JS, images, screenshots
+├── Preparatory/Year 1..3/      prep lessons
+├── Secondary/Year 1..2/        secondary lessons (+ src/ = source text and prompts)
+├── _books/                     reference textbook PDFs, not linked from the site
+├── _dev/                       design experiments and test pages, not part of the site
+├── _docs/                      review and audit reports
+├── tools/                      small Python helpers
+├── scripts/                    lesson build helpers
+├── DESIGN.md                   design rules
 └── README.md
 ```
 
-**Architecture note:** each lesson is a self-contained HTML file (embedded CSS/JS, Google Fonts "Baloo Bhaijaan 2").
-The raw source material (book text `.txt`, extracted English `extracted_en.md`, and `master-prompt*.md`
-generation prompts) lives under `Secondary/src/` so the lesson folders stay HTML-only and the source
-remains editable separately.
+## How it's built
 
-## Features
+Plain HTML, CSS and JavaScript, no build step. Styles are shared: `assets/css/site.css` for the site look, `assets/css/nav.css` with `assets/js/nav.js` for the one header used everywhere, and `assets/css/lesson.css` for lessons. GitHub Pages publishes the site on every push to `main`.
 
-### Current
+To look at it locally, run this in the project folder and open http://localhost:8000:
 
-- **Unit and lesson organization** — the curriculum is structured into units, each containing individual lessons.
-- **Lesson notes** — each lesson includes structured text content extracted alongside its exercises for reference.
-- **62 interactive lessons (Secondary Year 1)** — each a self-contained page with explanations and a quiz.
-- **Built on the official Ministry book** — lessons are being aligned so that definitions, key points and exam questions use the book's own wording (Arabic and English), with the extra explanation kept separate under "بالبسيط".
-- **Arabic / English toggle** — every lesson switches language; the choice is remembered in the browser.
-- **Secondary page tools** — search across all lessons, a "seen" tick on lessons you opened, and a "continue where you stopped" bar (saved locally in the browser, nothing is sent anywhere).
-- **Design system** — all colors, fonts and components follow `DESIGN.md`.
+```
+python -m http.server 8000
+```
 
-### Planned / Upcoming
+## Content notes
 
-- Secondary Year 2 and Year 3 lessons.
-- Preparatory (middle school) lessons — the pages exist but are still empty.
-- Practical, project-style activities that apply the concepts.
-- A cohesive visual design and navigation across all lessons.
-- Revision materials to help students prepare for exams.
-
-> [Coming Soon] — Additional features and content will be announced as they are built.
-
-## Index Redesign Gallery
-
-The main landing page (`index.html`) acts as a portfolio. Alongside it, `index-redesigns/` holds
-**23 files**: the original page (`00`), **20 alternative designs** (`01`–`20`), the chosen final
-version (`21-claude-final.html`) and a sample lesson (`22-lesson-1-1.html`). The 20 explorations each preserving the brand colors
-(`--primary:#3b5bff`, `--accent:#00c896`, `--bg:#0a0d1f`) and the bilingual EN/AR translation system.
-They were produced as design explorations using different design systems (Stripe, Notion, Swiss, Bauhaus,
-Memphis, Neubrutalism, Terminal/Mono, Scrollytelling, Duotone, Neumorphism, Editorial, etc.).
-
-| # | Design | File |
-|---|--------|------|
-| 01 | Linear Minimal | `index-redesigns/01-linear-minimal.html` |
-| 02 | Vercel Precision | `index-redesigns/02-vercel-precision.html` |
-| 03 | Superhuman Glow | `index-redesigns/03-superhuman-glow.html` |
-| 04 | Split Sticky | `index-redesigns/04-split-sticky.html` |
-| 05 | Bento Grid | `index-redesigns/05-bento-grid.html` |
-| 06 | Centered Flow | `index-redesigns/06-centered-flow.html` |
-| 07 | Stripe Gradient | `index-redesigns/07-stripe-gradient.html` |
-| 08 | Notion Doc | `index-redesigns/08-notion-doc.html` |
-| 09 | Brutalist Editorial | `index-redesigns/09-brutalist-editorial.html` |
-| 10 | Neon Glass | `index-redesigns/10-neon-glass.html` |
-| 11 | Swiss | `index-redesigns/11-swiss.html` |
-| 12 | Neubrutalism | `index-redesigns/12-neubrutalism.html` |
-| 13 | Memphis | `index-redesigns/13-memphis.html` |
-| 14 | Bauhaus | `index-redesigns/14-bauhaus.html` |
-| 15 | Terminal Mono | `index-redesigns/15-terminal-mono.html` |
-| 16 | Scrollytelling | `index-redesigns/16-scrollytelling.html` |
-| 17 | Duotone | `index-redesigns/17-duotone.html` |
-| 18 | Neumorphism | `index-redesigns/18-neumorphism.html` |
-| 19 | Editorial Mag | `index-redesigns/19-editorial-mag.html` |
-| 20 | Asymmetric Overlap | `index-redesigns/20-asymmetric-overlap.html` |
-
-These files are design experiments kept for reference. They are not linked from `index.html`; open them directly by their path (for example `/index-redesigns/05-bento-grid.html`).
-
-## Project Status
-
-**Under development.** The project is being built incrementally: structure and lesson content are being established, and new features will continue to be added over time. Lesson material and the overall platform may change and improve as development continues.
-
-## Future Vision
-
-In the long term, **Egypt ICT Hub** aims to grow into a broader educational hub for ICT in Egyptian schools — a place where students can explore the curriculum freely, reinforce their understanding with interactive practice, and build genuine digital skills. The vision is also to make the resources easily usable by teachers to support their classrooms.
-
-These are aspirational goals; they do not yet exist in the project and will be implemented as the project matures.
-
-## Tools
-
-Helper scripts live in [`tools/`](tools/):
-
-| Script | Purpose |
-|--------|---------|
-| `extract_en.py` | Extracts the English text (`data-en`) from each lesson HTML into `Secondary/src/.../extracted_en.md`. |
-| `apply_json.py` | Applies a JSON translation/override file back into the lesson HTML attributes. |
-| `list_lessons.py` | Lists lessons and reports which ones have `data-ar` / `data-en` coverage. |
-
-These are local utilities for maintaining content; the site itself runs as static HTML (no build step).
-
-## Contributing
-
-Contributions are welcome! If you would like to help improve the content, fix issues, or suggest new lesson materials, feel free to get involved in the usual way for open educational projects on GitHub:
-
-- Open an issue to report problems or share ideas.
-- Submit a pull request to propose changes or improvements.
-- Discuss curriculum and content direction with maintainers before making large changes.
-
-> [Coming Soon] — Contribution guidelines will be added once they are finalized.
+- Lesson text follows the Ministry book; the extra explanation is kept separate from the book's wording.
+- This is an educational resource, not an official Ministry of Education channel.
+- Content is still growing, so lesson wording and activities may change.
 
 ## License
 
-License: Not specified yet.
-
-## Disclaimer
-
-This project is built as an **educational resource** for learning and revision. It is not an official channel of the Egyptian Ministry of Education. Curriculum alignment and content accuracy may evolve over time to better reflect the official syllabus, and no guarantee of completeness is made.
+Not specified yet.
