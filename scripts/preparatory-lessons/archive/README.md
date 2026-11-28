@@ -21,7 +21,9 @@ Measured on commit `6b53aec`: `git status` after a run shows 31 modified files.
 
 ## What is still used
 
-The engine sources in the parent folder stay: `core.js`, `interactions.js`,
-`batch2..5-interactions.js`, `prep.css`, `batch2..5.css`, and the
-`*-data.json` lesson content. They are the input for the shared-engine work
-(moving the inline engine to `assets/js/`), not for regenerating pages.
+The engine that the pages actually run now lives in
+`assets/js/preparatory-lesson.js`, extracted from the pages themselves. The
+sources in the parent folder stay as content records only: `core.js`,
+`interactions.js`, `batch2..5-interactions.js`, `prep.css`, `batch2..5.css`, and
+the `*-data.json` lesson content. They are older than the pages and are not used
+to regenerate anything.
