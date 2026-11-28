@@ -24,3 +24,8 @@
 - Lab (digitalproject) already stacks on phone (no scaled canvas); the one broken piece was the Sheets output table: `.s5-table` had `min-width:470px` + nowrap cells, so on a 312px screen the values column was clipped into horizontal scroll.
 - Fix (page CSS only, `@media(max-width:719px)`): `.s5-table{min-width:0}` and cells `white-space:normal;min-width:0;padding:8px` — table now fits (280px at 390w) with both columns visible.
 - Verified 320/360/390/430/768/1024: no page overflow, table fits. Desktop 1366 pixel-identical (PIL diff bbox None) for Docs/Sheets/Slides states.
+
+## 1-5 Email lab realism (preview/labs-realistic)
+- Rewrote the email lab chrome to mirror real Gmail: desktop web (multicolor envelope logo, search pill with icons, help/gear/apps/avatar, folder list with SVG icons, tabs Primary/Social/Promotions, message rows with checkbox/star/avatar/time, compose dock bottom-corner) and phone app (search pill + avatar, FAB compose, bottom bar Mail/Meet, full-screen compose sheet).
+- Compose now closes on symbolic send like real Gmail; delivered row appears in inbox.
+- SVG icons replace all emoji chrome. Verified 1366 and 390: no overflow, no console errors.

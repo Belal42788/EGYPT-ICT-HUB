@@ -176,6 +176,28 @@ const mail={phase:0,parent:false,terms:false,signed:false,notice:null,send:0,del
 function signupNext(){if(!mail.parent||!mail.terms){mail.notice=['راجع ملاءمة العمر والإشراف والشروط مع ولي الأمر في السيناريو أولًا. لا ننشئ حسابًا حقيقيًا.','First review age eligibility, supervision and terms with a parent in this scenario. No real account is created.'];stop();return}mail.notice=null;mail.phase=Math.min(3,mail.phase+1);if(mail.phase===3)mail.signed=true}
 function paintEmail(){
  const bl=(ar,en,tag='span')=>{const e=E(tag);e.dataset.ar=ar;e.dataset.en=en;e.textContent=t([ar,en]);return e};
+ const ic=(name,size,color)=>{const s=E('span',undefined,'gm-ic');s.innerHTML='<svg viewBox="0 0 16 16" width="'+(size||16)+'" height="'+(size||16)+'" fill="none" stroke="'+(color||'currentColor')+'" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+({
+   search:'<circle cx="7" cy="7" r="4"/><path d="M10.2 10.2 14 14"/>',
+   sliders:'<path d="M2.5 5h11M2.5 11h11"/><circle cx="6" cy="5" r="1.8"/><circle cx="10" cy="11" r="1.8"/>',
+   help:'<circle cx="8" cy="8" r="6.2"/><path d="M6.2 6.2a1.9 1.9 0 1 1 2.7 1.8c-.7.3-.9.8-.9 1.5"/><circle cx="8" cy="11.6" r=".4" fill="currentColor"/>',
+   gear:'<circle cx="8" cy="8" r="2.2"/><path d="M8 1.8v2M8 12.2v2M1.8 8h2M12.2 8h2M3.6 3.6l1.4 1.4M11 11l1.4 1.4M12.4 3.6 11 5M5 11l-1.4 1.4"/>',
+   apps:'<circle cx="3.5" cy="3.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="8" cy="3.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="12.5" cy="3.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="3.5" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="8" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="12.5" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="3.5" cy="12.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="8" cy="12.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="12.5" cy="12.5" r="1.3" fill="currentColor" stroke="none"/>',
+   burger:'<path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>',
+   inbox:'<path d="M2.5 9.5v3.5a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9.5"/><path d="M2.5 9.5 4.6 3.4a1 1 0 0 1 .95-.7h4.9a1 1 0 0 1 .95.7l2.1 6.1"/><path d="M2.5 9.5h3.6a2 2 0 0 0 3.8 0h3.6"/>',
+   send:'<path d="M14 2 7.3 8.7M14 2l-4.2 12-2.5-5.3L2 6.2z"/>',
+   draft:'<path d="M4 2.5h5.5L12 5v9H4z"/><path d="M9.5 2.5V5H12"/>',
+   trash:'<path d="M3 4.5h10M6.5 4V2.5h3V4M4.5 4.5l.7 9h5.6l.7-9"/>',
+   pencil:'<path d="M10.8 2.4l2.8 2.8L5.3 13.5H2.5v-2.8z"/><path d="M9.6 3.6l2.8 2.8"/>',
+   star:'<path d="M8 2.2l1.8 3.7 4 .6-2.9 2.9.7 4L8 11.7l-3.6 1.7.7-4L2.2 6.5l4-.6z"/>',
+   mail:'<rect x="2" y="3.5" width="12" height="9" rx="1"/><path d="M2.5 4.5 8 9l5.5-4.5"/>',
+   video:'<rect x="2" y="4.5" width="8" height="7" rx="1"/><path d="M10 7.5l4-2v5l-4-2"/>',
+   attach:'<path d="M12.5 7.5 7 13a3 3 0 0 1-4.2-4.2l6-6A2.2 2.2 0 0 1 11.9 5.9l-6 6a1.2 1.2 0 0 1-1.7-1.7l5.5-5.5"/>',
+   emoji:'<circle cx="8" cy="8" r="5.8"/><circle cx="6" cy="6.8" r=".5" fill="currentColor"/><circle cx="10" cy="6.8" r=".5" fill="currentColor"/><path d="M5.6 9.6a3 3 0 0 0 4.8 0"/>',
+   close:'<path d="M4 4l8 8M12 4l-8 8"/>',
+   minimize:'<path d="M4 8h8"/>',
+   openinbox:'<path d="M8 2.5v4M5.5 4 8 1.5 10.5 4"/><path d="M2.5 9.5v3.5a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9.5"/><path d="M2.5 9.5 4.6 4.9M13.5 9.5 11.4 4.9"/><path d="M2.5 9.5h3.6a2 2 0 0 0 3.8 0h3.6"/>'
+  })[name]+'</svg>';return s};
+ const logo=()=>{const s=E('span',undefined,'gm-ic gm-logoic');s.innerHTML='<svg viewBox="0 0 20 20" width="26" height="26" aria-hidden="true"><path d="M2 4.5 10 11 18 4.5" fill="none" stroke="#4285f4" stroke-width="1.6"/><path d="M2 4.5V15.5h3V7.8L2 4.6z" fill="#34a853"/><path d="M18 4.5V15.5h-3V7.8l3-3.2z" fill="#fbbc04"/><path d="M2 4.5 10 11l3-2.6L2 2.6z" fill="#ea4335" opacity=".85"/><path d="M18 4.5 10 11l-3-2.6L18 2.6z" fill="#c5221f" opacity=".55"/><rect x="2" y="2.5" width="16" height="13" rx="1.5" fill="none" stroke="#5f6368" stroke-width=".8" opacity=".4"/></svg>';return s};
  title('صندوق بريد تدريبي بلا حساب أو إرسال','A practice mailbox without accounts or sending','لا تدخل اسمًا أو تاريخ ميلاد أو كلمة مرور أو رمزًا. كل العناوين من example.com المخصص للأمثلة، وكل الحقول ثابتة.','Enter no name, birth date, password or code. All addresses use reserved example.com, and all fields are fixed.');
  if(mail.composeOpen===undefined){mail.composeOpen=false;mail.composeOnce=false;mail.gearOpen=false;mail.avatarOpen=false}
  const parts=panel(['فك شفرة عنوان','Decode an address'],'wb3-address');parts.dir='ltr';for(const[p,label]of[['learner',['اسم محلي داخل هذا النطاق','Local part within this domain']],['@',['فاصل','Separator']],['example.com',['النطاق','Domain']]]){const tile=E('div');if(p==='@')tile.className='wb3-at';tile.append(E('b',p),E('small',label));parts.append(tile)}
@@ -191,7 +213,7 @@ function paintEmail(){
   if(mail.phase<1)mail.phase=1;
   const bg=E('div',undefined,'gm-signin-bg');
   const card=E('div',undefined,'gm-card');
-  const brand=E('div',undefined,'gm-brand');brand.textContent='✉';card.append(brand);
+  const brand=E('div',undefined,'gm-brand');brand.append(logo());card.append(brand);
   card.append(bl('بريد تدريبي','Training Mail','h3'));
   card.append(bl('تسجيل الدخول ببطاقة ثابتة — ليس نموذج حساب حقيقي','Sign in with a fixed card - not a real account form','p'));
   const acc=E('div',undefined,'gm-account');
@@ -212,10 +234,12 @@ function paintEmail(){
  }else{
   const win=E('div',undefined,'gm-win');
   const top=E('div',undefined,'gm-top');
-  const burger=E('span',undefined,'gm-burger');burger.textContent='☰';top.append(burger);
-  const tb=E('span',undefined,'gm-topbrand');tb.textContent=mt(['بريد تدريبي','Training Mail']);top.append(tb);
-  const search=E('div',undefined,'gm-search');search.append(bl(mt(['ابحث في البريد (عرض فقط)','Search mail (display only)']),mt(['ابحث في البريد (عرض فقط)','Search mail (display only)'])));top.append(search);
-  const gear=E('button',undefined,'gm-icon-btn');gear.type='button';gear.id='mail-gear';gear.textContent='⚙';gear.setAttribute('aria-label',t(['الإعدادات','Settings']));gear.onclick=act(()=>{mail.gearOpen=!mail.gearOpen;mail.avatarOpen=false});top.append(gear);
+  const burger=E('span',undefined,'gm-icon-btn gm-burger');burger.append(ic('burger',20));top.append(burger);
+  const brandw=E('span',undefined,'gm-brandw');brandw.append(logo());const tb=E('span',undefined,'gm-topbrand');tb.textContent=mt(['بريد تدريبي','Training Mail']);brandw.append(tb);top.append(brandw);
+  const search=E('div',undefined,'gm-search');search.append(ic('search',18));const st=E('span');st.textContent=mt(['ابحث في البريد (عرض فقط)','Search mail (display only)']);search.append(st);search.append(ic('sliders',18));top.append(search);
+  const helpB=E('span',undefined,'gm-icon-btn gm-desk-only');helpB.append(ic('help',19));top.append(helpB);
+  const gear=E('button',undefined,'gm-icon-btn');gear.type='button';gear.id='mail-gear';gear.append(ic('gear',19));gear.setAttribute('aria-label',t(['الإعدادات','Settings']));gear.onclick=act(()=>{mail.gearOpen=!mail.gearOpen;mail.avatarOpen=false});top.append(gear);
+  const apps=E('span',undefined,'gm-icon-btn gm-desk-only');apps.append(ic('apps',18));top.append(apps);
   const avb=E('button',undefined,'gm-avatar gm-avatar-btn');avb.type='button';avb.id='mail-avatar';avb.textContent='D';avb.setAttribute('aria-label',t(['الحساب','Account']));avb.onclick=act(()=>{mail.avatarOpen=!mail.avatarOpen;mail.gearOpen=false});top.append(avb);
   win.append(top);
   if(mail.avatarOpen){
@@ -227,25 +251,40 @@ function paintEmail(){
   }
   const bodyr=E('div',undefined,'gm-body');
   const side=E('div',undefined,'gm-side');
-  const composeBtn=E('button',undefined,'gm-compose');composeBtn.type='button';composeBtn.id='mail-compose-open';composeBtn.append(bl(mt(['إنشاء رسالة','Compose']),mt(['إنشاء رسالة','Compose'])));
+  const composeBtn=E('button',undefined,'gm-compose');composeBtn.type='button';composeBtn.id='mail-compose-open';composeBtn.append(ic('pencil',18),bl(mt(['إنشاء رسالة','Compose']),mt(['إنشاء رسالة','Compose'])));
   composeBtn.onclick=act(()=>{mail.composeOpen=true;mail.composeOnce=true;if(mail.send===0&&!mail.delivered)mail.notice=null});
   side.append(composeBtn);
-  const folder=(pair,badge,on)=>{const r=E('div',undefined,'gm-folder'+(on?' on':''));r.append(bl(mt(pair),mt(pair)));if(badge)r.append(E('b',String(badge),'gm-badge'));return r};
-  side.append(folder(['الوارد','Inbox'],mail.delivered?1:0,true));
-  side.append(folder(['المُرسلة','Sent'],mail.delivered?1:0,false));
-  side.append(folder(['المسودات','Drafts'],0,false));
+  const folder=(pair,badge,on,icon)=>{const r=E('div',undefined,'gm-folder'+(on?' on':''));r.append(ic(icon,18));r.append(bl(mt(pair),mt(pair)));if(badge)r.append(E('b',String(badge),'gm-badge'));return r};
+  side.append(folder(['الوارد','Inbox'],mail.delivered?1:0,true,'inbox'));
+  side.append(folder(['المُرسلة','Sent'],mail.delivered?1:0,false,'send'));
+  side.append(folder(['المسودات','Drafts'],0,false,'draft'));
+  side.append(folder(['المهملات','Trash'],0,false,'trash'));
   bodyr.append(side);
   const list=E('div',undefined,'gm-list');
+  const tabs=E('div',undefined,'gm-tabs');
+  const tabEl=(pair,icon,on)=>{const tb=E('span',undefined,'gm-tab'+(on?' on':''));tb.append(ic(icon,16));tb.append(bl(mt(pair),mt(pair)));return tb};
+  tabs.append(tabEl(['الأساسية','Primary'],'inbox',true),tabEl(['اجتماعية','Social'],'apps',false),tabEl(['ترويجية','Promotions'],'emoji',false));
+  list.append(tabs);
   if(mail.delivered){
-   const row=E('div',undefined,'gm-row');
-   const rav=E('span',undefined,'gm-avatar sm');rav.textContent='✓';row.append(rav);
-   const rc=E('div',undefined,'gm-rowc');rc.append(E('b',mt(['بريد تدريبي','Training Mail'])));rc.append(E('span',mt(['رسالة تدريبية واحدة — وصلت عبر النقل الرمزي فقط','One practice message - arrived via the symbolic transfer only'])));row.append(rc);
+   const row=E('div',undefined,'gm-row unread');
+   const cb=E('span',undefined,'gm-cb');row.append(cb);
+   const st2=E('span',undefined,'gm-star');st2.append(ic('star',17));row.append(st2);
+   const rav=E('span',undefined,'gm-avatar sm');rav.textContent='ت';row.append(rav);
+   const rc=E('div',undefined,'gm-rowc');
+   const rt=E('div',undefined,'gm-rowt');rt.append(E('b',mt(['بريد تدريبي','Training Mail'])));
+   const tm=E('span',undefined,'gm-time');tm.textContent='10:24';rt.append(tm);rc.append(rt);
+   const rsub=E('div',undefined,'gm-rows');rsub.append(E('b',mt(['رسالة تدريبية واحدة','One practice message'])));const sn=E('span');sn.textContent=mt([' — وصلت عبر النقل الرمزي فقط',' - arrived via the symbolic transfer only']);rsub.append(sn);rc.append(rsub);
+   row.append(rc);
    list.append(row);
   }else{
-   const empty=E('div',undefined,'gm-empty');empty.append(bl(mt(['لا رسائل بعد. افتح إنشاء رسالة وشاهد الإرسال الرمزي.','No messages yet. Open Compose and watch the symbolic send.']),mt(['لا رسائل بعد. افتح إنشاء رسالة وشاهد الإرسال الرمزي.','No messages yet. Open Compose and watch the symbolic send.'])));list.append(empty);
+   const empty=E('div',undefined,'gm-empty');empty.append(ic('openinbox',52));empty.append(bl(mt(['لا رسائل بعد. افتح إنشاء رسالة وشاهد الإرسال الرمزي.','No messages yet. Open Compose and watch the symbolic send.']),mt(['لا رسائل بعد. افتح إنشاء رسالة وشاهد الإرسال الرمزي.','No messages yet. Open Compose and watch the symbolic send.'])));list.append(empty);
   }
   bodyr.append(list);
   win.append(bodyr);
+  const bbar=E('div',undefined,'gm-bottombar');
+  const bb1=E('span',undefined,'gm-bb on');bb1.append(ic('mail',20),bl(mt(['البريد','Mail']),mt(['البريد','Mail'])));
+  const bb2=E('span',undefined,'gm-bb');bb2.append(ic('video',20),bl(mt(['الاجتماعات','Meet']),mt(['الاجتماعات','Meet'])));
+  bbar.append(bb1,bb2);win.append(bbar);
   if(mail.gearOpen){
    const qs=E('div',undefined,'gm-quickset');
    qs.append(bl('الإعدادات السريعة','Quick settings','h4'));
@@ -264,7 +303,8 @@ function paintEmail(){
   if(mail.composeOpen){
    const dock=E('div',undefined,'gm-dock');
    const dh=E('div',undefined,'gm-dock-head');dh.append(bl(mt(['رسالة جديدة','New message']),mt(['رسالة جديدة','New message'])));
-   const cx=E('button',undefined,'gm-icon-btn sm');cx.type='button';cx.id='mail-compose-close';cx.textContent='✕';cx.setAttribute('aria-label',t(['إغلاق','Close']));cx.onclick=act(()=>{mail.composeOpen=false});dh.append(cx);dock.append(dh);
+   const dhI=E('span',undefined,'gm-dock-icons');dhI.append(ic('minimize',14));
+   const cx=E('button',undefined,'gm-icon-btn sm');cx.type='button';cx.id='mail-compose-close';cx.append(ic('close',13));cx.setAttribute('aria-label',t(['إغلاق','Close']));cx.onclick=act(()=>{mail.composeOpen=false});dhI.append(cx);dh.append(dhI);dock.append(dh);
    const frow=(lab,val)=>{const r=E('div',undefined,'gm-frow');r.append(E('small',lab));r.append(E('span',val));return r};
    dock.append(frow(mt(['إلى:','To:']),'teacher@example.com'));
    dock.append(frow(mt(['الموضوع:','Subject:']),mt(['مشروع خيالي','Fictional project'])));
@@ -272,8 +312,9 @@ function paintEmail(){
    const df=E('div',undefined,'gm-dock-foot');
    const sendB=E('button',undefined,'gm-primary');sendB.type='button';sendB.id='mail-send';sendB.disabled=mail.send>0&&!mail.delivered;
    sendB.textContent=mt([mail.send>0&&!mail.delivered?'يمر عبر خادم خيالي…':'إرسال رمزي',mail.send>0&&!mail.delivered?'Passing through a fictional server…':'Symbolic send']);
-   sendB.onclick=()=>{if(mail.send>0&&!mail.delivered)return;mail.delivered=false;mail.send=1;paint();setTimeout(()=>{mail.send=2;paint()},650);setTimeout(()=>{mail.send=3;mail.delivered=true;paint()},1300)};
+   sendB.onclick=()=>{if(mail.send>0&&!mail.delivered)return;mail.delivered=false;mail.send=1;paint();setTimeout(()=>{mail.send=2;paint()},650);setTimeout(()=>{mail.send=3;mail.delivered=true;mail.composeOpen=false;paint()},1300)};
    df.append(sendB);
+   const dfI=E('span',undefined,'gm-dock-icons');dfI.append(ic('attach',17),ic('emoji',17));df.append(dfI);
    df.append(E('small',mt(['لا إرسال حقيقي ولا طلب شبكة.','No real sending and no network request.'])));
    dock.append(df);win.append(dock);
   }
@@ -290,7 +331,8 @@ function paintEmail(){
  note('قد يتكرر learner في نطاق آخر. مشاركة الشاشة أو البريد لا تعرض أي بيانات حقيقية من جهازك.','learner can exist in another domain. Nothing here shows any real data from your device.');
  out('mail-status',mail.notice||[mail.signed?'جلسة خيالية مفتوحة. لم يُنشأ حساب لدى Google أو أي مزود.':'لا جلسة مفتوحة. نموذج شرح فقط.',mail.signed?'Fictional session open. No Google or other provider account was created.':'No open session. Teaching model only.'],!!mail.notice&&!mail.signed);
  out('mail-send-status',mail.delivered?['وصل رمز الرسالة إلى الصندوق الخيالي فقط. لا طلب شبكة لإرسال بريد.','The message symbol reached only the fictional inbox. No network mail-send request.']:['الرسالة ثابتة ولا مرفقات حقيقية. راجع المرسل إليه والمحتوى قبل أي إرسال حقيقي.','The message is fixed with no real attachments. Review recipients/content before any real send.']);
-}function training(){return [[1,2],[2,4],[3,6],[4,ai.clean?8:9]]}
+}
+function training(){return [[1,2],[2,4],[3,6],[4,ai.clean?8:9]]}
 function learn(){const a=training(),n=a.length,sx=a.reduce((s,p)=>s+p[0],0),sy=a.reduce((s,p)=>s+p[1],0),sxx=a.reduce((s,p)=>s+p[0]*p[0],0),sxy=a.reduce((s,p)=>s+p[0]*p[1],0),m=(n*sxy-sx*sy)/(n*sxx-sx*sx),b=(sy-m*sx)/n;return{m,b,line:x=>m*x+b,curve:x=>a.reduce((sum,[xi,yi],i)=>sum+yi*a.reduce((product,[xj],j)=>i===j?product:product*(x-xj)/(xi-xj),1),0)}}
 function paintDataAI(){
  title('درب ثم اختبر خارج أمثلة التدريب','Train, then test beyond the training examples','ست نقاط خيالية فقط، وليست بيانات ضخمة أو نظامًا طبيًا. المرجع الاصطناعي y = 2x؛ النقاط 1–4 للتدريب و5–6 للاختبار فقط.','Six synthetic points, not big data or a medical system. The synthetic reference is y = 2x. Points 1–4 train; points 5–6 only test.');
