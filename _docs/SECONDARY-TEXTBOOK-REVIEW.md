@@ -22,7 +22,7 @@ VB.NET project excerpts abbreviate event parameter lists with (...), explicitly 
 
 ## Maintenance
 
-The initial two-page pilot is standalone HTML with its own Unit 1 README. The remaining 18 pages are generated from `scripts/secondary-lessons/lesson-data.json`, `lesson.css`, `lesson.js` and `build.py`. Run `python scripts/secondary-lessons/build.py` from any directory to regenerate them. Output stays standalone to match existing lessons. Do not edit generated pages without updating their source. The review directory is deliberately separate from the live stage index.
+The initial two-page pilot is standalone HTML with its own Unit 1 README. The remaining 18 pages were first generated from `scripts/secondary-lessons/lesson-data.json`, `lesson.css`, `lesson.js` and `build.py`. The generator is archived at `scripts/secondary-lessons/archive/build.py` and is no longer run: the committed HTML pages are the source of truth (Bilal, 2026-11-28). Edit the pages directly. Running it would rewrite all 18 pages. The review directory is deliberately separate from the live stage index.
 
 ## Review map
 
