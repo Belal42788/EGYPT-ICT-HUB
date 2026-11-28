@@ -107,7 +107,7 @@ EGYPT-ICT-HUB/
 ├── Secondary/src/             ← مصادر الترجمة (extracted_en.md)
 ├── tools/                     ← سكريبتات (extract_en.py, apply_json.py)
 ├── assets/                    ← اللوجو، صورة الهيرو، favicon، og-image
-└── index-redesigns/           ← معرض تجارب تصميم الـ index (01-22) — خارج النظام
+└── _dev/index-redesigns/      ← معرض تجارب تصميم الـ index (01-22) — خارج النظام (نُقل إلى _dev/)
 ```
 
 ---
