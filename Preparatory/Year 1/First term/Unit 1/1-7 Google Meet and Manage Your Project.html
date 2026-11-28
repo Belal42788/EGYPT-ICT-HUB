@@ -160,8 +160,8 @@ function meet(){
  const ctl=(id,pair,icon,fn,state)=>{const b=E('button',undefined,'ml-ctl'+(state?' '+state:''));b.id=id;b.type='button';b.append(ico(icon));const s=bl(...pair,'span');s.className='ml-tip';b.append(s);b.setAttribute('aria-label',t(pair));b.onclick=act(fn);return b};
  const wrap=E('div',undefined,'ml-scale'),cv=E('div',undefined,'ml-canvas');
  wrap.append(cv);box.append(wrap);
- const fit=()=>{const w=wrap.clientWidth||1280,s=Math.min(1,w/1280);cv.style.transform='scale('+s+')';cv.style.left=Math.max(0,(w-1280*s)/2)+'px';wrap.style.height=(720*s)+'px'};
- if(!window.__mlFit){window.__mlFit=1;addEventListener('resize',()=>{document.querySelectorAll('.ml-canvas').forEach(c=>{const p=c.parentElement,w=p.clientWidth,s=Math.min(1,w/1280);c.style.transform='scale('+s+')';c.style.left=Math.max(0,(w-1280*s)/2)+'px';p.style.height=(720*s)+'px'})})}
+ const fit=()=>{const w=wrap.clientWidth||1280,ph=w<720;cv.classList.toggle('ml-phone',ph);if(ph){cv.style.transform='';cv.style.left='';wrap.style.height='';return}const s=Math.min(1,w/1280);cv.style.transform='scale('+s+')';cv.style.left=Math.max(0,(w-1280*s)/2)+'px';wrap.style.height=(720*s)+'px'};
+ if(!window.__mlFit){window.__mlFit=1;addEventListener('resize',()=>{document.querySelectorAll('.ml-canvas').forEach(c=>{const p=c.parentElement,w=p.clientWidth,ph=w<720;c.classList.toggle('ml-phone',ph);if(ph){c.style.transform='';c.style.left='';p.style.height='';return}const s=Math.min(1,w/1280);c.style.transform='scale('+s+')';c.style.left=Math.max(0,(w-1280*s)/2)+'px';p.style.height=(720*s)+'px'})})}
  setTimeout(fit,0);
  const PEOPLE=[[['المعلمة سارة','Teacher Sara'],'س','host'],[['عمر','Omar'],'ع',''],[['لينا','Lina'],'ل',''],[['أنت','You'],'أ','you']];
  const tile=(name,initial,extra,you)=>{const d=E('div',undefined,'ml-tile '+extra);const av=E('span',undefined,'ml-avatar');av.textContent=initial;d.append(av);const tag=E('span',undefined,'ml-nametag');tag.append(bl(...name));d.append(tag);
