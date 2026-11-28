@@ -34,3 +34,12 @@
   body .tl-nav > .kbd{grid-row:2 !important;grid-column:1 !important;justify-self:end !important}
   body .tl-nav > .mini-btn{grid-row:2 !important;grid-column:2 !important;justify-self:start !important}
 }
+
+/* Desktop buttons (Bilal picked the 40px version): same reason as the phone block - the
+   inherited 1.9 line-height was inflating every button to ~53px, taller than the text around
+   it and taller than the step counter beside it. Scoped to >600px so phones keep their block. */
+@media (min-width:601px){
+  body .btn, body .cta-btn{line-height:1.2 !important;padding:11px 26px !important;font-size:.92rem !important}
+  body .mini-btn{line-height:1.2 !important;padding:8px 16px !important;font-size:.84rem !important}
+  body .hero-btn{line-height:1.2 !important;padding:13px 30px !important;font-size:1rem !important}
+}
