@@ -212,8 +212,8 @@ function paintDrive(){
   dlg.append(cl);ov.append(dlg);main.append(ov)}
  bodyw.append(side,main);win.append(top,bodyw);cv.append(win);
  // canvas fit (same pilot rule as Meet)
- const fit=()=>{const w=wrap.clientWidth;const s=Math.min(1,w/1280);cv.style.transform='scale('+s+')';cv.style.left=Math.max(0,(w-1280*s)/2)+'px';wrap.style.height=(720*s)+'px'};
- fit();if(!window.__dvFit){window.__dvFit=true;window.addEventListener('resize',()=>{document.querySelectorAll('.dv-scale').forEach(w2=>{const c2=w2.firstChild;if(!c2)return;const w=w2.clientWidth;const s=Math.min(1,w/1280);c2.style.transform='scale('+s+')';c2.style.left=Math.max(0,(w-1280*s)/2)+'px';w2.style.height=(720*s)+'px'})})}
+ const fit=()=>{const w=wrap.clientWidth;const ph=w<720;cv.classList.toggle('dv-phone',ph);if(ph){cv.style.transform='';cv.style.left='';wrap.style.height='';return}const s=Math.min(1,w/1280);cv.style.transform='scale('+s+')';cv.style.left=Math.max(0,(w-1280*s)/2)+'px';wrap.style.height=(720*s)+'px'};
+ fit();if(!window.__dvFit){window.__dvFit=true;window.addEventListener('resize',()=>{document.querySelectorAll('.dv-scale').forEach(w2=>{const c2=w2.firstChild;if(!c2)return;const w=w2.clientWidth;const ph=w<720;c2.classList.toggle('dv-phone',ph);if(ph){c2.style.transform='';c2.style.left='';w2.style.height='';return}const s=Math.min(1,w/1280);c2.style.transform='scale('+s+')';c2.style.left=Math.max(0,(w-1280*s)/2)+'px';w2.style.height=(720*s)+'px'})})}
 }
 const M={mode:'later',made:false,join:false,admit:false,hand:false,permit:false,mic:false,share:'tab',present:false,chat:false,phase:0,msg:['كل الأشخاص والنوافذ خياليون.','All people/windows are fictional.']};
 function meetStep(){if(M.phase<5)M.phase++;if(M.phase===1){M.made=true;M.join=true}if(M.phase===2)M.admit=true;if(M.phase===3)M.hand=true;if(M.phase===4){M.permit=true;M.mic=false}if(M.phase===5){M.mic=true;M.msg=['الطالب الخيالي فتح ميكروفونه بنفسه، لا المضيف.','The fictional pupil turned on their own microphone, not the host.']}}

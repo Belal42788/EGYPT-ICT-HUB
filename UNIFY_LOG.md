@@ -9,3 +9,8 @@
 - Same phone rule as 1-5: under 720px the canvas stops scaling (class .ml-phone), desktop unchanged.
 - CSS (page file) @media(max-width:719px): lobby/waiting compact; grid 2x2 with min 150px rows and 56px avatars; people/chat panels stack full-width below the grid; controls bar wraps (controls row, side buttons, code last full-width), 48px round buttons, hover tooltips off; present chooser options stack as rows; presenting state: stage + horizontal mini strip + wrapped band.
 - Verified 390 phone through all states (lobby, pre-join, waiting, grid, people, chooser, presenting) + 1366 desktop pixel-identical (maxdiff 0). Preview only.
+
+## 1-6 Drive lab phone layout (2026-11-28)
+- Same phone rule: under 720px the canvas stops scaling (class .dv-phone); desktop unchanged (maxdiff 0).
+- CSS (page file) @media(max-width:719px): top bar wraps with full-width search; sidebar becomes a scrollable chip strip (+ New first, folders, storage); file row wraps with a tap-size share button; sync device chips stack full-width; toasts full-width; share dialog fits the screen with 22px radios.
+- Verified 390 phone states: initial, upload animation to done, share dialog, editor-role select. 1366 desktop pixel-identical. Preview only.
