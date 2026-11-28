@@ -119,15 +119,12 @@ h3.lvl-h4{font-size:16px;font-weight:800;color:#0b1020;line-height:1.9;margin:0 
    long caption wraps inside its own column instead of running over its neighbour. */
 .svg-stage .svg-label{max-width:25%;white-space:normal;text-align:center;line-height:1.3;font-size:.76rem;padding:5px 9px}
 
-/* Phones: the stage is only ~340px wide, so three captions can never sit side by side without
-   colliding. Below 640px the captions become a numbered list under the diagram instead. */
+/* Phones: the stage is only ~340px wide. Make it taller (boxes grow in height) and let each
+   caption shrink and wrap inside its own box. Captions stay on their boxes, never a list. */
 @media (max-width:640px){
-  .svg-stage{counter-reset:lbl}
-  [dir="rtl"] .svg-stage .svg-label,[dir="ltr"] .svg-stage .svg-label{position:static !important;left:auto !important;top:auto !important;
-    transform:none !important;
-    max-width:none !important;width:auto !important;margin:8px 0 0;display:flex;gap:9px;align-items:flex-start;
-    text-align:start;box-shadow:none;font-size:.86rem;padding:8px 12px;border-radius:12px;background:rgba(24,56,248,.06);border:1px solid rgba(24,56,248,.18)}
-  .svg-stage .svg-label::before{counter-increment:lbl;content:counter(lbl);flex:0 0 auto;width:22px;height:22px;margin-top:2px;
-    border-radius:50%;background:#1838f8;color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
-  [dir="rtl"] .svg-stage .svg-label{transform:scaleX(-1) !important}
+  .svg-stage{padding-bottom:22.22%}
+  .svg-stage .svg-main{transform:scaleY(1.5);transform-origin:50% 0}
+  .svg-stage .svg-label{max-width:21%;font-size:.58rem;line-height:1.2;padding:3px 4px;border-radius:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,.25);white-space:normal;overflow-wrap:anywhere}
+  .svg-stage .svg-label::before{content:none !important}
 }
