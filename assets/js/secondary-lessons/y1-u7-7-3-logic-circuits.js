@@ -10,9 +10,6 @@
       return currentLang === 'en' ? en:ar;
     }
 
-    function byId(id) {
-      return document.querySelector('[data-id="' + id + '"]') || document.getElementById(id);
-    }
 
     /* ---------- particles ---------- */
     (function () {
@@ -65,16 +62,6 @@
     }
 
     /* ---------- reveal on scroll ---------- */
-    function wireReveal() {
-      var els = document.querySelectorAll('.section-inner');
-      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('visible'); }); return; }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
-        });
-      }, { threshold:.08 });
-      els.forEach(function (e) { io.observe(e); });
-    }
 
     /* ---------- keyboard navigation ---------- */
     var SECTIONS = ['intro', 'logical', 'circuit', 'truth', 'and', 'or', 'practice', 'recap'];
@@ -392,14 +379,6 @@ var FLOWS = {
       return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
     }
 
-    function recallStart(quiz) {
-      var s = quiz.querySelector('[data-start]');
-      if (!s) {
-        var p = quiz.previousElementSibling;
-        if (p && p.hasAttribute('data-start')) s = p;
-      }
-      return s;
-    }
 
     function wireRecall() {
       document.querySelectorAll('.recall').forEach(function (quiz) {

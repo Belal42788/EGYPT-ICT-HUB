@@ -23,18 +23,6 @@
     var nav = document.getElementById('topnav');
     /* header slide-in:assets/js/nav.js */
 
-    function wireNav() {
-      var links = document.querySelectorAll('#navLinks a');
-      var ies = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) {
-            var id = en.target.id;
-            links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
-          }
-        });
-      }, { rootMargin:'-45% 0px -45% 0px' });
-      document.querySelectorAll('section[id]').forEach(function (s) { ies.observe(s); });
-    }
 
     /* ---------- reveals ---------- */
     function wireReveal() {
@@ -55,16 +43,6 @@
       { t:'%', name: 'الباقي', nameEn: 'Remainder', desc: 'Remainder', ex: '17 % 5', out: '2' },
       { t:'**', name: 'الأس', nameEn: 'Power', desc: 'Power', ex: '2 ** 4', out: '16' }
     ];
-    function opName(o) { return (window.currentLang === 'en') ? o.nameEn:o.name; }
-    function divZeroMsg() { return window.currentLang === 'en' ? 'Cannot divide by zero' : 'ممنوع القسمة على صفر'; }
-    function paintOpDetail(data) {
-      var d = document.getElementById('opDetail');
-      if (!d) return; /* 'opDetail' removed by design - skip safely */ if (!d || !data) return;
-      d.innerHTML =
-        '<div class="body"><div style="color:var(--text);font-weight:700">' + opName(data) + ' <span style="color:var(--dim);font-weight:400;font-size:.85rem">(' + data.desc + ')</span></div>' +
-        '<div class="exp">print(' + data.ex + ')</div>' +
-        '<div class="out">&gt;&gt; ' + data.out + '</div></div>';
-    }
     function wireOperators() {
       var g = document.getElementById('opGallery');
       if (!g) return; /* 'opGallery' removed by design - skip safely */ if (!g) return;
@@ -118,38 +96,6 @@
     }
 
     /* ---------- variable box animation ---------- */
-    function wireVarBox() {
-      var box = document.getElementById('varBox'), val = document.getElementById('varVal');
-      var store = document.querySelector('[data-id="storeBtn"]'), reset = document.querySelector('[data-id="resetBox"]');
-      var flyAncestor = document.querySelector('.var-anim'), srcEl = document.querySelector('.var-src');
-      if (!box || !val) return;
-      if (store) store.addEventListener('click', function () {
-        box.classList.remove('live');
-        val.textContent = '...';
-        var fly = null;
-        if (srcEl && flyAncestor) {
-          fly = document.createElement('div');
-          fly.className = 'var-fly'; fly.textContent = 'Cairo';
-          var ar = flyAncestor.getBoundingClientRect();
-          var sr = srcEl.getBoundingClientRect();
-          fly.style.left = (sr.left - ar.left) + 'px';
-          fly.style.top = (sr.top - ar.top) + 'px';
-          flyAncestor.appendChild(fly);
-          fly.offsetHeight;
-          var vr = val.getBoundingClientRect();
-          fly.style.left = (vr.left - ar.left) + 'px';
-          fly.style.top = (vr.top - ar.top) + 'px';
-          fly.style.opacity = '0';
-        }
-        setTimeout(function () {
-          if (fly) fly.remove();
-          val.textContent = '"Cairo"'; box.classList.add('live');
-        }, 650);
-      });
-      if (reset) reset.addEventListener('click', function () {
-        val.textContent = '...'; box.classList.remove('live');
-      });
-    }
 
     /* ---------- sequential animation ---------- */
     var SEQ = [
@@ -279,22 +225,8 @@
     }
 
     /* ---------- recall quiz ---------- */
-    function tr(ar, en) {
-      return window.currentLang === 'en' ? en:ar;
-    }
 
-    function rqFb(el) {
-      return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
-    }
 
-    function recallStart(quiz) {
-      var s = quiz.querySelector('[data-start]');
-      if (!s) {
-        var p = quiz.previousElementSibling;
-        if (p && p.hasAttribute('data-start')) s = p;
-      }
-      return s;
-    }
 
     function paintRecallFeedback(fb) {
       var en = window.currentLang === 'en';
@@ -366,15 +298,6 @@
       });
     }
 
-    function repaintQuizBtns() {
-      document.querySelectorAll('.recall').forEach(function (quiz) {
-        var start = recallStart(quiz);
-        if (!start) return;
-        start.textContent = quiz.classList.contains('show')
-          ? tr('إخفاء الاختبار', 'Hide the quiz')
-          : tr('💡 ابدأ الاختبار', '💡 Start the Quiz');
-      });
-    }
 
     document.addEventListener('langChange', repaintQuizBtns);
 
@@ -396,11 +319,6 @@
        MINI PYTHON INTERPRETER + EDITOR WIRING (verbatim reference)
        ============================================================ */
     var PNone = { t:'none' };
-    function PNum(v, f) { return { t:f ? 'float' : 'int', v: v }; }
-    function PStr(v) { return { t:'str', v: String(v) }; }
-    function PBool(v) { return { t:'bool', v: !!v }; }
-    function PType(n) { return { t:'type', name: n }; }
-    function isNum(x) { return x.t === 'int' || x.t === 'float'; }
     function pstr(x) {
       if (x.t === 'int') return String(x.v);
       if (x.t === 'float') { return Number.isInteger(x.v) ? x.v + '.0' : String(x.v); }
@@ -412,9 +330,7 @@
     }
     function ptype(x) { return x.t === 'int' ? 'int' : x.t === 'float' ? 'float' : x.t === 'str' ? 'str' : x.t === 'bool' ? 'bool' : x.t === 'none' ? 'NoneType' : 'object'; }
     function truthy(x) { if (x.t === 'bool') return x.v; if (isNum(x)) return x.v !== 0; if (x.t === 'str') return x.v.length > 0; return false; }
-    function pErr(msg) { var e = new Error(msg); e.msg = msg; return e; }
 
-    function pyEscape(ch) { if (ch === 'n') return '\n'; if (ch === 't') return '\t'; if (ch === '\\') return '\\'; return ch; }
     function pyTokenize(code) {
       var toks = [], i = 0, n = code.length;
       while (i < n) {
@@ -452,11 +368,6 @@
       var toks = pyTokenize(code), i = 0;
       function peek() { return toks[i]; }
       function next() { return toks[i++]; }
-      function binPrec(t) {
-        if (t.k === 'id') { if (t.v === 'or') return 1; if (t.v === 'and') return 2; return null; }
-        if (t.k === 'op') { var m = { '==': 4, '!=': 4, '<': 4, '>': 4, '<=': 4, '>=': 4, '+': 5, '-': 5, '*': 6, '/': 6, '//': 6, '%': 6, '**': 7 }; return m[t.v] !== undefined ? m[t.v] : null; }
-        return null;
-      }
       function parseFStr(raw) {
         var s = '', depth = 0, sub = '';
         for (var j = 0; j < raw.length; j++) {
@@ -508,7 +419,6 @@
         }
         throw pErr("TypeError:'" + ptype(fn) + "' object is not callable");
       }
-      function normIdx(v, len) { var i = v.v; return i < 0 ? i + len:i; }
       function index(x, a, b, hasColon) {
         if (x.t !== 'str') throw pErr("TypeError:'" + ptype(x) + "' object is not subscriptable");
         var s = x.v;
@@ -645,10 +555,6 @@
       return parseExpr();
     }
 
-    function pyStripComment(line) { var inStr = null; for (var i = 0; i < line.length; i++) { var c = line[i]; if (inStr) { if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; continue; } if (c === '#') return line.slice(0, i); } return line; }
-    function pyTopColon(s) { var depth = 0, inStr = null; for (var i = 0; i < s.length; i++) { var c = s[i]; if (inStr) { if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; continue; } if (c === '(' || c === '[') depth++; if (c === ')' || c === ']') depth--; if (c === ':' && depth === 0) return i; } return -1; }
-    function pyTopEq(s) { var depth = 0, inStr = null; for (var i = 0; i < s.length; i++) { var c = s[i]; if (inStr) { if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; continue; } if (c === '(' || c === '[') depth++; if (c === ')' || c === ']') depth--; if (c === '=' && depth === 0) { var pr = s[i - 1], nx = s[i + 1]; if (pr === '=' || pr === '>' || pr === '<' || pr === '!' || nx === '=') continue; return i; } } return -1; }
-    function pySplitStmts(code) { var out = [], depth = 0, inStr = null, cur = ''; for (var i = 0; i < code.length; i++) { var c = code[i]; if (inStr) { cur += c; if (c === inStr) inStr = null; continue; } if (c === '"' || c === "'") { inStr = c; cur += c; continue; } if (c === '(' || c === '[') { depth++; cur += c; continue; } if (c === ')' || c === ']') { depth--; cur += c; continue; } if (c === ';' && depth === 0) { out.push(cur); cur = ''; continue; } cur += c; } if (cur.trim() !== '') out.push(cur); return out; }
 
     function pyRun(src, inputs, seeds) {
       var env = {}, curLine = 0;

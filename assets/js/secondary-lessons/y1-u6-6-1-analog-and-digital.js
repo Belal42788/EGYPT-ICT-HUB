@@ -10,9 +10,6 @@
       return currentLang === 'en' ? en:ar;
     }
 
-    function byId(id) {
-      return document.querySelector('[data-id="' + id + '"]') || document.getElementById(id);
-    }
 
     /* ---------- particles ---------- */
     (function () {
@@ -65,16 +62,6 @@
     }
 
     /* ---------- reveal on scroll ---------- */
-    function wireReveal() {
-      var els = document.querySelectorAll('.section-inner');
-      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('visible'); }); return; }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
-        });
-      }, { threshold:.08 });
-      els.forEach(function (e) { io.observe(e); });
-    }
 
     /* ---------- keyboard navigation ---------- */
     var SECTIONS = ['intro', 'analog', 'digital', 'adc', 'dac', 'binary', 'practice', 'recap', 'glossary'];

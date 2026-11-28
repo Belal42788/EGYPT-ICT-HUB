@@ -23,18 +23,6 @@
     var nav = document.getElementById('topnav');
     /* header slide-in:assets/js/nav.js */
 
-    function wireNav() {
-      var links = document.querySelectorAll('#navLinks a');
-      var ies = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) {
-            var id = en.target.id;
-            links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
-          }
-        });
-      }, { rootMargin:'-45% 0px -45% 0px' });
-      document.querySelectorAll('section[id]').forEach(function (s) { ies.observe(s); });
-    }
 
     /* ---------- reveals ---------- */
     function wireReveal() {
@@ -437,11 +425,6 @@
       }
       function rqFb(el) {
         return tr(el.getAttribute('data-fb-ar'), el.getAttribute('data-fb-en'));
-      }
-      function recallStart(quiz) {
-        var s = quiz.querySelector('[data-start]');
-        if (!s) { var p = quiz.previousElementSibling; if (p && p.hasAttribute('data-start')) s = p; }
-        return s;
       }
       function wireRecall() {
         document.querySelectorAll('.recall').forEach(function (quiz) {
