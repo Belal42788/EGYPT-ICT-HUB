@@ -108,3 +108,9 @@ table.ascii th, table.ascii td {
 /* Heading level corrected for order while keeping the original look (12-2, 13-7) */
 h2.lvl-h3{font-size:20px;font-weight:800;color:#0b1020;line-height:1.4;margin:0 0 12px}
 h3.lvl-h4{font-size:16px;font-weight:800;color:#0b1020;line-height:1.9;margin:0 0 6px}
+
+/* R10 follow-up: simulation diagrams (SVG boxes + wires + arrows, and their HTML captions)
+   are drawn left-to-right. In the Arabic version the whole stage is mirrored so the flow
+   runs right-to-left, and each caption is mirrored back so its text stays readable. */
+[dir="rtl"] .svg-stage{transform:scaleX(-1)}
+[dir="rtl"] .svg-stage .svg-label{transform:translate(-50%,-50%) scaleX(-1) !important}
