@@ -175,27 +175,122 @@ function paintInstallation(){
 const mail={phase:0,parent:false,terms:false,signed:false,notice:null,send:0,delivered:false,pending:'ar',saved:'ar'};
 function signupNext(){if(!mail.parent||!mail.terms){mail.notice=['راجع ملاءمة العمر والإشراف والشروط مع ولي الأمر في السيناريو أولًا. لا ننشئ حسابًا حقيقيًا.','First review age eligibility, supervision and terms with a parent in this scenario. No real account is created.'];stop();return}mail.notice=null;mail.phase=Math.min(3,mail.phase+1);if(mail.phase===3)mail.signed=true}
 function paintEmail(){
+ const bl=(ar,en,tag='span')=>{const e=E(tag);e.dataset.ar=ar;e.dataset.en=en;e.textContent=t([ar,en]);return e};
  title('صندوق بريد تدريبي بلا حساب أو إرسال','A practice mailbox without accounts or sending','لا تدخل اسمًا أو تاريخ ميلاد أو كلمة مرور أو رمزًا. كل العناوين من example.com المخصص للأمثلة، وكل الحقول ثابتة.','Enter no name, birth date, password or code. All addresses use reserved example.com, and all fields are fixed.');
+ if(mail.composeOpen===undefined){mail.composeOpen=false;mail.composeOnce=false;mail.gearOpen=false;mail.avatarOpen=false}
  const parts=panel(['فك شفرة عنوان','Decode an address'],'wb3-address');parts.dir='ltr';for(const[p,label]of[['learner',['اسم محلي داخل هذا النطاق','Local part within this domain']],['@',['فاصل','Separator']],['example.com',['النطاق','Domain']]]){const tile=E('div');tile.append(E('b',p),E('small',label));parts.append(tile)}
  note('قد يتكرر learner في نطاق آخر. التفرد للاسم داخل نطاق مزود معين، وليس للاسم وحده على الإنترنت كله.','learner can exist in another domain. The local name is unique within a provider’s domain, not globally by itself.');
- check('mail-parent',['راجع ولي الأمر ملاءمة العمر والإشراف في السيناريو','A parent reviewed age eligibility/supervision in the scenario'],mail.parent,v=>{mail.parent=v;mail.notice=null});
- check('mail-terms',['راجعت الشروط والخصوصية في السيناريو','Terms/privacy were reviewed in the scenario'],mail.terms,v=>{mail.terms=v;mail.notice=null});
- journey([['بيانات ثابتة','Fixed details'],['عنوان توضيحي','Example address'],['مراجعة الأهل والشروط','Parent/terms review'],['جلسة نموذجية','Model session']],mail.phase,'mail');
- const details=panel(['بطاقة ثابتة وليست نموذج تسجيل','Fixed card, not a signup form']);details.append(E('p','Display:Demo Learner | Address: learner@example.com','wb3-mono'),E('p',['لا حقل لكلمة مرور أو عمر أو هاتف.','No password, age or phone field.']));
- controls([B('mail-signup',['شاهد خطوات النموذج','Watch the model steps'],()=>run(signupNext,()=>mail.phase===3,()=>{mail.phase=0;mail.signed=false}),true),B('mail-signin',['دخول جلسة خيالية','Enter fictional session'],()=>{if(mail.phase===3){mail.signed=true;mail.notice=['دخلت الجلسة النموذجية فقط.','Entered only the model session.']}else mail.notice=['أكمل خطوات النموذج أولًا.','Complete the model steps first.']}),B('mail-signout',['خروج','Sign out'],()=>{mail.signed=false;mail.send=0;mail.notice=['انتهت الجلسة النموذجية. الخروج لا يحذف الحساب.','The model session ended. Signing out does not delete an account.']}),pause('mail-pause')]);
+ const act=fn=>()=>{fn();paint()};
+ const mt=p=>p[mail.saved==='en'?1:0];
+ const wrap=E('div',undefined,'ml-scale'),cv=E('div',undefined,'ml-canvas gm');
+ wrap.append(cv);box.append(wrap);
+ const fit=()=>{const w=wrap.clientWidth||1280,s=Math.min(1,w/1280);cv.style.transform='scale('+s+')';cv.style.left=Math.max(0,(w-1280*s)/2)+'px';wrap.style.height=(720*s)+'px'};
+ if(!window.__mlFit){window.__mlFit=1;addEventListener('resize',()=>{document.querySelectorAll('.ml-canvas').forEach(c=>{const p=c.parentElement,w=p.clientWidth,s=Math.min(1,w/1280);c.style.transform='scale('+s+')';c.style.left=Math.max(0,(w-1280*s)/2)+'px';p.style.height=(720*s)+'px'})})}
+ setTimeout(fit,0);
+ if(!mail.signed){
+  if(mail.phase<1)mail.phase=1;
+  const bg=E('div',undefined,'gm-signin-bg');
+  const card=E('div',undefined,'gm-card');
+  const brand=E('div',undefined,'gm-brand');brand.textContent='✉';card.append(brand);
+  card.append(bl('بريد تدريبي','Training Mail','h3'));
+  card.append(bl('تسجيل الدخول ببطاقة ثابتة — ليس نموذج حساب حقيقي','Sign in with a fixed card - not a real account form','p'));
+  const acc=E('div',undefined,'gm-account');
+  const av=E('span',undefined,'gm-avatar');av.textContent='D';acc.append(av);
+  const who=E('div',undefined,'gm-who');who.append(E('b','Demo Learner'),E('small','learner@example.com'));acc.append(who);card.append(acc);
+  const consent=E('div',undefined,'gm-consent');
+  consent.append(bl('موافقة ولي الأمر والشروط داخل السيناريو:','Parent consent and terms inside the scenario:','b'));
+  const mkCheck=(id,pair,val,fn)=>{const l=E('label',undefined,'gm-check');const i=E('input');i.type='checkbox';i.id=id;i.checked=val;i.onchange=act(()=>fn(i.checked));l.append(i,bl(...pair));return l};
+  consent.append(mkCheck('mail-parent',['راجع ولي الأمر ملاءمة العمر والإشراف','A parent reviewed age eligibility and supervision'],mail.parent,v=>{mail.parent=v;mail.notice=null;if(mail.parent&&mail.terms)mail.phase=Math.max(mail.phase,2)}));
+  consent.append(mkCheck('mail-terms',['راجعت الشروط والخصوصية','Terms and privacy were reviewed'],mail.terms,v=>{mail.terms=v;mail.notice=null;if(mail.parent&&mail.terms)mail.phase=Math.max(mail.phase,2)}));
+  card.append(consent);
+  const signin=E('button',undefined,'gm-primary');signin.type='button';signin.id='mail-signin';signin.disabled=!(mail.parent&&mail.terms);
+  signin.append(bl('دخول جلسة خيالية','Enter fictional session'));
+  signin.onclick=act(()=>{mail.signed=true;mail.phase=3;mail.notice=['دخلت الجلسة النموذجية فقط.','Entered only the model session.']});
+  card.append(signin);
+  card.append(bl('لا حقل لكلمة مرور أو عمر أو هاتف. لا يُنشأ حساب لدى Google أو أي مزود.','No password, age or phone field. No account is created with Google or any provider.','small'));
+  bg.append(card);cv.append(bg);
+ }else{
+  const win=E('div',undefined,'gm-win');
+  const top=E('div',undefined,'gm-top');
+  const burger=E('span',undefined,'gm-burger');burger.textContent='☰';top.append(burger);
+  const tb=E('span',undefined,'gm-topbrand');tb.textContent=mt(['بريد تدريبي','Training Mail']);top.append(tb);
+  const search=E('div',undefined,'gm-search');search.append(bl(mt(['ابحث في البريد (عرض فقط)','Search mail (display only)']),mt(['ابحث في البريد (عرض فقط)','Search mail (display only)'])));top.append(search);
+  const gear=E('button',undefined,'gm-icon-btn');gear.type='button';gear.id='mail-gear';gear.textContent='⚙';gear.setAttribute('aria-label',t(['الإعدادات','Settings']));gear.onclick=act(()=>{mail.gearOpen=!mail.gearOpen;mail.avatarOpen=false});top.append(gear);
+  const avb=E('button',undefined,'gm-avatar gm-avatar-btn');avb.type='button';avb.id='mail-avatar';avb.textContent='D';avb.setAttribute('aria-label',t(['الحساب','Account']));avb.onclick=act(()=>{mail.avatarOpen=!mail.avatarOpen;mail.gearOpen=false});top.append(avb);
+  win.append(top);
+  if(mail.avatarOpen){
+   const menu=E('div',undefined,'gm-menu');
+   menu.append(E('b','Demo Learner'),E('small','learner@example.com'));
+   const so=E('button',undefined,'gm-mini-btn');so.type='button';so.id='mail-signout';so.append(bl('خروج','Sign out'));
+   so.onclick=act(()=>{Object.assign(mail,{signed:false,send:0,delivered:false,composeOpen:false,gearOpen:false,avatarOpen:false,notice:['انتهت الجلسة النموذجية. الخروج لا يحذف الحساب.','The model session ended. Signing out does not delete an account.']})});
+   menu.append(so);win.append(menu);
+  }
+  const bodyr=E('div',undefined,'gm-body');
+  const side=E('div',undefined,'gm-side');
+  const composeBtn=E('button',undefined,'gm-compose');composeBtn.type='button';composeBtn.id='mail-compose-open';composeBtn.append(bl(mt(['إنشاء رسالة','Compose']),mt(['إنشاء رسالة','Compose'])));
+  composeBtn.onclick=act(()=>{mail.composeOpen=true;mail.composeOnce=true;if(mail.send===0&&!mail.delivered)mail.notice=null});
+  side.append(composeBtn);
+  const folder=(pair,badge,on)=>{const r=E('div',undefined,'gm-folder'+(on?' on':''));r.append(bl(mt(pair),mt(pair)));if(badge)r.append(E('b',String(badge),'gm-badge'));return r};
+  side.append(folder(['الوارد','Inbox'],mail.delivered?1:0,true));
+  side.append(folder(['المُرسلة','Sent'],mail.delivered?1:0,false));
+  side.append(folder(['المسودات','Drafts'],0,false));
+  bodyr.append(side);
+  const list=E('div',undefined,'gm-list');
+  if(mail.delivered){
+   const row=E('div',undefined,'gm-row');
+   const rav=E('span',undefined,'gm-avatar sm');rav.textContent='✓';row.append(rav);
+   const rc=E('div',undefined,'gm-rowc');rc.append(E('b',mt(['بريد تدريبي','Training Mail'])));rc.append(E('span',mt(['رسالة تدريبية واحدة — وصلت عبر النقل الرمزي فقط','One practice message - arrived via the symbolic transfer only'])));row.append(rc);
+   list.append(row);
+  }else{
+   const empty=E('div',undefined,'gm-empty');empty.append(bl(mt(['لا رسائل بعد. افتح إنشاء رسالة وشاهد الإرسال الرمزي.','No messages yet. Open Compose and watch the symbolic send.']),mt(['لا رسائل بعد. افتح إنشاء رسالة وشاهد الإرسال الرمزي.','No messages yet. Open Compose and watch the symbolic send.'])));list.append(empty);
+  }
+  bodyr.append(list);
+  win.append(bodyr);
+  if(mail.gearOpen){
+   const qs=E('div',undefined,'gm-quickset');
+   qs.append(bl('الإعدادات السريعة','Quick settings','h4'));
+   qs.append(bl('لغة الواجهة الداخلية، مستقلة عن لغة الدرس','Inner-interface language, independent of the lesson','p'));
+   const sel=E('select');sel.id='mail-language';
+   [['ar','العربية / Arabic'],['en','English / الإنجليزية']].forEach(o=>{const op=E('option',o[1]);op.value=o[0];if(mail.pending===o[0])op.selected=true;sel.append(op)});
+   sel.onchange=()=>{mail.pending=sel.value};
+   qs.append(sel);
+   const save=E('button',undefined,'gm-primary sm');save.type='button';save.id='mail-save';save.append(bl('احفظ لغة الصندوق','Save mailbox language'));
+   save.onclick=act(()=>{mail.saved=mail.pending;mail.notice=['حُفظت لغة الصندوق الداخلي فقط.','Saved the inner mailbox language only.']});qs.append(save);
+   qs.append(bl('اختيار اللغة لا يحفظها وحده. زر الحفظ يغير الصندوق الداخلي فقط؛ مفتاح لغة الدرس يترجم الشرح ولا يمس الاختيار المحفوظ.','Choosing does not itself save. Save changes only the inner mailbox. The lesson language switch translates teaching text without changing the saved mailbox language.','small'));
+   const rst=E('button',undefined,'gm-mini-btn');rst.type='button';rst.id='mail-reset';rst.append(bl('صفّر الصندوق والنموذج','Reset mailbox and model'));
+   rst.onclick=act(()=>Object.assign(mail,{phase:0,parent:false,terms:false,signed:false,notice:null,send:0,delivered:false,pending:'ar',saved:'ar',composeOpen:false,composeOnce:false,gearOpen:false,avatarOpen:false}));
+   qs.append(rst);win.append(qs);
+  }
+  if(mail.composeOpen){
+   const dock=E('div',undefined,'gm-dock');
+   const dh=E('div',undefined,'gm-dock-head');dh.append(bl(mt(['رسالة جديدة','New message']),mt(['رسالة جديدة','New message'])));
+   const cx=E('button',undefined,'gm-icon-btn sm');cx.type='button';cx.id='mail-compose-close';cx.textContent='✕';cx.setAttribute('aria-label',t(['إغلاق','Close']));cx.onclick=act(()=>{mail.composeOpen=false});dh.append(cx);dock.append(dh);
+   const frow=(lab,val)=>{const r=E('div',undefined,'gm-frow');r.append(E('small',lab));r.append(E('span',val));return r};
+   dock.append(frow(mt(['إلى:','To:']),'teacher@example.com'));
+   dock.append(frow(mt(['الموضوع:','Subject:']),mt(['مشروع خيالي','Fictional project'])));
+   const body=E('div',undefined,'gm-dock-body');body.append(bl(mt(['هذه تجربة مدرسية ثابتة. لا مرفقات حقيقية.','This is a fixed school demonstration. No real attachments.']),mt(['هذه تجربة مدرسية ثابتة. لا مرفقات حقيقية.','This is a fixed school demonstration. No real attachments.'])));dock.append(body);
+   const df=E('div',undefined,'gm-dock-foot');
+   const sendB=E('button',undefined,'gm-primary');sendB.type='button';sendB.id='mail-send';sendB.disabled=mail.send>0&&!mail.delivered;
+   sendB.textContent=mt([mail.send>0&&!mail.delivered?'يمر عبر خادم خيالي…':'إرسال رمزي',mail.send>0&&!mail.delivered?'Passing through a fictional server…':'Symbolic send']);
+   sendB.onclick=()=>{if(mail.send>0&&!mail.delivered)return;mail.delivered=false;mail.send=1;paint();setTimeout(()=>{mail.send=2;paint()},650);setTimeout(()=>{mail.send=3;mail.delivered=true;paint()},1300)};
+   df.append(sendB);
+   df.append(E('small',mt(['لا إرسال حقيقي ولا طلب شبكة.','No real sending and no network request.'])));
+   dock.append(df);win.append(dock);
+  }
+  cv.append(win);
+ }
+ const steps1=[['بيانات ثابتة','Fixed details'],['عنوان توضيحي','Example address'],['مراجعة الأهل والشروط','Parent/terms review'],['جلسة نموذجية','Model session']];
+ const tr1=E('div',undefined,'ml-journey');
+ steps1.forEach((s2,i)=>{const c=E('span',undefined,'ml-step'+(mail.phase>i?' done':''));c.append(bl(...s2));tr1.append(c)});
+ box.append(tr1);
+ const steps2=[['كتابة ثابتة','Fixed compose'],['خادم خيالي','Fictional server'],['نقل رمزي','Symbolic transfer'],['صندوق خيالي','Fictional inbox']];
+ const tr2=E('div',undefined,'ml-journey');
+ steps2.forEach((s2,i)=>{const done=i===0?(mail.composeOnce||mail.send>0):(i===3?mail.delivered:mail.send>=i);const c=E('span',undefined,'ml-step'+(done?' done':''));c.append(bl(...s2));tr2.append(c)});
+ box.append(tr2);
+ note('قد يتكرر learner في نطاق آخر. مشاركة الشاشة أو البريد لا تعرض أي بيانات حقيقية من جهازك.','learner can exist in another domain. Nothing here shows any real data from your device.');
  out('mail-status',mail.notice||[mail.signed?'جلسة خيالية مفتوحة. لم يُنشأ حساب لدى Google أو أي مزود.':'لا جلسة مفتوحة. نموذج شرح فقط.',mail.signed?'Fictional session open. No Google or other provider account was created.':'No open session. Teaching model only.'],!!mail.notice&&!mail.signed);
- box.append(E('h3',['غيّر لغة صندوق البريد ثم احفظ','Change the mailbox language, then save']));
- select('mail-language',['لغة الواجهة الداخلية، مستقلة عن لغة الدرس','Inner-interface language, independent of the lesson'],[['ar',['العربية','Arabic']],['en',['الإنجليزية','English']]],mail.pending,v=>{mail.pending=v});
- const save=B('mail-save',['احفظ لغة الصندوق','Save mailbox language'],()=>{mail.saved=mail.pending});save.disabled=!mail.signed;controls([save]);
- const inner=panel(null,'wb3-mailbox');inner.lang=mail.saved;inner.dir=mail.saved==='ar'?'rtl':'ltr';const mt=p=>p[mail.saved==='en'?1:0];inner.append(E('h4',mt(['صندوق تجريبي','Practice inbox'])),E('p',mt([mail.signed?'الجلسة مفتوحة':'يلزم الدخول',mail.signed?'Signed in':'Sign-in required'])),E('p',mt(['إلى:teacher@example.com','To: teacher@example.com'])),E('p',mt(['الموضوع: مشروع خيالي','Subject: Fictional project'])),E('p',mt(['النص: هذه تجربة مدرسية ثابتة.','Body: This is a fixed school demonstration.'])));if(mail.delivered)inner.append(E('div',mt(['البريد الوارد:رسالة تدريبية واحدة ✓','Inbox: one practice message ✓']),'wb3-delivery'));
- note('اختيار اللغة لا يحفظها وحده. زر الحفظ يغير الصندوق الداخلي فقط؛ مفتاح لغة الدرس يترجم الشرح ولا يمس الاختيار المحفوظ.','Choosing does not itself save. Save changes only the inner mailbox. The lesson language switch translates teaching text without changing the saved mailbox language.');
- journey([['كتابة ثابتة','Fixed compose'],['خادم خيالي','Fictional server'],['نقل رمزي','Symbolic transfer'],['صندوق خيالي','Fictional inbox']],mail.send,'mail');
- const send=B('mail-send',['شاهد إرسالًا رمزيًا','Watch a symbolic send'],()=>{if(!mail.signed){mail.notice=['يلزم دخول الجلسة الخيالية أولًا. لا إرسال حقيقي.','Enter the fictional session first. No real sending.'];return}mail.notice=null;mail.delivered=false;run(()=>{mail.send++;if(mail.send===3)mail.delivered=true},()=>mail.send===3,()=>mail.send=0)},true);controls([send,pause('mail-send-pause'),B('mail-reset',['صفّر الصندوق والنموذج','Reset mailbox and model'],()=>Object.assign(mail,{phase:0,parent:false,terms:false,signed:false,notice:null,send:0,delivered:false,pending:'ar',saved:'ar'}))]);
- out('mail-send-status',mail.send===3?['وصل رمز الرسالة إلى الصندوق الخيالي فقط. لا طلب شبكة لإرسال بريد.','The message symbol reached only the fictional inbox. No network mail-send request.']:['الرسالة ثابتة ولا مرفقات حقيقية. راجع المرسل إليه والمحتوى قبل أي إرسال حقيقي.','The message is fixed with no real attachments. Review recipients/content before any real send.']);
-}
-// A fitted line versus interpolation:held-out references are never fitted.
-const ai={clean:false,model:'line',phase:0};
-function training(){return [[1,2],[2,4],[3,6],[4,ai.clean?8:9]]}
+ out('mail-send-status',mail.delivered?['وصل رمز الرسالة إلى الصندوق الخيالي فقط. لا طلب شبكة لإرسال بريد.','The message symbol reached only the fictional inbox. No network mail-send request.']:['الرسالة ثابتة ولا مرفقات حقيقية. راجع المرسل إليه والمحتوى قبل أي إرسال حقيقي.','The message is fixed with no real attachments. Review recipients/content before any real send.']);
+}function training(){return [[1,2],[2,4],[3,6],[4,ai.clean?8:9]]}
 function learn(){const a=training(),n=a.length,sx=a.reduce((s,p)=>s+p[0],0),sy=a.reduce((s,p)=>s+p[1],0),sxx=a.reduce((s,p)=>s+p[0]*p[0],0),sxy=a.reduce((s,p)=>s+p[0]*p[1],0),m=(n*sxy-sx*sy)/(n*sxx-sx*sx),b=(sy-m*sx)/n;return{m,b,line:x=>m*x+b,curve:x=>a.reduce((sum,[xi,yi],i)=>sum+yi*a.reduce((product,[xj],j)=>i===j?product:product*(x-xj)/(xi-xj),1),0)}}
 function paintDataAI(){
  title('درب ثم اختبر خارج أمثلة التدريب','Train, then test beyond the training examples','ست نقاط خيالية فقط، وليست بيانات ضخمة أو نظامًا طبيًا. المرجع الاصطناعي y = 2x؛ النقاط 1–4 للتدريب و5–6 للاختبار فقط.','Six synthetic points, not big data or a medical system. The synthetic reference is y = 2x. Points 1–4 train; points 5–6 only test.');
