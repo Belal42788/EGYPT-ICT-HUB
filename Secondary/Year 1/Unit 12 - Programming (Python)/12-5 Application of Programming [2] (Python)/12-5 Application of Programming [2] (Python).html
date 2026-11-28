@@ -554,22 +554,6 @@ check_size(40)</pre><p data-ar="الناتج في Python3:" data-en="Python 3 ou
 
     /* ---------- exercises reveal ---------- */
     /* ---------- exercises reveal ---------- */
-    function normalizeExLabels() {
-      document.querySelectorAll('.ex-opt').forEach(function (o) {
-        if (o.querySelector('.ex-key')) return;
-        var txt = o.textContent.replace(/\u00a0/g, ' ').trim();
-        var m = /^(\[(?:[0-9]+)\]|[A-E])\s+([\s\S]*)$/.exec(txt);
-        if (!m) return;
-        var label = m[1];
-        var rest = m[2].replace(/^\s+/, '');
-        var nm = /^\[([0-9]+)\]$/.exec(label);
-        if (nm) label = String.fromCharCode(64 + parseInt(nm[1], 10));
-        o.textContent = '';
-        var k = document.createElement('span'); k.className = 'ex-key'; k.textContent = label;
-        var b = document.createElement('span'); b.className = 'ex-body'; b.textContent = rest;
-        o.appendChild(k); o.appendChild(b);
-      });
-    }
     function wireRevealBtns() {
       document.querySelectorAll('[data-self-check]').forEach(function(button){button.addEventListener('click',function(){var answer=button.nextElementSibling,open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));answer.hidden=!open;answer.classList.toggle('show',open);paintSelfChecks();});});
     }
@@ -818,7 +802,6 @@ function pyRun(src, inputs, seeds) {
 window.pyRun=pyRun;
     /* ---------- editor wiring ---------- */
     function wireEditors() {
-      function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
       document.querySelectorAll('.code-panel').forEach(function (panel) {
         var edit = panel.querySelector('.py-edit');
         if (!edit) return;
